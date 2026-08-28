@@ -293,18 +293,20 @@
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      padding: 2px 0;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      transition: background 0.25s ease, transform 0.25s ease;
     }
 
     .brand-logo-img {
       height: 34px;
       width: auto;
       object-fit: contain;
-      margin-left: 6px;
+      margin: 0;
       filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.3));
       transition: transform 0.3s ease;
     }
@@ -1909,6 +1911,7 @@
     @media (max-width: 900px) {
       .nav-bar { grid-template-columns: auto 1fr; padding: 8px 16px; top: 16px; }
       .menu { display: none; }
+      .brand { padding: 4px 10px; }
       .nav-actions-wrap { grid-column: 2; justify-self: end; }
       .nav-resume-btn { padding: 6px 14px; font-size: 0.72rem; letter-spacing: 0.05em; }
       .brand-logo-img { height: 28px; }
@@ -1939,12 +1942,13 @@
 
     @media (max-width: 560px) {
       .services { margin: 0 4px; border-radius: 20px; }
-      .nav-bar { top: 12px; width: calc(100% - 20px); padding: 6px 12px; }
+      .nav-bar { top: 12px; width: calc(100% - 20px); padding: 6px 14px; }
+      .brand { padding: 3px 8px; }
       .nav-resume-btn { padding: 5px 12px; font-size: 0.68rem; }
       .brand-logo-img { height: 24px; }
       .hero-inner { padding: 76px 16px 20px; gap: 16px; }
       .eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; gap: 6px; }
-      .hero-title { font-size: clamp(2.6rem, 11vw, 3.8rem); line-height: 0.96; letter-spacing: -0.045em; }
+      .hero-title { font-size: clamp(3rem, 9vw, 3.2rem); line-height: 0.96; letter-spacing: -0.045em; }
       .hero-bottom { margin-top: 14px; gap: 14px; }
       .hero-social-glass { gap: 6px; }
       .glass-btn { padding: 6px 12px; font-size: 0.71rem; gap: 6px; }
@@ -2045,7 +2049,7 @@
     <!-- Starfield Constellations Physics Canvas (Scoped ONLY inside Hero) -->
     <canvas id="constellationCanvas" class="hero-constellation-canvas"></canvas>
 
-    <div class="hero-inner">
+    <div class="hero-inner" style="padding-top: 180px; ">
       <div class="hero-head">
         <div class="eyebrow" id="heroEyebrow" data-decrypt="true" title="Clicca per decifrare di nuovo">
           <i></i> BARI, ITALY · REMOTE / HYBRID / ON-SITE
