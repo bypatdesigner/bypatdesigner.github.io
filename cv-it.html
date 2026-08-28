@@ -1,0 +1,1757 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume — Patricia Garcia | Graphic UI/UX Designer &amp; Junior Web Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — DIGITAL RESUME (Deep Black & Electric Violet)
+       ============================================================ */
+    :root {
+      --ink: #07060C;
+      --surface: #0E0D18;
+      --surface-elevated: #161426;
+      --card-bg: rgba(22, 19, 36, 0.85);
+      --card-hover: rgba(32, 28, 54, 0.95);
+      
+      --text-main: #FFFFFF;
+      --text-body: #E2DCFA;
+      --text-muted: #C5BFDF;
+      --text-dim: #9E96C0;
+      
+      --violet-primary: #8B5CF6;
+      --violet-light: #A78BFA;
+      --violet-bright: #C08BE8;
+      --violet-deep: #4C1D95;
+      --violet-tint: rgba(139, 92, 246, 0.16);
+      
+      --accent-warm: #F6BE65;
+      --accent-emerald: #10B981;
+      
+      --line: rgba(255, 255, 255, 0.12);
+      --line-light: rgba(255, 255, 255, 0.22);
+      --line-violet: rgba(167, 139, 250, 0.38);
+      
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+      
+      --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      
+      --pad-x: clamp(16px, 3vw, 40px);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+      color-scheme: dark;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--text-body);
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background: var(--violet-light);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Ambient Lighting */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 65%;
+      top: 25%;
+      transition: left 0.22s cubic-bezier(0.16, 1, 0.3, 1), top 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 55%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 55%, transparent 100%);
+      opacity: 0.55;
+    }
+
+    /* Typography & Helpers */
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .grad-text {
+      background: linear-gradient(105deg, #FFFFFF 0%, #EAE5FD 28%, #BFA7FF 52%, #8B5CF6 74%, #F6BE65 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradShimmer 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes gradShimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* ============================================================
+       SPLIT LAYOUT CONTAINER (Reference Style: tfisak)
+       ============================================================ */
+    .resume-layout {
+      display: grid;
+      grid-template-columns: minmax(340px, 420px) 1fr;
+      gap: clamp(28px, 4vw, 56px);
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: clamp(16px, 2vh, 28px) var(--pad-x) clamp(16px, 2vh, 28px);
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      align-items: start;
+    }
+
+    /* ============================================================
+       LEFT STICKY PROFILE CARD
+       ============================================================ */
+    .profile-sidebar {
+      position: sticky;
+      top: 24px;
+      height: calc(100vh - 48px);
+      max-height: 920px;
+      background: var(--surface);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.15);
+      backdrop-filter: blur(24px);
+      overflow: hidden;
+    }
+
+    /* Top bar inside profile card */
+    .profile-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .profile-brand-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .social-pills-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social-icon-pill {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      display: grid;
+      place-items: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .social-icon-pill:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+      transform: translateY(-2px);
+      box-shadow: 0 0 16px rgba(167, 139, 250, 0.5);
+    }
+
+    /* Portrait Box with Overlay */
+    .profile-photo-container {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      min-height: 280px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      background: #12101E;
+    }
+
+    .profile-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .profile-photo-container:hover .profile-photo-img {
+      transform: scale(1.04);
+    }
+
+    /* Vertical Available Badge */
+    .vertical-status-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(8, 7, 13, 0.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 10px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #6EE7B7;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .status-pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-emerald);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.5; }
+    }
+
+    /* Profile Bio Info */
+    .profile-bio-box {
+      margin-bottom: 20px;
+    }
+
+    .profile-name-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .profile-name-title span {
+      color: var(--violet-light);
+    }
+
+    .profile-role-sub {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .profile-short-desc {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    /* Actions in Left Sidebar */
+    .profile-actions-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr;
+      gap: 10px;
+    }
+
+    .btn-profile-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-profile-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(139, 92, 246, 0.65);
+    }
+
+    .btn-profile-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-profile-download:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--line-violet);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       RIGHT SCROLLABLE CONTENT AREA
+       ============================================================ */
+    .resume-content {
+      padding: 0 0 20px;
+    }
+
+    /* Top Navigation Header */
+    .resume-top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: clamp(14px, 2vh, 22px);
+    }
+
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--violet-light);
+      transition: gap 0.25s ease;
+    }
+
+    .back-home-link:hover {
+      gap: 14px;
+      color: #FFFFFF;
+    }
+
+    .top-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Language Switcher Dock Pill */
+    .lang-switcher-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line-light);
+      border-radius: 10px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-switch-btn {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 7px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .lang-switch-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .lang-switch-btn.active {
+      background: var(--violet-light);
+      color: var(--ink);
+      font-weight: 800;
+      box-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
+    }
+
+    .top-meta-date {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    /* Hero intro header (like Isak reference) */
+    .resume-hero-header {
+      margin-bottom: clamp(14px, 2vh, 22px);
+    }
+
+    .resume-hero-title {
+      font-size: clamp(2rem, 3.8vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+      max-width: 900px;
+    }
+
+    /* Metric stats row */
+    .stats-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .stat-card-pill {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .stat-card-pill:hover {
+      transform: translateY(-3px);
+      border-color: var(--line-violet);
+    }
+
+    .stat-card-num {
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 6px;
+    }
+
+    .stat-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Section Cards & Timeline */
+    /* Accordion Sections */
+    .cv-section {
+      margin-bottom: 10px;
+      scroll-margin-top: 40px;
+    }
+
+    .cv-section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0;
+      padding: 12px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cv-section-head:hover {
+      background: var(--card-hover);
+      border-color: var(--line-violet);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .cv-section.is-open .cv-section-head {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: var(--line-violet);
+      background: var(--surface-elevated);
+    }
+
+    .cv-section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cv-section-title {
+      font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0;
+    }
+
+    .cv-section-title::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--violet-light);
+      border-radius: 2px;
+      box-shadow: 0 0 10px var(--violet-light);
+    }
+
+    .cv-accordion-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .cv-accordion-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.04);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      color: var(--violet-light);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .cv-section.is-open .cv-accordion-icon {
+      transform: rotate(180deg);
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+    }
+
+    .cv-section-body {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, padding 0.35s ease;
+      background: rgba(14, 13, 24, 0.4);
+      border: 1px solid transparent;
+      border-top: none;
+      border-bottom-left-radius: var(--radius-lg);
+      border-bottom-right-radius: var(--radius-lg);
+      padding: 0 24px;
+    }
+
+    .cv-section.is-open .cv-section-body {
+      max-height: 3500px;
+      opacity: 1;
+      border-color: var(--line-violet);
+      padding: 28px 24px;
+    }
+
+    /* Timeline list layout */
+    .cv-timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .cv-timeline-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 3.5vw, 36px);
+      backdrop-filter: blur(20px);
+      display: grid;
+      grid-template-columns: minmax(180px, auto) 1fr;
+      gap: 28px;
+      align-items: start;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .cv-timeline-card:hover {
+      background: var(--card-hover);
+      border-color: var(--line-violet);
+      transform: translateX(6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .cv-timeline-time {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cv-badge-year {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--violet-light);
+      background: var(--violet-tint);
+      border: 1px solid var(--line-violet);
+      padding: 4px 10px;
+      border-radius: 10px;
+      width: max-content;
+    }
+
+    .cv-time-location {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+
+    .cv-timeline-body h4 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .cv-timeline-org {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #D8D2F4;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cv-timeline-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .cv-skills-chips-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cv-skill-chip {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      padding: 4px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--text-body);
+    }
+
+    /* Skills Category Grid & Badge Layout */
+    .skills-category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .skills-category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-box-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(20px);
+    }
+
+    .skill-box-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill-items-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .skill-card-item {
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .skill-card-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--line-violet);
+    }
+
+    .skill-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .skill-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.35;
+    }
+
+    .skill-level-text {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .skill-level-text.avanzato {
+      color: #C084FC;
+    }
+
+    .skill-level-text.autonoma {
+      color: var(--violet-light);
+    }
+
+    .skill-level-text.operativa {
+      color: #34D399;
+    }
+
+    .skill-level-text.progettuale {
+      color: #818CF8;
+    }
+
+    .skill-level-text.consolidando {
+      color: #F6BE65;
+    }
+
+    .skill-level-text.base {
+      color: #94A3B8;
+    }
+
+    .skill-sub-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .skill-sub-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--text-dim);
+    }
+
+    /* Languages Grid */
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .lang-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .lang-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-violet);
+    }
+
+    .lang-flag {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .lang-flag .fi {
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .lang-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .lang-level {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--violet-light);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       RIGHT FLOATING QUICK DOCK (Reference: tfisak right icons)
+       ============================================================ */
+    .dock-sidebar {
+      position: sticky;
+      top: 24px;
+      height: calc(100vh - 48px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .dock-pill-nav {
+      background: var(--surface);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-full);
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(20px);
+    }
+
+    .dock-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .dock-btn:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      transform: scale(1.1);
+      box-shadow: 0 0 16px rgba(167, 139, 250, 0.6);
+    }
+
+    .dock-btn::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: 50px;
+      top: 50%;
+      transform: translateY(-50%) translateX(10px);
+      background: var(--surface-elevated);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-violet);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    .dock-btn:hover::before {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--violet-light);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.88rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 15px 40px rgba(167, 139, 250, 0.65);
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+
+    .toast.is-active {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+    @media (max-width: 1200px) {
+      .resume-layout {
+        grid-template-columns: minmax(320px, 380px) 1fr;
+      }
+      .dock-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .resume-layout {
+        grid-template-columns: 1fr;
+      }
+      .profile-sidebar {
+        position: static;
+        height: auto;
+        max-height: none;
+        margin-bottom: 40px;
+      }
+      .skills-category-grid, .stats-cards-row, .languages-grid {
+        grid-template-columns: 1fr;
+      }
+      .cv-timeline-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    /* ============================================================
+       PRINT STYLES FOR CLEAN 1-PAGE/2-PAGE PDF GENERATION
+       ============================================================ */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        color: #111111 !important;
+        font-size: 10pt;
+      }
+      .ambient-bg, .dock-sidebar, .social-pills-row, .profile-actions-row, .back-home-link, .cv-accordion-icon {
+        display: none !important;
+      }
+      .cv-section-body {
+        max-height: none !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        border: none !important;
+      }
+      .cv-section-head {
+        background: none !important;
+        border: none !important;
+        padding: 0 0 10px 0 !important;
+      }
+      .resume-layout {
+        display: block;
+        padding: 0;
+        max-width: 100%;
+      }
+      .profile-sidebar {
+        border: none;
+        box-shadow: none;
+        background: none;
+        color: #000;
+        page-break-after: avoid;
+      }
+      .cv-timeline-card, .skill-box-card, .lang-card, .stat-card-pill {
+        border: 1px solid #CCC !important;
+        background: #FFF !important;
+        color: #000 !important;
+        box-shadow: none !important;
+      }
+      .grad-text, h1, h2, h3, h4, .pane-title {
+        color: #000 !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Mesh Background -->
+  <div class="ambient-bg">
+    <div class="ambient-spotlight" id="ambientSpotlight"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <!-- ================= RESUME SPLIT LAYOUT ================= -->
+  <div class="resume-layout">
+
+    <!-- ================= LEFT STICKY BIO & PROFILE CARD ================= -->
+    <aside class="profile-sidebar">
+      
+      <!-- Top Brand & Socials -->
+      <div class="profile-card-top">
+        <a href="index.html">
+          <img class="profile-brand-logo" src="./img/logo.png" alt="Bypatdesigner Logo" />
+        </a>
+        <div class="social-pills-row">
+          <a class="social-icon-pill" href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a class="social-icon-pill" href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+          <a class="social-icon-pill" href="https://github.com/bypatdesigner" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+
+      <!-- Photo Box -->
+      <div class="profile-photo-container">
+        <img class="profile-photo-img" src="./img/profile1.png" alt="Patricia Garcia Portrait" />
+        <div class="vertical-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span>Available for work</span>
+        </div>
+      </div>
+
+      <!-- Bio Summary -->
+      <div class="profile-bio-box">
+        <h2 class="profile-name-title">Patricia <span>Garcia</span></h2>
+        <div class="profile-role-sub">UI/UX Designer &amp; Junior Web Developer</div>
+        <p class="profile-short-desc">
+          UI/UX Designer con background in Graphic Design e competenze front-end. Basata in Puglia (Bisceglie/Bari), disponibile per opportunità in presenza, ibride e da remoto.
+        </p>
+      </div>
+
+      <!-- CTA & Download Buttons -->
+      <div class="profile-actions-row">
+        <a href="https://wa.me/393771392002?text=Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A" target="_blank" rel="noopener" class="btn-profile-cta">
+          <span>Contattami</span>
+          <span>↗</span>
+        </a>
+        <button class="btn-profile-download" id="downloadCvBtn">
+          <span>Download CV</span>
+          <span>↓</span>
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- ================= RIGHT SCROLLABLE CONTENT ================= -->
+    <main class="resume-content">
+
+      <!-- Top Header Navigation -->
+      <div class="resume-top-nav">
+        <a href="index.html" class="back-home-link">
+          <span>←</span>
+          <span>Torna al Portfolio</span>
+        </a>
+        <div class="top-nav-right">
+          <div class="lang-switcher-pill">
+            <a href="cv.html" class="lang-switch-btn active">IT</a>
+            <a href="cv-en.html" class="lang-switch-btn">EN</a>
+            <a href="cv-es.html" class="lang-switch-btn">ES</a>
+          </div>
+          <div class="top-meta-date" id="currentTime">
+            Bisceglie, IT · 2026
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Statement -->
+      <header class="resume-hero-header" id="summary">
+        <div class="mono" style="color: var(--text-main); margin-bottom: 12px;">✦ Curriculum Vitae</div>
+        <h1 class="resume-hero-title">
+          Profilo <span class="grad-text">Professionale</span>
+        </h1>
+        <p style="padding-top: 20px;
+        font-size: 1.15rem; color: var(--text-muted); max-width: 850px; line-height: 1.7;">
+          UI/UX Designer con solida formazione in Graphic Design, con focus in Web Design e progettazione dell’esperienza utente, conseguita con il massimo dei voti e lode (110/110 cum laude). A questa base affianco una formazione tecnica nello sviluppo di applicazioni informatiche, con 800 ore di specializzazione e l’attuale percorso SENA in Analisi e Sviluppo di Software.<br><br>
+
+
+        </p>
+      </header>
+
+      <!-- ================= 01. WORK EXPERIENCE ================= -->
+      <section class="cv-section" id="experience">
+        <div class="cv-section-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="cv-section-title-wrap">
+            <h2 class="cv-section-title">Esperienza Professionale</h2>
+            <span class="cv-accordion-badge">2022 — Oggi</span>
+          </div>
+          <span class="cv-accordion-icon">▾</span>
+        </div>
+
+        <div class="cv-section-body">
+          <div class="cv-timeline-list">
+            <!-- Role 1 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">Gen 2026 — Ago 2026</span>
+                <span class="cv-time-location">Ibrido · Italia</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>UI/UX &amp; Web Designer</h4>
+                <div class="cv-timeline-org">BeDigit <span>· Agenzia Digitale</span></div>
+                <p class="cv-timeline-desc">
+                  Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il team di sviluppo (WordPress).
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">UI/UX Design</span>
+                  <span class="cv-skill-chip">Figma</span>
+                  <span class="cv-skill-chip">Architettura Info</span>
+                  <span class="cv-skill-chip">WordPress</span>  
+                </div>
+              </div>
+            </article>
+
+            <!-- Role 2 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">Giu 2024 — Oggi</span>
+                <span class="cv-time-location">Remoto · Colombia</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Freelance Designer</h4>
+                <div class="cv-timeline-org">De la A a la Z Engineering &amp; Services AZIS <span>· Settore Ingegneristico</span></div>
+                <p class="cv-timeline-desc">
+                  Lavori freelance di graphic design, web design e progetti UI/UX su misura. Sviluppo di interfacce allineate agli obiettivi dei clienti combinando struttura dei contenuti, UX e design visivo.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Graphic Design</span>
+                  <span class="cv-skill-chip">Web Design</span>
+                  <span class="cv-skill-chip">UI/UX</span>
+                  <span class="cv-skill-chip">Design Visivo</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Role 3 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">Settembre 2025</span>
+                <span class="cv-time-location">Remoto · Italia</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Laravel Developer Trainee</h4>
+                <div class="cv-timeline-org">Universo Srl <span>· Cliente: C.F.A. SRL</span></div>
+                <p class="cv-timeline-desc">
+                  Sviluppo di due micro-progetti web con PHP, Laravel e MySQL, inclusa progettazione del back-end, gestione controller/rotte, modellazione dati, migrazioni, CRUD e autenticazione.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">PHP</span>
+                  <span class="cv-skill-chip">Laravel</span>
+                  <span class="cv-skill-chip">MySQL</span>
+                  <span class="cv-skill-chip">Back-end</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Role 4 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">Mar 2024 — Giu 2024</span>
+                <span class="cv-time-location">Ibrido · Italia</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Junior Front-End Developer</h4>
+                <div class="cv-timeline-org">Sinkronia Srl <span>· IT Services</span></div>
+                <p class="cv-timeline-desc">
+                  Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione del gestionale I-Quadra in Angular.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Angular</span>
+                  <span class="cv-skill-chip">Front-end</span>
+                  <span class="cv-skill-chip">Software Lifecycle</span>
+                  <span class="cv-skill-chip">UI/UX Design</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 02. EDUCATION ================= -->
+      <section class="cv-section" id="education">
+        <div class="cv-section-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="cv-section-title-wrap">
+            <h2 class="cv-section-title">Formazione Accademica</h2>
+            <span class="cv-accordion-badge">Accademia &amp; Tecnico</span>
+          </div>
+          <span class="cv-accordion-icon">▾</span>
+        </div>
+
+        <div class="cv-section-body">
+          <div class="cv-timeline-list">
+            <!-- Edu 1 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2025 — 2027</span>
+                <span class="cv-time-location">In corso </span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Tecnologo in Analisi e Sviluppo Software</h4>
+                <div class="cv-timeline-org">SENA · Colombia</div>
+                <p class="cv-timeline-desc">
+                  Formazione professionale focalizzata sull'intero ciclo di vita del software: analisi dei requisiti, progettazione, sviluppo, testing e deploy. Include sviluppo web, database, API, Git, UML e metodologie agili.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Sviluppo Software</span>
+                  <span class="cv-skill-chip">Agile / UML</span>
+                  <span class="cv-skill-chip">Database</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Edu 2 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2025 — 2026</span>
+                <span class="cv-time-location">EQF Livello 4</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>IFTS – Tecnico Sviluppo Applicazioni Informatiche</h4>
+                <div class="cv-timeline-org">Regione Puglia · Italia</div>
+                <p class="cv-timeline-desc">
+                  Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Applicazioni IT</span>
+                  <span class="cv-skill-chip">Sviluppo Web</span>
+                  <span class="cv-skill-chip">Programmazione</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Edu 3 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2022 — 2025</span>
+                <span class="cv-time-location">110/110 con Lode</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Laurea Magistrale in Graphic Design</h4>
+                <div class="cv-timeline-org">Accademia di Belle Arti di Foggia <span>· Italia</span></div>
+                <p class="cv-timeline-desc">
+                  Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Web Design</span>
+                  <span class="cv-skill-chip">UI/UX</span>
+                  <span class="cv-skill-chip">Information Arch</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Edu 4 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2018 — 2022</span>
+                <span class="cv-time-location">110/110 con Lode</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Laurea Triennale in Graphic Design</h4>
+                <div class="cv-timeline-org">Accademia di Belle Arti di Foggia <span>· Italia</span></div>
+                <p class="cv-timeline-desc">
+                  Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Graphic Design</span>
+                  <span class="cv-skill-chip">Visual Comm</span>
+                  <span class="cv-skill-chip">Branding</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 03. COURSES & CERTIFICATIONS ================= -->
+      <section class="cv-section" id="certifications">
+        <div class="cv-section-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="cv-section-title-wrap">
+            <h2 class="cv-section-title">Corsi &amp; Certificazioni</h2>
+            <span class="cv-accordion-badge">Specializzazioni</span>
+          </div>
+          <span class="cv-accordion-icon">▾</span>
+        </div>
+
+        <div class="cv-section-body">
+          <div class="cv-timeline-list">
+            <!-- Cert 1 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2025</span>
+                <span class="cv-time-location">248 Ore · Online</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Sviluppo Web con Laravel, PHP e JavaScript</h4>
+                <div class="cv-timeline-org">Universo &amp; FormaTemp</div>
+                <p class="cv-timeline-desc">
+                  Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Laravel</span>
+                  <span class="cv-skill-chip">PHP</span>
+                  <span class="cv-skill-chip">OOP</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Cert 2 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2023 — 2024</span>
+                <span class="cv-time-location">500 Ore · In Sede</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Full-Stack Web Developer</h4>
+                <div class="cv-timeline-org">Fondo per la Repubblica Digitale</div>
+                <p class="cv-timeline-desc">
+                  Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Full-Stack</span>
+                  <span class="cv-skill-chip">OOP</span>
+                  <span class="cv-skill-chip">Web Tech</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Cert 3 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2023</span>
+                <span class="cv-time-location">248 Ore · Online</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Front-End Dev con JS, jQuery e TypeScript</h4>
+                <div class="cv-timeline-org">Archimede &amp; FormaTemp</div>
+                <p class="cv-timeline-desc">
+                  Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript avanzato, TypeScript, HTML5, CSS3 e architettura Bootstrap.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">JavaScript</span>
+                  <span class="cv-skill-chip">TypeScript</span>
+                  <span class="cv-skill-chip">HTML/CSS</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Cert 4 -->
+            <article class="cv-timeline-card">
+              <div class="cv-timeline-time">
+                <span class="cv-badge-year">2023</span>
+                <span class="cv-time-location">248 Ore · Virtuale</span>
+              </div>
+              <div class="cv-timeline-body">
+                <h4>Bootcamp JavaScript &amp; Motion Graphics</h4>
+                <div class="cv-timeline-org">Codigo Facilito / 10 Skills Academy</div>
+                <p class="cv-timeline-desc">
+                  Formazione tecnica intensiva in sviluppo JS/TS abbinata a competenze visive di Motion Graphics (After Effects &amp; Premiere) per lo sviluppo di interfacce animate.
+                </p>
+                <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">JavaScript</span>
+                  <span class="cv-skill-chip">Motion Graphics</span>
+                  <span class="cv-skill-chip">After Effects</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 04. TECH STACK & SKILLS ================= -->
+      <section class="cv-section" id="skills">
+        <div class="cv-section-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="cv-section-title-wrap">
+            <h2 class="cv-section-title">Competenze &amp; Tech Stack</h2>
+            <span class="cv-accordion-badge">Design &amp; Sviluppo</span>
+          </div>
+          <span class="cv-accordion-icon">▾</span>
+        </div>
+
+        <div class="cv-section-body">
+          <div class="skills-category-grid">
+            <!-- Box 1: UI/UX & Visual Design -->
+            <div class="skill-box-card">
+              <h3 class="skill-box-title">
+                <span style="color: var(--violet-light);">❖</span>
+                <span>UI/UX &amp; Visual Design</span>
+              </h3>
+              <div class="skill-items-container">
+                
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Figma &amp; UI Design</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+                
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">UX Design</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+               
+
+               
+
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Design System</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+               
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Brand Identity</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Editorial Design</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+               
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Layout Design</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+                
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Canva</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Adobe Suite</span>
+                    <span class="skill-level-text autonoma">Intermedio</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Video | Motion | 3D</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Box 2: Web & Software Development -->
+            <div class="skill-box-card">
+              <h3 class="skill-box-title">
+                <span style="color: var(--violet-light);">&lt;/&gt;</span>
+                <span>Web &amp; Software Development</span>
+              </h3>
+              <div class="skill-items-container">
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">HTML5 · CSS3 · Responsive Design</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Bootstrap · Tailwind CSS</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Git &amp; GitHub</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">WordPress · Elementor · Divi</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">JavaScript · DOM</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">React</span>
+                    <span class="skill-level-text base">Base</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Laravel · PHP</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">MySQL · MongoDB</span>
+                    <span class="skill-level-text consolidando">Consolidando</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Java · Spring Boot · JPA/Hibernate</span>
+                    <span class="skill-level-text base">Base</span>
+                  </div>
+                </div>
+
+                <div class="skill-card-item">
+                  <div class="skill-card-header">
+                    <span class="skill-card-title">Angular</span>
+                    <span class="skill-level-text base">Base</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 05. LANGUAGES ================= -->
+      <section class="cv-section" id="languages">
+        <div class="cv-section-head" role="button" tabindex="0" aria-expanded="false">
+          <div class="cv-section-title-wrap">
+            <h2 class="cv-section-title">Lingue</h2>
+            <span class="cv-accordion-badge">Comunicazione</span>
+          </div>
+          <span class="cv-accordion-icon">▾</span>
+        </div>
+
+        <div class="cv-section-body">
+          <div class="languages-grid">
+            <div class="lang-card">
+              <div class="lang-flag"><span class="fi fi-it"></span></div>   
+              <div class="lang-name">Italiano</div>
+              <div class="lang-level">B2/C1</div>
+            </div>
+            <div class="lang-card">
+              <div class="lang-flag"><span class="fi fi-es"></span></div>
+              <div class="lang-name">Spagnolo</div>
+              <div class="lang-level">Madrelingua / Bilingue</div>
+            </div>
+            <div class="lang-card"> 
+              <div class="lang-flag"><span class="fi fi-gb"></span></div>
+              <div class="lang-name">Inglese</div>
+              <div class="lang-level">Consolidando A2</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+      <!-- ================= 06. CONTACT CTA ================= 
+      <section class="cv-section" id="contact" style="margin-bottom: 0;">
+        <div class="stat-card-pill" style="padding: clamp(32px, 5vw, 48px); background: var(--surface); border-color: var(--line-violet);">
+          <div class="mono" style="color: var(--violet-light); margin-bottom: 8px;">Let's connect</div>
+          <h3 style="font-size: clamp(2rem, 3.8vw, 3.2rem); font-weight: 700; color: #FFFFFF; letter-spacing: -0.04em; margin-bottom: 16px;">
+            Vuoi collaborare o ricevere il CV completo in PDF?
+          </h3>
+          <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 28px; max-width: 600px;">
+            Sono disponibile per opportunità lavorative full-time, contratti freelance o consulenze di design e front-end development.
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="mailto:hello@bypatdesigner.com" class="btn-profile-cta">
+              <span>Scrivimi un'Email ↗</span>
+            </a>
+            <button class="btn-profile-download" id="copyEmailBottomBtn" data-email="hello@bypatdesigner.com">
+              <span>Copia Indirizzo Email 📋</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main> -->
+
+    <!-- ================= RIGHT FLOATING NAVIGATION DOCK ================= 
+    <aside class="dock-sidebar" aria-label="Navigazione rapida sezioni">
+      <nav class="dock-pill-nav">
+        <a href="#summary" class="dock-btn" data-tooltip="Sommario" aria-label="Sommario">✦</a>
+        <a href="#experience" class="dock-btn" data-tooltip="Esperienza" aria-label="Esperienza">💼</a>
+        <a href="#education" class="dock-btn" data-tooltip="Formazione" aria-label="Formazione">🎓</a>
+        <a href="#certifications" class="dock-btn" data-tooltip="Certificazioni" aria-label="Certificazioni">📜</a>
+        <a href="#skills" class="dock-btn" data-tooltip="Tech Stack" aria-label="Tech Stack">⚙</a>
+        <a href="#languages" class="dock-btn" data-tooltip="Lingue" aria-label="Lingue">🌐</a>
+        <a href="#contact" class="dock-btn" data-tooltip="Contatto" aria-label="Contatto">✉</a>
+        <a href="index.html" class="dock-btn" data-tooltip="Portfolio" aria-label="Portfolio">🏠</a>
+      </nav>
+    </aside>
+
+  </div>-->
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">CV pronto per la stampa/download! ✓</div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    /* Ambient Spotlight follow */
+    const spotlight = document.getElementById('ambientSpotlight');
+    window.addEventListener('mousemove', (e) => {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+    });
+
+    /* Toast Helper */
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('is-active');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('is-active');
+      }, 3200);
+    }
+
+    /* Download CV Button Handler */
+    document.getElementById('downloadCvBtn').addEventListener('click', () => {
+      showToast("Apertura finestra di stampa/salvataggio PDF... 📄");
+      setTimeout(() => {
+        window.print();
+      }, 400);
+    });
+
+    /* Accordion Toggle Logic */
+    document.querySelectorAll('.cv-section-head').forEach(head => {
+      const toggleFunc = () => {
+        const section = head.closest('.cv-section');
+        if (section) {
+          const isOpen = section.classList.toggle('is-open');
+          head.setAttribute('aria-expanded', isOpen);
+        }
+      };
+      head.addEventListener('click', toggleFunc);
+      head.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFunc();
+        }
+      });
+    });
+
+    /* Copy email */
+    const copyEmailBtn = document.getElementById('copyEmailBottomBtn');
+    if (copyEmailBtn) {
+      copyEmailBtn.addEventListener('click', async () => {
+        const email = copyEmailBtn.dataset.email || 'hello@bypatdesigner.com';
+        try {
+          await navigator.clipboard.writeText(email);
+          showToast("Email copiata: " + email + " ✓");
+        } catch (err) {
+          showToast("Scrivimi a: " + email);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

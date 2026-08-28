@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">AGRIBOX+ — Bypatdesigner | Case Study</title>
+  <meta name="description" content="Case study editoriale basato sulla struttura Bungee Lunar: architettura visiva, specifiche, fasi di sviluppo e showcase del progetto." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       BUNGEE LUNAR DESIGN SYSTEM (Deep Obsidian & Electric Violet)
+       ============================================================ */
+    :root {
+      --ink: #07060C;
+      --surface: #0E0D18;
+      --surface-elevated: #161426;
+      --card-bg: rgba(22, 19, 36, 0.85);
+      --card-hover: rgba(30, 26, 50, 0.95);
+      
+      --text-main: #FFFFFF;
+      --text-body: #E2DCFA;
+      --text-muted: #C5BFDF;
+      --text-dim: #9E96C0;
+      
+      --violet-primary: #8B5CF6;
+      --violet-light: #A78BFA;
+      --violet-bright: #C08BE8;
+      --violet-deep: #4C1D95;
+      --violet-tint: rgba(139, 92, 246, 0.16);
+      
+      --line: rgba(255, 255, 255, 0.12);
+      --line-light: rgba(255, 255, 255, 0.22);
+      --line-violet: rgba(167, 139, 250, 0.38);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+      
+      --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      
+      --pad-x: clamp(20px, 4.5vw, 64px);
+      --max-width: 1480px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+      color-scheme: dark;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--text-body);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--violet-light);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    /* Ambient Lighting */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 750px;
+      height: 750px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 65%;
+      top: 20%;
+      transition: left 0.22s cubic-bezier(0.16, 1, 0.3, 1), top 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    /* ============================================================
+       TOP HEADER (Minimalist Bungee Nav)
+       ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 6, 12, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+      margin-bottom: clamp(32px, 5vh, 64px);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-img {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--violet-light);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-violet);
+      background: rgba(167, 139, 250, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .header-back-btn:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      box-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+    }
+
+    .header-plus-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .header-plus-icon:hover {
+      transform: rotate(90deg) scale(1.15);
+      color: var(--violet-light);
+    }
+
+    /* ============================================================
+       SPLIT HERO LAYOUT (Exact Bungee Lunar Architecture)
+       ============================================================ */
+    .bungee-split-container {
+      display: grid;
+      grid-template-columns: minmax(380px, 480px) 1fr;
+      gap: clamp(36px, 6vw, 96px);
+      align-items: start;
+      margin-bottom: clamp(80px, 12vh, 160px);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Left Sticky Column */
+    .bungee-sticky-side {
+      position: sticky;
+      top: 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-bottom: 40px;
+    }
+
+    .project-main-title {
+      font-size: clamp(3.2rem, 6.5vw, 6.4rem);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      line-height: 0.92;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+
+    .project-lead-desc {
+      font-size: 1.08rem;
+      line-height: 1.68;
+      color: var(--text-muted);
+    }
+
+    /* Minimal Specs Table (Exact Bungee Lunar Style) */
+    .bungee-specs-table {
+      width: 100%;
+      border-top: 1px solid var(--line);
+      margin-top: 8px;
+    }
+
+    .bungee-spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+
+    .bungee-spec-name {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+    }
+
+    .bungee-spec-val {
+      color: #FFFFFF;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .bungee-preview-link {
+      color: #FFFFFF;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-bottom: 1px solid var(--violet-light);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+
+    .bungee-preview-link:hover {
+      color: var(--violet-light);
+      border-color: #FFFFFF;
+    }
+
+    /* Accordion Section Inside Left Column */
+    .bungee-accordion-wrap {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .bungee-accordion-header {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .bungee-accordion-header:hover, .bungee-accordion-item.is-open .bungee-accordion-header {
+      background: var(--card-hover);
+      border-color: var(--line-violet);
+    }
+
+    .bungee-phase-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .bungee-phase-icon {
+      font-size: 1.1rem;
+      color: var(--violet-light);
+      transition: transform 0.3s ease;
+    }
+
+    .bungee-accordion-item.is-open .bungee-phase-icon {
+      transform: rotate(45deg);
+    }
+
+    .bungee-accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0 20px;
+    }
+
+    .bungee-accordion-item.is-open .bungee-accordion-body {
+      max-height: 350px;
+      padding: 16px 20px;
+    }
+
+    .bungee-phase-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .bungee-phase-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bungee-phase-tag {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-body);
+    }
+
+    /* Right Scrolling Media Stream Column */
+    .bungee-scroll-stream {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(40px, 6vh, 80px);
+    }
+
+    .bungee-showcase-media {
+      width: 100%;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      min-height: 520px;
+      background: var(--surface-elevated);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 4vw, 48px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+
+    .bungee-showcase-media:hover {
+      border-color: var(--line-violet);
+      transform: translateY(-4px);
+    }
+
+    /* Stylized UI Mockup Cards */
+    .mockup-inner-window {
+      width: 100%;
+      background: rgba(14, 13, 24, 0.92);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 3.5vw, 40px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(24px);
+    }
+
+    .mockup-top-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mockup-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .mockup-url {
+      margin-left: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Interspersed Editorial Paragraphs (Bungee Style) */
+    .bungee-narrative-block {
+      max-width: 820px;
+      padding: 10px 0;
+    }
+
+    .bungee-narrative-title {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .bungee-narrative-copy {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       "MORE PROJECTS" SECTION (Side-by-side Bento Cards)
+       ============================================================ */
+    .more-projects-section {
+      border-top: 1px solid var(--line);
+      padding-top: clamp(60px, 9vh, 110px);
+      margin-bottom: clamp(60px, 9vh, 110px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .more-projects-title {
+      font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+      margin-bottom: 40px;
+    }
+
+    .more-projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .more-project-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .more-project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--line-violet);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.2);
+    }
+
+    .more-card-title {
+      font-size: clamp(2rem, 3.4vw, 3.2rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .more-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      margin-top: 40px;
+    }
+
+    /* ============================================================
+       BOTTOM CTA ("Have a project in mind?")
+       ============================================================ */
+    .bungee-cta-box {
+      text-align: center;
+      padding: clamp(60px, 9vh, 120px) var(--pad-x);
+      border-top: 1px solid var(--line);
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bungee-cta-headline {
+      font-size: clamp(2.8rem, 6.2vw, 5.8rem);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      color: #FFFFFF;
+      margin-bottom: 18px;
+    }
+
+    .bungee-cta-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .bungee-talk-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bungee-talk-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(139, 92, 246, 0.7);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      padding: 32px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      border-top: 1px solid var(--line);
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .bungee-split-container { grid-template-columns: 1fr; }
+      .bungee-sticky-side { position: static; }
+      .more-projects-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      footer { flex-direction: column; gap: 12px; }
+      .header-actions { gap: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Spotlight -->
+  <div class="ambient-bg">
+    <div class="ambient-spotlight" id="ambientSpotlight"></div>
+  </div>
+
+  <!-- ================= TOP SITE HEADER ================= -->
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a href="index.html">
+        <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
+      </a>
+      
+      <div class="header-actions">
+        <a href="index.html#work" class="header-back-btn">
+          <span>←</span>
+          <span>Portfolio</span>
+        </a>
+        <a href="cv.html" class="header-back-btn" style="background:transparent;">
+          <span>Resume / CV</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN SPLIT CONTAINER (BUNGEE LUNAR STYLE) ================= -->
+  <main class="shell">
+    <div class="bungee-split-container">
+      
+      <!-- ================= LEFT COLUMN: STICKY CONTEXT & METADATA ================= -->
+      <aside class="bungee-sticky-side">
+        
+        <div>
+          <h1 class="project-main-title" id="pTitle">AGRIBOX+</h1>
+          <p class="project-lead-desc" id="pLead">
+            AgriBox è una piattaforma e-commerce per prodotti agricoli biologici con gestione differenziata di listini retail e wholesale. Con l'evoluzione del brand, era necessaria un'identità solida e un'esperienza d'acquisto digitale ad altissima conversione.
+          </p>
+        </div>
+
+        <!-- Minimal Metadata Table -->
+        <div class="bungee-specs-table">
+          <div class="bungee-spec-row">
+            <span class="bungee-spec-name">Year</span>
+            <span class="bungee-spec-val" id="pYear">2026</span>
+          </div>
+
+          <div class="bungee-spec-row">
+            <span class="bungee-spec-name">Scope</span>
+            <span class="bungee-spec-val" id="pScope">Branding, UI/UX, Front-end</span>
+          </div>
+
+          <div class="bungee-spec-row">
+            <span class="bungee-spec-name">Timeline</span>
+            <span class="bungee-spec-val" id="pTimeline">8 weeks</span>
+          </div>
+
+          <div class="bungee-spec-row">
+            <span class="bungee-spec-name">Live project</span>
+            <span class="bungee-spec-val">
+              <a href="#media-1" class="bungee-preview-link" id="pLiveLink">Preview +</a>
+            </span>
+          </div>
+        </div>
+
+        <!-- Project Phases Accordion -->
+        <div class="bungee-accordion-wrap">
+          <div class="mono" style="color:var(--violet-light); margin-bottom:4px;">✦ Fasi di Lavoro</div>
+
+          <!-- Phase 1 -->
+          <div class="bungee-accordion-item is-open">
+            <button class="bungee-accordion-header" onclick="toggleBungeeAccordion(this)">
+              <span class="bungee-phase-title"><span>[01]</span> <span id="f1-t">Discovery &amp; Research</span></span>
+              <span class="bungee-phase-icon">+</span>
+            </button>
+            <div class="bungee-accordion-body">
+              <p class="bungee-phase-desc" id="f1-d">
+                Analisi dei clienti B2B e retail per identificare attriti nel checkout e ridefinire l'architettura informativa.
+              </p>
+              <div class="bungee-phase-tags" id="f1-tags">
+                <span class="bungee-phase-tag">User Personas</span>
+                <span class="bungee-phase-tag">Competitor Benchmark</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="bungee-accordion-item">
+            <button class="bungee-accordion-header" onclick="toggleBungeeAccordion(this)">
+              <span class="bungee-phase-title"><span>[02]</span> <span id="f2-t">Wireframing &amp; UX Flows</span></span>
+              <span class="bungee-phase-icon">+</span>
+            </button>
+            <div class="bungee-accordion-body">
+              <p class="bungee-phase-desc" id="f2-d">
+                Strutturazione del catalogo rapido a matrice e percorsi d'acquisto differenziati per privati e aziende agricole.
+              </p>
+              <div class="bungee-phase-tags" id="f2-tags">
+                <span class="bungee-phase-tag">Wireframes Low-Fi</span>
+                <span class="bungee-phase-tag">Checkout Flow</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="bungee-accordion-item">
+            <button class="bungee-accordion-header" onclick="toggleBungeeAccordion(this)">
+              <span class="bungee-phase-title"><span>[03]</span> <span id="f3-t">UI Design &amp; Tokens</span></span>
+              <span class="bungee-phase-icon">+</span>
+            </button>
+            <div class="bungee-accordion-body">
+              <p class="bungee-phase-desc" id="f3-d">
+                Creazione di un Design System completo in Figma con token scalabili, tipografia editoriale e prototipi interattivi.
+              </p>
+              <div class="bungee-phase-tags" id="f3-tags">
+                <span class="bungee-phase-tag">Design System</span>
+                <span class="bungee-phase-tag">Figma Tokens</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="bungee-accordion-item">
+            <button class="bungee-accordion-header" onclick="toggleBungeeAccordion(this)">
+              <span class="bungee-phase-title"><span>[04]</span> <span id="f4-t">Front-end Development</span></span>
+              <span class="bungee-phase-icon">+</span>
+            </button>
+            <div class="bungee-accordion-body">
+              <p class="bungee-phase-desc" id="f4-d">
+                Sviluppo front-end in React e Tailwind CSS con caricamento istantaneo e conformità WCAG AA.
+              </p>
+              <div class="bungee-phase-tags" id="f4-tags">
+                <span class="bungee-phase-tag">React.js</span>
+                <span class="bungee-phase-tag">Tailwind CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ================= RIGHT COLUMN: SCROLLING SHOWCASE MEDIA STREAM ================= -->
+      <section class="bungee-scroll-stream">
+        
+        <!-- Showcase Card 1 -->
+        <div class="bungee-showcase-media" id="media-1" style="background: radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109);">
+          <div class="mockup-inner-window">
+            <div class="mockup-top-bar">
+              <span class="mockup-dot" style="background:#EF4444;"></span>
+              <span class="mockup-dot" style="background:#F59E0B;"></span>
+              <span class="mockup-dot" style="background:#10B981;"></span>
+              <span class="mockup-url" id="pUrl1">https://agribox.platform.design</span>
+            </div>
+            <div>
+              <div class="mono" style="color:var(--violet-light); margin-bottom:8px;">✦ Hero Interface</div>
+              <h3 style="font-size:clamp(1.6rem, 2.8vw, 2.4rem); color:#fff; font-weight:700; margin-bottom:12px;" id="pVisual1Title">
+                Catalogo e-commerce a doppia architettura: retail e wholesale.
+              </h3>
+              <p style="color:var(--text-muted); font-size:1.02rem; line-height:1.6;" id="pVisual1Desc">
+                Navigazione intuitiva per il consumatore finale affiancata da una tabella d'ordine rapida con calcolo automatico dei listini all'ingrosso per P.IVA.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Block 1 -->
+        <article class="bungee-narrative-block">
+          <h2 class="bungee-narrative-title" id="pNarrative1Title">
+            AgriBox aveva bisogno di riposizionare la propria piattaforma per un pubblico più esigente, mantenendo intatta la propria identità rurale.
+          </h2>
+          <p class="bungee-narrative-copy" id="pNarrative1Body">
+            La vecchia interfaccia presentava attriti nel processo di checkout all'ingrosso e una percezione visiva datata. Abbiamo disegnato una direzione artistica moderna, con tipografia solida e layout modulari che mettono in risalto la freschezza e l'origine certificata di ogni prodotto.
+          </p>
+        </article>
+
+        <!-- Showcase Card 2 -->
+        <div class="bungee-showcase-media" id="media-2" style="background: radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.25), transparent 45%), linear-gradient(145deg, #120F1E, #2A1F45 55%, #0A0813);">
+          <div class="mockup-inner-window">
+            <div class="mockup-top-bar">
+              <span class="mockup-dot" style="background:#EF4444;"></span>
+              <span class="mockup-dot" style="background:#F59E0B;"></span>
+              <span class="mockup-dot" style="background:#10B981;"></span>
+              <span class="mockup-url">Design System &amp; Tokens</span>
+            </div>
+            <div>
+              <div class="mono" style="color:var(--violet-light); margin-bottom:8px;">✦ Sistema di Componenti</div>
+              <h3 style="font-size:clamp(1.6rem, 2.8vw, 2.4rem); color:#fff; font-weight:700; margin-bottom:12px;" id="pVisual2Title">
+                Oltre 40 componenti riutilizzabili con variabili Figma.
+              </h3>
+              <p style="color:var(--text-muted); font-size:1.02rem; line-height:1.6;" id="pVisual2Desc">
+                Una libreria strutturata con token di colore, spaziatura e tipografia, pronta per l'implementazione in React con Tailwind CSS.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Block 2 -->
+        <article class="bungee-narrative-block">
+          <h2 class="bungee-narrative-title" id="pNarrative2Title">
+            Un'architettura front-end snella costruita per garantire tempi di risposta inferiori a 0.8 secondi.
+          </h2>
+          <p class="bungee-narrative-copy" id="pNarrative2Body">
+            Ogni componente è stato sviluppato con codice semantico pulito, micro-interazioni fluide al mouse over e transizioni di stato studiate per azzerare l'abbandono del carrello e guidare l'utente verso la conversione.
+          </p>
+        </article>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= "MORE PROJECTS" SECTION (BUNGEE STYLE) ================= -->
+  <section class="shell more-projects-section">
+    <h2 class="more-projects-title">More projects.</h2>
+
+    <div class="more-projects-grid">
+      <!-- More Card 1 -->
+      <a href="project-bungee.html?id=footsy" class="more-project-card" id="moreCard1Link" style="background: radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.22), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E);">
+        <div>
+          <span class="mono" style="color:var(--violet-light);">Digital Store</span>
+          <h3 class="more-card-title" id="moreCard1Title">Footsy Shoes</h3>
+          <p style="color:var(--text-muted); font-size:1rem;" id="moreCard1Desc">Configuratore taglie per calzature bambini.</p>
+        </div>
+        <div class="more-card-bottom">
+          <span>Case Study ↗</span>
+          <span>_ 02.26</span>
+        </div>
+      </a>
+
+      <!-- More Card 2 -->
+      <a href="project-bungee.html?id=mininno" class="more-project-card" id="moreCard2Link" style="background: radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.18), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13);">
+        <div>
+          <span class="mono" style="color:var(--violet-light);">Editorial Web</span>
+          <h3 class="more-card-title" id="moreCard2Title">Mininno Costruzioni</h3>
+          <p style="color:var(--text-muted); font-size:1rem;" id="moreCard2Desc">Portale istituzionale e griglia svizzera.</p>
+        </div>
+        <div class="more-card-bottom">
+          <span>Case Study ↗</span>
+          <span>_ 03.26</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= "HAVE A PROJECT IN MIND?" CTA ================= -->
+  <section class="shell bungee-cta-box">
+    <h2 class="bungee-cta-headline">Have a project in mind?</h2>
+    <p class="bungee-cta-sub">
+      We'd love to hear from you — whether you have a project in mind, or just want to say hi.
+    </p>
+    <a href="index.html#contact" class="bungee-talk-btn">
+      <span>Let's Talk +</span>
+    </a>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="shell">
+    <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+    <span>Bari / Bisceglie · Italia</span>
+    <div style="display: flex; gap: 20px;">
+      <a href="index.html">Home Portfolio ↗</a>
+      <a href="cv.html">Resume / CV ↗</a>
+      <a href="index.html#contact">Contatti ↗</a>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    /* DATABASE COMPLETO DEI PROGETTI SECONDO LO STILE BUNGEE LUNAR */
+    const BUNGEE_DATA = {
+      agribox: {
+        title: "AGRIBOX+",
+        lead: "AgriBox è una piattaforma e-commerce per prodotti agricoli biologici con gestione differenziata di listini retail e wholesale. Con l'evoluzione del brand, era necessaria un'identità solida e un'esperienza d'acquisto digitale ad altissima conversione.",
+        year: "2026",
+        scope: "Branding, UI/UX, Front-end",
+        timeline: "8 weeks",
+        urlPill: "https://agribox.platform.design",
+        visual1Title: "Catalogo e-commerce a doppia architettura: retail e wholesale.",
+        visual1Desc: "Navigazione intuitiva per il consumatore finale affiancata da una tabella d'ordine rapida con calcolo automatico dei listini all'ingrosso per P.IVA.",
+        narrative1Title: "AgriBox aveva bisogno di riposizionare la propria piattaforma per un pubblico più esigente, mantenendo intatta la propria identità rurale.",
+        narrative1Body: "La vecchia interfaccia presentava attriti nel processo di checkout all'ingrosso e una percezione visiva datata. Abbiamo disegnato una direzione artistica moderna, con tipografia solida e layout modulari che mettono in risalto la freschezza e l'origine certificata di ogni prodotto.",
+        visual2Title: "Oltre 40 componenti riutilizzabili con variabili Figma.",
+        visual2Desc: "Una libreria strutturata con token di colore, spaziatura e tipografia, pronta per l'implementazione in React con Tailwind CSS.",
+        narrative2Title: "Un'architettura front-end snella costruita per garantire tempi di risposta inferiori a 0.8 secondi.",
+        narrative2Body: "Ogni componente è stato sviluppato con codice semantico pulito, micro-interazioni fluide al mouse over e transizioni di stato studiate per azzerare l'abbandono del carrello e guidare l'utente verso la conversione.",
+        bg1: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)",
+        more1: { key: "footsy", title: "Footsy Shoes", desc: "Configuratore taglie per calzature bambini.", tag: "Digital Store", bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.22), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)" },
+        more2: { key: "mininno", title: "Mininno Costruzioni", desc: "Portale istituzionale e griglia svizzera.", tag: "Editorial Web", bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.18), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)" }
+      },
+      footsy: {
+        title: "FOOTSY+",
+        lead: "Footsy è un digital store dedicato alle calzature per bambini con un configuratore interattivo guidato progettato per abbattere il tasso di reso e guidare i genitori verso la taglia perfetta.",
+        year: "2026",
+        scope: "UX Research, UI, Micro-animations",
+        timeline: "6 weeks",
+        urlPill: "https://footsy.shoes.experience",
+        visual1Title: "Configuratore taglia assistito con guida visiva del piede a 360°.",
+        visual1Desc: "Un selettore interattivo con visualizzatore dinamico che riduce i dubbi dei genitori sulla taglia e velocizza la selezione del modello ideale.",
+        narrative1Title: "Footsy voleva eliminare l'attrito dei resi per taglia errata, trasformando la misurazione in un'esperienza giocosa e immediata.",
+        narrative1Body: "Abbiamo studiato i comportamenti d'acquisto di centinaia di famiglie online, ideando un calcolatore basato su millimetri reali e sviluppo del piede per età, con un'interfaccia colorata e dinamica.",
+        visual2Title: "Schede prodotto interattive con rendering 360°.",
+        visual2Desc: "Visualizzazione dettagliata di materiali, flessibilità della suola e chiusure per garantire la massima trasparenza prima dell'acquisto.",
+        narrative2Title: "-54% di resi per taglia errata registrati nei primi 90 giorni dal lancio.",
+        narrative2Body: "L'introduzione del selettore interattivo e del checkout mobile rapido in 3 tocchi ha incrementato sia la fiducia degli acquirenti che il valore medio del carrello.",
+        bg1: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.25), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)",
+        more1: { key: "mininno", title: "Mininno Costruzioni", desc: "Portale istituzionale e griglia svizzera.", tag: "Editorial Web", bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.18), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)" },
+        more2: { key: "sumisura", title: "suMisura® Doors", desc: "Configuratore porte blindate ad alta sicurezza.", tag: "CPQ Configurator", bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)" }
+      },
+      mininno: {
+        title: "MININNO+",
+        lead: "Mininno è una storica impresa edile pugliese. Il progetto ha rinnovato l'intera presenza digitale con un approccio editoriale d'autore, valorizzando la fotografia di cantiere e la purezza dell'architettura.",
+        year: "2026",
+        scope: "Brand Identity, Editorial Web, CSS",
+        timeline: "7 weeks",
+        urlPill: "https://mininno.costruzioni.it",
+        visual1Title: "Griglia svizzera e composizioni asimmetriche ad alto impatto.",
+        visual1Desc: "Un'impaginazione che richiama i magazine d'architettura internazionali, con layout rigorosi ed equilibrio di spazi bianchi.",
+        narrative1Title: "Mininno desiderava comunicare quarant'anni di eccellenza costruttiva a committenti privati e studi di architettura d'élite.",
+        narrative1Body: "Abbiamo digitalizzato l'archivio storico dell'impresa e creato schede progetto interattive che raccontano l'avanzamento dei lavori, i materiali nobili impiegati e i dettagli strutturali.",
+        visual2Title: "Schede cantiere arricchite da schemi tecnici e capitolati.",
+        visual2Desc: "Sezioni dedicate ai progettisti per scaricare capitolati e documentazione tecnica in formato digitale.",
+        narrative2Title: "100% Core Web Vitals e un aumento del 3.2x nel tempo di permanenza sul sito.",
+        narrative2Body: "Il codice front-end semantico senza librerie pesanti garantisce transizioni istantanee e una fluidità di lettura impeccabile.",
+        bg1: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)",
+        more1: { key: "sumisura", title: "suMisura® Doors", desc: "Configuratore porte blindate ad alta sicurezza.", tag: "CPQ Configurator", bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)" },
+        more2: { key: "agribox", title: "AgriBox Platform", desc: "E-commerce agricolo B2B e retail.", tag: "E-Commerce", bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)" }
+      },
+      sumisura: {
+        title: "SUMISURA+",
+        lead: "suMisura® è un produttore di porte blindate di design e sicurezza. Abbiamo progettato un configuratore digitale CPQ che consente la personalizzazione visiva in 4 step con preventivo istantaneo.",
+        year: "2026",
+        scope: "CPQ UX, SVG Engine, Design System",
+        timeline: "9 weeks",
+        urlPill: "https://sumisura.configurator.pro",
+        visual1Title: "Configuratore interattivo con rendering SVG dinamico a strati.",
+        visual1Desc: "Selezione immediata di classi di sicurezza, rivestimenti in legno pregiato, maniglie di design e serrature biometriche con calcolo prezzi live.",
+        narrative1Title: "suMisura® voleva semplificare oltre 200 combinazioni di prodotto rendendo il cliente autonomo nella configurazione.",
+        narrative1Body: "Abbiamo sviluppato un motore di composizione vettoriale leggero che mostra all'istante l'effetto delle finiture scelte e genera un riepilogo tecnico formattato in PDF per gli showroom.",
+        visual2Title: "Design System industriale con accenti bronzo e scuri.",
+        visual2Desc: "Pannelli di controllo intuitivi con feedback visivo e sonoro immediato ad ogni modifica delle specifiche della porta.",
+        narrative2Title: "+65% di richieste di preventivo qualificate arrivate ai rivenditori.",
+        narrative2Body: "I clienti arrivano negli showroom con le specifiche già decise, dimezzando i tempi di consulenza e velocizzando la firma dell'ordine.",
+        bg1: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)",
+        more1: { key: "agribox", title: "AgriBox Platform", desc: "E-commerce agricolo B2B e retail.", tag: "E-Commerce", bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)" },
+        more2: { key: "footsy", title: "Footsy Shoes", desc: "Configuratore taglie per calzature bambini.", tag: "Digital Store", bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.22), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)" }
+      }
+    };
+
+    /* ACCORDION TOGGLE */
+    function toggleBungeeAccordion(btn) {
+      const item = btn.closest('.bungee-accordion-item');
+      const isOpen = item.classList.contains('is-open');
+
+      document.querySelectorAll('.bungee-accordion-item').forEach(i => i.classList.remove('is-open'));
+
+      if (!isOpen) {
+        item.classList.add('is-open');
+      }
+    }
+
+    /* LOAD PROJECT DATA */
+    function initBungeeProject() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('id') || 'agribox';
+      const data = BUNGEE_DATA[projectId] || BUNGEE_DATA.agribox;
+
+      document.title = `${data.title} — Bypatdesigner | Case Study`;
+      document.getElementById('pTitle').textContent = data.title;
+      document.getElementById('pLead').textContent = data.lead;
+      document.getElementById('pYear').textContent = data.year;
+      document.getElementById('pScope').textContent = data.scope;
+      document.getElementById('pTimeline').textContent = data.timeline;
+
+      document.getElementById('pUrl1').textContent = data.urlPill;
+      document.getElementById('pVisual1Title').textContent = data.visual1Title;
+      document.getElementById('pVisual1Desc').textContent = data.visual1Desc;
+      document.getElementById('media-1').style.background = data.bg1;
+
+      document.getElementById('pNarrative1Title').textContent = data.narrative1Title;
+      document.getElementById('pNarrative1Body').textContent = data.narrative1Body;
+
+      document.getElementById('pVisual2Title').textContent = data.visual2Title;
+      document.getElementById('pVisual2Desc').textContent = data.visual2Desc;
+
+      document.getElementById('pNarrative2Title').textContent = data.narrative2Title;
+      document.getElementById('pNarrative2Body').textContent = data.narrative2Body;
+
+      // Update More Projects Cards
+      document.getElementById('moreCard1Title').textContent = data.more1.title;
+      document.getElementById('moreCard1Desc').textContent = data.more1.desc;
+      document.getElementById('moreCard1Link').href = `project-bungee.html?id=${data.more1.key}`;
+      document.getElementById('moreCard1Link').style.background = data.more1.bg;
+
+      document.getElementById('moreCard2Title').textContent = data.more2.title;
+      document.getElementById('moreCard2Desc').textContent = data.more2.desc;
+      document.getElementById('moreCard2Link').href = `project-bungee.html?id=${data.more2.key}`;
+      document.getElementById('moreCard2Link').style.background = data.more2.bg;
+    }
+
+    // Ambient follow
+    const spotlight = document.getElementById('ambientSpotlight');
+    window.addEventListener('mousemove', (e) => {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+    });
+
+    initBungeeProject();
+  </script>
+</body>
+</html>

@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title style="padding-bottom: 24px!important;margin-bottom: 0px !important;" >Tutti i Progetti &amp; Case Studies — Patricia Garcia | Bypatdesigner</title>
+  <meta name="description" content="Galleria completa dei progetti di design e front-end di Patricia Garcia: e-commerce, configuratori interattivi, architettura dell'informazione e design system." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — OKC MEDIA INSPIRED FLOATING ARCHITECTURE
+       ============================================================ */
+    :root {
+      --ink: #07060C;
+      --surface: #0E0D18;
+      --surface-elevated: #161426;
+      --card-bg: rgba(22, 19, 36, 0.85);
+      --card-hover: rgba(30, 26, 50, 0.95);
+      
+      --text-main: #FFFFFF;
+      --text-body: #E4DFFA;
+      --text-muted: #C8C2E2;
+      --text-dim: #9E96C0;
+      
+      --violet-primary: #8B5CF6;
+      --violet-light: #A78BFA;
+      --violet-bright: #BFA7FF;
+      --violet-glow: #C08BE8;
+      --accent-warm: #F6BE65;
+      --accent-emerald: #10B981;
+      
+      --line: rgba(255, 255, 255, 0.12);
+      --line-light: rgba(255, 255, 255, 0.22);
+      --line-violet: rgba(167, 139, 250, 0.38);
+      
+      --radius-sm: 8px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 36px;
+      --radius-full: 9999px;
+      
+      --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      
+      --pad-x: clamp(20px, 5vw, 72px);
+      --max-width: 1440px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+      color-scheme: dark;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--text-body);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background: var(--violet-light);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+      position: relative;
+      z-index: 1;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .grad-text {
+      background: linear-gradient(105deg, #FFFFFF 0%, #EAE5FD 30%, #BFA7FF 55%, #8B5CF6 75%, #F6BE65 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradShimmer 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes gradShimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Ambient Background */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.02) 50%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 25%;
+      transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 55%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 55%, transparent 100%);
+      opacity: 0.45;
+    }
+
+    /* ============================================================
+       TOP HEADER NAVBAR
+       ============================================================ */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 6, 12, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+      margin-bottom: clamp(40px, 6vh, 80px);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-img {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link-btn {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.25s ease;
+    }
+
+    .nav-link-btn:hover, .nav-link-btn.active {
+      color: #fff;
+      border-color: var(--line-violet);
+      background: var(--violet-tint);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mode-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .mode-switch-btn:hover {
+      background: #FFFFFF;
+      color: #07060C;
+      border-color: #FFFFFF;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta-btn {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--violet-light);
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(167, 139, 250, 0.4);
+      text-decoration: none;
+    }
+
+    .nav-cta-btn:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+
+    /* ============================================================
+       PAGE HERO
+       ============================================================ */
+    .page-hero {
+      margin-bottom: clamp(48px, 7vh, 88px);
+    }
+
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--violet-light);
+      background: rgba(167, 139, 250, 0.12);
+      border: 1px solid var(--line-violet);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero-main-title {
+      font-size: clamp(3.2rem, 7.2vw, 7.6rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      margin-bottom: 24px;
+      max-width: 1100px;
+    }
+
+    .hero-sub-text {
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 780px;
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       INTERACTIVE CATEGORY FILTERS
+       ============================================================ */
+    .filters-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: clamp(48px, 7vh, 80px);
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .filter-pill {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-pill:hover, .filter-pill.active {
+      color: #fff;
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--line-violet);
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+    }
+
+    /* ============================================================
+       ASYMMETRICAL FLOATING PROJECTS MASONRY GRID (OKC Media Style)
+       Non-rigid alignment, staggered vertical offsets, rich previews
+       ============================================================ */
+    .floating-masonry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5.5vw, 72px);
+      margin-bottom: clamp(80px, 12vh, 160px);
+    }
+
+    .project-column {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(48px, 7vw, 96px);
+    }
+
+    /* Staggered offset on second column */
+    .project-column.staggered-col {
+      margin-top: clamp(40px, 6vh, 100px);
+    }
+
+    /* Floating Project Card */
+    .floating-project-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.45s ease;
+    }
+
+    .floating-project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--line-violet);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 35px rgba(139, 92, 246, 0.25);
+    }
+
+    /* Visual Media Area of the Card */
+    .card-media-box {
+      width: 100%;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 3.5vw, 40px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-preview-window {
+      width: 100%;
+      background: rgba(14, 13, 24, 0.9);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      transition: transform 0.45s ease;
+    }
+
+    .floating-project-card:hover .card-preview-window {
+      transform: scale(1.02);
+    }
+
+    .preview-browser-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .p-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Meta Details Below Media */
+    .card-details-box {
+      padding: clamp(28px, 4vw, 40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      border-top: 1px solid var(--line);
+      background: rgba(14, 13, 24, 0.6);
+    }
+
+    .card-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .card-project-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .card-project-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .card-footer-tags {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .tech-pill-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .mini-pill {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-body);
+    }
+
+    .card-cta-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--violet-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.25s ease;
+    }
+
+    .floating-project-card:hover .card-cta-arrow {
+      transform: translateX(4px);
+      color: #fff;
+    }
+
+    /* ============================================================
+       BOTTOM CONTACT CTA SECTION
+       ============================================================ */
+    .bottom-cta-banner {
+      background: var(--surface);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-xl);
+      padding: clamp(48px, 8vw, 96px) var(--pad-x);
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(139, 92, 246, 0.15);
+    }
+
+    .cta-banner-title {
+      font-size: clamp(2.6rem, 5.5vw, 5.4rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .cta-big-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 40px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cta-big-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(139, 92, 246, 0.7);
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      padding: 32px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      border-top: 1px solid var(--line);
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+    @media (max-width: 960px) {
+      .floating-masonry-grid { grid-template-columns: 1fr; }
+      .project-column.staggered-col { margin-top: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Spotlight Background -->
+  <div class="ambient-bg">
+    <div class="ambient-spotlight" id="ambientSpotlight"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <!-- ================= TOP SITE NAVBAR ================= -->
+  <nav class="site-nav" aria-label="Navigazione principale">
+    <div class="shell nav-inner">
+      <a href="index.html">
+        <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link-btn">Home</a>
+        <a href="projects.html" class="nav-link-btn active">Tutti i Progetti</a>
+        <a href="cv.html" class="nav-link-btn">Resume / CV</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="mode-switch-btn" href="./light-version/index.html" title="Passa alla versione Light">
+          <span>☀️</span>
+          <span>Light Mode</span>
+        </a>
+        <a href="index.html#contact" class="nav-cta-btn">
+          <span>Contatti ↗</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell">
+    
+    <!-- ================= PAGE HERO ================= -->
+    <header class="page-hero">
+      <div class="hero-tagline">✦ ARCHIVIO PROGETTI &amp; CASE STUDIES</div>
+      <h1 class="hero-main-title grad-text">Tutti i Progetti.</h1>
+      <p class="hero-sub-text">
+        Una selezione di piattaforme digitali, configuratori interattivi, identità visive e architetture front-end sviluppate con rigore e cura del dettaglio.
+      </p>
+    </header>
+
+    <!-- ================= INTERACTIVE CATEGORY FILTER BAR ================= -->
+    <div class="filters-bar" role="tablist" aria-label="Filtra progetti per categoria">
+      <button class="filter-pill active" onclick="filterProjects('all', this)">Tutti i Progetti (4)</button>
+      <button class="filter-pill" onclick="filterProjects('ecommerce', this)">E-Commerce</button>
+      <button class="filter-pill" onclick="filterProjects('configurator', this)">Configuratori</button>
+      <button class="filter-pill" onclick="filterProjects('editorial', this)">Editorial Web</button>
+      <button class="filter-pill" onclick="filterProjects('uiux', this)">UI/UX &amp; Design System</button>
+    </div>
+
+    <!-- ================= ASYMMETRICAL / FLOATING MASONRY PROJECTS GRID (OKC Media Style) ================= -->
+    <div class="floating-masonry-grid" id="projectsGrid">
+      
+      <!-- ================= COLUMN 1 ================= -->
+      <div class="project-column">
+        
+        <!-- Project Card 1: AgriBox Platform -->
+        <article class="floating-project-card" data-cat="ecommerce uiux" onclick="location.href='project.html?id=agribox'">
+          <div class="card-media-box" style="background: radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109);">
+            <div class="card-preview-window">
+              <div class="preview-browser-dots">
+                <span class="p-dot" style="background:#EF4444;"></span>
+                <span class="p-dot" style="background:#F59E0B;"></span>
+                <span class="p-dot" style="background:#10B981;"></span>
+                <span class="mono" style="font-size:0.72rem; margin-left:auto; color:var(--text-dim);">agribox.platform.design</span>
+              </div>
+              <div class="mono" style="color:var(--violet-light); margin-bottom:6px;">✦ Piattaforma E-commerce</div>
+              <h4 style="font-size:1.35rem; color:#fff; font-weight:700; margin-bottom:8px;">
+                Checkout unificato retail e wholesale B2B.
+              </h4>
+              <p style="color:var(--text-muted); font-size:0.92rem; line-height:1.5;">
+                Componenti React ad alte prestazioni con listini prezzi dinamici per P.IVA.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-details-box">
+            <div>
+              <div class="card-top-meta">
+                <span>E-COMMERCE · UI/UX</span>
+                <span>2026</span>
+              </div>
+              <h2 class="card-project-title">AgriBox Platform</h2>
+              <p class="card-project-desc">
+                Riprogettazione completa dell'esperienza d'acquisto per prodotti agricoli biologici con azzeramento dell'abbandono del carrello.
+              </p>
+            </div>
+
+            <div class="card-footer-tags">
+              <div class="tech-pill-list">
+                <span class="mini-pill">React.js</span>
+                <span class="mini-pill">Tailwind CSS</span>
+                <span class="mini-pill">Figma Tokens</span>
+              </div>
+              <div class="card-cta-arrow">
+                <span>Case Study</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 3: Mininno Costruzioni -->
+        <article class="floating-project-card" data-cat="editorial uiux" onclick="location.href='project.html?id=mininno'">
+          <div class="card-media-box" style="background: radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13);">
+            <div class="card-preview-window">
+              <div class="preview-browser-dots">
+                <span class="p-dot" style="background:#EF4444;"></span>
+                <span class="p-dot" style="background:#F59E0B;"></span>
+                <span class="p-dot" style="background:#10B981;"></span>
+                <span class="mono" style="font-size:0.72rem; margin-left:auto; color:var(--text-dim);">mininno.costruzioni.it</span>
+              </div>
+              <div class="mono" style="color:var(--violet-light); margin-bottom:6px;">✦ Identità Editoriale</div>
+              <h4 style="font-size:1.35rem; color:#fff; font-weight:700; margin-bottom:8px;">
+                Griglia svizzera e fotografia architettonica HD.
+              </h4>
+              <p style="color:var(--text-muted); font-size:0.92rem; line-height:1.5;">
+                Composizioni asimmetriche con schede tecniche e capitolati di cantiere.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-details-box">
+            <div>
+              <div class="card-top-meta">
+                <span>EDITORIAL · WEB ARCHITECTURE</span>
+                <span>2026</span>
+              </div>
+              <h2 class="card-project-title">Mininno Costruzioni</h2>
+              <p class="card-project-desc">
+                Nuova immagine digitale d'autore per una storica impresa edile pugliese con 100% Core Web Vitals e aumento del 3.2x nel tempo di visita.
+              </p>
+            </div>
+
+            <div class="card-footer-tags">
+              <div class="tech-pill-list">
+                <span class="mini-pill">JavaScript ES6+</span>
+                <span class="mini-pill">Swiss Grid</span>
+                <span class="mini-pill">Semantic CSS3</span>
+              </div>
+              <div class="card-cta-arrow">
+                <span>Case Study</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ================= COLUMN 2 (STAGGERED / FLOATING OFFSET) ================= -->
+      <div class="project-column staggered-col">
+        
+        <!-- Project Card 2: Footsy Shoes -->
+        <article class="floating-project-card" data-cat="ecommerce configurator" onclick="location.href='project.html?id=footsy'">
+          <div class="card-media-box" style="background: radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.25), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E);">
+            <div class="card-preview-window">
+              <div class="preview-browser-dots">
+                <span class="p-dot" style="background:#EF4444;"></span>
+                <span class="p-dot" style="background:#F59E0B;"></span>
+                <span class="p-dot" style="background:#10B981;"></span>
+                <span class="mono" style="font-size:0.72rem; margin-left:auto; color:var(--text-dim);">footsy.shoes.experience</span>
+              </div>
+              <div class="mono" style="color:var(--accent-warm); margin-bottom:6px;">✦ Configuratore Taglie</div>
+              <h4 style="font-size:1.35rem; color:#fff; font-weight:700; margin-bottom:8px;">
+                Guida visiva al piede e calcolo millimetrico.
+              </h4>
+              <p style="color:var(--text-muted); font-size:0.92rem; line-height:1.5;">
+                Abbattimento del 54% dei resi per taglia errata nelle calzature per bambini.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-details-box">
+            <div>
+              <div class="card-top-meta">
+                <span>DIGITAL STORE · SIZER CPQ</span>
+                <span>2026</span>
+              </div>
+              <h2 class="card-project-title">Footsy Shoes</h2>
+              <p class="card-project-desc">
+                Negozio digitale con assistente interattivo alla taglia che trasforma la misurazione in un gioco affidabile per genitori e bambini.
+              </p>
+            </div>
+
+            <div class="card-footer-tags">
+              <div class="tech-pill-list">
+                <span class="mini-pill">React.js</span>
+                <span class="mini-pill">Micro-interactions</span>
+                <span class="mini-pill">Figma Auto-layout</span>
+              </div>
+              <div class="card-cta-arrow">
+                <span>Case Study</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 4: suMisura® Doors -->
+        <article class="floating-project-card" data-cat="configurator uiux" onclick="location.href='project.html?id=sumisura'">
+          <div class="card-media-box" style="background: radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C);">
+            <div class="card-preview-window">
+              <div class="preview-browser-dots">
+                <span class="p-dot" style="background:#EF4444;"></span>
+                <span class="p-dot" style="background:#F59E0B;"></span>
+                <span class="p-dot" style="background:#10B981;"></span>
+                <span class="mono" style="font-size:0.72rem; margin-left:auto; color:var(--text-dim);">sumisura.configurator.pro</span>
+              </div>
+              <div class="mono" style="color:var(--accent-warm); margin-bottom:6px;">✦ Motore Vettoriale SVG</div>
+              <h4 style="font-size:1.35rem; color:#fff; font-weight:700; margin-bottom:8px;">
+                Configurazione in 4 step e preventivo live.
+              </h4>
+              <p style="color:var(--text-muted); font-size:0.92rem; line-height:1.5;">
+                Rendering istantaneo a strati di finiture lignee, serrature e maniglie di sicurezza.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-details-box">
+            <div>
+              <div class="card-top-meta">
+                <span>CPQ CONFIGURATOR · LUXURY</span>
+                <span>2026</span>
+              </div>
+              <h2 class="card-project-title">suMisura® Doors</h2>
+              <p class="card-project-desc">
+                Web app per la personalizzazione e quotazione di porte blindate di sicurezza con esportazione della scheda tecnica in PDF per showroom.
+              </p>
+            </div>
+
+            <div class="card-footer-tags">
+              <div class="tech-pill-list">
+                <span class="mini-pill">SVG Engine</span>
+                <span class="mini-pill">JavaScript ES6+</span>
+                <span class="mini-pill">PDF Exporter</span>
+              </div>
+              <div class="card-cta-arrow">
+                <span>Case Study</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+    <!-- ================= BOTTOM CONTACT CTA BANNER ================= -->
+    <section class="bottom-cta-banner">
+      <div class="mono" style="color:var(--violet-light); margin-bottom:12px;">✦ Inizia un Progetto</div>
+      <h2 class="cta-banner-title">Hai in mente una nuova visione digitale?</h2>
+      <p class="cta-banner-sub">
+        Dalla definizione della strategia visiva alla scrittura del codice front-end per la produzione: parliamo di come trasformare la tua idea in un'esperienza d'impatto.
+      </p>
+      <a href="index.html#contact" class="cta-big-btn">
+        <span>Parliamo del tuo Progetto +</span>
+      </a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <span>Bari / Bisceglie · Italia</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="index.html">Home Portfolio ↗</a>
+        <a href="cv.html">Resume / CV ↗</a>
+        <a href="index.html#contact">Contatti ↗</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    /* FILTER PROJECTS BY CATEGORY */
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.floating-project-card');
+      cards.forEach(card => {
+        const itemCats = card.getAttribute('data-cat') || '';
+        if (cat === 'all' || itemCats.includes(cat)) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    /* AMBIENT SPOTLIGHT FOLLOW */
+    const spotlight = document.getElementById('ambientSpotlight');
+    window.addEventListener('mousemove', (e) => {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.12}px`;
+    });
+  </script>
+</body>
+</html>

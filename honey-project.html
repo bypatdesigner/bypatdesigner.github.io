@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">Cinepass — UI/UX Case Study | Bypatdesigner</title>
+  <meta name="description" content="Cinepass — case study UI/UX di un’app mobile per scoprire film e prenotare il proprio posto al cinema." />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Google Fonts: Raleway (Headlines) & Space Grotesk (Body, Mono & Pills) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink:#07060c;
+      --surface:#0e0d18;
+      --surface-2:#151322;
+      --surface-3:#1b182c;
+      --text:#fff;
+      --body:#e3dff3;
+      --muted:#aaa3c2;
+      --dim:#77708f;
+      --violet:#a78bfa;
+      --violet-strong:#8b5cf6;
+      --warm:#f6be65;
+      --line:rgba(255,255,255,.12);
+      --line-strong:rgba(167,139,250,.36);
+      --radius-sm:12px;
+      --radius-md:20px;
+      --radius-lg:32px;
+      --font:"Space Grotesk",system-ui,-apple-system,sans-serif;
+      --font-display:"Raleway",system-ui,-apple-system,sans-serif;
+      --mono:"Space Grotesk",system-ui,-apple-system,sans-serif;
+      --pad:clamp(20px,5vw,72px);
+      --max:1380px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;background:var(--ink);color-scheme:dark}
+    body{background:var(--ink);color:var(--body);font-family:var(--font);font-weight:300;line-height:1.68;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button{font:inherit}
+    ::selection{background:var(--violet);color:var(--ink)}
+
+    h1, h2, h3, .chapter-title, .visual-placeholder strong {
+      font-family: var(--font-display);
+    }
+
+    .page{position:relative;isolation:isolate}
+    .page:before{content:"";position:fixed;z-index:-2;inset:0;background:radial-gradient(circle at 72% 8%,rgba(139,92,246,.13),transparent 28%),radial-gradient(circle at 15% 38%,rgba(246,190,101,.05),transparent 25%),var(--ink)}
+    .noise{position:fixed;z-index:-1;inset:0;pointer-events:none;opacity:.17;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}
+    .shell{width:min(var(--max),100%);margin:0 auto;padding:0 var(--pad)}
+    .mono{font-family:var(--mono);font-size:.89rem;line-height:1.4;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--violet);margin-bottom:18px}
+    .eyebrow:before{content:"";width:26px;height:1px;background:currentColor}
+    .accent{color:var(--violet)}
+
+    /* NAV */
+    .top-nav{height:88px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--line)}
+    .nav-logo{height:30px;width:auto;justify-self:center}
+    .nav-actions{justify-self:end;display:flex;gap:10px;align-items:center}
+    .pill-link{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-family:var(--mono);font-size:.76rem;transition:.25s ease;background:rgba(255,255,255,.025)}
+    .pill-link:hover{border-color:var(--violet);background:rgba(167,139,250,.1);transform:translateY(-1px)}
+
+    /* HERO */
+    .hero{padding:clamp(72px,10vw,150px) 0 clamp(42px,6vw,76px)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:clamp(36px,7vw,110px);align-items:end}
+    .hero-kicker{color:var(--violet);margin-bottom:20px}
+    h1{font-size:clamp(3.6rem,8.7vw,8.6rem);line-height:.9;letter-spacing:-.05em;color:var(--text);font-weight:800;max-width:1050px;text-wrap:balance}
+    .hero-side{padding-bottom:.4rem}
+    .hero-side p{font-size:clamp(1.04rem,1.3vw,1.22rem);line-height:1.62;color:var(--muted);max-width:480px;font-weight:300}
+    .hero-index{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .hero-index span{border-bottom:1px solid var(--line);padding-bottom:5px;font-family:var(--mono);font-size:.72rem;color:var(--dim)}
+
+    /* IMAGE SYSTEM */
+    .visual{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(135deg,#171326,#251a3d 52%,#0b0911);border:1px solid var(--line);box-shadow:0 34px 100px rgba(0,0,0,.35)}
+    .visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:2}
+    .visual-placeholder{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding:clamp(24px,4vw,54px);background:radial-gradient(circle at 80% 22%,rgba(167,139,250,.24),transparent 35%),linear-gradient(135deg,#0f0c18,#20152f 60%,#0a0810)}
+    .visual-placeholder:after{content:"";position:absolute;width:44%;aspect-ratio:1;border:1px solid rgba(255,255,255,.1);border-radius:50%;right:-7%;top:-18%;box-shadow:0 0 0 60px rgba(255,255,255,.015),0 0 0 120px rgba(255,255,255,.008)}
+    .visual-placeholder strong{position:relative;z-index:1;color:white;font-size:clamp(1.4rem,3vw,3.1rem);line-height:1.02;letter-spacing:-.045em;max-width:690px}
+    .visual-placeholder small{position:relative;z-index:1;color:var(--muted);font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;max-width:280px;text-align:right}
+    .visual.is-loaded .visual-placeholder{display:none}
+    .hero-visual{min-height:clamp(430px,68vw,820px);margin-bottom:clamp(100px,12vw,170px)}
+    .hero-visual .visual-placeholder{background:radial-gradient(circle at 72% 22%,rgba(212,255,51,.13),transparent 28%),radial-gradient(circle at 15% 85%,rgba(167,139,250,.2),transparent 32%),linear-gradient(135deg,#11150f,#20311a 50%,#0a0d09)}
+
+    /* OVERVIEW */
+    .chapter{border-top:1px solid var(--line);padding:clamp(36px,5vw,64px) 0 clamp(110px,13vw,180px)}
+    .chapter-head{display:grid;grid-template-columns:220px 1fr;gap:clamp(28px,6vw,90px);margin-bottom:clamp(56px,7vw,90px)}
+    .chapter-no{color:var(--violet);font-family:var(--mono);font-size:.98rem;letter-spacing:.12em;text-transform:uppercase}
+    .chapter-title{font-size:clamp(2.3rem,4.4vw,5rem);line-height:1.04;letter-spacing:-.04em;color:#fff;font-weight:700;max-width:950px;text-wrap:balance}
+
+    .overview-grid{display:grid;grid-template-columns:minmax(270px,.72fr) minmax(0,1.28fr);gap:clamp(48px,8vw,120px);align-items:start}
+    .meta-table{position:sticky;top:28px;border-top:1px solid var(--line)}
+    .meta-row{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:17px 0;border-bottom:1px solid var(--line)}
+    .meta-label{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
+    .meta-value{color:#fff;font-size:1.08rem}
+    .meta-value.tags{display:flex;flex-wrap:wrap;gap:7px 14px}
+    .meta-value.tags span:before{content:"/ ";color:var(--violet)}
+    .copy-lg{font-size:clamp(1.45rem,2.3vw,2.3rem);line-height:1.45;letter-spacing:-.02em;color:#fff;max-width:850px;font-family:var(--font-display);font-weight:700}
+    .copy-lg span{color:var(--muted)}
+    .body-copy{margin-top:30px;max-width:780px;color:#ded9f0;font-size:1.18rem;line-height:1.85;font-weight:400;letter-spacing:0.01em}
+    .body-copy strong{color:#FFFFFF;font-weight:600}
+
+    /* Highlight Tag Box (Bungee / Cinepass Case Study Reference) */
+    .hl-box {
+      background: #a78bfa;
+      color: #07060c;
+      padding: 2px 12px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 0.8;
+      font-weight: 800;
+      vertical-align: baseline;
+    }
+
+    /* NARRATIVE IMAGE + CAPTION */
+    .visual-story{margin-top:clamp(68px,9vw,120px)}
+    .visual-story .visual{min-height:clamp(390px,55vw,760px)}
+    .caption{display:grid;grid-template-columns:220px 1fr;gap:clamp(28px,6vw,90px);padding-top:18px;color:var(--muted)}
+    .caption p{max-width:820px;font-size:1.1rem;color:#ded9f0;font-weight:400;line-height:1.7}
+
+    /* UX PROCESS */
+    .process-list{border-top:1px solid var(--line)}
+    .process-item{display:grid;grid-template-columns:100px minmax(220px,.7fr) minmax(0,1.3fr);gap:clamp(24px,4vw,70px);padding:34px 0;border-bottom:1px solid var(--line);align-items:start;transition:.25s ease}
+    .process-item:hover{padding-left:14px;background:linear-gradient(90deg,rgba(167,139,250,.05),transparent 70%)}
+    .process-num{font-family:var(--mono);font-size:.75rem;color:var(--violet)}
+    .process-item h3{color:#fff;font-size:clamp(1.25rem,1.8vw,1.55rem);letter-spacing:-.025em;font-weight:700}
+    .process-copy p{color:#ded9f0;max-width:720px;font-size:1.15rem;line-height:1.8;font-weight:400}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .chip{font-family:var(--mono);font-size:.67rem;letter-spacing:.04em;color:var(--body);border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:rgba(255,255,255,.025)}
+
+    /* DECISIONS */
+    .decision-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;margin-top:clamp(64px,8vw,110px)}
+    .decision-card{grid-column:span 4;min-height:360px;border:1px solid var(--line);border-radius:var(--radius-md);padding:clamp(24px,3vw,38px);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));display:flex;flex-direction:column;justify-content:space-between;transition:.3s ease}
+    .decision-card:hover{transform:translateY(-5px);border-color:var(--line-strong)}
+    .decision-card:nth-child(2){grid-column:span 5}
+    .decision-card:nth-child(3){grid-column:span 3}
+    .decision-card .mono{color:var(--violet)}
+    .decision-card h3{font-size:clamp(1.45rem,2.2vw,2.35rem);line-height:1.08;letter-spacing:-.03em;color:#fff;margin:18px 0 12px;font-weight:700}
+    .decision-card p{color:#ded9f0;font-size:1.15rem;line-height:1.75;font-weight:400}
+
+    /* GALLERY */
+    .gallery{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;margin-top:clamp(70px,9vw,120px)}
+    .gallery .visual{min-height:620px}
+    .gallery .visual:nth-child(2){min-height:620px}
+    .gallery .visual-placeholder{padding:30px}
+    .gallery .visual-placeholder strong{font-size:clamp(1.35rem,2vw,2rem)}
+    .gallery .visual-placeholder small{display:none}
+
+    /* RESULTS */
+    .results-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .result{padding:clamp(30px,4vw,52px) clamp(20px,3vw,40px);min-height:290px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+    .result:last-child{border-right:0}
+    .result-value{font-size:clamp(2.5rem,5vw,5.5rem);line-height:.92;letter-spacing:-.04em;color:#fff;font-weight:800;font-family:var(--font-display)}
+    .result h3{font-size:1.12rem;color:#fff;margin-bottom:7px;font-weight:700}
+    .result p{color:#ded9f0;font-size:1.1rem;line-height:1.65;max-width:330px;font-weight:400}
+
+    /* FINAL */
+    .solution-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(42px,8vw,120px);align-items:start}
+    .solution-statement{font-size:clamp(2rem,4vw,4.6rem);line-height:1.06;letter-spacing:-.04em;color:#fff;font-weight:800;text-wrap:balance;font-family:var(--font-display)}
+    .solution-copy{font-size:1.18rem;line-height:1.85;color:#ded9f0;max-width:740px;font-weight:400}
+    .solution-copy p+p{margin-top:24px}
+    .final-gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:clamp(70px,9vw,120px)}
+    .final-gallery .visual{min-height:clamp(420px,50vw,680px);margin-top:0}
+    .final-visual{min-height:clamp(420px,58vw,780px);margin-top:clamp(70px,9vw,120px)}
+
+    /* NEXT */
+    .next{padding:clamp(80px,11vw,150px) 0 60px}
+    .next-card{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;padding:clamp(34px,5vw,70px);border:1px solid var(--line);border-radius:var(--radius-lg);background:radial-gradient(circle at 90% 10%,rgba(167,139,250,.15),transparent 35%),var(--surface);transition:.3s ease}
+    .next-card:hover{border-color:var(--violet);transform:translateY(-4px)}
+    .next-card h2{font-size:clamp(2.5rem,5vw,5.5rem);line-height:.95;letter-spacing:-.05em;color:#fff;margin:15px 0 14px;font-weight:800;font-family:var(--font-display)}
+    .next-card p{color:var(--muted);font-weight:300}
+    .next-arrow{width:64px;height:64px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;font-size:1.6rem;color:var(--violet)}
+    footer{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding:28px 0 46px;color:var(--dim);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    .footer-links a:hover{color:#fff}
+
+    @media(max-width:1000px){
+      .hero-grid,.overview-grid,.solution-grid{grid-template-columns:1fr}
+      .hero-side{max-width:700px}
+      .meta-table{position:static}
+      .chapter-head,.caption{grid-template-columns:1fr;gap:14px}
+      .process-item{grid-template-columns:70px 1fr;gap:20px}
+      .process-copy{grid-column:2}
+      .decision-card,.decision-card:nth-child(2),.decision-card:nth-child(3){grid-column:span 6}
+      .decision-card:nth-child(3){grid-column:span 12;min-height:260px}
+      .gallery,.final-gallery{grid-template-columns:1fr}
+      .gallery .visual,.gallery .visual:nth-child(2),.final-gallery .visual{min-height:520px}
+    }
+
+    @media(max-width:700px){
+      .top-nav{grid-template-columns:1fr auto;height:auto;padding:18px 0;gap:14px}
+      .nav-logo{display:none}
+      .nav-actions{justify-self:end}
+      .mode-link{display:none}
+      .hero{padding-top:70px}
+      h1{font-size:clamp(3.2rem,18vw,5.8rem)}
+      .hero-visual{min-height:460px}
+      .visual-placeholder{align-items:flex-start;flex-direction:column;justify-content:flex-end}
+      .visual-placeholder small{text-align:left}
+      .meta-row{grid-template-columns:94px 1fr}
+      .process-item{grid-template-columns:1fr;gap:8px}
+      .process-copy{grid-column:auto}
+      .decision-grid{display:block}
+      .decision-card{min-height:280px;margin-bottom:14px}
+      .results-grid{grid-template-columns:1fr}
+      .result{border-right:0;border-bottom:1px solid var(--line);min-height:220px}
+      .result:last-child{border-bottom:0}
+      .gallery .visual,.gallery .visual:nth-child(2),.final-gallery .visual{min-height:430px}
+      .next-card{grid-template-columns:1fr}
+      .next-arrow{width:52px;height:52px}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="shell">
+    <nav class="top-nav" aria-label="Navigazione case study">
+      <a class="pill-link" href="projects.html">← Tutti i progetti</a>
+      <a href="index.html" aria-label="Home Bypatdesigner"><img class="nav-logo" src="./img/logo.png" alt="Bypatdesigner" /></a>
+      <div class="nav-actions">
+        <a class="pill-link mode-link" href="./light-version/index.html">☀ Light</a>
+        <a class="pill-link" href="index.html#contact">Contatti</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="mono hero-kicker" id="caseCategory">MOBILE APP · UI/UX CASE STUDY</div>
+          <h1 id="caseTitle">Cinepass</h1>
+        </div>
+        <div class="hero-side">
+          <p id="heroIntro">Un’esperienza mobile per scoprire film e prenotare il proprio posto al cinema.</p>
+          <div class="hero-index"><span>01 Contesto</span><span>02 Ricerca</span><span>03 Decisioni</span><span>04 Riflessione</span></div>
+        </div>
+      </div>
+    </header>
+
+    <figure class="visual hero-visual" id="visualHero">
+      <img id="imgHero" alt="Visual principale del progetto" />
+      <div class="visual-placeholder"><strong id="phHero">Hero visual del progetto</strong><small>Cinepass Hero Visual</small></div>
+    </figure>
+
+    <main>
+      <section class="chapter" id="context">
+        <div class="chapter-head">
+          <div class="chapter-no">01 — Contesto</div>
+          <h2 class="chapter-title">Prenotare un biglietto è semplice. Scegliere <span class="hl-box">cosa vedere</span>, <span class="hl-box">dove</span> e <span class="hl-box">quando</span> lo è meno.</h2>
+        </div>
+
+        <div class="overview-grid">
+          <aside class="meta-table" aria-label="Informazioni progetto">
+            <div class="meta-row"><div class="meta-label">Anno</div><div class="meta-value" id="specYear"></div></div>
+            <div class="meta-row"><div class="meta-label">Industry</div><div class="meta-value" id="specIndustry"></div></div>
+            <div class="meta-row"><div class="meta-label">Timeline</div><div class="meta-value" id="specTimeline"></div></div>
+            <div class="meta-row"><div class="meta-label">Scope</div><div class="meta-value tags" id="specScope"></div></div>
+            <div class="meta-row"><div class="meta-label">Tools</div><div class="meta-value tags" id="specTech"></div></div>
+          </aside>
+
+          <div>
+            <p class="copy-lg" id="caseLead"></p>
+            <p class="body-copy" id="contextResearch"></p>
+          </div>
+        </div>
+
+        <div class="visual-story">
+          <figure class="visual" id="visualContext">
+            <img id="imgContext" alt="Contesto e interfaccia del progetto" />
+            <div class="visual-placeholder"><strong id="phContext">Mostra il prodotto nel suo contesto</strong><small>CASE_MEDIA.context — screenshot completo, mockup o immagine di contesto</small></div>
+          </figure>
+          <div class="caption"><div class="mono" style="padding-top:10px">Context visual</div><p id="contextCaption">Qui inserirei una tavola con competitor analysis, personas o empathy map: deve dimostrare da dove arrivano le decisioni, non decorare il case study.</p></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="process">
+        <div class="chapter-head">
+          <div class="chapter-no">02 — Ricerca & processo</div>
+          <h2 class="chapter-title">Dalla comprensione del contesto alla struttura del flusso.</h2>
+        </div>
+
+        <div class="process-list">
+          <article class="process-item">
+            <div class="process-num">[01]</div><h3 id="f1-title"></h3>
+            <div class="process-copy"><p id="f1-desc"></p><div class="chips" id="f1-chips"></div></div>
+          </article>
+          <article class="process-item">
+            <div class="process-num">[02]</div><h3 id="f2-title"></h3>
+            <div class="process-copy"><p id="f2-desc"></p><div class="chips" id="f2-chips"></div></div>
+          </article>
+          <article class="process-item">
+            <div class="process-num">[03]</div><h3 id="f3-title"></h3>
+            <div class="process-copy"><p id="f3-desc"></p><div class="chips" id="f3-chips"></div></div>
+          </article>
+          <article class="process-item">
+            <div class="process-num">[04]</div><h3 id="f4-title"></h3>
+            <div class="process-copy"><p id="f4-desc"></p><div class="chips" id="f4-chips"></div></div>
+          </article>
+        </div>
+
+        <div class="visual-story">
+          <figure class="visual" id="visualProcess">
+            <img id="imgProcess" alt="Wireframe, flusso UX o schermata di processo" />
+            <div class="visual-placeholder"><strong id="phProcess">User flow · wireframe · iterazioni</strong><small>CASE_MEDIA.process — wireframe, user flow, architettura o iterazione</small></div>
+          </figure>
+          <div class="caption"><div class="mono">Process visual</div><p>Una mappa del flusso o una sequenza di wireframe rende visibile il passaggio scoperta → scelta → prenotazione e collega la ricerca all’interfaccia finale.</p></div>
+        </div>
+      </section>
+
+      <section class="chapter" id="decisions">
+        <div class="chapter-head">
+          <div class="chapter-no">03 — Design decisions</div>
+          <h2 class="chapter-title">Portare l’utente dalla scoperta alla prenotazione senza spezzare il ritmo.</h2>
+        </div>
+
+        <div class="decision-grid">
+          <article class="decision-card"><div><div class="mono">Decision 01</div><h3 id="vis1Title"></h3><p id="vis1Desc"></p></div><div class="mono">System / consistency</div></article>
+          <article class="decision-card"><div><div class="mono">Decision 02</div><h3 id="vis2Title"></h3><p id="vis2Desc"></p></div><div class="mono">Interaction / usability</div></article>
+          <article class="decision-card"><div><div class="mono">Principio</div><h3>Ridurre attrito senza perdere identità.</h3><p>L'interfaccia deve rendere evidente cosa fare, lasciando al linguaggio visivo il compito di rendere il prodotto riconoscibile.</p></div><div class="mono">Clarity first</div></article>
+        </div>
+
+        <div class="gallery">
+          <figure class="visual" id="visualUiA"><img id="imgUiA" alt="Dettaglio UI del progetto" /><div class="visual-placeholder"><strong>Discovery · home · movie detail</strong><small></small></div></figure>
+          <figure class="visual" id="visualUiB"><img id="imgUiB" alt="Dettaglio responsive del progetto" /><div class="visual-placeholder"><strong>Booking · seat selection · detail</strong><small></small></div></figure>
+        </div>
+        <div class="caption"><div class="mono">Interface gallery</div><p>Qui funzionano bene una schermata di discovery e una schermata più vicina al momento di prenotazione: due immagini, due decisioni da spiegare.</p></div>
+      </section>
+
+      <section class="chapter" id="outcome">
+        <div class="chapter-head">
+          <div class="chapter-no">04 — Cosa ho imparato</div>
+          <h2 class="chapter-title">Guardandolo oggi, il valore è anche capire cosa migliorerei.</h2>
+        </div>
+
+        <div class="results-grid">
+          <article class="result"><div class="result-value">01</div><div><h3 id="learn1Title"></h3><p id="learn1Desc"></p></div></article>
+          <article class="result"><div class="result-value">02</div><div><h3 id="learn2Title"></h3><p id="learn2Desc"></p></div></article>
+          <article class="result"><div class="result-value">03</div><div><h3 id="learn3Title"></h3><p id="learn3Desc"></p></div></article>
+        </div>
+      </section>
+
+      <section class="chapter" id="solution">
+        <div class="chapter-head">
+          <div class="chapter-no">05 — UI & Prototype</div>
+          <h2 class="chapter-title">Dalla struttura all’interfaccia, mantenendo il cinema al centro.</h2>
+        </div>
+
+        <div class="solution-grid">
+          <p class="solution-statement" id="solutionHeadline">Dal problema al sistema, senza decorazione gratuita.</p>
+          <div class="solution-copy">
+            <p id="solutionCopyA"></p>
+            <p id="solutionCopyB"></p>
+          </div>
+        </div>
+
+        <div class="gallery final-gallery">
+          <figure class="visual final-visual" id="visualFinalA">
+            <img id="imgFinalA" alt="Final UI Cinepass - Frame 104" />
+            <div class="visual-placeholder"><strong id="phFinalA">Final UI · Cinepass</strong><small>Frame 104</small></div>
+          </figure>
+          <figure class="visual final-visual" id="visualFinalB">
+            <img id="imgFinalB" alt="Final UI Cinepass - Frame 105" />
+            <div class="visual-placeholder"><strong id="phFinalB">Final UI · Cinepass</strong><small>Frame 105</small></div>
+          </figure>
+        </div>
+        <div class="caption"><div class="mono">Final interface</div><p id="finalCaption">L'ultima immagine deve funzionare quasi come una conclusione visiva: meno testo, più prodotto.</p></div>
+      </section>
+    </main>
+
+    <section class="next">
+      <a class="next-card" id="nextCaseBox" href="projects.html">
+        <div><div class="mono accent">Prossimo progetto</div><h2 id="nextProjectTitle">Biteit</h2><p id="nextProjectDesc">Food delivery app concept — prossimo case study da raccontare con lo stesso approccio.</p></div>
+        <div class="next-arrow">↗</div>
+      </a>
+    </section>
+
+    <footer>
+      <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Progetti</a>
+        <a href="cv.html">CV</a>
+        <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener">Behance ↗</a>
+        <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+  /* =============================================================
+     CONTENUTI CASE STUDY: CINEPASS
+     ============================================================= */
+  const CASE_DATA = {
+    cinepass: {
+      title: "Cinepass",
+      category: "MOBILE APP · UI/UX CASE STUDY",
+      lead: "Un’esperienza mobile per scoprire film e prenotare il proprio posto al cinema.",
+      year: "2023",
+      industry: "Entertainment / Cinema",
+      scope: ["UX Research", "UI Design", "Prototyping"],
+      timeline: "Academic Project",
+      tech: ["Figma", "Photoshop"],
+
+      contextResearch: "Prenotare un biglietto è un’azione semplice, ma l’esperienza comprende molto di più: scegliere cosa vedere, confrontare film e orari, trovare il cinema e selezionare il proprio posto. Cinepass nasce per rendere questo percorso più lineare e leggibile all’interno di un’unica esperienza mobile.",
+
+      f1: {
+        title: "Contesto & ricerca",
+        desc: "Ho iniziato osservando il contesto d’uso e confrontando servizi esistenti. Competitor analysis, personas ed empathy map mi hanno aiutata a organizzare bisogni, aspettative e punti di attenzione prima di passare alle schermate.",
+        chips: ["Competitor Analysis", "Personas", "Empathy Map"]
+      },
+      f2: {
+        title: "Definizione",
+        desc: "La ricerca è stata tradotta in un problema progettuale chiaro: accompagnare l’utente dalla scoperta del film alla prenotazione evitando passaggi frammentati e informazioni difficili da confrontare.",
+        chips: ["Problem Definition", "Information Hierarchy", "User Needs"]
+      },
+      f3: {
+        title: "Esplorazione & flow",
+        desc: "Ho organizzato il percorso principale — scoperta, scelta del film, cinema e orario, selezione del posto — e lo ho verificato attraverso wireframe prima di definire il linguaggio visivo.",
+        chips: ["User Flow", "Low-fi Wireframes", "Navigation"]
+      },
+      f4: {
+        title: "UI Design & Prototype",
+        desc: "In Figma ho trasformato la struttura in un’interfaccia mobile ad alta fedeltà, costruendo gerarchie, componenti e stati utili a rendere riconoscibile il contenuto e più fluida la prenotazione.",
+        chips: ["UI Design", "Components", "Interactive Prototype"]
+      },
+
+      vis1Title: "Scoprire prima di prenotare",
+      vis1Desc: "La home mette in primo piano film, categorie e contenuti utili alla scelta. L’obiettivo non è spingere subito al checkout, ma aiutare l’utente a capire cosa vuole vedere.",
+      vis2Title: "Un flusso continuo verso il posto",
+      vis2Desc: "Informazioni sul film, scelta di cinema e orario e selezione del posto vengono pensate come parti dello stesso percorso, con una gerarchia coerente tra una schermata e l’altra.",
+
+      learn1Title: "Strutturare prima di decorare",
+      learn1Desc: "Il progetto mi ha mostrato quanto il lavoro su flussi e gerarchie debba precedere le decisioni visuali.",
+      learn2Title: "La chiarezza nasce dalle relazioni",
+      learn2Desc: "Film, cinema, orari e posti non sono schermate isolate: funzionano quando l’utente percepisce continuità tra una scelta e la successiva.",
+      learn3Title: "Guardandolo oggi",
+      learn3Desc: "Rivedrei alcune scelte con criteri più maturi di accessibilità, componentizzazione e validazione con utenti. È proprio questo confronto a rendere Cinepass utile nel mio percorso.",
+
+      solutionHeadline: "Dalla scoperta del film alla scelta del posto, nello stesso flusso.",
+      solutionCopyA: "La UI usa poster e contenuti cinematografici come elementi di orientamento, mentre filtri, gerarchie e call to action mantengono leggibile il percorso anche quando aumentano le informazioni disponibili.",
+      solutionCopyB: "Il prototipo finale mette insieme il ragionamento emerso durante ricerca, definizione e wireframing. Il risultato non viene presentato come una soluzione ‘perfetta’, ma come la sintesi progettuale di un case study accademico del 2023.",
+      finalCaption: "Il punto di arrivo del progetto: un’esperienza mobile pensata come percorso continuo, dalla scoperta del film fino alla prenotazione.",
+
+      nextKey: "biteit",
+      nextTitle: "Biteit",
+      nextDesc: "Food delivery app concept — prossimo case study da raccontare con lo stesso approccio."
+    }
+  };
+
+  /* MEDIA MAP */
+  const CASE_MEDIA = {
+    cinepass: {
+      hero: "./img/cinepass/1C2tmfsbXiSeT0qWgy4XVt9mc.webp",
+      context: "./img/cinepass/Frame 106.png",
+      process: "./img/cinepass/Frame 101.png",
+      uiA: "./img/cinepass/Frame 100.png",
+      uiB: "./img/cinepass/Frame 103.png",
+      finalA: "./img/cinepass/Frame 104.png",
+      finalB: "./img/cinepass/Frame 105.png"
+    }
+  };
+
+  function chipsMarkup(items){
+    return items.map(item => `<span class="chip">${item}</span>`).join("");
+  }
+
+  function tagsMarkup(items){
+    return items.map(item => `<span>${item}</span>`).join("");
+  }
+
+  function setVisual(imgId, visualId, src){
+    const img = document.getElementById(imgId);
+    const visual = document.getElementById(visualId);
+    if (!img || !visual) return;
+    visual.classList.remove("is-loaded");
+    img.removeAttribute("src");
+    if(!src) return;
+    img.onload = () => visual.classList.add("is-loaded");
+    img.onerror = () => { visual.classList.remove("is-loaded"); img.removeAttribute("src"); };
+    img.src = src;
+  }
+
+  function loadCaseStudy(){
+    const id = "cinepass";
+    const data = CASE_DATA[id];
+    const media = CASE_MEDIA[id];
+
+    document.title = `${data.title} — UI/UX Case Study | Bypatdesigner`;
+    document.getElementById("caseTitle").textContent = data.title;
+    document.getElementById("caseCategory").textContent = data.category;
+    document.getElementById("heroIntro").textContent = data.lead;
+
+    document.getElementById("specYear").textContent = data.year;
+    document.getElementById("specIndustry").textContent = data.industry;
+    document.getElementById("specTimeline").textContent = data.timeline;
+    document.getElementById("specScope").innerHTML = tagsMarkup(data.scope);
+    document.getElementById("specTech").innerHTML = tagsMarkup(data.tech);
+
+    document.getElementById("caseLead").textContent = data.lead;
+    document.getElementById("contextResearch").innerHTML = data.contextResearch;
+
+    ["f1","f2","f3","f4"].forEach(key => {
+      document.getElementById(`${key}-title`).textContent = data[key].title;
+      document.getElementById(`${key}-desc`).textContent = data[key].desc;
+      document.getElementById(`${key}-chips`).innerHTML = chipsMarkup(data[key].chips);
+    });
+
+    document.getElementById("vis1Title").textContent = data.vis1Title;
+    document.getElementById("vis1Desc").textContent = data.vis1Desc;
+    document.getElementById("vis2Title").textContent = data.vis2Title;
+    document.getElementById("vis2Desc").textContent = data.vis2Desc;
+
+    document.getElementById("learn1Title").textContent = data.learn1Title;
+    document.getElementById("learn1Desc").textContent = data.learn1Desc;
+    document.getElementById("learn2Title").textContent = data.learn2Title;
+    document.getElementById("learn2Desc").textContent = data.learn2Desc;
+    document.getElementById("learn3Title").textContent = data.learn3Title;
+    document.getElementById("learn3Desc").textContent = data.learn3Desc;
+
+    document.getElementById("solutionCopyA").textContent = data.solutionCopyA;
+    document.getElementById("solutionCopyB").textContent = data.solutionCopyB;
+    document.getElementById("solutionHeadline").textContent = data.solutionHeadline;
+    document.getElementById("finalCaption").textContent = data.finalCaption;
+
+    document.getElementById("nextProjectTitle").textContent = data.nextTitle;
+    document.getElementById("nextProjectDesc").textContent = data.nextDesc;
+
+    document.getElementById("phHero").textContent = data.title;
+    document.getElementById("phContext").textContent = "Research artifacts · personas · empathy map · competitor analysis";
+
+    setVisual("imgHero","visualHero",media.hero);
+    setVisual("imgContext","visualContext",media.context);
+    setVisual("imgProcess","visualProcess",media.process);
+    setVisual("imgUiA","visualUiA",media.uiA);
+    setVisual("imgUiB","visualUiB",media.uiB);
+    setVisual("imgFinalA","visualFinalA",media.finalA);
+    setVisual("imgFinalB","visualFinalB",media.finalB);
+  }
+
+  loadCaseStudy();
+</script>
+</body>
+</html>

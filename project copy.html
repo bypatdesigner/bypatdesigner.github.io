@@ -1,0 +1,1265 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">Case Study — AgriBox Platform | Patricia Garcia</title>
+  <meta name="description" content="Dettaglio e case study approfondito del progetto AgriBox Platform: specifiche, fasi di lavoro, architettura UX, design system e sviluppo front-end." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — PROJECT CASE STUDY (Bungee Framer Style)
+       ============================================================ */
+    :root {
+      --ink: #07060C;
+      --surface: #0E0D18;
+      --surface-elevated: #161426;
+      --card-bg: rgba(22, 19, 36, 0.85);
+      --card-hover: rgba(32, 28, 54, 0.95);
+      
+      --text-main: #FFFFFF;
+      --text-body: #E2DCFA;
+      --text-muted: #C5BFDF;
+      --text-dim: #9E96C0;
+      
+      --violet-primary: #8B5CF6;
+      --violet-light: #A78BFA;
+      --violet-bright: #BFA7FF;
+      --violet-glow: #C08BE8;
+      --violet-deep: #4C1D95;
+      --violet-tint: rgba(139, 92, 246, 0.16);
+      
+      --accent-warm: #F6BE65;
+      --accent-emerald: #10B981;
+      
+      --line: rgba(255, 255, 255, 0.12);
+      --line-light: rgba(255, 255, 255, 0.22);
+      --line-violet: rgba(167, 139, 250, 0.38);
+      
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+      
+      --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      
+      --pad-x: clamp(20px, 5vw, 72px);
+      --max-width: 1320px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+      color-scheme: dark;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--text-body);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background: var(--violet-light);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Ambient Background */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 750px;
+      height: 750px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 15%;
+      transition: left 0.22s cubic-bezier(0.16, 1, 0.3, 1), top 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 55%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 55%, transparent 100%);
+      opacity: 0.55;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+      position: relative;
+      z-index: 1;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .grad-text {
+      background: linear-gradient(105deg, #FFFFFF 0%, #EAE5FD 28%, #BFA7FF 52%, #8B5CF6 74%, #F6BE65 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradShimmer 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes gradShimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* ============================================================
+       TOP FLOATING NAV
+       ============================================================ */
+    .top-nav {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: clamp(40px, 6vh, 72px);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--violet-light);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .back-btn:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+      transform: translateX(-3px);
+      box-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+    }
+
+    .nav-project-switcher {
+      display: flex;
+      gap: 8px;
+    }
+
+    .switch-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      transition: all 0.25s ease;
+    }
+
+    .switch-pill:hover, .switch-pill.active {
+      color: #fff;
+      background: var(--violet-tint);
+      border-color: var(--line-violet);
+    }
+
+    /* ============================================================
+       CASE STUDY HERO & EDITORIAL LEAD
+       ============================================================ */
+    .case-hero {
+      margin-bottom: clamp(40px, 6vh, 64px);
+    }
+
+    .case-category-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--violet-light);
+      background: var(--violet-tint);
+      border: 1px solid var(--line-violet);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .case-title {
+      font-size: clamp(2.8rem, 6.4vw, 6.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 28px;
+      max-width: 1100px;
+    }
+
+    /* Big Editorial Lead Paragraph (Reference Bungee / AeroLogix) */
+    .editorial-lead {
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      line-height: 1.45;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      max-width: 1080px;
+      font-weight: 500;
+    }
+
+    .editorial-lead span {
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       METADATA GRID SPECS (Exact Replica of User Reference Screenshot)
+       PROJECT TYPE | RELEASED
+       TECHNOLOGY   | TIMEFRAME
+       ============================================================ */
+    .meta-grid-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: clamp(36px, 5vw, 60px);
+      column-gap: clamp(32px, 6vw, 100px);
+      padding: clamp(36px, 5vh, 60px) 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: clamp(48px, 7vh, 88px) 0 clamp(64px, 9vh, 120px);
+    }
+
+    .meta-spec-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .meta-spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .meta-spec-value {
+      font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+
+    .meta-spec-tech-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .meta-spec-tech-list li {
+      font-size: clamp(1.12rem, 1.6vw, 1.35rem);
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+
+    /* ============================================================
+       MAIN HERO VISUAL BANNER / PREVIEW
+       ============================================================ */
+    .case-main-visual {
+      width: 100%;
+      min-height: 520px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line-violet);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: clamp(64px, 9vh, 120px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .case-visual-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 900px;
+      background: rgba(14, 13, 24, 0.88);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4vw, 48px);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .visual-browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .browser-url-pill {
+      margin-left: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-full);
+      padding: 4px 14px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-dim);
+    }
+
+    /* ============================================================
+       PROJECT PHASES ACCORDION SECTION (Reference Bungee)
+       ============================================================ */
+    .phases-section {
+      margin-bottom: clamp(80px, 11vh, 140px);
+    }
+
+    .phases-head {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .phases-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+    }
+
+    /* Accordion Container */
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .accordion-item {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .accordion-item.is-open {
+      border-color: var(--line-violet);
+      background: var(--card-hover);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .accordion-header {
+      width: 100%;
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .accordion-title-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .phase-num {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--violet-light);
+    }
+
+    .phase-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .accordion-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--line-light);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
+    }
+
+    .accordion-item.is-open .accordion-icon {
+      transform: rotate(45deg);
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0 28px;
+    }
+
+    .accordion-item.is-open .accordion-content {
+      max-height: 500px;
+      padding-bottom: 28px;
+    }
+
+    .phase-desc {
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .phase-deliverables-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .phase-chips-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .phase-chip {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--text-body);
+    }
+
+    /* Right Side Phase Preview Sticky Card */
+    .phase-preview-card {
+      position: sticky;
+      top: 32px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(20px);
+    }
+
+    .phase-preview-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--violet-light);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .phase-preview-headline {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .phase-preview-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .phase-preview-stat-box {
+      padding: 18px 22px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      margin-bottom: 16px;
+    }
+
+    .stat-box-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--violet-bright);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-box-label {
+      font-size: 0.86rem;
+      color: var(--text-dim);
+    }
+
+    /* ============================================================
+       BENTO DESIGN GALLERY / UI SHOWCASE
+       ============================================================ */
+    .gallery-section {
+      margin-bottom: clamp(80px, 11vh, 140px);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .gallery-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 4vw, 44px);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, border-color 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line-violet);
+    }
+
+    .gallery-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .gallery-card-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    /* ============================================================
+       FOOTER NAVIGATION & NEXT PROJECT
+       ============================================================ */
+    .next-project-banner {
+      background: var(--surface);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-xl);
+      padding: clamp(40px, 7vw, 84px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 32px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(139, 92, 246, 0.12);
+    }
+
+    .next-lead {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--violet-light);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .next-title {
+      font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+    }
+
+    .next-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 36px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .next-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(139, 92, 246, 0.7);
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      border-top: 1px solid var(--line);
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+    @media (max-width: 960px) {
+      .meta-grid-specs { grid-template-columns: 1fr; gap: 32px; }
+      .phases-layout { grid-template-columns: 1fr; }
+      .phase-preview-card { position: static; margin-top: 32px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .next-project-banner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .top-nav { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .nav-project-switcher { flex-wrap: wrap; }
+      footer { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Spotlight -->
+  <div class="ambient-bg">
+    <div class="ambient-spotlight" id="ambientSpotlight"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <div class="shell">
+    
+    <!-- ================= TOP NAVIGATION ================= -->
+    <nav class="top-nav" aria-label="Navigazione case study">
+      <a href="index.html#work" class="back-btn">
+        <span>←</span>
+        <span>Torna al Portfolio</span>
+      </a>
+
+      <!-- Quick switcher for all 4 projects -->
+      <div class="nav-project-switcher">
+        <a href="project.html?id=agribox" class="switch-pill" id="pill-agribox">AgriBox</a>
+        <a href="project.html?id=footsy" class="switch-pill" id="pill-footsy">Footsy</a>
+        <a href="project.html?id=mininno" class="switch-pill" id="pill-mininno">Mininno</a>
+        <a href="project.html?id=sumisura" class="switch-pill" id="pill-sumisura">suMisura®</a>
+      </div>
+    </nav>
+
+    <!-- ================= CASE STUDY HEADER & EDITORIAL LEAD ================= -->
+    <header class="case-hero">
+      <div class="case-category-pill" id="caseCategory">E-COMMERCE · UI/UX &amp; FRONT-END</div>
+      <h1 class="case-title" id="caseTitle">AgriBox Platform</h1>
+      
+      <!-- Big Editorial Lead Paragraph (Reference Bungee) -->
+      <p class="editorial-lead" id="caseEditorialLead">
+        Nel 2026, AgriBox ha commissionato a Bypatdesigner la riprogettazione della propria piattaforma digitale. <span>L'obiettivo era superare i limiti del catalogo precedente creando un'esperienza d'acquisto moderna che unisse le esigenze del retail al flusso di ordini all'ingrosso per le aziende agricole.</span>
+      </p>
+    </header>
+
+    <!-- ================= 2x2 METADATA GRID SPECS (Exact Replica of Reference) ================= -->
+    <section class="meta-grid-specs" aria-label="Specifiche del progetto">
+      
+      <!-- Top Left: PROJECT TYPE -->
+      <div class="meta-spec-block">
+        <span class="meta-spec-label">PROJECT TYPE</span>
+        <p class="meta-spec-value" id="metaProjectType">E-commerce B2B &amp; B2C Platform</p>
+      </div>
+
+      <!-- Top Right: RELEASED -->
+      <div class="meta-spec-block">
+        <span class="meta-spec-label">RELEASED</span>
+        <p class="meta-spec-value" id="metaReleased">Feb 21, 2026</p>
+      </div>
+
+      <!-- Bottom Left: TECHNOLOGY -->
+      <div class="meta-spec-block">
+        <span class="meta-spec-label">TECHNOLOGY</span>
+        <ul class="meta-spec-tech-list" id="metaTechList">
+          <li>React.js</li>
+          <li>TypeScript</li>
+          <li>Tailwind CSS</li>
+          <li>Figma Tokens</li>
+          <li>REST API Architecture</li>
+        </ul>
+      </div>
+
+      <!-- Bottom Right: TIMEFRAME -->
+      <div class="meta-spec-block">
+        <span class="meta-spec-label">TIMEFRAME</span>
+        <p class="meta-spec-value" id="metaTimeframe">8 weeks</p>
+      </div>
+
+    </section>
+
+    <!-- ================= MAIN VISUAL HERO PREVIEW ================= -->
+    <section class="case-main-visual" id="caseVisualBox">
+      <div class="case-visual-content">
+        <div class="visual-browser-bar">
+          <span class="browser-dot" style="background:#EF4444;"></span>
+          <span class="browser-dot" style="background:#F59E0B;"></span>
+          <span class="browser-dot" style="background:#10B981;"></span>
+          <span class="browser-url-pill" id="caseUrlPill">https://agribox.platform.design</span>
+        </div>
+        <div id="caseVisualMockupArea">
+          <div class="mono" style="color:var(--violet-light); margin-bottom:8px;">✦ Architettura dell'Esperienza</div>
+          <h3 style="font-size:clamp(1.6rem, 3vw, 2.4rem); color:#fff; font-weight:700; margin-bottom:12px;" id="caseVisualHeadline">
+            Flusso di checkout unificato con calcolo automatico dei listini per P.IVA.
+          </h3>
+          <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.6;" id="caseVisualSub">
+            Un'interfaccia ad alta fedeltà sviluppata in React con componenti atomici riutilizzabili e micro-animazioni di feedback per azzerare l'abbandono del carrello.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECT PHASES ACCORDION ================= -->
+    <section class="phases-section" id="phases">
+      <div class="phases-head">
+        <div class="mono" style="color:var(--violet-light); margin-bottom:8px;">✦ Metodologia Esecutiva</div>
+        <h2 class="section-title">Le 4 Fasi del Progetto</h2>
+        <p style="color:var(--text-muted); max-width:600px; font-size:1.05rem;">
+          Dall'analisi preliminare alla consegna del codice pronto per la produzione: ogni step è strutturato con obiettivi misurabili.
+        </p>
+      </div>
+
+      <div class="phases-layout">
+        
+        <!-- Accordion on the Left -->
+        <div class="accordion-list" id="accordionContainer">
+          
+          <!-- Phase 01 -->
+          <div class="accordion-item is-open" data-phase="1">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-title-wrap">
+                <span class="phase-num">[01]</span>
+                <span class="phase-name" id="p1-title">Discovery &amp; Research</span>
+              </div>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p class="phase-desc" id="p1-desc">
+                Interviste con gli stakeholder e analisi dei clienti business. Mappatura dei punti di attrito del vecchio catalogo e benchmark delle migliori piattaforme retail.
+              </p>
+              <div class="phase-deliverables-title">Deliverables Chiave:</div>
+              <div class="phase-chips-row" id="p1-chips">
+                <span class="phase-chip">User Personas</span>
+                <span class="phase-chip">Competitor Benchmark</span>
+                <span class="phase-chip">Architettura Informativa</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 02 -->
+          <div class="accordion-item" data-phase="2">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-title-wrap">
+                <span class="phase-num">[02]</span>
+                <span class="phase-name" id="p2-title">Wireframing &amp; UX Flows</span>
+              </div>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p class="phase-desc" id="p2-desc">
+                Definizione dei wireframe a bassa fedeltà per testare la gerarchia visiva. Strutturazione del carrello rapido a matrice per gli ordini all'ingrosso.
+              </p>
+              <div class="phase-deliverables-title">Deliverables Chiave:</div>
+              <div class="phase-chips-row" id="p2-chips">
+                <span class="phase-chip">Wireframe Low-Fi</span>
+                <span class="phase-chip">Flussi B2B/B2C</span>
+                <span class="phase-chip">Test di Navigazione</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 03 -->
+          <div class="accordion-item" data-phase="3">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-title-wrap">
+                <span class="phase-num">[03]</span>
+                <span class="phase-name" id="p3-title">UI Design &amp; Tokens</span>
+              </div>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p class="phase-desc" id="p3-desc">
+                Sviluppo dell'identità visiva su Figma con Design Tokens (spaziature, colori, tipografia). Componenti atomici e prototipo interattivo ad alta fedeltà.
+              </p>
+              <div class="phase-deliverables-title">Deliverables Chiave:</div>
+              <div class="phase-chips-row" id="p3-chips">
+                <span class="phase-chip">Figma Variables</span>
+                <span class="phase-chip">Design System Library</span>
+                <span class="phase-chip">High-Fi Prototype</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 04 -->
+          <div class="accordion-item" data-phase="4">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="accordion-title-wrap">
+                <span class="phase-num">[04]</span>
+                <span class="phase-name" id="p4-title">Front-end Development</span>
+              </div>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p class="phase-desc" id="p4-desc">
+                Implementazione del front-end in React.js e Tailwind CSS. Ottimizzazione delle prestazioni per tempi di caricamento istantanei e conformità WCAG AA.
+              </p>
+              <div class="phase-deliverables-title">Deliverables Chiave:</div>
+              <div class="phase-chips-row" id="p4-chips">
+                <span class="phase-chip">React Components</span>
+                <span class="phase-chip">Tailwind Theme</span>
+                <span class="phase-chip">Handoff per Sviluppatori</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sticky Card on the Right (Focus & Impact) -->
+        <aside class="phase-preview-card">
+          <div class="phase-preview-badge" id="previewBadge">IMPATTO &amp; RISULTATI</div>
+          <h3 class="phase-preview-headline" id="previewHeadline">
+            +42% di conversioni sugli ordini all'ingrosso.
+          </h3>
+          <p class="phase-preview-text" id="previewText">
+            Grazie alla separazione intelligente dei flussi d'acquisto e al caricamento istantaneo delle schede prodotto, il tasso di completamento del checkout è aumentato notevolmente nei primi 60 giorni.
+          </p>
+
+          <div class="phase-preview-stat-box">
+            <div class="stat-box-num" id="stat1Num">&lt; 0.8s</div>
+            <div class="stat-box-label" id="stat1Label">Tempo medio di risposta e rendering pagina</div>
+          </div>
+
+          <div class="phase-preview-stat-box">
+            <div class="stat-box-num" id="stat2Num">0%</div>
+            <div class="stat-box-label" id="stat2Label">Debito di design grazie al Design System unificato</div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ================= VISUAL SHOWCASE BENTO ================= -->
+    <section class="gallery-section">
+      <div class="mono" style="color:var(--violet-light); margin-bottom:8px;">✦ Dettagli Costruttivi</div>
+      <h2 class="section-title">Highlights dell'Interfaccia</h2>
+      
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <div>
+            <span class="mono" style="color:var(--violet-light);">01 — Design System</span>
+            <h4 class="gallery-card-title" id="gallery1Title">Variabili &amp; Componenti Modulari</h4>
+            <p class="gallery-card-desc" id="gallery1Desc">
+              Oltre 40 componenti riutilizzabili su Figma con auto-layout reattivo e stati interattivi pronti per il team di ingegneria.
+            </p>
+          </div>
+          <div class="mono" style="color:var(--text-dim); margin-top:24px;">Figma Tokens · Scalabilità Totale</div>
+        </div>
+
+        <div class="gallery-card">
+          <div>
+            <span class="mono" style="color:var(--violet-light);">02 — Performance</span>
+            <h4 class="gallery-card-title" id="gallery2Title">Front-end Pulito &amp; Reattivo</h4>
+            <p class="gallery-card-desc" id="gallery2Desc">
+              Struttura del codice pulita, priva di dipendenze pesanti e con transizioni CSS ottimizzate per la GPU.
+            </p>
+          </div>
+          <div class="mono" style="color:var(--text-dim); margin-top:24px;">React · Tailwind · Semantic HTML</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEXT PROJECT BANNER ================= -->
+    <section class="next-project-banner">
+      <div>
+        <div class="next-lead">Prossimo Progetto</div>
+        <h3 class="next-title" id="nextProjectTitle">Footsy Shoes</h3>
+      </div>
+      <a href="project.html?id=footsy" class="next-btn" id="nextProjectBtn">
+        <span>Vedi Case Study</span>
+        <span>↗</span>
+      </a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <span>Bari / Bisceglie · Italia</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="index.html">Home Portfolio ↗</a>
+        <a href="cv.html">Resume / CV ↗</a>
+        <a href="index.html#contact">Contatti ↗</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    /* DATABASE COMPLETO DEI 4 CASE STUDY (Bungee Reference Model) */
+    const CASE_STUDIES = {
+      agribox: {
+        title: "AgriBox Platform",
+        category: "E-COMMERCE · UI/UX & FRONT-END",
+        lead: "Nel 2026, AgriBox ha commissionato a Bypatdesigner la riprogettazione della propria piattaforma digitale. L'obiettivo era superare i limiti del catalogo precedente creando un'esperienza d'acquisto moderna che unisse le esigenze del retail al flusso di ordini all'ingrosso per le aziende agricole.",
+        projectType: "E-commerce B2B & B2C Platform",
+        released: "Feb 21, 2026",
+        technologies: ["React.js", "TypeScript", "Tailwind CSS", "Figma Tokens", "REST API Architecture"],
+        timeframe: "8 weeks",
+        urlPill: "https://agribox.platform.design",
+        visualHeadline: "Flusso di checkout unificato con calcolo automatico dei listini per P.IVA.",
+        visualSub: "Un'interfaccia ad alta fedeltà sviluppata in React con componenti atomici riutilizzabili e micro-animazioni di feedback per azzerare l'abbandono del carrello.",
+        bgGrad: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)",
+        p1: {
+          title: "Discovery & Research",
+          desc: "Interviste con gli stakeholder e analisi dei clienti business. Mappatura dei punti di attrito del vecchio catalogo e benchmark delle migliori piattaforme retail.",
+          chips: ["User Personas", "Competitor Benchmark", "Architettura Informativa"]
+        },
+        p2: {
+          title: "Wireframing & UX Flows",
+          desc: "Definizione dei wireframe a bassa fedeltà per testare la gerarchia visiva. Strutturazione del carrello rapido a matrice per gli ordini all'ingrosso.",
+          chips: ["Wireframe Low-Fi", "Flussi B2B/B2C", "Test di Navigazione"]
+        },
+        p3: {
+          title: "UI Design & Tokens",
+          desc: "Sviluppo dell'identità visiva su Figma con Design Tokens (spaziature, colori, tipografia). Componenti atomici e prototipo interattivo ad alta fedeltà.",
+          chips: ["Figma Variables", "Design System Library", "High-Fi Prototype"]
+        },
+        p4: {
+          title: "Front-end Development",
+          desc: "Implementazione del front-end in React.js e Tailwind CSS. Ottimizzazione delle prestazioni per tempi di caricamento istantanei e conformità WCAG AA.",
+          chips: ["React Components", "Tailwind Theme", "Handoff per Sviluppatori"]
+        },
+        previewHeadline: "+42% di conversioni sugli ordini all'ingrosso.",
+        previewText: "Grazie alla separazione intelligente dei flussi d'acquisto e al caricamento istantaneo delle schede prodotto, il tasso di completamento del checkout è aumentato notevolmente nei primi 60 giorni.",
+        stat1Num: "< 0.8s",
+        stat1Label: "Tempo medio di risposta e rendering pagina",
+        stat2Num: "0%",
+        stat2Label: "Debito di design grazie al Design System unificato",
+        gallery1Title: "Variabili & Componenti Modulari",
+        gallery1Desc: "Oltre 40 componenti riutilizzabili su Figma con auto-layout reattivo e stati interattivi pronti per il team di ingegneria.",
+        gallery2Title: "Front-end Pulito & Reattivo",
+        gallery2Desc: "Struttura del codice pulita, priva di dipendenze pesanti e con transizioni CSS ottimizzate per la GPU.",
+        nextKey: "footsy",
+        nextTitle: "Footsy Shoes"
+      },
+      footsy: {
+        title: "Footsy Shoes",
+        category: "DIGITAL STORE & PRODUCT CONFIGURATOR",
+        lead: "Nel 2026, Footsy ha richiesto una soluzione digitale per azzerare il tasso di reso sulle calzature per bambini. Abbiamo progettato un configuratore interattivo guidato e un'esperienza d'acquisto visiva allegra, moderna e affidabile.",
+        projectType: "Interactive Kids Footwear Store",
+        released: "Jan 15, 2026",
+        technologies: ["React.js", "Figma Auto-layout", "Micro-animations", "Tailwind CSS", "SVG Interactive Sizer"],
+        timeframe: "6 weeks",
+        urlPill: "https://footsy.shoes.experience",
+        visualHeadline: "Configuratore taglia assistito con guida visiva del piede a 360°.",
+        visualSub: "Un selettore interattivo con visualizzatore dinamico che riduce i dubbi dei genitori sulla taglia e velocizza la selezione del modello ideale.",
+        bgGrad: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.25), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)",
+        p1: {
+          title: "User Journey & Ricerca Genitori",
+          desc: "Studio dei comportamenti d'acquisto dei genitori online: il 68% dei resi era dovuto a taglie errate o difficoltà nel comprendere la calzata della scarpa.",
+          chips: ["User Interviews", "Analisi Resi", "Mappa delle Esitazioni"]
+        },
+        p2: {
+          title: "Ideazione Configuratore Taglie",
+          desc: "Progettazione di un calcolatore visivo basato su millimetri reali del piede e crescita stimata per fascia d'età, con anteprima a schermo intero.",
+          chips: ["Interactive Sizer", "Flow di Selezione", "Feedback Visivo"]
+        },
+        p3: {
+          title: "UI Design & Palette Vivace",
+          desc: "Stile grafico energico ed elegante, con colori caldi (arancio corallo e navy) combinati a micro-animazioni fluide di hover e transizione carrello.",
+          chips: ["Micro-interactions", "Figma Auto-layout", "Design System"]
+        },
+        p4: {
+          title: "Componenti UI & Test Usabilità",
+          desc: "Creazione di componenti React modulari con test A/B su campioni di utenti reali per validare la chiarezza dell'interfaccia.",
+          chips: ["React Components", "A/B Testing", "Mobile Optimization"]
+        },
+        previewHeadline: "-54% di resi per taglia errata.",
+        previewText: "Il nuovo configuratore ha guidato con precisione il processo decisionale degli utenti, aumentando il valore medio del carrello (+28%).",
+        stat1Num: "54%",
+        stat1Label: "Riduzione drastica dei resi nei primi 3 mesi",
+        stat2Num: "94%",
+        stat2Label: "Gradimento dell'assistente taglia interattivo",
+        gallery1Title: "Visualizzatore 360° dei Materiali",
+        gallery1Desc: "Schede prodotto immersive dove ogni dettaglio della calzatura (suola, tomaia, chiusura) è esplorabile con un click.",
+        gallery2Title: "Checkout Mobile in 3 Tocchi",
+        gallery2Desc: "Procedura di acquisto mobile-first studiata per completare l'ordine con una mano sola.",
+        nextKey: "mininno",
+        nextTitle: "Mininno Costruzioni"
+      },
+      mininno: {
+        title: "Mininno Costruzioni",
+        category: "EDITORIAL WEB & ARCHITETTURA",
+        lead: "Nel 2026, la storica impresa edile pugliese Mininno ha voluto rinnovare la propria immagine digitale con un approccio editoriale di respiro internazionale, valorizzando il rigore costruttivo e la purezza architettonica.",
+        projectType: "Corporate & Architecture Portfolio",
+        released: "Mar 10, 2026",
+        technologies: ["JavaScript ES6+", "Semantic CSS3", "Swiss Grid System", "Adobe CC", "Web Performance Engine"],
+        timeframe: "7 weeks",
+        urlPill: "https://mininno.costruzioni.it",
+        visualHeadline: "Griglia svizzera e fotografia architettonica ad altissima definizione.",
+        visualSub: "Un layout asimmetrico elegante che fonde schede tecniche, cronistoria dei cantieri e rendering di progetto in una narrazione fluida.",
+        bgGrad: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)",
+        p1: {
+          title: "Brand Strategy & Archivio Storico",
+          desc: "Digitalizzazione dell'archivio progetti quarantennale dell'azienda e definizione dei pilastri comunicativi: affidabilità, materia, innovazione.",
+          chips: ["Archivio Digitale", "Brand Pillars", "Direzione Artistica"]
+        },
+        p2: {
+          title: "Sistema Tipografico & Griglia",
+          desc: "Impostazione di una griglia editoriale a 12 colonne ispirata ai manifesti modernisti svizzeri, con gerarchie tipografiche audaci ma leggibili.",
+          chips: ["Swiss Grid System", "Tipografia Editoriale", "Layout Asimmetrici"]
+        },
+        p3: {
+          title: "Schede Cantiere Interattive",
+          desc: "Progettazione di schede progetto dettagliate che mostrano l'avanzamento dei lavori, i materiali impiegati e i partner tecnici.",
+          chips: ["Schede Tecniche", "Timeline Cantieri", "Galleria Fotografica"]
+        },
+        p4: {
+          title: "Sviluppo Web & Ottimizzazione SEO",
+          desc: "Sviluppo front-end pulito con transizioni delicate tra le pagine e ottimizzazione SEO semantica per posizionare l'azienda sui grandi appalti.",
+          chips: ["CSS Moderno", "SEO Semantico", "Transizioni Fluide"]
+        },
+        previewHeadline: "Rinnovamento dell'immagine e nuovi lead per commesse private.",
+        previewText: "Il nuovo portale ha posizionato Mininno come punto di riferimento per architetti e committenti di ville ed edifici residenziali di pregio.",
+        stat1Num: "100%",
+        stat1Label: "Punteggio Core Web Vitals su Google",
+        stat2Num: "3.2x",
+        stat2Label: "Aumento del tempo di permanenza sul portfolio cantieri",
+        gallery1Title: "Impaginazione Editoriale Dinamica",
+        gallery1Desc: "Composizioni grafiche che valorizzano la luce naturale e i materiali edili di pregio.",
+        gallery2Title: "Schemi Tecnici & Capitolati",
+        gallery2Desc: "Sezioni dedicate a studi di architettura per consultare capitolati e dettagli costruttivi.",
+        nextKey: "sumisura",
+        nextTitle: "suMisura® Doors"
+      },
+      sumisura: {
+        title: "suMisura® Security Doors",
+        category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+        lead: "Nel 2026, suMisura® ha richiesto una web app per consentire ai clienti di configurare e preventivare online porte blindate ad alta sicurezza con rendering vettoriale in tempo reale.",
+        projectType: "Industrial Product Configurator & CPQ",
+        released: "Apr 04, 2026",
+        technologies: ["JavaScript ES6+", "SVG Vector Engine", "Figma Design System", "Tailwind CSS", "PDF Exporter Module"],
+        timeframe: "9 weeks",
+        urlPill: "https://sumisura.configurator.pro",
+        visualHeadline: "Configuratore in 4 step con preventivo istantaneo e anteprima dinamica.",
+        visualSub: "Selezione immediata di classi di sicurezza (Classe 3, 4, 5), essenze lignee, maniglie di design e serrature elettroniche con calcolo prezzi in tempo reale.",
+        bgGrad: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)",
+        p1: {
+          title: "Mappatura Varianti & Logiche di Prodotto",
+          desc: "Analisi tecnica di oltre 200 combinazioni di pannelli, serrature, maniglie e telai per tradurle in un diagramma di flusso logico lineare.",
+          chips: ["Matrice Prodotti", "Logica Condizionale", "User Journey"]
+        },
+        p2: {
+          title: "Motore SVG & Prototipazione Dinamica",
+          desc: "Creazione di un sistema di asset vettoriali modulari capaci di comporsi a strati per visualizzare la porta personalizzata in qualsiasi momento.",
+          chips: ["SVG Layering", "Prototipo Interattivo", "Preventivatore Live"]
+        },
+        p3: {
+          title: "UI Design & Design System Industriale",
+          desc: "Interfaccia scura con accenti bronzo/oro e viola, pannelli di controllo compatti e feedback sonoro/visivo al cambio di finitura.",
+          chips: ["Dark UI Luxury", "Componenti Figma", "Micro-feedback"]
+        },
+        p4: {
+          title: "Sviluppo Frontend & Generazione PDF",
+          desc: "Scrittura della logica front-end in JavaScript con esportazione automatica della scheda tecnica e del preventivo formattato in PDF per il rivenditore.",
+          chips: ["JS Logic Engine", "PDF Generator", "Cross-Device Test"]
+        },
+        previewHeadline: "+65% di richieste di preventivo qualificate.",
+        previewText: "I clienti arrivano negli showroom con la scheda tecnica già configurata, dimezzando i tempi di consulenza dei rivenditori autorizzati.",
+        stat1Num: "-50%",
+        stat1Label: "Tempo necessario per generare un preventivo tecnico",
+        stat2Num: "65%",
+        stat2Label: "Aumento di conversioni da visitatore a richiesta commerciale",
+        gallery1Title: "Rendering Vettoriale a Strati",
+        gallery1Desc: "Ogni finitura (rovere spazzolato, noce, laccato nero) viene renderizzata istantaneamente senza caricamenti pesanti.",
+        gallery2Title: "Esportazione Scheda Tecnica Istantanea",
+        gallery2Desc: "Generazione del documento riassuntivo completo di codici prodotto e dimensioni personalizzate.",
+        nextKey: "agribox",
+        nextTitle: "AgriBox Platform"
+      }
+    };
+
+    /* INIZIALIZZAZIONE DELLA PAGINA TRAMITE URL PARAMETER ?id= */
+    function loadProjectData() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('id') || 'agribox';
+      const data = CASE_STUDIES[projectId] || CASE_STUDIES.agribox;
+
+      // Update Page Title & Headers
+      document.title = `Case Study — ${data.title} | Patricia Garcia`;
+      document.getElementById('caseTitle').textContent = data.title;
+      document.getElementById('caseCategory').textContent = data.category;
+      document.getElementById('caseEditorialLead').innerHTML = data.lead;
+
+      // Update 2x2 Metadata Grid (Matching Reference Screenshot)
+      document.getElementById('metaProjectType').textContent = data.projectType;
+      document.getElementById('metaReleased').textContent = data.released;
+      document.getElementById('metaTimeframe').textContent = data.timeframe;
+
+      const techListCont = document.getElementById('metaTechList');
+      techListCont.innerHTML = data.technologies.map(t => `<li>${t}</li>`).join('');
+
+      // Update Visual Box
+      const visualBox = document.getElementById('caseVisualBox');
+      visualBox.style.background = data.bgGrad;
+      document.getElementById('caseUrlPill').textContent = data.urlPill;
+      document.getElementById('caseVisualHeadline').textContent = data.visualHeadline;
+      document.getElementById('caseVisualSub').textContent = data.visualSub;
+
+      // Update Phases
+      ['p1', 'p2', 'p3', 'p4'].forEach(pKey => {
+        const pData = data[pKey];
+        document.getElementById(`${pKey}-title`).textContent = pData.title;
+        document.getElementById(`${pKey}-desc`).textContent = pData.desc;
+        const chipsCont = document.getElementById(`${pKey}-chips`);
+        chipsCont.innerHTML = pData.chips.map(c => `<span class="phase-chip">${c}</span>`).join('');
+      });
+
+      // Update Preview Card
+      document.getElementById('previewHeadline').textContent = data.previewHeadline;
+      document.getElementById('previewText').textContent = data.previewText;
+      document.getElementById('stat1Num').textContent = data.stat1Num;
+      document.getElementById('stat1Label').textContent = data.stat1Label;
+      document.getElementById('stat2Num').textContent = data.stat2Num;
+      document.getElementById('stat2Label').textContent = data.stat2Label;
+
+      // Update Gallery
+      document.getElementById('gallery1Title').textContent = data.gallery1Title;
+      document.getElementById('gallery1Desc').textContent = data.gallery1Desc;
+      document.getElementById('gallery2Title').textContent = data.gallery2Title;
+      document.getElementById('gallery2Desc').textContent = data.gallery2Desc;
+
+      // Update Next Project Banner
+      document.getElementById('nextProjectTitle').textContent = data.nextTitle;
+      document.getElementById('nextProjectBtn').href = `project.html?id=${data.nextKey}`;
+
+      // Update Active Switcher Pill
+      document.querySelectorAll('.switch-pill').forEach(pill => pill.classList.remove('active'));
+      const activePill = document.getElementById(`pill-${projectId}`);
+      if (activePill) activePill.classList.add('active');
+    }
+
+    /* ACCORDION INTERACTION */
+    function toggleAccordion(btn) {
+      const item = btn.closest('.accordion-item');
+      const isOpen = item.classList.contains('is-open');
+
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('is-open'));
+
+      // If it wasn't open, open it
+      if (!isOpen) {
+        item.classList.add('is-open');
+      }
+    }
+
+    /* AMBIENT SPOTLIGHT FOLLOW */
+    const spotlight = document.getElementById('ambientSpotlight');
+    window.addEventListener('mousemove', (e) => {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+    });
+
+    // Run on load
+    loadProjectData();
+  </script>
+</body>
+</html>

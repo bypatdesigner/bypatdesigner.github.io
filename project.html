@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">AgriBox Platform — Case Study | Bypatdesigner</title>
+  <meta name="description" content="Case study approfondito del progetto AgriBox Platform: hero showcase, specifiche tecniche, fasi di sviluppo, design system e galleria immagini." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS (Deep Obsidian Black & Electric Violet + Amber)
+       ============================================================ */
+    :root {
+      --ink: #07060C;
+      --surface: #0E0D18;
+      --surface-elevated: #161426;
+      --card-bg: rgba(22, 19, 36, 0.85);
+      --card-hover: rgba(30, 26, 50, 0.95);
+      
+      --text-main: #FFFFFF;
+      --text-body: #E4DFFA;
+      --text-muted: #C8C2E2;
+      --text-dim: #9E96C0;
+      
+      --violet-primary: #8B5CF6;
+      --violet-light: #A78BFA;
+      --violet-bright: #BFA7FF;
+      --violet-glow: #C08BE8;
+      --accent-warm: #F6BE65;
+      --accent-emerald: #10B981;
+      
+      --line: rgba(255, 255, 255, 0.12);
+      --line-light: rgba(255, 255, 255, 0.22);
+      --line-violet: rgba(167, 139, 250, 0.38);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+      
+      --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      
+      --pad-x: clamp(20px, 5vw, 72px);
+      --max-width: 1360px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--ink);
+      color-scheme: dark;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--text-body);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background: var(--violet-light);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+      position: relative;
+      z-index: 1;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    /* Gradient Text with Violet & Amber Warmth */
+    .grad-text {
+      background: linear-gradient(105deg, #FFFFFF 0%, #EAE5FD 30%, #BFA7FF 55%, #8B5CF6 75%, #F6BE65 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradShimmer 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes gradShimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Ambient Spotlight */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 750px;
+      height: 750px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.16) 0%, rgba(139, 92, 246, 0.03) 45%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 15%;
+      transition: left 0.22s cubic-bezier(0.16, 1, 0.3, 1), top 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    /* ============================================================
+       TOP HEADER NAVIGATION
+       ============================================================ */
+    .top-nav {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: clamp(32px, 5vh, 56px);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--violet-light);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .back-btn:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+      transform: translateX(-3px);
+      box-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+    }
+
+    .nav-brand-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mode-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .mode-switch-btn:hover {
+      background: #FFFFFF;
+      color: #07060C;
+      border-color: #FFFFFF;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       HERO TITLE WITH GRADIENT (White -> Violet -> Amber)
+       ============================================================ */
+    .case-hero {
+      margin-bottom: clamp(36px, 5vh, 56px);
+    }
+
+    .case-category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--violet-light);
+      background: rgba(167, 139, 250, 0.12);
+      border: 1px solid var(--line-violet);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .case-title {
+      font-size: clamp(3rem, 6.8vw, 7.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      font-weight: 800;
+      margin-bottom: 24px;
+      max-width: 1100px;
+    }
+
+    /* ============================================================
+       LARGE HERO IMAGE / MOCKUP SHOWCASE BANNER
+       ============================================================ */
+    .hero-banner-visual {
+      width: 100%;
+      min-height: clamp(380px, 55vh, 640px);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line-violet);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: clamp(48px, 7vh, 88px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 35px rgba(139, 92, 246, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 4vw, 56px);
+      background: radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109);
+    }
+
+    .hero-mockup-frame {
+      width: 100%;
+      max-width: 1020px;
+      background: rgba(14, 13, 24, 0.92);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4vw, 48px);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    }
+
+    .browser-controls-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .browser-pill-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .browser-url-badge {
+      margin-left: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-full);
+      padding: 4px 14px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ============================================================
+       EDITORIAL LEAD (Refined, Less Bold, Elegant)
+       ============================================================ */
+    .editorial-lead-wrap {
+      max-width: 960px;
+      margin: 0 auto clamp(48px, 7vh, 80px);
+      text-align: left;
+    }
+
+    .editorial-lead-text {
+      font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+      line-height: 1.65;
+      letter-spacing: -0.015em;
+      color: var(--text-body);
+      font-weight: 400;
+    }
+
+    .editorial-lead-text span {
+      color: var(--text-muted);
+    }
+
+    /* ============================================================
+       METADATA TABLE SPECS (Preferred Clean Rows Layout)
+       Year | Industry | Scope of work | Timeline | Technology | Live Project
+       ============================================================ */
+    .meta-specs-section {
+      width: 100%;
+      border-top: 1px solid var(--line);
+      margin-bottom: clamp(64px, 9vh, 120px);
+    }
+
+    .meta-spec-row {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+      transition: background 0.2s ease;
+    }
+
+    .meta-spec-row:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .meta-spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .meta-spec-content {
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-tag-slash::before {
+      content: "/ ";
+      color: var(--violet-light);
+      font-weight: 400;
+    }
+
+    .meta-live-link {
+      color: #FFFFFF;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--violet-light);
+      padding-bottom: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .meta-live-link:hover {
+      color: var(--violet-light);
+      border-color: #FFFFFF;
+    }
+
+    /* ============================================================
+       PROJECT PHASES ACCORDION & EXTENSIVE IMAGE GALLERY
+       ============================================================ */
+    .phases-showcase-section {
+      margin-bottom: clamp(80px, 12vh, 150px);
+    }
+
+    .section-header-compact {
+      margin-bottom: 40px;
+    }
+
+    .section-compact-title {
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    /* Phases 2-Column Structure */
+    .phases-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+      margin-bottom: 64px;
+    }
+
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .accordion-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .accordion-card.is-open {
+      border-color: var(--line-violet);
+      background: var(--card-hover);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .accordion-head-btn {
+      width: 100%;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .accordion-head-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .phase-idx {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--violet-light);
+    }
+
+    .phase-heading {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .accordion-toggle-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--line-light);
+      display: grid;
+      place-items: center;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      transition: transform 0.35s ease, background 0.3s;
+    }
+
+    .accordion-card.is-open .accordion-toggle-icon {
+      transform: rotate(45deg);
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+    }
+
+    .accordion-drawer-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0 24px;
+    }
+
+    .accordion-card.is-open .accordion-drawer-body {
+      max-height: 400px;
+      padding-bottom: 24px;
+    }
+
+    .accordion-body-text {
+      font-size: 0.98rem;
+      line-height: 1.62;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .deliverables-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .deliv-chip {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      color: var(--text-body);
+    }
+
+    /* Extensive Image Showcase Cards Gallery */
+    .images-showcase-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .showcase-image-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 3.5vw, 40px);
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.35s ease, border-color 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-image-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-violet);
+    }
+
+    /* Full-Width Visual Gallery Grid (Generous Space for Images) */
+    .full-gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .gallery-big-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(32px, 4.5vw, 56px);
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ============================================================
+       BOTTOM NEXT PROJECT & CONTACT CTA
+       ============================================================ */
+    .bottom-flow-row {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .next-case-box {
+      background: var(--surface);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-xl);
+      padding: clamp(36px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+
+    .next-case-box:hover {
+      border-color: var(--violet-light);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.2);
+    }
+
+    .all-projects-cta-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: clamp(36px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      border-top: 1px solid var(--line);
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+    @media (max-width: 960px) {
+      .phases-grid-layout, .full-gallery-grid, .bottom-flow-row { grid-template-columns: 1fr; }
+      .meta-spec-row { grid-template-columns: 1fr; gap: 6px; }
+      .meta-spec-content { justify-content: flex-start; text-align: left; }
+    }
+
+    @media (max-width: 600px) {
+      .top-nav { flex-direction: column; gap: 14px; align-items: flex-start; }
+      footer { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Spotlight -->
+  <div class="ambient-bg">
+    <div class="ambient-spotlight" id="ambientSpotlight"></div>
+  </div>
+
+  <div class="shell">
+    
+    <!-- ================= TOP NAVIGATION (Clean Back to Projects) ================= -->
+    <nav class="top-nav" aria-label="Navigazione case study">
+      <a href="projects.html" class="back-btn">
+        <span>←</span>
+        <span>Tutti i Progetti</span>
+      </a>
+
+      <a href="index.html">
+        <img class="nav-brand-logo" src="./img/logo.png" alt="Bypatdesigner Logo" />
+      </a>
+
+      <div class="nav-right-actions">
+        <a class="mode-switch-btn" href="./light-version/index.html" title="Passa alla versione Light">
+          <span>☀️</span>
+          <span>Light Mode</span>
+        </a>
+        <a href="index.html#contact" class="back-btn" style="background: transparent;">
+          <span>Contatti</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- ================= CASE STUDY TITLE (Gradient Ending in Violet & Warm Gold) ================= -->
+    <header class="case-hero">
+      <div class="case-category-tag" id="caseCategory">E-COMMERCE · UI/UX &amp; FRONT-END</div>
+      <h1 class="case-title grad-text" id="caseTitle">AgriBox Platform</h1>
+    </header>
+
+    <!-- ================= 1. LARGE HERO IMAGE / MOCKUP BANNER ================= -->
+    <section class="hero-banner-visual" id="heroBannerVisual">
+      <div class="hero-mockup-frame">
+        <div class="browser-controls-row">
+          <span class="browser-pill-dot" style="background:#EF4444;"></span>
+          <span class="browser-pill-dot" style="background:#F59E0B;"></span>
+          <span class="browser-pill-dot" style="background:#10B981;"></span>
+          <span class="browser-url-badge" id="caseUrlBadge">https://agribox.platform.design</span>
+        </div>
+        <div>
+          <div class="mono" style="color:var(--violet-light); margin-bottom:8px;">✦ Panoramica dell'Interfaccia</div>
+          <h3 style="font-size:clamp(1.5rem, 2.6vw, 2.3rem); color:#fff; font-weight:700; margin-bottom:12px;" id="heroMockupHeadline">
+            Flusso di checkout unificato con calcolo automatico dei listini per P.IVA.
+          </h3>
+          <p style="color:var(--text-muted); font-size:1.02rem; line-height:1.6;" id="heroMockupSub">
+            Un'interfaccia ad alta fedeltà sviluppata in React con componenti atomici riutilizzabili e micro-animazioni di feedback per azzerare l'abbandono del carrello.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. EDITORIAL LEAD (Refined, Less Bold, Elegant) ================= -->
+    <section class="editorial-lead-wrap">
+      <p class="editorial-lead-text" id="caseLead">
+        Nel 2026, AgriBox ha commissionato a Bypatdesigner la riprogettazione della propria piattaforma digitale. <span>L'obiettivo era superare i limiti del catalogo precedente creando un'esperienza d'acquisto moderna che unisse le esigenze del retail al flusso di ordini all'ingrosso per le aziende agricole.</span>
+      </p>
+    </section>
+
+    <!-- ================= 3. METADATA SPECS TABLE (Matching User Preference) ================= -->
+    <section class="meta-specs-section" aria-label="Specifiche del progetto">
+      <div class="meta-spec-row">
+        <span class="meta-spec-label">Year</span>
+        <div class="meta-spec-content" id="specYear">2026</div>
+      </div>
+
+      <div class="meta-spec-row">
+        <span class="meta-spec-label">Industry</span>
+        <div class="meta-spec-content" id="specIndustry">Agri-tech &amp; B2B/B2C E-commerce</div>
+      </div>
+
+      <div class="meta-spec-row">
+        <span class="meta-spec-label">Scope of work</span>
+        <div class="meta-spec-content" id="specScope">
+          <span class="meta-tag-slash">UI/UX Design</span>
+          <span class="meta-tag-slash">Front-end Development</span>
+          <span class="meta-tag-slash">Design System</span>
+        </div>
+      </div>
+
+      <div class="meta-spec-row">
+        <span class="meta-spec-label">Timeline</span>
+        <div class="meta-spec-content" id="specTimeline">8 Settimane</div>
+      </div>
+
+      <div class="meta-spec-row">
+        <span class="meta-spec-label">Technology</span>
+        <div class="meta-spec-content" id="specTech">
+          <span class="meta-tag-slash">React.js</span>
+          <span class="meta-tag-slash">TypeScript</span>
+          <span class="meta-tag-slash">Tailwind CSS</span>
+          <span class="meta-tag-slash">Figma Tokens</span>
+        </div>
+      </div>
+
+      <div class="meta-spec-row">
+        <span class="meta-spec-label">Live project</span>
+        <div class="meta-spec-content">
+          <a href="#heroBannerVisual" class="meta-live-link" id="specLive">Preview ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. PROJECT PHASES ACCORDION + EXTENSIVE SHOWCASE ================= -->
+    <section class="phases-showcase-section">
+      <div class="section-header-compact">
+        <div class="mono" style="color:var(--violet-light); margin-bottom:6px;">✦ Fasi Esecutive</div>
+        <h2 class="section-compact-title">Metodologia di Sviluppo</h2>
+      </div>
+
+      <!-- 2-Column: Accordion on Left + Visual Highlights on Right -->
+      <div class="phases-grid-layout">
+        
+        <!-- Accordion on Left -->
+        <div class="accordion-list">
+          
+          <!-- Phase 1 -->
+          <div class="accordion-card is-open">
+            <button class="accordion-head-btn" onclick="toggleAcc(this)">
+              <div class="accordion-head-left">
+                <span class="phase-idx">[01]</span>
+                <span class="phase-heading" id="f1-title">Discovery &amp; Research</span>
+              </div>
+              <span class="accordion-toggle-icon">+</span>
+            </button>
+            <div class="accordion-drawer-body">
+              <p class="accordion-body-text" id="f1-desc">
+                Interviste con gli stakeholder e analisi dei clienti business. Mappatura dei punti di attrito del vecchio catalogo e benchmark delle migliori piattaforme retail.
+              </p>
+              <div class="deliverables-chips" id="f1-chips">
+                <span class="deliv-chip">User Personas</span>
+                <span class="deliv-chip">Competitor Benchmark</span>
+                <span class="deliv-chip">Architettura Informativa</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="accordion-card">
+            <button class="accordion-head-btn" onclick="toggleAcc(this)">
+              <div class="accordion-head-left">
+                <span class="phase-idx">[02]</span>
+                <span class="phase-heading" id="f2-title">Wireframing &amp; UX Flows</span>
+              </div>
+              <span class="accordion-toggle-icon">+</span>
+            </button>
+            <div class="accordion-drawer-body">
+              <p class="accordion-body-text" id="f2-desc">
+                Definizione dei wireframe a bassa fedeltà per testare la gerarchia visiva. Strutturazione del carrello rapido a matrice per gli ordini all'ingrosso.
+              </p>
+              <div class="deliverables-chips" id="f2-chips">
+                <span class="deliv-chip">Wireframe Low-Fi</span>
+                <span class="deliv-chip">Flussi B2B/B2C</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="accordion-card">
+            <button class="accordion-head-btn" onclick="toggleAcc(this)">
+              <div class="accordion-head-left">
+                <span class="phase-idx">[03]</span>
+                <span class="phase-heading" id="f3-title">UI Design &amp; Tokens</span>
+              </div>
+              <span class="accordion-toggle-icon">+</span>
+            </button>
+            <div class="accordion-drawer-body">
+              <p class="accordion-body-text" id="f3-desc">
+                Sviluppo dell'identità visiva su Figma con Design Tokens (spaziature, colori, tipografia). Componenti atomici e prototipo interattivo ad alta fedeltà.
+              </p>
+              <div class="deliverables-chips" id="f3-chips">
+                <span class="deliv-chip">Figma Variables</span>
+                <span class="deliv-chip">Design System Library</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="accordion-card">
+            <button class="accordion-head-btn" onclick="toggleAcc(this)">
+              <div class="accordion-head-left">
+                <span class="phase-idx">[04]</span>
+                <span class="phase-heading" id="f4-title">Front-end Development</span>
+              </div>
+              <span class="accordion-toggle-icon">+</span>
+            </button>
+            <div class="accordion-drawer-body">
+              <p class="accordion-body-text" id="f4-desc">
+                Implementazione del front-end in React.js e Tailwind CSS. Ottimizzazione delle prestazioni per tempi di caricamento istantanei e conformità WCAG AA.
+              </p>
+              <div class="deliverables-chips" id="f4-chips">
+                <span class="deliv-chip">React Components</span>
+                <span class="deliv-chip">Tailwind Theme</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Visual Highlights on Right -->
+        <div class="images-showcase-stream">
+          <div class="showcase-image-card" style="background: radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.22), transparent 45%), linear-gradient(145deg, #120F1E, #2A1F45 55%, #0A0813);">
+            <div>
+              <span class="mono" style="color:var(--violet-light);">01 — Design System</span>
+              <h4 style="font-size:1.45rem; font-weight:700; color:#fff; margin:6px 0 10px;" id="vis1Title">
+                Variabili &amp; Componenti Modulari
+              </h4>
+              <p style="color:var(--text-muted); font-size:0.98rem; line-height:1.6;" id="vis1Desc">
+                Oltre 40 componenti riutilizzabili su Figma con auto-layout reattivo e stati interattivi pronti per l'ingegnerizzazione.
+              </p>
+            </div>
+            <div class="mono" style="color:var(--text-dim); margin-top:20px;">Figma Tokens · Scalabilità Totale</div>
+          </div>
+
+          <div class="showcase-image-card" style="background: radial-gradient(circle at 75% 25%, rgba(246, 190, 101, 0.16), transparent 45%), linear-gradient(145deg, #16120E, #352718 55%, #0C0A08);">
+            <div>
+              <span class="mono" style="color:var(--accent-warm);">02 — Performance &amp; Accessibilità</span>
+              <h4 style="font-size:1.45rem; font-weight:700; color:#fff; margin:6px 0 10px;" id="vis2Title">
+                Front-end Leggero &amp; Reattivo
+              </h4>
+              <p style="color:var(--text-muted); font-size:0.98rem; line-height:1.6;" id="vis2Desc">
+                Struttura del codice priva di dipendenze pesanti con transizioni CSS ottimizzate per la GPU e conformità WCAG AA.
+              </p>
+            </div>
+            <div class="mono" style="color:var(--text-dim); margin-top:20px;">React · Tailwind · Zero Design Debt</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Extended Visual Showcase Gallery (Generous Image Space) -->
+      <div class="full-gallery-grid">
+        <div class="gallery-big-card" style="background: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.2), transparent 50%), linear-gradient(145deg, #151128, #281D4C 55%, #0B0815);">
+          <div>
+            <div class="mono" style="color:var(--violet-light); margin-bottom:8px;">✦ Architettura di Navigazione</div>
+            <h3 style="font-size:clamp(1.6rem, 2.5vw, 2.2rem); color:#fff; font-weight:700; margin-bottom:12px;">
+              Esperienza d'Acquisto Mobile-First
+            </h3>
+            <p style="color:var(--text-muted); font-size:1.02rem; line-height:1.6; max-width:600px;">
+              Ogni elemento interattivo è stato dimensionato per l'utilizzo fluido con una sola mano su smartphone, garantendo la medesima ricchezza funzionale del desktop.
+            </p>
+          </div>
+          <div class="mono" style="color:var(--text-dim); margin-top:32px;">Touch Target 48px · Micro-gesture Native</div>
+        </div>
+
+        <div class="gallery-big-card" style="background: radial-gradient(circle at 75% 25%, rgba(16, 185, 129, 0.18), transparent 45%), linear-gradient(145deg, #0D1A15, #1B352A 55%, #080F0C);">
+          <div>
+            <div class="mono" style="color:var(--accent-emerald); margin-bottom:8px;">✦ Risultati &amp; Metriche</div>
+            <h3 style="font-size:clamp(1.6rem, 2.5vw, 2.2rem); color:#fff; font-weight:700; margin-bottom:12px;" id="statHeadline">
+              +42% Conversioni
+            </h3>
+            <p style="color:var(--text-muted); font-size:1.02rem; line-height:1.6;" id="statDesc">
+              Aumento significativo del carrello medio e abbattimento dei tempi di ordinazione all'ingrosso.
+            </p>
+          </div>
+          <div class="mono" style="color:var(--text-dim); margin-top:32px;">Core Web Vitals 100% · Lighthouse</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. BOTTOM FLOW: NEXT PROJECT + ALL PROJECTS CTA ================= -->
+    <section class="bottom-flow-row">
+      <!-- Next Case Box -->
+      <a href="project.html?id=footsy" class="next-case-box" id="nextCaseBox">
+        <div>
+          <span class="mono" style="color:var(--violet-light);">Prossimo Progetto</span>
+          <h3 style="font-size:clamp(2rem, 3.4vw, 3.2rem); font-weight:800; color:#fff; margin:8px 0 12px;" id="nextProjectTitle">
+            Footsy Shoes
+          </h3>
+          <p style="color:var(--text-muted); font-size:1.02rem;" id="nextProjectDesc">
+            Digital store e configuratore taglie per calzature per bambini.
+          </p>
+        </div>
+        <div class="mono" style="color:#fff; margin-top:32px; font-weight:700;">
+          Vedi Case Study ↗
+        </div>
+      </a>
+
+      <!-- All Projects CTA -->
+      <div class="all-projects-cta-box">
+        <div>
+          <span class="mono" style="color:var(--accent-warm);">Esplora Tutti</span>
+          <h3 style="font-size:clamp(1.8rem, 2.8vw, 2.6rem); font-weight:700; color:#fff; margin:8px 0 12px;">
+            Archivio Case Studies
+          </h3>
+          <p style="color:var(--text-muted); font-size:1rem; line-height:1.6;">
+            Visualizza la galleria completa di tutti i progetti con layout asimmetrico e filtri per categoria.
+          </p>
+        </div>
+        <a href="projects.html" class="back-btn" style="margin-top:28px; background:var(--violet-light); color:var(--ink); font-weight:700;">
+          <span>Vedi Tutti i Progetti ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <span>Bari / Bisceglie · Italia</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="index.html">Home Portfolio ↗</a>
+        <a href="projects.html">Tutti i Progetti ↗</a>
+        <a href="cv.html">Resume / CV ↗</a>
+        <a href="index.html#contact">Contatti ↗</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    /* DATABASE COMPLETO DEI PROGETTI */
+    const CASE_DATA = {
+      agribox: {
+        title: "AgriBox Platform",
+        category: "E-COMMERCE · UI/UX & FRONT-END",
+        lead: "Nel 2026, AgriBox ha commissionato a Bypatdesigner la riprogettazione della propria piattaforma digitale. L'obiettivo era superare i limiti del catalogo precedente creando un'esperienza d'acquisto moderna che unisse le esigenze del retail al flusso di ordini all'ingrosso per le aziende agricole.",
+        year: "2026",
+        industry: "Agri-tech & B2B/B2C E-commerce",
+        scope: ["UI/UX Design", "Front-end Development", "Design System"],
+        timeline: "8 Settimane",
+        tech: ["React.js", "TypeScript", "Tailwind CSS", "Figma Tokens"],
+        urlBadge: "https://agribox.platform.design",
+        mockupHeadline: "Flusso di checkout unificato con calcolo automatico dei listini per P.IVA.",
+        mockupSub: "Un'interfaccia ad alta fedeltà sviluppata in React con componenti atomici riutilizzabili e micro-animazioni di feedback per azzerare l'abbandono del carrello.",
+        bgGrad: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)",
+        f1: { title: "Discovery & Research", desc: "Interviste con gli stakeholder e analisi dei clienti business. Mappatura dei punti di attrito del vecchio catalogo e benchmark delle migliori piattaforme retail.", chips: ["User Personas", "Competitor Benchmark", "Architettura Informativa"] },
+        f2: { title: "Wireframing & UX Flows", desc: "Definizione dei wireframe a bassa fedeltà per testare la gerarchia visiva. Strutturazione del carrello rapido a matrice per gli ordini all'ingrosso.", chips: ["Wireframe Low-Fi", "Flussi B2B/B2C"] },
+        f3: { title: "UI Design & Tokens", desc: "Sviluppo dell'identità visiva su Figma con Design Tokens (spaziature, colori, tipografia). Componenti atomici e prototipo interattivo ad alta fedeltà.", chips: ["Figma Variables", "Design System Library"] },
+        f4: { title: "Front-end Development", desc: "Implementazione del front-end in React.js e Tailwind CSS. Ottimizzazione delle prestazioni per tempi di caricamento istantanei e conformità WCAG AA.", chips: ["React Components", "Tailwind Theme"] },
+        vis1Title: "Variabili & Componenti Modulari",
+        vis1Desc: "Oltre 40 componenti riutilizzabili su Figma con auto-layout reattivo e stati interattivi pronti per l'ingegnerizzazione.",
+        vis2Title: "Front-end Leggero & Reattivo",
+        vis2Desc: "Struttura del codice priva di dipendenze pesanti con transizioni CSS ottimizzate per la GPU e conformità WCAG AA.",
+        statHeadline: "+42% Conversioni Wholesale",
+        statDesc: "Aumento significativo del carrello medio e abbattimento dei tempi di ordinazione all'ingrosso nei primi 60 giorni.",
+        nextKey: "footsy",
+        nextTitle: "Footsy Shoes",
+        nextDesc: "Digital store e configuratore taglie per calzature per bambini."
+      },
+      footsy: {
+        title: "Footsy Shoes",
+        category: "DIGITAL STORE & PRODUCT CONFIGURATOR",
+        lead: "Nel 2026, Footsy ha richiesto una soluzione digitale per azzerare il tasso di reso sulle calzature per bambini. Abbiamo progettato un configuratore interattivo guidato e un'esperienza d'acquisto visiva allegra, moderna e affidabile.",
+        year: "2026",
+        industry: "Kids Fashion & Digital Retail",
+        scope: ["UX Research", "Interactive Prototyping", "UI & Micro-interactions"],
+        timeline: "6 Settimane",
+        tech: ["React.js", "Figma Auto-layout", "Micro-animations", "Tailwind CSS"],
+        urlBadge: "https://footsy.shoes.experience",
+        mockupHeadline: "Configuratore taglia assistito con guida visiva del piede a 360°.",
+        mockupSub: "Un selettore interattivo con visualizzatore dinamico che riduce i dubbi dei genitori sulla taglia e velocizza la selezione del modello ideale.",
+        bgGrad: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.25), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)",
+        f1: { title: "User Journey & Ricerca Genitori", desc: "Studio dei comportamenti d'acquisto dei genitori online: il 68% dei resi era dovuto a taglie errate o difficoltà nel comprendere la calzata della scarpa.", chips: ["User Interviews", "Analisi Resi"] },
+        f2: { title: "Ideazione Configuratore Taglie", desc: "Progettazione di un calcolatore visivo basato su millimetri reali del piede e crescita stimata per fascia d'età, con anteprima a schermo intero.", chips: ["Interactive Sizer", "Flow di Selezione"] },
+        f3: { title: "UI Design & Palette Vivace", desc: "Stile grafico energico ed elegante, con colori caldi combinati a micro-animazioni fluide di hover e transizione carrello.", chips: ["Micro-interactions", "Design System"] },
+        f4: { title: "Componenti UI & Test Usabilità", desc: "Creazione di componenti React modulari con test A/B su campioni di utenti reali per validare la chiarezza dell'interfaccia.", chips: ["React Components", "A/B Testing"] },
+        vis1Title: "Visualizzatore 360° dei Materiali",
+        vis1Desc: "Schede prodotto immersive dove ogni dettaglio della calzatura (suola, tomaia, chiusura) è esplorabile con un click.",
+        vis2Title: "Checkout Mobile in 3 Tocchi",
+        vis2Desc: "Procedura di acquisto mobile-first studiata per completare l'ordine con una mano sola.",
+        statHeadline: "-54% Resi per Taglia",
+        statDesc: "Il nuovo configuratore ha guidato con precisione la scelta della calzata, aumentando il gradimento al 94%.",
+        nextKey: "mininno",
+        nextTitle: "Mininno Costruzioni",
+        nextDesc: "Portale istituzionale per storica impresa edile pugliese."
+      },
+      mininno: {
+        title: "Mininno Costruzioni",
+        category: "EDITORIAL WEB & ARCHITETTURA",
+        lead: "Nel 2026, la storica impresa edile pugliese Mininno ha voluto rinnovare la propria immagine digitale con un approccio editoriale di respiro internazionale, valorizzando il rigore costruttivo e la purezza architettonica.",
+        year: "2026",
+        industry: "Architecture & Luxury Construction",
+        scope: ["Brand Identity", "Editorial Web Design", "Front-end Architecture"],
+        timeline: "7 Settimane",
+        tech: ["JavaScript ES6+", "Semantic CSS3", "Swiss Grid System", "Adobe CC"],
+        urlBadge: "https://mininno.costruzioni.it",
+        mockupHeadline: "Griglia svizzera e fotografia architettonica ad altissima definizione.",
+        mockupSub: "Un layout asimmetrico elegante che fonde schede tecniche, cronistoria dei cantieri e rendering di progetto in una narrazione fluida.",
+        bgGrad: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)",
+        f1: { title: "Brand Strategy & Archivio Storico", desc: "Digitalizzazione dell'archivio progetti quarantennale dell'azienda e definizione dei pilastri comunicativi: affidabilità, materia, innovazione.", chips: ["Archivio Digitale", "Brand Pillars"] },
+        f2: { title: "Sistema Tipografico & Griglia", desc: "Impostazione di una griglia editoriale a 12 colonne ispirata ai manifesti modernisti svizzeri, con gerarchie tipografiche audaci ma leggibili.", chips: ["Swiss Grid System", "Tipografia Editoriale"] },
+        f3: { title: "Schede Cantiere Interattive", desc: "Progettazione di schede progetto dettagliate che mostrano l'avanzamento dei lavori, i materiali impiegati e i partner tecnici.", chips: ["Schede Tecniche", "Timeline Cantieri"] },
+        f4: { title: "Sviluppo Web & Ottimizzazione SEO", desc: "Sviluppo front-end pulito con transizioni delicate tra le pagine e ottimizzazione SEO semantica per posizionare l'azienda sui grandi appalti.", chips: ["CSS Moderno", "SEO Semantico"] },
+        vis1Title: "Impaginazione Editoriale Dinamica",
+        vis1Desc: "Composizioni grafiche che valorizzano la luce naturale e i materiali edili di pregio.",
+        vis2Title: "Schemi Tecnici & Capitolati",
+        vis2Desc: "Sezioni dedicate a studi di architettura per consultare capitolati e dettagli costruttivi.",
+        statHeadline: "100% Core Web Vitals",
+        statDesc: "Aumento del 3.2x nel tempo di permanenza degli utenti e nuovi lead da studi di architettura privati.",
+        nextKey: "sumisura",
+        nextTitle: "suMisura® Doors",
+        nextDesc: "Configuratore online per porte blindate ad alta sicurezza."
+      },
+      sumisura: {
+        title: "suMisura® Doors",
+        category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+        lead: "Nel 2026, suMisura® ha richiesto una web app per consentire ai clienti di configurare e preventivare online porte blindate ad alta sicurezza con rendering vettoriale in tempo reale.",
+        year: "2026",
+        industry: "Security Systems & Industrial Design",
+        scope: ["Configurator UX", "SVG Dynamic Engine", "Design System"],
+        timeline: "9 Settimane",
+        tech: ["JavaScript ES6+", "SVG Vector Engine", "Figma Tokens", "Tailwind CSS"],
+        urlBadge: "https://sumisura.configurator.pro",
+        mockupHeadline: "Configuratore in 4 step con preventivo istantaneo e anteprima dinamica.",
+        mockupSub: "Selezione immediata di classi di sicurezza, essenze lignee, maniglie di design e serrature elettroniche con calcolo prezzi in tempo reale.",
+        bgGrad: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)",
+        f1: { title: "Mappatura Varianti & Logiche", desc: "Analisi tecnica di oltre 200 combinazioni di pannelli, serrature, maniglie e telai per tradurle in un diagramma di flusso logico lineare.", chips: ["Matrice Prodotti", "Logica Condizionale"] },
+        f2: { title: "Motore SVG & Prototipazione", desc: "Creazione di un sistema di asset vettoriali modulari capaci di comporsi a strati per visualizzare la porta personalizzata in qualsiasi momento.", chips: ["SVG Layering", "Prototipo Live"] },
+        f3: { title: "UI Design & Design System", desc: "Interfaccia scura con accenti bronzo/oro e viola, pannelli di controllo compatti e feedback sonoro/visivo al cambio di finitura.", chips: ["Dark UI Luxury", "Componenti Figma"] },
+        f4: { title: "Sviluppo Frontend & PDF", desc: "Scrittura della logica front-end in JavaScript con esportazione automatica della scheda tecnica e del preventivo formattato in PDF per il rivenditore.", chips: ["JS Logic Engine", "PDF Generator"] },
+        vis1Title: "Rendering Vettoriale a Strati",
+        vis1Desc: "Ogni finitura (rovere spazzolato, noce, laccato nero) viene renderizzata istantaneamente senza caricamenti pesanti.",
+        vis2Title: "Esportazione Scheda Tecnica",
+        vis2Desc: "Generazione del documento riassuntivo completo di codici prodotto e dimensioni personalizzate.",
+        statHeadline: "+65% Preventivi Qualificati",
+        statDesc: "I clienti arrivano negli showroom con le specifiche già decise, dimezzando i tempi di consulenza.",
+        nextKey: "agribox",
+        nextTitle: "AgriBox Platform",
+        nextDesc: "Piattaforma e-commerce per prodotti agricoli B2B e retail."
+      }
+    };
+
+    /* INIZIALIZZAZIONE DATI DA PARAMETRO URL ?id= */
+    function loadCaseStudy() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || 'agribox';
+      const data = CASE_DATA[id] || CASE_DATA.agribox;
+
+      document.title = `${data.title} — Case Study | Bypatdesigner`;
+      document.getElementById('caseTitle').textContent = data.title;
+      document.getElementById('caseCategory').textContent = data.category;
+      document.getElementById('caseLead').innerHTML = data.lead;
+
+      // Hero Banner Visual
+      document.getElementById('heroBannerVisual').style.background = data.bgGrad;
+      document.getElementById('caseUrlBadge').textContent = data.urlBadge;
+      document.getElementById('heroMockupHeadline').textContent = data.mockupHeadline;
+      document.getElementById('heroMockupSub').textContent = data.mockupSub;
+
+      // Metadata Table Specs
+      document.getElementById('specYear').textContent = data.year;
+      document.getElementById('specIndustry').textContent = data.industry;
+      document.getElementById('specTimeline').textContent = data.timeline;
+
+      const scopeEl = document.getElementById('specScope');
+      scopeEl.innerHTML = data.scope.map(s => `<span class="meta-tag-slash">${s}</span>`).join('');
+
+      const techEl = document.getElementById('specTech');
+      techEl.innerHTML = data.tech.map(t => `<span class="meta-tag-slash">${t}</span>`).join('');
+
+      // Phases
+      ['f1', 'f2', 'f3', 'f4'].forEach(fKey => {
+        const fData = data[fKey];
+        document.getElementById(`${fKey}-title`).textContent = fData.title;
+        document.getElementById(`${fKey}-desc`).textContent = fData.desc;
+        const chipsCont = document.getElementById(`${fKey}-chips`);
+        chipsCont.innerHTML = fData.chips.map(c => `<span class="deliv-chip">${c}</span>`).join('');
+      });
+
+      // Visual Cards
+      document.getElementById('vis1Title').textContent = data.vis1Title;
+      document.getElementById('vis1Desc').textContent = data.vis1Desc;
+      document.getElementById('vis2Title').textContent = data.vis2Title;
+      document.getElementById('vis2Desc').textContent = data.vis2Desc;
+      document.getElementById('statHeadline').textContent = data.statHeadline;
+      document.getElementById('statDesc').textContent = data.statDesc;
+
+      // Next Project
+      document.getElementById('nextProjectTitle').textContent = data.nextTitle;
+      document.getElementById('nextProjectDesc').textContent = data.nextDesc;
+      document.getElementById('nextCaseBox').href = `project.html?id=${data.nextKey}`;
+    }
+
+    /* ACCORDION TOGGLE */
+    function toggleAcc(btn) {
+      const card = btn.closest('.accordion-card');
+      const isOpen = card.classList.contains('is-open');
+
+      document.querySelectorAll('.accordion-card').forEach(c => c.classList.remove('is-open'));
+
+      if (!isOpen) {
+        card.classList.add('is-open');
+      }
+    }
+
+    // Ambient follow
+    const spotlight = document.getElementById('ambientSpotlight');
+    window.addEventListener('mousemove', (e) => {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+    });
+
+    loadCaseStudy();
+  </script>
+</body>
+</html>
