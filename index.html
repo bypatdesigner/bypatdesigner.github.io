@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="it">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bypatdesigner — Patricia Garcia | UI/UX &amp; Front-end</title>
-  <meta name="description" content="Portfolio di Patricia Garcia — Digital Designer e Front-end Developer a Bisceglie, Puglia. Creo interfacce chiare, sistemi visivi solidi ed esperienze web ad alto impatto." />
+  <meta name="description"
+    content="Portfolio di Patricia Garcia — Digital Designer e Front-end Developer a Bisceglie, Puglia. Creo interfacce chiare, sistemi visivi solidi ed esperienze web ad alto impatto." />
 
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -12,7 +14,9 @@
   <!-- Google Fonts: Raleway (Headlines) & Space Grotesk (Body, Pills & Tech) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ============================================================
@@ -24,43 +28,45 @@
       --surface-elevated: #161426;
       --card-bg: rgba(22, 19, 36, 0.85);
       --card-hover: rgba(32, 28, 54, 0.95);
-      
+
       /* High-Contrast Luminous Text Palette */
       --text: #FFFFFF;
       --text-main: #F5F3FC;
       --text-muted: #D8D2EE;
       --text-dim: #ABA3CB;
-      
+
       --violet-primary: #8B5CF6;
       --violet-light: #A78BFA;
       --violet-bright: #BFA7FF;
       --violet-glow: #C08BE8;
       --violet-deep: #4C1D95;
       --violet-tint: rgba(139, 92, 246, 0.18);
-      
+
       --accent-warm: #F6BE65;
       --accent-emerald: #10B981;
-      
+
       --line: rgba(255, 255, 255, 0.12);
       --line-light: rgba(255, 255, 255, 0.22);
       --line-violet: rgba(167, 139, 250, 0.4);
       --line-glow: rgba(192, 139, 232, 0.7);
-      
+
       --radius-sm: 10px;
       --radius-md: 18px;
       --radius-lg: 26px;
       --radius-xl: 32px;
       --radius-full: 9999px;
-      
+
       --font-display: "Raleway", system-ui, -apple-system, sans-serif;
       --font-body: "Space Grotesk", system-ui, -apple-system, sans-serif;
       --font-mono: "Space Grotesk", system-ui, -apple-system, sans-serif;
-      
+
       --pad: clamp(20px, 4vw, 52px);
       --max-width: 1440px;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -95,14 +101,18 @@
       text-decoration: none;
     }
 
-    button, input, textarea, select {
+    button,
+    input,
+    textarea,
+    select {
       font-family: inherit;
       color: inherit;
       background: none;
       border: none;
     }
 
-    img, svg {
+    img,
+    svg {
       max-width: 100%;
       display: block;
     }
@@ -133,7 +143,7 @@
     .ambient-grid {
       position: absolute;
       inset: 0;
-      background-image: 
+      background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       background-size: 60px 60px;
@@ -200,8 +210,13 @@
     }
 
     @keyframes gradShimmer {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
     }
 
     /* ============================================================
@@ -233,10 +248,10 @@
       pointer-events: none;
       z-index: 9998;
       transform: translate(-50%, -50%);
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                  height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                  border-color 0.3s ease,
-                  background 0.3s ease;
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        background 0.3s ease;
       will-change: transform;
     }
 
@@ -257,7 +272,11 @@
     }
 
     @media (hover: none) {
-      .cursor-dot, .cursor-ring { display: none !important; }
+
+      .cursor-dot,
+      .cursor-ring {
+        display: none !important;
+      }
     }
 
     /* ============================================================
@@ -378,49 +397,50 @@
       justify-self: end;
     }
 
-    .mode-switch-btn {
+    .lang-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--line-light);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-main);
-      font-size: 0.78rem;
-      font-weight: 700;
-      font-family: var(--font-mono);
-      letter-spacing: 0.04em;
-      transition: all 0.25s ease;
-    }
-
-    .mode-switch-btn:hover {
-      background: #FFFFFF;
-      color: var(--ink);
-      border-color: #FFFFFF;
-      box-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
-      transform: translateY(-1px);
-    }
-
-    .nav-cta {
+      gap: 2px;
+      background: rgba(22, 19, 36, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--line-violet);
-      background: linear-gradient(135deg, rgba(167, 139, 250, 0.25), rgba(123, 92, 255, 0.12));
       border-radius: var(--radius-full);
-      padding: 10px 22px;
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      font-weight: 600;
-      color: #FFFFFF;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 3px 4px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .nav-cta:hover {
-      background: var(--violet-light);
-      color: var(--ink);
-      border-color: var(--violet-light);
-      box-shadow: 0 0 24px rgba(167, 139, 250, 0.6);
-      transform: translateY(-1px);
+    .lang-pill:hover {
+      border-color: var(--line-glow);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .lang-btn {
+      padding: 5px 12px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      border-radius: var(--radius-full);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      line-height: 1;
+    }
+
+    .lang-btn:hover {
+      color: #FFFFFF;
+      text-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+    }
+
+    .lang-btn.active {
+      color: #07060C;
+      background: linear-gradient(135deg, #C08BE8 0%, #A78BFA 100%);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(167, 139, 250, 0.55);
     }
 
     .nav-resume-btn {
@@ -477,7 +497,7 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(ellipse at 40% 45%, rgba(6, 5, 12, 0.25) 0%, rgba(6, 5, 12, 0.58) 100%),
-                  linear-gradient(to bottom, rgba(6, 5, 12, 0.4) 0%, rgba(6, 5, 12, 0.12) 50%, rgba(6, 5, 12, 0.6) 100%);
+        linear-gradient(to bottom, rgba(6, 5, 12, 0.4) 0%, rgba(6, 5, 12, 0.12) 50%, rgba(6, 5, 12, 0.6) 100%);
       pointer-events: none;
       z-index: 2;
     }
@@ -522,8 +542,17 @@
     }
 
     @keyframes pulseDot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.4); opacity: 0.6; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.4);
+        opacity: 0.6;
+      }
     }
 
     .hero-head {
@@ -558,7 +587,7 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5.2vw, 6.8rem);  
+      font-size: clamp(2.4rem, 5.2vw, 6.8rem);
       line-height: 0.96;
       letter-spacing: -0.04em;
       margin: 0;
@@ -737,7 +766,9 @@
     }
 
     @keyframes marqueeAnim {
-      to { transform: translateX(-50%); }
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     /* ============================================================
@@ -841,7 +872,8 @@
       transition: all 0.3s;
     }
 
-    .about-tab-btn:hover, .about-tab-btn.active {
+    .about-tab-btn:hover,
+    .about-tab-btn.active {
       background: var(--card-hover);
       border-color: var(--line-violet);
       color: #fff;
@@ -880,8 +912,15 @@
     }
 
     @keyframes fadeInTab {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .pane-header {
@@ -1027,7 +1066,9 @@
     }
 
     @keyframes techScroll {
-      to { transform: translateX(-50%); }
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     /* ============================================================
@@ -1231,7 +1272,8 @@
       display: none;
     }
 
-    .project:nth-child(3), .project:nth-child(4) {
+    .project:nth-child(3),
+    .project:nth-child(4) {
       min-height: 420px;
     }
 
@@ -1299,7 +1341,8 @@
       transform: scale(1.04);
     }
 
-    .art::before, .art::after {
+    .art::before,
+    .art::after {
       content: "";
       position: absolute;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1627,7 +1670,8 @@
       font-weight: 600;
     }
 
-    .form-input, .form-textarea {
+    .form-input,
+    .form-textarea {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--line-light);
       border-radius: var(--radius-md);
@@ -1638,7 +1682,8 @@
       outline: none;
     }
 
-    .form-input:focus, .form-textarea:focus {
+    .form-input:focus,
+    .form-textarea:focus {
       border-color: var(--violet-light);
       background: rgba(167, 139, 250, 0.08);
       box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
@@ -1669,7 +1714,7 @@
       user-select: none;
     }
 
-    .chip-radio:checked + .chip-label {
+    .chip-radio:checked+.chip-label {
       background: var(--violet-light);
       color: var(--ink);
       border-color: var(--violet-light);
@@ -1901,69 +1946,299 @@
     /* Responsive Breakpoints */
     /* Responsive Breakpoints */
     @media (max-width: 980px) {
-      .about-interactive-wrap { grid-template-columns: 1fr; }
-      .about-nav-tabs { position: static; flex-direction: row; flex-wrap: wrap; }
-      .about-tab-btn { flex: 1; min-width: 180px; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .form-group-grid { grid-template-columns: 1fr; }
+      .about-interactive-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .about-nav-tabs {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .about-tab-btn {
+        flex: 1;
+        min-width: 180px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 900px) {
-      .nav-bar { grid-template-columns: auto 1fr; padding: 8px 16px; top: 16px; }
-      .menu { display: none; }
-      .brand { padding: 4px 10px; }
-      .nav-actions-wrap { grid-column: 2; justify-self: end; }
-      .nav-resume-btn { padding: 6px 14px; font-size: 0.72rem; letter-spacing: 0.05em; }
-      .brand-logo-img { height: 28px; }
+      .nav-bar {
+        grid-template-columns: auto 1fr;
+        padding: 8px 16px;
+        top: 16px;
+      }
 
-      .hero { height: auto; min-height: 100svh; overflow: visible; }
-      .hero-inner { padding: clamp(80px, 10vh, 105px) var(--pad) clamp(24px, 4vh, 40px); gap: 24px; }
-      .hero-head { margin-top: 8px; gap: 8px; }
-      .hero-title { font-size: clamp(3rem, 8.5vw, 4.8rem); line-height: 0.96; letter-spacing: -0.045em; }
-      .hero-bottom { margin-top: 20px; gap: 20px; grid-template-columns: 1fr; }
-      .hero-social-glass { gap: 8px; }
-      .glass-btn { padding: 7px 14px; font-size: 0.74rem; }
-      .hero-copy { justify-self: start; }
-      .hero-copy p { font-size: 1rem; line-height: 1.5; margin-bottom: 14px; }
-      .actions .btn { padding: 10px 18px; font-size: 0.78rem; }
+      .menu {
+        display: none;
+      }
 
-      .services-head, .work-head, .process-grid, .quote-card { grid-template-columns: 1fr; }
-      .services-intro, .work-head p, .person { justify-self: start; }
-      .service { grid-template-columns: 48px 1fr 44px; }
-      .service p { grid-column: 2 / 4; }
-      .projects { grid-template-columns: 1fr; }
-      .project:nth-child(3), .project:nth-child(4) { grid-column: auto; }
-      .project { min-height: 440px; }
-      .timeline-card-item .item-desc { display: none; }
-      .timeline-card-item .item-org-name { margin-bottom: 0; }
-      .drawer-actions-row { grid-template-columns: 1fr; }
-      .micro { display: none; }
-      .contact-card-modern { flex-direction: column; text-align: left; }
-      .contact-portrait-wrap { width: 100%; max-width: 280px; margin-top: 24px; align-self: center; }
+      .brand {
+        padding: 4px 10px;
+      }
+
+      .nav-actions-wrap {
+        grid-column: 2;
+        justify-self: end;
+        gap: 8px;
+      }
+
+      .lang-pill {
+        padding: 2px 3px;
+      }
+
+      .lang-btn {
+        padding: 4px 9px;
+        font-size: 0.70rem;
+      }
+
+      .nav-resume-btn {
+        padding: 6px 14px;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+      }
+
+      .brand-logo-img {
+        height: 28px;
+      }
+
+      .hero {
+        height: auto;
+        min-height: 100svh;
+        overflow: visible;
+      }
+
+      .hero-inner {
+        padding: clamp(80px, 10vh, 105px) var(--pad) clamp(24px, 4vh, 40px);
+        gap: 24px;
+      }
+
+      .hero-head {
+        margin-top: 8px;
+        gap: 8px;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 8.5vw, 4.8rem);
+        line-height: 0.96;
+        letter-spacing: -0.045em;
+      }
+
+      .hero-bottom {
+        margin-top: 20px;
+        gap: 20px;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-social-glass {
+        gap: 8px;
+      }
+
+      .glass-btn {
+        padding: 7px 14px;
+        font-size: 0.74rem;
+      }
+
+      .hero-copy {
+        justify-self: start;
+      }
+
+      .hero-copy p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+
+      .actions .btn {
+        padding: 10px 18px;
+        font-size: 0.78rem;
+      }
+
+      .services-head,
+      .work-head,
+      .process-grid,
+      .quote-card {
+        grid-template-columns: 1fr;
+      }
+
+      .services-intro,
+      .work-head p,
+      .person {
+        justify-self: start;
+      }
+
+      .service {
+        grid-template-columns: 48px 1fr 44px;
+      }
+
+      .service p {
+        grid-column: 2 / 4;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project:nth-child(3),
+      .project:nth-child(4) {
+        grid-column: auto;
+      }
+
+      .project {
+        min-height: 440px;
+      }
+
+      .timeline-card-item .item-desc {
+        display: none;
+      }
+
+      .timeline-card-item .item-org-name {
+        margin-bottom: 0;
+      }
+
+      .drawer-actions-row {
+        grid-template-columns: 1fr;
+      }
+
+      .micro {
+        display: none;
+      }
+
+      .contact-card-modern {
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .contact-portrait-wrap {
+        width: 100%;
+        max-width: 280px;
+        margin-top: 24px;
+        align-self: center;
+      }
     }
 
     @media (max-width: 560px) {
-      .services { margin: 0 4px; border-radius: 20px; }
-      .nav-bar { top: 12px; width: calc(100% - 20px); padding: 6px 14px; }
-      .brand { padding: 3px 8px; }
-      .nav-resume-btn { padding: 5px 12px; font-size: 0.68rem; }
-      .brand-logo-img { height: 24px; }
-      .hero-inner { padding: 76px 16px 20px; gap: 16px; }
-      .eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; gap: 6px; }
-      .hero-title { font-size: clamp(3rem, 9vw, 3.2rem); line-height: 0.96; letter-spacing: -0.045em; }
-      .hero-bottom { margin-top: 14px; gap: 14px; }
-      .hero-social-glass { gap: 6px; }
-      .glass-btn { padding: 6px 12px; font-size: 0.71rem; gap: 6px; }
-      .glass-btn svg { width: 13px; height: 13px; }
-      .hero-copy p { font-size: 0.94rem; line-height: 1.45; margin-bottom: 12px; }
-      .actions { gap: 8px; }
-      .actions .btn { padding: 9px 15px; font-size: 0.74rem; }
-      .hero-marquee { padding: 12px 0; }
-      .headline { font-size: 12vw; }
-      .project-title { font-size: 11vw; }
-      .timeline-card-item { grid-template-columns: 1fr; gap: 8px; }
-      footer { flex-direction: column; gap: 12px; }
+      .services {
+        margin: 0 4px;
+        border-radius: 20px;
+      }
+
+      .nav-bar {
+        top: 12px;
+        width: calc(100% - 20px);
+        padding: 6px 10px;
+      }
+
+      .brand {
+        padding: 3px 6px;
+      }
+
+      .nav-actions-wrap {
+        gap: 6px;
+      }
+
+      .lang-pill {
+        padding: 2px 2px;
+        gap: 1px;
+      }
+
+      .lang-btn {
+        padding: 3px 7px;
+        font-size: 0.65rem;
+      }
+
+      .nav-resume-btn {
+        padding: 5px 10px;
+        font-size: 0.66rem;
+      }
+
+      .brand-logo-img {
+        height: 22px;
+      }
+
+      .hero-inner {
+        padding: 76px 16px 20px;
+        gap: 16px;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        gap: 6px;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 9vw, 3.2rem);
+        line-height: 0.96;
+        letter-spacing: -0.045em;
+      }
+
+      .hero-bottom {
+        margin-top: 14px;
+        gap: 14px;
+      }
+
+      .hero-social-glass {
+        gap: 6px;
+      }
+
+      .glass-btn {
+        padding: 6px 12px;
+        font-size: 0.71rem;
+        gap: 6px;
+      }
+
+      .glass-btn svg {
+        width: 13px;
+        height: 13px;
+      }
+
+      .hero-copy p {
+        font-size: 0.94rem;
+        line-height: 1.45;
+        margin-bottom: 12px;
+      }
+
+      .actions {
+        gap: 8px;
+      }
+
+      .actions .btn {
+        padding: 9px 15px;
+        font-size: 0.74rem;
+      }
+
+      .hero-marquee {
+        padding: 12px 0;
+      }
+
+      .headline {
+        font-size: 12vw;
+      }
+
+      .project-title {
+        font-size: 11vw;
+      }
+
+      .timeline-card-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 12px;
+      }
     }
+
     /* Floating Portrait Image Animation */
     .contact-portrait-wrap {
       position: relative;
@@ -1991,9 +2266,12 @@
     }
 
     @keyframes floatPortrait {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0px) rotate(0deg);
       }
+
       50% {
         transform: translateY(-16px) rotate(1.5deg);
       }
@@ -2028,17 +2306,24 @@
     <a class="brand" href="#top">
       <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
     </a>
-    
+
     <div class="menu">
-      <a href="#about">Chi sono</a>
-      <a href="#services">Servizi</a>
+      <a href="#about" data-i18n="nav.about">Chi sono</a>
+      <a href="#services" data-i18n="nav.services">Servizi</a>
       <!--<a href="projects.html">Progetti</a>-->
-      <a href="#contact">Contatti</a>
+      <a href="#contact" data-i18n="nav.contact">Contatti</a>
     </div>
 
     <div class="nav-actions-wrap">
-      <a class="btn primary nav-resume-btn" href="cv.html">
-        <span>Resume</span>
+      <!-- Glassmorphism Language Selector (IT | ES | EN) -->
+      <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
+        <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
+        <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
+        <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+      </div>
+
+      <a class="btn primary nav-resume-btn" id="navResumeBtn" href="cv.html">
+        <span data-i18n="nav.resume">Resume</span>
       </a>
     </div>
   </nav>
@@ -2047,46 +2332,61 @@
   <header class="hero" id="top">
     <!-- WebGL Mesh Drift Fluid Shader Canvas (Scoped ONLY inside Hero) -->
     <canvas id="meshDriftCanvas" class="hero-fluid-canvas"></canvas>
-    
+
     <!-- Starfield Constellations Physics Canvas (Scoped ONLY inside Hero) -->
     <canvas id="constellationCanvas" class="hero-constellation-canvas"></canvas>
 
     <div class="hero-inner" style="padding-top: 180px; ">
       <div class="hero-head">
-        <div class="eyebrow" id="heroEyebrow" data-decrypt="true" title="Clicca per decifrare di nuovo">
-          <i></i> BARI, ITALY · REMOTE / HYBRID / ON-SITE
+        <div class="eyebrow" id="heroEyebrow" data-decrypt="true" data-i18n-html="hero.eyebrow"
+          title="Clicca per decifrare di nuovo">
+          <i></i> Bisceglie, Italia · Remoto / Ibrido / On-site
         </div>
-        <h1 class="hero-title" id="heroTitle" data-decrypt-hero="true" title="Clicca per decifrare di nuovo">
-          I create digital experiences where aesthetics and function <span class="grad-text">work together.</span>
+        <h1 class="hero-title" id="heroTitle" data-decrypt-hero="true" data-i18n-html="hero.title"
+          title="Clicca per decifrare di nuovo">
+          Design, codice e qualunque cosa <span class="grad-text">catturi <br><span style="white-space: nowrap;">la mia curiosità</span></span>
         </h1>
       </div>
 
       <div class="hero-bottom">
         <div class="hero-social-glass">
-          <a class="glass-btn" href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          <a class="glass-btn" href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener"
+            aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+            </svg>
             <span>LinkedIn</span>
             <span class="arrow">↗</span>
           </a>
 
-          <a class="glass-btn" href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener" aria-label="Behance">
-            <svg viewBox="0 0 24 24"><path d="M22 7h-7V5h7v2m-1.72 6.5c-.14.77-.66 1.5-1.57 2.05-.91.56-2.07.84-3.48.84-1.67 0-3.05-.47-4.14-1.4-1.09-.94-1.63-2.3-1.63-4.08 0-1.74.52-3.1 1.56-4.08C12.06 5.85 13.43 5.37 15.13 5.37c1.55 0 2.85.44 3.91 1.33 1.05.88 1.58 2.15 1.58 3.8 0 .34-.02.72-.07 1.13h-7.66c.06.87.35 1.54.88 2.01.53.47 1.23.7 2.1.7.67 0 1.23-.13 1.68-.38.45-.26.78-.65 1-1.18h2.74m-6.86-3.8h4.81c-.04-.63-.26-1.12-.66-1.47-.4-.36-.93-.53-1.6-.53-.7 0-1.26.17-1.68.52-.42.34-.69.83-.81 1.47M2.5 5h4.94c1.17 0 2.06.24 2.67.72.61.48.91 1.17.91 2.07 0 .61-.15 1.1-.46 1.48-.31.38-.76.66-1.35.84.79.16 1.39.48 1.8.96.41.48.62 1.12.62 1.92 0 1.05-.35 1.86-1.04 2.43C9.9 16.03 8.87 16.3 7.5 16.3H2.5V5m2.76 4.35h2.15c.6 0 1.04-.1 1.32-.3.28-.2.42-.51.42-.92 0-.39-.13-.69-.39-.89-.26-.2-.68-.3-1.25-.3H5.26v2.41m0 4.74h2.46c.64 0 1.11-.12 1.41-.37.3-.25.45-.61.45-1.07 0-.49-.16-.86-.48-1.1-.32-.25-.82-.37-1.5-.37H5.26v2.91z"/></svg>
+          <a class="glass-btn" href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener"
+            aria-label="Behance">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 7h-7V5h7v2m-1.72 6.5c-.14.77-.66 1.5-1.57 2.05-.91.56-2.07.84-3.48.84-1.67 0-3.05-.47-4.14-1.4-1.09-.94-1.63-2.3-1.63-4.08 0-1.74.52-3.1 1.56-4.08C12.06 5.85 13.43 5.37 15.13 5.37c1.55 0 2.85.44 3.91 1.33 1.05.88 1.58 2.15 1.58 3.8 0 .34-.02.72-.07 1.13h-7.66c.06.87.35 1.54.88 2.01.53.47 1.23.7 2.1.7.67 0 1.23-.13 1.68-.38.45-.26.78-.65 1-1.18h2.74m-6.86-3.8h4.81c-.04-.63-.26-1.12-.66-1.47-.4-.36-.93-.53-1.6-.53-.7 0-1.26.17-1.68.52-.42.34-.69.83-.81 1.47M2.5 5h4.94c1.17 0 2.06.24 2.67.72.61.48.91 1.17.91 2.07 0 .61-.15 1.1-.46 1.48-.31.38-.76.66-1.35.84.79.16 1.39.48 1.8.96.41.48.62 1.12.62 1.92 0 1.05-.35 1.86-1.04 2.43C9.9 16.03 8.87 16.3 7.5 16.3H2.5V5m2.76 4.35h2.15c.6 0 1.04-.1 1.32-.3.28-.2.42-.51.42-.92 0-.39-.13-.69-.39-.89-.26-.2-.68-.3-1.25-.3H5.26v2.41m0 4.74h2.46c.64 0 1.11-.12 1.41-.37.3-.25.45-.61.45-1.07 0-.49-.16-.86-.48-1.1-.32-.25-.82-.37-1.5-.37H5.26v2.91z" />
+            </svg>
             <span>Behance</span>
             <span class="arrow">↗</span>
           </a>
 
-          <a class="glass-btn" href="https://github.com/bypatdesigner" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          <a class="glass-btn" href="https://github.com/bypatdesigner" target="_blank" rel="noopener"
+            aria-label="GitHub">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+            </svg>
             <span>GitHub</span>
             <span class="arrow">↗</span>
           </a>
         </div>
 
         <div class="hero-copy">
-          <p>Mi muovo tra design e codice, esplorando come l’AI possa supportare ricerca, ideazione e sviluppo.</p>
+          <p data-i18n="hero.desc">Mi muovo tra design e codice, esplorando come l’AI possa supportare ricerca,
+            ideazione e sviluppo.</p>
           <div class="actions">
-            <a class="btn primary" href="#work">Vedi Progetti ↗</a>
-            <a class="btn secondary" href="cv.html">Resume / CV </a>
+            <a class="btn primary" id="heroWorkBtn" href="#work" data-i18n="hero.btn_work">Vedi Progetti ↗</a>
+            <a class="btn secondary" id="heroResumeBtn" href="cv.html" data-i18n="hero.btn_resume">Resume / CV </a>
           </div>
         </div>
       </div>
@@ -2119,88 +2419,102 @@
 
       <!-- ================= ABOUT INTERACTIVE TABS ================= -->
       <section id="about">
-        <div class="section-label reveal">01 — Chi Sono &amp; Percorso</div>
-        <h2 class="headline reveal">
-          <span class="grad-text">Dal design al codice:</span> <span class="muted-text">un percorso in continua evoluzione.</span>
+        <div class="section-label reveal" data-i18n="about.section_label">01 — Chi Sono &amp; Percorso</div>
+        <h2 class="headline reveal" data-i18n-html="about.headline">
+          <span class="grad-text">Dal design al codice:</span> <span class="muted-text">un percorso in continua
+            evoluzione.</span>
         </h2>
 
         <!-- Interactive Tabs -->
         <div class="about-interactive-wrap reveal">
-          
+
           <!-- Tab Buttons Sidebar -->
           <div class="about-nav-tabs" role="tablist">
             <button class="about-tab-btn active" data-tab="exp" role="tab" aria-selected="true">
               <div>
-                <div class="tab-title">Esperienza</div>
-                <span class="tab-sub">Lavoro &amp; Agenzia</span>
+                <div class="tab-title" data-i18n="about.tab_exp_title">Esperienza</div>
+                <span class="tab-sub" data-i18n="about.tab_exp_sub">Lavoro &amp; Agenzia</span>
               </div>
-              <span class="tab-badge">03 Ruoli</span>
+              <span class="tab-badge" data-i18n="about.tab_exp_badge">03 Ruoli</span>
             </button>
 
             <button class="about-tab-btn" data-tab="cert" role="tab" aria-selected="false">
               <div>
-                <div class="tab-title">Corsi &amp; Certificazioni</div>
-                <span class="tab-sub">Competenze Tecniche</span>
+                <div class="tab-title" data-i18n="about.tab_cert_title">Corsi &amp; Certificazioni</div>
+                <span class="tab-sub" data-i18n="about.tab_cert_sub">Competenze Tecniche</span>
               </div>
-              <span class="tab-badge">IFTS + Cert</span>
+              <span class="tab-badge" data-i18n="about.tab_cert_badge">IFTS + Cert</span>
             </button>
 
             <button class="about-tab-btn" data-tab="edu" role="tab" aria-selected="false">
               <div>
-                <div class="tab-title">Formazione</div>
-                <span class="tab-sub">Percorso Accademico</span>
+                <div class="tab-title" data-i18n="about.tab_edu_title">Formazione</div>
+                <span class="tab-sub" data-i18n="about.tab_edu_sub">Percorso Accademico</span>
               </div>
-              <span class="tab-badge">110/110L</span>
+              <span class="tab-badge" data-i18n="about.tab_edu_badge">110/110L</span>
             </button>
           </div>
 
           <!-- Dynamic Display Panel -->
           <div class="about-display-panel" id="aboutDisplayPanel">
-            
+
             <!-- Pane 1: Esperienza -->
             <div class="tab-content-pane active" id="pane-exp">
               <div class="pane-header">
                 <div>
-                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;">Percorso Lavorativo</div>
-                  <h3 class="pane-title">Esperienza Professionale</h3>
+                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;"
+                    data-i18n="about.pane_exp_badge">Percorso Lavorativo</div>
+                  <h3 class="pane-title" data-i18n="about.pane_exp_title">Esperienza Professionale</h3>
                 </div>
-                <span class="mono" style="color:var(--text-dim); font-weight:600;">2022 — Oggi</span>
+                <span class="mono" style="color:var(--text-dim); font-weight:600;" data-i18n="about.pane_exp_date">2022
+                  — Oggi</span>
               </div>
 
               <div class="timeline-cards-list">
                 <div class="timeline-card-item">
-                  <span class="item-period">Gennaio 2026 — Agosto 2026</span>
+                  <span class="item-period" data-i18n="about.exp1_date">Gennaio 2026 — Agosto 2026</span>
                   <div>
-                    <h4 class="item-role-title">UI/UX &amp; Web Designer</h4>
-                    <div class="item-org-name">BeDigit · Ibrido · Italia</div>
-                    <p class="item-desc">Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il team di sviluppo (WordPress).</p>
+                    <h4 class="item-role-title" data-i18n="about.exp1_role">UI/UX &amp; Web Designer</h4>
+                    <div class="item-org-name" data-i18n="about.exp1_org">BeDigit · Ibrido · Italia</div>
+                    <p class="item-desc" data-i18n="about.exp1_desc">Progettazione di esperienze web e interfacce in
+                      Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe
+                      e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il
+                      team di sviluppo (WordPress).</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">Giugno 2024 — Oggi</span>
+                  <span class="item-period" data-i18n="about.exp2_date">Giugno 2024 — Oggi</span>
                   <div>
-                    <h4 class="item-role-title">Freelance Designer</h4>
-                    <div class="item-org-name">De la A a la Z Engineering &amp; Services AZIS · Remoto · Colombia</div>
-                    <p class="item-desc">Lavori freelance di graphic design, web design e progetti UI/UX su misura. Sviluppo di interfacce allineate agli obiettivi dei clienti combinando struttura dei contenuti, UX e design visivo.</p>
+                    <h4 class="item-role-title" data-i18n="about.exp2_role">Freelance Designer</h4>
+                    <div class="item-org-name" data-i18n="about.exp2_org">De la A a la Z Engineering &amp; Services AZIS
+                      · Remoto · Colombia</div>
+                    <p class="item-desc" data-i18n="about.exp2_desc">Lavori freelance di graphic design, web design e
+                      progetti UI/UX su misura. Sviluppo di interfacce allineate agli obiettivi dei clienti combinando
+                      struttura dei contenuti, UX e design visivo.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">Settembre 2025</span>
+                  <span class="item-period" data-i18n="about.exp3_date">Settembre 2025</span>
                   <div>
-                    <h4 class="item-role-title">Laravel Developer Trainee</h4>
-                    <div class="item-org-name">Universo Srl (Cliente: C.F.A. SRL) · Remoto · Italia</div>
-                    <p class="item-desc">Sviluppo di due micro-progetti web con PHP, Laravel e MySQL, inclusa progettazione del back-end, gestione controller/rotte, modellazione dati, migrazioni, CRUD e autenticazione.</p>
+                    <h4 class="item-role-title" data-i18n="about.exp3_role">Laravel Developer Trainee</h4>
+                    <div class="item-org-name" data-i18n="about.exp3_org">Universo Srl (Cliente: C.F.A. SRL) · Remoto ·
+                      Italia</div>
+                    <p class="item-desc" data-i18n="about.exp3_desc">Sviluppo di due micro-progetti web con PHP, Laravel
+                      e MySQL, inclusa progettazione del back-end, gestione controller/rotte, modellazione dati,
+                      migrazioni, CRUD e autenticazione.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">Marzo 2024 — Giugno 2024</span>
+                  <span class="item-period" data-i18n="about.exp4_date">Marzo 2024 — Giugno 2024</span>
                   <div>
-                    <h4 class="item-role-title">Junior Front-End Developer</h4>
-                    <div class="item-org-name">Sinkronia Srl · Ibrido</div>
-                    <p class="item-desc">Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione del gestionale I-Quadra in Angular.</p>
+                    <h4 class="item-role-title" data-i18n="about.exp4_role">Junior Front-End Developer</h4>
+                    <div class="item-org-name" data-i18n="about.exp4_org">Sinkronia Srl · Ibrido</div>
+                    <p class="item-desc" data-i18n="about.exp4_desc">Partecipazione all'intero ciclo di vita del
+                      software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una
+                      sezione del gestionale I-Quadra in Angular.</p>
                   </div>
                 </div>
               </div>
@@ -2210,46 +2524,61 @@
             <div class="tab-content-pane" id="pane-cert">
               <div class="pane-header">
                 <div>
-                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;">Specializzazioni Tecniche</div>
-                  <h3 class="pane-title">Corsi &amp; Certificazioni</h3>
+                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;"
+                    data-i18n="about.pane_cert_badge">Specializzazioni Tecniche</div>
+                  <h3 class="pane-title" data-i18n="about.pane_cert_title">Corsi &amp; Certificazioni</h3>
                 </div>
-                <span class="mono" style="color:var(--text-dim); font-weight:600;">Aggiornamento Continuo</span>
+                <span class="mono" style="color:var(--text-dim); font-weight:600;"
+                  data-i18n="about.pane_cert_date">Aggiornamento Continuo</span>
               </div>
 
               <div class="timeline-cards-list">
                 <div class="timeline-card-item">
-                  <span class="item-period">2025</span>
+                  <span class="item-period" data-i18n="about.cert1_date">2025</span>
                   <div>
-                    <h4 class="item-role-title">Sviluppo Web con Laravel, PHP e JavaScript (248h)</h4>
-                    <div class="item-org-name">Universo &amp; FormaTemp · Online</div>
-                    <p class="item-desc">Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.</p>
+                    <h4 class="item-role-title" data-i18n="about.cert1_role">Sviluppo Web con Laravel, PHP e JavaScript
+                      (248h)</h4>
+                    <div class="item-org-name" data-i18n="about.cert1_org">Universo &amp; FormaTemp · Online</div>
+                    <p class="item-desc" data-i18n="about.cert1_desc">Formazione pratica incentrata su sviluppo web
+                      back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e
+                      creazione di applicazioni.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">2023 — 2024</span>
+                  <span class="item-period" data-i18n="about.cert2_date">2023 — 2024</span>
                   <div>
-                    <h4 class="item-role-title">Full-Stack Web Developer (500h)</h4>
-                    <div class="item-org-name">Fondo per la Repubblica Digitale · In Sede</div>
-                    <p class="item-desc">Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.</p>
+                    <h4 class="item-role-title" data-i18n="about.cert2_role">Full-Stack Web Developer (500h)</h4>
+                    <div class="item-org-name" data-i18n="about.cert2_org">Fondo per la Repubblica Digitale · In Sede
+                    </div>
+                    <p class="item-desc" data-i18n="about.cert2_desc">Formazione intensiva in sviluppo web full-stack,
+                      OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che
+                      server.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">2023</span>
+                  <span class="item-period" data-i18n="about.cert3_date">2023</span>
                   <div>
-                    <h4 class="item-role-title">Front-End Dev con JS, jQuery e TypeScript (248h)</h4>
-                    <div class="item-org-name">Archimede &amp; FormaTemp · Online</div>
-                    <p class="item-desc">Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript avanzato, TypeScript, HTML5, CSS3 e architettura Bootstrap.</p>
+                    <h4 class="item-role-title" data-i18n="about.cert3_role">Front-End Dev con JS, jQuery e TypeScript
+                      (248h)</h4>
+                    <div class="item-org-name" data-i18n="about.cert3_org">Archimede &amp; FormaTemp · Online</div>
+                    <p class="item-desc" data-i18n="about.cert3_desc">Corso specializzato nella costruzione di
+                      interfacce web interattive utilizzando JavaScript avanzato, TypeScript, HTML5, CSS3 e architettura
+                      Bootstrap.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">2023</span>
+                  <span class="item-period" data-i18n="about.cert4_date">2023</span>
                   <div>
-                    <h4 class="item-role-title">Bootcamp JavaScript &amp; Motion Graphics (248h)</h4>
-                    <div class="item-org-name">Codigo Facilito (Online) / 10 Skills Academy (Virtuale)</div>
-                    <p class="item-desc">Formazione tecnica intensiva in sviluppo JS/TS abbinata a competenze visive di Motion Graphics (After Effects &amp; Premiere) per lo sviluppo di interfacce animate.</p>
+                    <h4 class="item-role-title" data-i18n="about.cert4_role">Bootcamp JavaScript &amp; Motion Graphics
+                      (248h)</h4>
+                    <div class="item-org-name" data-i18n="about.cert4_org">Codigo Facilito (Online) / 10 Skills Academy
+                      (Virtuale)</div>
+                    <p class="item-desc" data-i18n="about.cert4_desc">Formazione tecnica intensiva in sviluppo JS/TS
+                      abbinata a competenze visive di Motion Graphics (After Effects &amp; Premiere) per lo sviluppo di
+                      interfacce animate.</p>
                   </div>
                 </div>
               </div>
@@ -2259,149 +2588,187 @@
             <div class="tab-content-pane" id="pane-edu">
               <div class="pane-header">
                 <div>
-                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;">Titoli Accademici</div>
-                  <h3 class="pane-title">Formazione Accademica</h3>
+                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;"
+                    data-i18n="about.pane_edu_badge">Titoli Accademici</div>
+                  <h3 class="pane-title" data-i18n="about.pane_edu_title">Formazione Accademica</h3>
                 </div>
-                <span class="mono" style="color:var(--text-dim); font-weight:600;">Massimo dei Voti</span>
+                <span class="mono" style="color:var(--text-dim); font-weight:600;"
+                  data-i18n="about.pane_edu_date">Massimo dei Voti</span>
               </div>
 
               <div class="timeline-cards-list">
                 <div class="timeline-card-item">
-                  <span class="item-period">2025 — 2027</span>
+                  <span class="item-period" data-i18n="about.edu1_date">2025 — 2027</span>
                   <div>
-                    <h4 class="item-role-title">Tecnologo in Analisi e Sviluppo Software</h4>
-                    <div class="item-org-name">SENA · Colombia (In corso)</div>
-                    <p class="item-desc">Formazione professionale focalizzata sull'intero ciclo di vita del software: analisi dei requisiti, progettazione, sviluppo, testing e deploy. Include sviluppo web, database, API, Git, UML e metodologie agili.</p>
+                    <h4 class="item-role-title" data-i18n="about.edu1_role">Tecnologo in Analisi e Sviluppo Software
+                    </h4>
+                    <div class="item-org-name" data-i18n="about.edu1_org">SENA · Colombia (In corso)</div>
+                    <p class="item-desc" data-i18n="about.edu1_desc">Formazione professionale focalizzata sull'intero
+                      ciclo di vita del software: analisi dei requisiti, progettazione, sviluppo, testing e deploy.
+                      Include sviluppo web, database, API, Git, UML e metodologie agili.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">2025 — 2026</span>
+                  <span class="item-period" data-i18n="about.edu2_date">2025 — 2026</span>
                   <div>
-                    <h4 class="item-role-title">IFTS – Tecnico Sviluppo Applicazioni Informatiche</h4>
-                    <div class="item-org-name">Regione Puglia · EQF Livello 4 (Completato)</div>
-                    <p class="item-desc">Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.</p>
+                    <h4 class="item-role-title" data-i18n="about.edu2_role">IFTS – Tecnico Sviluppo Applicazioni
+                      Informatiche</h4>
+                    <div class="item-org-name" data-i18n="about.edu2_org">Regione Puglia · EQF Livello 4 (Completato)
+                    </div>
+                    <p class="item-desc" data-i18n="about.edu2_desc">Formazione professionale focalizzata sulla
+                      progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e
+                      analisi dei requisiti.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">2022 — 2025</span>
+                  <span class="item-period" data-i18n="about.edu3_date">2022 — 2025</span>
                   <div>
-                    <h4 class="item-role-title">Laurea Magistrale in Graphic Design</h4>
-                    <div class="item-org-name">Accademia di Belle Arti di Foggia · Votazione: 110/110 con Lode · EQF Livello 7</div>
-                    <p class="item-desc">Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.</p>
+                    <h4 class="item-role-title" data-i18n="about.edu3_role">Laurea Magistrale in Graphic Design</h4>
+                    <div class="item-org-name" data-i18n="about.edu3_org">Accademia di Belle Arti di Foggia · Votazione:
+                      110/110 con Lode · EQF Livello 7</div>
+                    <p class="item-desc" data-i18n="about.edu3_desc">Formazione avanzata specializzata in Web Design e
+                      UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione,
+                      prototipazione in Figma e tecnologie web.</p>
                   </div>
                 </div>
 
                 <div class="timeline-card-item">
-                  <span class="item-period">2018 — 2022</span>
+                  <span class="item-period" data-i18n="about.edu4_date">2018 — 2022</span>
                   <div>
-                    <h4 class="item-role-title">Laurea Triennale in Graphic Design</h4>
-                    <div class="item-org-name">Accademia di Belle Arti di Foggia · Votazione: 110/110 con Lode · EQF Livello 6</div>
-                    <p class="item-desc">Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.</p>
+                    <h4 class="item-role-title" data-i18n="about.edu4_role">Laurea Triennale in Graphic Design</h4>
+                    <div class="item-org-name" data-i18n="about.edu4_org">Accademia di Belle Arti di Foggia · Votazione:
+                      110/110 con Lode · EQF Livello 6</div>
+                    <p class="item-desc" data-i18n="about.edu4_desc">Solida formazione in graphic design, comunicazione
+                      visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design
+                      editoriale, multimedialità e fondamenti di web design.</p>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       <!-- ================= TOOL & PROGRAM STACK MARQUEE ================= -->
       <section class="tech-stack-section" id="tech" style="border-radius: var(--radius-xl); margin: 40px 0;">
-        <div class="tech-stack-label mono">✦ Linguaggi, Framework &amp; Programmi ✦</div>
+        <div class="tech-stack-label mono" data-i18n="tech.label">✦ Linguaggi, Framework &amp; Programmi ✦</div>
         <div class="tech-track">
           <!-- First Loop -->
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-figma"></i></span><span>Figma</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-react"></i></span><span>React</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-js"></i></span><span>JavaScript ES6+</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-html5"></i></span><span>HTML5 Semantico</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-css3-alt"></i></span><span>CSS3 &amp; Flex/Grid</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-wind"></i></span><span>Tailwind CSS</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-php"></i></span><span>PHP / Laravel</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-github"></i></span><span>Git &amp; GitHub</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-pen-nib"></i></span><span>Adobe Illustrator</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-image"></i></span><span>Adobe Photoshop</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-layer-group"></i></span><span>Adobe InDesign</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-code"></i></span><span>VS Code</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-figma"></i></span><span>Figma</span>
+          </div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-react"></i></span><span>React</span>
+          </div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-js"></i></span><span>JavaScript
+              ES6+</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-html5"></i></span><span>HTML5
+              Semantico</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-css3-alt"></i></span><span>CSS3
+              &amp; Flex/Grid</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-wind"></i></span><span>Tailwind
+              CSS</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-php"></i></span><span>PHP /
+              Laravel</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-github"></i></span><span>Git &amp;
+              GitHub</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-pen-nib"></i></span><span>Adobe
+              Illustrator</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-image"></i></span><span>Adobe
+              Photoshop</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-layer-group"></i></span><span>Adobe
+              InDesign</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-code"></i></span><span>VS Code</span>
+          </div>
 
           <!-- Second Loop for Infinite Ticker -->
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-figma"></i></span><span>Figma</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-react"></i></span><span>React</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-js"></i></span><span>JavaScript ES6+</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-html5"></i></span><span>HTML5 Semantico</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-css3-alt"></i></span><span>CSS3 &amp; Flex/Grid</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-wind"></i></span><span>Tailwind CSS</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-php"></i></span><span>PHP / Laravel</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-github"></i></span><span>Git &amp; GitHub</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-pen-nib"></i></span><span>Adobe Illustrator</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-image"></i></span><span>Adobe Photoshop</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-layer-group"></i></span><span>Adobe InDesign</span></div>
-          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-code"></i></span><span>VS Code</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-figma"></i></span><span>Figma</span>
+          </div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-react"></i></span><span>React</span>
+          </div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-js"></i></span><span>JavaScript
+              ES6+</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-html5"></i></span><span>HTML5
+              Semantico</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-css3-alt"></i></span><span>CSS3
+              &amp; Flex/Grid</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-wind"></i></span><span>Tailwind
+              CSS</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-php"></i></span><span>PHP /
+              Laravel</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-github"></i></span><span>Git &amp;
+              GitHub</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-pen-nib"></i></span><span>Adobe
+              Illustrator</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-image"></i></span><span>Adobe
+              Photoshop</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-layer-group"></i></span><span>Adobe
+              InDesign</span></div>
+          <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-code"></i></span><span>VS Code</span>
+          </div>
         </div>
       </section>
 
       <!-- ================= Il mio spazio progettuale ================= -->
       <section class="services" id="services">
-        <div class="section-label reveal">02 — Il mio spazio progettuale</div>
+        <div class="section-label reveal" data-i18n="services.section_label">02 — Il mio spazio progettuale</div>
         <div class="services-head">
-          <h2 class="headline reveal">Un <span class="grad-text">approccio</span>,<span class="muted-text"> più competenze.</span></h2>
-          <p class="services-intro reveal">Mi muovo tra UI/UX, web design, visual e front-end con curiosità e voglia di crescere, cercando di migliorare progetto dopo progetto.</p>
+          <h2 class="headline reveal" data-i18n-html="services.headline">Un <span
+              class="grad-text">approccio</span>,<span class="muted-text"> più competenze.</span></h2>
+          <p class="services-intro reveal" data-i18n="services.intro">Mi muovo tra UI/UX, web design, visual e front-end
+            con curiosità e voglia di crescere, cercando di migliorare progetto dopo progetto.</p>
         </div>
 
         <div class="service-list reveal">
           <article class="service" data-service="uiux">
             <span class="service-num">[01]</span>
-            <h3>UI/UX Design</h3>
-            <p>Ricerca e analisi, architettura dell’informazione, wireframe, user flow, prototipazione e progettazione di interfacce.</p>
-           
+            <h3 data-i18n="services.card1_title">UI/UX Design</h3>
+            <p data-i18n="services.card1_desc">Ricerca e analisi, architettura dell’informazione, wireframe, user flow,
+              prototipazione e progettazione di interfacce.</p>
           </article>
 
-                   <article class="service" data-service="frontend">
+          <article class="service" data-service="frontend">
             <span class="service-num">[02]</span>
-            <h3>Visual & Web Design</h3>
-            <p>Layout, composizione, tipografia, identità visiva e applicazione dei sistemi grafici al digitale.</p>
-            
+            <h3 data-i18n="services.card2_title">Visual & Web Design</h3>
+            <p data-i18n="services.card2_desc">Layout, composizione, tipografia, identità visiva e applicazione dei
+              sistemi grafici al digitale.</p>
           </article>
 
           <article class="service" data-service="brand">
             <span class="service-num">[03]</span>
-            <h3>Web Development</h3>
-            <p>HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze che continuo a consolidare.</p>
-            
+            <h3 data-i18n="services.card3_title">Web Development</h3>
+            <p data-i18n="services.card3_desc">HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze
+              che continuo a consolidare.</p>
           </article>
 
           <article class="service" data-service="brand">
             <span class="service-num">[04]</span>
-            <h3>AI Exploration</h3>
-            <p>Utilizzo e sperimentazione di strumenti AI a supporto di ricerca, ideazione, prototipazione e sviluppo.</p>
-            
+            <h3 data-i18n="services.card4_title">AI Exploration</h3>
+            <p data-i18n="services.card4_desc">Utilizzo e sperimentazione di strumenti AI a supporto di ricerca,
+              ideazione, prototipazione e sviluppo.</p>
           </article>
         </div>
       </section>
 
-      <!-- ================= SELECTED WORK ================= 
+      <!-- ================= SELECTED WORK ================= -->
       <section id="work">
-        <div class="section-label reveal">03 — Portfolio Selezionato</div>
+        <div class="section-label reveal" data-i18n="work.section_label">03 — Portfolio Selezionato</div>
         <div class="work-head">
-          <h2 class="headline reveal"> <span class="grad-text">Progetti</span> </h2>
-          <p class="reveal">Clicca su ciascuna card per aprire l'anteprima rapida, oppure amplia il progetto per visualizzare le 4 fasi e le specifiche complete.</p>
+          <h2 class="headline reveal" data-i18n-html="work.headline"> <span class="grad-text">Progetti</span> </h2>
+          <p class="reveal" data-i18n="work.intro">Clicca su ciascuna card per aprire l'anteprima rapida, oppure amplia
+            il progetto per visualizzare le 4 fasi e le specifiche complete.</p>
         </div>
 
-       Filters 
+        <!-- Filters -->
         <div class="filter-tabs reveal">
-          <button class="filter-btn active" data-filter="all">Tutti</button>
-          <button class="filter-btn" data-filter="ux">UI/UX Design</button>
-          <button class="filter-btn" data-filter="web">Web &amp; Front-end</button>
-          <button class="filter-btn" data-filter="brand">Brand &amp; Art</button>
+          <button class="filter-btn active" data-filter="all" data-i18n="work.filter_all">Tutti</button>
+          <button class="filter-btn" data-filter="ux" data-i18n="work.filter_ux">UI/UX Design</button>
+          <button class="filter-btn" data-filter="web" data-i18n="work.filter_web">Web &amp; Front-end</button>
+          <button class="filter-btn" data-filter="brand" data-i18n="work.filter_brand">Brand &amp; Art</button>
         </div>
--->
-        
-<!--
-       
-        <div class="projects reveal">-->
-          <!-- Project 01: AgriBox 
+
+        <div class="projects reveal">
+          <!-- Project 01: AgriBox --->
           <article class="project" data-category="ux web" data-project="agribox">
             <div class="art art-a"></div>
             <div class="project-top">
@@ -2410,11 +2777,12 @@
             </div>
             <div>
               <h3 class="project-title">AgriBox<br>Platform</h3>
-              <span class="project-action-pill" style="margin-top: 14px;">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
 
-          Project 02: Footsy 
+          <!-- Project 02: Footsy --->
           <article class="project" data-category="ux web" data-project="footsy">
             <div class="art art-b"></div>
             <div class="project-top">
@@ -2423,11 +2791,12 @@
             </div>
             <div>
               <h3 class="project-title">Footsy<br>Shoes</h3>
-              <span class="project-action-pill" style="margin-top: 14px;">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
 
-           Project 03: Mininno 
+          <!-- Project 03: Mininno --->
           <article class="project" data-category="brand web" data-project="mininno">
             <div class="art art-c"></div>
             <div class="project-top">
@@ -2436,11 +2805,12 @@
             </div>
             <div>
               <h3 class="project-title">Mininno<br>Costruzioni</h3>
-              <span class="project-action-pill" style="margin-top: 14px;">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
 
-          Project 04: suMisura 
+          <!-- Project 04: suMisura --->
           <article class="project" data-category="ux brand" data-project="sumisura">
             <div class="art art-d"></div>
             <div class="project-top">
@@ -2449,64 +2819,73 @@
             </div>
             <div>
               <h3 class="project-title">suMisura®<br>Security Doors</h3>
-              <span class="project-action-pill" style="margin-top: 14px;">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
         </div>
 
-        Callout to All Projects Page 
+        <!-- Callout to All Projects Page -->
         <div style="margin-top: 44px; text-align: center;" class="reveal">
-          <a href="projects.html" class="btn secondary" style="display: inline-flex; align-items: center; gap: 10px; border-radius: var(--radius-full); padding: 14px 36px; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; color: #FFFFFF; border-color: var(--line-violet); background: rgba(139, 92, 246, 0.12); transition: all 0.3s ease;">
-            <span>Vedi Tutti i Progetti &amp; Case Studies (4)</span>
+          <a href="projects.html" class="btn secondary"
+            style="display: inline-flex; align-items: center; gap: 10px; border-radius: var(--radius-full); padding: 14px 36px; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; color: #FFFFFF; border-color: var(--line-violet); background: rgba(139, 92, 246, 0.12); transition: all 0.3s ease;">
+            <span data-i18n="work.btn_all_projects">Vedi Tutti i Progetti &amp; Case Studies (4)</span>
             <span>↗</span>
           </a>
         </div>
-      </section>  -->
+      </section>
 
-      <!-- ================= PROCESS ================= -->
       <section id="process">
-        <div class="section-label reveal">04 — Metodo</div>
-        <h2 class="headline reveal"><span class="grad-text">Meno complessità.</span> <span class="muted-text">Più criterio.</span></h2>
+        <div class="section-label reveal" data-i18n="process.section_label">04 — Metodo</div>
+        <h2 class="headline reveal" data-i18n-html="process.headline"><span class="grad-text">Meno complessità.</span>
+          <span class="muted-text">Più criterio.</span>
+        </h2>
 
         <div class="process-grid reveal">
-          <p class="process-note">
-            Ogni progetto parte dal capire prima di disegnare. Cerco di osservare, organizzare e semplificare, lasciando spazio alla sperimentazione e a ciò che posso imparare lungo il percorso.
+          <p class="process-note" data-i18n="process.intro">
+            Ogni progetto parte dal capire prima di disegnare. Cerco di osservare, organizzare e semplificare, lasciando
+            spazio alla sperimentazione e a ciò che posso imparare lungo il percorso.
           </p>
 
           <div class="steps">
             <div class="step">
               <span>01</span>
               <div>
-                <h4>Comprendere</h4>
-                <p>Osservare il contesto, le persone, gli obiettivi e i vincoli prima di cercare una soluzione.</p>
+                <h4 data-i18n="process.step1_title">Comprendere</h4>
+                <p data-i18n="process.step1_desc">Osservare il contesto, le persone, gli obiettivi e i vincoli prima di
+                  cercare una soluzione.</p>
               </div>
             </div>
             <div class="step">
               <span>02</span>
               <div>
-                <h4>Definire</h4>
-                <p>Trasformare ciò che emerge in priorità, problemi da risolvere, contenuti e requisiti più chiari.</p>
+                <h4 data-i18n="process.step2_title">Definire</h4>
+                <p data-i18n="process.step2_desc">Trasformare ciò che emerge in priorità, problemi da risolvere,
+                  contenuti e requisiti più chiari.</p>
               </div>
             </div>
             <div class="step">
               <span>03</span>
               <div>
-                <h4>Esplorare</h4>
-                <p>Generare idee, confrontare alternative e cercare la direzione più adatta al progetto.</p>
+                <h4 data-i18n="process.step3_title">Esplorare</h4>
+                <p data-i18n="process.step3_desc">Generare idee, confrontare alternative e cercare la direzione più
+                  adatta al progetto.</p>
               </div>
             </div>
             <div class="step">
               <span>04</span>
               <div>
-                <h4>Progettare</h4>
-                <p>Dare forma alla soluzione attraverso flussi, wireframe, interfacce e prototipi.</p>
+                <h4 data-i18n="process.step4_title">Progettare</h4>
+                <p data-i18n="process.step4_desc">Dare forma alla soluzione attraverso flussi, wireframe, interfacce e
+                  prototipi.</p>
               </div>
             </div>
             <div class="step">
               <span>05</span>
               <div>
-                <h4>Costruire & Iterare</h4>
-                <p>Portare il progetto verso lo sviluppo, testare ciò che funziona e migliorarlo attraverso feedback e nuove evidenze.</p>
+                <h4 data-i18n="process.step5_title">Costruire &amp; Iterare</h4>
+                <p data-i18n="process.step5_desc">Portare il progetto verso lo sviluppo, testare ciò che funziona e
+                  migliorarlo attraverso feedback e nuove evidenze.</p>
               </div>
             </div>
           </div>
@@ -2547,23 +2926,32 @@
           <!-- Left Content Side -->
           <div style="position: relative; z-index: 2; flex: 1; max-width: 680px; text-align: left;">
             <!-- Availability Badge Left -->
-            <div style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: var(--radius-full); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.28); color: #34D399; font-size: 0.84rem; font-weight: 500; margin-bottom: 26px;">
-              <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; box-shadow: 0 0 10px #10B981;"></span>
-              <span>Disponibile per nuove opportunità &amp; progetti</span>
+            <div
+              style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: var(--radius-full); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.28); color: #34D399; font-size: 0.84rem; font-weight: 500; margin-bottom: 26px;">
+              <span
+                style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; box-shadow: 0 0 10px #10B981;"></span>
+              <span data-i18n="contact.badge">Disponibile per nuove opportunità &amp; progetti</span>
             </div>
 
             <!-- Title & Subtitle Left -->
-            <h2 class="headline" style="font-size: clamp(2.4rem, 4.8vw, 4.6rem); line-height: 1.02; margin: 0 0 20px; text-align: left;">
+            <h2 class="headline"
+              style="font-size: clamp(2.4rem, 4.8vw, 4.6rem); line-height: 1.02; margin: 0 0 20px; text-align: left;"
+              data-i18n-html="contact.title">
               Iniziamo da un <span class="grad-text">ciao</span>
             </h2>
-            
-            <p style="font-size: clamp(1.02rem, 1.35vw, 1.25rem); line-height: 1.62; color: var(--text-muted); margin: 0 0 36px 0; font-weight: 300; text-align: left;">
-              Ciao! Se hai un’opportunità, un progetto da condividere o semplicemente ti va di scambiare due idee, scrivimi. Sono sempre felice di conoscere persone, progetti e prospettive nuove
+
+            <p style="font-size: clamp(1.02rem, 1.35vw, 1.25rem); line-height: 1.62; color: var(--text-muted); margin: 0 0 36px 0; font-weight: 300; text-align: left;"
+              data-i18n="contact.desc">
+              Ciao! Se hai un’opportunità, un progetto da condividere o semplicemente ti va di scambiare due idee,
+              scrivimi. Sono sempre felice di conoscere persone, progetti e prospettive nuove
             </p>
 
             <!-- Action Buttons Left -->
-            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 16px; width: 100%;">
-              <a class="glass-btn" href="https://wa.me/393771392002?text=Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A" target="_blank" rel="noopener" style="
+            <div
+              style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 16px; width: 100%;">
+              <a class="glass-btn" id="contactWhatsAppBtn"
+                href="https://wa.me/393771392002?text=Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A"
+                target="_blank" rel="noopener" style="
                 display: inline-flex;
                 align-items: center;
                 gap: 12px;
@@ -2577,7 +2965,7 @@
                 box-shadow: 0 12px 36px rgba(139, 92, 246, 0.4);
                 transition: all 0.3s ease;
               ">
-                <span>Facciamo due chiacchiere</span>
+                <span data-i18n="contact.btn">Facciamo due chiacchiere</span>
                 <span style="font-size: 1.1rem; transform: translateX(2px);">↗</span>
               </a>
             </div>
@@ -2595,7 +2983,7 @@
         <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
         <span>Bari / Bisceglie · Italia</span>
         <div style="display: flex; gap: 20px;">
-          <a href="cv.html">Digital Resume ↗</a>
+          <a href="cv.html" id="footerResumeLink" data-i18n="footer.resume">Digital Resume ↗</a>
           <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener">Behance ↗</a>
           <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener">GitHub ↗</a>
@@ -2612,37 +3000,42 @@
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true">
     <div class="drawer-panel" id="drawerPanel" role="dialog" aria-modal="true">
       <button class="drawer-close" id="drawerClose" aria-label="Chiudi modale">✕</button>
-      
+
       <div class="drawer-category" id="drawerCategory">E-COMMERCE · UI/UX</div>
       <h3 class="drawer-title" id="drawerTitle">AgriBox Platform</h3>
-      <p class="drawer-lead" id="drawerLead">Catalogo e-commerce che unisce retail B2C e area B2B con sconti a volume.</p>
-      
+      <p class="drawer-lead" id="drawerLead">Catalogo e-commerce che unisce retail B2C e area B2B con sconti a volume.
+      </p>
+
       <div class="drawer-preview" id="drawerPreview">
-        <span class="mono" style="color:#fff; font-size:1.1rem; font-weight:600;">Anteprima Interfaccia</span>
+        <span class="mono" style="color:#fff; font-size:1.1rem; font-weight:600;"
+          data-i18n="drawer.preview_label">Anteprima Interfaccia</span>
       </div>
 
       <div class="drawer-specs">
         <div class="drawer-spec">
-          <h5>Anno &amp; Ruolo</h5>
+          <h5 data-i18n="drawer.specs_role_label">Anno &amp; Ruolo</h5>
           <p id="drawerRole">2026 · UI/UX Lead</p>
         </div>
         <div class="drawer-spec">
-          <h5>Stack &amp; Metodo</h5>
+          <h5 data-i18n="drawer.specs_stack_label">Stack &amp; Metodo</h5>
           <p id="drawerStack">Figma, React, Tailwind</p>
         </div>
       </div>
 
       <div class="drawer-body" id="drawerBody">
-        Riprogettazione completa dell'esperienza d'acquisto con doppio flusso: navigazione intuitiva per il consumatore finale e catalogo rapido con prezzi dinamici a volume per le aziende agricole.
+        Riprogettazione completa dell'esperienza d'acquisto con doppio flusso: navigazione intuitiva per il consumatore
+        finale e catalogo rapido con prezzi dinamici a volume per le aziende agricole.
       </div>
 
       <div class="drawer-actions-row">
-        <a href="project.html?id=agribox" class="btn primary" id="drawerCta" style="text-align:center; justify-content:center;">
-          <span>Amplia Progetto</span>
+        <a href="project.html?id=agribox" class="btn primary" id="drawerCta"
+          style="text-align:center; justify-content:center;">
+          <span data-i18n="drawer.btn_project">Amplia Progetto</span>
           <span>↗</span>
         </a>
-        <a href="#contact" class="btn secondary" onclick="closeDrawer()" style="text-align:center; justify-content:center;">
-          <span>Contattami</span>
+        <a href="#contact" class="btn secondary" onclick="closeDrawer()"
+          style="text-align:center; justify-content:center;">
+          <span data-i18n="drawer.btn_contact">Contattami</span>
         </a>
       </div>
     </div>
@@ -2650,45 +3043,584 @@
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
-    /* 1. DATA DEI PROGETTI */
-    const PROJECTS = {
-      agribox: {
-        title: "AgriBox Platform",
-        category: "E-COMMERCE B2B & B2C",
-        lead: "Piattaforma e-commerce per prodotti agricoli con gestione differenziata di listini retail e wholesale.",
-        role: "2026 · UI/UX & Front-end Lead",
-        stack: "Figma, React, Tailwind CSS",
-        body: "Abbiamo disegnato un'architettura a doppia vista: navigazione veloce per il consumatore finale e tabelle di ordinazione rapida con prezzi dinamici a volume per le aziende agricole registrate con P.IVA.",
-        bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+    /* ============================================================
+       0. MULTI-LANGUAGE SYSTEM (IT · ES · EN)
+       ============================================================ */
+    const I18N = {
+      it: {
+        "nav.about": "Chi sono",
+        "nav.services": "Servizi",
+        "nav.contact": "Contatti",
+        "nav.resume": "Resume",
+        "hero.eyebrow": "<i></i> Bisceglie, Italia · Remoto / Ibrido / On-site",
+        "hero.title": 'Design, codice e qualunque cosa <span class="grad-text">catturi <br><span style="white-space: nowrap;">la mia curiosità</span></span>',
+        "hero.desc": "Mi muovo tra design e codice, esplorando come l’AI possa supportare ricerca, ideazione e sviluppo.",
+        "hero.btn_work": "Vedi Progetti ↗",
+        "hero.btn_resume": "Resume / CV",
+        "about.section_label": "01 — Chi Sono & Percorso",
+        "about.headline": '<span class="grad-text">Dal design al codice:</span> <span class="muted-text">un percorso in continua evoluzione.</span>',
+        "about.tab_exp_title": "Esperienza",
+        "about.tab_exp_sub": "Lavoro & Agenzia",
+        "about.tab_exp_badge": "03 Ruoli",
+        "about.tab_cert_title": "Corsi & Certificazioni",
+        "about.tab_cert_sub": "Competenze Tecniche",
+        "about.tab_cert_badge": "IFTS + Cert",
+        "about.tab_edu_title": "Formazione",
+        "about.tab_edu_sub": "Percorso Accademico",
+        "about.tab_edu_badge": "110/110L",
+        "about.pane_exp_badge": "Percorso Lavorativo",
+        "about.pane_exp_title": "Esperienza Professionale",
+        "about.pane_exp_date": "2022 — Oggi",
+        "about.exp1_date": "Gennaio 2026 — Agosto 2026",
+        "about.exp1_role": "UI/UX & Web Designer",
+        "about.exp1_org": "BeDigit · Ibrido · Italia",
+        "about.exp1_desc": "Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il team di sviluppo (WordPress).",
+        "about.exp2_date": "Giugno 2024 — Oggi",
+        "about.exp2_role": "Freelance Designer",
+        "about.exp2_org": "De la A a la Z Engineering & Services AZIS · Remoto · Colombia",
+        "about.exp2_desc": "Lavori freelance di graphic design, web design e progetti UI/UX su misura. Sviluppo di interfacce allineate agli obiettivi dei clienti combinando struttura dei contenuti, UX e design visivo.",
+        "about.exp3_date": "Settembre 2025",
+        "about.exp3_role": "Laravel Developer Trainee",
+        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto · Italia",
+        "about.exp3_desc": "Sviluppo di due micro-progetti web con PHP, Laravel e MySQL, inclusa progettazione del back-end, gestione controller/rotte, modellazione dati, migrazioni, CRUD e autenticazione.",
+        "about.exp4_date": "Marzo 2024 — Giugno 2024",
+        "about.exp4_role": "Junior Front-End Developer",
+        "about.exp4_org": "Sinkronia Srl · Ibrido",
+        "about.exp4_desc": "Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione del gestionale I-Quadra in Angular.",
+        "about.pane_cert_badge": "Specializzazioni Tecniche",
+        "about.pane_cert_title": "Corsi & Certificazioni",
+        "about.pane_cert_date": "Aggiornamento Continuo",
+        "about.cert1_date": "2025",
+        "about.cert1_role": "Sviluppo Web con Laravel, PHP e JavaScript (248h)",
+        "about.cert1_org": "Universo & FormaTemp · Online",
+        "about.cert1_desc": "Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.",
+        "about.cert2_date": "2023 — 2024",
+        "about.cert2_role": "Full-Stack Web Developer (500h)",
+        "about.cert2_org": "Fondo per la Repubblica Digitale · In Sede",
+        "about.cert2_desc": "Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.",
+        "about.cert3_date": "2023",
+        "about.cert3_role": "Front-End Dev con JS, jQuery e TypeScript (248h)",
+        "about.cert3_org": "Archimede & FormaTemp · Online",
+        "about.cert3_desc": "Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript avanzato, TypeScript, HTML5, CSS3 e architettura Bootstrap.",
+        "about.cert4_date": "2023",
+        "about.cert4_role": "Bootcamp JavaScript & Motion Graphics (248h)",
+        "about.cert4_org": "Codigo Facilito (Online) / 10 Skills Academy (Virtuale)",
+        "about.cert4_desc": "Formazione tecnica intensiva in sviluppo JS/TS abbinata a competenze visive di Motion Graphics (After Effects & Premiere) per lo sviluppo di interfacce animate.",
+        "about.pane_edu_badge": "Titoli Accademici",
+        "about.pane_edu_title": "Formazione Accademica",
+        "about.pane_edu_date": "Massimo dei Voti",
+        "about.edu1_date": "2025 — 2027",
+        "about.edu1_role": "Tecnologo in Analisi e Sviluppo Software",
+        "about.edu1_org": "SENA · Colombia (In corso)",
+        "about.edu1_desc": "Formazione professionale focalizzata sull'intero ciclo di vita del software: analisi dei requisiti, progettazione, sviluppo, testing e deploy. Include sviluppo web, database, API, Git, UML e metodologie agili.",
+        "about.edu2_date": "2025 — 2026",
+        "about.edu2_role": "IFTS – Tecnico Sviluppo Applicazioni Informatiche",
+        "about.edu2_org": "Regione Puglia · EQF Livello 4 (Completato)",
+        "about.edu2_desc": "Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.",
+        "about.edu3_date": "2022 — 2025",
+        "about.edu3_role": "Laurea Magistrale in Graphic Design",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia · Votazione: 110/110 con Lode · EQF Livello 7",
+        "about.edu3_desc": "Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.",
+        "about.edu4_date": "2018 — 2022",
+        "about.edu4_role": "Laurea Triennale in Graphic Design",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia · Votazione: 110/110 con Lode · EQF Livello 6",
+        "about.edu4_desc": "Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.",
+        "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
+        "services.section_label": "02 — Il mio spazio progettuale",
+        "services.headline": 'Un <span class="grad-text">approccio</span>,<span class="muted-text"> più competenze.</span>',
+        "services.intro": "Mi muovo tra UI/UX, web design, visual e front-end con curiosità e voglia di crescere, cercando di migliorare progetto dopo progetto.",
+        "services.card1_title": "UI/UX Design",
+        "services.card1_desc": "Ricerca e analisi, architettura dell’informazione, wireframe, user flow, prototipazione e progettazione di interfacce.",
+        "services.card2_title": "Visual & Web Design",
+        "services.card2_desc": "Layout, composizione, tipografia, identità visiva e applicazione dei sistemi grafici al digitale.",
+        "services.card3_title": "Web Development",
+        "services.card3_desc": "HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze che continuo a consolidare.",
+        "services.card4_title": "AI Exploration",
+        "services.card4_desc": "Utilizzo e sperimentazione di strumenti AI a supporto di ricerca, ideazione, prototipazione e sviluppo.",
+        "work.section_label": "03 — Portfolio Selezionato",
+        "work.headline": '<span class="grad-text">Progetti</span>',
+        "work.intro": "Clicca su ciascuna card per aprire l'anteprima rapida, oppure amplia il progetto per visualizzare le 4 fasi e le specifiche complete.",
+        "work.filter_all": "Tutti",
+        "work.filter_ux": "UI/UX Design",
+        "work.filter_web": "Web & Front-end",
+        "work.filter_brand": "Brand & Art",
+        "work.card_action": "Anteprima & Fasi ↗",
+        "work.btn_all_projects": "Vedi Tutti i Progetti & Case Studies (4)",
+        "process.section_label": "04 — Metodo",
+        "process.headline": '<span class="grad-text">Meno complessità.</span> <span class="muted-text">Più criterio.</span>',
+        "process.intro": "Ogni progetto parte dal capire prima di disegnare. Cerco di osservare, organizzare e semplificare, lasciando spazio alla sperimentazione e a ciò che posso imparare lungo il percorso.",
+        "process.step1_title": "Comprendere",
+        "process.step1_desc": "Osservare il contesto, le persone, gli obiettivi e i vincoli prima di cercare una soluzione.",
+        "process.step2_title": "Definire",
+        "process.step2_desc": "Trasformare ciò che emerge in priorità, problemi da risolvere, contenuti e requisiti più chiari.",
+        "process.step3_title": "Esplorare",
+        "process.step3_desc": "Generare idee, confrontare alternative e cercare la direzione più adatta al progetto.",
+        "process.step4_title": "Progettare",
+        "process.step4_desc": "Dare forma alla soluzione attraverso flussi, wireframe, interfacce e prototipi.",
+        "process.step5_title": "Costruire & Iterare",
+        "process.step5_desc": "Portare il progetto verso lo sviluppo, testare ciò che funziona e migliorarlo attraverso feedback e nuove evidenze.",
+        "contact.badge": "Disponibile per nuove opportunità & progetti",
+        "contact.title": 'Iniziamo da un <span class="grad-text">ciao</span>',
+        "contact.desc": "Ciao! Se hai un’opportunità, un progetto da condividere o semplicemente ti va di scambiare due idee, scrivimi. Sono sempre felice di conoscere persone, progetti e prospettive nuove",
+        "contact.btn": "Facciamo due chiacchiere",
+        "footer.resume": "Digital Resume ↗",
+        "drawer.preview_label": "Anteprima Interfaccia",
+        "drawer.specs_role_label": "Anno & Ruolo",
+        "drawer.specs_stack_label": "Stack & Metodo",
+        "drawer.btn_project": "Amplia Progetto",
+        "drawer.btn_contact": "Contattami"
       },
-      footsy: {
-        title: "Footsy Shoes",
-        category: "DIGITAL STORE & UI",
-        lead: "E-commerce dedicato a calzature per bambini con configuratore taglie assistito.",
-        role: "2026 · Product Designer & UI Developer",
-        stack: "Figma, React, Micro-animations",
-        body: "Progettato per ridurre i resi tipici del settore calzature per bambini attraverso un selettore interattivo del piede e schede prodotto con visualizzazione 360° dei materiali.",
-        bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+      es: {
+        "nav.about": "Sobre mí",
+        "nav.services": "Servicios",
+        "nav.contact": "Contacto",
+        "nav.resume": "CV / Resume",
+        "hero.eyebrow": "<i></i> Bisceglie, Italia · Remoto / Híbrido / Presencial",
+        "hero.title": 'Diseño, código y todo <br>lo que <span class="grad-text">despierte <br><span style="white-space: nowrap;">mi curiosidad</span></span>',
+        "hero.desc": "Me muevo entre diseño y código, explorando cómo la IA puede potenciar la investigación, ideación y desarrollo.",
+        "hero.btn_work": "Ver Proyectos ↗",
+        "hero.btn_resume": "CV / Resume",
+        "about.section_label": "01 — Sobre Mí & Trayectoria",
+        "about.headline": '<span class="grad-text">Del diseño al código:</span> <span class="muted-text">un camino en constante evolución.</span>',
+        "about.tab_exp_title": "Experiencia",
+        "about.tab_exp_sub": "Trabajo & Agencia",
+        "about.tab_exp_badge": "03 Roles",
+        "about.tab_cert_title": "Cursos & Certificaciones",
+        "about.tab_cert_sub": "Habilidades Técnicas",
+        "about.tab_cert_badge": "IFTS + Cert",
+        "about.tab_edu_title": "Educación",
+        "about.tab_edu_sub": "Formación Académica",
+        "about.tab_edu_badge": "110/110L",
+        "about.pane_exp_badge": "Trayectoria Laboral",
+        "about.pane_exp_title": "Experiencia Profesional",
+        "about.pane_exp_date": "2022 — Hoy",
+        "about.exp1_date": "Enero 2026 — Agosto 2026",
+        "about.exp1_role": "UI/UX & Web Designer",
+        "about.exp1_org": "BeDigit · Híbrido · Italia",
+        "about.exp1_desc": "Diseño de experiencias web e interfaces en Figma, desde el análisis de requerimientos y arquitectura de la información, hasta flujos de usuario, wireframes y prototipos de alta fidelidad. Optimización de la estructura de contenidos y colaboración con el equipo de desarrollo (WordPress).",
+        "about.exp2_date": "Junio 2024 — Hoy",
+        "about.exp2_role": "Freelance Designer",
+        "about.exp2_org": "De la A a la Z Engineering & Services AZIS · Remoto · Colombia",
+        "about.exp2_desc": "Trabajos freelance de diseño gráfico, diseño web y proyectos UI/UX a medida. Desarrollo de interfaces alineadas con los objetivos de los clientes combinando estructura de contenido, UX y diseño visual.",
+        "about.exp3_date": "Septiembre 2025",
+        "about.exp3_role": "Laravel Developer Trainee",
+        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto · Italia",
+        "about.exp3_desc": "Desarrollo de dos micro-proyectos web con PHP, Laravel y MySQL, incluyendo arquitectura back-end, gestión de controladores/rutas, modelado de datos, migraciones, CRUD y autenticación.",
+        "about.exp4_date": "Marzo 2024 — Junio 2024",
+        "about.exp4_role": "Junior Front-End Developer",
+        "about.exp4_org": "Sinkronia Srl · Híbrido",
+        "about.exp4_desc": "Participación en todo el ciclo de vida del software: desde el análisis de requerimientos y diseño UI/UX, hasta la implementación front-end de una sección del sistema de gestión I-Quadra en Angular.",
+        "about.pane_cert_badge": "Especializaciones Técnicas",
+        "about.pane_cert_title": "Cursos & Certificaciones",
+        "about.pane_cert_date": "Actualización Continua",
+        "about.cert1_date": "2025",
+        "about.cert1_role": "Desarrollo Web con Laravel, PHP y JavaScript (248h)",
+        "about.cert1_org": "Universo & FormaTemp · Online",
+        "about.cert1_desc": "Formación práctica centrada en desarrollo web back-end con PHP y Laravel, programación orientada a objetos, bases de datos relacionales y creación de aplicaciones.",
+        "about.cert2_date": "2023 — 2024",
+        "about.cert2_role": "Full-Stack Web Developer (500h)",
+        "about.cert2_org": "Fondo per la Repubblica Digitale · Presencial",
+        "about.cert2_desc": "Formación intensiva en desarrollo web full-stack, POO y stack tecnológico moderno tanto en cliente como en servidor.",
+        "about.cert3_date": "2023",
+        "about.cert3_role": "Front-End Dev con JS, jQuery y TypeScript (248h)",
+        "about.cert3_org": "Archimede & FormaTemp · Online",
+        "about.cert3_desc": "Curso especializado en construcción de interfaces web interactivas con JavaScript avanzado, TypeScript, HTML5, CSS3 y arquitectura Bootstrap.",
+        "about.cert4_date": "2023",
+        "about.cert4_role": "Bootcamp JavaScript & Motion Graphics (248h)",
+        "about.cert4_org": "Codigo Facilito (Online) / 10 Skills Academy (Virtual)",
+        "about.cert4_desc": "Formación técnica intensiva en desarrollo JS/TS combinada con habilidades visuales de Motion Graphics (After Effects & Premiere) para interfaces interactivas.",
+        "about.pane_edu_badge": "Títulos Académicos",
+        "about.pane_edu_title": "Formación Académica",
+        "about.pane_edu_date": "Máxima Calificación",
+        "about.edu1_date": "2025 — 2027",
+        "about.edu1_role": "Tecnóloga en Análisis y Desarrollo de Software",
+        "about.edu1_org": "SENA · Colombia (En curso)",
+        "about.edu1_desc": "Formación técnica profesional en ingeniería de software, modelado de bases de datos, POO, análisis de requisitos de sistemas y metodologías ágiles.",
+        "about.edu2_date": "2025 — 2026",
+        "about.edu2_role": "IFTS – Técnica en Desarrollo de Aplicaciones Informáticas",
+        "about.edu2_org": "Regione Puglia · EQF Nivel 4 (Completado)",
+        "about.edu2_desc": "Especialización profesional enfocada en desarrollo de aplicaciones IT, programación, desarrollo web, bases de datos relacionales y análisis de requisitos.",
+        "about.edu3_date": "2022 — 2025",
+        "about.edu3_role": "Licenciatura Magistral en Diseño Gráfico (Máster)",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia · Calificación: 110/110 Cum Laude · EQF Nivel 7",
+        "about.edu3_desc": "Especialización avanzada en Web Design y UI/UX. Desarrollo de proyectos centrados en experiencia de usuario, arquitectura de información, prototipado en Figma y tecnologías web.",
+        "about.edu4_date": "2018 — 2022",
+        "about.edu4_role": "Licenciatura Trienal en Diseño Gráfico (Grado)",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia · Calificación: 110/110 Cum Laude · EQF Nivel 6",
+        "about.edu4_desc": "Sólida formación en diseño gráfico, comunicación visual, branding y producción de contenidos digitales. Competencias en identidad visual, diseño editorial, multimedia y fundamentos de diseño web.",
+        "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
+        "services.section_label": "02 — Mi espacio de trabajo",
+        "services.headline": 'Un <span class="grad-text">enfoque</span>,<span class="muted-text"> múltiples disciplinas.</span>',
+        "services.intro": "Me muevo entre UI/UX, diseño web, visual y front-end con curiosidad y ganas de crecer, evolucionando proyecto tras proyecto.",
+        "services.card1_title": "Diseño UI/UX",
+        "services.card1_desc": "Investigación y análisis, arquitectura de la información, wireframes, user flows, prototipado y diseño de interfaces.",
+        "services.card2_title": "Diseño Visual & Web",
+        "services.card2_desc": "Maquetación, composición, tipografía, identidad visual y aplicación de sistemas gráficos al entorno digital.",
+        "services.card3_title": "Desarrollo Web",
+        "services.card3_desc": "HTML, CSS, JavaScript y desarrollo de interfaces responsive, con habilidades en continuo fortalecimiento.",
+        "services.card4_title": "Exploración con IA",
+        "services.card4_desc": "Uso y experimentación con herramientas de IA para potenciar investigación, ideación, prototipado y desarrollo.",
+        "work.section_label": "03 — Portafolio Seleccionado",
+        "work.headline": '<span class="grad-text">Proyectos</span>',
+        "work.intro": "Haz clic en cada tarjeta para abrir la vista rápida, o amplía el proyecto para ver las 4 fases y detalles completos.",
+        "work.filter_all": "Todos",
+        "work.filter_ux": "Diseño UI/UX",
+        "work.filter_web": "Web & Front-end",
+        "work.filter_brand": "Branding & Arte",
+        "work.card_action": "Vista previa & Fases ↗",
+        "work.btn_all_projects": "Ver Todos los Proyectos & Case Studies (4)",
+        "process.section_label": "04 — Método",
+        "process.headline": '<span class="grad-text">Menos complejidad.</span> <span class="muted-text">Más criterio.</span>',
+        "process.intro": "Cada proyecto comienza por comprender antes de diseñar. Busco observar, estructurar y simplificar, dejando espacio para la experimentación y el aprendizaje continuo.",
+        "process.step1_title": "Comprender",
+        "process.step1_desc": "Analizar el contexto, los usuarios, los objetivos y las limitaciones antes de proponer una solución.",
+        "process.step2_title": "Definir",
+        "process.step2_desc": "Transformar hallazgos en prioridades, problemas clave, arquitectura de contenido y requerimientos claros.",
+        "process.step3_title": "Explorar",
+        "process.step3_desc": "Generar ideas, contrastar alternativas y elegir la dirección más sólida para el proyecto.",
+        "process.step4_title": "Diseñar",
+        "process.step4_desc": "Materializar la solución mediante flujos, wireframes, diseño de interfaz y prototipos interactivos.",
+        "process.step5_title": "Construir & Iterar",
+        "process.step5_desc": "Llevar el diseño al desarrollo, probar su funcionamiento y refinar con retroalimentación y nuevas evidencias.",
+        "contact.badge": "Disponible para nuevas oportunidades & proyectos",
+        "contact.title": 'Empecemos con un <span class="grad-text">hola</span>',
+        "contact.desc": "¡Hola! Si tienes una oportunidad laboral, un proyecto en mente o simplemente quieres intercambiar ideas, escríbeme. Siempre me alegra conectar con nuevas personas y proyectos.",
+        "contact.btn": "Hablemos",
+        "footer.resume": "CV Digital ↗",
+        "drawer.preview_label": "Vista Previa de Interfaz",
+        "drawer.specs_role_label": "Año & Rol",
+        "drawer.specs_stack_label": "Stack & Método",
+        "drawer.btn_project": "Ampliar Proyecto",
+        "drawer.btn_contact": "Contactarme"
       },
-      mininno: {
-        title: "Mininno Costruzioni",
-        category: "EDITORIAL WEB & ARCHITETTURA",
-        lead: "Sito istituzionale ed editoriale per una storica impresa edile pugliese con focus sull'architettura.",
-        role: "2026 · Brand Identity & Web Developer",
-        stack: "Figma, JavaScript ES6+, Semantic CSS",
-        body: "Un'esperienza dove la fotografia architettonica e la griglia svizzera guidano l'utente. Layout asimmetrici, transizioni fluide tra i progetti e schede cantiere arricchite da schemi tecnici e materiali.",
-        bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
-      },
-      sumisura: {
-        title: "suMisura® Doors",
-        category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
-        lead: "Configuratore interattivo per la personalizzazione e il preventivo online di porte blindate.",
-        role: "2026 · UI/UX Designer & Frontend Logic",
-        stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-        body: "Una procedura guidata in 4 passaggi visivi che permette di selezionare classe di sicurezza, rivestimenti in legno, maniglie e serrature biometriche con anteprima dinamica.",
-        bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+      en: {
+        "nav.about": "About",
+        "nav.services": "Services",
+        "nav.contact": "Contact",
+        "nav.resume": "Resume",
+        "hero.eyebrow": "<i></i> Bisceglie, Italy · Remote / Hybrid / On-site",
+        "hero.title": 'Design, code, and whatever  <span class="grad-text">sparks my curiosity next</span>',
+        "hero.desc": "Moving between design and code, exploring how AI can enhance research, ideation, and development.",
+        "hero.btn_work": "View Projects ↗",
+        "hero.btn_resume": "Resume / CV",
+        "about.section_label": "01 — About Me & Journey",
+        "about.headline": '<span class="grad-text">From design to code:</span> <span class="muted-text">a journey in continuous evolution.</span>',
+        "about.tab_exp_title": "Experience",
+        "about.tab_exp_sub": "Work & Agency",
+        "about.tab_exp_badge": "03 Roles",
+        "about.tab_cert_title": "Courses & Certs",
+        "about.tab_cert_sub": "Technical Skills",
+        "about.tab_cert_badge": "IFTS + Cert",
+        "about.tab_edu_title": "Education",
+        "about.tab_edu_sub": "Academic Journey",
+        "about.tab_edu_badge": "110/110L",
+        "about.pane_exp_badge": "Career Path",
+        "about.pane_exp_title": "Professional Experience",
+        "about.pane_exp_date": "2022 — Present",
+        "about.exp1_date": "January 2026 — August 2026",
+        "about.exp1_role": "UI/UX & Web Designer",
+        "about.exp1_org": "BeDigit · Hybrid · Italy",
+        "about.exp1_desc": "Design of web experiences and interfaces in Figma, from requirements analysis and information architecture to user flows, wireframes, and high-fidelity prototypes. Content structure optimization and collaboration with development (WordPress).",
+        "about.exp2_date": "June 2024 — Present",
+        "about.exp2_role": "Freelance Designer",
+        "about.exp2_org": "De la A a la Z Engineering & Services AZIS · Remote · Colombia",
+        "about.exp2_desc": "Freelance graphic design, web design, and tailored UI/UX projects. Developing interfaces aligned with client business goals, combining content structure, UX, and visual design.",
+        "about.exp3_date": "September 2025",
+        "about.exp3_role": "Laravel Developer Trainee",
+        "about.exp3_org": "Universo Srl (Client: C.F.A. SRL) · Remote · Italy",
+        "about.exp3_desc": "Development of two web micro-projects with PHP, Laravel, and MySQL, including back-end architecture, routing, controllers, data modeling, migrations, CRUD, and authentication.",
+        "about.exp4_date": "March 2024 — June 2024",
+        "about.exp4_role": "Junior Front-End Developer",
+        "about.exp4_org": "Sinkronia Srl · Hybrid",
+        "about.exp4_desc": "Participation in the entire software lifecycle: from requirements gathering and UI/UX design to front-end implementation of an I-Quadra ERP section in Angular.",
+        "about.pane_cert_badge": "Technical Specializations",
+        "about.pane_cert_title": "Courses & Certifications",
+        "about.pane_cert_date": "Continuous Learning",
+        "about.cert1_date": "2025",
+        "about.cert1_role": "Web Development with Laravel, PHP & JavaScript (248h)",
+        "about.cert1_org": "Universo & FormaTemp · Online",
+        "about.cert1_desc": "Hands-on training focusing on back-end web development with PHP and Laravel, object-oriented programming, relational databases, and application architecture.",
+        "about.cert2_date": "2023 — 2024",
+        "about.cert2_role": "Full-Stack Web Developer (500h)",
+        "about.cert2_org": "Fondo per la Repubblica Digitale · On-site",
+        "about.cert2_desc": "Intensive training in full-stack web development, OOP, and modern client/server tech stacks.",
+        "about.cert3_date": "2023",
+        "about.cert3_role": "Front-End Dev with JS, jQuery & TypeScript (248h)",
+        "about.cert3_org": "Archimede & FormaTemp · Online",
+        "about.cert3_desc": "Specialized course in building responsive, interactive web interfaces using advanced JavaScript, TypeScript, HTML5, CSS3, and Bootstrap architecture.",
+        "about.cert4_date": "2023",
+        "about.cert4_role": "Bootcamp JavaScript & Motion Graphics (248h)",
+        "about.cert4_org": "Codigo Facilito (Online) / 10 Skills Academy (Virtual)",
+        "about.cert4_desc": "Intensive training in JS/TS development combined with Motion Graphics (After Effects & Premiere) for interactive and animated interfaces.",
+        "about.pane_edu_badge": "Academic Degrees",
+        "about.pane_edu_title": "Academic Education",
+        "about.pane_edu_date": "Top Honors",
+        "about.edu1_date": "2025 — 2027",
+        "about.edu1_role": "Associate Degree in Software Analysis & Development",
+        "about.edu1_org": "SENA · Colombia (In progress)",
+        "about.edu1_desc": "Professional training covering the full software lifecycle: requirements analysis, architecture, coding, testing, and deployment. Includes web dev, databases, APIs, Git, UML, and agile methodologies.",
+        "about.edu2_date": "2025 — 2026",
+        "about.edu2_role": "IFTS – IT Applications Development Technician",
+        "about.edu2_org": "Regione Puglia · EQF Level 4 (Completed)",
+        "about.edu2_desc": "Vocational program focused on designing and developing IT software, web development, relational databases, and software requirements.",
+        "about.edu3_date": "2022 — 2025",
+        "about.edu3_role": "Master's Degree in Graphic Design",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia · Grade: 110/110 Summa Cum Laude · EQF Level 7",
+        "about.edu3_desc": "Advanced specialization in Web Design and UI/UX. Projects centered on user research, information architecture, Figma prototyping, and web technologies.",
+        "about.edu4_date": "2018 — 2022",
+        "about.edu4_role": "Bachelor's Degree in Graphic Design",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia · Grade: 110/110 Summa Cum Laude · EQF Level 6",
+        "about.edu4_desc": "Solid foundation in graphic design, visual communication, brand identity, and digital production. Skills in editorial design, multimedia, and web foundations.",
+        "tech.label": "✦ Languages, Frameworks & Tools ✦",
+        "services.section_label": "02 — My Design & Code Space",
+        "services.headline": 'One <span class="grad-text">approach</span>,<span class="muted-text"> multiple disciplines.</span>',
+        "services.intro": "Working across UI/UX, web design, visual identity, and front-end development with curiosity and dedication, evolving project after project.",
+        "services.card1_title": "UI/UX Design",
+        "services.card1_desc": "Research and analysis, information architecture, wireframing, user flows, interactive prototyping, and interface design.",
+        "services.card2_title": "Visual & Web Design",
+        "services.card2_desc": "Layouts, composition, typography, brand identity, and translating design systems into digital experiences.",
+        "services.card3_title": "Web Development",
+        "services.card3_desc": "HTML, CSS, JavaScript, and responsive interface development with continuously expanding technical skills.",
+        "services.card4_title": "AI Exploration",
+        "services.card4_desc": "Experimenting with AI workflows to enhance UX research, creative ideation, rapid prototyping, and development.",
+        "work.section_label": "03 — Selected Work",
+        "work.headline": '<span class="grad-text">Projects</span>',
+        "work.intro": "Click any card for a quick preview drawer, or open the full case study to view all 4 phases and detailed specs.",
+        "work.filter_all": "All",
+        "work.filter_ux": "UI/UX Design",
+        "work.filter_web": "Web & Front-end",
+        "work.filter_brand": "Brand & Art",
+        "work.card_action": "Preview & Phases ↗",
+        "work.btn_all_projects": "View All Projects & Case Studies (4)",
+        "process.section_label": "04 — Process",
+        "process.headline": '<span class="grad-text">Less complexity.</span> <span class="muted-text">More purpose.</span>',
+        "process.intro": "Every project begins with understanding before creating. I observe, structure, and simplify, leaving room for experimentation and continuous learning.",
+        "process.step1_title": "Understand",
+        "process.step1_desc": "Observing context, user needs, goals, and constraints before proposing a solution.",
+        "process.step2_title": "Define",
+        "process.step2_desc": "Translating insights into priorities, core problems, content architecture, and clear requirements.",
+        "process.step3_title": "Explore",
+        "process.step3_desc": "Brainstorming ideas, testing alternatives, and selecting the most robust direction for the project.",
+        "process.step4_title": "Design",
+        "process.step4_desc": "Giving shape to the solution through flows, wireframes, interface design, and interactive prototypes.",
+        "process.step5_title": "Build & Iterate",
+        "process.step5_desc": "Guiding the project into development, testing usability, and refining through real feedback and data.",
+        "contact.badge": "Available for new opportunities & projects",
+        "contact.title": 'Let’s start with a <span class="grad-text">hello</span>',
+        "contact.desc": "Hi! If you have an opportunity, a project to collaborate on, or simply want to exchange ideas, feel free to reach out. I'm always happy to connect with new people and perspectives.",
+        "contact.btn": "Let's talk",
+        "footer.resume": "Digital Resume ↗",
+        "drawer.preview_label": "Interface Preview",
+        "drawer.specs_role_label": "Year & Role",
+        "drawer.specs_stack_label": "Stack & Method",
+        "drawer.btn_project": "Explore Project",
+        "drawer.btn_contact": "Contact Me"
       }
     };
+
+    /* 1. DATA DEI PROGETTI MULTI-LINGUA */
+    const PROJECTS_I18N = {
+      it: {
+        agribox: {
+          title: "AgriBox Platform",
+          category: "E-COMMERCE B2B & B2C",
+          lead: "Piattaforma e-commerce per prodotti agricoli con gestione differenziata di listini retail e wholesale.",
+          role: "2026 · UI/UX & Front-end Lead",
+          stack: "Figma, React, Tailwind CSS",
+          body: "Abbiamo disegnato un'architettura a doppia vista: navigazione veloce per il consumatore finale e tabelle di ordinazione rapida con prezzi dinamici a volume per le aziende agricole registrate con P.IVA.",
+          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        },
+        footsy: {
+          title: "Footsy Shoes",
+          category: "DIGITAL STORE & UI",
+          lead: "E-commerce dedicato a calzature per bambini con configuratore taglie assistito.",
+          role: "2026 · Product Designer & UI Developer",
+          stack: "Figma, React, Micro-animations",
+          body: "Progettato per ridurre i resi tipici del settore calzature per bambini attraverso un selettore interattivo del piede e schede prodotto con visualizzazione 360° dei materiali.",
+          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+        },
+        mininno: {
+          title: "Mininno Costruzioni",
+          category: "EDITORIAL WEB & ARCHITETTURA",
+          lead: "Sito istituzionale ed editoriale per una storica impresa edile pugliese con focus sull'architettura.",
+          role: "2026 · Brand Identity & Web Developer",
+          stack: "Figma, JavaScript ES6+, Semantic CSS",
+          body: "Un'esperienza dove la fotografia architettonica e la griglia svizzera guidano l'utente. Layout asimmetrici, transizioni fluide tra i progetti e schede cantiere arricchite da schemi tecnici e materiali.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        sumisura: {
+          title: "suMisura® Doors",
+          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+          lead: "Configuratore interattivo per la personalizzazione e il preventivo online di porte blindate.",
+          role: "2026 · UI/UX Designer & Frontend Logic",
+          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
+          body: "Una procedura guidata in 4 passaggi visivi che permette di selezionare classe di sicurezza, rivestimenti in legno, maniglie e serrature biometriche con anteprima dinamica.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        }
+      },
+      es: {
+        agribox: {
+          title: "AgriBox Platform",
+          category: "E-COMMERCE B2B & B2C",
+          lead: "Plataforma de comercio electrónico para productos agrícolas con gestión diferenciada de catálogos retail y wholesale.",
+          role: "2026 · UI/UX & Front-end Lead",
+          stack: "Figma, React, Tailwind CSS",
+          body: "Diseñamos una arquitectura de doble flujo: compra rápida para el consumidor final y tablas de pedidos dinámicas con precios por volumen para empresas agrícolas.",
+          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        },
+        footsy: {
+          title: "Footsy Shoes",
+          category: "DIGITAL STORE & UI",
+          lead: "E-commerce dedicado al calzado infantil con medidor de tallas interactivo y guiado.",
+          role: "2026 · Product Designer & UI Developer",
+          stack: "Figma, React, Micro-animations",
+          body: "Diseñado para reducir devoluciones habituales mediante un selector interactivo del pie y fichas de producto con vista 360° de materiales.",
+          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+        },
+        mininno: {
+          title: "Mininno Costruzioni",
+          category: "EDITORIAL WEB & ARQUITECTURA",
+          lead: "Sitio web corporativo y editorial para una constructora histórica con enfoque en arquitectura contemporánea.",
+          role: "2026 · Brand Identity & Web Developer",
+          stack: "Figma, JavaScript ES6+, Semantic CSS",
+          body: "Una experiencia donde la fotografía de arquitectura y la tipografía suiza guían al usuario. Diseños asimétricos y fichas de obra con planos técnicos y materiales.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        sumisura: {
+          title: "suMisura® Doors",
+          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+          lead: "Configurador interactivo para la personalización y cotización online de puertas de seguridad acorazadas.",
+          role: "2026 · UI/UX Designer & Frontend Logic",
+          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
+          body: "Un flujo guiado en 4 pasos que permite seleccionar grado de seguridad, acabados de madera, herrajes y cerraduras biométricas con previsualización en tiempo real.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        }
+      },
+      en: {
+        agribox: {
+          title: "AgriBox Platform",
+          category: "E-COMMERCE B2B & B2C",
+          lead: "Agricultural e-commerce platform with dedicated workflows for retail and wholesale volume catalogs.",
+          role: "2026 · UI/UX & Front-end Lead",
+          stack: "Figma, React, Tailwind CSS",
+          body: "Architected a dual-view purchasing experience: frictionless retail checkout for individuals and bulk ordering tables with dynamic volume tiers for verified farms.",
+          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        },
+        footsy: {
+          title: "Footsy Shoes",
+          category: "DIGITAL STORE & UI",
+          lead: "E-commerce platform dedicated to children's footwear featuring an interactive size finder.",
+          role: "2026 · Product Designer & UI Developer",
+          stack: "Figma, React, Micro-animations",
+          body: "Engineered to drastically cut return rates through an assisted foot measurement selector and interactive 360° material inspection.",
+          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+        },
+        mininno: {
+          title: "Mininno Costruzioni",
+          category: "EDITORIAL WEB & ARCHITECTURE",
+          lead: "Institutional and editorial website for a historical construction firm with an architectural focus.",
+          role: "2026 · Brand Identity & Web Developer",
+          stack: "Figma, JavaScript ES6+, Semantic CSS",
+          body: "An immersive experience where architectural photography and Swiss grid layouts guide the visitor. Asymmetrical typography, fluid page transitions, and detailed technical project specs.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        sumisura: {
+          title: "suMisura® Doors",
+          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+          lead: "Interactive customizer for configuring and quoting armored security doors online.",
+          role: "2026 · UI/UX Designer & Frontend Logic",
+          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
+          body: "A 4-step guided visual configurator that allows clients to customize security classes, premium wood finishes, handle finishes, and biometric locks with real-time vector rendering.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        }
+      }
+    };
+
+    let currentLang = 'it';
+
+    function setLanguage(lang, triggerDecrypt = true) {
+      if (!I18N[lang]) return;
+      currentLang = lang;
+
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+
+      // Update active state in navbar language buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      // Update textContent for elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (I18N[lang][key] !== undefined) {
+          el.textContent = I18N[lang][key];
+        }
+      });
+
+      // Update innerHTML for elements with data-i18n-html
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (I18N[lang][key] !== undefined) {
+          el.innerHTML = I18N[lang][key];
+        }
+      });
+
+      // Update dynamic resume links
+      const navResume = document.getElementById('navResumeBtn');
+      const heroResume = document.getElementById('heroResumeBtn');
+      const footerResume = document.getElementById('footerResumeLink');
+
+      const resumeUrl = lang === 'es' ? 'cv-es.html' : (lang === 'en' ? 'cv-en.html' : 'cv.html');
+      if (navResume) navResume.href = resumeUrl;
+      if (heroResume) heroResume.href = resumeUrl;
+      if (footerResume) footerResume.href = resumeUrl;
+
+      // Update WhatsApp link text depending on language
+      const waBtn = document.getElementById('contactWhatsAppBtn');
+      if (waBtn) {
+        let waText = "Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A";
+        if (lang === 'es') {
+          waText = "%C2%A1Hola+Patricia%21+%F0%9F%91%8B+Vi+tu+portafolio+y+me+gustar%C3%ADa+conversar+contigo+%F0%9F%98%8A";
+        } else if (lang === 'en') {
+          waText = "Hi+Patricia%21+%F0%9F%91%8B+I+came+across+your+portfolio+and+would+love+to+connect+%F0%9F%98%8A";
+        }
+        waBtn.href = `https://wa.me/393771392002?text=${waText}`;
+      }
+
+      // Re-trigger decrypt effects on hero title & eyebrow for futuristic effect
+      if (triggerDecrypt) {
+        const heroTitle = document.getElementById('heroTitle');
+        if (heroTitle && typeof DecryptText !== 'undefined') {
+          const heroDecrypt = new DecryptText(heroTitle, { duration: 1300, delay: 50 });
+          heroDecrypt.start();
+        }
+
+        const heroEyebrow = document.getElementById('heroEyebrow');
+        if (heroEyebrow && typeof DecryptText !== 'undefined') {
+          const eyebrowDecrypt = new DecryptText(heroEyebrow, { duration: 1000, delay: 0 });
+          eyebrowDecrypt.start();
+        }
+      }
+
+      // Save preference to localStorage
+      try {
+        localStorage.setItem('bypat_lang', lang);
+      } catch (e) { }
+    }
+
+    // Set up click listeners on language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selectedLang = btn.dataset.lang;
+        if (selectedLang !== currentLang) {
+          setLanguage(selectedLang, true);
+        }
+      });
+    });
 
     /* 2. INTERACTIVE ABOUT TABS */
     const tabButtons = document.querySelectorAll('.about-tab-btn');
@@ -2803,7 +3735,9 @@
     const drawerCta = document.getElementById('drawerCta');
 
     function openDrawer(key) {
-      const data = PROJECTS[key];
+      const activeLang = currentLang || 'it';
+      const langData = PROJECTS_I18N[activeLang] || PROJECTS_I18N['it'];
+      const data = langData[key] || (PROJECTS_I18N['it'] && PROJECTS_I18N['it'][key]);
       if (!data) return;
 
       drawerTitle.textContent = data.title;
@@ -3039,11 +3973,11 @@
       gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
         -1, -1,
-         1, -1,
-        -1,  1,
-        -1,  1,
-         1, -1,
-         1,  1,
+        1, -1,
+        -1, 1,
+        -1, 1,
+        1, -1,
+        1, 1,
       ]), gl.STATIC_DRAW);
 
       const positionLoc = gl.getAttribLocation(program, 'position');
@@ -3229,7 +4163,7 @@
         this.duration = options.duration || 1400;
         this.delay = options.delay || 0;
         this.isRunning = false;
-        
+
         this.originalHTML = element.innerHTML;
         this.parseNodes();
       }
@@ -3253,14 +4187,14 @@
       start() {
         if (this.isRunning) return;
         this.isRunning = true;
-        
+
         setTimeout(() => {
           const startTime = performance.now();
-          
+
           const update = (now) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / this.duration, 1.0);
-            
+
             const ease = 1 - Math.pow(1 - progress, 3);
             const revealedTotal = Math.floor(ease * this.totalLength);
 
@@ -3318,11 +4252,11 @@
 
       document.querySelectorAll('.section-label, .contact-big-title').forEach((el) => {
         const decryptInst = new DecryptText(el, { duration: 1100, delay: 0 });
-        
+
         el.addEventListener('mouseenter', () => {
           if (!decryptInst.isRunning) decryptInst.start();
         });
-        
+
         const obs = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -3335,8 +4269,19 @@
       });
     }
 
-    // Initialize WebGL Fluid inside Hero, Hero Constellations, and Decrypt effects
-    document.addEventListener('DOMContentLoaded', () => {
+    // Initialize WebGL Fluid inside Hero, Hero Constellations, Decrypt effects & Language
+    function initApp() {
+      // 1. Initialize language first so all DOM elements match the dictionary
+      let initialLang = 'it';
+      try {
+        const savedLang = localStorage.getItem('bypat_lang');
+        if (savedLang && (savedLang === 'es' || savedLang === 'en' || savedLang === 'it')) {
+          initialLang = savedLang;
+        }
+      } catch (e) { }
+      setLanguage(initialLang, false);
+
+      // 2. Initialize shaders, constellations & decrypt text animations
       initHeroMeshDriftShader();
       initHeroConstellations();
       initDecryptTextEffects();
@@ -3352,12 +4297,22 @@
           contactCardEl.style.setProperty('--mouse-y', `${y}px`);
         });
       }
+    }
+
+    let appInitialized = false;
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!appInitialized) {
+        appInitialized = true;
+        initApp();
+      }
     });
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      initHeroMeshDriftShader();
-      initHeroConstellations();
-      initDecryptTextEffects();
+      if (!appInitialized) {
+        appInitialized = true;
+        initApp();
+      }
     }
   </script>
 </body>
+
 </html>

@@ -578,9 +578,229 @@
       .project-column.staggered-col { margin-top: 0; }
     }
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      footer { flex-direction: column; gap: 12px; }
+    /* ============================================================
+       BUTTONS & UI HELPERS
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--violet-light);
+      color: var(--ink);
+      box-shadow: 0 0 25px rgba(167, 139, 250, 0.4);
+    }
+
+    .btn.primary:hover {
+      background: #FFFFFF;
+      color: #000;
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFFFFF;
+      border: 1px solid var(--line-light);
+    }
+
+    .btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* Glassmorphism Language Selector */
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-full);
+      padding: 3px 4px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .lang-btn.active {
+      background: var(--violet-light);
+      color: var(--ink);
+      box-shadow: 0 0 12px rgba(167, 139, 250, 0.45);
+    }
+
+    /* ============================================================
+       CASE STUDY QUICK-VIEW DRAWER
+       ============================================================ */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 5, 12, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .drawer-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(720px, 92vw);
+      background: #0E0D18;
+      border-left: 1px solid var(--line-violet);
+      box-shadow: -20px 0 60px rgba(0, 0, 0, 0.85);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+      padding: clamp(32px, 5vw, 56px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-overlay.is-open .drawer-panel {
+      transform: translateX(0);
+    }
+
+    .drawer-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.05);
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .drawer-close:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+      transform: rotate(90deg);
+    }
+
+    .drawer-category {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      color: var(--violet-light);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .drawer-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+
+    .drawer-lead {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #E2DCF8;
+      margin-bottom: 28px;
+    }
+
+    .drawer-preview {
+      width: 100%;
+      height: 240px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drawer-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+
+    .drawer-spec h5 {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .drawer-spec p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .drawer-body {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    .drawer-actions-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .drawer-actions-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -606,11 +826,18 @@
       </div>
 
       <div class="nav-actions">
+        <!-- Glassmorphism Language Selector (IT | ES | EN) -->
+        <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
+          <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
+          <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
+          <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+        </div>
+
         <a class="mode-switch-btn" href="./light-version/index.html" title="Passa alla versione Light">
           <span>☀️</span>
           <span>Light Mode</span>
         </a>
-        <a href="index.html#contact" class="nav-cta-btn">
+        <a href="index.html#contact" class="nav-cta-btn" id="navContactBtn">
           <span>Contatti ↗</span>
         </a>
       </div>
@@ -644,7 +871,7 @@
       <div class="project-column">
         
         <!-- Project Card 1: AgriBox Platform -->
-        <article class="floating-project-card" data-cat="ecommerce uiux" onclick="location.href='project.html?id=agribox'">
+        <article class="floating-project-card" data-cat="ecommerce uiux" onclick="openDrawer('agribox')">
           <div class="card-media-box" style="background: radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109);">
             <div class="card-preview-window">
               <div class="preview-browser-dots">
@@ -682,7 +909,7 @@
                 <span class="mini-pill">Figma Tokens</span>
               </div>
               <div class="card-cta-arrow">
-                <span>Case Study</span>
+                <span>Anteprima Rapida</span>
                 <span>↗</span>
               </div>
             </div>
@@ -690,7 +917,7 @@
         </article>
 
         <!-- Project Card 3: Mininno Costruzioni -->
-        <article class="floating-project-card" data-cat="editorial uiux" onclick="location.href='project.html?id=mininno'">
+        <article class="floating-project-card" data-cat="editorial uiux" onclick="openDrawer('mininno')">
           <div class="card-media-box" style="background: radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13);">
             <div class="card-preview-window">
               <div class="preview-browser-dots">
@@ -728,7 +955,7 @@
                 <span class="mini-pill">Semantic CSS3</span>
               </div>
               <div class="card-cta-arrow">
-                <span>Case Study</span>
+                <span>Anteprima Rapida</span>
                 <span>↗</span>
               </div>
             </div>
@@ -741,7 +968,7 @@
       <div class="project-column staggered-col">
         
         <!-- Project Card 2: Footsy Shoes -->
-        <article class="floating-project-card" data-cat="ecommerce configurator" onclick="location.href='project.html?id=footsy'">
+        <article class="floating-project-card" data-cat="ecommerce configurator" onclick="openDrawer('footsy')">
           <div class="card-media-box" style="background: radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.25), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E);">
             <div class="card-preview-window">
               <div class="preview-browser-dots">
@@ -779,7 +1006,7 @@
                 <span class="mini-pill">Figma Auto-layout</span>
               </div>
               <div class="card-cta-arrow">
-                <span>Case Study</span>
+                <span>Anteprima Rapida</span>
                 <span>↗</span>
               </div>
             </div>
@@ -787,7 +1014,7 @@
         </article>
 
         <!-- Project Card 4: suMisura® Doors -->
-        <article class="floating-project-card" data-cat="configurator uiux" onclick="location.href='project.html?id=sumisura'">
+        <article class="floating-project-card" data-cat="configurator uiux" onclick="openDrawer('sumisura')">
           <div class="card-media-box" style="background: radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C);">
             <div class="card-preview-window">
               <div class="preview-browser-dots">
@@ -825,7 +1052,7 @@
                 <span class="mini-pill">PDF Exporter</span>
               </div>
               <div class="card-cta-arrow">
-                <span>Case Study</span>
+                <span>Anteprima Rapida</span>
                 <span>↗</span>
               </div>
             </div>
@@ -838,12 +1065,12 @@
 
     <!-- ================= BOTTOM CONTACT CTA BANNER ================= -->
     <section class="bottom-cta-banner">
-      <div class="mono" style="color:var(--violet-light); margin-bottom:12px;">✦ Inizia un Progetto</div>
-      <h2 class="cta-banner-title">Hai in mente una nuova visione digitale?</h2>
-      <p class="cta-banner-sub">
+      <div class="mono" style="color:var(--violet-light); margin-bottom:12px;" id="ctaBadge">✦ Inizia un Progetto</div>
+      <h2 class="cta-banner-title" id="ctaTitle">Hai in mente una nuova visione digitale?</h2>
+      <p class="cta-banner-sub" id="ctaSub">
         Dalla definizione della strategia visiva alla scrittura del codice front-end per la produzione: parliamo di come trasformare la tua idea in un'esperienza d'impatto.
       </p>
-      <a href="index.html#contact" class="cta-big-btn">
+      <a href="index.html#contact" class="cta-big-btn" id="ctaBigBtn">
         <span>Parliamo del tuo Progetto +</span>
       </a>
     </section>
@@ -854,16 +1081,334 @@
       <span>Bari / Bisceglie · Italia</span>
       <div style="display: flex; gap: 20px;">
         <a href="index.html">Home Portfolio ↗</a>
-        <a href="cv.html">Resume / CV ↗</a>
+        <a href="cv.html" id="footerResumeLink">Resume / CV ↗</a>
         <a href="index.html#contact">Contatti ↗</a>
       </div>
     </footer>
 
   </main>
 
+  <!-- ================= CASE STUDY QUICK-VIEW DRAWER ================= -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true">
+    <div class="drawer-panel" id="drawerPanel" role="dialog" aria-modal="true">
+      <button class="drawer-close" id="drawerClose" aria-label="Chiudi modale">✕</button>
+
+      <div class="drawer-category" id="drawerCategory">E-COMMERCE · UI/UX</div>
+      <h3 class="drawer-title" id="drawerTitle">AgriBox Platform</h3>
+      <p class="drawer-lead" id="drawerLead">Catalogo e-commerce che unisce retail B2C e area B2B con sconti a volume.</p>
+
+      <div class="drawer-preview" id="drawerPreview">
+        <span class="mono" style="color:#fff; font-size:1.1rem; font-weight:600;" id="drawerPreviewLabel">Anteprima Interfaccia</span>
+      </div>
+
+      <div class="drawer-specs">
+        <div class="drawer-spec">
+          <h5 id="drawerRoleLabel">Anno &amp; Ruolo</h5>
+          <p id="drawerRole">2026 · UI/UX Lead</p>
+        </div>
+        <div class="drawer-spec">
+          <h5 id="drawerStackLabel">Stack &amp; Metodo</h5>
+          <p id="drawerStack">Figma, React, Tailwind</p>
+        </div>
+      </div>
+
+      <div class="drawer-body" id="drawerBody">
+        Riprogettazione completa dell'esperienza d'acquisto con doppio flusso: navigazione intuitiva per il consumatore finale e catalogo rapido con prezzi dinamici a volume per le aziende agricole.
+      </div>
+
+      <div class="drawer-actions-row">
+        <a href="project.html?id=agribox" class="btn primary" id="drawerCta" style="text-align:center; justify-content:center;">
+          <span id="drawerBtnProject">Amplia Progetto</span>
+          <span>↗</span>
+        </a>
+        <a href="index.html#contact" class="btn secondary" onclick="closeDrawer()" style="text-align:center; justify-content:center;">
+          <span id="drawerBtnContact">Contattami</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= JAVASCRIPT ================= -->
   <script>
-    /* FILTER PROJECTS BY CATEGORY */
+    /* 1. DATA DEI PROGETTI MULTI-LINGUA */
+    const PROJECTS_I18N = {
+      it: {
+        labels: {
+          preview: "Anteprima Interfaccia",
+          role: "Anno & Ruolo",
+          stack: "Stack & Metodo",
+          btnProject: "Amplia Progetto",
+          btnContact: "Contattami",
+          ctaBadge: "✦ Inizia un Progetto",
+          ctaTitle: "Hai in mente una nuova visione digitale?",
+          ctaSub: "Dalla definizione della strategia visiva alla scrittura del codice front-end per la produzione: parliamo di come trasformare la tua idea in un'esperienza d'impatto.",
+          ctaBtn: "Parliamo del tuo Progetto +",
+          heroTagline: "✦ ARCHIVIO PROGETTI & CASE STUDIES",
+          heroTitle: "Tutti i Progetti.",
+          heroSub: "Una selezione di piattaforme digitali, configuratori interattivi, identità visive e architetture front-end sviluppate con rigore e cura del dettaglio."
+        },
+        agribox: {
+          title: "AgriBox Platform",
+          category: "E-COMMERCE B2B & B2C",
+          lead: "Piattaforma e-commerce per prodotti agricoli con gestione differenziata di listini retail e wholesale.",
+          role: "2026 · UI/UX & Front-end Lead",
+          stack: "Figma, React, Tailwind CSS",
+          body: "Abbiamo disegnato un'architettura a doppia vista: navigazione veloce per il consumatore finale e tabelle di ordinazione rapida con prezzi dinamici a volume per le aziende agricole registrate con P.IVA.",
+          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        },
+        footsy: {
+          title: "Footsy Shoes",
+          category: "DIGITAL STORE & UI",
+          lead: "E-commerce dedicato a calzature per bambini con configuratore taglie assistito.",
+          role: "2026 · Product Designer & UI Developer",
+          stack: "Figma, React, Micro-animations",
+          body: "Progettato per ridurre i resi tipici del settore calzature per bambini attraverso un selettore interattivo del piede e schede prodotto con visualizzazione 360° dei materiali.",
+          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+        },
+        mininno: {
+          title: "Mininno Costruzioni",
+          category: "EDITORIAL WEB & ARCHITETTURA",
+          lead: "Sito istituzionale ed editoriale per una storica impresa edile pugliese con focus sull'architettura.",
+          role: "2026 · Brand Identity & Web Developer",
+          stack: "Figma, JavaScript ES6+, Semantic CSS",
+          body: "Un'esperienza dove la fotografia architettonica e la griglia svizzera guidano l'utente. Layout asimmetrici, transizioni fluide tra i progetti e schede cantiere arricchite da schemi tecnici e materiali.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        sumisura: {
+          title: "suMisura® Doors",
+          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+          lead: "Configuratore interattivo per la personalizzazione e il preventivo online di porte blindate.",
+          role: "2026 · UI/UX Designer & Frontend Logic",
+          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
+          body: "Una procedura guidata in 4 passaggi visivi che permette di selezionare classe di sicurezza, rivestimenti in legno, maniglie e serrature biometriche con anteprima dinamica.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        }
+      },
+      es: {
+        labels: {
+          preview: "Vista Previa de Interfaz",
+          role: "Año & Rol",
+          stack: "Stack & Método",
+          btnProject: "Ampliar Proyecto",
+          btnContact: "Contactarme",
+          ctaBadge: "✦ Iniciar un Proyecto",
+          ctaTitle: "¿Tienes en mente una nueva visión digital?",
+          ctaSub: "Desde la estrategia visual hasta el código front-end para producción: hablemos de cómo transformar tu idea en una experiencia memorable.",
+          ctaBtn: "Hablemos de tu Proyecto +",
+          heroTagline: "✦ ARCHIVO DE PROYECTOS & CASE STUDIES",
+          heroTitle: "Todos los Proyectos.",
+          heroSub: "Una selección de plataformas digitales, configuradores interactivos, identidades visuales y arquitecturas front-end desarrolladas con rigor y cuidado del detalle."
+        },
+        agribox: {
+          title: "AgriBox Platform",
+          category: "E-COMMERCE B2B & B2C",
+          lead: "Plataforma de comercio electrónico para productos agrícolas con gestión diferenciada de catálogos retail y wholesale.",
+          role: "2026 · UI/UX & Front-end Lead",
+          stack: "Figma, React, Tailwind CSS",
+          body: "Diseñamos una arquitectura de doble flujo: compra rápida para el consumidor final y tablas de pedidos dinámicas con precios por volumen para empresas agrícolas.",
+          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        },
+        footsy: {
+          title: "Footsy Shoes",
+          category: "DIGITAL STORE & UI",
+          lead: "E-commerce dedicado al calzado infantil con medidor de tallas interactivo y guiado.",
+          role: "2026 · Product Designer & UI Developer",
+          stack: "Figma, React, Micro-animations",
+          body: "Diseñado para reducir devoluciones habituales mediante un selector interactivo del pie y fichas de producto con vista 360° de materiales.",
+          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+        },
+        mininno: {
+          title: "Mininno Costruzioni",
+          category: "EDITORIAL WEB & ARQUITECTURA",
+          lead: "Sitio web corporativo y editorial para una constructora histórica con enfoque en arquitectura contemporánea.",
+          role: "2026 · Brand Identity & Web Developer",
+          stack: "Figma, JavaScript ES6+, Semantic CSS",
+          body: "Una experiencia donde la fotografía de arquitectura y la tipografía suiza guían al usuario. Diseños asimétricos y fichas de obra con planos técnicos y materiales.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        sumisura: {
+          title: "suMisura® Doors",
+          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+          lead: "Configurador interactivo para la personalización y cotización online de puertas de seguridad acorazadas.",
+          role: "2026 · UI/UX Designer & Frontend Logic",
+          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
+          body: "Un flujo guiado en 4 pasos que permite seleccionar grado de seguridad, acabados de madera, herrajes y cerraduras biométricas con previsualización en tiempo real.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        }
+      },
+      en: {
+        labels: {
+          preview: "Interface Preview",
+          role: "Year & Role",
+          stack: "Stack & Method",
+          btnProject: "Explore Project",
+          btnContact: "Contact Me",
+          ctaBadge: "✦ Start a Project",
+          ctaTitle: "Have a new digital vision in mind?",
+          ctaSub: "From visual strategy to production front-end code: let's discuss turning your idea into a high-impact experience.",
+          ctaBtn: "Let's Talk About Your Project +",
+          heroTagline: "✦ PROJECTS & CASE STUDIES ARCHIVE",
+          heroTitle: "All Projects.",
+          heroSub: "A curated selection of digital platforms, interactive customizers, visual identities, and front-end architectures built with precision."
+        },
+        agribox: {
+          title: "AgriBox Platform",
+          category: "E-COMMERCE B2B & B2C",
+          lead: "Agricultural e-commerce platform with dedicated workflows for retail and wholesale volume catalogs.",
+          role: "2026 · UI/UX & Front-end Lead",
+          stack: "Figma, React, Tailwind CSS",
+          body: "Architected a dual-view purchasing experience: frictionless retail checkout for individuals and bulk ordering tables with dynamic volume tiers for verified farms.",
+          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        },
+        footsy: {
+          title: "Footsy Shoes",
+          category: "DIGITAL STORE & UI",
+          lead: "E-commerce platform dedicated to children's footwear featuring an interactive size finder.",
+          role: "2026 · Product Designer & UI Developer",
+          stack: "Figma, React, Micro-animations",
+          body: "Engineered to drastically cut return rates through an assisted foot measurement selector and interactive 360° material inspection.",
+          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+        },
+        mininno: {
+          title: "Mininno Costruzioni",
+          category: "EDITORIAL WEB & ARCHITECTURE",
+          lead: "Institutional and editorial website for a historical construction firm with an architectural focus.",
+          role: "2026 · Brand Identity & Web Developer",
+          stack: "Figma, JavaScript ES6+, Semantic CSS",
+          body: "An immersive experience where architectural photography and Swiss grid layouts guide the visitor. Asymmetrical typography, fluid page transitions, and detailed technical project specs.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        sumisura: {
+          title: "suMisura® Doors",
+          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
+          lead: "Interactive customizer for configuring and quoting armored security doors online.",
+          role: "2026 · UI/UX Designer & Frontend Logic",
+          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
+          body: "A 4-step guided visual configurator that allows clients to customize security classes, premium wood finishes, handle finishes, and biometric locks with real-time vector rendering.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        }
+      }
+    };
+
+    let currentLang = 'it';
+
+    function setLanguage(lang) {
+      if (!PROJECTS_I18N[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      // Update active state in navbar language buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      // Update UI labels if available
+      const labels = PROJECTS_I18N[lang].labels;
+      if (labels) {
+        const pLabel = document.getElementById('drawerPreviewLabel');
+        const rLabel = document.getElementById('drawerRoleLabel');
+        const sLabel = document.getElementById('drawerStackLabel');
+        const btnProj = document.getElementById('drawerBtnProject');
+        const btnCont = document.getElementById('drawerBtnContact');
+        const cBadge = document.getElementById('ctaBadge');
+        const cTitle = document.getElementById('ctaTitle');
+        const cSub = document.getElementById('ctaSub');
+        const cBtn = document.getElementById('ctaBigBtn');
+        const heroTag = document.querySelector('.hero-tagline');
+        const heroTitle = document.querySelector('.hero-main-title');
+        const heroSub = document.querySelector('.hero-sub-text');
+
+        if (pLabel) pLabel.textContent = labels.preview;
+        if (rLabel) rLabel.textContent = labels.role;
+        if (sLabel) sLabel.textContent = labels.stack;
+        if (btnProj) btnProj.textContent = labels.btnProject;
+        if (btnCont) btnCont.textContent = labels.btnContact;
+        if (cBadge) cBadge.textContent = labels.ctaBadge;
+        if (cTitle) cTitle.textContent = labels.ctaTitle;
+        if (cSub) cSub.textContent = labels.ctaSub;
+        if (cBtn && cBtn.querySelector('span')) cBtn.querySelector('span').textContent = labels.ctaBtn;
+        if (heroTag) heroTag.textContent = labels.heroTagline;
+        if (heroTitle) heroTitle.textContent = labels.heroTitle;
+        if (heroSub) heroSub.textContent = labels.heroSub;
+      }
+
+      // Update resume links
+      const resumeUrl = lang === 'es' ? 'cv-es.html' : (lang === 'en' ? 'cv-en.html' : 'cv.html');
+      const footerResume = document.getElementById('footerResumeLink');
+      if (footerResume) footerResume.href = resumeUrl;
+
+      // Save preference
+      try {
+        localStorage.setItem('bypat_lang', lang);
+      } catch(e) {}
+    }
+
+    // Set up click listeners on language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selectedLang = btn.dataset.lang;
+        if (selectedLang !== currentLang) {
+          setLanguage(selectedLang);
+        }
+      });
+    });
+
+    /* 2. QUICK-VIEW MODAL DRAWER */
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const drawerClose = document.getElementById('drawerClose');
+    const drawerTitle = document.getElementById('drawerTitle');
+    const drawerCategory = document.getElementById('drawerCategory');
+    const drawerLead = document.getElementById('drawerLead');
+    const drawerRole = document.getElementById('drawerRole');
+    const drawerStack = document.getElementById('drawerStack');
+    const drawerBody = document.getElementById('drawerBody');
+    const drawerPreview = document.getElementById('drawerPreview');
+    const drawerCta = document.getElementById('drawerCta');
+
+    function openDrawer(key) {
+      const activeLang = currentLang || 'it';
+      const langData = PROJECTS_I18N[activeLang] || PROJECTS_I18N['it'];
+      const data = langData[key] || (PROJECTS_I18N['it'] && PROJECTS_I18N['it'][key]);
+      if (!data) return;
+
+      drawerTitle.textContent = data.title;
+      drawerCategory.textContent = data.category;
+      drawerLead.textContent = data.lead;
+      drawerRole.textContent = data.role;
+      drawerStack.textContent = data.stack;
+      drawerBody.textContent = data.body;
+      drawerPreview.style.background = data.bg;
+
+      drawerCta.href = `project.html?id=${key}`;
+
+      drawerOverlay.classList.add('is-open');
+      drawerOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawerOverlay.classList.remove('is-open');
+      drawerOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+    if (drawerOverlay) {
+      drawerOverlay.addEventListener('click', (e) => {
+        if (e.target === drawerOverlay) closeDrawer();
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawerOverlay && drawerOverlay.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+
+    /* 3. FILTER PROJECTS BY CATEGORY */
     function filterProjects(cat, btn) {
       document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
@@ -880,11 +1425,23 @@
       });
     }
 
-    /* AMBIENT SPOTLIGHT FOLLOW */
+    /* 4. AMBIENT SPOTLIGHT FOLLOW */
     const spotlight = document.getElementById('ambientSpotlight');
     window.addEventListener('mousemove', (e) => {
-      spotlight.style.left = `${e.clientX}px`;
-      spotlight.style.top = `${e.clientY + window.scrollY * 0.12}px`;
+      if (spotlight) {
+        spotlight.style.left = `${e.clientX}px`;
+        spotlight.style.top = `${e.clientY + window.scrollY * 0.12}px`;
+      }
+    });
+
+    // Initialize Language from localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const savedLang = localStorage.getItem('bypat_lang');
+        if (savedLang && (savedLang === 'es' || savedLang === 'en' || savedLang === 'it')) {
+          setLanguage(savedLang);
+        }
+      } catch (e) {}
     });
   </script>
 </body>
