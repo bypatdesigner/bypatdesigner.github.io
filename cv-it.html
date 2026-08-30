@@ -972,6 +972,83 @@
       opacity: 1;
     }
 
+    /* Bottom Return / Back to top bar */
+    .resume-bottom-bar {
+      margin-top: 36px;
+      margin-bottom: 24px;
+      padding: 18px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      backdrop-filter: blur(16px);
+      transition: border-color 0.3s ease;
+    }
+
+    .resume-bottom-bar:hover {
+      border-color: var(--line-violet);
+    }
+
+    .btn-back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      background: var(--violet-tint);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-full);
+      color: var(--violet-light);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.15);
+    }
+
+    .btn-back-to-top:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(167, 139, 250, 0.4);
+    }
+
+    .btn-back-to-top .arrow {
+      font-size: 1.1rem;
+      transition: transform 0.25s ease;
+    }
+
+    .btn-back-to-top:hover .arrow {
+      transform: translateY(-3px);
+    }
+
+    .resume-bottom-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .resume-bottom-link {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      transition: color 0.25s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .resume-bottom-link:hover {
+      color: #FFFFFF;
+    }
+
     /* ============================================================
        RESPONSIVE BREAKPOINTS
        ============================================================ */
@@ -1012,7 +1089,7 @@
         color: #111111 !important;
         font-size: 10pt;
       }
-      .ambient-bg, .dock-sidebar, .social-pills-row, .profile-actions-row, .back-home-link, .cv-accordion-icon {
+      .ambient-bg, .dock-sidebar, .social-pills-row, .profile-actions-row, .back-home-link, .cv-accordion-icon, .resume-bottom-bar {
         display: none !important;
       }
       .cv-section-body {
@@ -1166,16 +1243,20 @@
                 <span class="cv-time-location">Ibrido · Italia</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>UI/UX &amp; Web Designer</h4>
-                <div class="cv-timeline-org">BeDigit <span>· Italia</span></div>
+                <h4>UI/UX &amp; Front-End Developer</h4>
+                <div class="cv-timeline-org" style="margin-bottom: 4px;">BeDigit S.r.l. <span>· Ibrido · Italia</span></div>
+                <div style="font-family: var(--font-mono); font-size: 0.84rem; color: #C8B8FB; margin-bottom: 12px; font-weight: 500;">Full-time (gen–giu 2026) · Part-time (da giu 2026)</div>
                 <p class="cv-timeline-desc">
-                  Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il team di sviluppo (WordPress).
+                  Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il team di sviluppo.
                 </p>
                 <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">Angular</span>
+                  <span class="cv-skill-chip">TypeScript</span>
+                  <span class="cv-skill-chip">HTML5 / SCSS</span>
+                  <span class="cv-skill-chip">PrimeNG</span>
                   <span class="cv-skill-chip">UI/UX Design</span>
-                  <span class="cv-skill-chip">Figma</span>
-                  <span class="cv-skill-chip">Architettura Info</span>
-                  <span class="cv-skill-chip">WordPress</span>  
+                  <span class="cv-skill-chip">Responsive Design</span>
+                  <span class="cv-skill-chip">Git</span>
                 </div>
               </div>
             </article>
@@ -1183,20 +1264,24 @@
             <!-- Role 2 -->
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
-                <span class="cv-badge-year">Giu 2024 — Attualmente</span>
-                <span class="cv-time-location">Da remoto · Colombia</span>
+                <span class="cv-badge-year">Giu 2024 — In corso</span>
+                <span class="cv-time-location">Remoto · Italia</span>
               </div>
               <div class="cv-timeline-body">
                 <h4>Freelance Designer</h4>
-                <div class="cv-timeline-org">Freelance <span>· Italia (Online)</span></div>
+                <div class="cv-timeline-org">Freelance <span>· Remoto · Italia</span></div>
                 <p class="cv-timeline-desc">
-                  Lavoro come freelance su progetti di graphic design, web design e UI/UX, adattando le soluzioni alle esigenze di ogni cliente. Sviluppo di progetti web e UI/UX in linea con le necessità e gli obiettivi dei clienti, combinando struttura dei contenuti, esperienza utente e design visivo. Collaborazione attuale con AZIS, azienda del settore ingegneristico, su progetti di design.
+                  Sviluppo di progetti web e UI/UX su misura combinando struttura dei contenuti, esperienza utente e design visivo.
                 </p>
                 <div class="cv-skills-chips-row">
-                  <span class="cv-skill-chip">Graphic Design</span>
-                  <span class="cv-skill-chip">Web Design</span>
-                  <span class="cv-skill-chip">UI/UX</span>
-                  <span class="cv-skill-chip">Collaborazione AZIS</span>
+                  <span class="cv-skill-chip">Figma</span>
+                  <span class="cv-skill-chip">UI/UX Design</span>
+                  <span class="cv-skill-chip">WordPress</span>
+                  <span class="cv-skill-chip">Brand Identity &amp; Logos</span>
+                  <span class="cv-skill-chip">Social Media Design</span>
+                  <span class="cv-skill-chip">Editorial &amp; Document Design</span>
+                  <span class="cv-skill-chip">Photo Retouching</span>
+                  <span class="cv-skill-chip">Print &amp; Digital Materials</span>
                 </div>
               </div>
             </article>
@@ -1209,15 +1294,17 @@
               </div>
               <div class="cv-timeline-body">
                 <h4>Laravel Developer Trainee</h4>
-                <div class="cv-timeline-org">Universo Srl <span>· Cliente: C.F.A. SRL · Roma - Italia</span></div>
+                <div class="cv-timeline-org">Universo Srl <span>· Cliente: C.F.A. SRL · Remoto</span></div>
                 <p class="cv-timeline-desc">
-                  Sviluppo di due micro-progetti web con PHP, Laravel e MySQL, inclusa progettazione del back-end, gestione controller/rotte, modellazione dati, migrazioni, CRUD e autenticazione.
+                  Sviluppo di due micro-progetti web back-end: gestione controller, routing, modellazione dati, migrazioni, operazioni CRUD e autenticazione.
                 </p>
                 <div class="cv-skills-chips-row">
                   <span class="cv-skill-chip">PHP</span>
                   <span class="cv-skill-chip">Laravel</span>
                   <span class="cv-skill-chip">MySQL</span>
-                  <span class="cv-skill-chip">Back-end</span>
+                  <span class="cv-skill-chip">MVC</span>
+                  <span class="cv-skill-chip">CRUD</span>
+                  <span class="cv-skill-chip">Git</span>
                 </div>
               </div>
             </article>
@@ -1226,19 +1313,20 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">Mar 2024 — Giu 2024</span>
-                <span class="cv-time-location">Ibrido · Italia</span>
+                <span class="cv-time-location">Ibrido · Foggia</span>
               </div>
               <div class="cv-timeline-body">
                 <h4>Junior Front-End Developer</h4>
                 <div class="cv-timeline-org">Sinkronia Srl <span>· Foggia - Italia</span></div>
                 <p class="cv-timeline-desc">
-                  Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione del gestionale I-Quadra in Angular.
+                  Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione dell'ERP I-Quadra.
                 </p>
                 <div class="cv-skills-chips-row">
                   <span class="cv-skill-chip">Angular</span>
-                  <span class="cv-skill-chip">Front-end</span>
-                  <span class="cv-skill-chip">Software Lifecycle</span>
-                  <span class="cv-skill-chip">UI/UX Design</span>
+                  <span class="cv-skill-chip">TypeScript</span>
+                  <span class="cv-skill-chip">UI/UX</span>
+                  <span class="cv-skill-chip">Front-End</span>
+                  <span class="cv-skill-chip">HTML5 / CSS3</span>
                 </div>
               </div>
             </article>
@@ -1247,18 +1335,18 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">Feb 2022 — Dic 2022</span>
-                <span class="cv-time-location">In Sede · Italia</span>
+                <span class="cv-time-location">In Sede · Bisceglie</span>
               </div>
               <div class="cv-timeline-body">
                 <h4>Graphic Designer</h4>
                 <div class="cv-timeline-org">Giats Srl <span>· Bisceglie - Italia</span></div>
                 <p class="cv-timeline-desc">
-                  Progettazione e produzione di materiali grafici personalizzati per il mercato all'ingrosso, seguendo brief ed esigenze del cliente. Gestione del processo creativo dalla proposta visiva alla consegna finale, garantendo qualità e rispetto dei tempi di consegna.
+                  Progettazione e produzione di materiali grafici personalizzati per il mercato all'ingrosso. Gestione del processo creativo dal concept visivo alla consegna finale.
                 </p>
                 <div class="cv-skills-chips-row">
                   <span class="cv-skill-chip">Graphic Design</span>
-                  <span class="cv-skill-chip">Visual Materials</span>
-                  <span class="cv-skill-chip">Creative Direction</span>
+                  <span class="cv-skill-chip">Photoshop</span>
+                  <span class="cv-skill-chip">Illustrator</span>
                 </div>
               </div>
             </article>
@@ -1273,13 +1361,13 @@
                 <h4>Administrador Territorial</h4>
                 <div class="cv-timeline-org">Sistemas &amp; Computadores S.A. <span>· Bucaramanga - Colombia</span></div>
                 <p class="cv-timeline-desc">
-                  Coordinamento del personale e delle attività operative, assicurando continuità ed efficienza del servizio. Gestione della comunicazione tra clienti e team, risoluzione di problematiche e organizzazione delle risorse informatiche e documentali con Microsoft Office e strumenti web.
+                  Coordinamento del personale e delle attività operative, gestione della comunicazione tra clienti e team, e organizzazione delle risorse informatiche e documentali.
                 </p>
                 <div class="cv-skills-chips-row">
-                  <span class="cv-skill-chip">Coordinamento</span>
-                  <span class="cv-skill-chip">Team Management</span>
+                  <span class="cv-skill-chip">Team Coordination</span>
                   <span class="cv-skill-chip">Operations</span>
-                  <span class="cv-skill-chip">Web Tools</span>
+                  <span class="cv-skill-chip">Problem Solving</span>
+                  <span class="cv-skill-chip">Management</span>
                 </div>
               </div>
             </article>
@@ -1309,12 +1397,15 @@
                 <h4>Tecnologo in Analisi e Sviluppo Software</h4>
                 <div class="cv-timeline-org">SENA · Colombia</div>
                 <p class="cv-timeline-desc">
-                  Formazione professionale focalizzata sull'intero ciclo di vita del software: analisi dei requisiti, progettazione, sviluppo, testing e deploy. Include sviluppo web, database, API, Git, UML e metodologie agili.
+                  Percorso focalizzato sull’intero ciclo di vita del software: analisi, progettazione, sviluppo, testing e deploy.
                 </p>
                 <div class="cv-skills-chips-row">
-                  <span class="cv-skill-chip">Sviluppo Software</span>
-                  <span class="cv-skill-chip">Agile / UML</span>
-                  <span class="cv-skill-chip">Database</span>
+                  <span class="cv-skill-chip">Java, Spring Boot &amp; Hibernate</span>
+                  <span class="cv-skill-chip">MongoDB</span>
+                  <span class="cv-skill-chip">Python</span>
+                  <span class="cv-skill-chip">Angular</span>
+                  <span class="cv-skill-chip">JavaScript + Express</span>
+                  <span class="cv-skill-chip">Laravel &amp; PHP</span>
                 </div>
               </div>
             </article>
@@ -1323,7 +1414,7 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">2025 — 2026</span>
-                <span class="cv-time-location">EQF Livello 4</span>
+                <span class="cv-time-location">EQF Livello 4 · 110/110 con Lode</span>
               </div>
               <div class="cv-timeline-body">
                 <h4>IFTS – Tecnico Sviluppo Applicazioni Informatiche</h4>
@@ -1332,9 +1423,13 @@
                   Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.
                 </p>
                 <div class="cv-skills-chips-row">
-                  <span class="cv-skill-chip">Applicazioni IT</span>
-                  <span class="cv-skill-chip">Sviluppo Web</span>
-                  <span class="cv-skill-chip">Programmazione</span>
+                  <span class="cv-skill-chip">JavaScript</span>
+                  <span class="cv-skill-chip">C#</span>
+                  <span class="cv-skill-chip">Java</span>
+                  <span class="cv-skill-chip">SQL Database</span>
+                  <span class="cv-skill-chip">Git</span>
+                  <span class="cv-skill-chip">UML</span>
+                  <span class="cv-skill-chip">Web Development</span>
                 </div>
               </div>
             </article>
@@ -1343,7 +1438,7 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">2022 — 2025</span>
-                <span class="cv-time-location">110/110 con Lode</span>
+                <span class="cv-time-location">EQF Livello 7 · 110/110 con Lode</span>
               </div>
               <div class="cv-timeline-body">
                 <h4>Laurea Magistrale in Graphic Design</h4>
@@ -1352,9 +1447,12 @@
                   Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.
                 </p>
                 <div class="cv-skills-chips-row">
+                  <span class="cv-skill-chip">UI/UX Design</span>
                   <span class="cv-skill-chip">Web Design</span>
-                  <span class="cv-skill-chip">UI/UX</span>
-                  <span class="cv-skill-chip">Information Arch</span>
+                  <span class="cv-skill-chip">User Research</span>
+                  <span class="cv-skill-chip">Figma</span>
+                  <span class="cv-skill-chip">Blender</span>
+                  <span class="cv-skill-chip">Information Architecture</span>
                 </div>
               </div>
             </article>
@@ -1363,7 +1461,7 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">2018 — 2022</span>
-                <span class="cv-time-location">110/110 con Lode</span>
+                <span class="cv-time-location">EQF Livello 6 · 110/110 con Lode</span>
               </div>
               <div class="cv-timeline-body">
                 <h4>Laurea Triennale in Graphic Design</h4>
@@ -1373,8 +1471,10 @@
                 </p>
                 <div class="cv-skills-chips-row">
                   <span class="cv-skill-chip">Graphic Design</span>
-                  <span class="cv-skill-chip">Visual Comm</span>
+                  <span class="cv-skill-chip">Visual Identity</span>
                   <span class="cv-skill-chip">Branding</span>
+                  <span class="cv-skill-chip">Typography</span>
+                  <span class="cv-skill-chip">Editorial Design</span>
                 </div>
               </div>
             </article>
@@ -1401,7 +1501,7 @@
                 <span class="cv-time-location">248 Ore · Online</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Sviluppo Web con Laravel, PHP e JavaScript</h4>
+                <h4>Sviluppo Web con Laravel, PHP e JavaScript (248 Ore)</h4>
                 <div class="cv-timeline-org">Universo &amp; FormaTemp</div>
                 <p class="cv-timeline-desc">
                   Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.
@@ -1409,7 +1509,10 @@
                 <div class="cv-skills-chips-row">
                   <span class="cv-skill-chip">Laravel</span>
                   <span class="cv-skill-chip">PHP</span>
+                  <span class="cv-skill-chip">JavaScript</span>
+                  <span class="cv-skill-chip">MySQL</span>
                   <span class="cv-skill-chip">OOP</span>
+                  <span class="cv-skill-chip">FormaTemp</span>
                 </div>
               </div>
             </article>
@@ -1421,15 +1524,16 @@
                 <span class="cv-time-location">500 Ore · In Sede</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Full-Stack Web Developer</h4>
+                <h4>Corso Web Developer (500 Ore)</h4>
                 <div class="cv-timeline-org">Fondo per la Repubblica Digitale</div>
                 <p class="cv-timeline-desc">
                   Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.
                 </p>
                 <div class="cv-skills-chips-row">
-                  <span class="cv-skill-chip">Full-Stack</span>
-                  <span class="cv-skill-chip">OOP</span>
-                  <span class="cv-skill-chip">Web Tech</span>
+                  <span class="cv-skill-chip">JavaScript</span>
+                  <span class="cv-skill-chip">PHP</span>
+                  <span class="cv-skill-chip">HTML5 / CSS3</span>
+                  <span class="cv-skill-chip">Database</span>
                 </div>
               </div>
             </article>
@@ -1441,15 +1545,16 @@
                 <span class="cv-time-location">248 Ore · Online</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Front-End Dev con JS, jQuery e TypeScript</h4>
+                <h4>Front-End Dev con JS, jQuery e TypeScript (248 Ore)</h4>
                 <div class="cv-timeline-org">Archimede &amp; FormaTemp</div>
                 <p class="cv-timeline-desc">
-                  Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript avanzato, TypeScript, HTML5, CSS3 e architettura Bootstrap.
+                  Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript, TypeScript, HTML5, CSS3 e Bootstrap.
                 </p>
                 <div class="cv-skills-chips-row">
-                  <span class="cv-skill-chip">JavaScript</span>
                   <span class="cv-skill-chip">TypeScript</span>
-                  <span class="cv-skill-chip">HTML/CSS</span>
+                  <span class="cv-skill-chip">JavaScript</span>
+                  <span class="cv-skill-chip">Bootstrap</span>
+                  <span class="cv-skill-chip">jQuery</span>
                 </div>
               </div>
             </article>
@@ -1461,15 +1566,17 @@
                 <span class="cv-time-location">248 Ore · Virtuale</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Bootcamp JavaScript &amp; Motion Graphics</h4>
-                <div class="cv-timeline-org">Codigo Facilito / 10 Skills Academy</div>
+                <h4>Corso di Motion Graphics (248 Ore)</h4>
+                <div class="cv-timeline-org">10 Skills Academy</div>
                 <p class="cv-timeline-desc">
-                  Formazione tecnica intensiva in sviluppo JS/TS abbinata a competenze visive di Motion Graphics (After Effects &amp; Premiere) per lo sviluppo di interfacce animate.
+                  Formazione in montaggio video e animazione grafica con Adobe Premiere Pro e After Effects.
                 </p>
                 <div class="cv-skills-chips-row">
-                  <span class="cv-skill-chip">JavaScript</span>
-                  <span class="cv-skill-chip">Motion Graphics</span>
                   <span class="cv-skill-chip">After Effects</span>
+                  <span class="cv-skill-chip">Premiere Pro</span>
+                  <span class="cv-skill-chip">Motion Graphics</span>
+                  <span class="cv-skill-chip">Video Editing</span>
+                  <span class="cv-skill-chip">Animation</span>
                 </div>
               </div>
             </article>
@@ -1688,6 +1795,18 @@
           </div>
         </div>
       </section>
+
+      <!-- Bottom Return / Back to top bar -->
+      <div class="resume-bottom-bar">
+        <button class="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Torna all'inizio">
+          <span class="arrow">↑</span>
+          <span>Torna all'inizio</span>
+        </button>
+        <div class="resume-bottom-links">
+          <a href="index.html" class="resume-bottom-link">← Portfolio</a>
+          <button class="resume-bottom-link" onclick="window.print()">Stampa / PDF 📄</button>
+        </div>
+      </div>
 
     </main>
 

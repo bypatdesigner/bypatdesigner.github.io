@@ -176,8 +176,10 @@
     .next-card h2{font-size:clamp(2.5rem,5vw,5.5rem);line-height:.95;letter-spacing:-.05em;color:#fff;margin:15px 0 14px;font-weight:800;font-family:var(--font-display)}
     .next-card p{color:var(--muted);font-weight:300}
     .next-arrow{width:64px;height:64px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;font-size:1.6rem;color:var(--violet)}
-    footer{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding:28px 0 46px;color:var(--dim);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
-    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    footer{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding:28px 0 46px;color:var(--dim);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+    .footer-back-top-btn{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:9999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--violet);font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:all .3s ease}
+    .footer-back-top-btn:hover{background:var(--violet);color:var(--ink);border-color:var(--violet);transform:translateY(-2px);box-shadow:0 4px 18px rgba(167,139,250,.4)}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
     .footer-links a:hover{color:#fff}
 
     @media(max-width:1000px){
@@ -382,6 +384,10 @@
 
     <footer>
       <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <button class="footer-back-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Torna all'inizio">
+        <span>↑</span>
+        <span>Torna all'inizio</span>
+      </button>
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="projects.html">Progetti</a>

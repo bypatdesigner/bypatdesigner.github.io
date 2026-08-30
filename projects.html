@@ -6,10 +6,14 @@
   <title style="padding-bottom: 24px!important;margin-bottom: 0px !important;" >Tutti i Progetti &amp; Case Studies — Patricia Garcia | Bypatdesigner</title>
   <meta name="description" content="Galleria completa dei progetti di design e front-end di Patricia Garcia: e-commerce, configuratori interattivi, architettura dell'informazione e design system." />
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
+  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
+  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+
+  <!-- Google Fonts: JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
@@ -44,8 +48,9 @@
       --radius-xl: 36px;
       --radius-full: 9999px;
       
-      --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      --font-display: "CabinetGrotesk-Extrabold", "CabinetGrotesk-Bold", "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+      --font-body: "Satoshi-Regular", "Satoshi-Medium", "Satoshi", system-ui, -apple-system, sans-serif;
+      --font-mono: "Satoshi-Medium", "Satoshi", "JetBrains Mono", monospace;
       
       --pad-x: clamp(20px, 5vw, 72px);
       --max-width: 1440px;
@@ -66,13 +71,23 @@
     body {
       background: var(--ink);
       color: var(--text-body);
-      font-family: var(--font-display);
+      font-family: var(--font-body);
+      font-weight: 400;
       font-size: 1.05rem;
       line-height: 1.68;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .hero-main-title,
+    .card-project-title,
+    .drawer-title,
+    .cta-banner-title {
+      font-family: var(--font-display) !important;
+      letter-spacing: -0.03em;
     }
 
     ::selection {
@@ -116,8 +131,9 @@
     }
 
     .grad-text {
-      background: linear-gradient(105deg, #FFFFFF 0%, #EAE5FD 30%, #BFA7FF 55%, #8B5CF6 75%, #F6BE65 100%);
+      background: linear-gradient(105deg, #FFFFFF 5%, #E4DCFD 30%, #C4B5FD 55%, #A78BFA 78%, #F6BE65 100%);
       -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
       background-size: 200% 100%;
@@ -164,104 +180,159 @@
     }
 
     /* ============================================================
-       TOP HEADER NAVBAR
+       FLOATING GLASS NAVBAR (Exact structure and style as Home)
        ============================================================ */
-    .site-nav {
-      position: sticky;
-      top: 0;
+    .nav-bar {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 100;
-      background: rgba(7, 6, 12, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--line);
-      padding: 20px 0;
-      margin-bottom: clamp(40px, 6vh, 80px);
+      width: min(calc(100% - 40px), 1420px);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 10px 24px;
+      background: rgba(14, 13, 24, 0.78);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-full);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
+    .nav-bar:hover {
+      border-color: var(--line-glow);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(139, 92, 246, 0.2);
+    }
+
+    .brand {
+      display: inline-flex;
       align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      transition: background 0.25s ease, transform 0.25s ease;
     }
 
     .brand-logo-img {
       height: 34px;
       width: auto;
       object-fit: contain;
+      margin: 0;
+      filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.3));
+      transition: transform 0.3s ease;
     }
 
-    .nav-links {
+    .brand:hover .brand-logo-img {
+      transform: scale(1.05);
+    }
+
+    .menu {
       display: flex;
+      gap: 28px;
       align-items: center;
-      gap: 16px;
+      justify-content: center;
     }
 
-    .nav-link-btn {
-      font-family: var(--font-mono);
-      font-size: 0.84rem;
-      font-weight: 600;
+    .menu a {
       color: var(--text-muted);
-      padding: 8px 18px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
-      transition: all 0.25s ease;
+      font-weight: 500;
+      transition: color 0.25s ease;
+      position: relative;
+      padding: 6px 0;
+      text-decoration: none;
     }
 
-    .nav-link-btn:hover, .nav-link-btn.active {
-      color: #fff;
-      border-color: var(--line-violet);
-      background: var(--violet-tint);
+    .menu a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--violet-light);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .nav-actions {
+    .menu a:hover,
+    .menu a.active {
+      color: #FFFFFF;
+    }
+
+    .menu a:hover::after,
+    .menu a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-actions-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      justify-self: end;
     }
 
-    .mode-switch-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--line-light);
-      background: rgba(255, 255, 255, 0.05);
-      color: #FFFFFF;
-      font-size: 0.78rem;
-      font-weight: 700;
-      font-family: var(--font-mono);
-      letter-spacing: 0.04em;
-      transition: all 0.25s ease;
-      text-decoration: none;
-    }
-
-    .mode-switch-btn:hover {
-      background: #FFFFFF;
-      color: #07060C;
-      border-color: #FFFFFF;
-      box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
-      transform: translateY(-1px);
-    }
-
-    .nav-cta-btn {
-      font-family: var(--font-mono);
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--ink);
-      background: var(--violet-light);
+    .nav-resume-btn {
       padding: 8px 20px;
-      border-radius: var(--radius-full);
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px rgba(167, 139, 250, 0.4);
-      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
-    .nav-cta-btn:hover {
-      background: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    @media (max-width: 900px) {
+      .nav-bar {
+        grid-template-columns: auto 1fr;
+        padding: 8px 16px;
+        top: 16px;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .brand {
+        padding: 4px 10px;
+      }
+
+      .nav-actions-wrap {
+        grid-column: 2;
+        justify-self: end;
+        gap: 8px;
+      }
+
+      .lang-pill {
+        padding: 2px 3px;
+      }
+
+      .lang-btn {
+        padding: 4px 9px;
+        font-size: 0.70rem;
+      }
+
+      .nav-resume-btn {
+        padding: 6px 14px;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+      }
+
+      .brand-logo-img {
+        height: 28px;
+      }
+    }
+
+    main.shell {
+      padding-top: clamp(100px, 14vh, 130px);
     }
 
     /* ============================================================
@@ -276,23 +347,21 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      letter-spacing: 0.14em;
+      font-size: 0.84rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--violet-light);
-      background: rgba(167, 139, 250, 0.12);
-      border: 1px solid var(--line-violet);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      margin-bottom: 20px;
       font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .hero-main-title {
-      font-size: clamp(3.2rem, 7.2vw, 7.6rem);
-      line-height: 0.92;
-      letter-spacing: -0.06em;
-      font-weight: 800;
+      font-size: clamp(2.4rem, 5.2vw, 6.8rem);
+      margin-top: 24px;
+      padding-bottom: 16px;
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      font-weight: 600;
       margin-bottom: 24px;
       max-width: 1100px;
     }
@@ -389,6 +458,19 @@
       overflow: hidden;
     }
 
+    .card-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .floating-project-card:hover .card-cover-img {
+      transform: scale(1.06);
+    }
+
     .card-preview-window {
       width: 100%;
       background: rgba(14, 13, 24, 0.9);
@@ -443,11 +525,23 @@
 
     .card-project-title {
       font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.04em;
+      font-weight: 600;
+      letter-spacing: -0.03em;
       margin-bottom: 10px;
       line-height: 1.1;
+      background: linear-gradient(105deg, #FFFFFF 5%, #E4DCFD 30%, #C4B5FD 55%, #A78BFA 78%, #F6BE65 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradShimmer 12s ease-in-out infinite alternate;
+      display: inline-block;
+      transition: filter 0.3s ease;
+    }
+
+    .floating-project-card:hover .card-project-title {
+      filter: drop-shadow(0 0 16px rgba(167, 139, 250, 0.45));
     }
 
     .card-project-desc {
@@ -475,11 +569,22 @@
 
     .mini-pill {
       font-family: var(--font-mono);
-      font-size: 0.74rem;
-      padding: 3px 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 4px 11px;
       border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-body);
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      color: #DDD6FE;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+
+    .mini-pill:hover,
+    .floating-project-card:hover .mini-pill {
+      background: rgba(139, 92, 246, 0.18);
+      border-color: rgba(167, 139, 250, 0.45);
+      color: #F5F3FF;
     }
 
     .card-cta-arrow {
@@ -502,6 +607,7 @@
        BOTTOM CONTACT CTA SECTION
        ============================================================ */
     .bottom-cta-banner {
+      display: none;
       background: var(--surface);
       border: 1px solid var(--line-violet);
       border-radius: var(--radius-xl);
@@ -557,6 +663,9 @@
       padding: 32px 0 48px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
       color: var(--text-muted);
       font-size: 0.88rem;
       text-transform: uppercase;
@@ -568,6 +677,41 @@
 
     footer a:hover {
       color: #fff;
+    }
+
+    .footer-back-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--violet-light);
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .footer-back-top-btn:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+      box-shadow: 0 4px 20px rgba(167, 139, 250, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .footer-back-top-btn .arrow {
+      font-size: 0.95rem;
+      transition: transform 0.25s ease;
+    }
+
+    .footer-back-top-btn:hover .arrow {
+      transform: translateY(-2px);
     }
 
     /* ============================================================
@@ -734,11 +878,18 @@
 
     .drawer-title {
       font-size: clamp(2.2rem, 4vw, 3.4rem);
-      font-weight: 700;
-      letter-spacing: -0.05em;
-      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
       margin-bottom: 18px;
-      color: #fff;
+      background: linear-gradient(105deg, #FFFFFF 5%, #E4DCFD 30%, #C4B5FD 55%, #A78BFA 78%, #F6BE65 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: gradShimmer 12s ease-in-out infinite alternate;
+      display: inline-block;
     }
 
     .drawer-lead {
@@ -750,13 +901,18 @@
 
     .drawer-preview {
       width: 100%;
-      height: 240px;
+      height: clamp(260px, 32vw, 340px);
       border-radius: var(--radius-md);
       border: 1px solid var(--line);
       margin-bottom: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     }
 
     .drawer-specs {
@@ -812,35 +968,30 @@
     <div class="ambient-grid"></div>
   </div>
 
-  <!-- ================= TOP SITE NAVBAR ================= -->
-  <nav class="site-nav" aria-label="Navigazione principale">
-    <div class="shell nav-inner">
-      <a href="index.html">
-        <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
+  <!-- ================= FLOATING GLASS NAVBAR ================= -->
+  <nav class="nav-bar" aria-label="Navigazione principale">
+    <a class="brand" href="index.html">
+      <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
+    </a>
+
+    <div class="menu">
+      <a href="index.html#about" data-i18n="nav.about">Chi sono</a>
+      <a href="index.html#services" data-i18n="nav.services">Servizi</a>
+      <a href="projects.html" class="active" data-i18n="nav.projects">Progetti</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Contatti</a>
+    </div>
+
+    <div class="nav-actions-wrap">
+      <!-- Glassmorphism Language Selector (IT | ES | EN) -->
+      <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
+        <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
+        <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
+        <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+      </div>
+
+      <a class="btn primary nav-resume-btn" id="navResumeBtn" href="cv.html">
+        <span data-i18n="nav.resume">Resume</span>
       </a>
-
-      <div class="nav-links">
-        <a href="index.html" class="nav-link-btn">Home</a>
-        <a href="projects.html" class="nav-link-btn active">Tutti i Progetti</a>
-        <a href="cv.html" class="nav-link-btn">Resume / CV</a>
-      </div>
-
-      <div class="nav-actions">
-        <!-- Glassmorphism Language Selector (IT | ES | EN) -->
-        <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
-          <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
-          <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
-          <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
-        </div>
-
-        <a class="mode-switch-btn" href="./light-version/index.html" title="Passa alla versione Light">
-          <span>☀️</span>
-          <span>Light Mode</span>
-        </a>
-        <a href="index.html#contact" class="nav-cta-btn" id="navContactBtn">
-          <span>Contatti ↗</span>
-        </a>
-      </div>
     </div>
   </nav>
 
@@ -848,7 +999,7 @@
     
     <!-- ================= PAGE HERO ================= -->
     <header class="page-hero">
-      <div class="hero-tagline">✦ ARCHIVIO PROGETTI &amp; CASE STUDIES</div>
+      <div class="hero-tagline">✦ PROGETTI &amp; CASE STUDIES</div>
       <h1 class="hero-main-title grad-text">Tutti i Progetti.</h1>
       <p class="hero-sub-text">
         Una selezione di piattaforme digitali, configuratori interattivi, identità visive e architetture front-end sviluppate con rigore e cura del dettaglio.
@@ -857,11 +1008,12 @@
 
     <!-- ================= INTERACTIVE CATEGORY FILTER BAR ================= -->
     <div class="filters-bar" role="tablist" aria-label="Filtra progetti per categoria">
-      <button class="filter-pill active" onclick="filterProjects('all', this)">Tutti i Progetti (4)</button>
-      <button class="filter-pill" onclick="filterProjects('ecommerce', this)">E-Commerce</button>
-      <button class="filter-pill" onclick="filterProjects('configurator', this)">Configuratori</button>
-      <button class="filter-pill" onclick="filterProjects('editorial', this)">Editorial Web</button>
-      <button class="filter-pill" onclick="filterProjects('uiux', this)">UI/UX &amp; Design System</button>
+      <button class="filter-pill active" onclick="filterProjects('all', this)" id="filterBtnAll">Tutti i Progetti (4)</button>
+      <button class="filter-pill" onclick="filterProjects('development', this)" id="filterBtnDev">Sviluppo Web</button>
+      <button class="filter-pill" onclick="filterProjects('uiux', this)" id="filterBtnUiux">UI/UX &amp; Web Design</button>
+      <button class="filter-pill" onclick="filterProjects('branding', this)" id="filterBtnBrand">Branding &amp; Identità Visiva</button>
+      <button class="filter-pill" onclick="filterProjects('configurator', this)" id="filterBtn3D">Illustrazione &amp; 3D</button>
+      <button class="filter-pill" onclick="filterProjects('editorial', this)" id="filterBtnEditorial">Editorial</button>
     </div>
 
     <!-- ================= ASYMMETRICAL / FLOATING MASONRY PROJECTS GRID (OKC Media Style) ================= -->
@@ -871,7 +1023,7 @@
       <div class="project-column">
         
         <!-- Project Card 1: AgriBox Platform -->
-        <article class="floating-project-card" data-cat="ecommerce uiux" onclick="openDrawer('agribox')">
+        <article class="floating-project-card" data-cat="development uiux" onclick="openDrawer('agribox')">
           <div class="card-media-box" style="background: radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.22), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109);">
             <div class="card-preview-window">
               <div class="preview-browser-dots">
@@ -917,7 +1069,7 @@
         </article>
 
         <!-- Project Card 3: Mininno Costruzioni -->
-        <article class="floating-project-card" data-cat="editorial uiux" onclick="openDrawer('mininno')">
+        <article class="floating-project-card" data-cat="editorial branding uiux" onclick="openDrawer('mininno')">
           <div class="card-media-box" style="background: radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13);">
             <div class="card-preview-window">
               <div class="preview-browser-dots">
@@ -968,7 +1120,7 @@
       <div class="project-column staggered-col">
         
         <!-- Project Card 2: Footsy Shoes -->
-        <article class="floating-project-card" data-cat="ecommerce configurator" onclick="openDrawer('footsy')">
+        <article class="floating-project-card" data-cat="development uiux" onclick="openDrawer('footsy')">
           <div class="card-media-box" style="background: radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.25), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E);">
             <div class="card-preview-window">
               <div class="preview-browser-dots">
@@ -1013,43 +1165,29 @@
           </div>
         </article>
 
-        <!-- Project Card 4: suMisura® Doors -->
-        <article class="floating-project-card" data-cat="configurator uiux" onclick="openDrawer('sumisura')">
-          <div class="card-media-box" style="background: radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.25), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C);">
-            <div class="card-preview-window">
-              <div class="preview-browser-dots">
-                <span class="p-dot" style="background:#EF4444;"></span>
-                <span class="p-dot" style="background:#F59E0B;"></span>
-                <span class="p-dot" style="background:#10B981;"></span>
-                <span class="mono" style="font-size:0.72rem; margin-left:auto; color:var(--text-dim);">sumisura.configurator.pro</span>
-              </div>
-              <div class="mono" style="color:var(--accent-warm); margin-bottom:6px;">✦ Motore Vettoriale SVG</div>
-              <h4 style="font-size:1.35rem; color:#fff; font-weight:700; margin-bottom:8px;">
-                Configurazione in 4 step e preventivo live.
-              </h4>
-              <p style="color:var(--text-muted); font-size:0.92rem; line-height:1.5;">
-                Rendering istantaneo a strati di finiture lignee, serrature e maniglie di sicurezza.
-              </p>
-            </div>
+        <!-- Project Card 4: Honey + Coconut -->
+        <article class="floating-project-card" data-cat="configurator branding" onclick="openDrawer('honey')">
+          <div class="card-media-box" style="position: relative; overflow: hidden; min-height: 380px; padding: 0; background: #130e1c;">
+            <img src="./img/honeyCoconut.png" alt="Honey + Coconut 3D Packaging" class="card-cover-img" />
           </div>
 
           <div class="card-details-box">
             <div>
               <div class="card-top-meta">
-                <span>CPQ CONFIGURATOR · LUXURY</span>
-                <span>2026</span>
+                <span>PACKAGING 3D DESIGN · BLENDER</span>
+                <span>2024</span>
               </div>
-              <h2 class="card-project-title">suMisura® Doors</h2>
+              <h2 class="card-project-title grad-text">Honey + Coconut</h2>
               <p class="card-project-desc">
-                Web app per la personalizzazione e quotazione di porte blindate di sicurezza con esportazione della scheda tecnica in PDF per showroom.
+                Un progetto di modellazione 3D realizzato in Blender, in cui ho sviluppato packaging, materiali e visual per Honey + Coconut, con un’estetica fresca, delicata e contemporanea.
               </p>
             </div>
 
             <div class="card-footer-tags">
               <div class="tech-pill-list">
-                <span class="mini-pill">SVG Engine</span>
-                <span class="mini-pill">JavaScript ES6+</span>
-                <span class="mini-pill">PDF Exporter</span>
+                <span class="mini-pill">Blender 3D</span>
+                <span class="mini-pill">3D Packaging</span>
+                <span class="mini-pill">Product Visualization</span>
               </div>
               <div class="card-cta-arrow">
                 <span>Anteprima Rapida</span>
@@ -1078,11 +1216,14 @@
     <!-- ================= FOOTER ================= -->
     <footer>
       <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
-      <span>Bari / Bisceglie · Italia</span>
-      <div style="display: flex; gap: 20px;">
-        <a href="index.html">Home Portfolio ↗</a>
+      <button class="footer-back-top-btn" id="footerBackToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Torna all'inizio">
+        <span class="arrow">↑</span>
+        <span id="footerBackToTopText">Torna all'inizio</span>
+      </button>
+      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <a href="index.html" id="footerHomeLink">Home Portfolio ↗</a>
         <a href="cv.html" id="footerResumeLink">Resume / CV ↗</a>
-        <a href="index.html#contact">Contatti ↗</a>
+        <a href="index.html#contact" id="footerContactLink">Contatti ↗</a>
       </div>
     </footer>
 
@@ -1094,12 +1235,10 @@
       <button class="drawer-close" id="drawerClose" aria-label="Chiudi modale">✕</button>
 
       <div class="drawer-category" id="drawerCategory">E-COMMERCE · UI/UX</div>
-      <h3 class="drawer-title" id="drawerTitle">AgriBox Platform</h3>
+      <h3 class="drawer-title grad-text" id="drawerTitle">AgriBox Platform</h3>
       <p class="drawer-lead" id="drawerLead">Catalogo e-commerce che unisce retail B2C e area B2B con sconti a volume.</p>
 
-      <div class="drawer-preview" id="drawerPreview">
-        <span class="mono" style="color:#fff; font-size:1.1rem; font-weight:600;" id="drawerPreviewLabel">Anteprima Interfaccia</span>
-      </div>
+      <div class="drawer-preview" id="drawerPreview"></div>
 
       <div class="drawer-specs">
         <div class="drawer-spec">
@@ -1139,13 +1278,20 @@
           stack: "Stack & Metodo",
           btnProject: "Amplia Progetto",
           btnContact: "Contattami",
+          backToTop: "Torna all'inizio",
           ctaBadge: "✦ Inizia un Progetto",
           ctaTitle: "Hai in mente una nuova visione digitale?",
           ctaSub: "Dalla definizione della strategia visiva alla scrittura del codice front-end per la produzione: parliamo di come trasformare la tua idea in un'esperienza d'impatto.",
           ctaBtn: "Parliamo del tuo Progetto +",
-          heroTagline: "✦ ARCHIVIO PROGETTI & CASE STUDIES",
+          heroTagline: "✦ PROGETTI & CASE STUDIES",
           heroTitle: "Tutti i Progetti.",
-          heroSub: "Una selezione di piattaforme digitali, configuratori interattivi, identità visive e architetture front-end sviluppate con rigore e cura del dettaglio."
+          heroSub: "Una selezione di piattaforme digitali, configuratori interattivi, identità visive e architetture front-end sviluppate con rigore e cura del dettaglio.",
+          filterAll: "Tutti i Progetti (4)",
+          filterDev: "Sviluppo Web",
+          filterUiux: "UI/UX & Web Design",
+          filterBrand: "Branding & Identità Visiva",
+          filter3D: "Illustrazione & 3D",
+          filterEditorial: "Editorial"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -1174,6 +1320,16 @@
           body: "Un'esperienza dove la fotografia architettonica e la griglia svizzera guidano l'utente. Layout asimmetrici, transizioni fluide tra i progetti e schede cantiere arricchite da schemi tecnici e materiali.",
           bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
         },
+        honey: {
+          title: "Honey + Coconut",
+          category: "3D PACKAGING · PRODUCT VISUALIZATION",
+          lead: "Un progetto di modellazione 3D realizzato in Blender, in cui ho sviluppato packaging, materiali e visual per Honey + Coconut, con un’estetica fresca, delicata e contemporanea.",
+          role: "2024 · Progetto di Modellazione 3D",
+          stack: "Blender",
+          body: "Honey + Coconut è un progetto di modellazione 3D realizzato in Blender, focalizzato sull'esplorazione del product design, materiali, illuminazione e composizione. L'idea nasce per creare un contenitore cosmetico semplice ispirato alle tonalità calde del miele e alla sensazione morbida e naturale del cocco.",
+          bg: "url('./img/EEECOCONUT.png') center/cover no-repeat",
+          url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
+        },
         sumisura: {
           title: "suMisura® Doors",
           category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
@@ -1191,13 +1347,20 @@
           stack: "Stack & Método",
           btnProject: "Ampliar Proyecto",
           btnContact: "Contactarme",
+          backToTop: "Volver al inicio",
           ctaBadge: "✦ Iniciar un Proyecto",
           ctaTitle: "¿Tienes en mente una nueva visión digital?",
           ctaSub: "Desde la estrategia visual hasta el código front-end para producción: hablemos de cómo transformar tu idea en una experiencia memorable.",
           ctaBtn: "Hablemos de tu Proyecto +",
-          heroTagline: "✦ ARCHIVO DE PROYECTOS & CASE STUDIES",
+          heroTagline: "✦ PROYECTOS & CASE STUDIES",
           heroTitle: "Todos los Proyectos.",
-          heroSub: "Una selección de plataformas digitales, configuradores interactivos, identidades visuales y arquitecturas front-end desarrolladas con rigor y cuidado del detalle."
+          heroSub: "Una selección de plataformas digitales, configuradores interactivos, identidades visuales y arquitecturas front-end desarrolladas con rigor y cuidado del detalle.",
+          filterAll: "Todos los Proyectos (4)",
+          filterDev: "Desarrollo Web",
+          filterUiux: "UI/UX & Web Design",
+          filterBrand: "Branding & Identidad Visual",
+          filter3D: "Ilustración & 3D",
+          filterEditorial: "Editorial"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -1226,13 +1389,23 @@
           body: "Una experiencia donde la fotografía de arquitectura y la tipografía suiza guían al usuario. Diseños asimétricos y fichas de obra con planos técnicos y materiales.",
           bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
         },
+        honey: {
+          title: "Honey + Coconut",
+          category: "PACKAGING 3D · PRODUCT VISUALIZATION",
+          lead: "Un proyecto de modelado 3D realizado in Blender, donde desarrollé packaging, materiales y visuales para Honey + Coconut, con una estética fresca, delicada y contemporánea.",
+          role: "2024 · Proyecto de Modelado 3D",
+          stack: "Blender",
+          body: "Honey + Coconut es un proyecto 3D creado en Blender, enfocado en explorar el modelado de producto, materiales, iluminación y composición. La idea fue crear un envase cosmético sencillo inspirado en los tonos cálidos de la miel y la sensación suave y natural del coco.",
+          bg: "url('./img/EEECOCONUT.png') center/cover no-repeat",
+          url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
+        },
         sumisura: {
           title: "suMisura® Doors",
           category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
           lead: "Configurador interactivo para la personalización y cotización online de puertas de seguridad acorazadas.",
           role: "2026 · UI/UX Designer & Frontend Logic",
           stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-          body: "Un flujo guiado en 4 pasos que permite seleccionar grado de seguridad, acabados de madera, herrajes y cerraduras biométricas con previsualización en tiempo real.",
+          body: "Un flujo guiado en 4 pasos que permite seleccionar grado de seguridad, acabados de madera, herrajes y cerraduras biométricas con previsualización in tiempo real.",
           bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
         }
       },
@@ -1243,13 +1416,20 @@
           stack: "Stack & Method",
           btnProject: "Explore Project",
           btnContact: "Contact Me",
+          backToTop: "Back to top",
           ctaBadge: "✦ Start a Project",
           ctaTitle: "Have a new digital vision in mind?",
           ctaSub: "From visual strategy to production front-end code: let's discuss turning your idea into a high-impact experience.",
           ctaBtn: "Let's Talk About Your Project +",
-          heroTagline: "✦ PROJECTS & CASE STUDIES ARCHIVE",
+          heroTagline: "✦ PROJECTS & CASE STUDIES",
           heroTitle: "All Projects.",
-          heroSub: "A curated selection of digital platforms, interactive customizers, visual identities, and front-end architectures built with precision."
+          heroSub: "A curated selection of digital platforms, interactive customizers, visual identities, and front-end architectures built with precision.",
+          filterAll: "All Projects (4)",
+          filterDev: "Web Development",
+          filterUiux: "UI/UX & Web Design",
+          filterBrand: "Branding & Visual Identity",
+          filter3D: "Illustration & 3D",
+          filterEditorial: "Editorial"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -1277,6 +1457,16 @@
           stack: "Figma, JavaScript ES6+, Semantic CSS",
           body: "An immersive experience where architectural photography and Swiss grid layouts guide the visitor. Asymmetrical typography, fluid page transitions, and detailed technical project specs.",
           bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        honey: {
+          title: "Honey + Coconut",
+          category: "3D PACKAGING · PRODUCT VISUALIZATION",
+          lead: "A 3D modeling project created in Blender, developing packaging, materials, and visuals for Honey + Coconut with a fresh, delicate, and contemporary aesthetic.",
+          role: "2024 · 3D Modeling Project",
+          stack: "Blender",
+          body: "Honey + Coconut is a small 3D project created in Blender, focused on exploring product modeling, materials, lighting and composition. The idea was to create a simple cosmetic container inspired by the warm tones of honey and the soft, natural feeling associated with coconut.",
+          bg: "url('./img/EEECOCONUT.png') center/cover no-repeat",
+          url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
         },
         sumisura: {
           title: "suMisura® Doors",
@@ -1319,12 +1509,14 @@
         const heroTag = document.querySelector('.hero-tagline');
         const heroTitle = document.querySelector('.hero-main-title');
         const heroSub = document.querySelector('.hero-sub-text');
+        const bTop = document.getElementById('footerBackToTopText');
 
         if (pLabel) pLabel.textContent = labels.preview;
         if (rLabel) rLabel.textContent = labels.role;
         if (sLabel) sLabel.textContent = labels.stack;
         if (btnProj) btnProj.textContent = labels.btnProject;
         if (btnCont) btnCont.textContent = labels.btnContact;
+        if (bTop && labels.backToTop) bTop.textContent = labels.backToTop;
         if (cBadge) cBadge.textContent = labels.ctaBadge;
         if (cTitle) cTitle.textContent = labels.ctaTitle;
         if (cSub) cSub.textContent = labels.ctaSub;
@@ -1332,15 +1524,63 @@
         if (heroTag) heroTag.textContent = labels.heroTagline;
         if (heroTitle) heroTitle.textContent = labels.heroTitle;
         if (heroSub) heroSub.textContent = labels.heroSub;
+
+        // Update category filters
+        const fAll = document.getElementById('filterBtnAll');
+        const fDev = document.getElementById('filterBtnDev');
+        const fUiux = document.getElementById('filterBtnUiux');
+        const fBrand = document.getElementById('filterBtnBrand');
+        const f3D = document.getElementById('filterBtn3D');
+        const fEdit = document.getElementById('filterBtnEditorial');
+
+        if (fAll && labels.filterAll) fAll.textContent = labels.filterAll;
+        if (fDev && labels.filterDev) fDev.textContent = labels.filterDev;
+        if (fUiux && labels.filterUiux) fUiux.textContent = labels.filterUiux;
+        if (fBrand && labels.filterBrand) fBrand.textContent = labels.filterBrand;
+        if (f3D && labels.filter3D) f3D.textContent = labels.filter3D;
+        if (fEdit && labels.filterEditorial) fEdit.textContent = labels.filterEditorial;
+
+        // Update cards dynamically on the grid
+        ['agribox', 'footsy', 'mininno', 'honey'].forEach(key => {
+          const cardData = PROJECTS_I18N[lang] && PROJECTS_I18N[lang][key];
+          if (!cardData) return;
+          const card = document.querySelector(`.floating-project-card[onclick*="'${key}'"]`);
+          if (card) {
+            const title = card.querySelector('.card-project-title');
+            const desc = card.querySelector('.card-project-desc');
+            const topMeta = card.querySelector('.card-top-meta span:first-child');
+            if (title) title.textContent = cardData.title;
+            if (desc) desc.textContent = cardData.lead;
+            if (topMeta) topMeta.textContent = cardData.category;
+          }
+        });
       }
 
-      // Update resume links
+      // Update resume links and navbar items
       const resumeUrl = lang === 'es' ? 'cv-es.html' : (lang === 'en' ? 'cv-en.html' : 'cv.html');
       const footerResume = document.getElementById('footerResumeLink');
       if (footerResume) {
         footerResume.href = resumeUrl;
         footerResume.removeAttribute('target');
         footerResume.removeAttribute('rel');
+      }
+
+      const navTranslations = {
+        it: { about: "Chi sono", services: "Servizi", projects: "Progetti", contact: "Contatti", resume: "Resume" },
+        es: { about: "Sobre mí", services: "Servicios", projects: "Proyectos", contact: "Contacto", resume: "Currículum" },
+        en: { about: "About", services: "Services", projects: "Projects", contact: "Contact", resume: "Resume" }
+      };
+      const navData = navTranslations[lang] || navTranslations.it;
+      document.querySelectorAll('.menu a[data-i18n]').forEach(link => {
+        const key = link.dataset.i18n.replace('nav.', '');
+        if (navData[key]) link.textContent = navData[key];
+      });
+
+      const navResumeBtn = document.getElementById('navResumeBtn');
+      if (navResumeBtn) {
+        navResumeBtn.href = resumeUrl;
+        const navResumeSpan = navResumeBtn.querySelector('span');
+        if (navResumeSpan) navResumeSpan.textContent = navData.resume;
       }
 
       // Save preference
@@ -1386,7 +1626,15 @@
       drawerBody.textContent = data.body;
       drawerPreview.style.background = data.bg;
 
-      drawerCta.href = `project.html?id=${key}`;
+      if (data.url) {
+        drawerCta.href = data.url;
+        drawerCta.setAttribute('target', '_blank');
+        drawerCta.setAttribute('rel', 'noopener noreferrer');
+      } else {
+        drawerCta.href = `project.html?id=${key}`;
+        drawerCta.removeAttribute('target');
+        drawerCta.removeAttribute('rel');
+      }
 
       drawerOverlay.classList.add('is-open');
       drawerOverlay.setAttribute('aria-hidden', 'false');

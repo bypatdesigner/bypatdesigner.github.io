@@ -11,6 +11,10 @@
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
+  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
+  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
+  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+
   <!-- Google Fonts: Raleway (Headlines) & Space Grotesk (Body, Pills & Tech) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +23,67 @@
     rel="stylesheet" />
 
   <style>
+    /* ============================================================
+       CABINET GROTESK & SATOSHI FONT MAPPINGS
+       ============================================================ */
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
+      font-weight: 800;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
     /* ============================================================
        DESIGN TOKENS — HIGH CONTRAST & READABILITY (Deep Black & Electric Violet)
        ============================================================ */
@@ -56,9 +121,9 @@
       --radius-xl: 32px;
       --radius-full: 9999px;
 
-      --font-display: "Raleway", system-ui, -apple-system, sans-serif;
-      --font-body: "Space Grotesk", system-ui, -apple-system, sans-serif;
-      --font-mono: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      --font-display: "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+      --font-body: "Satoshi", system-ui, -apple-system, sans-serif;
+      --font-mono: "Satoshi", monospace;
 
       --pad: clamp(20px, 4vw, 52px);
       --max-width: 1440px;
@@ -82,13 +147,32 @@
       background: var(--ink);
       color: var(--text-main);
       font-family: var(--font-body);
-      font-weight: 300;
+      font-weight: 400;
       font-size: 1.08rem;
       line-height: 1.68;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .headline,
+    .hero-title,
+    .tab-title,
+    .pane-title,
+    .item-role-title,
+    .item-org-name,
+    .service h3,
+    .project-title,
+    .card-title,
+    .card-project-title,
+    .drawer-title,
+    .process-card-title,
+    .contact-title,
+    .cta-banner-title {
+      font-family: var(--font-display);
+      letter-spacing: -0.03em;
     }
 
     ::selection {
@@ -191,6 +275,8 @@
     }
 
     .grad-text {
+      font-family: 'CabinetGrotesk-Extrabold', 'Cabinet Grotesk', var(--font-display) !important;
+      font-weight: 800 !important;
       background: linear-gradient(105deg, #FFFFFF 0%, #E9E4FC 28%, #BFA7FF 52%, #8B5CF6 74%, #F6BE65 100%);
       -webkit-background-clip: text;
       background-clip: text;
@@ -200,8 +286,9 @@
     }
 
     .muted-text {
+      font-family: 'CabinetGrotesk-Medium', 'Cabinet Grotesk', var(--font-display) !important;
       color: var(--text-muted);
-      font-weight: 300;
+      font-weight: 500 !important;
     }
 
     .violet-accent {
@@ -573,7 +660,7 @@
       margin-bottom: 0;
       color: var(--violet-light);
       font-weight: 700;
-      font-family: var(--font-mono);
+      font-family: 'Satoshi-Medium', 'Satoshi', var(--font-mono) !important;
     }
 
     .eyebrow i {
@@ -586,12 +673,12 @@
     }
 
     .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5.2vw, 6.8rem);
-      line-height: 0.96;
+      font-family: 'CabinetGrotesk-Extrabold', 'CabinetGrotesk-Black', 'CabinetGrotesk-Bold', sans-serif !important;
+      font-size: clamp(2.8rem, 5.8vw, 7.5rem);
+      line-height: 0.95;
       letter-spacing: -0.04em;
       margin: 0;
-      max-width: 1200px;
+      max-width: 1280px;
       font-weight: 800;
     }
 
@@ -622,7 +709,7 @@
       border: 1px solid rgba(255, 255, 255, 0.18);
       color: #F5F3FC;
       font-size: 0.81rem;
-      font-family: var(--font-mono);
+      font-family: 'Satoshi-Medium', 'Satoshi', var(--font-mono) !important;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -667,12 +754,23 @@
     }
 
     .hero-copy p {
+      font-family: 'Satoshi-Regular', 'Satoshi-Medium', 'Satoshi', system-ui, sans-serif !important;
       font-size: clamp(1.02rem, 1.4vw, 1.32rem);
-      line-height: 1.45;
+      line-height: 1.5;
       margin: 0 0 20px;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.01em;
       color: var(--text-muted);
-      font-weight: 300;
+      font-weight: 400;
+    }
+
+    .hero-copy .btn,
+    .hero .actions .btn {
+      font-family: 'CabinetGrotesk-Bold', 'CabinetGrotesk-Extrabold', 'CabinetGrotesk-Medium', sans-serif !important;
+      font-weight: 700;
+    }
+
+    .hero-marquee {
+      font-family: 'Satoshi-Medium', 'Satoshi', system-ui, sans-serif !important;
     }
 
     .actions {
@@ -807,7 +905,7 @@
       line-height: 0.98;
       letter-spacing: -0.04em;
       margin: 0;
-      font-weight: 800;
+      font-weight: 500;
       max-width: 1240px;
       color: #FFFFFF;
     }
@@ -846,8 +944,9 @@
     }
 
     .about-tab-btn .tab-title {
+      font-family: var(--font-display);
       font-size: 1.25rem;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -0.02em;
       transition: color 0.3s;
       color: #FFFFFF;
@@ -948,15 +1047,15 @@
     }
 
     .timeline-card-item {
-      padding: 22px 26px;
+      padding: 26px 30px;
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.035);
       border: 1px solid var(--line);
       display: grid;
-      grid-template-columns: minmax(200px, auto) 1fr;
-      gap: 24px;
-      align-items: baseline;
-      transition: all 0.3s ease;
+      grid-template-columns: minmax(160px, 195px) 1fr;
+      gap: clamp(32px, 4vw, 48px);
+      align-items: start;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .timeline-card-item:hover {
@@ -967,31 +1066,185 @@
 
     .item-period {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--violet-light);
       white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    .item-period-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      line-height: 1.2;
+      font-weight: 600;
+      color: var(--violet-light);
+      background: rgba(167, 139, 250, 0.09);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      width: fit-content;
+    }
+
+    .card-headline-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
     }
 
     .item-role-title {
-      font-size: 1.22rem;
-      font-weight: 700;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
       letter-spacing: -0.02em;
       color: #FFFFFF;
-      margin-bottom: 4px;
+      margin: 0;
     }
 
-    .item-org-name {
-      font-size: 1.05rem;
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
       font-weight: 600;
-      color: #D4CEF0;
-      margin-bottom: 8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status-pill.in-progress {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+    }
+
+    .status-pill.in-progress .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      display: inline-block;
+    }
+
+    .status-pill.completed {
+      background: rgba(167, 139, 250, 0.1);
+      color: var(--violet-light);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+    }
+
+    .status-pill.completed .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--violet-light);
+      display: inline-block;
+    }
+
+    .status-pill.honors {
+      background: rgba(167, 139, 250, 0.1);
+      color: #C8B8F8;
+      border: 1px solid rgba(167, 139, 250, 0.24);
+    }
+
+    .status-pill.honors .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #A78BFA;
+      box-shadow: 0 0 6px rgba(167, 139, 250, 0.5);
+      display: inline-block;
+    }
+
+    .status-pill.cert {
+      background: rgba(192, 139, 232, 0.12);
+      color: #C08BE8;
+      border: 1px solid rgba(192, 139, 232, 0.28);
+    }
+
+    .status-pill.cert .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #C08BE8;
+      box-shadow: 0 0 6px #C08BE8;
+      display: inline-block;
+    }
+
+    .item-org-meta,
+    .item-org-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 16.5px;
+      color: #C8B8FB;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .item-contract-meta {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: #9E94CE;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .meta-sep {
+      opacity: 0.4;
+      font-size: 0.8rem;
     }
 
     .item-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.6;
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: #B8B0D8;
+      line-height: 1.65;
+      max-width: 540px;
+      margin: 0;
+    }
+
+    .item-skills-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 11px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #D4CEF0;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.25s ease;
+    }
+
+    .skill-chip:hover {
+      background: rgba(139, 92, 246, 0.18);
+      border-color: var(--line-violet);
+      color: #FFFFFF;
+      transform: translateY(-1px);
     }
 
     /* ============================================================
@@ -1145,8 +1398,9 @@
     }
 
     .service h3 {
+      font-family: var(--font-display);
       font-size: clamp(1.7rem, 3.2vw, 3rem);
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: -0.045em;
       margin: 0;
       color: #FFFFFF;
@@ -1750,6 +2004,9 @@
       padding: 32px var(--pad) 44px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
       color: var(--text-muted);
       font-size: 0.88rem;
       text-transform: uppercase;
@@ -1761,6 +2018,41 @@
 
     footer a:hover {
       color: #fff;
+    }
+
+    .footer-back-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-light);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--violet-light);
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .footer-back-top-btn:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+      box-shadow: 0 4px 20px rgba(167, 139, 250, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .footer-back-top-btn .arrow {
+      font-size: 0.95rem;
+      transition: transform 0.25s ease;
+    }
+
+    .footer-back-top-btn:hover .arrow {
+      transform: translateY(-2px);
     }
 
     /* Toast Notification */
@@ -1884,13 +2176,18 @@
 
     .drawer-preview {
       width: 100%;
-      height: 240px;
+      height: clamp(260px, 32vw, 340px);
       border-radius: var(--radius-md);
       border: 1px solid var(--line);
       margin-bottom: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     }
 
     .drawer-specs {
@@ -2096,8 +2393,15 @@
         min-height: 440px;
       }
 
+      .timeline-card-item {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 20px 22px;
+      }
+
       .timeline-card-item .item-desc {
-        display: none;
+        display: block;
+        font-size: 15px;
       }
 
       .timeline-card-item .item-org-name {
@@ -2310,7 +2614,7 @@
     <div class="menu">
       <a href="#about" data-i18n="nav.about">Chi sono</a>
       <a href="#services" data-i18n="nav.services">Servizi</a>
-      <!--<a href="projects.html">Progetti</a>-->
+      <a href="projects.html">Progetti</a>
       <a href="#contact" data-i18n="nav.contact">Contatti</a>
     </div>
 
@@ -2470,70 +2774,134 @@
               </div>
 
               <div class="timeline-cards-list">
+                <!-- Exp 1 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.exp1_date">Gennaio 2026 — Agosto 2026</span>
+                  <span class="item-period-badge" data-i18n="about.exp1_date">Gen. 2026 — Ago. 2026</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.exp1_role">UI/UX &amp; Web Designer</h4>
-                    <div class="item-org-name" data-i18n="about.exp1_org">BeDigit · Ibrido · Italia</div>
-                    <p class="item-desc" data-i18n="about.exp1_desc">Progettazione di esperienze web e interfacce in
-                      Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe
-                      e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il
-                      team di sviluppo (WordPress).</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.exp1_role">UI/UX &amp; Web Designer</h4>
+                      <span class="status-pill in-progress"><span class="dot"></span><span data-i18n="about.status_in_progress">In corso</span></span>
+                    </div>
+                    <div class="item-org-meta" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+                      <span data-i18n="about.exp1_org">BeDigit · Ibrido · Italia</span>
+                      <span class="item-contract-meta" data-i18n="about.exp1_contract">Full-time (gen–giu 2026) · Part-time (da giu 2026)</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.exp1_desc">Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Collaborazione con il team di sviluppo.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Figma</span>
+                      <span class="skill-chip">UI/UX Design</span>
+                      <span class="skill-chip">Wireframing</span>
+                      <span class="skill-chip">Prototyping</span>
+                      <span class="skill-chip">Information Architecture</span>
+                      <span class="skill-chip">WordPress</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Exp 2 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.exp2_date">Giugno 2024 — Attualmente</span>
+                  <span class="item-period-badge" data-i18n="about.exp2_date">Giu. 2024 — In corso</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.exp2_role">Freelance Designer</h4>
-                    <div class="item-org-name" data-i18n="about.exp2_org">Freelance · Italia (Online)</div>
-                    <p class="item-desc" data-i18n="about.exp2_desc">Lavoro come freelance su progetti di graphic design, web design e UI/UX, adattando le soluzioni alle esigenze di ogni cliente. Sviluppo di progetti web e UI/UX in linea con le necessità e gli obiettivi dei clienti, combinando struttura dei contenuti, esperienza utente e design visivo. Collaborazione attuale con AZIS, azienda del settore ingegneristico, su progetti di design.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.exp2_role">Freelance Designer</h4>
+                      <span class="status-pill in-progress"><span class="dot"></span><span data-i18n="about.status_in_progress">In corso</span></span>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.exp2_org">Freelance · Remoto · Italia</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.exp2_desc">Sviluppo di progetti web e UI/UX su misura combinando struttura dei contenuti, esperienza utente e design visivo. </p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Figma</span>
+                      <span class="skill-chip">UI/UX Design</span>
+                      <span class="skill-chip">WordPress</span>
+                      <span class="skill-chip">Brand Identity &amp; Logos</span>
+                      <span class="skill-chip">Social Media Design</span>
+                      <span class="skill-chip">Editorial &amp; Document Design</span>
+                      <span class="skill-chip">Photo Retouching</span>
+                      <span class="skill-chip">Print &amp; Digital Materials</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Exp 3 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.exp3_date">Settembre 2025</span>
+                  <span class="item-period-badge" data-i18n="about.exp3_date">Set. 2025</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.exp3_role">Laravel Developer Trainee</h4>
-                    <div class="item-org-name" data-i18n="about.exp3_org">Universo Srl (Cliente: C.F.A. SRL) · Remoto · Roma - Italia</div>
-                    <p class="item-desc" data-i18n="about.exp3_desc">Sviluppo di due micro-progetti web con PHP, Laravel
-                      e MySQL, inclusa progettazione del back-end, gestione controller/rotte, modellazione dati,
-                      migrazioni, CRUD e autenticazione.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.exp3_role">Laravel Developer Trainee</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.exp3_org">Universo Srl (Cliente: C.F.A. SRL) · Remoto</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.exp3_desc">Sviluppo di due micro-progetti web back-end: gestione controller, routing, modellazione dati, migrazioni, operazioni CRUD e autenticazione.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">PHP</span>
+                      <span class="skill-chip">Laravel</span>
+                      <span class="skill-chip">MySQL</span>
+                      <span class="skill-chip">MVC</span>
+                      <span class="skill-chip">CRUD</span>
+                      <span class="skill-chip">Git</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Exp 4 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.exp4_date">Marzo 2024 — Giugno 2024</span>
+                  <span class="item-period-badge" data-i18n="about.exp4_date">Mar. 2024 — Giu. 2024</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.exp4_role">Junior Front-End Developer</h4>
-                    <div class="item-org-name" data-i18n="about.exp4_org">Sinkronia Srl · Ibrido · Foggia - Italia</div>
-                    <p class="item-desc" data-i18n="about.exp4_desc">Partecipazione all'intero ciclo di vita del
-                      software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una
-                      sezione del gestionale I-Quadra in Angular.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.exp4_role">Junior Front-End Developer</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.exp4_org">Sinkronia Srl · Ibrido · Foggia</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.exp4_desc">Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione dell'ERP I-Quadra.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Angular</span>
+                      <span class="skill-chip">TypeScript</span>
+                      <span class="skill-chip">UI/UX</span>
+                      <span class="skill-chip">Front-End</span>
+                      <span class="skill-chip">HTML5 / CSS3</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Exp 5 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.exp5_date">Febbraio 2022 — Dicembre 2022</span>
+                  <span class="item-period-badge" data-i18n="about.exp5_date">Feb. 2022 — Dic. 2022</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.exp5_role">Graphic Designer</h4>
-                    <div class="item-org-name" data-i18n="about.exp5_org">Giats Srl · In Sede · Bisceglie - Italia</div>
-                    <p class="item-desc" data-i18n="about.exp5_desc">Progettazione e produzione di materiali grafici
-                      personalizzati per il mercato all'ingrosso, seguendo brief ed esigenze del cliente. Gestione del
-                      processo creativo dalla proposta visiva alla consegna finale, garantendo qualità e rispetto dei
-                      tempi di consegna.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.exp5_role">Graphic Designer</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.exp5_org">Giats Srl · In Sede · Bisceglie</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.exp5_desc">Progettazione e produzione di materiali grafici personalizzati per il mercato all'ingrosso. Gestione del processo creativo dal concept visivo alla consegna finale.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Graphic Design</span>
+                      <span class="skill-chip">Photoshop</span>
+                      <span class="skill-chip">Illustrator</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Exp 6 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.exp6_date">Gennaio 2006 — Agosto 2012</span>
+                  <span class="item-period-badge" data-i18n="about.exp6_date">Gen. 2006 — Ago. 2012</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.exp6_role">Administrador Territorial</h4>
-                    <div class="item-org-name" data-i18n="about.exp6_org">Sistemas &amp; Computadores S.A. · In Sede · Bucaramanga - Colombia</div>
-                    <p class="item-desc" data-i18n="about.exp6_desc">Coordinamento del personale e delle attività
-                      operative, assicurando continuità ed efficienza del servizio. Gestione della comunicazione tra
-                      clienti e team, risoluzione di problematiche e organizzazione delle risorse informatiche e
-                      documentali con Microsoft Office e strumenti web.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.exp6_role">Administrador Territorial</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.exp6_org">Sistemas &amp; Computadores S.A. · Colombia</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.exp6_desc">Coordinamento del personale e delle attività operative, gestione della comunicazione tra clienti e team, e organizzazione delle risorse informatiche e documentali.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Team Coordination</span>
+                      <span class="skill-chip">Operations</span>
+                      <span class="skill-chip">Problem Solving</span>
+                      <span class="skill-chip">Management</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2552,52 +2920,86 @@
               </div>
 
               <div class="timeline-cards-list">
+                <!-- Cert 1 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.cert1_date">2025</span>
+                  <span class="item-period-badge" data-i18n="about.cert1_date">2025</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.cert1_role">Sviluppo Web con Laravel, PHP e JavaScript
-                      (248h)</h4>
-                    <div class="item-org-name" data-i18n="about.cert1_org">Universo &amp; FormaTemp · Online</div>
-                    <p class="item-desc" data-i18n="about.cert1_desc">Formazione pratica incentrata su sviluppo web
-                      back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e
-                      creazione di applicazioni.</p>
-                  </div>
-                </div>
-
-                <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.cert2_date">2023 — 2024</span>
-                  <div>
-                    <h4 class="item-role-title" data-i18n="about.cert2_role">Full-Stack Web Developer (500h)</h4>
-                    <div class="item-org-name" data-i18n="about.cert2_org">Fondo per la Repubblica Digitale · In Sede
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.cert1_role">Sviluppo Web con Laravel, PHP e JavaScript (248 Ore)</h4>
                     </div>
-                    <p class="item-desc" data-i18n="about.cert2_desc">Formazione intensiva in sviluppo web full-stack,
-                      OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che
-                      server.</p>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.cert1_org">Universo &amp; FormaTemp · Online</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.cert1_desc">Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Laravel</span>
+                      <span class="skill-chip">PHP</span>
+                      <span class="skill-chip">JavaScript</span>
+                      <span class="skill-chip">MySQL</span>
+                      <span class="skill-chip">OOP</span>
+                      <span class="skill-chip">FormaTemp</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Cert 2 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.cert3_date">2023</span>
+                  <span class="item-period-badge" data-i18n="about.cert2_date">2023 — 2024</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.cert3_role">Front-End Dev con JS, jQuery e TypeScript
-                      (248h)</h4>
-                    <div class="item-org-name" data-i18n="about.cert3_org">Archimede &amp; FormaTemp · Online</div>
-                    <p class="item-desc" data-i18n="about.cert3_desc">Corso specializzato nella costruzione di
-                      interfacce web interattive utilizzando JavaScript avanzato, TypeScript, HTML5, CSS3 e architettura
-                      Bootstrap.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.cert2_role">Corso Web Developer (500 Ore)</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.cert2_org">Fondo per la Repubblica Digitale · In Sede</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.cert2_desc">Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">JavaScript</span>
+                      <span class="skill-chip">PHP</span>
+                      <span class="skill-chip">HTML5 / CSS3</span>
+                      <span class="skill-chip">Database</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Cert 3 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.cert4_date">2023</span>
+                  <span class="item-period-badge" data-i18n="about.cert3_date">2023</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.cert4_role">Bootcamp JavaScript &amp; Motion Graphics
-                      (248h)</h4>
-                    <div class="item-org-name" data-i18n="about.cert4_org">Codigo Facilito (Online) / 10 Skills Academy
-                      (Virtuale)</div>
-                    <p class="item-desc" data-i18n="about.cert4_desc">Formazione tecnica intensiva in sviluppo JS/TS
-                      abbinata a competenze visive di Motion Graphics (After Effects &amp; Premiere) per lo sviluppo di
-                      interfacce animate.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.cert3_role">Front-End Dev con JS, jQuery e TypeScript (248 Ore)</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.cert3_org">Archimede &amp; FormaTemp · Online</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.cert3_desc">Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript, TypeScript, HTML5, CSS3 e Bootstrap.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">TypeScript</span>
+                      <span class="skill-chip">JavaScript</span>
+                      <span class="skill-chip">Bootstrap</span>
+                      <span class="skill-chip">jQuery</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="timeline-card-item">
+                  <span class="item-period-badge" data-i18n="about.cert4_date">2023</span>
+                  <div>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.cert4_role">Corso di Motion Graphics (248 Ore)</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.cert4_org">10 Skills Academy</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.cert4_desc">Formazione in montaggio video e animazione grafica con Adobe Premiere Pro e After Effects.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">After Effects</span>
+                      <span class="skill-chip">Premiere Pro</span>
+                      <span class="skill-chip">Motion Graphics</span>
+                      <span class="skill-chip">Video Editing</span>
+                      <span class="skill-chip">Animation</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2616,52 +3018,94 @@
               </div>
 
               <div class="timeline-cards-list">
+                <!-- Edu 1 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.edu1_date">2025 — 2027</span>
+                  <span class="item-period-badge" data-i18n="about.edu1_date">2025 — 2027</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.edu1_role">Tecnologo in Analisi e Sviluppo Software
-                    </h4>
-                    <div class="item-org-name" data-i18n="about.edu1_org">SENA · Colombia (In corso)</div>
-                    <p class="item-desc" data-i18n="about.edu1_desc">Formazione professionale focalizzata sull'intero
-                      ciclo di vita del software: analisi dei requisiti, progettazione, sviluppo, testing e deploy.
-                      Include sviluppo web, database, API, Git, UML e metodologie agili.</p>
-                  </div>
-                </div>
-
-                <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.edu2_date">2025 — 2026</span>
-                  <div>
-                    <h4 class="item-role-title" data-i18n="about.edu2_role">IFTS – Tecnico Sviluppo Applicazioni
-                      Informatiche</h4>
-                    <div class="item-org-name" data-i18n="about.edu2_org">Regione Puglia · EQF Livello 4 (Completato)
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.edu1_role">Tecnologo in Analisi e Sviluppo Software</h4>
+                      <span class="status-pill in-progress"><span class="dot"></span><span data-i18n="about.status_in_progress">In corso</span></span>
                     </div>
-                    <p class="item-desc" data-i18n="about.edu2_desc">Formazione professionale focalizzata sulla
-                      progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e
-                      analisi dei requisiti.</p>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.edu1_org_clean">SENA · Colombia</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.edu1_desc">Percorso focalizzato sull’intero ciclo di vita del software: analisi, progettazione, sviluppo, testing e deploy.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Java, Spring Boot &amp; Hibernate</span>
+                      <span class="skill-chip">MongoDB</span>
+                      <span class="skill-chip">Python</span>
+                      <span class="skill-chip">Angular</span>
+                      <span class="skill-chip">JavaScript + Express</span>
+                      <span class="skill-chip">Laravel &amp; PHP</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Edu 2 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.edu3_date">2022 — 2025</span>
+                  <span class="item-period-badge" data-i18n="about.edu2_date">2025 — 2026</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.edu3_role">Laurea Magistrale in Graphic Design</h4>
-                    <div class="item-org-name" data-i18n="about.edu3_org">Accademia di Belle Arti di Foggia · Votazione:
-                      110/110 con Lode · EQF Livello 7</div>
-                    <p class="item-desc" data-i18n="about.edu3_desc">Formazione avanzata specializzata in Web Design e
-                      UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione,
-                      prototipazione in Figma e tecnologie web.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.edu2_role">IFTS – Tecnico Sviluppo Applicazioni Informatiche</h4>
+                    </div>
+                    <div class="item-org-meta">
+                      <span data-i18n="about.edu2_org">Regione Puglia · EQF Livello 4</span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.edu2_desc">Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">JavaScript</span>
+                      <span class="skill-chip">C#</span>
+                      <span class="skill-chip">Java</span>
+                      <span class="skill-chip">SQL Database</span>
+                      <span class="skill-chip">Git</span>
+                      <span class="skill-chip">UML</span>
+                      <span class="skill-chip">Web Development</span>
+                    </div>
                   </div>
                 </div>
 
+                <!-- Edu 3 -->
                 <div class="timeline-card-item">
-                  <span class="item-period" data-i18n="about.edu4_date">2018 — 2022</span>
+                  <span class="item-period-badge" data-i18n="about.edu3_date">2022 — 2025</span>
                   <div>
-                    <h4 class="item-role-title" data-i18n="about.edu4_role">Laurea Triennale in Graphic Design</h4>
-                    <div class="item-org-name" data-i18n="about.edu4_org">Accademia di Belle Arti di Foggia · Votazione:
-                      110/110 con Lode · EQF Livello 6</div>
-                    <p class="item-desc" data-i18n="about.edu4_desc">Solida formazione in graphic design, comunicazione
-                      visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design
-                      editoriale, multimedialità e fondamenti di web design.</p>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.edu3_role">Laurea Magistrale in Graphic Design</h4>
+                    </div>
+                    <div class="item-org-meta" style="flex-wrap: wrap; gap: 10px; align-items: center;">
+                      <span data-i18n="about.edu3_org">Accademia di Belle Arti di Foggia · EQF Livello 7</span>
+                      <span class="status-pill honors"><span class="dot"></span><span data-i18n="about.status_honors">110/110 con Lode</span></span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.edu3_desc">Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">UI/UX Design</span>
+                      <span class="skill-chip">Web Design</span>
+                      <span class="skill-chip">User Research</span>
+                      <span class="skill-chip">Figma</span>
+                      <span class="skill-chip">Blender</span>
+                      <span class="skill-chip">Information Architecture</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Edu 4 -->
+                <div class="timeline-card-item">
+                  <span class="item-period-badge" data-i18n="about.edu4_date">2018 — 2022</span>
+                  <div>
+                    <div class="card-headline-row">
+                      <h4 class="item-role-title" data-i18n="about.edu4_role">Laurea Triennale in Graphic Design</h4>
+                    </div>
+                    <div class="item-org-meta" style="flex-wrap: wrap; gap: 10px; align-items: center;">
+                      <span data-i18n="about.edu4_org">Accademia di Belle Arti di Foggia · EQF Livello 6</span>
+                      <span class="status-pill honors"><span class="dot"></span><span data-i18n="about.status_honors">110/110 con Lode</span></span>
+                    </div>
+                    <p class="item-desc" data-i18n="about.edu4_desc">Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.</p>
+                    <div class="item-skills-chips">
+                      <span class="skill-chip">Graphic Design</span>
+                      <span class="skill-chip">Visual Identity</span>
+                      <span class="skill-chip">Branding</span>
+                      <span class="skill-chip">Typography</span>
+                      <span class="skill-chip">Editorial Design</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2787,59 +3231,55 @@
         </div>
 
         <div class="projects reveal">
-          <!-- Project 01: AgriBox --->
+          <!-- Project 01 --->
           <article class="project" data-category="ux web" data-project="agribox">
             <div class="art art-a"></div>
             <div class="project-top">
-              <span>E-commerce B2B / B2C</span>
+              <span>UI/UX Design</span>
               <span>2026</span>
             </div>
             <div>
-              <h3 class="project-title">AgriBox<br>Platform</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
+              <h3 class="project-title" data-i18n="work.project1_title">Progetto 01</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
             </div>
           </article>
 
-          <!-- Project 02: Footsy --->
+          <!-- Project 02 --->
           <article class="project" data-category="ux web" data-project="footsy">
             <div class="art art-b"></div>
             <div class="project-top">
-              <span>Digital Store</span>
+              <span>UI/UX Design</span>
               <span>2026</span>
             </div>
             <div>
-              <h3 class="project-title">Footsy<br>Shoes</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
+              <h3 class="project-title" data-i18n="work.project2_title">Progetto 02</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
             </div>
           </article>
 
-          <!-- Project 03: Mininno --->
-          <article class="project" data-category="brand web" data-project="mininno">
+          <!-- Project 03 --->
+          <article class="project" data-category="ux web" data-project="mininno">
             <div class="art art-c"></div>
             <div class="project-top">
-              <span>Editorial Web</span>
+              <span>UI/UX Design</span>
               <span>2026</span>
             </div>
             <div>
-              <h3 class="project-title">Mininno<br>Costruzioni</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
+              <h3 class="project-title" data-i18n="work.project3_title">Progetto 03</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
             </div>
           </article>
 
-          <!-- Project 04: suMisura --->
-          <article class="project" data-category="ux brand" data-project="sumisura">
+          <!-- Project 04 --->
+          <article class="project" data-category="ux web" data-project="honey">
             <div class="art art-d"></div>
             <div class="project-top">
-              <span>Product Configurator</span>
+              <span>UI/UX Design</span>
               <span>2026</span>
             </div>
             <div>
-              <h3 class="project-title">suMisura®<br>Security Doors</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
+              <h3 class="project-title" data-i18n="work.project4_title">Progetto 04</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
             </div>
           </article>
         </div>
@@ -3000,8 +3440,11 @@
       <!-- ================= FOOTER ================= -->
       <footer>
         <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
-        <span>Bari / Bisceglie · Italia</span>
-        <div style="display: flex; gap: 20px;">
+        <button class="footer-back-top-btn" id="footerBackToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Torna all'inizio">
+          <span class="arrow">↑</span>
+          <span data-i18n="footer.back_to_top">Torna all'inizio</span>
+        </button>
+        <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
           <a href="cv.html" id="footerResumeLink" data-i18n="footer.resume">Digital Resume ↗</a>
           <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener">Behance ↗</a>
@@ -3021,14 +3464,11 @@
       <button class="drawer-close" id="drawerClose" aria-label="Chiudi modale">✕</button>
 
       <div class="drawer-category" id="drawerCategory">E-COMMERCE · UI/UX</div>
-      <h3 class="drawer-title" id="drawerTitle">AgriBox Platform</h3>
+      <h3 class="drawer-title grad-text" id="drawerTitle">AgriBox Platform</h3>
       <p class="drawer-lead" id="drawerLead">Catalogo e-commerce che unisce retail B2C e area B2B con sconti a volume.
       </p>
 
-      <div class="drawer-preview" id="drawerPreview">
-        <span class="mono" style="color:#fff; font-size:1.1rem; font-weight:600;"
-          data-i18n="drawer.preview_label">Anteprima Interfaccia</span>
-      </div>
+      <div class="drawer-preview" id="drawerPreview"></div>
 
       <div class="drawer-specs">
         <div class="drawer-spec">
@@ -3090,67 +3530,74 @@
         "about.pane_exp_badge": "Percorso Lavorativo",
         "about.pane_exp_title": "Esperienza Professionale",
         "about.pane_exp_date": "2006 — Oggi",
-        "about.exp1_date": "Gennaio 2026 — Agosto 2026",
+        "about.status_in_progress": "In corso",
+        "about.status_completed": "Completato",
+        "about.status_honors": "110/110 con Lode",
+        "about.status_cert": "248h · Certificato",
+        "about.status_cert2": "500h · Certificato",
+        "about.exp1_date": "Gen. 2026 — Ago. 2026",
         "about.exp1_role": "UI/UX & Web Designer",
         "about.exp1_org": "BeDigit · Ibrido · Italia",
-        "about.exp1_desc": "Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Ottimizzazione della struttura dei contenuti e collaborazione con il team di sviluppo (WordPress).",
-        "about.exp2_date": "Giugno 2024 — Attualmente",
+        "about.exp1_contract": "Full-time (gen–giu 2026) · Part-time (da giu 2026)",
+        "about.exp1_desc": "Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Collaborazione con il team di sviluppo.",
+        "about.exp2_date": "Giu. 2024 — In corso",
         "about.exp2_role": "Freelance Designer",
-        "about.exp2_org": "Freelance · Italia (Online)",
-        "about.exp2_desc": "Lavoro come freelance su progetti di graphic design, web design e UI/UX, adattando le soluzioni alle esigenze di ogni cliente. Sviluppo di progetti web e UI/UX in linea con le necessità e gli obiettivi dei clienti, combinando struttura dei contenuti, esperienza utente e design visivo. Collaborazione attuale con AZIS, azienda del settore ingegneristico, su progetti di design.",
-        "about.exp3_date": "Settembre 2025",
+        "about.exp2_org": "Freelance · Remoto · Italia",
+        "about.exp2_desc": "Sviluppo di progetti web e UI/UX su misura combinando struttura dei contenuti, esperienza utente e design visivo.",
+        "about.exp3_date": "Set. 2025",
         "about.exp3_role": "Laravel Developer Trainee",
-        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto · Roma - Italia",
-        "about.exp3_desc": "Sviluppo di due micro-progetti web con PHP, Laravel e MySQL, inclusa progettazione del back-end, gestione controller/rotte, modellazione dati, migrazioni, CRUD e autenticazione.",
-        "about.exp4_date": "Marzo 2024 — Giugno 2024",
+        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto",
+        "about.exp3_desc": "Sviluppo di due micro-progetti web back-end: gestione controller, routing, modellazione dati, migrazioni, operazioni CRUD e autenticazione.",
+        "about.exp4_date": "Mar. 2024 — Giu. 2024",
         "about.exp4_role": "Junior Front-End Developer",
-        "about.exp4_org": "Sinkronia Srl · Ibrido · Foggia - Italia",
-        "about.exp4_desc": "Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione del gestionale I-Quadra in Angular.",
-        "about.exp5_date": "Febbraio 2022 — Dicembre 2022",
+        "about.exp4_org": "Sinkronia Srl · Ibrido · Foggia",
+        "about.exp4_desc": "Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione dell'ERP I-Quadra in Angular.",
+        "about.exp5_date": "Feb. 2022 — Dic. 2022",
         "about.exp5_role": "Graphic Designer",
-        "about.exp5_org": "Giats Srl · In Sede · Bisceglie - Italia",
-        "about.exp5_desc": "Progettazione e produzione di materiali grafici personalizzati per il mercato all'ingrosso, seguendo brief ed esigenze del cliente. Gestione del processo creativo dalla proposta visiva alla consegna finale, garantendo qualità e rispetto dei tempi di consegna.",
-        "about.exp6_date": "Gennaio 2006 — Agosto 2012",
+        "about.exp5_org": "Giats Srl · In Sede · Bisceglie",
+        "about.exp5_desc": "Progettazione e produzione di materiali grafici personalizzati per il mercato all'ingrosso. Gestione del processo creativo dal concept visivo alla consegna finale.",
+        "about.exp6_date": "Gen. 2006 — Ago. 2012",
         "about.exp6_role": "Administrador Territorial",
-        "about.exp6_org": "Sistemas & Computadores S.A. · In Sede · Bucaramanga - Colombia",
-        "about.exp6_desc": "Coordinamento del personale e delle attività operative, assicurando continuità ed efficienza del servizio. Gestione della comunicazione tra clienti e team, risoluzione di problematiche e organizzazione delle risorse informatiche e documentali con Microsoft Office e strumenti web.",
+        "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
+        "about.exp6_desc": "Coordinamento del personale e delle attività operative, gestione della comunicazione tra clienti e team, e organizzazione delle risorse informatiche e documentali.",
         "about.pane_cert_badge": "Specializzazioni Tecniche",
         "about.pane_cert_title": "Corsi & Certificazioni",
         "about.pane_cert_date": "Aggiornamento Continuo",
         "about.cert1_date": "2025",
-        "about.cert1_role": "Sviluppo Web con Laravel, PHP e JavaScript (248h)",
+        "about.cert1_role": "Sviluppo Web con Laravel, PHP e JavaScript (248 Ore)",
         "about.cert1_org": "Universo & FormaTemp · Online",
         "about.cert1_desc": "Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.",
         "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Full-Stack Web Developer (500h)",
+        "about.cert2_role": "Corso Web Developer (500 Ore)",
         "about.cert2_org": "Fondo per la Repubblica Digitale · In Sede",
         "about.cert2_desc": "Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.",
         "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev con JS, jQuery e TypeScript (248h)",
+        "about.cert3_role": "Front-End Dev con JS, jQuery e TypeScript (248 Ore)",
         "about.cert3_org": "Archimede & FormaTemp · Online",
-        "about.cert3_desc": "Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript avanzato, TypeScript, HTML5, CSS3 e architettura Bootstrap.",
+        "about.cert3_desc": "Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript, TypeScript, HTML5, CSS3 e Bootstrap.",
         "about.cert4_date": "2023",
-        "about.cert4_role": "Bootcamp JavaScript & Motion Graphics (248h)",
-        "about.cert4_org": "Codigo Facilito (Online) / 10 Skills Academy (Virtuale)",
-        "about.cert4_desc": "Formazione tecnica intensiva in sviluppo JS/TS abbinata a competenze visive di Motion Graphics (After Effects & Premiere) per lo sviluppo di interfacce animate.",
+        "about.cert4_role": "Corso di Motion Graphics (248 Ore)",
+        "about.cert4_org": "10 Skills Academy",
+        "about.cert4_desc": "Formazione in montaggio video e animazione grafica con Adobe Premiere Pro e After Effects.",
         "about.pane_edu_badge": "Titoli Accademici",
         "about.pane_edu_title": "Formazione Accademica",
         "about.pane_edu_date": "Massimo dei Voti",
         "about.edu1_date": "2025 — 2027",
         "about.edu1_role": "Tecnologo in Analisi e Sviluppo Software",
-        "about.edu1_org": "SENA · Colombia (In corso)",
-        "about.edu1_desc": "Formazione professionale focalizzata sull'intero ciclo di vita del software: analisi dei requisiti, progettazione, sviluppo, testing e deploy. Include sviluppo web, database, API, Git, UML e metodologie agili.",
+        "about.edu1_org_clean": "SENA · Colombia",
+        "about.edu1_desc": "Percorso focalizzato sull’intero ciclo di vita del software: analisi, progettazione, sviluppo, testing e deploy.",
+        "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
         "about.edu2_date": "2025 — 2026",
         "about.edu2_role": "IFTS – Tecnico Sviluppo Applicazioni Informatiche",
-        "about.edu2_org": "Regione Puglia · EQF Livello 4 (Completato)",
+        "about.edu2_org": "Regione Puglia · EQF Livello 4",
         "about.edu2_desc": "Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.",
         "about.edu3_date": "2022 — 2025",
         "about.edu3_role": "Laurea Magistrale in Graphic Design",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia · Votazione: 110/110 con Lode · EQF Livello 7",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia · EQF Livello 7",
         "about.edu3_desc": "Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.",
         "about.edu4_date": "2018 — 2022",
         "about.edu4_role": "Laurea Triennale in Graphic Design",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia · Votazione: 110/110 con Lode · EQF Livello 6",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia · EQF Livello 6",
         "about.edu4_desc": "Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.",
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
         "services.section_label": "02 — Il mio spazio progettuale",
@@ -3171,6 +3618,10 @@
         "work.filter_ux": "UI/UX Design",
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Art",
+        "work.project1_title": "Progetto 01",
+        "work.project2_title": "Progetto 02",
+        "work.project3_title": "Progetto 03",
+        "work.project4_title": "Progetto 04",
         "work.card_action": "Anteprima & Fasi ↗",
         "work.btn_all_projects": "Vedi Tutti i Progetti & Case Studies (4)",
         "process.section_label": "04 — Metodo",
@@ -3191,6 +3642,7 @@
         "contact.desc": "Ciao! Se hai un’opportunità, un progetto da condividere o semplicemente ti va di scambiare due idee, scrivimi. Sono sempre felice di conoscere persone, progetti e prospettive nuove",
         "contact.btn": "Facciamo due chiacchiere",
         "footer.resume": "Digital Resume ↗",
+        "footer.back_to_top": "Torna all'inizio",
         "drawer.preview_label": "Anteprima Interfaccia",
         "drawer.specs_role_label": "Anno & Ruolo",
         "drawer.specs_stack_label": "Stack & Metodo",
@@ -3221,67 +3673,74 @@
         "about.pane_exp_badge": "Trayectoria Laboral",
         "about.pane_exp_title": "Experiencia Profesional",
         "about.pane_exp_date": "2006 — Hoy",
-        "about.exp1_date": "Enero 2026 — Agosto 2026",
+        "about.exp1_date": "Ene. 2026 — Ago. 2026",
         "about.exp1_role": "UI/UX & Web Designer",
         "about.exp1_org": "BeDigit · Híbrido · Italia",
-        "about.exp1_desc": "Diseño de experiencias web e interfaces en Figma, desde el análisis de requerimientos y arquitectura de la información, hasta flujos de usuario, wireframes y prototipos de alta fidelidad. Optimización de la estructura de contenidos y colaboración con el equipo de desarrollo (WordPress).",
-        "about.exp2_date": "Junio 2024 — Actualmente",
+        "about.exp1_contract": "Full-time (ene–jun 2026) · Part-time (desde jun 2026)",
+        "about.exp1_desc": "Diseño de experiencias web e interfaces en Figma, desde el análisis de requerimientos y arquitectura de la información, hasta flujos de usuario, wireframes y prototipos de alta fidelidad. Colaboración con el equipo de desarrollo.",
+        "about.exp2_date": "Jun. 2024 — Actualidad",
         "about.exp2_role": "Freelance Designer",
-        "about.exp2_org": "Freelance · Italia (Online)",
-        "about.exp2_desc": "Trabajo como freelance realizando proyectos de diseño gráfico, diseño web y diseño UI/UX, adaptando las soluciones a las necesidades de cada cliente. Desarrollo de proyectos de diseño web y UI/UX adaptados a las necesidades y objetivos de cada cliente, combinando estructura de contenidos, experiencia de usuario y diseño visual. Colaboración actual con AZIS, empresa del sector de ingeniería, en proyectos de diseño.",
-        "about.exp3_date": "Septiembre 2025",
+        "about.exp2_org": "Freelance · Remoto · Italia",
+        "about.exp2_desc": "Desarrollo de proyectos web y UI/UX adaptados a las necesidades y objetivos de cada cliente, combinando estructura de contenidos, experiencia de usuario y diseño visual.",
+        "about.exp3_date": "Sep. 2025",
         "about.exp3_role": "Laravel Developer Trainee",
-        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto · Roma - Italia",
-        "about.exp3_desc": "Desarrollo de dos micro-proyectos web con PHP, Laravel y MySQL, incluyendo arquitectura back-end, gestión de controladores/rutas, modelado de datos, migraciones, CRUD y autenticación.",
-        "about.exp4_date": "Marzo 2024 — Junio 2024",
+        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto",
+        "about.exp3_desc": "Desarrollo de dos micro-proyectos web back-end: gestión de controladores, routing, modelado de datos, migraciones, CRUD y autenticación.",
+        "about.exp4_date": "Mar. 2024 — Jun. 2024",
         "about.exp4_role": "Junior Front-End Developer",
-        "about.exp4_org": "Sinkronia Srl · Híbrido · Foggia - Italia",
-        "about.exp4_desc": "Participación en todo el ciclo de vida del software: desde el análisis de requerimientos y diseño UI/UX, hasta la implementación front-end de una sección del sistema de gestión I-Quadra en Angular.",
-        "about.exp5_date": "Febrero 2022 — Diciembre 2022",
+        "about.exp4_org": "Sinkronia Srl · Híbrido · Foggia",
+        "about.exp4_desc": "Participación en todo el ciclo de vida del software: análisis de requerimientos, diseño UI/UX e implementación front-end de una sección del ERP I-Quadra en Angular.",
+        "about.exp5_date": "Feb. 2022 — Dic. 2022",
         "about.exp5_role": "Graphic Designer",
-        "about.exp5_org": "Giats Srl · En Sede · Bisceglie - Italia",
-        "about.exp5_desc": "Diseño y producción de materiales gráficos personalizados para el mercado mayorista, siguiendo briefs y necesidades del cliente. Gestión del proceso creativo desde la propuesta visual hasta la entrega final, garantizando calidad y cumplimiento de plazos.",
-        "about.exp6_date": "Enero 2006 — Agosto 2012",
+        "about.exp5_org": "Giats Srl · En Sede · Bisceglie",
+        "about.exp5_desc": "Diseño y producción de materiales gráficos personalizados para el mercado mayorista. Gestión del proceso creativo desde la propuesta visual hasta la entrega final.",
+        "about.exp6_date": "Ene. 2006 — Ago. 2012",
         "about.exp6_role": "Administrador Territorial",
-        "about.exp6_org": "Sistemas & Computadores S.A. · En Sede · Bucaramanga - Colombia",
-        "about.exp6_desc": "Coordinación de personal y actividades operativas, asegurando continuidad y eficiencia del servicio. Gestión de la comunicación entre clientes y equipos, resolución de incidencias y organización de recursos físicos e informáticos. Elaboración y gestión de documentación administrativa mediante Microsoft Office y herramientas web.",
+        "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
+        "about.exp6_desc": "Coordinación operativa de personal, gestión de comunicación entre clientes y equipos, y organización de recursos informáticos y documentales.",
         "about.pane_cert_badge": "Especializaciones Técnicas",
         "about.pane_cert_title": "Cursos & Certificaciones",
         "about.pane_cert_date": "Actualización Continua",
         "about.cert1_date": "2025",
-        "about.cert1_role": "Desarrollo Web con Laravel, PHP y JavaScript (248h)",
+        "about.cert1_role": "Desarrollo Web con Laravel, PHP y JavaScript (248 Horas)",
         "about.cert1_org": "Universo & FormaTemp · Online",
         "about.cert1_desc": "Formación práctica centrada en desarrollo web back-end con PHP y Laravel, programación orientada a objetos, bases de datos relacionales y creación de aplicaciones.",
         "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Full-Stack Web Developer (500h)",
+        "about.cert2_role": "Curso Web Developer (500 Horas)",
         "about.cert2_org": "Fondo per la Repubblica Digitale · Presencial",
         "about.cert2_desc": "Formación intensiva en desarrollo web full-stack, POO y stack tecnológico moderno tanto en cliente como en servidor.",
         "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev con JS, jQuery y TypeScript (248h)",
+        "about.cert3_role": "Front-End Dev con JS, jQuery y TypeScript (248 Horas)",
         "about.cert3_org": "Archimede & FormaTemp · Online",
-        "about.cert3_desc": "Curso especializado en construcción de interfaces web interactivas con JavaScript avanzado, TypeScript, HTML5, CSS3 y arquitectura Bootstrap.",
+        "about.cert3_desc": "Curso especializado en construcción de interfaces web interactivas con JavaScript, TypeScript, HTML5, CSS3 y Bootstrap.",
         "about.cert4_date": "2023",
-        "about.cert4_role": "Bootcamp JavaScript & Motion Graphics (248h)",
-        "about.cert4_org": "Codigo Facilito (Online) / 10 Skills Academy (Virtual)",
-        "about.cert4_desc": "Formación técnica intensiva en desarrollo JS/TS combinada con habilidades visuales de Motion Graphics (After Effects & Premiere) para interfaces interactivas.",
+        "about.cert4_role": "Curso de Motion Graphics (248 Horas)",
+        "about.cert4_org": "10 Skills Academy",
+        "about.cert4_desc": "Formación en edición de video y animación gráfica con Adobe Premiere Pro y After Effects.",
         "about.pane_edu_badge": "Títulos Académicos",
         "about.pane_edu_title": "Formación Académica",
         "about.pane_edu_date": "Máxima Calificación",
+        "about.status_in_progress": "En curso",
+        "about.status_completed": "Completado",
+        "about.status_honors": "110/110 Cum Laude",
+        "about.status_cert": "248h · Certificado",
+        "about.status_cert2": "500h · Certificado",
         "about.edu1_date": "2025 — 2027",
         "about.edu1_role": "Tecnóloga en Análisis y Desarrollo de Software",
-        "about.edu1_org": "SENA · Colombia (En curso)",
-        "about.edu1_desc": "Formación técnica profesional en ingeniería de software, modelado de bases de datos, POO, análisis de requisitos de sistemas y metodologías ágiles.",
+        "about.edu1_org_clean": "SENA · Colombia",
+        "about.edu1_desc": "Trayectoria enfocada en el ciclo de vida completo del software: análisis, diseño, desarrollo, testing y despliegue.",
+        "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
         "about.edu2_date": "2025 — 2026",
         "about.edu2_role": "IFTS – Técnica en Desarrollo de Aplicaciones Informáticas",
-        "about.edu2_org": "Regione Puglia · EQF Nivel 4 (Completado)",
+        "about.edu2_org": "Regione Puglia · EQF Nivel 4",
         "about.edu2_desc": "Especialización profesional enfocada en desarrollo de aplicaciones IT, programación, desarrollo web, bases de datos relacionales y análisis de requisitos.",
         "about.edu3_date": "2022 — 2025",
         "about.edu3_role": "Licenciatura Magistral en Diseño Gráfico (Máster)",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia · Calificación: 110/110 Cum Laude · EQF Nivel 7",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia · EQF Nivel 7",
         "about.edu3_desc": "Especialización avanzada en Web Design y UI/UX. Desarrollo de proyectos centrados en experiencia de usuario, arquitectura de información, prototipado en Figma y tecnologías web.",
         "about.edu4_date": "2018 — 2022",
         "about.edu4_role": "Licenciatura Trienal en Diseño Gráfico (Grado)",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia · Calificación: 110/110 Cum Laude · EQF Nivel 6",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia · EQF Nivel 6",
         "about.edu4_desc": "Sólida formación en diseño gráfico, comunicación visual, branding y producción de contenidos digitales. Competencias en identidad visual, diseño editorial, multimedia y fundamentos de diseño web.",
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
         "services.section_label": "02 — Mi espacio de trabajo",
@@ -3302,6 +3761,10 @@
         "work.filter_ux": "Diseño UI/UX",
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Branding & Arte",
+        "work.project1_title": "Proyecto 01",
+        "work.project2_title": "Proyecto 02",
+        "work.project3_title": "Proyecto 03",
+        "work.project4_title": "Proyecto 04",
         "work.card_action": "Vista previa & Fases ↗",
         "work.btn_all_projects": "Ver Todos los Proyectos & Case Studies (4)",
         "process.section_label": "04 — Método",
@@ -3322,6 +3785,7 @@
         "contact.desc": "¡Hola! Si tienes una oportunidad laboral, un proyecto en mente o simplemente quieres intercambiar ideas, escríbeme. Siempre me alegra conectar con nuevas personas y proyectos.",
         "contact.btn": "Hablemos",
         "footer.resume": "CV Digital ↗",
+        "footer.back_to_top": "Volver al inicio",
         "drawer.preview_label": "Vista Previa de Interfaz",
         "drawer.specs_role_label": "Año & Rol",
         "drawer.specs_stack_label": "Stack & Método",
@@ -3352,67 +3816,74 @@
         "about.pane_exp_badge": "Career Path",
         "about.pane_exp_title": "Professional Experience",
         "about.pane_exp_date": "2006 — Present",
-        "about.exp1_date": "January 2026 — August 2026",
+        "about.exp1_date": "Jan 2026 — Aug 2026",
         "about.exp1_role": "UI/UX & Web Designer",
         "about.exp1_org": "BeDigit · Hybrid · Italy",
-        "about.exp1_desc": "Design of web experiences and interfaces in Figma, from requirements analysis and information architecture to user flows, wireframes, and high-fidelity prototypes. Content structure optimization and collaboration with development (WordPress).",
-        "about.exp2_date": "June 2024 — Present",
+        "about.exp1_contract": "Full-time (Jan–Jun 2026) · Part-time (from Jun 2026)",
+        "about.exp1_desc": "Design of web experiences and interfaces in Figma, from requirements analysis and information architecture to user flows, wireframes, and high-fidelity prototypes. Collaboration with development.",
+        "about.exp2_date": "Jun 2024 — Present",
         "about.exp2_role": "Freelance Designer",
-        "about.exp2_org": "Freelance · Italy (Online)",
-        "about.exp2_desc": "Working as a freelance designer on graphic design, web design, and UI/UX projects, tailoring solutions to each client's requirements. Development of web and UI/UX projects aligned with client needs and goals, combining content structure, user experience, and visual design. Ongoing collaboration with AZIS, an engineering sector company, on design projects.",
-        "about.exp3_date": "September 2025",
+        "about.exp2_org": "Freelance · Remote · Italy",
+        "about.exp2_desc": "Working as a freelance designer on web, graphic design, and UI/UX projects, tailored to client goals by combining content structure, UX, and visual design.",
+        "about.exp3_date": "Sep 2025",
         "about.exp3_role": "Laravel Developer Trainee",
-        "about.exp3_org": "Universo Srl (Client: C.F.A. SRL) · Remote · Rome - Italy",
-        "about.exp3_desc": "Development of two web micro-projects with PHP, Laravel, and MySQL, including back-end architecture, routing, controllers, data modeling, migrations, CRUD, and authentication.",
-        "about.exp4_date": "March 2024 — June 2024",
+        "about.exp3_org": "Universo Srl (Client: C.F.A. SRL) · Remote",
+        "about.exp3_desc": "Development of two web micro-projects with PHP, Laravel, and MySQL: routing, controllers, data modeling, migrations, CRUD, and authentication.",
+        "about.exp4_date": "Mar 2024 — Jun 2024",
         "about.exp4_role": "Junior Front-End Developer",
-        "about.exp4_org": "Sinkronia Srl · Hybrid · Foggia - Italy",
-        "about.exp4_desc": "Participation in the entire software lifecycle: from requirements gathering and UI/UX design to front-end implementation of an I-Quadra ERP section in Angular.",
-        "about.exp5_date": "February 2022 — December 2022",
+        "about.exp4_org": "Sinkronia Srl · Hybrid · Foggia",
+        "about.exp4_desc": "Participation in the entire software lifecycle: requirements analysis, UI/UX design, and front-end implementation of an I-Quadra ERP section in Angular.",
+        "about.exp5_date": "Feb 2022 — Dec 2022",
         "about.exp5_role": "Graphic Designer",
-        "about.exp5_org": "Giats Srl · On-site · Bisceglie - Italy",
-        "about.exp5_desc": "Design and production of customised graphic materials for the wholesale market, following briefs and client needs. Management of the creative process from visual proposal to final delivery, ensuring quality and adherence to deadlines.",
-        "about.exp6_date": "January 2006 — August 2012",
+        "about.exp5_org": "Giats Srl · On-site · Bisceglie",
+        "about.exp5_desc": "Design and production of custom graphic materials for the wholesale market. Management of the creative process from visual concept to final delivery.",
+        "about.exp6_date": "Jan 2006 — Aug 2012",
         "about.exp6_role": "Regional Administrator",
-        "about.exp6_org": "Sistemas & Computadores S.A. · On-site · Bucaramanga - Colombia",
-        "about.exp6_desc": "Coordination of staff and operational activities, ensuring service continuity and efficiency. Management of communication between clients and teams, issue resolution, and organisation of physical and IT resources. Preparation and management of administrative documentation using Microsoft Office and web tools.",
+        "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
+        "about.exp6_desc": "Operational coordination of staff, client-team communication management, and organization of IT and administrative resources.",
         "about.pane_cert_badge": "Technical Specializations",
         "about.pane_cert_title": "Courses & Certifications",
         "about.pane_cert_date": "Continuous Learning",
         "about.cert1_date": "2025",
-        "about.cert1_role": "Web Development with Laravel, PHP & JavaScript (248h)",
+        "about.cert1_role": "Web Development with Laravel, PHP & JavaScript (248 Hours)",
         "about.cert1_org": "Universo & FormaTemp · Online",
         "about.cert1_desc": "Hands-on training focusing on back-end web development with PHP and Laravel, object-oriented programming, relational databases, and application architecture.",
         "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Full-Stack Web Developer (500h)",
+        "about.cert2_role": "Web Developer Course (500 Hours)",
         "about.cert2_org": "Fondo per la Repubblica Digitale · On-site",
         "about.cert2_desc": "Intensive training in full-stack web development, OOP, and modern client/server tech stacks.",
         "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev with JS, jQuery & TypeScript (248h)",
+        "about.cert3_role": "Front-End Dev with JS, jQuery & TypeScript (248 Hours)",
         "about.cert3_org": "Archimede & FormaTemp · Online",
-        "about.cert3_desc": "Specialized course in building responsive, interactive web interfaces using advanced JavaScript, TypeScript, HTML5, CSS3, and Bootstrap architecture.",
+        "about.cert3_desc": "Specialized course in building interactive web interfaces using JavaScript, TypeScript, HTML5, CSS3, and Bootstrap.",
         "about.cert4_date": "2023",
-        "about.cert4_role": "Bootcamp JavaScript & Motion Graphics (248h)",
-        "about.cert4_org": "Codigo Facilito (Online) / 10 Skills Academy (Virtual)",
-        "about.cert4_desc": "Intensive training in JS/TS development combined with Motion Graphics (After Effects & Premiere) for interactive and animated interfaces.",
+        "about.cert4_role": "Motion Graphics Course (248 Hours)",
+        "about.cert4_org": "Codigo Facilito / 10 Skills Academy",
+        "about.cert4_desc": "Training in video editing and motion graphics with Adobe Premiere Pro and After Effects.",
         "about.pane_edu_badge": "Academic Degrees",
         "about.pane_edu_title": "Academic Education",
         "about.pane_edu_date": "Top Honors",
+        "about.status_in_progress": "In progress",
+        "about.status_completed": "Completed",
+        "about.status_honors": "110/110 Summa Cum Laude",
+        "about.status_cert": "248h · Certified",
+        "about.status_cert2": "500h · Certified",
         "about.edu1_date": "2025 — 2027",
         "about.edu1_role": "Associate Degree in Software Analysis & Development",
-        "about.edu1_org": "SENA · Colombia (In progress)",
-        "about.edu1_desc": "Professional training covering the full software lifecycle: requirements analysis, architecture, coding, testing, and deployment. Includes web dev, databases, APIs, Git, UML, and agile methodologies.",
+        "about.edu1_org_clean": "SENA · Colombia",
+        "about.edu1_desc": "Program focused on the entire software lifecycle: analysis, design, development, testing, and deployment.",
+        "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
         "about.edu2_date": "2025 — 2026",
         "about.edu2_role": "IFTS – IT Applications Development Technician",
-        "about.edu2_org": "Regione Puglia · EQF Level 4 (Completed)",
+        "about.edu2_org": "Regione Puglia · EQF Level 4",
         "about.edu2_desc": "Vocational program focused on designing and developing IT software, web development, relational databases, and software requirements.",
         "about.edu3_date": "2022 — 2025",
         "about.edu3_role": "Master's Degree in Graphic Design",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia · Grade: 110/110 Summa Cum Laude · EQF Level 7",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia · EQF Level 7",
         "about.edu3_desc": "Advanced specialization in Web Design and UI/UX. Projects centered on user research, information architecture, Figma prototyping, and web technologies.",
         "about.edu4_date": "2018 — 2022",
         "about.edu4_role": "Bachelor's Degree in Graphic Design",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia · Grade: 110/110 Summa Cum Laude · EQF Level 6",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia · EQF Level 6",
         "about.edu4_desc": "Solid foundation in graphic design, visual communication, brand identity, and digital production. Skills in editorial design, multimedia, and web foundations.",
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
         "services.section_label": "02 — My Design & Code Space",
@@ -3433,6 +3904,10 @@
         "work.filter_ux": "UI/UX Design",
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Art",
+        "work.project1_title": "Project 01",
+        "work.project2_title": "Project 02",
+        "work.project3_title": "Project 03",
+        "work.project4_title": "Project 04",
         "work.card_action": "Preview & Phases ↗",
         "work.btn_all_projects": "View All Projects & Case Studies (4)",
         "process.section_label": "04 — Process",
@@ -3453,6 +3928,7 @@
         "contact.desc": "Hi! If you have an opportunity, a project to collaborate on, or simply want to exchange ideas, feel free to reach out. I'm always happy to connect with new people and perspectives.",
         "contact.btn": "Let's talk",
         "footer.resume": "Digital Resume ↗",
+        "footer.back_to_top": "Back to top",
         "drawer.preview_label": "Interface Preview",
         "drawer.specs_role_label": "Year & Role",
         "drawer.specs_stack_label": "Stack & Method",
@@ -3465,31 +3941,40 @@
     const PROJECTS_I18N = {
       it: {
         agribox: {
-          title: "AgriBox Platform",
-          category: "E-COMMERCE B2B & B2C",
-          lead: "Piattaforma e-commerce per prodotti agricoli con gestione differenziata di listini retail e wholesale.",
-          role: "2026 · UI/UX & Front-end Lead",
-          stack: "Figma, React, Tailwind CSS",
-          body: "Abbiamo disegnato un'architettura a doppia vista: navigazione veloce per il consumatore finale e tabelle di ordinazione rapida con prezzi dinamici a volume per le aziende agricole registrate con P.IVA.",
+          title: "Progetto 01",
+          category: "UI/UX DESIGN & WEB APP",
+          lead: "Ricerca utente, architettura dell'informazione e progettazione di un'applicazione web complessa.",
+          role: "2026 · UI/UX Designer",
+          stack: "Figma, Wireframing, Prototyping, Design System",
+          body: "Progetto focalizzato sulla semplificazione dei flussi operativi, riduzione del carico cognitivo e creazione di componenti riutilizzabili ad alta fedeltà.",
           bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
         },
         footsy: {
-          title: "Footsy Shoes",
-          category: "DIGITAL STORE & UI",
-          lead: "E-commerce dedicato a calzature per bambini con configuratore taglie assistito.",
-          role: "2026 · Product Designer & UI Developer",
-          stack: "Figma, React, Micro-animations",
-          body: "Progettato per ridurre i resi tipici del settore calzature per bambini attraverso un selettore interattivo del piede e schede prodotto con visualizzazione 360° dei materiali.",
+          title: "Progetto 02",
+          category: "UI/UX DESIGN & PLATFORM",
+          lead: "Piattaforma digitale focalizzata sull'ottimizzazione dell'esperienza utente e design di sistema.",
+          role: "2026 · Product Designer & UI/UX",
+          stack: "Figma, User Flows, Micro-interactions",
+          body: "Ottimizzazione del percorso utente attraverso un'interfaccia interattiva e intuitiva, guidata da test di usabilità e feedback continuo.",
           bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
         },
         mininno: {
-          title: "Mininno Costruzioni",
-          category: "EDITORIAL WEB & ARCHITETTURA",
-          lead: "Sito istituzionale ed editoriale per una storica impresa edile pugliese con focus sull'architettura.",
-          role: "2026 · Brand Identity & Web Developer",
-          stack: "Figma, JavaScript ES6+, Semantic CSS",
-          body: "Un'esperienza dove la fotografia architettonica e la griglia svizzera guidano l'utente. Layout asimmetrici, transizioni fluide tra i progetti e schede cantiere arricchite da schemi tecnici e materiali.",
+          title: "Progetto 03",
+          category: "UI/UX DESIGN & RESPONSIVE WEB",
+          lead: "Esperienza digitale con focus su tipografia svizzera, gerarchia visiva e interattività modulare.",
+          role: "2026 · UI/UX & Web Designer",
+          stack: "Figma, Design System, Responsive UI",
+          body: "Una struttura asimmetrica ed elegante dove contenuti e griglia guidano l'utente in un percorso chiaro, accessibile e fluido.",
           bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        honey: {
+          title: "Progetto 04",
+          category: "UI/UX DESIGN & DASHBOARD",
+          lead: "Dashboard e interfaccia di monitoraggio con data visualization e flussi analitici.",
+          role: "2026 · UI/UX Designer",
+          stack: "Figma, Data Visualization, UI Tokens",
+          body: "Progettazione di componenti avanzati per la visualizzazione di metriche e gestione dei dati in tempo reale con interfaccia chiara e moderna.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(167, 139, 250, 0.25), transparent 45%), linear-gradient(145deg, #161228, #2A1D4E 55%, #0B0816)"
         },
         sumisura: {
           title: "suMisura® Doors",
@@ -3503,31 +3988,40 @@
       },
       es: {
         agribox: {
-          title: "AgriBox Platform",
-          category: "E-COMMERCE B2B & B2C",
-          lead: "Plataforma de comercio electrónico para productos agrícolas con gestión diferenciada de catálogos retail y wholesale.",
-          role: "2026 · UI/UX & Front-end Lead",
-          stack: "Figma, React, Tailwind CSS",
-          body: "Diseñamos una arquitectura de doble flujo: compra rápida para el consumidor final y tablas de pedidos dinámicas con precios por volumen para empresas agrícolas.",
+          title: "Proyecto 01",
+          category: "DISEÑO UI/UX & WEB APP",
+          lead: "Investigación de usuarios, arquitectura de información y diseño de aplicación web compleja.",
+          role: "2026 · Diseñadora UI/UX",
+          stack: "Figma, Wireframing, Prototipado, Design System",
+          body: "Proyecto enfocado en simplificar flujos de trabajo, reducir la carga cognitiva y estructurar componentes reutilizables de alta fidelidad.",
           bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
         },
         footsy: {
-          title: "Footsy Shoes",
-          category: "DIGITAL STORE & UI",
-          lead: "E-commerce dedicado al calzado infantil con medidor de tallas interactivo y guiado.",
-          role: "2026 · Product Designer & UI Developer",
-          stack: "Figma, React, Micro-animations",
-          body: "Diseñado para reducir devoluciones habituales mediante un selector interactivo del pie y fichas de producto con vista 360° de materiales.",
+          title: "Proyecto 02",
+          category: "DISEÑO UI/UX & PLATAFORMA",
+          lead: "Plataforma digital centrada en la optimización de la experiencia de usuario y sistema de diseño.",
+          role: "2026 · Product Designer & UI/UX",
+          stack: "Figma, Flujos de Usuario, Micro-interacciones",
+          body: "Optimización del recorrido de usuario mediante interfaces intuitivas y pruebas de usabilidad continuas.",
           bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
         },
         mininno: {
-          title: "Mininno Costruzioni",
-          category: "EDITORIAL WEB & ARQUITECTURA",
-          lead: "Sitio web corporativo y editorial para una constructora histórica con enfoque en arquitectura contemporánea.",
-          role: "2026 · Brand Identity & Web Developer",
-          stack: "Figma, JavaScript ES6+, Semantic CSS",
-          body: "Una experiencia donde la fotografía de arquitectura y la tipografía suiza guían al usuario. Diseños asimétricos y fichas de obra con planos técnicos y materiales.",
+          title: "Proyecto 03",
+          category: "DISEÑO UI/UX & WEB RESPONSIVA",
+          lead: "Experiencia digital con énfasis en tipografía editorial, jerarquía visual e interactividad modular.",
+          role: "2026 · Diseñadora UI/UX & Web",
+          stack: "Figma, Design System, UI Responsiva",
+          body: "Estructura limpia donde el contenido y la cuadrícula guían a la persona usuaria a través de una experiencia accesible y fluida.",
           bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        honey: {
+          title: "Proyecto 04",
+          category: "DISEÑO UI/UX & DASHBOARD",
+          lead: "Dashboard y panel analítico con visualización de datos y flujos de gestión.",
+          role: "2026 · Diseñadora UI/UX",
+          stack: "Figma, Data Visualization, UI Tokens",
+          body: "Diseño de componentes modulares para visualización de métricas en tiempo real con estética moderna y legible.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(167, 139, 250, 0.25), transparent 45%), linear-gradient(145deg, #161228, #2A1D4E 55%, #0B0816)"
         },
         sumisura: {
           title: "suMisura® Doors",
@@ -3541,31 +4035,40 @@
       },
       en: {
         agribox: {
-          title: "AgriBox Platform",
-          category: "E-COMMERCE B2B & B2C",
-          lead: "Agricultural e-commerce platform with dedicated workflows for retail and wholesale volume catalogs.",
-          role: "2026 · UI/UX & Front-end Lead",
-          stack: "Figma, React, Tailwind CSS",
-          body: "Architected a dual-view purchasing experience: frictionless retail checkout for individuals and bulk ordering tables with dynamic volume tiers for verified farms.",
+          title: "Project 01",
+          category: "UI/UX DESIGN & WEB APP",
+          lead: "User research, information architecture, and interface design for a complex web platform.",
+          role: "2026 · UI/UX Designer",
+          stack: "Figma, Wireframing, Prototyping, Design System",
+          body: "Focused on workflow simplification, cognitive load reduction, and high-fidelity reusable component architecture.",
           bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
         },
         footsy: {
-          title: "Footsy Shoes",
-          category: "DIGITAL STORE & UI",
-          lead: "E-commerce platform dedicated to children's footwear featuring an interactive size finder.",
-          role: "2026 · Product Designer & UI Developer",
-          stack: "Figma, React, Micro-animations",
-          body: "Engineered to drastically cut return rates through an assisted foot measurement selector and interactive 360° material inspection.",
+          title: "Project 02",
+          category: "UI/UX DESIGN & PLATFORM",
+          lead: "Digital platform centered around frictionless user journeys and scalable design systems.",
+          role: "2026 · Product Designer & UI/UX",
+          stack: "Figma, User Flows, Micro-interactions",
+          body: "Streamlined navigation and interactive modules validated through iterative usability testing.",
           bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
         },
         mininno: {
-          title: "Mininno Costruzioni",
-          category: "EDITORIAL WEB & ARCHITECTURE",
-          lead: "Institutional and editorial website for a historical construction firm with an architectural focus.",
-          role: "2026 · Brand Identity & Web Developer",
-          stack: "Figma, JavaScript ES6+, Semantic CSS",
-          body: "An immersive experience where architectural photography and Swiss grid layouts guide the visitor. Asymmetrical typography, fluid page transitions, and detailed technical project specs.",
+          title: "Project 03",
+          category: "UI/UX DESIGN & RESPONSIVE WEB",
+          lead: "Digital experience with emphasis on editorial typography, visual hierarchy, and modular interactivity.",
+          role: "2026 · UI/UX & Web Designer",
+          stack: "Figma, Design System, Responsive UI",
+          body: "Crisp grid-based layout delivering an accessible, clear, and engaging journey across all viewports.",
           bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        honey: {
+          title: "Project 04",
+          category: "UI/UX DESIGN & DASHBOARD",
+          lead: "Analytics dashboard and management interface featuring clean data visualization.",
+          role: "2026 · UI/UX Designer",
+          stack: "Figma, Data Visualization, UI Tokens",
+          body: "Architected analytical components for monitoring complex metrics with real-time clarity and modern design.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(167, 139, 250, 0.25), transparent 45%), linear-gradient(145deg, #161228, #2A1D4E 55%, #0B0816)"
         },
         sumisura: {
           title: "suMisura® Doors",
@@ -3800,9 +4303,15 @@
       drawerRole.textContent = data.role;
       drawerStack.textContent = data.stack;
       drawerBody.textContent = data.body;
-      drawerPreview.style.background = data.bg;
-
-      drawerCta.href = `project.html?id=${key}`;
+      if (data.url) {
+        drawerCta.href = data.url;
+        drawerCta.setAttribute('target', '_blank');
+        drawerCta.setAttribute('rel', 'noopener noreferrer');
+      } else {
+        drawerCta.href = `project.html?id=${key}`;
+        drawerCta.removeAttribute('target');
+        drawerCta.removeAttribute('rel');
+      }
 
       drawerOverlay.classList.add('is-open');
       drawerOverlay.setAttribute('aria-hidden', 'false');
