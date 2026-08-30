@@ -1337,7 +1337,11 @@
       // Update resume links
       const resumeUrl = lang === 'es' ? 'cv-es.html' : (lang === 'en' ? 'cv-en.html' : 'cv.html');
       const footerResume = document.getElementById('footerResumeLink');
-      if (footerResume) footerResume.href = resumeUrl;
+      if (footerResume) {
+        footerResume.href = resumeUrl;
+        footerResume.removeAttribute('target');
+        footerResume.removeAttribute('rel');
+      }
 
       // Save preference
       try {
