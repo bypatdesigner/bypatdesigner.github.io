@@ -753,6 +753,63 @@
       margin-bottom: 6px;
     }
 
+    .cv-card-headline-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .cv-card-headline-row h4 {
+      margin-bottom: 0;
+    }
+
+    .cv-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .cv-status-pill.in-progress {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+    }
+
+    .cv-status-pill.in-progress .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      display: inline-block;
+    }
+
+    .cv-status-pill.honors {
+      background: rgba(167, 139, 250, 0.1);
+      color: #C8B8F8;
+      border: 1px solid rgba(167, 139, 250, 0.24);
+    }
+
+    .cv-status-pill.honors .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #A78BFA;
+      box-shadow: 0 0 6px rgba(167, 139, 250, 0.5);
+      display: inline-block;
+    }
+
     .cv-timeline-org {
       font-size: 1.05rem;
       font-weight: 650;
@@ -1241,7 +1298,7 @@
 
       <!-- Photo Box -->
       <div class="profile-photo-container">
-        <img class="profile-photo-img" src="./img/profile1.png" alt="Patricia Garcia Portrait" />
+        <img class="profile-photo-img" src="./img/perfil.png" alt="Patricia Garcia Portrait" />
         <div class="vertical-status-badge">
           <span class="status-pulse-dot"></span>
           <span>Available for work</span>
@@ -1323,7 +1380,10 @@
                 <span class="cv-time-location">Hybrid · Italy</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>UI/UX &amp; Front-End Developer</h4>
+                <div class="cv-card-headline-row">
+                  <h4>UI/UX &amp; Front-End Developer</h4>
+                  <span class="cv-status-pill in-progress"><span class="dot"></span>In progress</span>
+                </div>
                 <div class="cv-timeline-org" style="margin-bottom: 4px;">BeDigit S.r.l. <span>· Hybrid · Italy</span></div>
                 <div style="font-family: var(--font-mono); font-size: 0.84rem; color: #C8B8FB; margin-bottom: 12px; font-weight: 500;">Full-time (Jan–Jun 2026) · Part-time (from Jun 2026)</div>
                 <p class="cv-timeline-desc">
@@ -1348,7 +1408,10 @@
                 <span class="cv-time-location">Remote · Italy</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Freelance Designer</h4>
+                <div class="cv-card-headline-row">
+                  <h4>Freelance Designer</h4>
+                  <span class="cv-status-pill in-progress"><span class="dot"></span>In progress</span>
+                </div>
                 <div class="cv-timeline-org">Freelance <span>· Remote · Italy</span></div>
                 <p class="cv-timeline-desc">
                   End-to-end web and UI/UX project delivery, aligning information architecture, UX research, and visual design to client objectives.
@@ -1474,7 +1537,10 @@
                 <span class="cv-time-location">In progress</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Technologist in Software Analysis and Development</h4>
+                <div class="cv-card-headline-row">
+                  <h4>Technologist in Software Analysis and Development</h4>
+                  <span class="cv-status-pill in-progress"><span class="dot"></span>In progress</span>
+                </div>
                 <div class="cv-timeline-org">SENA <span>· Colombia</span></div>
                 <p class="cv-timeline-desc">
                   Technical engineering program covering the entire software development lifecycle: requirements analysis, architecture, development, testing, and deployment.
@@ -1494,7 +1560,7 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">2025 — 2026</span>
-                <span class="cv-time-location">EQF Level 4 · 110/110 with Honors</span>
+                <span class="cv-time-location">EQF Level 4</span>
               </div>
               <div class="cv-timeline-body">
                 <h4>IFTS – Software Application Development Specialist</h4>
@@ -1518,10 +1584,13 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">2022 — 2025</span>
-                <span class="cv-time-location">EQF Level 7 · 110/110 Cum Laude</span>
+                <span class="cv-time-location">EQF Level 7</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Master's Degree in Graphic Design</h4>
+                <div class="cv-card-headline-row">
+                  <h4>Master's Degree in Graphic Design</h4>
+                  <span class="cv-status-pill honors"><span class="dot"></span>110/110 Cum Laude</span>
+                </div>
                 <div class="cv-timeline-org">Accademia di Belle Arti di Foggia <span>· Italy</span></div>
                 <p class="cv-timeline-desc">
                   Advanced Master's degree specializing in Web Design and UI/UX. Comprehensive focus on user experience, information architecture, Figma prototyping, and modern web technologies.
@@ -1541,10 +1610,13 @@
             <article class="cv-timeline-card">
               <div class="cv-timeline-time">
                 <span class="cv-badge-year">2018 — 2022</span>
-                <span class="cv-time-location">EQF Level 6 · 110/110 Cum Laude</span>
+                <span class="cv-time-location">EQF Level 6</span>
               </div>
               <div class="cv-timeline-body">
-                <h4>Bachelor's Degree in Graphic Design</h4>
+                <div class="cv-card-headline-row">
+                  <h4>Bachelor's Degree in Graphic Design</h4>
+                  <span class="cv-status-pill honors"><span class="dot"></span>110/110 Cum Laude</span>
+                </div>
                 <div class="cv-timeline-org">Accademia di Belle Arti di Foggia <span>· Italy</span></div>
                 <p class="cv-timeline-desc">
                   Solid foundation in graphic design, visual communication, brand identity, and digital media production. Expertise in branding, editorial layouts, and web design fundamentals.
