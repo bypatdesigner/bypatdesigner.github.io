@@ -6,12 +6,69 @@
   <title>Resume — Patricia Garcia | Graphic UI/UX Designer &amp; Junior Web Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
+  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
+  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
 
   <style>
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
+      font-weight: 800;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
     /* ============================================================
        DESIGN TOKENS — DIGITAL RESUME (Deep Black & Electric Violet)
        ============================================================ */
@@ -46,8 +103,9 @@
       --radius-xl: 32px;
       --radius-full: 9999px;
       
-      --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      --font-display: "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+      --font-body: "Satoshi", system-ui, -apple-system, sans-serif;
+      --font-mono: "Satoshi", monospace;
       
       --pad-x: clamp(16px, 3vw, 40px);
     }
@@ -67,13 +125,33 @@
     body {
       background: var(--ink);
       color: var(--text-body);
-      font-family: var(--font-display);
+      font-family: var(--font-body);
       font-size: 1.02rem;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    .profile-name-title,
+    .profile-role-sub,
+    .resume-hero-title,
+    .cv-section-title,
+    .stat-card-num,
+    .cv-badge-year,
+    .cv-accordion-badge,
+    .cv-tab-btn,
+    .cv-tab-title,
+    .cv-pane-title,
+    .cv-timeline-card h4,
+    .cv-sidebar-title,
+    .cv-contact-title,
+    .btn-profile-cta,
+    .cv-status-pill {
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
     }
 
     ::selection {
@@ -677,12 +755,17 @@
 
     .cv-timeline-org {
       font-size: 1.05rem;
-      font-weight: 600;
-      color: #D8D2F4;
+      font-weight: 650;
+      color: #C8B8FB;
       margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    .cv-timeline-org span {
+      color: #A78BFA;
+      font-weight: 500;
     }
 
     .cv-timeline-desc {
@@ -1395,7 +1478,7 @@
               </div>
               <div class="cv-timeline-body">
                 <h4>Tecnologo in Analisi e Sviluppo Software</h4>
-                <div class="cv-timeline-org">SENA · Colombia</div>
+                <div class="cv-timeline-org">SENA <span>· Colombia</span></div>
                 <p class="cv-timeline-desc">
                   Percorso focalizzato sull’intero ciclo di vita del software: analisi, progettazione, sviluppo, testing e deploy.
                 </p>
@@ -1418,7 +1501,7 @@
               </div>
               <div class="cv-timeline-body">
                 <h4>IFTS – Tecnico Sviluppo Applicazioni Informatiche</h4>
-                <div class="cv-timeline-org">Regione Puglia · Italia</div>
+                <div class="cv-timeline-org">Regione Puglia <span>· Italia</span></div>
                 <p class="cv-timeline-desc">
                   Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.
                 </p>
@@ -1502,9 +1585,9 @@
               </div>
               <div class="cv-timeline-body">
                 <h4>Sviluppo Web con Laravel, PHP e JavaScript (248 Ore)</h4>
-                <div class="cv-timeline-org">Universo &amp; FormaTemp</div>
+                <div class="cv-timeline-org">Universo <span>&amp; FormaTemp</span></div>
                 <p class="cv-timeline-desc">
-                  Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.
+                  Formazione practica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.
                 </p>
                 <div class="cv-skills-chips-row">
                   <span class="cv-skill-chip">Laravel</span>
@@ -1525,7 +1608,7 @@
               </div>
               <div class="cv-timeline-body">
                 <h4>Corso Web Developer (500 Ore)</h4>
-                <div class="cv-timeline-org">Fondo per la Repubblica Digitale</div>
+                <div class="cv-timeline-org">Fondo per la Repubblica Digitale <span>· In Sede</span></div>
                 <p class="cv-timeline-desc">
                   Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.
                 </p>
@@ -1546,7 +1629,7 @@
               </div>
               <div class="cv-timeline-body">
                 <h4>Front-End Dev con JS, jQuery e TypeScript (248 Ore)</h4>
-                <div class="cv-timeline-org">Archimede &amp; FormaTemp</div>
+                <div class="cv-timeline-org">Archimede <span>&amp; FormaTemp</span></div>
                 <p class="cv-timeline-desc">
                   Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript, TypeScript, HTML5, CSS3 e Bootstrap.
                 </p>
@@ -1567,7 +1650,7 @@
               </div>
               <div class="cv-timeline-body">
                 <h4>Corso di Motion Graphics (248 Ore)</h4>
-                <div class="cv-timeline-org">10 Skills Academy</div>
+                <div class="cv-timeline-org">10 Skills Academy <span>· Virtuale</span></div>
                 <p class="cv-timeline-desc">
                   Formazione in montaggio video e animazione grafica con Adobe Premiere Pro e After Effects.
                 </p>

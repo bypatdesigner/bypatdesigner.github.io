@@ -539,6 +539,303 @@
       white-space: nowrap;
     }
 
+    /* Hamburger Button (Desktop: Hidden, Mobile <= 900px: Visible) */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      background: rgba(167, 139, 250, 0.12);
+      border: 1px solid var(--line-violet);
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 52;
+    }
+
+    .hamburger-btn:hover {
+      background: rgba(167, 139, 250, 0.24);
+      border-color: var(--line-glow);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.35);
+      transform: scale(1.05);
+    }
+
+    .hamburger-bar {
+      width: 18px;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 2px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
+      transform-origin: center;
+    }
+
+    .hamburger-btn.is-active .hamburger-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+      background: var(--violet-light);
+    }
+
+    .hamburger-btn.is-active .hamburger-bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger-btn.is-active .hamburger-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+      background: var(--violet-light);
+    }
+
+    /* Mobile Navigation Drawer */
+    .mobile-nav-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      visibility: hidden;
+      transition: visibility 0.35s ease;
+    }
+
+    .mobile-nav-drawer.is-open {
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .mobile-nav-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(7, 6, 12, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      opacity: 0;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-nav-drawer.is-open .mobile-nav-backdrop {
+      opacity: 1;
+    }
+
+    .mobile-nav-panel {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      max-height: calc(100svh - 32px);
+      overflow-y: auto;
+      background: rgba(14, 13, 24, 0.96);
+      border: 1px solid var(--line-glow);
+      border-radius: 28px;
+      padding: 22px 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(139, 92, 246, 0.25);
+      transform: translateY(-24px) scale(0.96);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-nav-drawer.is-open .mobile-nav-panel {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .mobile-nav-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mobile-nav-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--violet-light);
+      font-weight: 600;
+    }
+
+    .mobile-nav-close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .mobile-nav-close-btn:hover {
+      background: rgba(167, 139, 250, 0.2);
+      border-color: var(--line-glow);
+      color: var(--violet-light);
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      border-radius: 16px;
+      background: rgba(22, 19, 36, 0.65);
+      border: 1px solid var(--line);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .mobile-nav-item:hover,
+    .mobile-nav-item:active {
+      background: rgba(139, 92, 246, 0.18);
+      border-color: var(--violet-light);
+      transform: translateX(4px);
+    }
+
+    .mobile-item-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-item-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--violet-light);
+      font-weight: 600;
+    }
+
+    .mobile-item-arrow {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      transition: transform 0.25s, color 0.25s;
+    }
+
+    .mobile-nav-item:hover .mobile-item-arrow {
+      transform: translateX(4px);
+      color: #FFFFFF;
+    }
+
+    /* Resume Highlight Card inside Mobile Drawer */
+    .mobile-nav-highlight-card {
+      background: linear-gradient(135deg, rgba(32, 28, 54, 0.95), rgba(76, 29, 149, 0.4));
+      border: 1px solid var(--line-glow);
+      border-radius: 20px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .mobile-resume-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-resume-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--violet-light);
+      background: rgba(139, 92, 246, 0.2);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-violet);
+    }
+
+    .mobile-resume-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #10B981;
+      font-weight: 600;
+    }
+
+    .mobile-resume-status .dot {
+      width: 6px;
+      height: 6px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #10B981;
+    }
+
+    .mobile-resume-desc {
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .mobile-resume-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: var(--radius-full);
+      background: var(--violet-light);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(167, 139, 250, 0.4);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-resume-cta-btn:hover {
+      background: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .mobile-nav-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-nav-lang-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .mobile-nav-lang-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
     /* ============================================================
        HERO: EXACT STARFIELD MATRIX ON FLUID BG (FROM index-starfield-fluid.html)
        ============================================================ */
@@ -2298,9 +2595,11 @@
       }
 
       .nav-resume-btn {
-        padding: 6px 14px;
-        font-size: 0.72rem;
-        letter-spacing: 0.05em;
+        display: none;
+      }
+
+      .hamburger-btn {
+        display: flex;
       }
 
       .brand-logo-img {
@@ -2614,7 +2913,7 @@
     <div class="menu">
       <a href="#about" data-i18n="nav.about">Chi sono</a>
       <a href="#services" data-i18n="nav.services">Servizi</a>
-      <a href="projects.html">Progetti</a>
+      <a href="projects.html" data-i18n="nav.projects">Progetti</a>
       <a href="#contact" data-i18n="nav.contact">Contatti</a>
     </div>
 
@@ -2629,8 +2928,83 @@
       <a class="btn primary nav-resume-btn" id="navResumeBtn" href="cv.html">
         <span data-i18n="nav.resume">Resume</span>
       </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Menu di navigazione" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </nav>
+
+  <!-- ================= MOBILE NAVIGATION DRAWER ================= -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-head">
+        <span class="mobile-nav-tag" data-i18n="nav.menu_title">Menu di navigazione</span>
+        <button class="mobile-nav-close-btn" id="mobileNavCloseBtn" type="button" aria-label="Chiudi menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-links">
+        <a href="#about" class="mobile-nav-item">
+          <div class="mobile-item-left">
+            <span class="mobile-item-num">01</span>
+            <span data-i18n="nav.about">Chi sono</span>
+          </div>
+          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
+        </a>
+        <a href="#services" class="mobile-nav-item">
+          <div class="mobile-item-left">
+            <span class="mobile-item-num">02</span>
+            <span data-i18n="nav.services">Servizi</span>
+          </div>
+          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
+        </a>
+        <a href="projects.html" class="mobile-nav-item">
+          <div class="mobile-item-left">
+            <span class="mobile-item-num">03</span>
+            <span data-i18n="nav.projects">Progetti</span>
+          </div>
+          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-item">
+          <div class="mobile-item-left">
+            <span class="mobile-item-num">04</span>
+            <span data-i18n="nav.contact">Contatti</span>
+          </div>
+          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
+        </a>
+      </div>
+
+      <!-- CV / Resume Highlight Card -->
+      <div class="mobile-nav-highlight-card">
+        <div class="mobile-resume-card-head">
+          <span class="mobile-resume-badge" data-i18n="nav.resume">Curriculum Vitae</span>
+          <span class="mobile-resume-status"><span class="dot"></span> Online &amp; PDF</span>
+        </div>
+        <p class="mobile-resume-desc" data-i18n="nav.resume_desc">Esplora il percorso completo, l'esperienza, la formazione accademica e le certificazioni.</p>
+        <a href="cv.html" class="mobile-resume-cta-btn" id="mobileResumeLink">
+          <span data-i18n="nav.resume_cta">Visualizza CV / Resume</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+      <div class="mobile-nav-footer">
+        <div class="mobile-nav-lang-row">
+          <span class="mobile-nav-lang-label" data-i18n="nav.select_lang">Lingua:</span>
+          <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
+            <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
+            <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
+            <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ================= HERO (EXACT HERO FROM index-starfield-fluid.html: WebGL Fluid + Starfield Particles) ================= -->
   <header class="hero" id="top">
@@ -3509,8 +3883,13 @@
       it: {
         "nav.about": "Chi sono",
         "nav.services": "Servizi",
+        "nav.projects": "Progetti",
         "nav.contact": "Contatti",
         "nav.resume": "Resume",
+        "nav.menu_title": "Menu di navigazione",
+        "nav.resume_desc": "Esplora il percorso completo, l'esperienza, la formazione accademica e le certificazioni.",
+        "nav.resume_cta": "Visualizza CV / Resume",
+        "nav.select_lang": "Lingua:",
         "hero.eyebrow": "<i></i> Bisceglie, Italia · Remoto / Ibrido / On-site",
         "hero.title": 'Design, sviluppo e <br>qualche altra <span class="grad-text">ossessione <br><span style="white-space: nowrap;">creativa.</span></span>',
         "hero.desc": "Mi muovo tra design e codice, esplorando come l’AI possa supportare ricerca, ideazione e sviluppo.",
@@ -3652,8 +4031,13 @@
       es: {
         "nav.about": "Sobre mí",
         "nav.services": "Servicios",
+        "nav.projects": "Proyectos",
         "nav.contact": "Contacto",
         "nav.resume": "CV / Resume",
+        "nav.menu_title": "Menú de navegación",
+        "nav.resume_desc": "Explora mi trayectoria completa, experiencia laboral, formación académica y certificaciones.",
+        "nav.resume_cta": "Ver CV / Resume",
+        "nav.select_lang": "Idioma:",
         "hero.eyebrow": "<i></i> Bisceglie, Italia · Remoto / Híbrido / Presencial",
         "hero.title": 'Diseño, desarrollo y <br>alguna otra <span class="grad-text">obsesión <br><span style="white-space: nowrap;">creativa.</span></span>',
         "hero.desc": "Me muevo entre diseño y código, explorando cómo la IA puede potenciar la investigación, ideación y desarrollo.",
@@ -3795,8 +4179,13 @@
       en: {
         "nav.about": "About",
         "nav.services": "Services",
+        "nav.projects": "Projects",
         "nav.contact": "Contact",
         "nav.resume": "Resume",
+        "nav.menu_title": "Navigation Menu",
+        "nav.resume_desc": "Explore full career trajectory, work experience, academic background, and certifications.",
+        "nav.resume_cta": "View CV / Resume",
+        "nav.select_lang": "Language:",
         "hero.eyebrow": "<i></i> Bisceglie, Italy · Remote / Hybrid / On-site",
         "hero.title": 'Design, development <br>and other creative <span class="grad-text"><br><span style="white-space: nowrap;">obsessions.</span></span>',
         "hero.desc": "Moving between design and code, exploring how AI can enhance research, ideation, and development.",
@@ -4118,10 +4507,12 @@
       const navResume = document.getElementById('navResumeBtn');
       const heroResume = document.getElementById('heroResumeBtn');
       const footerResume = document.getElementById('footerResumeLink');
+      const mobileResume = document.getElementById('mobileResumeLink');
 
       const resumePageUrl = lang === 'es' ? 'cv-es.html' : (lang === 'en' ? 'cv-en.html' : 'cv.html');
       if (navResume) navResume.href = resumePageUrl;
       if (footerResume) footerResume.href = resumePageUrl;
+      if (mobileResume) mobileResume.href = resumePageUrl;
 
       if (heroResume) {
         if (lang === 'es') {
@@ -4168,7 +4559,7 @@
       } catch (e) { }
     }
 
-    // Set up click listeners on language buttons
+    // Set up click listeners on language buttons (navbar & mobile drawer)
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -4177,6 +4568,69 @@
           setLanguage(selectedLang, true);
         }
       });
+    });
+
+    // ============================================================
+    // MOBILE NAVIGATION DRAWER CONTROLLER
+    // ============================================================
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+    const mobileNavCloseBtn = document.getElementById('mobileNavCloseBtn');
+    const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-item, #mobileResumeLink');
+
+    function openMobileNav() {
+      if (!mobileNavDrawer) return;
+      mobileNavDrawer.classList.add('is-open');
+      mobileNavDrawer.setAttribute('aria-hidden', 'false');
+      if (hamburgerBtn) {
+        hamburgerBtn.classList.add('is-active');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+      }
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+      if (!mobileNavDrawer) return;
+      mobileNavDrawer.classList.remove('is-open');
+      mobileNavDrawer.setAttribute('aria-hidden', 'true');
+      if (hamburgerBtn) {
+        hamburgerBtn.classList.remove('is-active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+      document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (mobileNavDrawer && mobileNavDrawer.classList.contains('is-open')) {
+          closeMobileNav();
+        } else {
+          openMobileNav();
+        }
+      });
+    }
+
+    if (mobileNavCloseBtn) {
+      mobileNavCloseBtn.addEventListener('click', closeMobileNav);
+    }
+
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.addEventListener('click', closeMobileNav);
+    }
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileNav();
+      });
+    });
+
+    // Close mobile menu on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNavDrawer && mobileNavDrawer.classList.contains('is-open')) {
+        closeMobileNav();
+      }
     });
 
     /* 2. INTERACTIVE ABOUT TABS */
