@@ -1388,6 +1388,36 @@
       width: fit-content;
     }
 
+    .timeline-period-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .cv-duration-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.80rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0 6px;
+      width: max-content;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+    }
+
+    .cv-duration-pill i {
+      font-size: 0.72rem;
+      color: var(--violet-light);
+      opacity: 0.9;
+    }
+
     .card-headline-row {
       display: flex;
       align-items: center;
@@ -2698,6 +2728,13 @@
         padding: 20px 22px;
       }
 
+      .timeline-period-col {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
       .timeline-card-item .item-desc {
         display: block;
         font-size: 15px;
@@ -3149,7 +3186,10 @@
               <div class="timeline-cards-list">
                 <!-- Exp 1 -->
                 <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.exp1_date">Gen. 2026 — In corso</span>
+                  <div class="timeline-period-col">
+                    <span class="item-period-badge" data-i18n="about.exp1_date">Gen. 2026 — In corso</span>
+                    <span class="cv-duration-pill" data-start-date="2026-01-01"><i class="fa-regular fa-clock"></i> <span class="cv-duration-text"></span></span>
+                  </div>
                   <div>
                     <div class="card-headline-row">
                       <h4 class="item-role-title" data-i18n="about.exp1_role">UI/UX &amp; Web Designer</h4>
@@ -3173,7 +3213,10 @@
 
                 <!-- Exp 2 -->
                 <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.exp2_date">Giu. 2024 — In corso</span>
+                  <div class="timeline-period-col">
+                    <span class="item-period-badge" data-i18n="about.exp2_date">Giu. 2024 — In corso</span>
+                    <span class="cv-duration-pill" data-start-date="2024-06-01"><i class="fa-regular fa-clock"></i> <span class="cv-duration-text"></span></span>
+                  </div>
                   <div>
                     <div class="card-headline-row">
                       <h4 class="item-role-title" data-i18n="about.exp2_role">Freelance Designer</h4>
@@ -3198,7 +3241,10 @@
 
                 <!-- Exp 3 -->
                 <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.exp3_date">Set. 2025</span>
+                  <div class="timeline-period-col">
+                    <span class="item-period-badge" data-i18n="about.exp3_date">Set. 2025</span>
+                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp3_duration">1 mese</span></span>
+                  </div>
                   <div>
                     <div class="card-headline-row">
                       <h4 class="item-role-title" data-i18n="about.exp3_role">Laravel Developer Trainee</h4>
@@ -3220,7 +3266,10 @@
 
                 <!-- Exp 4 -->
                 <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.exp4_date">Mar. 2024 — Giu. 2024</span>
+                  <div class="timeline-period-col">
+                    <span class="item-period-badge" data-i18n="about.exp4_date">Mar. 2024 — Giu. 2024</span>
+                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp4_duration">4 mesi</span></span>
+                  </div>
                   <div>
                     <div class="card-headline-row">
                       <h4 class="item-role-title" data-i18n="about.exp4_role">Junior Front-End Developer</h4>
@@ -3241,7 +3290,10 @@
 
                 <!-- Exp 5 -->
                 <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.exp5_date">Feb. 2022 — Dic. 2022</span>
+                  <div class="timeline-period-col">
+                    <span class="item-period-badge" data-i18n="about.exp5_date">Feb. 2022 — Dic. 2022</span>
+                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp5_duration">11 mesi</span></span>
+                  </div>
                   <div>
                     <div class="card-headline-row">
                       <h4 class="item-role-title" data-i18n="about.exp5_role">Graphic Designer</h4>
@@ -3260,7 +3312,10 @@
 
                 <!-- Exp 6 -->
                 <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.exp6_date">Gen. 2006 — Ago. 2012</span>
+                  <div class="timeline-period-col">
+                    <span class="item-period-badge" data-i18n="about.exp6_date">Gen. 2006 — Ago. 2012</span>
+                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp6_duration">6 anni e 8 mesi</span></span>
+                  </div>
                   <div>
                     <div class="card-headline-row">
                       <h4 class="item-role-title" data-i18n="about.exp6_role">Administrador Territorial</h4>
@@ -3938,6 +3993,10 @@
         "about.exp6_role": "Administrador Territorial",
         "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
         "about.exp6_desc": "Coordinamento del personale e delle attività operative, gestione della comunicazione tra clienti e team, e organizzazione delle risorse informatiche e documentali.",
+        "about.exp3_duration": "1 mese",
+        "about.exp4_duration": "4 mesi",
+        "about.exp5_duration": "11 mesi",
+        "about.exp6_duration": "6 anni e 8 mesi",
         "about.pane_cert_badge": "Specializzazioni Tecniche",
         "about.pane_cert_title": "Corsi & Certificazioni",
         "about.pane_cert_date": "Aggiornamento Continuo",
@@ -4081,6 +4140,10 @@
         "about.exp6_role": "Administrador Territorial",
         "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
         "about.exp6_desc": "Coordinación operativa de personal, gestión de comunicación entre clientes y equipos, y organización de recursos informáticos y documentales.",
+        "about.exp3_duration": "1 mes",
+        "about.exp4_duration": "4 meses",
+        "about.exp5_duration": "11 meses",
+        "about.exp6_duration": "6 años y 8 meses",
         "about.pane_cert_badge": "Especializaciones Técnicas",
         "about.pane_cert_title": "Cursos & Certificaciones",
         "about.pane_cert_date": "Actualización Continua",
@@ -4229,6 +4292,10 @@
         "about.exp6_role": "Regional Administrator",
         "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
         "about.exp6_desc": "Operational coordination of staff, client-team communication management, and organization of IT and administrative resources.",
+        "about.exp3_duration": "1 month",
+        "about.exp4_duration": "4 months",
+        "about.exp5_duration": "11 months",
+        "about.exp6_duration": "6 years, 8 months",
         "about.pane_cert_badge": "Technical Specializations",
         "about.pane_cert_title": "Courses & Certifications",
         "about.pane_cert_date": "Continuous Learning",
@@ -4470,6 +4537,39 @@
       }
     };
 
+    /* Calcolo dinamico durata per ruoli attivi */
+    function updateDynamicDurations(lang) {
+      const now = new Date();
+      document.querySelectorAll('.cv-duration-pill[data-start-date]').forEach(pill => {
+        const start = new Date(pill.dataset.startDate);
+        if (isNaN(start.getTime())) return;
+        let months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth()) + 1;
+        if (months < 1) months = 1;
+        const years = Math.floor(months / 12);
+        const remMonths = months % 12;
+        let text = '';
+        if (lang === 'es') {
+          if (years === 0) text = `${remMonths} ${remMonths === 1 ? 'mes' : 'meses'}`;
+          else if (remMonths === 0) text = `${years} ${years === 1 ? 'año' : 'años'}`;
+          else text = `${years} ${years === 1 ? 'año' : 'años'} y ${remMonths} ${remMonths === 1 ? 'mes' : 'meses'}`;
+        } else if (lang === 'en') {
+          if (years === 0) text = `${remMonths} ${remMonths === 1 ? 'month' : 'months'}`;
+          else if (remMonths === 0) text = `${years} ${years === 1 ? 'year' : 'years'}`;
+          else text = `${years} ${years === 1 ? 'year' : 'years'}, ${remMonths} ${remMonths === 1 ? 'month' : 'months'}`;
+        } else {
+          if (years === 0) text = `${remMonths} ${remMonths === 1 ? 'mese' : 'mesi'}`;
+          else if (remMonths === 0) text = `${years} ${years === 1 ? 'anno' : 'anni'}`;
+          else text = `${years} ${years === 1 ? 'anno' : 'anni'} e ${remMonths} ${remMonths === 1 ? 'mese' : 'mesi'}`;
+        }
+        const textSpan = pill.querySelector('.cv-duration-text');
+        if (textSpan) {
+          textSpan.textContent = text;
+        } else {
+          pill.innerHTML = `<i class="fa-regular fa-clock"></i> ${text}`;
+        }
+      });
+    }
+
     let currentLang = 'it';
 
     function setLanguage(lang, triggerDecrypt = true) {
@@ -4494,6 +4594,9 @@
         }
       });
 
+      // Update dynamic durations in experience timeline
+      updateDynamicDurations(lang);
+
       // Update innerHTML for elements with data-i18n-html
       document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const key = el.dataset.i18nHtml;
@@ -4513,16 +4616,18 @@
       if (footerResume) footerResume.href = resumePageUrl;
       if (mobileResume) mobileResume.href = resumePageUrl;
 
+      const resumePdfMap = {
+        it: 'cv_pdf/CV_Patricia_Garcia_IT_2026.pdf',
+        es: 'cv_pdf/CV_Patricia_Garcia_ES_2026.pdf',
+        en: 'cv_pdf/CV_Patricia_Garcia_EN_2026.pdf'
+      };
+
       if (heroResume) {
-        if (lang === 'es') {
-          heroResume.href = 'cv_pdf/CV_Patricia_Garcia_ES_2026.pdf';
-          heroResume.setAttribute('target', '_blank');
-          heroResume.setAttribute('rel', 'noopener');
-        } else {
-          heroResume.href = resumePageUrl;
-          heroResume.removeAttribute('target');
-          heroResume.removeAttribute('rel');
-        }
+        const targetPdf = resumePdfMap[lang] || resumePdfMap.it;
+        heroResume.href = targetPdf;
+        heroResume.setAttribute('target', '_blank');
+        heroResume.setAttribute('rel', 'noopener');
+        heroResume.setAttribute('download', targetPdf.split('/').pop());
       }
 
       // Update WhatsApp link text depending on language
