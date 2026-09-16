@@ -1,0 +1,61 @@
+const PROJECTS_I18N = {
+      it: {
+        labels: {
+          preview: "Anteprima Interfaccia",
+          role: "Anno & Ruolo",
+          stack: "Stack & Metodo",
+          btnProject: "Amplia Progetto",
+          btnContact: "Progetto Accademico",
+          backToTop: "Torna all'inizio",
+          ctaBadge: "✦ Inizia un Progetto",
+          ctaTitle: "Hai in mente una nuova visione digitale?",
+          ctaSub: "Dalla definizione della strategia visiva alla scrittura del codice front-end per la produzione: parliamo di come trasformare la tua idea in un'esperienza d'impatto.",
+          ctaBtn: "Parliamo del tuo Progetto +",
+          heroTagline: "✦ UNA SELEZIONE DEL MIO LAVORO",
+          heroTitle: "Idee che <span class=\"grad-text\">prendono forma</span>.",
+          heroSub: "Progetti di graphic design, web e UI/UX in cui unisco creatività, struttura e codice per costruire esperienze chiare, visive e funzionali.",
+          heroIndicator: "Esplora i progetti ↓",
+          filterAll: "Tutti i Progetti (3)",
+          filterDev: "Sviluppo Web",
+          filterUiux: "UI/UX & Web Design",
+          filterGraphic: "Graphic Design",
+          filterBlender: "Blender 3D",
+          filterEditorial: "Editorial",
+          filterVideo: "Video",
+          emptyMsg: "Progetti video e motion in arrivo o disponibili su richiesta privata.",
+          emptyBtn: "Richiedi Progetti Video ↗"
+        },
+        agribox: {
+          title: "AgriBox Platform",
+          category: "E-COMMERCE B2B & B2C",
+          lead: "Piattaforma e-commerce per prodotti agricoli con gestione differenziata di listini retail e wholesale.",
+          role: "2026 · UI/UX & Front-end Lead",
+          stack: "Figma, React, Tailwind CSS",
+          body: "Abbiamo disegnato un'architettura a doppia vista: navigazione veloce per il consumatore finale e tabelle di ordinazione rapida con prezzi dinamici a volume per le aziende agricole registrate con P.IVA.",
+          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        },
+        footsy: {
+          title: "Footsy Shoes",
+          category: "DIGITAL STORE & UI",
+          lead: "E-commerce dedicato a calzature per bambini con configuratore taglie assistito.",
+          role: "2026 · Product Designer & UI Developer",
+          stack: "Figma, React, Micro-animations",
+          body: "Progettato per ridurre i resi tipici del settore calzature per bambini attraverso un selettore interattivo del piede e schede prodotto con visualizzazione 360° dei materiali.",
+          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
+        },
+        mininno: {
+          title: "Mininno Costruzioni",
+          category: "EDITORIAL WEB & ARCHITETTURA",
+          lead: "Sito istituzionale ed editoriale per una storica impresa edile pugliese con focus sull'architettura.",
+          role: "2026 · Brand Identity & Web Developer",
+          stack: "Figma, JavaScript ES6+, Semantic CSS",
+          body: "Un'esperienza dove la fotografia architettonica e la griglia svizzera guidano l'utente. Layout asimmetrici, transizioni fluide tra i progetti e schede cantiere arricchite da schemi tecnici e materiali.",
+          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        },
+        honey: {
+          title: "Honey + Coconut",
+          category: "3D PACKAGING · PRODUCT VISUALIZATION",
+          lead: "Un progetto di modellazione 3D realizzato in Blender, in cui ho sviluppato packaging, materiali e visual per Honey + Coconut, con un’estetica fresca, delicata e contemporanea.",
+          role: "2024 · Progetto di Modellazione 3D",
+          stack: "Blender",
+          body: "Honey + Coconut è un progetto di modellazione 3D realizzato in Blender, focalizzato sull'esplor
