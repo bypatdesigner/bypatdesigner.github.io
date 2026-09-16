@@ -1,0 +1,1738 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">The art of admiring art — David Hockney | Case Study</title>
+  <meta name="description" id="pageMetaDesc" content="The art of admiring art — Exhibition campaign and visual identity inspired by David Hockney for the Musée d'Orsay." />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
+  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
+  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+
+  <style>
+    /* ============================================================
+       LOCAL WEBFONTS — CABINET GROTESK & SATOSHI
+       ============================================================ */
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
+      font-weight: 800;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    /* ============================================================
+       DESIGN TOKENS — HOCKNEY "BIGGER SPLASH" CERULEAN BLUE EDITION
+       ============================================================ */
+    :root {
+      --canvas: #F8FAFC;
+      --canvas-subtle: #F0F7FD;
+      --surface: #FFFFFF;
+      --surface-elevated: #F0F7FD;
+      --surface-glass: rgba(255, 255, 255, 0.92);
+      --card-bg: rgba(255, 255, 255, 0.96);
+      --card-hover: #FFFFFF;
+      
+      /* High-Contrast Editorial Typography Palette */
+      --ink: #0A1128;
+      --text-main: #0F172A;
+      --text-head: #0A1128;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --text-dim: #94A3B8;
+      
+      /* Hockney Iconic Cerulean & Pool Blue Palette */
+      --blue-primary: #0284C7;        /* Hockney Cerulean / Swimming Pool Blue */
+      --blue-light: #38BDF8;          /* Light Sky / Water Ripple */
+      --blue-bright: #7DD3FC;         /* Bright cyan highlight */
+      --blue-glow: #BAE6FD;           /* Soft pool water glow */
+      --blue-deep: #0369A1;           /* Deep Mediterranean / Cobalt Blue */
+      --blue-navy: #0C4A6E;           /* Musée d'Orsay Ink Navy */
+      --blue-tint: rgba(2, 132, 199, 0.08);
+      --blue-tint-hover: rgba(2, 132, 199, 0.14);
+      --amber-accent: #F59E0B;        /* Warm Hockney Sunburst / Director's Chair */
+      
+      /* Backward-compatible violet alias mappings to ensure 100% style stability */
+      --violet-primary: #0284C7;
+      --violet-light: #38BDF8;
+      --violet-bright: #7DD3FC;
+      --violet-glow: #BAE6FD;
+      --violet-deep: #0369A1;
+      --violet-tint: rgba(2, 132, 199, 0.08);
+      --violet-tint-hover: rgba(2, 132, 199, 0.14);
+      --magenta-accent: #38BDF8;
+      
+      /* Subtle Architectural Lines */
+      --line: rgba(15, 23, 42, 0.08);
+      --line-light: rgba(15, 23, 42, 0.12);
+      --line-blue: rgba(2, 132, 199, 0.25);
+      --line-violet: rgba(2, 132, 199, 0.25);
+      --line-glow: rgba(2, 132, 199, 0.55);
+      
+      /* Soft Diffused Ambient Shadows with Cool Blue Dispersion */
+      --shadow-sm: 0 4px 14px rgba(10, 25, 47, 0.04);
+      --shadow-md: 0 14px 34px rgba(10, 25, 47, 0.06), 0 2px 6px rgba(2, 132, 199, 0.04);
+      --shadow-lg: 0 24px 60px rgba(10, 25, 47, 0.08), 0 0 35px rgba(2, 132, 199, 0.05);
+      --shadow-xl: 0 32px 80px rgba(10, 25, 47, 0.12), 0 0 45px rgba(2, 132, 199, 0.08);
+      
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+      
+      --font-display: "Cabinet Grotesk", "CabinetGrotesk-Extrabold", "CabinetGrotesk-Bold", system-ui, -apple-system, sans-serif;
+      --font-body: "Satoshi", "Satoshi-Regular", "Satoshi-Medium", system-ui, -apple-system, sans-serif;
+      --font-mono: "Satoshi", "Satoshi-Medium", monospace;
+      
+      --pad: clamp(20px, 4vw, 56px);
+      --max: 1400px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--canvas);
+      color-scheme: light;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    ::selection {
+      background: #BAE6FD;
+      color: #0C4A6E;
+    }
+
+    h1, h2, h3, h4, .display-font {
+      font-family: var(--font-display);
+      color: var(--ink);
+    }
+
+    /* Ambient Background Mesh & Dynamic Spotlight (Hockney Blue Edition) */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(2, 132, 199, 0.05) 45%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 20%;
+      transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(2, 132, 199, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(2, 132, 199, 0.035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      opacity: 0.85;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      background: transparent;
+      z-index: 1;
+    }
+
+    /* Ambient noise texture */
+    .noise {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .shell {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 700;
+    }
+
+    .blue-accent,
+    .violet-accent {
+      color: var(--blue-primary);
+    }
+
+    /* ================= TOP NAVIGATION ================= */
+    .top-nav {
+      height: 90px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .top-nav > :first-child {
+      justify-self: start;
+    }
+
+    .nav-logo-link {
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+      transition: transform 0.25s ease;
+      filter: brightness(0);
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-actions {
+      justify-self: end;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* Glassmorphism Language Selector */
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-full);
+      padding: 3px 4px;
+      gap: 2px;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lang-btn:hover {
+      color: var(--blue-primary);
+      background: var(--blue-tint);
+    }
+
+    .lang-btn.active {
+      background: var(--blue-primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.35);
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text-head);
+      background: var(--surface-glass);
+      backdrop-filter: blur(16px);
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+      justify-self: start;
+      width: fit-content;
+      max-width: fit-content;
+      white-space: nowrap;
+    }
+
+    .pill-link:hover {
+      border-color: var(--blue-primary);
+      background: var(--surface);
+      color: var(--blue-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.2);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      padding: clamp(64px, 8.5vw, 130px) 0 clamp(36px, 5vw, 72px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: clamp(36px, 6vw, 96px);
+      align-items: flex-end;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue-deep);
+      margin-bottom: 22px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--blue-primary);
+    }
+
+    /* Title in Deep Ink Navy with fresh pool-blue highlight box on signature phrase */
+    h1.hero-title {
+      font-size: clamp(3.4rem, 7.8vw, 7.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+      font-weight: 800;
+      max-width: 1050px;
+      text-wrap: balance;
+    }
+
+    .hero-title-highlight {
+      display: inline;
+      background: transparent;
+      color: var(--blue-primary);
+      padding: 0;
+      border-radius: 0;
+      box-decoration-break: normal;
+      -webkit-box-decoration-break: normal;
+      transition: color 0.3s ease;
+    }
+
+    .hero-side {
+      padding-bottom: 0.6rem;
+    }
+
+    .hero-side p {
+      font-size: clamp(1.08rem, 1.35vw, 1.25rem);
+      line-height: 1.62;
+      color: var(--text-body);
+      max-width: 460px;
+      font-weight: 400;
+    }
+
+
+
+    /* ================= VISUAL CONTAINERS & CARDS ================= */
+    .visual-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface);
+      border: none;
+      box-shadow: 0 24px 60px rgba(18, 32, 60, 0.08), 0 4px 14px rgba(0, 0, 0, 0.03);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .visual-card:hover {
+      box-shadow: 0 32px 80px rgba(18, 32, 60, 0.12), 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .visual-card:hover img {
+      transform: scale(1.015);
+    }
+
+    .hero-visual {
+      min-height: clamp(380px, 50vw, 680px);
+      margin-bottom: clamp(80px, 10vw, 150px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ================= ARTWORK FALLBACK EMBED SYSTEM ================= */
+    /* When user adds individual images, they load seamlessly. In the meantime,
+       these crafted CSS panels faithfully mirror the design and typography from the mockup! */
+    .artwork-hero-box {
+      width: 100%;
+      min-height: clamp(380px, 50vw, 680px);
+      background: linear-gradient(180deg, #f8fafc 0%, #eef3f9 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: clamp(28px, 5vw, 64px);
+      overflow: hidden;
+    }
+
+    .artwork-hero-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) contrast(120%);
+    }
+
+    .artwork-museum-badge {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      padding: clamp(24px, 3.5vw, 44px) clamp(36px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+
+    .museum-m-icon {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: #000;
+      line-height: 1;
+      border: 3.5px solid #000;
+      padding: 4px 14px;
+      letter-spacing: -0.05em;
+    }
+
+    .museum-badge-text h4 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #000;
+      line-height: 1.1;
+    }
+
+    .museum-badge-text p {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ================= CHAPTERS & EDITORIAL GRID ================= */
+    .chapter {
+      border-top: 1px solid var(--line);
+      padding: clamp(48px, 6vw, 84px) 0 clamp(90px, 11vw, 150px);
+    }
+
+    .chapter-head {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: clamp(28px, 5vw, 84px);
+      margin-bottom: clamp(44px, 6vw, 76px);
+    }
+
+    .chapter-no {
+      color: var(--violet-deep);
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding-top: 6px;
+    }
+
+    .chapter-title {
+      font-size: clamp(2.4rem, 4.4vw, 4.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-weight: 800;
+      max-width: 950px;
+      text-wrap: balance;
+    }
+
+    .chapter-title span.blue-highlight,
+    .chapter-title span.violet-highlight {
+      color: var(--violet-primary);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      gap: clamp(40px, 7vw, 110px);
+      align-items: start;
+    }
+
+    /* Meta Table (Left Column) */
+    .meta-table {
+      position: sticky;
+      top: 36px;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .meta-value {
+      color: var(--text-head);
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .meta-value.tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      font-weight: 500;
+    }
+
+    .meta-value.tags span::before {
+      content: "/ ";
+      color: var(--violet-primary);
+      font-weight: 700;
+    }
+
+    /* Right Column Copy */
+    .copy-lead {
+      font-size: clamp(1.4rem, 2.1vw, 2.1rem);
+      line-height: 1.42;
+      letter-spacing: -0.02em;
+      color: var(--text-head);
+      max-width: 820px;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .copy-body {
+      margin-top: 26px;
+      max-width: 760px;
+      color: var(--text-body);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .copy-body strong {
+      color: var(--text-head);
+      font-weight: 600;
+    }
+
+    /* Caption below cards */
+    .caption {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: clamp(24px, 5vw, 84px);
+      padding-top: 20px;
+      color: var(--text-muted);
+    }
+
+    .caption p {
+      max-width: 820px;
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* ================= POSTER 1: 82 PORTRAITS GRID ================= */
+    .poster-preview-card {
+      width: 100%;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 56px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: clamp(48px, 7vw, 96px);
+      border: none;
+      box-shadow: 0 24px 60px rgba(18, 32, 60, 0.08);
+    }
+
+    .poster-sheet {
+      width: min(840px, 100%);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.09);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* ================= POSTER 2: THE CHAIR & SLOW OBSERVATION ================= */
+    .chair-poster-container {
+      margin-top: clamp(48px, 6.5vw, 90px);
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 56px);
+      border: none;
+      box-shadow: 0 24px 60px rgba(18, 32, 60, 0.08);
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ================= SPREAD & FINAL POSTER ================= */
+    .spread-container {
+      margin-top: clamp(48px, 6.5vw, 90px);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: none;
+      box-shadow: 0 24px 60px rgba(18, 32, 60, 0.08);
+    }
+
+    .final-portrait-poster-container {
+      margin-top: clamp(48px, 6.5vw, 90px);
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 56px);
+      border: none;
+      box-shadow: 0 24px 60px rgba(18, 32, 60, 0.08);
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ================= POSTER GRAPHIC REPRODUCTIONS ================= */
+    /* Poster 1 Mockup Frame */
+    .mockup-poster-inner {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 82 Portraits Grid */
+    .portraits-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 3px;
+      background: #e2e8f0;
+      padding: 8px;
+    }
+
+    .portrait-cell {
+      aspect-ratio: 0.75;
+      background: #0087c9;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portrait-cell:nth-child(even) { background: #0077b6; }
+    .portrait-cell:nth-child(3n) { background: #0096c7; }
+    .portrait-cell:nth-child(5n) { background: #023e8a; }
+
+    .figure-silhouette {
+      width: 68%;
+      height: 75%;
+      border-radius: 50% 50% 10% 10%;
+      background: rgba(255, 255, 255, 0.85);
+      position: relative;
+    }
+
+    .figure-chair {
+      position: absolute;
+      bottom: 2px;
+      width: 80%;
+      height: 40%;
+      border: 1.5px solid rgba(245, 158, 11, 0.9);
+      border-bottom: none;
+    }
+
+    /* Poster Lower Section */
+    .poster-content-band {
+      padding: 36px 36px 28px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .poster-title-h2 {
+      font-size: clamp(2rem, 3.8vw, 3.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: #000;
+      font-weight: 900;
+    }
+
+    .poster-meta-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 18px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .poster-dates {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #000;
+      line-height: 1.3;
+    }
+
+    .poster-url {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .poster-brand-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .poster-qr-box {
+      width: 38px;
+      height: 38px;
+      background: #000;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      border-radius: 4px;
+    }
+
+    .poster-social-icons {
+      display: flex;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: #000;
+    }
+
+    .poster-orsay-logo {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #000;
+    }
+
+    /* Poster 2: Chair Hall */
+    .chair-hall-visual {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hall-chairs-art {
+      width: 100%;
+      height: 340px;
+      background: linear-gradient(180deg, #d6d3d1 0%, #e7e5e4 50%, #f5f5f4 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hall-chair-row {
+      display: flex;
+      gap: 22px;
+      position: absolute;
+      bottom: 24px;
+    }
+
+    .chair-icon-graphic {
+      width: 34px;
+      height: 52px;
+      border: 2px solid #b45309;
+      border-bottom: 4px solid #b45309;
+      position: relative;
+    }
+
+    .chair-icon-graphic::after {
+      content: "";
+      position: absolute;
+      top: -24px;
+      left: 0;
+      width: 100%;
+      height: 24px;
+      border: 2px solid #b45309;
+      border-bottom: none;
+    }
+
+    .poster-blue-box-title {
+      background: var(--blue-primary);
+      color: #ffffff;
+      padding: 18px 24px;
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .poster-black-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 900;
+      color: #000;
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      margin-top: 6px;
+    }
+
+    /* Poster 3: Iconic Blue Portrait Poster */
+    .portrait-poster-card {
+      width: 100%;
+      max-width: 680px;
+      background: var(--blue-primary);
+      color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 82, 255, 0.35);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .portrait-visual-box {
+      width: 100%;
+      height: 480px;
+      position: relative;
+      background: radial-gradient(circle at 65% 35%, #2a75ff 0%, #0045d6 60%, #002d99 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .portrait-face-graphic {
+      width: 320px;
+      height: 380px;
+      border-radius: 50% 50% 40% 40%;
+      background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 25%, #60a5fa 70%, #1e3a8a 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .portrait-glasses {
+      position: absolute;
+      top: 36%;
+      display: flex;
+      gap: 24px;
+    }
+
+    .glass-circle {
+      width: 72px;
+      height: 72px;
+      border: 6px solid #fbbf24;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .portrait-cap {
+      position: absolute;
+      top: 8%;
+      width: 260px;
+      height: 90px;
+      background: #e2e8f0;
+      border-radius: 120px 120px 0 0;
+      border: 3px solid #cbd5e1;
+    }
+
+    .portrait-poster-content {
+      padding: 38px clamp(28px, 4vw, 48px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .portrait-poster-content h2 {
+      font-size: clamp(2.4rem, 4.4vw, 4rem);
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    /* Spread Interior Painting */
+    .spread-artwork-box {
+      width: 100%;
+      min-height: 480px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 30%, #3b82f6 70%, #1d4ed8 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .grid-perspective-floor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 45%;
+      background: repeating-linear-gradient(45deg, #fef08a, #fef08a 18px, #fde047 18px, #fde047 36px);
+      opacity: 0.85;
+      transform: perspective(600px) rotateX(45deg);
+      transform-origin: bottom center;
+    }
+
+    /* ================= NEXT PROJECT SECTION ================= */
+    .next-section {
+      padding: clamp(70px, 9vw, 130px) 0 60px;
+    }
+
+    .next-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: clamp(34px, 5vw, 68px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      box-shadow: 0 20px 50px rgba(18, 32, 60, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .next-card:hover {
+      border-color: var(--blue-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 28px 70px rgba(2, 132, 199, 0.16);
+    }
+
+    .next-card h2 {
+      font-size: clamp(2.2rem, 4.4vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      color: var(--text-head);
+      margin: 14px 0 10px;
+      font-weight: 800;
+    }
+
+    .next-card p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .next-arrow-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: var(--blue-tint);
+      border: 1.5px solid var(--line-blue);
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      color: var(--blue-primary);
+      transition: all 0.3s ease;
+    }
+
+    .next-card:hover .next-arrow-circle {
+      background: var(--blue-primary);
+      color: #ffffff;
+      transform: scale(1.08) rotate(45deg);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding: 32px 0 48px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-back-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--blue-deep);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .footer-back-top-btn:hover {
+      background: var(--blue-primary);
+      color: #ffffff;
+      border-color: var(--blue-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.25);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--blue-primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .hero-grid, .overview-grid {
+        grid-template-columns: 1fr;
+      }
+      .meta-table {
+        position: static;
+        margin-bottom: 24px;
+      }
+      .chapter-head, .caption {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-nav {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        height: 72px;
+      }
+      .nav-logo {
+        height: 24px;
+        display: block;
+      }
+      .pill-link {
+        padding: 7px 12px;
+        font-size: 0.72rem;
+      }
+      .lang-pill {
+        padding: 2px;
+        gap: 2px;
+      }
+      .lang-btn {
+        padding: 4px 7px;
+        font-size: 0.70rem;
+      }
+      h1.hero-title {
+        font-size: clamp(2.5rem, 10.5vw, 4.2rem);
+      }
+      .hero-title-highlight {
+        padding: 0.02em 0.14em 0.06em;
+      }
+      .meta-row {
+        grid-template-columns: 100px 1fr;
+      }
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+      .next-arrow-circle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Ambient Background System (Projects Light Edition) -->
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-spotlight" id="ambientSpotlight"></div>
+  <div class="ambient-grid"></div>
+</div>
+
+<div class="page">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="shell">
+    
+    <!-- ================= FLOATING GLASS NAVBAR ================= -->
+    <nav class="top-nav" aria-label="Navigazione case study">
+      <a class="pill-link" href="projects.html" id="navBackProjects">← Tutti i progetti</a>
+      <a href="index.html" aria-label="Home Bypatdesigner">
+        <img class="nav-logo" src="./img/logo.png" alt="Bypatdesigner" />
+      </a>
+      <div class="nav-actions">
+        <div class="lang-pill" role="group" aria-label="Selettore lingua">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-kicker" id="caseCategory">POSTER DESIGN | ACADEMIC 2020 | DAVID HOCKNEY</div>
+          <h1 class="hero-title" id="caseTitle">
+            <span id="caseTitleLine1">The art of</span><br>
+            <span class="hero-title-highlight" id="caseTitleHighlight">admiring art</span>
+          </h1>
+        </div>
+        <div class="hero-side">
+          <p id="heroIntro">
+            A visual campaign and poster series inspired by David Hockney's slow-looking philosophy, inviting visitors to pause, take a seat, and truly observe art at the Musée d'Orsay.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO VISUAL: EXHIBITION / MUSEUM ATMOSPHERE ================= -->
+    <figure class="visual-card hero-visual" id="visualHero" style="padding: 0; background: #ffffff; border: none; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden;">
+      <img id="imgHero" src="./img/hockney/hero.png" alt="Musée d'Orsay — The Art of Admiring Art Hero Atmosphere" style="width: 100%; height: auto; display: block; object-fit: cover; border: none;" />
+    </figure>
+
+    <!-- ================= MAIN CASE STUDY CONTENT ================= -->
+    <main>
+
+      <!-- CHAPTER 01: CONCEPT & PHILOSOPHY -->
+      <section class="chapter" id="concept">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap1No">01 — Concept</div>
+          <h2 class="chapter-title" id="chap1Title">
+            An invitation to sit, <span class="violet-highlight">slow down</span> and truly observe art.
+          </h2>
+        </div>
+
+        <div class="overview-grid">
+          <!-- Left Specs Table -->
+          <aside class="meta-table" aria-label="Informazioni progetto">
+            <div class="meta-row">
+              <div class="meta-label">Year</div>
+              <div class="meta-value" id="specYear">2020</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Project</div>
+              <div class="meta-value" id="specIndustry">Exhibition Campaign &amp; Posters</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Context</div>
+              <div class="meta-value" id="specTimeline">Musée d'Orsay · Academic Project</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Scope</div>
+              <div class="meta-value tags" id="specScope">
+                <span>Visual Identity</span>
+                <span>Poster Design</span>
+                <span>Art Direction</span>
+              </div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Tools</div>
+              <div class="meta-value tags" id="specTech">
+                <span>Illustrator</span>
+                <span>InDesign</span>
+                <span>Photoshop</span>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right Narrative Copy -->
+          <div>
+            <p class="copy-lead" id="caseLead">
+              In contemporary museums, studies demonstrate that visitors spend an average of only 15 to 30 seconds before passing by an artwork.
+            </p>
+            <p class="copy-body" id="contextResearch">
+              <strong>"The art of admiring art"</strong> challenges this culture of accelerated consumption. Rooted in David Hockney's celebrated practice of contemplative vision, multiple perspectives, and vibrant color, this campaign creates a deliberate environment where visitors are invited to sit down, slow their pace, and enter into an authentic, enduring dialogue with the canvas.
+            </p>
+          </div>
+        </div>
+
+        <!-- POSTER 1: 82 PORTRAITS GRID -->
+        <div class="poster-preview-card" style="padding: clamp(20px, 4vw, 56px); background: #ffffff; border-radius: var(--radius-lg); border: none; box-shadow: var(--shadow-lg); display: flex; justify-content: center; margin-top: clamp(48px, 7vw, 96px);">
+          <img id="imgPosterGrid" src="./img/hockney/poster-grid.jpg" alt="Poster The art of admiring art - 82 Portraits Grid" style="width: min(720px, 100%); height: auto; display: block; border-radius: 12px; box-shadow: 0 16px 44px rgba(18, 14, 40, 0.08); border: none;" />
+        </div>
+
+        <div class="caption">
+          <div class="mono" id="caption1Mono" style="padding-top:8px;">01 Poster Series</div>
+          <p id="caption1Text">
+            The first poster of the campaign revisits David Hockney's celebrated series <em>"82 Portraits and 1 Still-life"</em>, where every subject is portrayed seated on the same chair. The modular grid conveys plurality, human presence, and the value of shared observation.
+          </p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 02: THE CHAIR AS A SYMBOL OF SLOW OBSERVATION -->
+      <section class="chapter" id="chair">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap2No">02 — The Motif</div>
+          <h2 class="chapter-title" id="chap2Title">
+            The <span class="violet-highlight">chair</span> as a symbol of slow observation.
+          </h2>
+        </div>
+
+        <p class="copy-body" id="chap2Body" style="max-width: 860px; font-size: 1.2rem; margin-top: 0;">
+          The chair is far more than a functional object: in Hockney's universe, it is an intimate stage for human presence, dignity, and focused contemplation. In this campaign, the chair becomes the central architectural and visual motif — an explicit invitation to pause. Seating visitors directly in front of the masterpieces transforms spectatorship from passive browsing into an intentional, immersive experience.
+        </p>
+
+        <!-- POSTER 2: THE HALL OF CHAIRS -->
+        <div class="chair-poster-container" style="padding: clamp(20px, 4vw, 56px); background: #ffffff; border-radius: var(--radius-lg); border: none; box-shadow: var(--shadow-lg); display: flex; justify-content: center; margin-top: clamp(48px, 6.5vw, 90px);">
+          <img id="imgPosterChairs" src="./img/hockney/poster-chairs.jpg" alt="Poster The Chair as a symbol of slow observation" style="width: min(720px, 100%); height: auto; display: block; border-radius: 12px; box-shadow: 0 16px 44px rgba(18, 14, 40, 0.08); border: none;" />
+        </div>
+
+        <div class="caption">
+          <div class="mono" id="caption2Mono" style="padding-top:8px;">02 Spatial Poster</div>
+          <p id="caption2Text">
+            In the second poster, the museum gallery is populated with chairs facing the artworks: a direct invitation to the physical act of sitting down to rediscover deep viewing time. The electric blue block stamps the title with modernist authority.
+          </p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 03: VISUAL RESEARCH TO POSTER COMPOSITION -->
+      <section class="chapter" id="research">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap3No">03 — Art Direction</div>
+          <h2 class="chapter-title" id="chap3Title">
+            From visual research to <span class="violet-highlight">poster</span> composition.
+          </h2>
+        </div>
+
+        <p class="copy-body" id="chap3Body" style="max-width: 860px; font-size: 1.2rem; margin-top: 0;">
+          Deconstructing Hockney's chromatic palette, dynamic perspective games, and innovative interior spaces allowed for an expansive poster series. By pairing high-voltage ultramarine blue with Swiss typographic precision and organic painterly textures, each format bridges traditional exhibition dignity with striking contemporary street visibility.
+        </p>
+
+        <!-- SPREAD / INTERIOR PERSPECTIVE COMPOSITION -->
+        <div class="spread-container" style="background: #ffffff; border-radius: var(--radius-lg); border: none; box-shadow: var(--shadow-lg); overflow: hidden; margin-top: clamp(48px, 6.5vw, 90px);">
+          <img id="imgSpreadInterior" src="./img/hockney/spread-interior.jpg" alt="David Hockney Gallery Interior Perspective Spread" style="width: 100%; height: auto; display: block; object-fit: cover; border: none;" />
+        </div>
+
+        <div class="caption">
+          <div class="mono" id="caption3Mono" style="padding-top:8px;">03 Interior Study</div>
+          <p id="caption3Text">
+            Study of reverse perspectives and chromatic planes typical of David Hockney's interiors. The editorial composition translates spatial complexity into an accessible and immersive visual grid.
+          </p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 04: THE VISUAL INVITATION TO ADMIRE ART -->
+      <section class="chapter" id="invitation">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap4No">04 — Identity</div>
+          <h2 class="chapter-title" id="chap4Title">
+            A visual invitation to <span class="violet-highlight">admire art</span> differently.
+          </h2>
+        </div>
+
+        <p class="copy-body" id="chap4Body" style="max-width: 860px; font-size: 1.2rem; margin-top: 0;">
+          The campaign reaches its climax with the iconic portrait poster: David Hockney himself emerging from a field of electric blue, yellow-framed glasses, and vibrant textural strokes. It functions as both a tribute to the master and a clear call to action for art lovers: to rediscover the lost art of lingering.
+        </p>
+
+        <!-- POSTER 4: ICONIC BLUE PORTRAIT POSTER -->
+        <div class="final-portrait-poster-container" style="padding: clamp(20px, 4vw, 56px); background: #ffffff; border-radius: var(--radius-lg); border: none; box-shadow: var(--shadow-lg); display: flex; justify-content: center; margin-top: clamp(48px, 6.5vw, 90px);">
+          <img id="imgPosterPortrait" src="./img/hockney/poster-portrait.jpg" alt="Final Portrait Poster — David Hockney The art of admiring art" style="width: min(720px, 100%); height: auto; display: block; border-radius: 14px; box-shadow: 0 24px 60px rgba(0, 82, 255, 0.22); border: none;" />
+        </div>
+
+        <div class="caption">
+          <div class="mono" id="caption4Mono" style="padding-top:8px;">04 Master Poster</div>
+          <p id="caption4Text">
+            The main poster of the campaign: the artist's portrait framed by cobalt blue and his iconic yellow round glasses. The white lettering stands out boldly for high urban visibility and institutional sophistication.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================= NEXT PROJECT NAVIGATION ================= -->
+    <section class="next-section">
+      <a class="next-card" href="cinepass-project.html" aria-label="Next project Cinepass">
+        <div>
+          <div class="mono blue-accent" id="nextTag">Next Project</div>
+          <h2 id="nextTitle">Cinepass</h2>
+          <p id="nextDesc">Mobile App UI/UX Case Study — From movie discovery to cinema seat booking in one seamless flow.</p>
+        </div>
+        <div class="next-arrow-circle">↗</div>
+      </a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <button class="footer-back-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+        <span>↑</span>
+        <span id="footerBackTopText">Back to top</span>
+      </button>
+      <div class="footer-links">
+        <a href="index.html" id="footerHomeLink">Home</a>
+        <a href="projects.html" id="footerProjectsLink">Projects</a>
+        <a href="cv-en.html" id="footerCvLink">Resume</a>
+        <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener">Behance ↗</a>
+        <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  // Ambient Dynamic Spotlight Tracking (Projects Light edition)
+  const spotlight = document.getElementById('ambientSpotlight');
+  window.addEventListener('mousemove', (e) => {
+    if (spotlight) {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+    }
+  });
+
+  // Internationalization Dictionary (English default, Italian, Spanish)
+  const HOCKNEY_I18N = {
+    en: {
+      pageTitle: "The art of admiring art — David Hockney | Case Study",
+      pageMetaDesc: "The art of admiring art — Exhibition campaign and visual identity inspired by David Hockney for the Musée d'Orsay.",
+      kicker: "POSTER DESIGN | ACADEMIC 2020 | DAVID HOCKNEY",
+      titleLine1: "The art of",
+      titleHighlight: "admiring art",
+      heroIntro: "A visual campaign and poster series inspired by David Hockney's slow-looking philosophy, inviting visitors to pause, take a seat, and truly observe art at the Musée d'Orsay.",
+      heroIndex: ["01 Concept", "02 The Chair", "03 Posters", "04 Exhibition"],
+      
+      chap1No: "01 — Concept",
+      chap1Title: 'An invitation to sit, <span class="violet-highlight">slow down</span> and truly observe art.',
+      specIndustry: "Exhibition Campaign & Posters",
+      specTimeline: "Musée d'Orsay · Academic Project",
+      specScope: ["Visual Identity", "Poster Design", "Art Direction"],
+      caseLead: "In contemporary museums, studies demonstrate that visitors spend an average of only 15 to 30 seconds before passing by an artwork.",
+      caseBody: '<strong>"The art of admiring art"</strong> challenges this culture of accelerated consumption. Rooted in David Hockney\'s celebrated practice of contemplative vision, multiple perspectives, and vibrant color, this campaign creates a deliberate environment where visitors are invited to sit down, slow their pace, and enter into an authentic, enduring dialogue with the canvas.',
+      caption1Mono: "01 Poster Series",
+      caption1Text: 'The first poster of the campaign revisits David Hockney\'s celebrated series <em>"82 Portraits and 1 Still-life"</em>, where every subject is portrayed seated on the same chair. The modular grid conveys plurality, human presence, and the value of shared observation.',
+
+      chap2No: "02 — The Motif",
+      chap2Title: 'The <span class="violet-highlight">chair</span> as a symbol of slow observation.',
+      chap2Body: "The chair is far more than a functional object: in Hockney's universe, it is an intimate stage for human presence, dignity, and focused contemplation. In this campaign, the chair becomes the central architectural and visual motif — an explicit invitation to pause. Seating visitors directly in front of the masterpieces transforms spectatorship from passive browsing into an intentional, immersive experience.",
+      caption2Mono: "02 Spatial Poster",
+      caption2Text: "In the second poster, the museum gallery is populated with chairs facing the artworks: a direct invitation to the physical act of sitting down to rediscover deep viewing time. The electric blue block stamps the title with modernist authority.",
+
+      chap3No: "03 — Art Direction",
+      chap3Title: 'From visual research to <span class="violet-highlight">poster</span> composition.',
+      chap3Body: "Deconstructing Hockney's chromatic palette, dynamic perspective games, and innovative interior spaces allowed for an expansive poster series. By pairing high-voltage ultramarine blue with Swiss typographic precision and organic painterly textures, each format bridges traditional exhibition dignity with striking contemporary street visibility.",
+      caption3Mono: "03 Interior Study",
+      caption3Text: "Study of reverse perspectives and chromatic planes typical of David Hockney's interiors. The editorial composition translates spatial complexity into an accessible and immersive visual grid.",
+
+      chap4No: "04 — Identity",
+      chap4Title: 'A visual invitation to <span class="violet-highlight">admire art</span> differently.',
+      chap4Body: "The campaign reaches its climax with the iconic portrait poster: David Hockney himself emerging from a field of electric blue, yellow-framed glasses, and vibrant textural strokes. It functions as both a tribute to the master and a clear call to action for art lovers: to rediscover the lost art of lingering.",
+      caption4Mono: "04 Master Poster",
+      caption4Text: "The main poster of the campaign: the artist's portrait framed by cobalt blue and his iconic yellow round glasses. The white lettering stands out boldly for high urban visibility and institutional sophistication.",
+
+      nextTag: "Next Project",
+      nextTitle: "Cinepass",
+      nextDesc: "Mobile App UI/UX Case Study — From movie discovery to cinema seat booking in one seamless flow.",
+      
+      navBack: "← All projects",
+      footerBackTop: "Back to top",
+      footerHome: "Home",
+      footerProjects: "Projects",
+      footerCv: "Resume"
+    },
+    es: {
+      pageTitle: "El arte de admirar el arte — David Hockney | Case Study",
+      pageMetaDesc: "El arte de admirar el arte — Campaña de exposición e identidad visual inspirada en David Hockney para el Musée d'Orsay.",
+      kicker: "POSTER DESIGN | ACADÉMICO 2020 | DAVID HOCKNEY",
+      titleLine1: "El arte de",
+      titleHighlight: "admirar el arte",
+      heroIntro: "Una campaña visual y una serie de carteles inspiradas en la filosofía de David Hockney de observar con calma, que invitan a los visitantes a detenerse, sentarse y observar verdaderamente el arte en el Museo de Orsay.",
+      heroIndex: ["01 Concepto", "02 La Silla", "03 Carteles", "04 Exposición"],
+      
+      chap1No: "01 — Concepto",
+      chap1Title: 'Una invitación a sentarse, <span class="violet-highlight">calmarse</span> y observar verdaderamente el arte.',
+      specIndustry: "Campaña de Exposición & Carteles",
+      specTimeline: "Musée d'Orsay · Proyecto Académico",
+      specScope: ["Identidad Visual", "Diseño de Carteles", "Dirección de Arte"],
+      caseLead: "En los museos contemporáneos, los estudios demuestran que los visitantes pasan una media de solo 15 a 30 segundos antes de pasar a otra obra de arte.",
+      caseBody: '<strong>"El arte de admirar el arte"</strong> desafía esta cultura de consumo acelerado. Inspirada en la célebre práctica de David Hockney de visión contemplativa, múltiples perspectivas y color vibrante, esta campaña crea un entorno deliberado donde se invita a los visitantes a sentarse, bajar el ritmo y entrar en un diálogo auténtico y duradero con el lienzo.',
+      caption1Mono: "01 Serie de Carteles",
+      caption1Text: 'El primer cartel de la campaña retoma la célebre serie <em>"82 Portraits and 1 Still-life"</em> de David Hockney, donde cada sujeto es retratado sentado en la misma silla. La retícula modular transmite pluralidad, presencia humana y el valor de la observación compartida.',
+
+      chap2No: "02 — El Motivo",
+      chap2Title: 'La <span class="violet-highlight">silla</span> como símbolo de observación pausada.',
+      chap2Body: "La silla es mucho más que un objeto funcional: en el universo de Hockney, es un escenario íntimo para la presencia humana, la dignidad y la contemplación profunda. En esta campaña, la silla se convierte en el motivo arquitectónico y visual central, una invitación explícita a hacer una pausa. Sentar a los visitantes frente a las obras maestras transforma la visita de un paseo pasivo a una experiencia intencional e inmersiva.",
+      caption2Mono: "02 Cartel Espacial",
+      caption2Text: "En el segundo cartel, la sala del museo se llena de sillas orientadas hacia las obras: una invitación directa al acto físico de sentarse para recuperar el tiempo de la mirada profunda. El bloque azul eléctrico firma el título con autoridad modernista.",
+
+      chap3No: "03 — Dirección de Arte",
+      chap3Title: 'De la investigación visual a la composición del <span class="violet-highlight">cartel</span>.',
+      chap3Body: "Deconstruir la paleta cromática de Hockney, sus juegos de perspectiva dinámica y sus espacios interiores permitió crear una rica serie de carteles. Al combinar el azul ultramar de alto voltaje con la precisión tipográfica suiza y texturas pictóricas orgánicas, cada formato une la dignidad institucional con una impactante visibilidad contemporánea.",
+      caption3Mono: "03 Estudio de Interiores",
+      caption3Text: "Estudio de las perspectivas inversas y planos cromáticos típicos de los interiores de David Hockney. La composición editorial traduce la complejidad espacial en una retícula visual accesible e inmersiva.",
+
+      chap4No: "04 — Identity",
+      chap4Title: 'Una invitación visual a <span class="violet-highlight">admirar el arte</span> de manera diferente.',
+      chap4Body: "La campaña culmina con el icónico cartel de retrato: el propio David Hockney emergiendo de un fondo azul eléctrico, gafas de montura amarilla y vibrantes trazos matéricos. Funciona tanto como homenaje al maestro como una llamada a la acción para los amantes del arte: redescubrir el placer de detenerse.",
+      caption4Mono: "04 Cartel Principal",
+      caption4Text: "El cartel principal de la campaña: el retrato del artista rodeado de azul cobalto y sus icónicas gafas redondas amarillas. El rótulo blanco destaca con fuerza para garantizar máxima visibilidad urbana y elegancia institucional.",
+
+      nextTag: "Siguiente Proyecto",
+      nextTitle: "Cinepass",
+      nextDesc: "Caso de estudio UI/UX Mobile App — Del descubrimiento de la película a la selección de butaca en un solo flujo.",
+      
+      navBack: "← Todos los proyectos",
+      footerBackTop: "Volver al inicio",
+      footerHome: "Inicio",
+      footerProjects: "Proyectos",
+      footerCv: "CV"
+    },
+    it: {
+      pageTitle: "L'arte di ammirare l'arte — David Hockney | Case Study",
+      pageMetaDesc: "L'arte di ammirare l'arte — Exhibition campaign e visual identity ispirata a David Hockney per il Musée d'Orsay.",
+      kicker: "POSTER DESIGN | ACCADEMICO 2020 | DAVID HOCKNEY",
+      titleLine1: "L'arte di",
+      titleHighlight: "ammirare l'arte",
+      heroIntro: "Una campagna visiva e una serie di poster ispirati alla filosofia dello \"slow looking\" di David Hockney, che invitano i visitatori a fermarsi, sedersi e osservare davvero l'arte al Musée d'Orsay.",
+      heroIndex: ["01 Concetto", "02 La Sedia", "03 Poster", "04 Mostra"],
+      
+      chap1No: "01 — Concetto",
+      chap1Title: 'Un invito a sedersi, <span class="violet-highlight">rallentare</span> e osservare veramente l\'arte.',
+      specIndustry: "Campagna Mostra & Poster",
+      specTimeline: "Musée d'Orsay · Progetto Accademico",
+      specScope: ["Identità Visiva", "Poster Design", "Art Direction"],
+      caseLead: "Nei musei contemporanei, gli studi dimostrano che i visitatori trascorrono in media solo tra i 15 e i 30 secondi prima di passare all'opera successiva.",
+      caseBody: '<strong>"L\'arte di ammirare l\'arte"</strong> sfida questa cultura del consumo rapido. Radicata nella celebre pratica di David Hockney fatta di visione contemplativa, prospettive multiple e colore vibrante, questa campagna crea uno spazio intenzionale in cui i visitatori sono invitati a sedersi, rallentare il ritmo e aprire un dialogo autentico e profondo con l\'opera.',
+      caption1Mono: "01 Serie Poster",
+      caption1Text: 'Il primo poster della campagna riprende la celebre serie <em>"82 Portraits and 1 Still-life"</em> di David Hockney, dove ogni soggetto è ritratto seduto sulla stessa sedia. La griglia modulare trasmette pluralità, presenza umana e il valore dell\'osservazione condivisa.',
+
+      chap2No: "02 — Il Motivo",
+      chap2Title: 'La <span class="violet-highlight">sedia</span> come simbolo di osservazione lenta.',
+      chap2Body: "La sedia è molto più di un oggetto funzionale: nell'universo di Hockney è un palcoscenico intimo per la presenza umana, la dignità e la contemplazione profonda. In questa campagna, la sedia diventa il motivo visivo e architettonico centrale — un invito esplicito a fermarsi. Far accomodare i visitatori direttamente davanti alle opere trasforma la fruizione da semplice passaggio passivo in un'esperienza intenzionale e immersiva.",
+      caption2Mono: "02 Poster Spaziale",
+      caption2Text: "Nel secondo manifesto, la sala del museo si popola di sedie rivolte verso le opere: un invito diretto all'azione fisica del sedersi per ritrovare il tempo dello sguardo profondo. Il blocco blu elettrico firma il titolo con autorevolezza modernista.",
+
+      chap3No: "03 — Art Direction",
+      chap3Title: 'Dalla ricerca visiva alla composizione del <span class="violet-highlight">poster</span>.',
+      chap3Body: "Decostruire la palette cromatica di Hockney, i giochi prospettici dinamici e gli spazi interni ha permesso di sviluppare una serie completa di poster. Unendo il blu oltremare ad alta intensità con la precisione tipografica svizzera e texture pittoriche organiche, ciascun formato unisce il decoro museale a una potente visibilità urbana contemporanea.",
+      caption3Mono: "03 Studio d'Interni",
+      caption3Text: "Studio delle prospettive inverse e dei piani cromatici tipici degli interni di David Hockney. La composizione editoriale traduce la complessità spaziale in una griglia visiva accessibile e immersiva.",
+
+      chap4No: "04 — Identity",
+      chap4Title: 'Un invito visivo ad <span class="violet-highlight">ammirare l\'arte</span> in modo diverso.',
+      chap4Body: "La campagna raggiunge il suo apice con l'iconico poster ritratto: David Hockney stesso che emerge da un campo di blu elettrico, occhiali tondi gialli e vivide pennellate materiche. Funziona sia come omaggio al maestro sia come chiaro invito per gli appassionati d'arte: riscoprire l'arte perduta del soffermarsi.",
+      caption4Mono: "04 Master Poster",
+      caption4Text: "Il manifesto principale della campagna: il ritratto dell'artista avvolto dal blu cobalto e dai suoi iconici occhiali tondi gialli. Il lettering bianco spicca con forza per garantire massima visibilità urbana ed eleganza istituzionale.",
+
+      nextTag: "Prossimo Progetto",
+      nextTitle: "Cinepass",
+      nextDesc: "Mobile App UI/UX Case Study — Dalla scoperta del film alla selezione del posto al cinema in un unico flusso.",
+      
+      navBack: "← Tutti i progetti",
+      footerBackTop: "Torna all'inizio",
+      footerHome: "Home",
+      footerProjects: "Progetti",
+      footerCv: "CV"
+    }
+  };
+
+  let currentLang = 'en';
+
+  function setLanguage(lang) {
+    if (!HOCKNEY_I18N[lang]) lang = 'en';
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Update active class on language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.dataset.lang === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    const d = HOCKNEY_I18N[lang];
+
+    // Navigation back link
+    const navBackEl = document.getElementById('navBackProjects');
+    if (navBackEl && d.navBack) navBackEl.textContent = d.navBack;
+
+    // Page metadata
+    const titleEl = document.getElementById('pageTitle');
+    if (titleEl && d.pageTitle) titleEl.textContent = d.pageTitle;
+    const metaDescEl = document.getElementById('pageMetaDesc');
+    if (metaDescEl && d.pageMetaDesc) metaDescEl.setAttribute('content', d.pageMetaDesc);
+
+    // Hero Section
+    const kickEl = document.getElementById('caseCategory');
+    if (kickEl) kickEl.textContent = d.kicker;
+
+    const titleLine1El = document.getElementById('caseTitleLine1');
+    if (titleLine1El) titleLine1El.textContent = d.titleLine1;
+
+    const titleHighlightEl = document.getElementById('caseTitleHighlight');
+    if (titleHighlightEl) titleHighlightEl.textContent = d.titleHighlight;
+
+    const introEl = document.getElementById('heroIntro');
+    if (introEl) introEl.textContent = d.heroIntro;
+
+
+
+    // Chapter 01
+    const c1No = document.getElementById('chap1No');
+    if (c1No) c1No.textContent = d.chap1No;
+    const c1Title = document.getElementById('chap1Title');
+    if (c1Title) c1Title.innerHTML = d.chap1Title;
+    const sInd = document.getElementById('specIndustry');
+    if (sInd) sInd.textContent = d.specIndustry;
+    const sTime = document.getElementById('specTimeline');
+    if (sTime) sTime.textContent = d.specTimeline;
+    const sScope = document.getElementById('specScope');
+    if (sScope && d.specScope) {
+      sScope.innerHTML = d.specScope.map(tag => `<span>${tag}</span>`).join('');
+    }
+    const cLead = document.getElementById('caseLead');
+    if (cLead) cLead.textContent = d.caseLead;
+    const cBody = document.getElementById('contextResearch');
+    if (cBody) cBody.innerHTML = d.caseBody;
+    const cap1Mono = document.getElementById('caption1Mono');
+    if (cap1Mono) cap1Mono.textContent = d.caption1Mono;
+    const cap1Text = document.getElementById('caption1Text');
+    if (cap1Text) cap1Text.innerHTML = d.caption1Text;
+
+    // Chapter 02
+    const c2No = document.getElementById('chap2No');
+    if (c2No) c2No.textContent = d.chap2No;
+    const c2Title = document.getElementById('chap2Title');
+    if (c2Title) c2Title.innerHTML = d.chap2Title;
+    const c2Body = document.getElementById('chap2Body');
+    if (c2Body) c2Body.textContent = d.chap2Body;
+    const cap2Mono = document.getElementById('caption2Mono');
+    if (cap2Mono) cap2Mono.textContent = d.caption2Mono;
+    const cap2Text = document.getElementById('caption2Text');
+    if (cap2Text) cap2Text.textContent = d.caption2Text;
+
+    // Chapter 03
+    const c3No = document.getElementById('chap3No');
+    if (c3No) c3No.textContent = d.chap3No;
+    const c3Title = document.getElementById('chap3Title');
+    if (c3Title) c3Title.innerHTML = d.chap3Title;
+    const c3Body = document.getElementById('chap3Body');
+    if (c3Body) c3Body.textContent = d.chap3Body;
+    const cap3Mono = document.getElementById('caption3Mono');
+    if (cap3Mono) cap3Mono.textContent = d.caption3Mono;
+    const cap3Text = document.getElementById('caption3Text');
+    if (cap3Text) cap3Text.textContent = d.caption3Text;
+
+    // Chapter 04
+    const c4No = document.getElementById('chap4No');
+    if (c4No) c4No.textContent = d.chap4No;
+    const c4Title = document.getElementById('chap4Title');
+    if (c4Title) c4Title.innerHTML = d.chap4Title;
+    const c4Body = document.getElementById('chap4Body');
+    if (c4Body) c4Body.textContent = d.chap4Body;
+    const cap4Mono = document.getElementById('caption4Mono');
+    if (cap4Mono) cap4Mono.textContent = d.caption4Mono;
+    const cap4Text = document.getElementById('caption4Text');
+    if (cap4Text) cap4Text.textContent = d.caption4Text;
+
+    // Next Section
+    const nTag = document.getElementById('nextTag');
+    if (nTag) nTag.textContent = d.nextTag;
+    const nTitle = document.getElementById('nextTitle');
+    if (nTitle) nTitle.textContent = d.nextTitle;
+    const nDesc = document.getElementById('nextDesc');
+    if (nDesc) nDesc.textContent = d.nextDesc;
+
+    // Footer
+    const fTop = document.getElementById('footerBackTopText');
+    if (fTop) fTop.textContent = d.footerBackTop;
+    const fHome = document.getElementById('footerHomeLink');
+    if (fHome) fHome.textContent = d.footerHome;
+    const fProj = document.getElementById('footerProjectsLink');
+    if (fProj) fProj.textContent = d.footerProjects;
+    const fCv = document.getElementById('footerCvLink');
+    if (fCv) {
+      fCv.textContent = d.footerCv;
+      fCv.href = lang === 'es' ? 'cv-es.html' : (lang === 'it' ? 'cv.html' : 'cv-en.html');
+    }
+
+    // Save language
+    try {
+      localStorage.setItem('bypat_hockney_lang', lang);
+      localStorage.setItem('bypat_lang', lang);
+    } catch (e) {}
+  }
+
+  // Click listeners for language switcher buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const selected = btn.dataset.lang;
+      if (selected && selected !== currentLang) {
+        setLanguage(selected);
+      }
+    });
+  });
+
+  // Default to English as explicitly requested, or respect user explicit selection
+  document.addEventListener('DOMContentLoaded', () => {
+    try {
+      const saved = localStorage.getItem('bypat_hockney_lang');
+      if (saved && ['en', 'es', 'it'].includes(saved)) {
+        setLanguage(saved);
+      } else {
+        setLanguage('en');
+      }
+    } catch (e) {
+      setLanguage('en');
+    }
+  });
+</script>
+</body>
+</html>

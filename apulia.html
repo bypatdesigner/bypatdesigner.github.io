@@ -1,0 +1,2629 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">Apulia Promoting US — Brand Identity & Campagna Territoriale | Bypatdesigner</title>
+  <meta name="description" id="pageMetaDesc" content="Apulia Promoting US — Identità visiva e campagna territoriale 'Percorrendo Boccadoro' per riscoprire il patrimonio naturale di Boccadoro-Ariscianne." />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
+  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
+  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+
+  <style>
+    /* ============================================================
+       LOCAL WEBFONTS — CABINET GROTESK & SATOSHI
+       ============================================================ */
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
+      font-weight: 800;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    /* ============================================================
+       DESIGN TOKENS — APULIA PROMOTING US MEDITERRANEAN EDITION
+       ============================================================ */
+    :root {
+      --canvas: #FAFBF9;
+      --canvas-subtle: #F2F5F2;
+      --surface: #FFFFFF;
+      --surface-elevated: #F6F8F6;
+      --surface-glass: rgba(255, 255, 255, 0.94);
+      --card-bg: rgba(255, 255, 255, 0.98);
+      --card-hover: #FFFFFF;
+      
+      /* High-Contrast Editorial Typography */
+      --ink: #253B34;                  /* Mediterranean Deep Pine */
+      --text-main: #30443D;
+      --text-head: #253B34;
+      --text-body: #475850;
+      --text-muted: #677870;
+      --text-dim: #8E9E96;
+      
+      /* Apulia Signature Brand Colors */
+      --green-primary: #637868;        /* Boccadoro Sage Flora */
+      --sand-primary: #D9B78D;         /* Mediterranean Sand & Maggese */
+      --terracotta-primary: #94603A;   /* Southern Warm Clay */
+      --ink-primary: #253B34;          /* Deep Olive Pine */
+      --gold-primary: #E0C097;         /* Sunburst Highlight */
+      --white-primary: #FFFFFF;        /* Pure White */
+      
+      /* Soft Tints & Ambient Glows */
+      --green-tint: rgba(99, 120, 104, 0.09);
+      --green-tint-hover: rgba(99, 120, 104, 0.16);
+      --green-glow: rgba(99, 120, 104, 0.28);
+      
+      --sand-tint: rgba(217, 183, 141, 0.14);
+      --sand-tint-hover: rgba(217, 183, 141, 0.24);
+      --sand-glow: rgba(217, 183, 141, 0.35);
+      
+      --terracotta-tint: rgba(148, 96, 58, 0.08);
+      --terracotta-tint-hover: rgba(148, 96, 58, 0.15);
+
+      /* Lines & Dividers */
+      --line: rgba(37, 59, 52, 0.10);
+      --line-light: rgba(37, 59, 52, 0.15);
+      --line-green: rgba(99, 120, 104, 0.26);
+      --line-sand: rgba(217, 183, 141, 0.32);
+      --line-terracotta: rgba(148, 96, 58, 0.28);
+
+      /* Shadows */
+      --shadow-sm: 0 4px 14px rgba(37, 59, 52, 0.04);
+      --shadow-md: 0 14px 34px rgba(37, 59, 52, 0.06), 0 2px 6px rgba(99, 120, 104, 0.04);
+      --shadow-lg: 0 24px 60px rgba(37, 59, 52, 0.08), 0 0 35px rgba(217, 183, 141, 0.05);
+      --shadow-xl: 0 32px 80px rgba(37, 59, 52, 0.12), 0 0 45px rgba(99, 120, 104, 0.08);
+
+      /* Radii */
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+
+      /* Fonts */
+      --font-display: "Cabinet Grotesk", "CabinetGrotesk-Extrabold", "CabinetGrotesk-Bold", system-ui, -apple-system, sans-serif;
+      --font-body: "Satoshi", "Satoshi-Regular", "Satoshi-Medium", system-ui, -apple-system, sans-serif;
+      --font-mono: "Satoshi", "Satoshi-Medium", monospace;
+
+      --pad: clamp(20px, 4vw, 56px);
+      --max: 1400px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--canvas);
+      color-scheme: light;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    ::selection {
+      background: #EEDECB;
+      color: var(--ink-primary);
+    }
+
+    h1, h2, h3, h4, .display-font {
+      font-family: var(--font-display);
+      color: var(--ink);
+    }
+
+    /* Ambient Background Mesh & Dynamic Spotlight */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 840px;
+      height: 840px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217, 183, 141, 0.16) 0%, rgba(99, 120, 104, 0.08) 45%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 20%;
+      transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(37, 59, 52, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(37, 59, 52, 0.04) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      opacity: 0.85;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      background: transparent;
+      z-index: 1;
+    }
+
+    /* Ambient noise texture */
+    .noise {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .shell {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 700;
+    }
+
+    .sand-accent {
+      color: var(--terracotta-primary);
+    }
+    .green-accent {
+      color: var(--green-primary);
+    }
+
+    /* ================= TOP NAVIGATION ================= */
+    .top-nav {
+      height: 90px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .top-nav > :first-child {
+      justify-self: start;
+    }
+
+    .nav-logo-link {
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+      transition: transform 0.25s ease;
+      filter: brightness(0);
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-actions {
+      justify-self: end;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* Glassmorphism Language Selector */
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-full);
+      padding: 3px 4px;
+      gap: 2px;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lang-btn:hover {
+      color: var(--green-primary);
+      background: var(--green-tint);
+    }
+
+    .lang-btn.active {
+      background: var(--ink-primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(37, 59, 52, 0.25);
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text-head);
+      background: var(--surface-glass);
+      backdrop-filter: blur(16px);
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+      justify-self: start;
+      width: fit-content;
+      max-width: fit-content;
+      white-space: nowrap;
+    }
+
+    .pill-link:hover {
+      border-color: var(--terracotta-primary);
+      background: var(--surface);
+      color: var(--terracotta-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(148, 96, 58, 0.16);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      padding: clamp(64px, 8.5vw, 130px) 0 clamp(36px, 5vw, 72px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: clamp(36px, 6vw, 96px);
+      align-items: flex-end;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink-primary);
+      margin-bottom: 22px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--terracotta-primary);
+    }
+
+    h1.hero-title {
+      font-size: clamp(3.8rem, 8.6vw, 8.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      color: var(--ink);
+      font-weight: 800;
+      max-width: 1050px;
+      text-wrap: balance;
+    }
+
+    .hero-title-highlight {
+      display: inline-block;
+      color: var(--terracotta-primary);
+    }
+
+    .hero-side {
+      padding-bottom: 0.6rem;
+    }
+
+    .hero-side strong {
+      display: block;
+      font-size: clamp(1.2rem, 1.6vw, 1.55rem);
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .hero-side p {
+      font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+      line-height: 1.62;
+      color: var(--text-body);
+      max-width: 480px;
+      font-weight: 400;
+    }
+
+    .hero-quick-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 24px;
+    }
+
+    .hero-quick-index a {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 3px;
+      transition: all 0.2s ease;
+    }
+
+    .hero-quick-index a:hover {
+      color: var(--terracotta-primary);
+      border-color: var(--terracotta-primary);
+    }
+
+    /* ================= VISUAL CARD ARCHITECTURE ================= */
+    .visual-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid rgba(37, 59, 52, 0.08);
+      box-shadow: 0 24px 60px rgba(37, 59, 52, 0.06), 0 4px 14px rgba(0, 0, 0, 0.02);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .visual-card:hover {
+      box-shadow: 0 32px 80px rgba(37, 59, 52, 0.10), 0 6px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .hero-visual {
+      margin-bottom: clamp(60px, 8vw, 110px);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: inherit;
+    }
+
+    
+
+    .brand-promise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(20px, 3.5vw, 40px);
+      margin-top: clamp(40px, 6vw, 76px);
+    }
+
+    /* ================= CHAPTERS & EDITORIAL GRID ================= */
+    .chapter {
+      border-top: 1px solid var(--line);
+      padding: clamp(48px, 6vw, 84px) 0 clamp(80px, 10vw, 130px);
+    }
+
+    .chapter-head {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: clamp(28px, 5vw, 84px);
+      margin-bottom: clamp(40px, 5.5vw, 70px);
+    }
+
+    .chapter-no {
+      color: var(--terracotta-primary);
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding-top: 6px;
+    }
+
+    .chapter-title {
+      font-size: clamp(2.4rem, 4.4vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-weight: 800;
+      max-width: 960px;
+      text-wrap: balance;
+    }
+
+    .chapter-title span.green-highlight {
+      color: var(--green-primary);
+    }
+    .chapter-title span.sand-highlight {
+      color: var(--terracotta-primary);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      gap: clamp(40px, 7vw, 110px);
+      align-items: start;
+    }
+
+    /* Meta Table (Left Column) */
+    .meta-table {
+      position: sticky;
+      top: 36px;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .meta-value {
+      color: var(--text-head);
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .meta-value.tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      font-weight: 500;
+    }
+
+    .meta-value.tags span::before {
+      content: "/ ";
+      color: var(--terracotta-primary);
+      font-weight: 700;
+    }
+
+    /* Right Column Copy */
+    .copy-lead {
+      font-size: clamp(1.35rem, 2vw, 1.95rem);
+      line-height: 1.42;
+      letter-spacing: -0.02em;
+      color: var(--text-head);
+      max-width: 820px;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .copy-body {
+      margin-top: 24px;
+      max-width: 760px;
+      color: var(--text-body);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .copy-body strong {
+      color: var(--text-head);
+      font-weight: 600;
+    }
+
+    .question-callout {
+      margin: 32px 0 28px;
+      padding: 24px 28px;
+      border-left: 3px solid var(--terracotta-primary);
+      background: var(--sand-tint);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.1vw, 1.75rem);
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* Caption below cards */
+    .caption {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: clamp(24px, 5vw, 84px);
+      padding-top: 20px;
+      color: var(--text-muted);
+    }
+
+    .caption p {
+      max-width: 820px;
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* ================= SYMBOL STORY LAYOUT ================= */
+    .symbol-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 56px);
+      align-items: stretch;
+      margin-top: clamp(40px, 6vw, 72px);
+    }
+
+    .story-card {
+      padding: clamp(36px, 5vw, 68px);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--ink-primary) 0%, #1c2d27 100%);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 480px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(37, 59, 52, 0.22);
+    }
+
+    .story-card::before {
+      content: "04";
+      position: absolute;
+      right: -0.04em;
+      top: -0.22em;
+      font-family: var(--font-display);
+      font-size: clamp(10rem, 24vw, 22rem);
+      color: rgba(255, 255, 255, 0.06);
+      line-height: 1;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    .story-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.6vw, 3.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      position: relative;
+      color: #FFFFFF;
+    }
+
+    .story-card p {
+      color: rgba(255, 255, 255, 0.88);
+      margin-top: 22px;
+      max-width: 520px;
+      position: relative;
+      font-size: 1.12rem;
+      line-height: 1.7;
+    }
+
+    .story-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      position: relative;
+    }
+
+    .story-card-tags span {
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.12);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--sand-primary);
+    }
+
+    /* ================= PALETTE GRID ================= */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: clamp(40px, 6vw, 70px);
+    }
+
+    .palette-swatch {
+      min-height: 230px;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .palette-swatch:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
+    }
+
+    .swatch-green       { background: var(--green-primary); }
+    .swatch-sand        { background: var(--sand-primary); color: var(--ink); }
+    .swatch-terracotta  { background: var(--terracotta-primary); }
+    .swatch-pine        { background: var(--ink-primary); }
+    .swatch-white       { 
+      background: #FFFFFF; 
+      color: var(--ink-primary); 
+      border: 1px solid rgba(37, 59, 52, 0.12);
+      box-shadow: 0 12px 30px rgba(37, 59, 52, 0.08);
+    }
+
+    .swatch-sand .swatch-copy-hint,
+    .swatch-white .swatch-copy-hint {
+      background: rgba(37, 59, 52, 0.08);
+      color: var(--ink-primary);
+    }
+
+    .palette-swatch b {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .palette-swatch span {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      opacity: 0.85;
+      margin-top: 6px;
+      letter-spacing: 0.08em;
+    }
+
+    .swatch-copy-hint {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: all 0.2s ease;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .palette-swatch:hover .swatch-copy-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= GUIDELINES FLIPBOOK ================= */
+    .guidelines-flipbook-wrap {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin-top: clamp(40px, 6vw, 72px);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .guidelines-flipbook-wrap:hover {
+      box-shadow: var(--shadow-xl);
+    }
+
+    .flipbook-header {
+      padding: 20px clamp(16px, 3vw, 32px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      background: #F8FAF8;
+      flex-wrap: wrap;
+    }
+
+    .flipbook-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .flipbook-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: var(--sand-tint);
+      color: var(--terracotta-primary);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .flipbook-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin: 0;
+    }
+
+    .flipbook-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .flipbook-counter {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-body);
+      font-weight: 700;
+      padding: 0 8px;
+      user-select: none;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .flipbook-counter span#flipbookCurrent {
+      color: var(--terracotta-primary);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .flipbook-icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #FFFFFF;
+      color: var(--ink-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .flipbook-icon-btn:hover:not(:disabled) {
+      background: var(--ink-primary);
+      color: #FFFFFF;
+      border-color: var(--ink-primary);
+      transform: scale(1.05);
+    }
+
+    .flipbook-icon-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .flipbook-stage {
+      position: relative;
+      background: #EDF1EE;
+      padding: clamp(16px, 3.5vw, 42px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: clamp(380px, 48vw, 680px);
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .flipbook-book {
+      position: relative;
+      max-width: 980px;
+      width: 100%;
+      perspective: 1600px;
+    }
+
+    .flipbook-page-wrap {
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(37, 59, 52, 0.16), 0 2px 8px rgba(37, 59, 52, 0.08);
+      transform-origin: left center;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+    }
+
+    .flipbook-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      aspect-ratio: 16 / 10;
+      background: #FFFFFF;
+    }
+
+    .flipbook-spine-shadow {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 32px;
+      background: linear-gradient(to right, rgba(37, 59, 52, 0.15) 0%, rgba(37, 59, 52, 0.03) 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .flipbook-corner-hint {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(37, 59, 52, 0.85);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.70rem;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .flipbook-stage:hover .flipbook-corner-hint {
+      opacity: 0.95;
+      transform: translateX(0);
+    }
+
+    .flipbook-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 25%;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      z-index: 5;
+    }
+    .flipbook-zone.left { left: 0; cursor: w-resize; }
+    .flipbook-zone.right { right: 0; cursor: e-resize; }
+
+    .flipbook-anim-next {
+      animation: flipBookNext 0.42s cubic-bezier(0.2, 0.8, 0.25, 1);
+    }
+    .flipbook-anim-prev {
+      animation: flipBookPrev 0.42s cubic-bezier(0.2, 0.8, 0.25, 1);
+    }
+    @keyframes flipBookNext {
+      0% { transform: perspective(1600px) rotateY(0deg); opacity: 1; filter: brightness(1); }
+      45% { transform: perspective(1600px) rotateY(-14deg) scale(0.97); filter: brightness(0.92); }
+      100% { transform: perspective(1600px) rotateY(0deg) scale(1); opacity: 1; filter: brightness(1); }
+    }
+    @keyframes flipBookPrev {
+      0% { transform: perspective(1600px) rotateY(0deg); opacity: 1; filter: brightness(1); }
+      45% { transform: perspective(1600px) rotateY(14deg) scale(0.97); filter: brightness(0.92); }
+      100% { transform: perspective(1600px) rotateY(0deg) scale(1); opacity: 1; filter: brightness(1); }
+    }
+
+    .flipbook-nav-tabs {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-top: 1px solid var(--line);
+      background: #FFFFFF;
+    }
+
+    .flipbook-tab {
+      padding: 14px 10px;
+      border: none;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      border-right: 1px solid var(--line);
+      transition: all 0.2s ease;
+      color: var(--text-muted);
+    }
+
+    .flipbook-tab:last-child {
+      border-right: none;
+    }
+
+    .flipbook-tab .tab-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-dim);
+    }
+
+    .flipbook-tab .tab-name {
+      font-family: var(--font-display);
+      font-size: 0.80rem;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .flipbook-tab:hover {
+      background: #FAFBF9;
+      color: var(--terracotta-primary);
+    }
+
+    .flipbook-tab.active {
+      background: #F3F6F4;
+      box-shadow: inset 0 3px 0 var(--terracotta-primary);
+    }
+
+    .flipbook-tab.active .tab-num {
+      color: var(--terracotta-primary);
+    }
+
+    .flipbook-tab.active .tab-name {
+      color: var(--ink-primary);
+    }
+
+    /* Fullscreen state */
+    .guidelines-flipbook-wrap:fullscreen,
+    .guidelines-flipbook-wrap:-webkit-full-screen {
+      background: #15241F;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .guidelines-flipbook-wrap:fullscreen .flipbook-header,
+    .guidelines-flipbook-wrap:-webkit-full-screen .flipbook-header {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+    }
+
+    .guidelines-flipbook-wrap:fullscreen .flipbook-title,
+    .guidelines-flipbook-wrap:-webkit-full-screen .flipbook-title {
+      color: #FFFFFF;
+    }
+
+    .guidelines-flipbook-wrap:fullscreen .flipbook-counter,
+    .guidelines-flipbook-wrap:-webkit-full-screen .flipbook-counter {
+      color: #FFFFFF;
+    }
+
+    .guidelines-flipbook-wrap:fullscreen .flipbook-stage,
+    .guidelines-flipbook-wrap:-webkit-full-screen .flipbook-stage {
+      background: transparent;
+      flex: 1;
+    }
+
+    .guidelines-flipbook-wrap:fullscreen .flipbook-book,
+    .guidelines-flipbook-wrap:-webkit-full-screen .flipbook-book {
+      max-width: 85vh;
+    }
+
+    .guidelines-flipbook-wrap:fullscreen .flipbook-nav-tabs,
+    .guidelines-flipbook-wrap:-webkit-full-screen .flipbook-nav-tabs {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+    }
+
+    .guidelines-flipbook-wrap:fullscreen .flipbook-tab .tab-name,
+    .guidelines-flipbook-wrap:-webkit-full-screen .flipbook-tab .tab-name {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* PDF Full Document Hero Panel */
+    .pdf-panel {
+      background: linear-gradient(135deg, var(--ink-primary) 0%, #172722 100%);
+      color: #FFFFFF;
+      padding: clamp(34px, 5.5vw, 76px);
+      border-radius: var(--radius-xl);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 36px;
+      align-items: center;
+      margin-top: clamp(48px, 6vw, 84px);
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pdf-panel::after {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      border: 80px solid rgba(255, 255, 255, 0.04);
+      right: -120px;
+      top: -120px;
+      pointer-events: none;
+    }
+
+    .pdf-panel .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sand-primary);
+      font-weight: 700;
+    }
+
+    .pdf-panel h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 14px 0 16px;
+      color: #FFFFFF;
+    }
+
+    .pdf-panel p {
+      color: #E2E8E4;
+      font-size: 1.08rem;
+      line-height: 1.65;
+      max-width: 600px;
+    }
+
+    .pdf-action-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 36px);
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+
+    .pdf-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--sand-primary);
+      color: var(--ink-primary);
+      padding: 18px 26px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(217, 183, 141, 0.25);
+    }
+
+    .pdf-link-btn:hover {
+      background: #E8CDAA;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(217, 183, 141, 0.4);
+    }
+
+    .pdf-meta-note {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #CAD5CE;
+      margin-top: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ================= APPLICATIONS GRID ================= */
+    .application-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: clamp(40px, 6vw, 76px);
+    }
+
+    .application-grid .visual-card {
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+    }
+
+    .application-grid .visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ================= CLOSING STATEMENT BANNER ================= */
+    .closing-banner {
+      margin-top: 48px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--green-primary) 0%, #3a5047 100%);
+      color: #FFFFFF;
+      padding: clamp(46px, 8vw, 96px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(37, 59, 52, 0.22);
+    }
+
+    .closing-banner::after {
+      content: "";
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      border: 85px solid rgba(255, 255, 255, 0.08);
+      right: -100px;
+      top: -120px;
+      pointer-events: none;
+    }
+
+    .closing-banner small {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--sand-primary);
+    }
+
+    .closing-banner h3 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.8vw, 5.4rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      margin-top: 20px;
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+      color: #FFFFFF;
+    }
+
+    /* ================= NEXT PROJECT SECTION ================= */
+    .next-section {
+      padding: clamp(70px, 9vw, 130px) 0 60px;
+    }
+
+    .next-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: clamp(34px, 5vw, 68px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #FFFFFF;
+      box-shadow: 0 20px 50px rgba(37, 59, 52, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .next-card:hover {
+      border-color: var(--terracotta-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 28px 70px rgba(148, 96, 58, 0.15);
+    }
+
+    .next-card h2 {
+      font-size: clamp(2.2rem, 4.4vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      color: var(--text-head);
+      margin: 14px 0 10px;
+      font-weight: 800;
+    }
+
+    .next-card p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .next-arrow-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: var(--sand-tint);
+      border: 1.5px solid var(--line-sand);
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      color: var(--terracotta-primary);
+      transition: all 0.3s ease;
+    }
+
+    .next-card:hover .next-arrow-circle {
+      background: var(--terracotta-primary);
+      color: #FFFFFF;
+      transform: scale(1.08) rotate(45deg);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding: 32px 0 48px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-back-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      border: 1px solid var(--line);
+      background: #FFFFFF;
+      color: var(--ink-primary);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .footer-back-top-btn:hover {
+      background: var(--terracotta-primary);
+      color: #FFFFFF;
+      border-color: var(--terracotta-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(148, 96, 58, 0.25);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--terracotta-primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1200px) {
+      .palette-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .flipbook-nav-tabs {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .overview-grid, .symbol-layout, .application-grid, .pdf-panel {
+        grid-template-columns: 1fr;
+      }
+      .palette-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .meta-table {
+        position: static;
+        margin-bottom: 24px;
+      }
+      .chapter-head, .caption {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .flipbook-nav-tabs {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .flipbook-tab .tab-name {
+        font-size: 0.72rem;
+      }
+      .flipbook-tab {
+        padding: 10px 4px;
+      }
+      .brand-promise-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-nav {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        height: 72px;
+      }
+      .nav-logo {
+        height: 24px;
+        display: block;
+      }
+      .pill-link {
+        padding: 7px 12px;
+        font-size: 0.72rem;
+      }
+      .lang-pill {
+        padding: 2px;
+        gap: 2px;
+      }
+      .lang-btn {
+        padding: 4px 7px;
+        font-size: 0.70rem;
+      }
+      h1.hero-title {
+        font-size: clamp(3rem, 14vw, 5rem);
+      }
+      .palette-grid {
+        grid-template-columns: 1fr;
+      }
+      .meta-row {
+        grid-template-columns: 100px 1fr;
+      }
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+      .next-arrow-circle {
+        display: none;
+      }
+      .closing-banner {
+        padding: 36px 24px;
+      }
+      .flipbook-tab .tab-name {
+        display: none;
+      }
+      .flipbook-tab {
+        padding: 8px 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Ambient Background System -->
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-spotlight" id="ambientSpotlight"></div>
+  <div class="ambient-grid"></div>
+</div>
+
+<div class="page">
+  <div class="noise" aria-hidden="true"></div>
+
+  <div class="shell">
+    
+    <!-- ================= FLOATING GLASS NAVBAR ================= -->
+    <nav class="top-nav" aria-label="Navigazione case study">
+      <a class="pill-link" href="projects.html" id="navBackProjects">← Tutti i progetti</a>
+      <a class="nav-logo-link" href="index.html" aria-label="Home Bypatdesigner">
+        <img class="nav-logo" src="./img/logo.png" alt="Bypatdesigner" />
+      </a>
+      <div class="nav-actions">
+        <div class="lang-pill" role="group" aria-label="Selettore lingua">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="it" aria-pressed="true">IT</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-kicker" id="caseCategory">BRAND IDENTITY & CAMPAGNA TERRITORIALE · 2021</div>
+          <h1 class="hero-title" id="caseTitle">
+            Apulia<br>Promoting US<span class="hero-title-highlight">.</span>
+          </h1>
+        </div>
+        <div class="hero-side">
+          <strong id="heroPunchline">Dare visibilità a un territorio che merita di essere scoperto.</strong>
+          <p id="heroIntro">
+            Identità visiva e comunicazione per valorizzare l’oasi di Boccadoro-Ariscianne e invitare le persone a riscoprirne il patrimonio naturale e culturale.
+          </p>
+          <div class="hero-quick-index">
+            <a href="#progetto" id="idx1">01 Il contesto</a>
+            <a href="#identita" id="idx2">02 L’identità</a>
+            <a href="#campagna" id="idx3">03 La campagna</a>
+            <a href="#applicazioni" id="idx4">04 Applicazioni</a>
+            <a href="#manuale-flipbook" id="idx5">05 Flipbook PDF</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO VISUAL ================= -->
+    <figure class="visual-card hero-visual" id="visualHero">
+      <img id="imgHero" src="./img/apulia/hero-manifesto.jpg" alt="Composizione dei manifesti illustrati della campagna Percorrendo Boccadoro" loading="eager" />
+    </figure>
+
+    <!-- ================= MAIN CASE STUDY CONTENT ================= -->
+    <main>
+
+      <!-- CHAPTER 01: CONTEXT & NEED (IL PROGETTO) -->
+      <section class="chapter" id="progetto">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap1No">01 — Il contesto</div>
+          <h2 class="chapter-title" id="chap1Title">
+            Un luogo può essere vicino,<br><span class="green-highlight">eppure restare sconosciuto.</span>
+          </h2>
+        </div>
+
+        <div class="overview-grid">
+          <!-- Left Specs Table -->
+          <aside class="meta-table" aria-label="Informazioni progetto">
+            <div class="meta-row">
+              <div class="meta-label" id="labelYear">Anno</div>
+              <div class="meta-value" id="specYear">2020/21</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label" id="labelProject">Progetto</div>
+              <div class="meta-value" id="specIndustry">Brand Identity & Campagna</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label" id="labelContext">Contesto</div>
+              <div class="meta-value" id="specTimeline">Progetto accademico · Graphic Design 3</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label" id="labelScope">Ambito</div>
+              <div class="meta-value tags" id="specScope">
+                <span>Logo Design</span>
+                <span>Advertising</span>
+                <span>Editorial</span>
+                <span>Social</span>
+                <span>Web Concept</span>
+              </div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label" id="labelAuthors">Autrici</div>
+              <div class="meta-value" id="specAuthors">
+                Jeanny Patricia Garcia<br>Giorgia de Giambattista
+              </div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label" id="labelLocation">Territorio</div>
+              <div class="meta-value" id="specLocation">Boccadoro-Ariscianne (Trani - Barletta)</div>
+            </div>
+          </aside>
+
+          <!-- Right Narrative Copy -->
+          <div>
+            <p class="copy-lead" id="caseLead">
+              Tra Trani e Barletta, la costa custodisce l'oasi di Boccadoro-Ariscianne: un mosaico ecologico unico ricco di specie vegetali, uccelli migratori e sorgenti naturali. Un patrimonio da comprendere prima ancora che da promuovere.
+            </p>
+            <p class="copy-body" id="caseBody">
+              Il brief nasce da una criticità reale: l’area è poco valorizzata e dimenticata da gran parte della comunità locale. Per molti residenti è solo un ricordo dell’infanzia o un paesaggio periferico ignorato dalla quotidianità.
+            </p>
+            
+            <div class="question-callout" id="caseQuestion">
+              “Come riaccendere curiosità e senso di appartenenza verso un luogo che resta ai margini dello sguardo quotidiano?”
+            </div>
+
+            <p class="copy-body" id="caseSolution">
+              Il progetto risponde creando l’identità di <strong>Apulia Promoting US</strong>, associazione culturale fondata da studenti universitari, e sviluppando la campagna integrata <strong>“Percorrendo Boccadoro”</strong>. La comunicazione diventa il ponte vivo tra il territorio e le persone: un invito cordiale a visitarlo, conoscerlo e tutelarlo con consapevolezza.
+            </p>
+          </div>
+        </div>
+
+        <!-- VISUAL 1: PAESAGGIO E TERRITORIO -->
+        <figure class="visual-card" style="margin-top: clamp(40px, 6vw, 76px);" id="visualTerritorio">
+          <img id="imgTerritorio" src="./img/apulia/territorio-paesaggio.jpg" alt="Fotografie del paesaggio e della fauna di Boccadoro-Ariscianne" loading="lazy" />
+        </figure>
+
+        <div class="caption">
+          <div class="mono" id="caption1Mono" style="padding-top:8px;">01 Il territorio</div>
+          <p id="caption1Text">
+            Biodiversità, canneti, sorgenti d’acqua dolce e saline: il paesaggio autentico e le sue specie sono stati il punto di partenza dell'indagine fotografica e grafica.
+          </p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 02: THE SYMBOL & GEOMETRY -->
+      <section class="chapter" id="identita">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap2No">02 — L’identità</div>
+          <h2 class="chapter-title" id="chap2Title">
+            Il paesaggio naturale<br><span class="sand-highlight">si fa sintesi e segno geometrico.</span>
+          </h2>
+        </div>
+
+        <div class="symbol-layout">
+          <!-- Story Card -->
+          <div class="story-card">
+            <h3 id="symbolCardTitle">Sole, mare, maggese e terra.</h3>
+            <p id="symbolCardText">
+              Quattro elementi archetipici del territorio pugliese riuniti in un unico cerchio. Il simbolo li traduce in linee rette, curve fluide e ritmi paralleli, creando un segno essenziale, memorabile e altamente scalabile.
+            </p>
+            <div class="story-card-tags">
+              <span>Geometria Pura</span>
+              <span>Sintesi Visiva</span>
+              <span>Radici Pugliesi</span>
+            </div>
+          </div>
+
+          <!-- VISUAL 2A: SKETCHES & LOGO EXPLORATION -->
+          <figure class="visual-card" id="visualMarchio" style="margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: #ffffff; min-height: clamp(340px, 45vw, 520px);">
+            <img id="imgMarchio" src="./img/apulia/marchio-schizzi.jpg" alt="Schizzi preparatori e versioni del marchio Apulia Promoting US" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
+          </figure>
+        </div>
+
+        <!-- VISUAL 2B: SYSTEM & LOGO DETAIL -->
+        <figure class="visual-card" id="visualSystem" style="margin-top: clamp(40px, 6vw, 72px);">
+          <img id="imgSystem" src="./img/apulia/palette-simbolo.jpg" alt="Palette cromatica, dettaglio del simbolo e tipografia Meta Pro" style="width: 100%; height: auto; display: block;" loading="lazy" />
+        </figure>
+
+        <div class="caption">
+          <div class="mono" id="caption2Mono" style="padding-top:8px;">02 Il marchio</div>
+          <p id="caption2Text">
+            Dall'esplorazione a mano libera fino alla vettorializzazione geometrica: la tipografia Meta Pro conferisce autorevolezza editoriale e contemporaneità all'associazione.
+          </p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 03: VISUAL SYSTEM & PALETTE -->
+      <section class="chapter" id="sistema-visivo">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap3No">03 — Sistema visivo</div>
+          <h2 class="chapter-title" id="chap3Title">
+            Tonalità organiche che evocano<br><span class="green-highlight">la vegetazione e la terra baciata dal sole.</span>
+          </h2>
+        </div>
+
+        <div class="overview-grid">
+          <div>
+            <p class="copy-lead" id="paletteLead">
+              La palette è un tributo cromatico alla macchia mediterranea: il verde salvia delle canne, il beige maggese e la terracotta delle terre calcaree.
+            </p>
+          </div>
+          <p class="copy-body" id="paletteBody" style="margin-top: 0;">
+            Le tinte naturali comunicano autenticità, serenità ed ecologia. L'abbinamento tra toni caldi e freddi conferisce flessibilità visiva sia nei supporti di divulgazione scientifica sia nella grafica promozionale d’impatto.
+          </p>
+        </div>
+
+        <!-- COLOR PALETTE SWATCHES -->
+        <div class="palette-grid" aria-label="Palette cromatica Apulia Promoting US">
+          <div class="palette-swatch swatch-green" onclick="copyHex('#637868', this)" title="Clicca per copiare il codice HEX">
+            <span class="swatch-copy-hint">Copia HEX</span>
+            <b>Verde Salvia</b>
+            <span>#637868</span>
+          </div>
+          <div class="palette-swatch swatch-sand" onclick="copyHex('#D9B78D', this)" title="Clicca per copiare il codice HEX">
+            <span class="swatch-copy-hint">Copia HEX</span>
+            <b>Sabbia Maggese</b>
+            <span>#D9B78D</span>
+          </div>
+          <div class="palette-swatch swatch-terracotta" onclick="copyHex('#94603A', this)" title="Clicca per copiare il codice HEX">
+            <span class="swatch-copy-hint">Copia HEX</span>
+            <b>Terracotta Pugliese</b>
+            <span>#94603A</span>
+          </div>
+          <div class="palette-swatch swatch-pine" onclick="copyHex('#253B34', this)" title="Clicca per copiare il codice HEX">
+            <span class="swatch-copy-hint">Copia HEX</span>
+            <b>Pino Marino Scuro</b>
+            <span>#253B34</span>
+          </div>
+          <div class="palette-swatch swatch-white" onclick="copyHex('#FFFFFF', this)" title="Clicca per copiare il codice HEX">
+            <span class="swatch-copy-hint">Copia HEX</span>
+            <b>Bianco Calce</b>
+            <span>#FFFFFF</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 04: THE CAMPAIGN (PERCORRENDO BOCCADORO) -->
+      <section class="chapter" id="campagna">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap4No">04 — La campagna</div>
+          <h2 class="chapter-title" id="chap4Title">
+            La scoperta comincia con un invito:<br><span class="sand-highlight">“Alla scoperta dell’oasi perduta.”</span>
+          </h2>
+        </div>
+
+        <div class="overview-grid">
+          <div>
+            <p class="copy-lead" id="campaignLead">
+              “Percorrendo Boccadoro” traduce l’identità dell’associazione in un’esperienza sensoriale di esplorazione aperta a grandi e bambini.
+            </p>
+          </div>
+          <div>
+            <p class="copy-body" id="campaignBody" style="margin-top:0;">
+              Uccelli migratori, canne al vento e persone in cammino compongono un racconto visivo illustrato vicino, caldo e accogliente. Il linguaggio illustrato supera la freddezza istituzionale per creare immedesimazione ed entusiasmo.
+            </p>
+            <p class="copy-body" id="campaignBody2">
+              I due manifesti sviluppano due punti di vista complementari: uno pone in primo piano la ricchezza faunistica dell'oasi; l’altro valorizza l'esperienza attiva di chi intraprende la passeggiata nel territorio.
+            </p>
+          </div>
+        </div>
+
+        <!-- VISUAL 3: I DUE MANIFESTI -->
+        <figure class="visual-card" id="visualDuoManifesti" style="margin-top: clamp(40px, 6vw, 72px);">
+          <img id="imgDuoManifesti" src="./img/apulia/manifesti-duo.jpg" alt="I due manifesti: fauna e paesaggio, e una famiglia in cammino" style="width: 100%; height: auto; display: block;" loading="lazy" />
+        </figure>
+
+        <div class="caption">
+          <div class="mono" id="caption3Mono" style="padding-top:8px;">03 I Manifesti</div>
+          <p id="caption3Text">
+            Il luogo e le persone: due sguardi che convergono verso il medesimo obiettivo, stimolare l'esplorazione responsabile e l'affezione per il territorio.
+          </p>
+        </div>
+
+        <!-- VISUAL 4: OUTDOOR BILLBOARD MOCKUP -->
+        <figure class="visual-card" id="visualOutdoor" style="margin-top: clamp(40px, 6vw, 72px);">
+          <img id="imgOutdoor" src="./img/apulia/manifesto-outdoor.jpg" alt="Manifesto della campagna applicato a un cartellone all’aperto" style="width: 100%; height: auto; display: block;" loading="lazy" />
+        </figure>
+      </section>
+
+      <!-- CHAPTER 05: APPLICATIONS & TOUCHPOINTS -->
+      <section class="chapter" id="applicazioni">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap5No">05 — Applicazioni</div>
+          <h2 class="chapter-title" id="chap5Title">
+            Un racconto coordinato che<br><span class="green-highlight">accompagna il visitatore in ogni momento.</span>
+          </h2>
+        </div>
+
+        <p class="copy-body" id="applicationsIntro" style="max-width: 860px; font-size: 1.2rem; margin-top: 0;">
+          Dalla segnaletica ai pieghevoli informativi, dalla presenza social sui canali dell'associazione fino al merchandising sostenibile: ogni supporto risponde a un momento chiave del percorso dell'utente.
+        </p>
+
+        <!-- VISUAL 5: EDITORIAL MATERIALS -->
+        <figure class="visual-card" id="visualEditoriali" style="margin-top: clamp(40px, 6vw, 68px);">
+          <img id="imgEditoriali" src="./img/apulia/materiali-editoriali.jpg" alt="Materiali editoriali e pieghevoli informativi della campagna" style="width: 100%; height: auto; display: block;" loading="lazy" />
+        </figure>
+
+        <div class="caption">
+          <div class="mono" id="caption4Mono" style="padding-top:8px;">04 Materiali Informativi</div>
+          <p id="caption4Text">
+            Il pieghevole illustrato funge da mappa da campo: include dettagli sulle specie protette, itinerari pedonali consigliati e buone norme di comportamento nell'oasi.
+          </p>
+        </div>
+
+        <!-- APPLICATION GRID: DUO OF MERCHANDISING & SOCIAL -->
+        <div class="application-grid">
+          <!-- Merchandising -->
+          <figure class="visual-card" id="visualMerch">
+            <img id="imgMerch" src="./img/apulia/merchandising-tazza.jpg" alt="Applicazioni su tazza, shopper e confezione" loading="lazy" />
+          </figure>
+
+          <!-- Social Instagram -->
+          <figure class="visual-card" id="visualSocial">
+            <img id="imgSocial" src="./img/apulia/social-instagram.jpg" alt="Proposta di comunicazione Instagram" loading="lazy" />
+          </figure>
+        </div>
+
+        <!-- VISUAL 6: LANDING PAGE -->
+        <figure class="visual-card" id="visualWeb" style="margin-top: clamp(40px, 6vw, 68px);">
+          <img id="imgWeb" src="./img/apulia/landing-web.jpg" alt="Proposta di landing page mostrata su schermo" style="width: 100%; height: auto; display: block;" loading="lazy" />
+        </figure>
+
+        <div class="caption">
+          <div class="mono" id="caption5Mono" style="padding-top:8px;">05 Presenza Digitale</div>
+          <p id="caption5Text">
+            La proposta web raccoglie la storia dell'iniziativa, fornisce gli aggiornamenti su eventi guidati ed escursioni e permette ai visitatori di condividere le proprie osservazioni naturalistiche.
+          </p>
+        </div>
+      </section>
+
+      <!-- CHAPTER 06: INTERACTIVE GUIDELINES FLIPBOOK & ORIGINAL PDF -->
+      <section class="chapter" id="manuale-flipbook">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap6No">06 — Il documento</div>
+          <h2 class="chapter-title" id="chap6Title">
+            Sfoglia il manuale di progetto<br><span class="sand-highlight">o scarica il documento completo.</span>
+          </h2>
+        </div>
+
+        <div class="overview-grid">
+          <div>
+            <p class="copy-lead" id="flipbookLead">
+              Dalla ricerca preparatoria alle schede tecniche: naviga le tavole principali del progetto nel visualizzatore flipbook interattivo.
+            </p>
+          </div>
+          <p class="copy-body" id="flipbookBody" style="margin-top: 0;">
+            Il flipbook permette di consultare rapidamente le tavole salienti dell’identità visiva e della campagna, mantenendo l’esperienza immersiva della pubblicazione stampata originale.
+          </p>
+        </div>
+
+        <!-- VISUAL: INTERACTIVE BRAND GUIDELINES FLIPBOOK -->
+        <div class="guidelines-flipbook-wrap" id="flipbookContainer">
+          <div class="flipbook-header">
+            <div class="flipbook-title-wrap">
+              <span class="flipbook-badge"><i class="fa-solid fa-book-open"></i> Project Book</span>
+              <h3 class="flipbook-title" id="flipbookTitleText">Apulia Promoting US — Manuale & Campagna</h3>
+            </div>
+            <div class="flipbook-actions">
+              <button class="flipbook-icon-btn" id="flipbookPrevBtn" title="Tavola precedente" aria-label="Tavola precedente">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <div class="flipbook-counter">
+                <span id="flipbookCurrent">1</span> / <span id="flipbookTotal">6</span>
+              </div>
+              <button class="flipbook-icon-btn" id="flipbookNextBtn" title="Prossima tavola" aria-label="Prossima tavola">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <button class="flipbook-icon-btn" id="flipbookFullscreenBtn" title="Schermo intero" aria-label="Schermo intero">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flipbook-stage" id="flipbookStage">
+            <!-- Click zones for seamless page flipping -->
+            <button class="flipbook-zone left" id="flipbookZoneLeft" aria-label="Tavola precedente" title="Tavola precedente"></button>
+            <button class="flipbook-zone right" id="flipbookZoneRight" aria-label="Prossima tavola" title="Prossima tavola"></button>
+
+            <!-- Book with 3D perspective / depth shadow -->
+            <div class="flipbook-book" id="flipbookBook">
+              <div class="flipbook-page-wrap" id="flipbookPageWrap">
+                <img id="flipbookPageImg" src="./img/apulia/guidelines/page-1.jpg" alt="01 - Il marchio e genesi geometrica" class="flipbook-img" />
+                <div class="flipbook-spine-shadow"></div>
+                <div class="flipbook-corner-hint"><i class="fa-solid fa-arrow-right"></i> Sfoglia</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Navigation Tabs -->
+          <div class="flipbook-nav-tabs" id="flipbookTabs">
+            <button class="flipbook-tab active" data-page="0">
+              <span class="tab-num">01</span>
+              <span class="tab-name">Il Marchio</span>
+            </button>
+            <button class="flipbook-tab" data-page="1">
+              <span class="tab-num">02</span>
+              <span class="tab-name">Colori & Meta Pro</span>
+            </button>
+            <button class="flipbook-tab" data-page="2">
+              <span class="tab-num">03</span>
+              <span class="tab-name">I Manifesti</span>
+            </button>
+            <button class="flipbook-tab" data-page="3">
+              <span class="tab-num">04</span>
+              <span class="tab-name">Pieghevole Guida</span>
+            </button>
+            <button class="flipbook-tab" data-page="4">
+              <span class="tab-num">05</span>
+              <span class="tab-name">Outdoor Billboard</span>
+            </button>
+            <button class="flipbook-tab" data-page="5">
+              <span class="tab-num">06</span>
+              <span class="tab-name">Social Media</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- FULL PDF DOWNLOAD / EXPLORE HERO PANEL -->
+        <section class="pdf-panel" id="documento-originale">
+          <div>
+            <span class="eyebrow" id="pdfPanelEyebrow">Dietro il progetto</span>
+            <h2 id="pdfPanelTitle">Dalla ricerca sul campo<br>alle applicazioni finali.</h2>
+            <p id="pdfPanelDesc">
+              Il documento originale completo raccoglie il brief iniziale, la ricerca storico-territoriale su Boccadoro-Ariscianne, l'analisi dei competitor, gli schizzi preparatori a mano e il piano di comunicazione integrata.
+            </p>
+          </div>
+          <div class="pdf-action-box">
+            <a class="pdf-link-btn" href="./Modelos/apulia-progetto-completo.pdf" target="_blank" rel="noopener" id="pdfPanelCta">
+              <span>Esplora il PDF completo</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <div class="pdf-meta-note" id="pdfPanelSpecs">
+              Documento PDF · 33 pagine ad alta risoluzione · ~93 MB
+            </div>
+          </div>
+        </section>
+
+        <!-- CLOSING BANNER -->
+        <div class="closing-banner">
+          <small id="closingSmall">Apulia Promoting US · Brand Identity</small>
+          <h3 id="closingTitle">Riscoprire la bellezza vicina. Custodire il patrimonio comune.</h3>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ================= NEXT PROJECT NAVIGATION ================= -->
+    <section class="next-section">
+      <a class="next-card" href="eureka.html" aria-label="Prossimo progetto Eureka">
+        <div>
+          <div class="mono sand-accent" id="nextTag">Prossimo Progetto</div>
+          <h2 id="nextTitle">Eureka</h2>
+          <p id="nextDesc">Brand Identity — Una piattaforma professionale per connettere persone, talento e opportunità.</p>
+        </div>
+        <div class="next-arrow-circle">↗</div>
+      </a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <button class="footer-back-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Torna all'inizio">
+        <span>↑</span>
+        <span id="footerBackTopText">Torna all'inizio</span>
+      </button>
+      <div class="footer-links">
+        <a href="index.html" id="footerHomeLink">Home</a>
+        <a href="projects.html" id="footerProjectsLink">Progetti</a>
+        <a href="cv.html" id="footerCvLink">CV</a>
+        <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener">Behance ↗</a>
+        <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  // Ambient Dynamic Spotlight Tracking
+  const spotlight = document.getElementById('ambientSpotlight');
+  window.addEventListener('mousemove', (e) => {
+    if (spotlight) {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+    }
+  });
+
+  // Function to copy Hex color code with visual feedback
+  function copyHex(hex, el) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(hex).then(() => {
+        const hint = el.querySelector('.swatch-copy-hint');
+        if (hint) {
+          const orig = hint.textContent;
+          hint.textContent = 'Copiato!';
+          hint.style.opacity = '1';
+          setTimeout(() => {
+            hint.textContent = orig;
+            hint.style.opacity = '';
+          }, 1500);
+        }
+      });
+    }
+  }
+
+  // ================= INTERNATIONALIZATION SYSTEM (IT / EN / ES) =================
+  const APULIA_I18N = {
+    it: {
+      pageTitle: "Apulia Promoting US — Brand Identity & Campagna Territoriale | Bypatdesigner",
+      pageMetaDesc: "Apulia Promoting US — Identità visiva e campagna territoriale 'Percorrendo Boccadoro' per riscoprire il patrimonio naturale di Boccadoro-Ariscianne.",
+      kicker: "BRAND IDENTITY & CAMPAGNA TERRITORIALE · 2021",
+      caseTitle: 'Apulia<br>Promoting US<span class="hero-title-highlight">.</span>',
+      heroPunchline: "Dare visibilità a un territorio che merita di essere scoperto.",
+      heroIntro: "Identità visiva e comunicazione per valorizzare l’oasi di Boccadoro-Ariscianne e invitare le persone a riscoprirne il patrimonio naturale e culturale.",
+      idx1: "01 Il contesto",
+      idx2: "02 L’identità",
+      idx3: "03 La campagna",
+      idx4: "04 Applicazioni",
+      idx5: "05 Flipbook PDF",
+
+      chap1No: "01 — Il contesto",
+      chap1Title: 'Un luogo può essere vicino,<br><span class="green-highlight">eppure restare sconosciuto.</span>',
+      labelYear: "Anno",
+      labelProject: "Progetto",
+      labelContext: "Contesto",
+      labelScope: "Ambito",
+      labelAuthors: "Autrici",
+      labelLocation: "Territorio",
+      specYear: "2020/21",
+      specIndustry: "Brand Identity & Campagna",
+      specTimeline: "Progetto accademico · Graphic Design 3",
+      specScope: ["Logo Design", "Advertising", "Editorial", "Social", "Web Concept"],
+      specAuthors: "Jeanny Patricia Garcia<br>Giorgia de Giambattista",
+      specLocation: "Boccadoro-Ariscianne (Trani - Barletta)",
+      caseLead: "Tra Trani e Barletta, la costa custodisce l'oasi di Boccadoro-Ariscianne: un mosaico ecologico unico ricco di specie vegetali, uccelli migratori e sorgenti naturali. Un patrimonio da comprendere prima ancora che da promuovere.",
+      caseBody: "Il brief nasce da una criticità reale: l’area è poco valorizzata e dimenticata da gran parte della comunità locale. Per molti residenti è solo un ricordo dell’infanzia o un paesaggio periferico ignorato dalla quotidianità.",
+      caseQuestion: "“Come riaccendere curiosità e senso di appartenenza verso un luogo che resta ai margini dello sguardo quotidiano?”",
+      caseSolution: "Il progetto risponde creando l’identità di <strong>Apulia Promoting US</strong>, associazione culturale fondata da studenti universitari, e sviluppando la campagna integrata <strong>“Percorrendo Boccadoro”</strong>. La comunicazione diventa il ponte vivo tra il territorio e le persone: un invito cordiale a visitarlo, conoscerlo e tutelarlo con consapevolezza.",
+      caption1Mono: "01 Il territorio",
+      caption1Text: "Biodiversità, canneti, sorgenti d’acqua dolce e saline: il paesaggio autentico e le sue specie sono stati il punto di partenza dell'indagine fotografica e grafica.",
+
+      chap2No: "02 — L’identità",
+      chap2Title: 'Il paesaggio naturale<br><span class="sand-highlight">si fa sintesi e segno geometrico.</span>',
+      symbolCardTitle: "Sole, mare, maggese e terra.",
+      symbolCardText: "Quattro elementi archetipici del territorio pugliese riuniti in un unico cerchio. Il simbolo li traduce in linee rette, curve fluide e ritmi paralleli, creando un segno essenziale, memorabile e altamente scalabile.",
+      caption2Mono: "02 Il marchio",
+      caption2Text: "Dall'esplorazione a mano libera fino alla vettorializzazione geometrica: la tipografia Meta Pro conferisce autorevolezza editoriale e contemporaneità all'associazione.",
+
+      chap3No: "03 — Sistema visivo",
+      chap3Title: 'Tonalità organiche che evocano<br><span class="green-highlight">la vegetazione e la terra baciata dal sole.</span>',
+      paletteLead: "La palette è un tributo cromatico alla macchia mediterranea: il verde salvia delle canne, il beige maggese e la terracotta delle terre calcaree.",
+      paletteBody: "Le tinte naturali comunicano autenticità, serenità ed ecologia. L'abbinamento tra toni caldi e freddi conferisce flessibilità visiva sia nei supporti di divulgazione scientifica sia nella grafica promozionale d’impatto.",
+
+      chap4No: "04 — La campagna",
+      chap4Title: 'La scoperta comincia con un invito:<br><span class="sand-highlight">“Alla scoperta dell’oasi perduta.”</span>',
+      campaignLead: "“Percorrendo Boccadoro” traduce l’identità dell’associazione in un’esperienza sensoriale di esplorazione aperta a grandi e bambini.",
+      campaignBody: "Uccelli migratori, canne al vento e persone in cammino compongono un racconto visivo illustrato vicino, caldo e accogliente. Il linguaggio illustrato supera la freddezza istituzionale per creare immedesimazione ed entusiasmo.",
+      campaignBody2: "I due manifesti sviluppano due punti di vista complementari: uno pone in primo piano la ricchezza faunistica dell'oasi; l’altro valorizza l'esperienza attiva di chi intraprende la passeggiata nel territorio.",
+      caption3Mono: "03 I Manifesti",
+      caption3Text: "Il luogo e le persone: due sguardi che convergono verso il medesimo obiettivo, stimolare l'esplorazione responsabile e l'affezione per il territorio.",
+
+      chap5No: "05 — Applicazioni",
+      chap5Title: 'Un racconto coordinato che<br><span class="green-highlight">accompagna il visitatore in ogni momento.</span>',
+      applicationsIntro: "Dalla segnaletica ai pieghevoli informativi, dalla presenza social sui canali dell'associazione fino al merchandising sostenibile: ogni supporto risponde a un momento chiave del percorso dell'utente.",
+      caption4Mono: "04 Materiali Informativi",
+      caption4Text: "Il pieghevole illustrato funge da mappa da campo: include dettagli sulle specie protette, itinerari pedonali consigliati e buone norme di comportamento nell'oasi.",
+      caption5Mono: "05 Presenza Digitale",
+      caption5Text: "La proposta web raccoglie la storia dell'iniziativa, fornisce gli aggiornamenti su eventi guidati ed escursioni e permette ai visitatori di condividere le proprie osservazioni naturalistiche.",
+
+      chap6No: "06 — Il documento",
+      chap6Title: 'Sfoglia il manuale di progetto<br><span class="sand-highlight">o scarica il documento completo.</span>',
+      flipbookLead: "Dalla ricerca preparatoria alle schede tecniche: naviga le tavole principali del progetto nel visualizzatore flipbook interattivo.",
+      flipbookBody: "Il flipbook permette di consultare rapidamente le tavole salienti dell’identità visiva e della campagna, mantenendo l’esperienza immersiva della pubblicazione stampata originale.",
+      flipbookBadge: "Project Book",
+      flipbookHint: "Sfoglia",
+      flipbookTabs: ["Il Marchio", "Colori & Meta Pro", "I Manifesti", "Pieghevole Guida", "Outdoor Billboard", "Social Media"],
+      pdfPanelEyebrow: "Dietro il progetto",
+      pdfPanelTitle: "Dalla ricerca sul campo<br>alle applicazioni finali.",
+      pdfPanelDesc: "Il documento originale completo raccoglie il brief iniziale, la ricerca storico-territoriale su Boccadoro-Ariscianne, l'analisi dei competitor, gli schizzi preparatori a mano e il piano di comunicazione integrata.",
+      pdfPanelCta: "Esplora il PDF completo",
+      pdfPanelSpecs: "Documento PDF · 33 pagine ad alta risoluzione · ~93 MB",
+
+      closingSmall: "Apulia Promoting US · Brand Identity",
+      closingTitle: "Riscoprire la bellezza vicina. Custodire il patrimonio comune.",
+
+      nextTag: "Prossimo Progetto",
+      nextTitle: "Eureka",
+      nextDesc: "Brand Identity — Una piattaforma professionale per connettere persone, talento e opportunità.",
+
+      navBack: "← Tutti i progetti",
+      footerBackTop: "Torna all'inizio",
+      footerHome: "Home",
+      footerProjects: "Progetti",
+      footerCv: "CV"
+    },
+
+    en: {
+      pageTitle: "Apulia Promoting US — Brand Identity & Territorial Campaign | Bypatdesigner",
+      pageMetaDesc: "Apulia Promoting US — Visual identity and territorial campaign 'Percorrendo Boccadoro' to rediscover the natural heritage of Boccadoro-Ariscianne.",
+      kicker: "BRAND IDENTITY & TERRITORIAL CAMPAIGN · 2021",
+      caseTitle: 'Apulia<br>Promoting US<span class="hero-title-highlight">.</span>',
+      heroPunchline: "Bringing visibility to a territory that deserves to be discovered.",
+      heroIntro: "Visual identity and communication to highlight the Boccadoro-Ariscianne oasis and invite people to reconnect with its natural and cultural heritage.",
+      idx1: "01 Context",
+      idx2: "02 Identity",
+      idx3: "03 Campaign",
+      idx4: "04 Touchpoints",
+      idx5: "05 PDF Flipbook",
+
+      chap1No: "01 — The Context",
+      chap1Title: 'A place can be right beside us,<br><span class="green-highlight">yet remain entirely unseen.</span>',
+      labelYear: "Year",
+      labelProject: "Project",
+      labelContext: "Context",
+      labelScope: "Scope",
+      labelAuthors: "Authors",
+      labelLocation: "Territory",
+      specYear: "2020/21",
+      specIndustry: "Brand Identity & Campaign",
+      specTimeline: "Academic project · Graphic Design 3",
+      specScope: ["Logo Design", "Advertising", "Editorial", "Social", "Web Concept"],
+      specAuthors: "Jeanny Patricia Garcia<br>Giorgia de Giambattista",
+      specLocation: "Boccadoro-Ariscianne (Trani - Barletta, Italy)",
+      caseLead: "Between Trani and Barletta along the Adriatic coast lies the Boccadoro-Ariscianne oasis: a unique ecological sanctuary rich in indigenous flora, migratory birds, and freshwater springs. A natural asset that needed to be understood before being promoted.",
+      caseBody: "The brief stems from a genuine challenge: the reserve had suffered from neglect and was largely overlooked by the local community. For many residents it was merely a distant childhood memory or a marginal coastline bypassed in daily life.",
+      caseQuestion: "“How can we rekindle curiosity and stewardship for a place that has faded from daily awareness?”",
+      caseSolution: "The project addresses this by creating the identity for <strong>Apulia Promoting US</strong>, a university student cultural collective, alongside the integrated campaign <strong>“Percorrendo Boccadoro” (Walking Boccadoro)</strong>. Communication becomes the bridge connecting the territory with people: an invitation to explore, learn, and safeguard with mindfulness.",
+      caption1Mono: "01 The Territory",
+      caption1Text: "Biodiversity, reed beds, freshwater springs and salt marshes: the genuine landscape and its wildlife provided the foundation for photographic and visual research.",
+
+      chap2No: "02 — The Identity",
+      chap2Title: 'The natural landscape<br><span class="sand-highlight">condenses into geometric synthesis.</span>',
+      symbolCardTitle: "Sun, sea, fallow land and earth.",
+      symbolCardText: "Four archetypal elements of the Apulian territory unified within a circle. The mark translates them into straight lines, fluid curves and parallel rhythms, creating an essential, memorable, and scalable sign.",
+      caption2Mono: "02 The Logomark",
+      caption2Text: "From freehand exploration to geometric vector precision: Meta Pro typography lends editorial authority and contemporary freshness to the association.",
+
+      chap3No: "03 — Visual System",
+      chap3Title: 'Organic tones evoking<br><span class="green-highlight">native vegetation and sun-drenched earth.</span>',
+      paletteLead: "The palette pays homage to the Mediterranean scrub: sage green reed beds, fallow sand, and warm limestone terracotta.",
+      paletteBody: "Natural earth tones communicate authenticity, serenity, and ecological awareness. The harmony between warm and cool shades ensures versatility across scientific educational guides and bold outdoor promotional media.",
+
+      chap4No: "04 — The Campaign",
+      chap4Title: 'Discovery starts with an open invitation:<br><span class="sand-highlight">“Rediscovering the lost oasis.”</span>',
+      campaignLead: "“Percorrendo Boccadoro” translates the association’s ethos into an exploratory experience designed for all ages.",
+      campaignBody: "Migratory birds, swaying reeds and families walking create a welcoming, warm, illustrated narrative. The illustrated visual language replaces institutional distance with personal empathy and engagement.",
+      campaignBody2: "The two posters develop complementary perspectives: one highlights the rich local fauna; the other celebrates the human joy of walking and reconnecting with nature.",
+      caption3Mono: "03 Campaign Posters",
+      caption3Text: "Place and people: two viewpoints converging toward the same goal — inspiring respectful exploration and local affection.",
+
+      chap5No: "05 — Applications",
+      chap5Title: 'A cohesive visual story<br><span class="green-highlight">guiding the visitor through every step.</span>',
+      applicationsIntro: "From trail signage to folded pocket guides, from university association social channels to sustainable merchandise: every touchpoint addresses a pivotal moment of the journey.",
+      caption4Mono: "04 Information Collateral",
+      caption4Text: "The illustrated brochure acts as a field guide: featuring protected wildlife lists, suggested pedestrian routes, and conservation guidelines.",
+      caption5Mono: "05 Digital Presence",
+      caption5Text: "The digital landing page shares project milestones, schedules guided tours, and enables community members to log bird sightings and photographs.",
+
+      chap6No: "06 — The Document",
+      chap6Title: 'Browse the brand guidelines<br><span class="sand-highlight">or download the complete publication.</span>',
+      flipbookLead: "From preparatory research to design specifications: interact with the project’s main plates in the 3D flipbook viewer.",
+      flipbookBody: "The interactive flipbook provides instant access to key manual spreads while preserving the tactile pleasure of print publication.",
+      flipbookBadge: "Project Book",
+      flipbookHint: "Turn Page",
+      flipbookTabs: ["The Mark", "Palette & Type", "Posters", "Field Guide", "Billboard", "Social Media"],
+      pdfPanelEyebrow: "Behind the Project",
+      pdfPanelTitle: "From field research<br>to final applications.",
+      pdfPanelDesc: "The complete original document compiles the design brief, historical-environmental research, competitor benchmarking, preparatory sketches, and the full communication strategy.",
+      pdfPanelCta: "Explore Full PDF Document",
+      pdfPanelSpecs: "PDF Document · 33 High-Resolution Pages · ~93 MB",
+
+      closingSmall: "Apulia Promoting US · Brand Identity",
+      closingTitle: "Rediscovering nearby beauty. Protecting shared heritage.",
+
+      nextTag: "Next Project",
+      nextTitle: "Eureka",
+      nextDesc: "Brand Identity — A professional platform connecting people, talent, and career opportunities.",
+
+      navBack: "← All projects",
+      footerBackTop: "Back to top",
+      footerHome: "Home",
+      footerProjects: "Projects",
+      footerCv: "Resume"
+    },
+
+    es: {
+      pageTitle: "Apulia Promoting US — Identidad de Marca y Campaña Territorial | Bypatdesigner",
+      pageMetaDesc: "Apulia Promoting US — Identidad visual y campaña territorial 'Percorrendo Boccadoro' para redescubrir el patrimonio natural de Boccadoro-Ariscianne.",
+      kicker: "IDENTIDAD DE MARCA Y CAMPAÑA TERRITORIAL · 2021",
+      caseTitle: 'Apulia<br>Promoting US<span class="hero-title-highlight">.</span>',
+      heroPunchline: "Dar visibilidad a un territorio que merece ser descubierto.",
+      heroIntro: "Identidad visual y comunicación para poner en valor el oasis de Boccadoro-Ariscianne e invitar a las personas a redescubrir su patrimonio natural y cultural.",
+      idx1: "01 El contexto",
+      idx2: "02 La identidad",
+      idx3: "03 La campaña",
+      idx4: "04 Aplicaciones",
+      idx5: "05 Flipbook PDF",
+
+      chap1No: "01 — El contexto",
+      chap1Title: 'Un lugar puede estar muy cerca,<br><span class="green-highlight">y sin embargo permanecer invisible.</span>',
+      labelYear: "Año",
+      labelProject: "Proyecto",
+      labelContext: "Contexto",
+      labelScope: "Alcance",
+      labelAuthors: "Autoras",
+      labelLocation: "Territorio",
+      specYear: "2020/21",
+      specIndustry: "Identidad de Marca y Campaña",
+      specTimeline: "Proyecto académico · Graphic Design 3",
+      specScope: ["Diseño de Logo", "Publicidad", "Editorial", "Social Media", "Concepto Web"],
+      specAuthors: "Jeanny Patricia Garcia<br>Giorgia de Giambattista",
+      specLocation: "Boccadoro-Ariscianne (Trani - Barletta, Italia)",
+      caseLead: "Entre Trani y Barletta, la costa custodia el oasis de Boccadoro-Ariscianne: un mosaico ecológico único rico en flora autóctona, aves migratorias y manantiales naturales. Un patrimonio que requería comprensión antes de ser promocionado.",
+      caseBody: "El brief surge de un problema real: el territorio estaba descuidado y olvidado por gran parte de la comunidad local. Para muchos habitantes era solo un vago recuerdo de infancia o una zona periférica ignorada en la rutina diaria.",
+      caseQuestion: "“¿Cómo reavivar la curiosidad y el sentido de pertenencia hacia un lugar que permanece al margen de la mirada cotidiana?”",
+      caseSolution: "El proyecto responde diseñando la identidad de <strong>Apulia Promoting US</strong>, asociación cultural creada por estudiantes universitarios, y la campaña integrada <strong>“Percorrendo Boccadoro” (Recorriendo Boccadoro)</strong>. La comunicación se convierte en puente vivo entre el territorio y las personas: una invitación a visitarlo, comprenderlo y protegerlo con respeto.",
+      caption1Mono: "01 El territorio",
+      caption1Text: "Biodiversidad, cañaverales, manantiales de agua dulce y salinas: el paisaje auténtico y sus especies constituyeron el punto de partida de la investigación fotográfica y gráfica.",
+
+      chap2No: "02 — La identidad",
+      chap2Title: 'El paisaje natural<br><span class="sand-highlight">se convierte en síntesis y signo geométrico.</span>',
+      symbolCardTitle: "Sol, mar, barbecho y tierra.",
+      symbolCardText: "Cuatro elementos esenciales del paisaje de Puglia reunidos en un círculo armónico. El símbolo los traduce en líneas rectas, curvas fluidas y ritmos paralelos, logrando un signo esencial, memorable y altamente escalable.",
+      caption2Mono: "02 El imagotipo",
+      caption2Text: "De la exploración manual a la vectorización geométrica: la tipografía Meta Pro aporta autoridad editorial y contemporaneidad a la asociación.",
+
+      chap3No: "03 — Sistema visual",
+      chap3Title: 'Tonalidades orgánicas que evocan<br><span class="green-highlight">la vegetación y la tierra acariciada por el sol.</span>',
+      paletteLead: "La paleta rinde homenaje a la naturaleza mediterránea: el verde salvia de los cañaverales, el beige barbecho y la terracota de las tierras calizas.",
+      paletteBody: "Los tonos naturales comunican autenticidad, calma y ecología. El contraste entre matices cálidos y fríos aporta versatilidad tanto en publicaciones informativas como en cartelería de gran formato.",
+
+      chap4No: "04 — La campaña",
+      chap4Title: 'El descubrimiento comienza con una invitación:<br><span class="sand-highlight">“Hacia el descubrimiento del oasis perdido.”</span>',
+      campaignLead: "“Percorrendo Boccadoro” transforma la identidad de la asociación en una experiencia sensorial de exploración al alcance de todos.",
+      campaignBody: "Aves migratorias, vegetación mecida por el viento y familias caminando tejen un relato ilustrado cercano, cálido y acogedor que supera la frialdad institucional.",
+      campaignBody2: "Los dos carteles desarrollan dos miradas complementarias: uno resalta la riqueza natural y faunística del oasis; el otro pone en valor la experiencia humana de recorrerlo a pie.",
+      caption3Mono: "03 Los Carteles",
+      caption3Text: "El lugar y las personas: dos perspectivas que se unen en un propósito común, inspirar el disfrute responsable y el cariño por el territorio.",
+
+      chap5No: "05 — Aplicaciones",
+      chap5Title: 'Un relato coordinado que<br><span class="green-highlight">acompaña al visitante en cada momento.</span>',
+      applicationsIntro: "Desde la señalética hasta los folletos informativos, desde las redes sociales hasta el merchandising sostenible: cada soporte atiende a un momento clave del viaje.",
+      caption4Mono: "04 Materiales Informativos",
+      caption4Text: "El desplegable ilustrado funciona como mapa de campo: reúne fichas de fauna protegida, rutas a pie recomendadas y pautas de respeto ecológico.",
+      caption5Mono: "05 Presencia Digital",
+      caption5Text: "La propuesta web presenta la iniciativa, difunde talleres y excursiones guiadas y permite a la comunidad compartir sus fotografías e impresiones.",
+
+      chap6No: "06 — El documento",
+      chap6Title: 'Hojea el manual de proyecto<br><span class="sand-highlight">o descarga el documento completo en PDF.</span>',
+      flipbookLead: "Desde la investigación de campo hasta las aplicaciones finales: navega las láminas principales del proyecto en el flipbook 3D interactivo.",
+      flipbookBody: "El flipbook interactivo permite consultar ágilmente las láminas más representativas de la identidad visual manteniendo la experiencia editorial impresa.",
+      flipbookBadge: "Libro de Proyecto",
+      flipbookHint: "Pasar Hoja",
+      flipbookTabs: ["El Imagotipo", "Color y Meta Pro", "Los Carteles", "Guía de Campo", "Valla Exterior", "Redes Sociales"],
+      pdfPanelEyebrow: "Detrás del Proyecto",
+      pdfPanelTitle: "De la investigación en el terreno<br>a las aplicaciones finales.",
+      pdfPanelDesc: "El documento original completo reúne el brief, la investigación histórica y ambiental de Boccadoro-Ariscianne, el análisis de contexto, los bocetos manuales y la estrategia global de comunicación.",
+      pdfPanelCta: "Explorar PDF Completo",
+      pdfPanelSpecs: "Documento PDF · 33 páginas en alta resolución · ~93 MB",
+
+      closingSmall: "Apulia Promoting US · Identidad de Marca",
+      closingTitle: "Redescubrir la belleza cercana. Proteger el patrimonio compartido.",
+
+      nextTag: "Siguiente Proyecto",
+      nextTitle: "Eureka",
+      nextDesc: "Identidad de Marca — Una plataforma profesional para conectar personas, talento y oportunidades.",
+
+      navBack: "← Todos los proyectos",
+      footerBackTop: "Volver arriba",
+      footerHome: "Inicio",
+      footerProjects: "Proyectos",
+      footerCv: "CV"
+    }
+  };
+
+  let currentLang = 'it';
+
+  function setLanguage(lang) {
+    if (!APULIA_I18N[lang]) return;
+    currentLang = lang;
+    const d = APULIA_I18N[lang];
+
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      const isActive = b.dataset.lang === lang;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    document.documentElement.lang = lang;
+
+    // Navigation back link
+    const navBackEl = document.getElementById('navBackProjects');
+    if (navBackEl && d.navBack) navBackEl.textContent = d.navBack;
+
+    // Page metadata
+    const titleEl = document.getElementById('pageTitle');
+    if (titleEl && d.pageTitle) titleEl.textContent = d.pageTitle;
+    const metaDescEl = document.getElementById('pageMetaDesc');
+    if (metaDescEl && d.pageMetaDesc) metaDescEl.setAttribute('content', d.pageMetaDesc);
+
+    // Hero Section
+    const kickEl = document.getElementById('caseCategory');
+    if (kickEl) kickEl.textContent = d.kicker;
+    const caseTitleEl = document.getElementById('caseTitle');
+    if (caseTitleEl) caseTitleEl.innerHTML = d.caseTitle;
+    const heroPunchlineEl = document.getElementById('heroPunchline');
+    if (heroPunchlineEl) heroPunchlineEl.textContent = d.heroPunchline;
+    const heroIntroEl = document.getElementById('heroIntro');
+    if (heroIntroEl) heroIntroEl.textContent = d.heroIntro;
+
+    const idx1 = document.getElementById('idx1');
+    if (idx1) idx1.textContent = d.idx1;
+    const idx2 = document.getElementById('idx2');
+    if (idx2) idx2.textContent = d.idx2;
+    const idx3 = document.getElementById('idx3');
+    if (idx3) idx3.textContent = d.idx3;
+    const idx4 = document.getElementById('idx4');
+    if (idx4) idx4.textContent = d.idx4;
+    const idx5 = document.getElementById('idx5');
+    if (idx5) idx5.textContent = d.idx5;
+
+    // Chapter 01
+    const c1No = document.getElementById('chap1No');
+    if (c1No) c1No.textContent = d.chap1No;
+    const c1Title = document.getElementById('chap1Title');
+    if (c1Title) c1Title.innerHTML = d.chap1Title;
+
+    const lYear = document.getElementById('labelYear');
+    if (lYear) lYear.textContent = d.labelYear;
+    const lProj = document.getElementById('labelProject');
+    if (lProj) lProj.textContent = d.labelProject;
+    const lCont = document.getElementById('labelContext');
+    if (lCont) lCont.textContent = d.labelContext;
+    const lScope = document.getElementById('labelScope');
+    if (lScope) lScope.textContent = d.labelScope;
+    const lAuth = document.getElementById('labelAuthors');
+    if (lAuth) lAuth.textContent = d.labelAuthors;
+    const lLoc = document.getElementById('labelLocation');
+    if (lLoc) lLoc.textContent = d.labelLocation;
+
+    const sInd = document.getElementById('specIndustry');
+    if (sInd) sInd.textContent = d.specIndustry;
+    const sTime = document.getElementById('specTimeline');
+    if (sTime) sTime.textContent = d.specTimeline;
+    const sScope = document.getElementById('specScope');
+    if (sScope && d.specScope) {
+      sScope.innerHTML = d.specScope.map(tag => `<span>${tag}</span>`).join('');
+    }
+    const sAuth = document.getElementById('specAuthors');
+    if (sAuth) sAuth.innerHTML = d.specAuthors;
+    const sLoc = document.getElementById('specLocation');
+    if (sLoc) sLoc.textContent = d.specLocation;
+
+    const cLead = document.getElementById('caseLead');
+    if (cLead) cLead.textContent = d.caseLead;
+    const cBody = document.getElementById('caseBody');
+    if (cBody) cBody.textContent = d.caseBody;
+    const cQuest = document.getElementById('caseQuestion');
+    if (cQuest) cQuest.textContent = d.caseQuestion;
+    const cSol = document.getElementById('caseSolution');
+    if (cSol) cSol.innerHTML = d.caseSolution;
+    const cap1Mono = document.getElementById('caption1Mono');
+    if (cap1Mono) cap1Mono.textContent = d.caption1Mono;
+    const cap1Text = document.getElementById('caption1Text');
+    if (cap1Text) cap1Text.textContent = d.caption1Text;
+
+    // Chapter 02
+    const c2No = document.getElementById('chap2No');
+    if (c2No) c2No.textContent = d.chap2No;
+    const c2Title = document.getElementById('chap2Title');
+    if (c2Title) c2Title.innerHTML = d.chap2Title;
+    const sCardTitle = document.getElementById('symbolCardTitle');
+    if (sCardTitle) sCardTitle.textContent = d.symbolCardTitle;
+    const sCardText = document.getElementById('symbolCardText');
+    if (sCardText) sCardText.textContent = d.symbolCardText;
+    const cap2Mono = document.getElementById('caption2Mono');
+    if (cap2Mono) cap2Mono.textContent = d.caption2Mono;
+    const cap2Text = document.getElementById('caption2Text');
+    if (cap2Text) cap2Text.textContent = d.caption2Text;
+
+    // Chapter 03
+    const c3No = document.getElementById('chap3No');
+    if (c3No) c3No.textContent = d.chap3No;
+    const c3Title = document.getElementById('chap3Title');
+    if (c3Title) c3Title.innerHTML = d.chap3Title;
+    const palLead = document.getElementById('paletteLead');
+    if (palLead) palLead.textContent = d.paletteLead;
+    const palBody = document.getElementById('paletteBody');
+    if (palBody) palBody.textContent = d.paletteBody;
+
+    // Chapter 04
+    const c4No = document.getElementById('chap4No');
+    if (c4No) c4No.textContent = d.chap4No;
+    const c4Title = document.getElementById('chap4Title');
+    if (c4Title) c4Title.innerHTML = d.chap4Title;
+    const campLead = document.getElementById('campaignLead');
+    if (campLead) campLead.textContent = d.campaignLead;
+    const campBody = document.getElementById('campaignBody');
+    if (campBody) campBody.textContent = d.campaignBody;
+    const campBody2 = document.getElementById('campaignBody2');
+    if (campBody2) campBody2.textContent = d.campaignBody2;
+    const cap3Mono = document.getElementById('caption3Mono');
+    if (cap3Mono) cap3Mono.textContent = d.caption3Mono;
+    const cap3Text = document.getElementById('caption3Text');
+    if (cap3Text) cap3Text.textContent = d.caption3Text;
+
+    // Chapter 05
+    const c5No = document.getElementById('chap5No');
+    if (c5No) c5No.textContent = d.chap5No;
+    const c5Title = document.getElementById('chap5Title');
+    if (c5Title) c5Title.innerHTML = d.chap5Title;
+    const appIntro = document.getElementById('applicationsIntro');
+    if (appIntro) appIntro.textContent = d.applicationsIntro;
+    const cap4Mono = document.getElementById('caption4Mono');
+    if (cap4Mono) cap4Mono.textContent = d.caption4Mono;
+    const cap4Text = document.getElementById('caption4Text');
+    if (cap4Text) cap4Text.textContent = d.caption4Text;
+    const cap5Mono = document.getElementById('caption5Mono');
+    if (cap5Mono) cap5Mono.textContent = d.caption5Mono;
+    const cap5Text = document.getElementById('caption5Text');
+    if (cap5Text) cap5Text.textContent = d.caption5Text;
+
+    // Chapter 06 Flipbook & PDF Panel
+    const c6No = document.getElementById('chap6No');
+    if (c6No) c6No.textContent = d.chap6No;
+    const c6Title = document.getElementById('chap6Title');
+    if (c6Title) c6Title.innerHTML = d.chap6Title;
+    const fbLead = document.getElementById('flipbookLead');
+    if (fbLead) fbLead.textContent = d.flipbookLead;
+    const fbBody = document.getElementById('flipbookBody');
+    if (fbBody) fbBody.textContent = d.flipbookBody;
+
+    const fbBadge = document.querySelector('.flipbook-badge');
+    if (fbBadge && d.flipbookBadge) fbBadge.innerHTML = `<i class="fa-solid fa-book-open"></i> ${d.flipbookBadge}`;
+    const fbHint = document.querySelector('.flipbook-corner-hint');
+    if (fbHint && d.flipbookHint) fbHint.innerHTML = `<i class="fa-solid fa-arrow-right"></i> ${d.flipbookHint}`;
+    if (d.flipbookTabs) {
+      document.querySelectorAll('.flipbook-tab .tab-name').forEach((el, i) => {
+        if (d.flipbookTabs[i]) el.textContent = d.flipbookTabs[i];
+      });
+    }
+
+    const pEye = document.getElementById('pdfPanelEyebrow');
+    if (pEye) pEye.textContent = d.pdfPanelEyebrow;
+    const pTitle = document.getElementById('pdfPanelTitle');
+    if (pTitle) pTitle.innerHTML = d.pdfPanelTitle;
+    const pDesc = document.getElementById('pdfPanelDesc');
+    if (pDesc) pDesc.textContent = d.pdfPanelDesc;
+    const pCta = document.getElementById('pdfPanelCta');
+    if (pCta) pCta.innerHTML = `<span>${d.pdfPanelCta}</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>`;
+    const pSpecs = document.getElementById('pdfPanelSpecs');
+    if (pSpecs) pSpecs.textContent = d.pdfPanelSpecs;
+
+    const clSmall = document.getElementById('closingSmall');
+    if (clSmall) clSmall.textContent = d.closingSmall;
+    const clTitle = document.getElementById('closingTitle');
+    if (clTitle) clTitle.textContent = d.closingTitle;
+
+    // Next Section
+    const nTag = document.getElementById('nextTag');
+    if (nTag) nTag.textContent = d.nextTag;
+    const nTitle = document.getElementById('nextTitle');
+    if (nTitle) nTitle.textContent = d.nextTitle;
+    const nDesc = document.getElementById('nextDesc');
+    if (nDesc) nDesc.textContent = d.nextDesc;
+
+    // Footer
+    const fTop = document.getElementById('footerBackTopText');
+    if (fTop) fTop.textContent = d.footerBackTop;
+    const fHome = document.getElementById('footerHomeLink');
+    if (fHome) fHome.textContent = d.footerHome;
+    const fProj = document.getElementById('footerProjectsLink');
+    if (fProj) fProj.textContent = d.footerProjects;
+    const fCv = document.getElementById('footerCvLink');
+    if (fCv) {
+      fCv.textContent = d.footerCv;
+      fCv.href = lang === 'es' ? 'cv-es.html' : (lang === 'it' ? 'cv.html' : 'cv-en.html');
+    }
+
+    // Save language to localStorage
+    try {
+      localStorage.setItem('bypat_apulia_lang', lang);
+      localStorage.setItem('bypat_lang', lang);
+    } catch (e) {}
+  }
+
+  // Click listeners for language switcher buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const selected = btn.dataset.lang;
+      if (selected && selected !== currentLang) {
+        setLanguage(selected);
+      }
+    });
+  });
+
+  // Initialization: check localStorage or default to Italian
+  document.addEventListener('DOMContentLoaded', () => {
+    try {
+      const saved = localStorage.getItem('bypat_apulia_lang') || localStorage.getItem('bypat_lang');
+      if (saved && ['en', 'es', 'it'].includes(saved)) {
+        setLanguage(saved);
+      }
+    } catch (e) {
+      setLanguage('it');
+    }
+  });
+
+  // ==========================================
+  // APULIA PROMOTING US GUIDELINES FLIPBOOK
+  // ==========================================
+  const flipbookPages = [
+    { src: './img/apulia/guidelines/page-1.jpg', num: '01', title: 'Il Marchio', alt: '01 - Genesi e bozzetti del marchio Apulia Promoting US' },
+    { src: './img/apulia/guidelines/page-2.jpg', num: '02', title: 'Colori & Meta Pro', alt: '02 - Costruzione geometrica, colori e carattere Meta Pro' },
+    { src: './img/apulia/guidelines/page-3.jpg', num: '03', title: 'I Manifesti', alt: '03 - Manifesti illustrati della campagna Percorrendo Boccadoro' },
+    { src: './img/apulia/guidelines/page-4.jpg', num: '04', title: 'Pieghevole Guida', alt: '04 - Pieghevole informativo e guida tascabile per i visitatori' },
+    { src: './img/apulia/guidelines/page-5.jpg', num: '05', title: 'Outdoor Billboard', alt: '05 - Applicazione su cartellone affissione urbana 6x3' },
+    { src: './img/apulia/guidelines/page-6.jpg', num: '06', title: 'Social Media', alt: '06 - Proposta di comunicazione per feed Instagram' }
+  ];
+
+  let currentFlipIndex = 0;
+  const totalFlipPages = flipbookPages.length;
+
+  const flipImg = document.getElementById('flipbookPageImg');
+  const flipPageWrap = document.getElementById('flipbookPageWrap');
+  const flipCurrentEl = document.getElementById('flipbookCurrent');
+  const flipTotalEl = document.getElementById('flipbookTotal');
+  const flipPrevBtn = document.getElementById('flipbookPrevBtn');
+  const flipNextBtn = document.getElementById('flipbookNextBtn');
+  const flipTabs = document.querySelectorAll('.flipbook-tab');
+  const flipFsBtn = document.getElementById('flipbookFullscreenBtn');
+  const flipContainer = document.getElementById('flipbookContainer');
+
+  function goToFlipPage(index, direction) {
+    if (index < 0 || index >= totalFlipPages) return;
+    
+    // Trigger 3D turn animation
+    if (flipPageWrap) {
+      flipPageWrap.classList.remove('flipbook-anim-next', 'flipbook-anim-prev');
+      void flipPageWrap.offsetWidth; // force reflow
+      if (direction === 'next') flipPageWrap.classList.add('flipbook-anim-next');
+      else if (direction === 'prev') flipPageWrap.classList.add('flipbook-anim-prev');
+    }
+
+    currentFlipIndex = index;
+    const pageData = flipbookPages[index];
+
+    if (flipImg) {
+      flipImg.src = pageData.src;
+      flipImg.alt = pageData.alt;
+    }
+    if (flipCurrentEl) flipCurrentEl.textContent = index + 1;
+
+    // Buttons state
+    if (flipPrevBtn) flipPrevBtn.disabled = index === 0;
+    if (flipNextBtn) flipNextBtn.disabled = index === totalFlipPages - 1;
+
+    // Tabs state
+    flipTabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+    });
+  }
+
+  if (flipPrevBtn) {
+    flipPrevBtn.addEventListener('click', () => goToFlipPage(currentFlipIndex - 1, 'prev'));
+  }
+  if (flipNextBtn) {
+    flipNextBtn.addEventListener('click', () => goToFlipPage(currentFlipIndex + 1, 'next'));
+  }
+
+  // Click zones (left / right)
+  const zoneLeft = document.getElementById('flipbookZoneLeft');
+  const zoneRight = document.getElementById('flipbookZoneRight');
+  if (zoneLeft) zoneLeft.addEventListener('click', () => goToFlipPage(currentFlipIndex - 1, 'prev'));
+  if (zoneRight) zoneRight.addEventListener('click', () => goToFlipPage(currentFlipIndex + 1, 'next'));
+
+  // Tabs click
+  flipTabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      const dir = i > currentFlipIndex ? 'next' : 'prev';
+      goToFlipPage(i, dir);
+    });
+  });
+
+  // Fullscreen toggle
+  if (flipFsBtn && flipContainer) {
+    flipFsBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        if (flipContainer.requestFullscreen) flipContainer.requestFullscreen();
+        else if (flipContainer.webkitRequestFullscreen) flipContainer.webkitRequestFullscreen();
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+      }
+    });
+    document.addEventListener('fullscreenchange', () => {
+      const isFs = !!document.fullscreenElement;
+      flipFsBtn.innerHTML = isFs ? '<i class="fa-solid fa-compress"></i>' : '<i class="fa-solid fa-expand"></i>';
+    });
+  }
+
+  // Touch Swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const stageEl = document.getElementById('flipbookStage');
+  if (stageEl) {
+    stageEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    stageEl.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) {
+        goToFlipPage(currentFlipIndex + 1, 'next');
+      } else if (touchEndX - touchStartX > 50) {
+        goToFlipPage(currentFlipIndex - 1, 'prev');
+      }
+    }, { passive: true });
+  }
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    const isHovered = flipContainer && flipContainer.matches(':hover');
+    const isFs = !!document.fullscreenElement;
+    if (isHovered || isFs) {
+      if (e.key === 'ArrowLeft') {
+        goToFlipPage(currentFlipIndex - 1, 'prev');
+      } else if (e.key === 'ArrowRight') {
+        goToFlipPage(currentFlipIndex + 1, 'next');
+      }
+    }
+  });
+
+  // Preload flipbook pages
+  flipbookPages.forEach(p => {
+    const pre = new Image();
+    pre.src = p.src;
+  });
+
+  // Initialize flipbook
+  goToFlipPage(0);
+</script>
+</body>
+</html>

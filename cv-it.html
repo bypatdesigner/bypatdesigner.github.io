@@ -80,9 +80,9 @@
       --card-hover: rgba(32, 28, 54, 0.95);
       
       --text-main: #FFFFFF;
-      --text-body: #E2DCFA;
-      --text-muted: #C5BFDF;
-      --text-dim: #9E96C0;
+      --text-body: #F3EFFC;
+      --text-muted: #E8E2F4;
+      --text-dim: #C5BFDF;
       
       --violet-primary: #8B5CF6;
       --violet-light: #A78BFA;
@@ -540,6 +540,53 @@
       margin-bottom: clamp(14px, 2vh, 22px);
     }
 
+    .resume-hero-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .resume-hero-title-row .resume-hero-title {
+      margin-bottom: 0;
+    }
+
+    .btn-hero-portfolio {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid var(--line-violet);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.2);
+    }
+
+    .btn-hero-portfolio:hover {
+      background: var(--violet-light);
+      color: var(--ink);
+      border-color: var(--violet-light);
+      box-shadow: 0 6px 24px rgba(167, 139, 250, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-hero-portfolio span:last-child {
+      transition: transform 0.25s ease;
+    }
+
+    .btn-hero-portfolio:hover span:last-child {
+      transform: translate(2px, -2px);
+    }
+
     .resume-hero-title {
       font-size: clamp(2rem, 3.8vw, 3.8rem);
       line-height: 1;
@@ -774,7 +821,7 @@
     .cv-timeline-body h4 {
       font-size: 1.35rem;
       font-weight: 700;
-      letter-spacing: -0.025em;
+      letter-spacing: 0.015em;
       color: #FFFFFF;
       margin-bottom: 6px;
     }
@@ -837,8 +884,8 @@
     }
 
     .cv-timeline-org {
-      font-size: 1.05rem;
-      font-weight: 650;
+      font-size: 1.1rem;
+      font-weight: 500;
       color: #C8B8FB;
       margin-bottom: 12px;
       display: flex;
@@ -852,9 +899,10 @@
     }
 
     .cv-timeline-desc {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      line-height: 1.65;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #E8E2F4;
+      line-height: 1.68;
       margin-bottom: 16px;
     }
 
@@ -898,7 +946,7 @@
     .skill-box-title {
       font-size: 1.2rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.015em;
       color: #FFFFFF;
       margin-bottom: 20px;
       display: flex;
@@ -1366,9 +1414,9 @@
 
       <!-- Top Header Navigation -->
       <div class="resume-top-nav">
-        <a href="index.html" class="back-home-link">
+        <a href="projects.html" class="back-home-link">
           <span>←</span>
-          <span>Torna al Portfolio</span>
+          <span>Vai ai Progetti &amp; Case Studies</span>
         </a>
         <div class="top-nav-right">
           <div class="lang-switcher-pill">
@@ -1376,23 +1424,24 @@
             <a href="cv-en.html" class="lang-switch-btn">EN</a>
             <a href="cv-es.html" class="lang-switch-btn">ES</a>
           </div>
-          <div class="top-meta-date" id="currentTime">
-            Bisceglie, IT · 2026
-          </div>
         </div>
       </div>
 
       <!-- Hero Statement -->
       <header class="resume-hero-header" id="summary">
         <div class="mono" style="color: var(--text-main); margin-bottom: 12px;">✦ Curriculum Vitae</div>
-        <h1 class="resume-hero-title">
-          Profilo <span class="grad-text">Professionale</span>
-        </h1>
+        <div class="resume-hero-title-row">
+          <h1 class="resume-hero-title">
+            Profilo <span class="grad-text">Professionale</span>
+          </h1>
+          <a href="index.html" class="btn-hero-portfolio">
+            <span>Portfolio</span>
+            <span>↗</span>
+          </a>
+        </div>
         <p style="padding-top: 20px;
         font-size: 1.15rem; color: var(--text-muted); max-width: 850px; line-height: 1.7;">
-          UI/UX Designer con solida formazione in Graphic Design, con focus in Web Design e progettazione dell’esperienza utente, conseguita con il massimo dei voti e lode (110/110 cum laude). A questa base affianco una formazione tecnica nello sviluppo di applicazioni informatiche, con 800 ore di specializzazione e l’attuale percorso SENA in Analisi e Sviluppo di Software.<br><br>
-
-
+          UI/UX Designer Junior con Laurea e Master in Graphic Design, focalizzata su Web Design e interfacce digitali. Esperienza nella progettazione di siti web responsive in Figma, dall'architettura dei contenuti e wireframing fino alla UI e al prototipo interattivo. Competenze complementari in HTML, CSS e JavaScript, utili per collaborare con team di sviluppo e comprendere la fase di implementazione. Aperta a opportunità in UI/UX Design, Web Design, Graphic Design digitale e sviluppo front-end / web junior, in particolare in ruoli ibridi che uniscano progettazione di interfacce e competenze di sviluppo.<br><br>
         </p>
       </header>
 

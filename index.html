@@ -29,31 +29,34 @@
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
       font-weight: 800;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
       font-weight: 700;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
       font-weight: 500;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
       font-weight: 400;
       font-display: swap;
       font-style: normal;
@@ -62,23 +65,25 @@
     @font-face {
       font-family: 'Satoshi';
       src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+        url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
       font-weight: 700;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Satoshi';
       src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
-           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+        url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
       font-weight: 500;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Satoshi';
       src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
-           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+        url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
       font-weight: 400;
       font-display: swap;
       font-style: normal;
@@ -97,8 +102,8 @@
       /* High-Contrast Luminous Text Palette */
       --text: #FFFFFF;
       --text-main: #F5F3FC;
-      --text-muted: #D8D2EE;
-      --text-dim: #ABA3CB;
+      --text-muted: #E8E2F4;
+      --text-dim: #C5BFDF;
 
       --violet-primary: #8B5CF6;
       --violet-light: #A78BFA;
@@ -156,7 +161,12 @@
       position: relative;
     }
 
-    h1, h2, h3, h4, h5, h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
     .headline,
     .hero-title,
     .tab-title,
@@ -1209,26 +1219,27 @@
 
     /* ============================================================
        INTERACTIVE "CHI SONO" TABS (Esperienza | Corsi | Formazione)
+       WITH MINIMALIST CLEAN TABLE ROWS (High Legibility & Contrast)
        ============================================================ */
     .about-interactive-wrap {
-      margin-top: 56px;
+      margin-top: 40px;
       display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: clamp(24px, 4vw, 56px);
+      grid-template-columns: 330px 1fr;
+      gap: clamp(20px, 3.5vw, 44px);
       align-items: start;
     }
 
     .about-nav-tabs {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       position: sticky;
       top: 100px;
     }
 
     .about-tab-btn {
       text-align: left;
-      padding: 20px 26px;
+      padding: 16px 22px;
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--line);
@@ -1242,7 +1253,7 @@
 
     .about-tab-btn .tab-title {
       font-family: var(--font-display);
-      font-size: 1.25rem;
+      font-size: 1.18rem;
       font-weight: 500;
       letter-spacing: -0.02em;
       transition: color 0.3s;
@@ -1251,17 +1262,17 @@
 
     .about-tab-btn .tab-sub {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-dim);
+      font-size: 0.76rem;
+      color: #B5ADCE;
       margin-top: 2px;
       display: block;
     }
 
     .about-tab-btn .tab-badge {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
-      color: var(--text-dim);
+      color: #CDC5E8;
       padding: 4px 10px;
       border-radius: var(--radius-full);
       border: 1px solid var(--line);
@@ -1288,12 +1299,11 @@
     }
 
     .about-display-panel {
-      background: var(--card-bg);
-      border: 1px solid var(--line-violet);
+      background: rgba(18, 14, 28, 0.65);
+      border: 1px solid rgba(167, 139, 250, 0.18);
       border-radius: var(--radius-xl);
-      padding: clamp(32px, 4.5vw, 56px);
+      padding: clamp(22px, 3.5vw, 34px);
       backdrop-filter: blur(24px);
-      min-height: 480px;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
       position: relative;
     }
@@ -1310,268 +1320,148 @@
     @keyframes fadeInTab {
       from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(10px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    .pane-header {
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 28px;
+    .about-snapshot-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-snapshot-row {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .pane-title {
-      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      color: #FFFFFF;
-    }
-
-    .timeline-cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .timeline-card-item {
-      padding: 26px 30px;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: minmax(160px, 195px) 1fr;
-      gap: clamp(32px, 4vw, 48px);
-      align-items: start;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .timeline-card-item:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: var(--line-light);
-      transform: translateX(4px);
-    }
-
-    .item-period {
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--violet-light);
-      white-space: nowrap;
-      padding-top: 2px;
-    }
-
-    .item-period-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.84rem;
-      line-height: 1.2;
-      font-weight: 600;
-      color: var(--violet-light);
-      background: rgba(167, 139, 250, 0.09);
-      border: 1px solid rgba(167, 139, 250, 0.22);
-      padding: 8px 18px;
-      border-radius: var(--radius-full);
-      white-space: nowrap;
-      letter-spacing: 0.03em;
-      width: fit-content;
-    }
-
-    .timeline-period-col {
-      display: flex;
-      flex-direction: column;
       align-items: flex-start;
-      gap: 6px;
-    }
-
-    .cv-duration-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.80rem;
-      font-weight: 500;
-      color: var(--text-dim);
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      padding: 0 6px;
-      width: max-content;
-      line-height: 1.3;
-      letter-spacing: 0.02em;
-    }
-
-    .cv-duration-pill i {
-      font-size: 0.72rem;
-      color: var(--violet-light);
-      opacity: 0.9;
-    }
-
-    .card-headline-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 6px;
-    }
-
-    .item-role-title {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: #FFFFFF;
-      margin: 0;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: var(--radius-full);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .status-pill.in-progress {
-      background: rgba(16, 185, 129, 0.12);
-      color: #34D399;
-      border: 1px solid rgba(16, 185, 129, 0.28);
-    }
-
-    .status-pill.in-progress .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #10B981;
-      box-shadow: 0 0 8px #10B981;
-      display: inline-block;
-    }
-
-    .status-pill.completed {
-      background: rgba(167, 139, 250, 0.1);
-      color: var(--violet-light);
-      border: 1px solid rgba(167, 139, 250, 0.22);
-    }
-
-    .status-pill.completed .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--violet-light);
-      display: inline-block;
-    }
-
-    .status-pill.honors {
-      background: rgba(167, 139, 250, 0.1);
-      color: #C8B8F8;
-      border: 1px solid rgba(167, 139, 250, 0.24);
-    }
-
-    .status-pill.honors .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #A78BFA;
-      box-shadow: 0 0 6px rgba(167, 139, 250, 0.5);
-      display: inline-block;
-    }
-
-    .status-pill.cert {
-      background: rgba(192, 139, 232, 0.12);
-      color: #C08BE8;
-      border: 1px solid rgba(192, 139, 232, 0.28);
-    }
-
-    .status-pill.cert .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #C08BE8;
-      box-shadow: 0 0 6px #C08BE8;
-      display: inline-block;
-    }
-
-    .item-org-meta,
-    .item-org-name {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-size: 16.5px;
-      color: #C8B8FB;
-      font-weight: 650;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-    }
-
-    .item-contract-meta {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      color: #9E94CE;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-    }
-
-    .meta-sep {
-      opacity: 0.4;
-      font-size: 0.8rem;
-    }
-
-    .item-desc {
-      font-family: var(--font-body);
-      font-size: 16px;
-      color: #B8B0D8;
-      line-height: 1.65;
-      max-width: 540px;
-      margin: 0;
-    }
-
-    .item-skills-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 14px;
-    }
-
-    .skill-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 11px;
-      border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #D4CEF0;
-      font-size: 0.82rem;
-      font-family: var(--font-mono);
-      font-weight: 500;
-      letter-spacing: 0.02em;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.25s ease;
     }
 
-    .skill-chip:hover {
-      background: rgba(139, 92, 246, 0.18);
-      border-color: var(--line-violet);
+    .about-snapshot-row:first-child {
+      padding-top: 2px;
+    }
+
+    .about-snapshot-row:hover {
+      border-bottom-color: rgba(167, 139, 250, 0.35);
+    }
+
+    .about-snapshot-row:hover .about-row-title {
+      transform: translateX(4px);
+    }
+
+    .about-row-main {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .about-row-title {
+      font-family: var(--font-display);
+      font-size: 1.125rem; /* 18px */
+      font-weight: 600;
+      letter-spacing: -0.01em;
       color: #FFFFFF;
-      transform: translateY(-1px);
+      margin: 0;
+      transition: transform 0.25s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .about-row-meta {
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      color: #CDC5E8;
+      margin: 0;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .about-row-date {
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      color: #D6D0F0;
+      font-weight: 500;
+      white-space: nowrap;
+      text-align: right;
+      padding-top: 2px;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .about-snapshot-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 22px;
+    }
+
+    .about-snapshot-caption {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: #CDC5E8;
+      margin: 0;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .about-snapshot-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 9999px;
+      background: #A78BFA;
+      color: #120D25 !important;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(167, 139, 250, 0.25);
+    }
+
+    .about-snapshot-cta:hover {
+      background: #C4B5FD;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(167, 139, 250, 0.45);
+      color: #0A0716 !important;
+    }
+
+    @media (max-width: 640px) {
+      .about-snapshot-row {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .about-row-date {
+        text-align: left;
+        font-size: 0.85rem;
+        color: var(--violet-light);
+      }
+
+      .about-snapshot-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .about-snapshot-cta {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     /* ============================================================
@@ -2056,10 +1946,12 @@
     }
 
     .process-note {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 380px;
+      font-size: 1.15rem;
+      font-weight: 450;
+      color: var(--text-main);
+      line-height: 1.72;
+      max-width: 420px;
+      letter-spacing: 0.01em;
     }
 
     .steps {
@@ -2327,59 +2219,81 @@
       box-shadow: 0 16px 40px rgba(139, 92, 246, 0.7);
     }
 
-    footer {
-      padding: 32px var(--pad) 44px;
-      display: flex;
-      justify-content: space-between;
+    /* ============================================================
+       MINIMALIST CLEAN FOOTER (Logo | @bypatdesigner | Socials)
+       ============================================================ */
+    footer.site-footer {
+      border-top: 1px solid rgba(167, 139, 250, 0.22);
+      padding: 28px var(--pad);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      color: var(--text-muted);
+      gap: 20px;
+      font-family: var(--font-body);
       font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-family: var(--font-mono);
-      font-weight: 500;
-      border-top: 1px solid var(--line);
+      background: transparent;
+      width: 100%;
     }
 
-    footer a:hover {
-      color: #fff;
+    .footer-col-left {
+      justify-self: start;
+      display: flex;
+      align-items: center;
     }
 
-    .footer-back-top-btn {
+    .footer-logo-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 18px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--line-light);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--violet-light);
+      text-decoration: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .footer-logo-link:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .footer-logo-img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.25));
+    }
+
+    .footer-col-center {
+      justify-self: center;
+      text-align: center;
+    }
+
+    .footer-handle {
+      color: var(--text-muted);
       font-family: var(--font-mono);
-      font-size: 0.80rem;
-      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    .footer-col-right {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-social-link {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      transition: color 0.25s ease, text-shadow 0.25s ease;
+      font-weight: 500;
     }
 
-    .footer-back-top-btn:hover {
-      background: var(--violet-light);
-      color: var(--ink);
-      border-color: var(--violet-light);
-      box-shadow: 0 4px 20px rgba(167, 139, 250, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .footer-back-top-btn .arrow {
-      font-size: 0.95rem;
-      transition: transform 0.25s ease;
-    }
-
-    .footer-back-top-btn:hover .arrow {
-      transform: translateY(-2px);
+    .footer-social-link:hover {
+      color: var(--violet-bright);
+      text-shadow: 0 0 12px rgba(191, 167, 255, 0.35);
     }
 
     /* Toast Notification */
@@ -2553,6 +2467,15 @@
       display: grid;
       grid-template-columns: 1.3fr 1fr;
       gap: 12px;
+    }
+
+    .drawer-badge-pill {
+      cursor: default !important;
+      pointer-events: none !important;
+      user-select: none !important;
+      box-shadow: none !important;
+      transform: none !important;
+      opacity: 0.95;
     }
 
     /* Reveal Animations */
@@ -2744,6 +2667,18 @@
         margin-bottom: 0;
       }
 
+      .about-cv-cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 22px;
+        gap: 16px;
+      }
+
+      .about-cv-cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
       .drawer-actions-row {
         grid-template-columns: 1fr;
       }
@@ -2873,9 +2808,26 @@
         gap: 8px;
       }
 
-      footer {
+      footer.site-footer {
+        display: flex;
         flex-direction: column;
-        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 30px var(--pad);
+        text-align: center;
+      }
+
+      .footer-col-left,
+      .footer-col-center,
+      .footer-col-right {
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .footer-col-right {
+        gap: 22px;
       }
     }
 
@@ -2967,7 +2919,8 @@
       </a>
 
       <!-- Mobile Hamburger Button -->
-      <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Menu di navigazione" aria-expanded="false">
+      <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Menu di navigazione"
+        aria-expanded="false">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -3023,7 +2976,8 @@
           <span class="mobile-resume-badge" data-i18n="nav.resume">Curriculum Vitae</span>
           <span class="mobile-resume-status"><span class="dot"></span> Online &amp; PDF</span>
         </div>
-        <p class="mobile-resume-desc" data-i18n="nav.resume_desc">Esplora il percorso completo, l'esperienza, la formazione accademica e le certificazioni.</p>
+        <p class="mobile-resume-desc" data-i18n="nav.resume_desc">Esplora il percorso completo, l'esperienza, la
+          formazione accademica e le certificazioni.</p>
         <a href="cv.html" class="mobile-resume-cta-btn" id="mobileResumeLink">
           <span data-i18n="nav.resume_cta">Visualizza CV / Resume</span>
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -3034,7 +2988,8 @@
         <div class="mobile-nav-lang-row">
           <span class="mobile-nav-lang-label" data-i18n="nav.select_lang">Lingua:</span>
           <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
-            <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
+            <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano"
+              title="Italiano">IT</button>
             <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
             <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
           </div>
@@ -3059,7 +3014,8 @@
         </div>
         <h1 class="hero-title" id="heroTitle" data-decrypt-hero="true" data-i18n-html="hero.title"
           title="Clicca per decifrare di nuovo">
-          Design, sviluppo e <br>qualche altra <span class="grad-text">ossessione <br><span style="white-space: nowrap;">creativa.</span></span>
+          Design, sviluppo e <br>qualche altra <span class="grad-text">ossessione <br><span
+              style="white-space: nowrap;">creativa.</span></span>
         </h1>
       </div>
 
@@ -3097,7 +3053,8 @@
         </div>
 
         <div class="hero-copy">
-          <p data-i18n="hero.desc">UI/UX Designer con un background in Graphic Design e sviluppo web. Progetto interfacce digitali chiare, intuitive e curate nei dettagli.</p>
+          <p data-i18n="hero.desc">UI/UX Designer con un background in Graphic Design e sviluppo web. Progetto
+            interfacce digitali chiare, intuitive e curate nei dettagli.</p>
           <div class="actions">
             <a class="btn primary" id="heroWorkBtn" href="#work" data-i18n="hero.btn_work">Vedi Progetti ↗</a>
             <a class="btn secondary" id="heroResumeBtn" href="cv.html" data-i18n="hero.btn_resume">Resume / CV </a>
@@ -3139,10 +3096,10 @@
             evoluzione.</span>
         </h2>
 
-        <!-- Interactive Tabs -->
+        <!-- Interactive 2-Column Tabs Wrapper with Minimalist Linear Rows -->
         <div class="about-interactive-wrap reveal">
 
-          <!-- Tab Buttons Sidebar -->
+          <!-- Tab Selectors Sidebar -->
           <div class="about-nav-tabs" role="tablist">
             <button class="about-tab-btn active" data-tab="exp" role="tab" aria-selected="true">
               <div>
@@ -3157,7 +3114,7 @@
                 <div class="tab-title" data-i18n="about.tab_cert_title">Corsi &amp; Certificazioni</div>
                 <span class="tab-sub" data-i18n="about.tab_cert_sub">Competenze Tecniche</span>
               </div>
-              <span class="tab-badge" data-i18n="about.tab_cert_badge">IFTS + Cert</span>
+              <span class="tab-badge" data-i18n="about.tab_cert_badge">Cert</span>
             </button>
 
             <button class="about-tab-btn" data-tab="edu" role="tab" aria-selected="false">
@@ -3169,375 +3126,159 @@
             </button>
           </div>
 
-          <!-- Dynamic Display Panel -->
+          <!-- Dynamic Display Panel with Minimalist Rows -->
           <div class="about-display-panel" id="aboutDisplayPanel">
 
-            <!-- Pane 1: Esperienza -->
+            <!-- Pane 1: Esperienza (All 6 Roles in clean minimalist style) -->
             <div class="tab-content-pane active" id="pane-exp">
-              <div class="pane-header">
-                <div>
-                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;"
-                    data-i18n="about.pane_exp_badge">Percorso Lavorativo</div>
-                  <h3 class="pane-title" data-i18n="about.pane_exp_title">Esperienza Professionale</h3>
-                </div>
-                <span class="mono" style="color:var(--text-dim); font-weight:600;" data-i18n="about.pane_exp_date">2006 — Oggi</span>
-              </div>
-
-              <div class="timeline-cards-list">
+              <div class="about-snapshot-list">
                 <!-- Exp 1 -->
-                <div class="timeline-card-item">
-                  <div class="timeline-period-col">
-                    <span class="item-period-badge" data-i18n="about.exp1_date">Gen. 2026 — In corso</span>
-                    <span class="cv-duration-pill" data-start-date="2026-01-01"><i class="fa-regular fa-clock"></i> <span class="cv-duration-text"></span></span>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.exp1_role">UI/UX &amp; Web Designer</h3>
+                    <p class="about-row-meta" data-i18n="about.exp1_org">BeDigit · Ibrido · Italia</p>
                   </div>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.exp1_role">UI/UX &amp; Web Designer</h4>
-                      <span class="status-pill in-progress"><span class="dot"></span><span data-i18n="about.status_in_progress">In corso</span></span>
-                    </div>
-                    <div class="item-org-meta" style="flex-direction: column; align-items: flex-start; gap: 4px;">
-                      <span data-i18n="about.exp1_org">BeDigit · Ibrido · Italia</span>
-                      <span class="item-contract-meta" data-i18n="about.exp1_contract">Full-time (gen–giu 2026) · Part-time (da giu 2026)</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.exp1_desc">Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Collaborazione con il team di sviluppo.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Figma</span>
-                      <span class="skill-chip">UI/UX Design</span>
-                      <span class="skill-chip">Wireframing</span>
-                      <span class="skill-chip">Prototyping</span>
-                      <span class="skill-chip">Information Architecture</span>
-                      <span class="skill-chip">WordPress</span>
-                    </div>
-                  </div>
+                  <div class="about-row-date" data-i18n="about.exp1_date">Gen. 2026 — In corso</div>
                 </div>
 
                 <!-- Exp 2 -->
-                <div class="timeline-card-item">
-                  <div class="timeline-period-col">
-                    <span class="item-period-badge" data-i18n="about.exp2_date">Giu. 2024 — In corso</span>
-                    <span class="cv-duration-pill" data-start-date="2024-06-01"><i class="fa-regular fa-clock"></i> <span class="cv-duration-text"></span></span>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.exp2_role">Freelance Designer</h3>
+                    <p class="about-row-meta" data-i18n="about.exp2_org">Freelance · Remoto · Italia</p>
                   </div>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.exp2_role">Freelance Designer</h4>
-                      <span class="status-pill in-progress"><span class="dot"></span><span data-i18n="about.status_in_progress">In corso</span></span>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.exp2_org">Freelance · Remoto · Italia</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.exp2_desc">Sviluppo di progetti web e UI/UX su misura combinando struttura dei contenuti, esperienza utente e design visivo. </p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Figma</span>
-                      <span class="skill-chip">UI/UX Design</span>
-                      <span class="skill-chip">WordPress</span>
-                      <span class="skill-chip">Brand Identity &amp; Logos</span>
-                      <span class="skill-chip">Social Media Design</span>
-                      <span class="skill-chip">Editorial &amp; Document Design</span>
-                      <span class="skill-chip">Photo Retouching</span>
-                      <span class="skill-chip">Print &amp; Digital Materials</span>
-                    </div>
-                  </div>
+                  <div class="about-row-date" data-i18n="about.exp2_date">Giu. 2024 — In corso</div>
                 </div>
 
                 <!-- Exp 3 -->
-                <div class="timeline-card-item">
-                  <div class="timeline-period-col">
-                    <span class="item-period-badge" data-i18n="about.exp3_date">Set. 2025</span>
-                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp3_duration">1 mese</span></span>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.exp3_role">Laravel Developer Trainee</h3>
+                    <p class="about-row-meta" data-i18n="about.exp3_org">Universo Srl (Cliente: C.F.A. SRL) · Remoto</p>
                   </div>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.exp3_role">Laravel Developer Trainee</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.exp3_org">Universo Srl (Cliente: C.F.A. SRL) · Remoto</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.exp3_desc">Sviluppo di due micro-progetti web back-end: gestione controller, routing, modellazione dati, migrazioni, operazioni CRUD e autenticazione.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">PHP</span>
-                      <span class="skill-chip">Laravel</span>
-                      <span class="skill-chip">MySQL</span>
-                      <span class="skill-chip">MVC</span>
-                      <span class="skill-chip">CRUD</span>
-                      <span class="skill-chip">Git</span>
-                    </div>
-                  </div>
+                  <div class="about-row-date" data-i18n="about.exp3_date">Set. 2025</div>
                 </div>
 
                 <!-- Exp 4 -->
-                <div class="timeline-card-item">
-                  <div class="timeline-period-col">
-                    <span class="item-period-badge" data-i18n="about.exp4_date">Mar. 2024 — Giu. 2024</span>
-                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp4_duration">4 mesi</span></span>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.exp4_role">Junior Front-End Developer</h3>
+                    <p class="about-row-meta" data-i18n="about.exp4_org">Sinkronia Srl · Ibrido · Foggia</p>
                   </div>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.exp4_role">Junior Front-End Developer</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.exp4_org">Sinkronia Srl · Ibrido · Foggia</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.exp4_desc">Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione dell'ERP I-Quadra.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Angular</span>
-                      <span class="skill-chip">TypeScript</span>
-                      <span class="skill-chip">UI/UX</span>
-                      <span class="skill-chip">Front-End</span>
-                      <span class="skill-chip">HTML5 / CSS3</span>
-                    </div>
-                  </div>
+                  <div class="about-row-date" data-i18n="about.exp4_date">Mar. 2024 — Giu. 2024</div>
                 </div>
 
                 <!-- Exp 5 -->
-                <div class="timeline-card-item">
-                  <div class="timeline-period-col">
-                    <span class="item-period-badge" data-i18n="about.exp5_date">Feb. 2022 — Dic. 2022</span>
-                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp5_duration">11 mesi</span></span>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.exp5_role">Graphic Designer</h3>
+                    <p class="about-row-meta" data-i18n="about.exp5_org">Giats Srl · In Sede · Bisceglie</p>
                   </div>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.exp5_role">Graphic Designer</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.exp5_org">Giats Srl · In Sede · Bisceglie</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.exp5_desc">Progettazione e produzione di materiali grafici personalizzati per il mercato all'ingrosso. Gestione del processo creativo dal concept visivo alla consegna finale.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Graphic Design</span>
-                      <span class="skill-chip">Photoshop</span>
-                      <span class="skill-chip">Illustrator</span>
-                    </div>
-                  </div>
+                  <div class="about-row-date" data-i18n="about.exp5_date">Feb. 2022 — Dic. 2022</div>
                 </div>
 
                 <!-- Exp 6 -->
-                <div class="timeline-card-item">
-                  <div class="timeline-period-col">
-                    <span class="item-period-badge" data-i18n="about.exp6_date">Gen. 2006 — Ago. 2012</span>
-                    <span class="cv-duration-pill"><i class="fa-regular fa-clock"></i> <span data-i18n="about.exp6_duration">6 anni e 8 mesi</span></span>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.exp6_role">Administrador Territorial</h3>
+                    <p class="about-row-meta" data-i18n="about.exp6_org">Sistemas &amp; Computadores S.A. · Colombia</p>
                   </div>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.exp6_role">Administrador Territorial</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.exp6_org">Sistemas &amp; Computadores S.A. · Colombia</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.exp6_desc">Coordinamento del personale e delle attività operative, gestione della comunicazione tra clienti e team, e organizzazione delle risorse informatiche e documentali.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Team Coordination</span>
-                      <span class="skill-chip">Operations</span>
-                      <span class="skill-chip">Problem Solving</span>
-                      <span class="skill-chip">Management</span>
-                    </div>
-                  </div>
+                  <div class="about-row-date" data-i18n="about.exp6_date">Gen. 2006 — Ago. 2012</div>
                 </div>
               </div>
             </div>
 
-            <!-- Pane 2: Corsi e Certificazioni -->
+            <!-- Pane 2: Corsi e Certificazioni (All 4 Courses in clean minimalist style) -->
             <div class="tab-content-pane" id="pane-cert">
-              <div class="pane-header">
-                <div>
-                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;"
-                    data-i18n="about.pane_cert_badge">Specializzazioni Tecniche</div>
-                  <h3 class="pane-title" data-i18n="about.pane_cert_title">Corsi &amp; Certificazioni</h3>
-                </div>
-                <span class="mono" style="color:var(--text-dim); font-weight:600;"
-                  data-i18n="about.pane_cert_date">Aggiornamento Continuo</span>
-              </div>
-
-              <div class="timeline-cards-list">
+              <div class="about-snapshot-list">
                 <!-- Cert 1 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.cert1_date">2025</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.cert1_role">Sviluppo Web con Laravel, PHP e JavaScript (248 Ore)</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.cert1_org">Universo &amp; FormaTemp · Online</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.cert1_desc">Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Laravel</span>
-                      <span class="skill-chip">PHP</span>
-                      <span class="skill-chip">JavaScript</span>
-                      <span class="skill-chip">MySQL</span>
-                      <span class="skill-chip">OOP</span>
-                      <span class="skill-chip">FormaTemp</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.cert1_role">Sviluppo Web con Laravel, PHP e JavaScript</h3>
+                    <p class="about-row-meta" data-i18n="about.cert1_org">Universo &amp; FormaTemp · Online · 248 h</p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.cert1_date">2025</div>
                 </div>
 
                 <!-- Cert 2 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.cert2_date">2023 — 2024</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.cert2_role">Corso Web Developer (500 Ore)</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.cert2_org">Fondo per la Repubblica Digitale · In Sede</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.cert2_desc">Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">JavaScript</span>
-                      <span class="skill-chip">PHP</span>
-                      <span class="skill-chip">HTML5 / CSS3</span>
-                      <span class="skill-chip">Database</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.cert2_role">Corso Web Developer</h3>
+                    <p class="about-row-meta" data-i18n="about.cert2_org">Fondo per la Repubblica Digitale · In Sede · 500 h</p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.cert2_date">2023 — 2024</div>
                 </div>
 
                 <!-- Cert 3 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.cert3_date">2023</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.cert3_role">Front-End Dev con JS, jQuery e TypeScript (248 Ore)</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.cert3_org">Archimede &amp; FormaTemp · Online</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.cert3_desc">Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript, TypeScript, HTML5, CSS3 e Bootstrap.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">TypeScript</span>
-                      <span class="skill-chip">JavaScript</span>
-                      <span class="skill-chip">Bootstrap</span>
-                      <span class="skill-chip">jQuery</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.cert3_role">Front-End Dev con JS, jQuery e TypeScript</h3>
+                    <p class="about-row-meta" data-i18n="about.cert3_org">Archimede &amp; FormaTemp · Online · 248 h</p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.cert3_date">2023</div>
                 </div>
 
                 <!-- Cert 4 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.cert4_date">2023</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.cert4_role">Corso di Motion Graphics (248 Ore)</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.cert4_org">10 Skills Academy</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.cert4_desc">Formazione in montaggio video e animazione grafica con Adobe Premiere Pro e After Effects.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">After Effects</span>
-                      <span class="skill-chip">Premiere Pro</span>
-                      <span class="skill-chip">Motion Graphics</span>
-                      <span class="skill-chip">Video Editing</span>
-                      <span class="skill-chip">Animation</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.cert4_role">Corso di Motion Graphics</h3>
+                    <p class="about-row-meta" data-i18n="about.cert4_org">10 Skills Academy · Online · 248 h</p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.cert4_date">2023</div>
                 </div>
               </div>
             </div>
 
-            <!-- Pane 3: Formazione -->
+            <!-- Pane 3: Formazione (All 4 Academic Milestones in clean minimalist style) -->
             <div class="tab-content-pane" id="pane-edu">
-              <div class="pane-header">
-                <div>
-                  <div class="mono" style="color:var(--violet-light); margin-bottom:4px; font-weight:600;"
-                    data-i18n="about.pane_edu_badge">Titoli Accademici</div>
-                  <h3 class="pane-title" data-i18n="about.pane_edu_title">Formazione Accademica</h3>
-                </div>
-                <span class="mono" style="color:var(--text-dim); font-weight:600;"
-                  data-i18n="about.pane_edu_date">Massimo dei Voti</span>
-              </div>
-
-              <div class="timeline-cards-list">
+              <div class="about-snapshot-list">
                 <!-- Edu 1 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.edu1_date">2025 — 2027</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.edu1_role">Tecnologo in Analisi e Sviluppo Software</h4>
-                      <span class="status-pill in-progress"><span class="dot"></span><span data-i18n="about.status_in_progress">In corso</span></span>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.edu1_org_clean">SENA · Colombia</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.edu1_desc">Percorso focalizzato sull’intero ciclo di vita del software: analisi, progettazione, sviluppo, testing e deploy.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Java, Spring Boot &amp; Hibernate</span>
-                      <span class="skill-chip">MongoDB</span>
-                      <span class="skill-chip">Python</span>
-                      <span class="skill-chip">Angular</span>
-                      <span class="skill-chip">JavaScript + Express</span>
-                      <span class="skill-chip">Laravel &amp; PHP</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.edu1_role">Tecnologo in Analisi e Sviluppo Software</h3>
+                    <p class="about-row-meta"><span data-i18n="about.edu1_org_clean">SENA · Colombia</span> · <span data-i18n="about.status_in_progress">In corso</span></p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.edu1_date">2025 — 2027</div>
                 </div>
 
                 <!-- Edu 2 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.edu2_date">2025 — 2026</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.edu2_role">IFTS – Tecnico Sviluppo Applicazioni Informatiche</h4>
-                    </div>
-                    <div class="item-org-meta">
-                      <span data-i18n="about.edu2_org">Regione Puglia · EQF Livello 4</span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.edu2_desc">Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">JavaScript</span>
-                      <span class="skill-chip">C#</span>
-                      <span class="skill-chip">Java</span>
-                      <span class="skill-chip">SQL Database</span>
-                      <span class="skill-chip">Git</span>
-                      <span class="skill-chip">UML</span>
-                      <span class="skill-chip">Web Development</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.edu2_role">IFTS – Tecnico Sviluppo Applicazioni Informatiche</h3>
+                    <p class="about-row-meta" data-i18n="about.edu2_org">Regione Puglia</p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.edu2_date">2025 — 2026</div>
                 </div>
 
                 <!-- Edu 3 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.edu3_date">2022 — 2025</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.edu3_role">Laurea Magistrale in Graphic Design</h4>
-                    </div>
-                    <div class="item-org-meta" style="flex-wrap: wrap; gap: 10px; align-items: center;">
-                      <span data-i18n="about.edu3_org">Accademia di Belle Arti di Foggia · EQF Livello 7</span>
-                      <span class="status-pill honors"><span class="dot"></span><span data-i18n="about.status_honors">110/110 con Lode</span></span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.edu3_desc">Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">UI/UX Design</span>
-                      <span class="skill-chip">Web Design</span>
-                      <span class="skill-chip">User Research</span>
-                      <span class="skill-chip">Figma</span>
-                      <span class="skill-chip">Blender</span>
-                      <span class="skill-chip">Information Architecture</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.edu3_role">Laurea Magistrale in Graphic Design</h3>
+                    <p class="about-row-meta"><span data-i18n="about.edu3_org">Accademia di Belle Arti di Foggia</span> · <span data-i18n="about.status_honors">110/110 con Lode</span></p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.edu3_date">2022 — 2025</div>
                 </div>
 
                 <!-- Edu 4 -->
-                <div class="timeline-card-item">
-                  <span class="item-period-badge" data-i18n="about.edu4_date">2018 — 2022</span>
-                  <div>
-                    <div class="card-headline-row">
-                      <h4 class="item-role-title" data-i18n="about.edu4_role">Laurea Triennale in Graphic Design</h4>
-                    </div>
-                    <div class="item-org-meta" style="flex-wrap: wrap; gap: 10px; align-items: center;">
-                      <span data-i18n="about.edu4_org">Accademia di Belle Arti di Foggia · EQF Livello 6</span>
-                      <span class="status-pill honors"><span class="dot"></span><span data-i18n="about.status_honors">110/110 con Lode</span></span>
-                    </div>
-                    <p class="item-desc" data-i18n="about.edu4_desc">Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.</p>
-                    <div class="item-skills-chips">
-                      <span class="skill-chip">Graphic Design</span>
-                      <span class="skill-chip">Visual Identity</span>
-                      <span class="skill-chip">Branding</span>
-                      <span class="skill-chip">Typography</span>
-                      <span class="skill-chip">Editorial Design</span>
-                    </div>
+                <div class="about-snapshot-row">
+                  <div class="about-row-main">
+                    <h3 class="about-row-title" data-i18n="about.edu4_role">Laurea Triennale in Graphic Design</h3>
+                    <p class="about-row-meta"><span data-i18n="about.edu4_org">Accademia di Belle Arti di Foggia</span> · <span data-i18n="about.status_honors">110/110 con Lode</span></p>
                   </div>
+                  <div class="about-row-date" data-i18n="about.edu4_date">2018 — 2022</div>
                 </div>
               </div>
             </div>
+
+            <!-- Card Footer -->
+            <div class="about-snapshot-footer">
+              <p class="about-snapshot-caption" data-i18n="about.snapshot_caption">Il mio percorso, corsi e competenze in dettaglio.</p>
+              <a href="cv.html" class="about-snapshot-cta" id="aboutResumeBtn">
+                <span data-i18n="about.snapshot_cta">Vedi CV completo</span>
+                <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
+
           </div>
         </div>
       </section>
@@ -3668,7 +3409,8 @@
             </div>
             <div>
               <h3 class="project-title" data-i18n="work.project1_title">Progetto 01</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
 
@@ -3681,7 +3423,8 @@
             </div>
             <div>
               <h3 class="project-title" data-i18n="work.project2_title">Progetto 02</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
 
@@ -3694,7 +3437,8 @@
             </div>
             <div>
               <h3 class="project-title" data-i18n="work.project3_title">Progetto 03</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
 
@@ -3707,7 +3451,8 @@
             </div>
             <div>
               <h3 class="project-title" data-i18n="work.project4_title">Progetto 04</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp; Fasi ↗</span>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
+                Fasi ↗</span>
             </div>
           </article>
         </div>
@@ -3716,7 +3461,7 @@
         <div style="margin-top: 44px; text-align: center;" class="reveal">
           <a href="projects.html" class="btn secondary"
             style="display: inline-flex; align-items: center; gap: 10px; border-radius: var(--radius-full); padding: 14px 36px; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; color: #FFFFFF; border-color: var(--line-violet); background: rgba(139, 92, 246, 0.12); transition: all 0.3s ease;">
-            <span data-i18n="work.btn_all_projects">Vedi Tutti i Progetti &amp; Case Studies (4)</span>
+            <span data-i18n="work.btn_all_projects">Vedi Tutti i Progetti &amp; Case Studies (2)</span>
             <span>↗</span>
           </a>
         </div>
@@ -3865,18 +3610,20 @@
         </div>
       </section>
 
-      <!-- ================= FOOTER ================= -->
-      <footer>
-        <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
-        <button class="footer-back-top-btn" id="footerBackToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Torna all'inizio">
-          <span class="arrow">↑</span>
-          <span data-i18n="footer.back_to_top">Torna all'inizio</span>
-        </button>
-        <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-          <a href="cv.html" id="footerResumeLink" data-i18n="footer.resume">Digital Resume ↗</a>
-          <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener">Behance ↗</a>
-          <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener">GitHub ↗</a>
+      <!-- ================= MINIMALIST FOOTER ================= -->
+      <footer class="site-footer">
+        <div class="footer-col-left">
+          <a href="index.html" class="footer-logo-link" aria-label="Ir al inicio / Bypatdesigner">
+            <img src="./img/logo.png" alt="Pat" class="footer-logo-img" />
+          </a>
+        </div>
+        <div class="footer-col-center">
+          <span class="footer-handle">@bypatdesigner</span>
+        </div>
+        <div class="footer-col-right">
+          <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn de Patricia Garcia">LinkedIn</a>
+          <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Behance de Patricia Garcia">Behance</a>
+          <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub de Patricia Garcia">GitHub</a>
         </div>
       </footer>
 
@@ -3920,10 +3667,10 @@
           <span data-i18n="drawer.btn_project">Amplia Progetto</span>
           <span>↗</span>
         </a>
-        <a href="#contact" class="btn secondary" onclick="closeDrawer()"
-          style="text-align:center; justify-content:center;">
-          <span data-i18n="drawer.btn_contact">Contattami</span>
-        </a>
+        <div class="btn secondary drawer-badge-pill" id="drawerContactBadge"
+          style="text-align:center; justify-content:center; cursor:default; pointer-events:none; user-select:none;">
+          <span data-i18n="drawer.btn_contact">Progetto Accademico</span>
+        </div>
       </div>
     </div>
   </div>
@@ -3956,7 +3703,7 @@
         "about.tab_exp_badge": "06 Ruoli",
         "about.tab_cert_title": "Corsi & Certificazioni",
         "about.tab_cert_sub": "Competenze Tecniche",
-        "about.tab_cert_badge": "IFTS + Cert",
+        "about.tab_cert_badge": "Cert",
         "about.tab_edu_title": "Formazione",
         "about.tab_edu_sub": "Percorso Accademico",
         "about.tab_edu_badge": "110/110L",
@@ -4001,20 +3748,20 @@
         "about.pane_cert_title": "Corsi & Certificazioni",
         "about.pane_cert_date": "Aggiornamento Continuo",
         "about.cert1_date": "2025",
-        "about.cert1_role": "Sviluppo Web con Laravel, PHP e JavaScript (248 Ore)",
-        "about.cert1_org": "Universo & FormaTemp · Online",
+        "about.cert1_role": "Sviluppo Web con Laravel, PHP e JavaScript",
+        "about.cert1_org": "Universo & FormaTemp · Online · 248 h",
         "about.cert1_desc": "Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.",
         "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Corso Web Developer (500 Ore)",
-        "about.cert2_org": "Fondo per la Repubblica Digitale · In Sede",
+        "about.cert2_role": "Corso Web Developer",
+        "about.cert2_org": "Fondo per la Repubblica Digitale · In Sede · 500 h",
         "about.cert2_desc": "Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.",
         "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev con JS, jQuery e TypeScript (248 Ore)",
-        "about.cert3_org": "Archimede & FormaTemp · Online",
+        "about.cert3_role": "Front-End Dev con JS, jQuery e TypeScript",
+        "about.cert3_org": "Archimede & FormaTemp · Online · 248 h",
         "about.cert3_desc": "Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript, TypeScript, HTML5, CSS3 e Bootstrap.",
         "about.cert4_date": "2023",
-        "about.cert4_role": "Corso di Motion Graphics (248 Ore)",
-        "about.cert4_org": "10 Skills Academy",
+        "about.cert4_role": "Corso di Motion Graphics",
+        "about.cert4_org": "10 Skills Academy · Online · 248 h",
         "about.cert4_desc": "Formazione in montaggio video e animazione grafica con Adobe Premiere Pro e After Effects.",
         "about.pane_edu_badge": "Titoli Accademici",
         "about.pane_edu_title": "Formazione Accademica",
@@ -4026,16 +3773,33 @@
         "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
         "about.edu2_date": "2025 — 2026",
         "about.edu2_role": "IFTS – Tecnico Sviluppo Applicazioni Informatiche",
-        "about.edu2_org": "Regione Puglia · EQF Livello 4",
+        "about.edu2_org": "Regione Puglia",
         "about.edu2_desc": "Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.",
         "about.edu3_date": "2022 — 2025",
         "about.edu3_role": "Laurea Magistrale in Graphic Design",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia · EQF Livello 7",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia",
         "about.edu3_desc": "Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.",
         "about.edu4_date": "2018 — 2022",
         "about.edu4_role": "Laurea Triennale in Graphic Design",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia · EQF Livello 6",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia",
         "about.edu4_desc": "Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.",
+        "about.cv_cta_title": "Vuoi approfondire l'esperienza completa e tutti i progetti?",
+        "about.cv_cta_sub": "Trovi i dettagli completi su mansioni, tecnologie, progetti accademici e il CV scaricabile in PDF.",
+        "about.cv_cta_btn": "Visualizza CV Completo",
+        "about.snap1_role": "UI/UX & Web Designer",
+        "about.snap1_org": "BeDigit · Italia",
+        "about.snap1_date": "2026 — In corso",
+        "about.snap2_role": "Freelance Designer",
+        "about.snap2_org": "Progetti grafici, web e UI/UX",
+        "about.snap2_date": "2024 — In corso",
+        "about.snap3_role": "Front-end Developer Junior",
+        "about.snap3_org": "Sinkronia · Italia",
+        "about.snap3_date": "2024",
+        "about.snap4_role": "Graphic Designer",
+        "about.snap4_org": "Giats · Italia",
+        "about.snap4_date": "2022",
+        "about.snapshot_caption": "Il mio percorso, corsi e competenze in dettaglio.",
+        "about.snapshot_cta": "Vedi CV completo",
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
         "services.section_label": "02 — Il mio spazio progettuale",
         "services.headline": 'Un <span class="grad-text">approccio</span>,<span class="muted-text"> più competenze.</span>',
@@ -4060,7 +3824,7 @@
         "work.project3_title": "Progetto 03",
         "work.project4_title": "Progetto 04",
         "work.card_action": "Anteprima & Fasi ↗",
-        "work.btn_all_projects": "Vedi Tutti i Progetti & Case Studies (4)",
+        "work.btn_all_projects": "Vedi Tutti i Progetti & Case Studies (2)",
         "process.section_label": "04 — Metodo",
         "process.headline": '<span class="grad-text">Meno complessità.</span> <span class="muted-text">Più criterio.</span>',
         "process.intro": "Ogni progetto parte dal capire prima di disegnare. Cerco di osservare, organizzare e semplificare, lasciando spazio alla sperimentazione e a ciò che posso imparare lungo il percorso.",
@@ -4084,7 +3848,7 @@
         "drawer.specs_role_label": "Anno & Ruolo",
         "drawer.specs_stack_label": "Stack & Metodo",
         "drawer.btn_project": "Amplia Progetto",
-        "drawer.btn_contact": "Contattami"
+        "drawer.btn_contact": "Progetto Accademico"
       },
       es: {
         "nav.about": "Sobre mí",
@@ -4108,7 +3872,7 @@
         "about.tab_exp_badge": "06 Roles",
         "about.tab_cert_title": "Cursos & Certificaciones",
         "about.tab_cert_sub": "Habilidades Técnicas",
-        "about.tab_cert_badge": "IFTS + Cert",
+        "about.tab_cert_badge": "Cert",
         "about.tab_edu_title": "Educación",
         "about.tab_edu_sub": "Formación Académica",
         "about.tab_edu_badge": "110/110L",
@@ -4148,20 +3912,20 @@
         "about.pane_cert_title": "Cursos & Certificaciones",
         "about.pane_cert_date": "Actualización Continua",
         "about.cert1_date": "2025",
-        "about.cert1_role": "Desarrollo Web con Laravel, PHP y JavaScript (248 Horas)",
-        "about.cert1_org": "Universo & FormaTemp · Online",
+        "about.cert1_role": "Desarrollo Web con Laravel, PHP y JavaScript",
+        "about.cert1_org": "Universo & FormaTemp · Online · 248 h",
         "about.cert1_desc": "Formación práctica centrada en desarrollo web back-end con PHP y Laravel, programación orientada a objetos, bases de datos relacionales y creación de aplicaciones.",
         "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Curso Web Developer (500 Horas)",
-        "about.cert2_org": "Fondo per la Repubblica Digitale · Presencial",
+        "about.cert2_role": "Curso Web Developer",
+        "about.cert2_org": "Fondo per la Repubblica Digitale · Presencial · 500 h",
         "about.cert2_desc": "Formación intensiva en desarrollo web full-stack, POO y stack tecnológico moderno tanto en cliente como en servidor.",
         "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev con JS, jQuery y TypeScript (248 Horas)",
-        "about.cert3_org": "Archimede & FormaTemp · Online",
+        "about.cert3_role": "Front-End Dev con JS, jQuery y TypeScript",
+        "about.cert3_org": "Archimede & FormaTemp · Online · 248 h",
         "about.cert3_desc": "Curso especializado en construcción de interfaces web interactivas con JavaScript, TypeScript, HTML5, CSS3 y Bootstrap.",
         "about.cert4_date": "2023",
-        "about.cert4_role": "Curso de Motion Graphics (248 Horas)",
-        "about.cert4_org": "10 Skills Academy",
+        "about.cert4_role": "Curso de Motion Graphics",
+        "about.cert4_org": "10 Skills Academy · Online · 248 h",
         "about.cert4_desc": "Formación en edición de video y animación gráfica con Adobe Premiere Pro y After Effects.",
         "about.pane_edu_badge": "Títulos Académicos",
         "about.pane_edu_title": "Formación Académica",
@@ -4178,16 +3942,33 @@
         "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
         "about.edu2_date": "2025 — 2026",
         "about.edu2_role": "IFTS – Técnica en Desarrollo de Aplicaciones Informáticas",
-        "about.edu2_org": "Regione Puglia · EQF Nivel 4",
+        "about.edu2_org": "Regione Puglia",
         "about.edu2_desc": "Especialización profesional enfocada en desarrollo de aplicaciones IT, programación, desarrollo web, bases de datos relacionales y análisis de requisitos.",
         "about.edu3_date": "2022 — 2025",
         "about.edu3_role": "Licenciatura Magistral en Diseño Gráfico (Máster)",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia · EQF Nivel 7",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia",
         "about.edu3_desc": "Especialización avanzada en Web Design y UI/UX. Desarrollo de proyectos centrados en experiencia de usuario, arquitectura de información, prototipado en Figma y tecnologías web.",
         "about.edu4_date": "2018 — 2022",
         "about.edu4_role": "Licenciatura Trienal en Diseño Gráfico (Grado)",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia · EQF Nivel 6",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia",
         "about.edu4_desc": "Sólida formación en diseño gráfico, comunicación visual, branding y producción de contenidos digitales. Competencias en identidad visual, diseño editorial, multimedia y fundamentos de diseño web.",
+        "about.cv_cta_title": "¿Quieres conocer la trayectoria completa y todos los proyectos?",
+        "about.cv_cta_sub": "Consulta el detalle de responsabilidades, tecnologías, proyectos académicos y el CV descargable en PDF.",
+        "about.cv_cta_btn": "Ver CV Completo",
+        "about.snap1_role": "UI/UX & Web Designer",
+        "about.snap1_org": "BeDigit · Italia",
+        "about.snap1_date": "2026 — Actualidad",
+        "about.snap2_role": "Diseñadora freelance",
+        "about.snap2_org": "Diseño gráfico, web y UI/UX",
+        "about.snap2_date": "2024 — Actualidad",
+        "about.snap3_role": "Front-end Developer Junior",
+        "about.snap3_org": "Sinkronia · Italia",
+        "about.snap3_date": "2024",
+        "about.snap4_role": "Graphic Designer",
+        "about.snap4_org": "Giats · Italia",
+        "about.snap4_date": "2022",
+        "about.snapshot_caption": "Mi trayectoria, cursos y competencias en detalle.",
+        "about.snapshot_cta": "Ver CV completo",
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
         "services.section_label": "02 — Mi espacio de trabajo",
         "services.headline": 'Un <span class="grad-text">enfoque</span>,<span class="muted-text"> múltiples disciplinas.</span>',
@@ -4212,7 +3993,7 @@
         "work.project3_title": "Proyecto 03",
         "work.project4_title": "Proyecto 04",
         "work.card_action": "Vista previa & Fases ↗",
-        "work.btn_all_projects": "Ver Todos los Proyectos & Case Studies (4)",
+        "work.btn_all_projects": "Ver Todos los Proyectos & Case Studies (2)",
         "process.section_label": "04 — Método",
         "process.headline": '<span class="grad-text">Menos complejidad.</span> <span class="muted-text">Más criterio.</span>',
         "process.intro": "Cada proyecto comienza por comprender antes de diseñar. Busco observar, estructurar y simplificar, dejando espacio para la experimentación y el aprendizaje continuo.",
@@ -4236,7 +4017,7 @@
         "drawer.specs_role_label": "Año & Rol",
         "drawer.specs_stack_label": "Stack & Método",
         "drawer.btn_project": "Ampliar Proyecto",
-        "drawer.btn_contact": "Contactarme"
+        "drawer.btn_contact": "Proyecto Académico"
       },
       en: {
         "nav.about": "About",
@@ -4260,7 +4041,7 @@
         "about.tab_exp_badge": "06 Roles",
         "about.tab_cert_title": "Courses & Certs",
         "about.tab_cert_sub": "Technical Skills",
-        "about.tab_cert_badge": "IFTS + Cert",
+        "about.tab_cert_badge": "Cert",
         "about.tab_edu_title": "Education",
         "about.tab_edu_sub": "Academic Journey",
         "about.tab_edu_badge": "110/110L",
@@ -4300,20 +4081,20 @@
         "about.pane_cert_title": "Courses & Certifications",
         "about.pane_cert_date": "Continuous Learning",
         "about.cert1_date": "2025",
-        "about.cert1_role": "Web Development with Laravel, PHP & JavaScript (248 Hours)",
-        "about.cert1_org": "Universo & FormaTemp · Online",
+        "about.cert1_role": "Web Development with Laravel, PHP & JavaScript",
+        "about.cert1_org": "Universo & FormaTemp · Online · 248 h",
         "about.cert1_desc": "Hands-on training focusing on back-end web development with PHP and Laravel, object-oriented programming, relational databases, and application architecture.",
         "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Web Developer Course (500 Hours)",
-        "about.cert2_org": "Fondo per la Repubblica Digitale · On-site",
+        "about.cert2_role": "Web Developer Course",
+        "about.cert2_org": "Fondo per la Repubblica Digitale · On-site · 500 h",
         "about.cert2_desc": "Intensive training in full-stack web development, OOP, and modern client/server tech stacks.",
         "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev with JS, jQuery & TypeScript (248 Hours)",
-        "about.cert3_org": "Archimede & FormaTemp · Online",
+        "about.cert3_role": "Front-End Dev with JS, jQuery & TypeScript",
+        "about.cert3_org": "Archimede & FormaTemp · Online · 248 h",
         "about.cert3_desc": "Specialized course in building interactive web interfaces using JavaScript, TypeScript, HTML5, CSS3, and Bootstrap.",
         "about.cert4_date": "2023",
-        "about.cert4_role": "Motion Graphics Course (248 Hours)",
-        "about.cert4_org": "Codigo Facilito / 10 Skills Academy",
+        "about.cert4_role": "Motion Graphics Course",
+        "about.cert4_org": "10 Skills Academy · Online · 248 h",
         "about.cert4_desc": "Training in video editing and motion graphics with Adobe Premiere Pro and After Effects.",
         "about.pane_edu_badge": "Academic Degrees",
         "about.pane_edu_title": "Academic Education",
@@ -4330,16 +4111,33 @@
         "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
         "about.edu2_date": "2025 — 2026",
         "about.edu2_role": "IFTS – IT Applications Development Technician",
-        "about.edu2_org": "Regione Puglia · EQF Level 4",
+        "about.edu2_org": "Regione Puglia",
         "about.edu2_desc": "Vocational program focused on designing and developing IT software, web development, relational databases, and software requirements.",
         "about.edu3_date": "2022 — 2025",
         "about.edu3_role": "Master's Degree in Graphic Design",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia · EQF Level 7",
+        "about.edu3_org": "Accademia di Belle Arti di Foggia",
         "about.edu3_desc": "Advanced specialization in Web Design and UI/UX. Projects centered on user research, information architecture, Figma prototyping, and web technologies.",
         "about.edu4_date": "2018 — 2022",
         "about.edu4_role": "Bachelor's Degree in Graphic Design",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia · EQF Level 6",
+        "about.edu4_org": "Accademia di Belle Arti di Foggia",
         "about.edu4_desc": "Solid foundation in graphic design, visual communication, brand identity, and digital production. Skills in editorial design, multimedia, and web foundations.",
+        "about.cv_cta_title": "Want to explore full work experience & key projects?",
+        "about.cv_cta_sub": "Find comprehensive details on responsibilities, tools, academic milestones, and download the full PDF resume.",
+        "about.cv_cta_btn": "View Full CV / Resume",
+        "about.snap1_role": "UI/UX & Web Designer",
+        "about.snap1_org": "BeDigit · Italy",
+        "about.snap1_date": "2026 — Present",
+        "about.snap2_role": "Freelance Designer",
+        "about.snap2_org": "Graphic, web & UI/UX design",
+        "about.snap2_date": "2024 — Present",
+        "about.snap3_role": "Front-end Developer Junior",
+        "about.snap3_org": "Sinkronia · Italy",
+        "about.snap3_date": "2024",
+        "about.snap4_role": "Graphic Designer",
+        "about.snap4_org": "Giats · Italy",
+        "about.snap4_date": "2022",
+        "about.snapshot_caption": "My career path, courses, and full skills in detail.",
+        "about.snapshot_cta": "View full CV",
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
         "services.section_label": "02 — My Design & Code Space",
         "services.headline": 'One <span class="grad-text">approach</span>,<span class="muted-text"> multiple disciplines.</span>',
@@ -4364,7 +4162,7 @@
         "work.project3_title": "Project 03",
         "work.project4_title": "Project 04",
         "work.card_action": "Preview & Phases ↗",
-        "work.btn_all_projects": "View All Projects & Case Studies (4)",
+        "work.btn_all_projects": "View All Projects & Case Studies (2)",
         "process.section_label": "04 — Process",
         "process.headline": '<span class="grad-text">Less complexity.</span> <span class="muted-text">More purpose.</span>',
         "process.intro": "Every project begins with understanding before creating. I observe, structure, and simplify, leaving room for experimentation and continuous learning.",
@@ -4388,7 +4186,7 @@
         "drawer.specs_role_label": "Year & Role",
         "drawer.specs_stack_label": "Stack & Method",
         "drawer.btn_project": "Explore Project",
-        "drawer.btn_contact": "Contact Me"
+        "drawer.btn_contact": "Academic Project"
       }
     };
 
@@ -4610,11 +4408,13 @@
       const heroResume = document.getElementById('heroResumeBtn');
       const footerResume = document.getElementById('footerResumeLink');
       const mobileResume = document.getElementById('mobileResumeLink');
+      const aboutResume = document.getElementById('aboutResumeBtn');
 
       const resumePageUrl = lang === 'es' ? 'cv-es.html' : (lang === 'en' ? 'cv-en.html' : 'cv.html');
       if (navResume) navResume.href = resumePageUrl;
       if (footerResume) footerResume.href = resumePageUrl;
       if (mobileResume) mobileResume.href = resumePageUrl;
+      if (aboutResume) aboutResume.href = resumePageUrl;
 
       const resumePdfMap = {
         it: 'cv_pdf/CV_Patricia_Garcia_IT_2026.pdf',
