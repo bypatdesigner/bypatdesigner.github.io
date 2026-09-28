@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="it">
 <head>
@@ -480,6 +481,12 @@
       box-shadow: 0 32px 80px rgba(37, 59, 52, 0.10), 0 6px 20px rgba(0, 0, 0, 0.03);
     }
 
+    .visual-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .hero-visual {
       margin-bottom: clamp(60px, 8vw, 110px);
     }
@@ -940,7 +947,7 @@
       height: auto;
       display: block;
       object-fit: contain;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 1600 / 801;
       background: #FFFFFF;
     }
 
@@ -1228,7 +1235,7 @@
     }
 
     .application-grid .visual-card {
-      min-height: 480px;
+      min-height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1237,8 +1244,8 @@
 
     .application-grid .visual-card img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
     }
 
     /* ================= CLOSING STATEMENT BANNER ================= */
@@ -1421,9 +1428,22 @@
         grid-template-columns: 1fr;
         gap: 12px;
       }
+      .application-grid .visual-card {
+        min-height: auto;
+      }
     }
 
     @media (max-width: 768px) {
+      .flipbook-stage {
+        min-height: auto;
+        padding: 18px 12px;
+      }
+      .flipbook-header {
+        padding: 12px 14px;
+      }
+      .flipbook-title {
+        font-size: 0.95rem;
+      }
       .flipbook-nav-tabs {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -1439,6 +1459,12 @@
     }
 
     @media (max-width: 640px) {
+      .visual-card {
+        border-radius: var(--radius-md);
+      }
+      .hero-visual {
+        margin-bottom: 40px;
+      }
       .top-nav {
         grid-template-columns: auto 1fr auto;
         gap: 10px;
@@ -1469,6 +1495,12 @@
       .meta-row {
         grid-template-columns: 100px 1fr;
       }
+      .caption {
+        padding-top: 14px;
+      }
+      .caption p {
+        font-size: 0.95rem;
+      }
       .next-card {
         grid-template-columns: 1fr;
       }
@@ -1478,11 +1510,21 @@
       .closing-banner {
         padding: 36px 24px;
       }
+      .flipbook-stage {
+        padding: 12px 8px;
+        min-height: auto;
+      }
+      .flipbook-nav-tabs {
+        grid-template-columns: repeat(6, 1fr);
+      }
       .flipbook-tab .tab-name {
         display: none;
       }
       .flipbook-tab {
-        padding: 8px 2px;
+        padding: 10px 2px;
+      }
+      .flipbook-tab .tab-num {
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -1650,8 +1692,8 @@
           </div>
 
           <!-- VISUAL 2A: SKETCHES & LOGO EXPLORATION -->
-          <figure class="visual-card" id="visualMarchio" style="margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: #ffffff; min-height: clamp(340px, 45vw, 520px);">
-            <img id="imgMarchio" src="./img/apulia/marchio-schizzi.jpg" alt="Schizzi preparatori e versioni del marchio Apulia Promoting US" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
+          <figure class="visual-card" id="visualMarchio" style="margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; background: #ffffff;">
+            <img id="imgMarchio" src="./img/apulia/marchio-schizzi.jpg" alt="Schizzi preparatori e versioni del marchio Apulia Promoting US" loading="lazy" />
           </figure>
         </div>
 
@@ -1930,11 +1972,11 @@
 
     <!-- ================= NEXT PROJECT NAVIGATION ================= -->
     <section class="next-section">
-      <a class="next-card" href="eureka.html" aria-label="Prossimo progetto Eureka">
+      <a class="next-card" href="Petruzzelli.html" aria-label="Prossimo progetto Teatro Petruzzelli">
         <div>
           <div class="mono sand-accent" id="nextTag">Prossimo Progetto</div>
-          <h2 id="nextTitle">Eureka</h2>
-          <p id="nextDesc">Brand Identity — Una piattaforma professionale per connettere persone, talento e opportunità.</p>
+          <h2 id="nextTitle">Teatro Petruzzelli</h2>
+          <p id="nextDesc">Brand Identity & Comunicazione — Un invito a entrare nel tempio della musica di Bari.</p>
         </div>
         <div class="next-arrow-circle">↗</div>
       </a>
@@ -2069,8 +2111,8 @@
       closingTitle: "Riscoprire la bellezza vicina. Custodire il patrimonio comune.",
 
       nextTag: "Prossimo Progetto",
-      nextTitle: "Eureka",
-      nextDesc: "Brand Identity — Una piattaforma professionale per connettere persone, talento e opportunità.",
+      nextTitle: "Teatro Petruzzelli",
+      nextDesc: "Brand Identity & Comunicazione — Un invito a entrare nel tempio della musica di Bari.",
 
       navBack: "← Tutti i progetti",
       footerBackTop: "Torna all'inizio",
@@ -2158,8 +2200,8 @@
       closingTitle: "Rediscovering nearby beauty. Protecting shared heritage.",
 
       nextTag: "Next Project",
-      nextTitle: "Eureka",
-      nextDesc: "Brand Identity — A professional platform connecting people, talent, and career opportunities.",
+      nextTitle: "Teatro Petruzzelli",
+      nextDesc: "Brand Identity & Communication — An invitation to step into Bari's iconic temple of music.",
 
       navBack: "← All projects",
       footerBackTop: "Back to top",
@@ -2247,8 +2289,8 @@
       closingTitle: "Redescubrir la belleza cercana. Proteger el patrimonio compartido.",
 
       nextTag: "Siguiente Proyecto",
-      nextTitle: "Eureka",
-      nextDesc: "Identidad de Marca — Una plataforma profesional para conectar personas, talento y oportunidades.",
+      nextTitle: "Teatro Petruzzelli",
+      nextDesc: "Identidad de Marca & Comunicación — Una invitación a entrar en el templo de la música de Bari.",
 
       navBack: "← Todos los proyectos",
       footerBackTop: "Volver arriba",

@@ -1192,7 +1192,7 @@
 
     <!-- ================= INTERACTIVE CATEGORY FILTER BAR ================= -->
     <div class="filters-bar" role="tablist" aria-label="Filtra proyectos por categoría">
-      <button class="filter-pill active" onclick="filterProjects('all', this)" id="filterBtnAll">Todos los Proyectos (3)</button>
+      <button class="filter-pill active" onclick="filterProjects('all', this)" id="filterBtnAll">Tutti i Progetti</button>
       <button class="filter-pill" onclick="filterProjects('graphic', this)" id="filterBtnGraphic">Graphic Design</button>
       <button class="filter-pill" onclick="filterProjects('blender', this)" id="filterBtnBlender">Blender 3D</button>
       <button class="filter-pill" onclick="filterProjects('development', this)" id="filterBtnDev" style="display: none;">Desarrollo Web</button>
@@ -1261,7 +1261,7 @@
               <div class="tech-pill-list">
                 <span class="mini-pill">Brand Identity</span>
                 <span class="mini-pill">Advertising</span>
-                <span class="mini-pill">Editorial & Web</span>
+                <span class="mini-pill">Editorial &amp; Visual</span>
               </div>
               <div class="card-cta-arrow">
                 <span>Anteprima Rapida</span>
@@ -1331,6 +1331,38 @@
                 <span class="mini-pill">Photoshop</span>
                 <span class="mini-pill">Illustrator</span>
                 <span class="mini-pill">Poster Design</span>
+              </div>
+              <div class="card-cta-arrow">
+                <span>Anteprima Rapida</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card: Teatro Petruzzelli - Identità Visiva & Comunicazione -->
+        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('petruzzelli')">
+          <div class="card-media-box" style="background: #2a1114;">
+            <img src="./img/petruzzelli/mockup-instagram.jpg" alt="Teatro Petruzzelli — Campagna Social &amp; Identità Visiva" class="card-cover-img" />
+          </div>
+
+          <div class="card-details-box">
+            <div>
+              <div class="card-top-meta">
+                <span>BRAND IDENTITY · PROGETTO ACCADEMICO</span>
+                <span>2020</span>
+              </div>
+              <h2 class="card-project-title grad-text"><span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Identità Visiva & Comunicazione</span></h2>
+              <p class="card-project-desc">
+                Una proposta di identità visiva e comunicazione che esplora come avvicinare il pubblico al teatro, dalla scoperta di un evento al desiderio di viverlo.
+              </p>
+            </div>
+
+            <div class="card-footer-tags">
+              <div class="tech-pill-list">
+                <span class="mini-pill">Brand Identity</span>
+                <span class="mini-pill">Advertising</span>
+                <span class="mini-pill">Copywriting</span>
               </div>
               <div class="card-cta-arrow">
                 <span>Anteprima Rapida</span>
@@ -1439,7 +1471,7 @@
           heroTitle: "Idee che <span class=\"grad-text\">prendono forma</span>.",
           heroSub: "Progetti di graphic design, web e UI/UX in cui unisco creatività, struttura e codice per costruire esperienze chiare, visive e funzionali.",
           heroIndicator: "Esplora i progetti ↓",
-          filterAll: "Tutti i Progetti (4)",
+          filterAll: "Tutti i Progetti",
           filterDev: "Sviluppo Web",
           filterUiux: "UI/UX & Web Design",
           filterGraphic: "Graphic Design",
@@ -1516,6 +1548,16 @@
           bg: "url('./img/apulia/hero-manifesto.jpg') center/cover no-repeat",
           url: "apulia.html"
         },
+        petruzzelli: {
+          title: '<span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Identità Visiva & Comunicazione</span>',
+          category: "BRAND IDENTITY · PROGETTO ACCADEMICO",
+          lead: "Una proposta di identità visiva e comunicazione che esplora come avvicinare il pubblico al teatro, dalla scoperta di un evento al desiderio di viverlo.",
+          role: "2020 · Identità Visiva & Comunicazione",
+          stack: "Illustrator, Photoshop, Copywriting",
+          body: "Progetto accademico per l'Accademia di Belle Arti di Foggia. Ricerca storica e architettonica sul Petruzzelli di Bari, indagine sul pubblico con sondaggio statistico, sistema visivo flessibile, manifesti d'autore, cartellonistica orizzontale, stendardi urbani e campagna social.",
+          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          url: "Petruzzelli.html"
+        },
 
         sumisura: {
           title: "suMisura® Doors",
@@ -1543,7 +1585,7 @@
           heroTitle: "Ideas que <span class=\"grad-text\">toman forma</span>.",
           heroSub: "Proyectos de diseño gráfico, web y UI/UX donde combino creatividad, estructura y código para construir experiencias claras, visuales y funcionales.",
           heroIndicator: "Explora los proyectos ↓",
-          filterAll: "Todos los Proyectos (4)",
+          filterAll: "Todos los Proyectos",
           filterDev: "Desarrollo Web",
           filterUiux: "UI/UX & Web Design",
           filterGraphic: "Graphic Design",
@@ -1620,6 +1662,16 @@
           bg: "url('./img/apulia/hero-manifesto.jpg') center/cover no-repeat",
           url: "apulia.html"
         },
+        petruzzelli: {
+          title: '<span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Identidad Visual & Comunicación</span>',
+          category: "IDENTIDAD DE MARCA · PROYECTO ACADÉMICO",
+          lead: "Una propuesta de identidad visual y comunicación que explora cómo acercar el público al teatro, desde el descubrimiento de un evento hasta el deseo de vivirlo.",
+          role: "2020 · Identidad Visual & Comunicación",
+          stack: "Illustrator, Photoshop, Copywriting",
+          body: "Proyecto académico para la Academia de Bellas Artes de Foggia. Investigación histórica y espacial sobre el Teatro Petruzzelli de Bari, encuesta a la ciudadanía, sistema visual modular, cartelería exterior, banderolas urbanas y campaña en redes sociales.",
+          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          url: "Petruzzelli.html"
+        },
 
         sumisura: {
           title: "suMisura® Doors",
@@ -1647,7 +1699,7 @@
           heroTitle: "Ideas taking <span class=\"grad-text\">shape</span>.",
           heroSub: "Graphic design, web, and UI/UX projects where I blend creativity, structure, and code to craft clear, visual, and functional experiences.",
           heroIndicator: "Explore the projects ↓",
-          filterAll: "All Projects (4)",
+          filterAll: "All Projects",
           filterDev: "Web Development",
           filterUiux: "UI/UX & Web Design",
           filterGraphic: "Graphic Design",
@@ -1723,6 +1775,16 @@
           body: "Academic Graphic Design 3 project for the university cultural association Apulia Promoting US and the 'Percorrendo Boccadoro' campaign. Environmental research, geometric mark synthesizing sun, sea, fallow land and earth, illustrated posters, field pocket guide, and interactive publication.",
           bg: "url('./img/apulia/hero-manifesto.jpg') center/cover no-repeat",
           url: "apulia.html"
+        },
+        petruzzelli: {
+          title: '<span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Visual Identity & Communication</span>',
+          category: "BRAND IDENTITY · ACADEMIC PROJECT",
+          lead: "A visual identity and communication proposal exploring how to bring the public closer to the theater, from discovering an event to experiencing it.",
+          role: "2020 · Visual Identity & Communication",
+          stack: "Illustrator, Photoshop, Copywriting",
+          body: "Academic project at the Academy of Fine Arts of Foggia. Historical and architectural research on Bari's Petruzzelli theater, audience survey analysis, modular visual system, institutional posters, horizontal billboards, urban banners, and social campaign.",
+          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          url: "Petruzzelli.html"
         },
 
         sumisura: {
@@ -1809,7 +1871,7 @@
         if (emptyBtn && labels.emptyBtn) emptyBtn.textContent = labels.emptyBtn;
 
         // Update cards dynamically on the grid
-        ['agribox', 'footsy', 'mininno', 'honey', 'hockney', 'eureka', 'apulia'].forEach(key => {
+        ['agribox', 'footsy', 'mininno', 'honey', 'hockney', 'eureka', 'apulia', 'petruzzelli'].forEach(key => {
           const cardData = PROJECTS_I18N[lang] && PROJECTS_I18N[lang][key];
           if (!cardData) return;
           const card = document.querySelector(`.floating-project-card[onclick*="'${key}'"]`);

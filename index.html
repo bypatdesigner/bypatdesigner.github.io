@@ -1189,21 +1189,11 @@
       text-transform: uppercase;
       letter-spacing: 0.16em;
       margin-bottom: 24px;
-      display: flex;
-      gap: 10px;
+      display: inline-flex;
       align-items: center;
       color: var(--violet-light);
       font-family: var(--font-mono);
       font-weight: 600;
-    }
-
-    .section-label::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      background: var(--violet-light);
-      border-radius: 2px;
-      box-shadow: 0 0 10px var(--violet-light);
     }
 
     .headline {
@@ -1218,249 +1208,219 @@
     }
 
     /* ============================================================
-       INTERACTIVE "CHI SONO" TABS (Esperienza | Corsi | Formazione)
-       WITH MINIMALIST CLEAN TABLE ROWS (High Legibility & Contrast)
+       ABOUT SECTION: STORYTELLING & 3 VALORIAL PILLARS (OPTION B)
        ============================================================ */
-    .about-interactive-wrap {
+    .about-story-wrap {
       margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Narrative Lead Card */
+    /* ============================================================
+       ABOUT SECTION: EDITORIAL STORYTELLING & 3 PILLARS
+       ============================================================ */
+    #about {
+      padding-bottom: clamp(72px, 8vw, 110px);
+    }
+
+    .about-story-wrap {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* Narrative Lead: Clean Editorial Spread (no card-stack feeling) */
+    .about-story-hero {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 0;
+      border-radius: 0;
+      overflow: visible;
       display: grid;
-      grid-template-columns: 330px 1fr;
-      gap: clamp(20px, 3.5vw, 44px);
+      grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1.55fr);
+      gap: clamp(32px, 6vw, 84px);
       align-items: start;
     }
 
-    .about-nav-tabs {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      position: sticky;
-      top: 100px;
-    }
-
-    .about-tab-btn {
-      text-align: left;
-      padding: 16px 22px;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--line);
-      color: var(--text-muted);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .about-tab-btn .tab-title {
-      font-family: var(--font-display);
-      font-size: 1.18rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      transition: color 0.3s;
-      color: #FFFFFF;
-    }
-
-    .about-tab-btn .tab-sub {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      color: #B5ADCE;
-      margin-top: 2px;
-      display: block;
-    }
-
-    .about-tab-btn .tab-badge {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: #CDC5E8;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--line);
-      transition: all 0.3s;
-    }
-
-    .about-tab-btn:hover,
-    .about-tab-btn.active {
-      background: var(--card-hover);
-      border-color: var(--line-violet);
-      color: #fff;
-      transform: translateX(6px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(139, 92, 246, 0.2);
-    }
-
-    .about-tab-btn.active .tab-title {
-      color: var(--violet-light);
-    }
-
-    .about-tab-btn.active .tab-badge {
-      background: var(--violet-tint);
-      color: var(--violet-light);
-      border-color: var(--line-violet);
-    }
-
-    .about-display-panel {
-      background: rgba(18, 14, 28, 0.65);
-      border: 1px solid rgba(167, 139, 250, 0.18);
-      border-radius: var(--radius-xl);
-      padding: clamp(22px, 3.5vw, 34px);
-      backdrop-filter: blur(24px);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
-      position: relative;
-    }
-
-    .tab-content-pane {
+    .about-story-hero::before {
       display: none;
-      animation: fadeInTab 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .tab-content-pane.active {
-      display: block;
+    .about-story-kicker {
+      margin: 4px 0 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+      color: var(--violet-light);
+      border-radius: 0;
+      letter-spacing: 0.16em;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    @keyframes fadeInTab {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .about-snapshot-list {
+    .about-story-body {
+      font-family: var(--font-body);
+      font-size: clamp(1.15rem, 1.55vw, 1.42rem);
+      line-height: 1.7;
+      color: #F5F3FF;
+      max-width: 900px;
       display: flex;
       flex-direction: column;
-    }
-
-    .about-snapshot-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
       gap: 20px;
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.25s ease;
     }
 
-    .about-snapshot-row:first-child {
-      padding-top: 2px;
+    .about-story-body p {
+      margin: 0;
     }
 
-    .about-snapshot-row:hover {
-      border-bottom-color: rgba(167, 139, 250, 0.35);
+    .about-story-body strong {
+      color: #FFFFFF;
+      font-weight: 700;
+      text-shadow: none;
     }
 
-    .about-snapshot-row:hover .about-row-title {
-      transform: translateX(4px);
+    /* 3 Pillars Grid: Architectural Border Columns */
+    .about-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line);
+      margin-top: 8px;
     }
 
-    .about-row-main {
+    .about-pillar-card {
+      background: transparent;
+      border: 0;
+      border-right: 1px solid var(--line);
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 38px clamp(20px, 2.8vw, 38px) 42px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      min-width: 0;
+      justify-content: flex-start;
+      gap: 20px;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      min-height: 260px;
     }
 
-    .about-row-title {
+    .about-pillar-card:first-child {
+      padding-left: 0;
+    }
+
+    .about-pillar-card:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    .about-pillar-card::before {
+      display: none;
+    }
+
+    .about-pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: none;
+      border-color: var(--line-light);
+    }
+
+    .about-pillar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .about-pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--violet-bright);
+      font-size: 1.05rem;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-pillar-card:hover .about-pillar-icon {
+      background: #7C3AED;
+      color: #FFFFFF;
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+    }
+
+    .about-pillar-tag {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--violet-light);
+      text-transform: uppercase;
+    }
+
+    .about-pillar-title {
       font-family: var(--font-display);
-      font-size: 1.125rem; /* 18px */
-      font-weight: 600;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.32rem, 1.75vw, 1.7rem);
+      line-height: 1.15;
+      font-weight: 700;
       color: #FFFFFF;
       margin: 0;
-      transition: transform 0.25s ease;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: -0.02em;
+      transition: color 0.25s ease;
     }
 
-    .about-row-meta {
+    .about-pillar-card:hover .about-pillar-title {
+      color: var(--violet-bright);
+    }
+
+    .about-pillar-desc {
       font-family: var(--font-body);
-      font-size: 0.94rem;
-      color: #CDC5E8;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--text-muted);
       margin: 0;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-weight: 400;
+      max-width: 400px;
     }
 
-    .about-row-date {
-      font-family: var(--font-body);
-      font-size: 0.94rem;
-      color: #D6D0F0;
-      font-weight: 500;
-      white-space: nowrap;
-      text-align: right;
-      padding-top: 2px;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .about-snapshot-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding-top: 22px;
-    }
-
-    .about-snapshot-caption {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      color: #CDC5E8;
-      margin: 0;
-      letter-spacing: 0.01em;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .about-snapshot-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 26px;
-      border-radius: 9999px;
-      background: #A78BFA;
-      color: #120D25 !important;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: all 0.25s ease;
-      box-shadow: 0 8px 24px rgba(167, 139, 250, 0.25);
-    }
-
-    .about-snapshot-cta:hover {
-      background: #C4B5FD;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(167, 139, 250, 0.45);
-      color: #0A0716 !important;
-    }
-
-    @media (max-width: 640px) {
-      .about-snapshot-row {
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .about-row-date {
-        text-align: left;
-        font-size: 0.85rem;
-        color: var(--violet-light);
-      }
-
-      .about-snapshot-footer {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 980px) {
+      .about-story-hero {
+        grid-template-columns: 1fr;
         gap: 16px;
       }
-
-      .about-snapshot-cta {
-        width: 100%;
-        justify-content: center;
+      .about-pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-pillar-card,
+      .about-pillar-card:first-child,
+      .about-pillar-card:last-child {
+        padding: 28px 0;
+        min-height: 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .about-pillar-card:last-child {
+        border-bottom: 0;
       }
     }
 
@@ -1542,120 +1502,226 @@
     }
 
     /* ============================================================
-       SERVICES (Viper Interactive List)
+       02 — TRA DESIGN E CODICE (Light Breathing Section)
        ============================================================ */
     .services {
-      background: var(--surface);
-      color: #fff;
-      border-radius: var(--radius-xl);
-      margin: 0 14px;
-      padding-left: clamp(20px, 4vw, 64px);
-      padding-right: clamp(20px, 4vw, 64px);
-      border: 1px solid var(--line);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
-    }
-
-    .services-head {
-      display: grid;
-      grid-template-columns: 1fr 0.6fr;
-      gap: 40px;
-      align-items: end;
-    }
-
-    .services-intro {
-      color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 460px;
-      justify-self: end;
-      font-size: 1.05rem;
-    }
-
-    .service-list {
-      margin-top: 72px;
-      border-top: 1px solid var(--line);
-    }
-
-    .service {
-      display: grid;
-      grid-template-columns: 80px 1fr 1fr 60px;
-      gap: 28px;
-      padding: 34px 0;
-      border-bottom: 1px solid var(--line);
-      align-items: center;
-      cursor: pointer;
+      background: radial-gradient(120% 120% at 15% 15%, #FFFFFF 0%, #F5F0FE 45%, #EBE3FD 100%);
+      color: #120E24;
+      border-radius: clamp(24px, 3.5vw, 40px);
+      margin: 60px 14px;
+      padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 68px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 30px 90px rgba(124, 58, 237, 0.14), 0 10px 30px rgba(0, 0, 0, 0.06);
       position: relative;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
     }
 
-    .service::before {
+    .services::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent 70%);
-      opacity: 0;
-      border-radius: var(--radius-sm);
-      transition: opacity 0.3s ease;
+      top: -120px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.28) 0%, rgba(235, 227, 253, 0) 70%);
       pointer-events: none;
+      filter: blur(50px);
     }
 
-    .service:hover {
-      padding-left: 18px;
-      border-color: var(--line-violet);
-    }
-
-    .service:hover::before {
-      opacity: 1;
-    }
-
-    .service-num {
-      color: var(--violet-light);
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .service h3 {
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 3.2vw, 3rem);
-      font-weight: 500;
-      letter-spacing: -0.045em;
-      margin: 0;
-      color: #FFFFFF;
-      transition: color 0.3s ease;
-    }
-
-    .service:hover h3 {
-      color: var(--violet-light);
-    }
-
-    .service p {
-      color: var(--text-muted);
-      max-width: 480px;
-      line-height: 1.6;
-      margin: 0;
-      font-size: 1.08rem;
-    }
-
-    .service-arrow {
-      justify-self: end;
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--line-light);
-      border-radius: 50%;
+    .services-grid {
       display: grid;
-      place-items: center;
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.03);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      grid-template-columns: 1fr 1.25fr;
+      gap: clamp(36px, 5.5vw, 84px);
+      align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
-    .service:hover .service-arrow {
-      background: var(--violet-light);
-      color: var(--ink);
-      border-color: var(--violet-light);
-      transform: rotate(45deg) scale(1.1);
-      box-shadow: 0 0 20px rgba(167, 139, 250, 0.6);
+    .services-left-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .services-label {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5B21B6;
+      margin-bottom: 22px;
+    }
+
+    .services-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin: 0 0 24px;
+    }
+
+    .services-grad-text {
+      background: linear-gradient(115deg, #1E0836 0%, #6D28D9 38%, #9333EA 70%, #C026D3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .services-dark-title {
+      color: #0E0B1F;
+      display: inline-block;
+    }
+
+    .services-desc {
+      color: #453F59;
+      font-size: clamp(1rem, 1.25vw, 1.12rem);
+      line-height: 1.68;
+      max-width: 440px;
+      margin: 0 0 34px;
+      font-weight: 450;
+    }
+
+    .services-cta-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .services-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #0E0B1F;
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(14, 11, 31, 0.22);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .services-btn i {
+      font-size: 0.85rem;
+      transition: transform 0.25s ease;
+    }
+
+    .services-btn:hover {
+      background: #5B21B6;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(91, 33, 182, 0.38);
+    }
+
+    .services-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    .services-right-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 56px 200px 1fr;
+      align-items: center;
+      gap: 22px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.14);
+      transition: all 0.25s ease;
+    }
+
+    .service-row:first-child {
+      padding-top: 0;
+    }
+
+    .service-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .service-icon-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(124, 58, 237, 0.12);
+      color: #6D28D9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .service-row:hover .service-icon-box {
+      background: #6D28D9;
+      color: #FFFFFF;
+      transform: scale(1.08) rotate(-4deg);
+      box-shadow: 0 8px 24px rgba(109, 40, 217, 0.32);
+    }
+
+    .service-row-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0E0B1F;
+      letter-spacing: -0.02em;
+      margin: 0;
+      transition: color 0.25s ease;
+    }
+
+    .service-row:hover .service-row-title {
+      color: #6D28D9;
+    }
+
+    .service-row-desc {
+      color: #423C56;
+      font-size: 0.94rem;
+      line-height: 1.55;
+      margin: 0;
+      font-weight: 450;
+    }
+
+    @media (max-width: 1080px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .services-desc {
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .services {
+        margin: 30px 10px;
+        padding: 38px 20px;
+        border-radius: 24px;
+      }
+      .service-row {
+        grid-template-columns: 48px 1fr;
+        gap: 10px 16px;
+        align-items: start;
+        padding: 18px 0;
+      }
+      .service-icon-box {
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+        border-radius: 13px;
+      }
+      .service-row-desc {
+        grid-column: 1 / -1;
+        padding-left: 2px;
+      }
     }
 
     /* ============================================================
@@ -1713,7 +1779,7 @@
 
     .projects {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: repeat(12, 1fr);
       gap: 24px;
       margin-top: 40px;
     }
@@ -1743,17 +1809,31 @@
       display: none;
     }
 
-    .project:nth-child(3),
-    .project:nth-child(4) {
-      min-height: 420px;
+    .project:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .project:nth-child(2) {
+      grid-column: span 5;
     }
 
     .project:nth-child(3) {
-      grid-column: 1;
+      grid-column: span 5;
     }
 
     .project:nth-child(4) {
-      grid-column: 2;
+      grid-column: span 7;
+    }
+
+    @media (max-width: 900px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+      .project:nth-child(n) {
+        grid-column: span 1;
+        min-height: 380px;
+        padding: 24px;
+      }
     }
 
     .project-top {
@@ -1767,18 +1847,20 @@
       font-family: var(--font-mono);
       font-weight: 600;
       color: #FFFFFF;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .project-title {
-      font-size: clamp(2.2rem, 4.4vw, 4.4rem);
-      line-height: 0.9;
-      letter-spacing: -0.055em;
+      font-size: clamp(1.85rem, 3.2vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
       margin: 0;
-      max-width: 680px;
+      max-width: 720px;
       position: relative;
       z-index: 2;
-      font-weight: 600;
+      font-weight: 700;
       color: #fff;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
     }
 
     .project-action-pill {
@@ -1800,16 +1882,19 @@
       gap: 10px;
     }
 
-    /* Abstract Visual Mockups */
+    /* Project Visual Mockups & Covers */
     .art {
       position: absolute;
       inset: 0;
       overflow: hidden;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .project:hover .art {
-      transform: scale(1.04);
+      transform: scale(1.05);
     }
 
     .art::before,
@@ -1936,107 +2021,251 @@
     }
 
     /* ============================================================
-       PROCESS & METHODOLOGY
+       04 — IL MIO PROCESSO (Horizontal Wave Timeline Edition)
        ============================================================ */
-    .process-grid {
+    .process-header-grid {
       display: grid;
-      grid-template-columns: 0.65fr 1fr;
-      gap: 9vw;
-      margin-top: 72px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: clamp(30px, 5vw, 60px);
+      align-items: end;
+      margin-bottom: clamp(48px, 6vw, 72px);
     }
 
-    .process-note {
-      font-size: 1.15rem;
-      font-weight: 450;
-      color: var(--text-main);
-      line-height: 1.72;
-      max-width: 420px;
-      letter-spacing: 0.01em;
-    }
-
-    .steps {
-      border-top: 1px solid var(--line);
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 70px 1fr;
-      gap: 25px;
-      border-bottom: 1px solid var(--line);
-      padding: 32px 0;
-      transition: padding-left 0.3s ease;
-    }
-
-    .step:hover {
-      padding-left: 14px;
-    }
-
-    .step span {
-      font-size: 0.85rem;
-      color: var(--violet-light);
-      font-family: var(--font-mono);
-      font-weight: 700;
-    }
-
-    .step h4 {
-      font-size: clamp(1.45rem, 2.5vw, 2.2rem);
-      margin: 0 0 10px;
+    .process-main-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 800;
       letter-spacing: -0.04em;
-      font-weight: 600;
-      color: #fff;
+      line-height: 1.05;
+      color: #FFFFFF;
+      margin: 0;
     }
 
-    .step p {
+    .process-header-desc {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.25vw, 1.15rem);
+      line-height: 1.7;
+      color: #DDD6FE;
       margin: 0;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 640px;
-      font-size: 1.08rem;
+      max-width: 480px;
+      justify-self: end;
+    }
+
+    .process-timeline-container {
+      position: relative;
+      padding: 30px 0 10px;
+    }
+
+    .process-wave-svg {
+      position: absolute;
+      top: 52px;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    .process-steps-row {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .process-step-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.3s ease;
+    }
+
+    .process-step-col:hover {
+      transform: translateY(-4px);
+    }
+
+    .process-step-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #A78BFA;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .process-step-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(46, 32, 84, 0.95), rgba(24, 18, 44, 0.95));
+      border: 1px solid rgba(192, 139, 232, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.28);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .process-step-col:hover .process-step-icon {
+      background: linear-gradient(135deg, #7C3AED, #A855F7);
+      border-color: #FFFFFF;
+      transform: scale(1.12);
+      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.55), 0 0 25px rgba(192, 139, 232, 0.7);
+    }
+
+    .process-step-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 1.35vw, 1.25rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 8px;
+      letter-spacing: -0.015em;
+      transition: color 0.25s ease;
+    }
+
+    .process-step-col:hover .process-step-title {
+      color: #C084FC;
+    }
+
+    .process-step-desc {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      line-height: 1.58;
+      color: #C4BFDC;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .process-header-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .process-header-desc {
+        justify-self: start;
+        max-width: 100%;
+      }
+      .process-wave-svg {
+        display: none;
+      }
+      .process-steps-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .process-steps-row {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
     }
 
     /* ============================================================
-       QUOTE CARD
+       QUOTE CARD (Light Breathing Space)
        ============================================================ */
     .quote-section {
-      padding-top: 40px;
+      padding: clamp(40px, 6vw, 70px) 0 20px;
     }
 
     .quote-card {
-      background: var(--surface);
-      border-radius: var(--radius-xl);
-      padding: clamp(36px, 7vw, 96px);
+      background: radial-gradient(120% 120% at 15% 15%, #FFFFFF 0%, #F5F0FE 45%, #EBE3FD 100%);
+      border-radius: clamp(24px, 3.5vw, 40px);
+      padding: clamp(44px, 6.5vw, 84px) clamp(28px, 5.5vw, 72px);
       display: grid;
-      grid-template-columns: 1fr 0.4fr;
-      gap: 50px;
-      align-items: end;
-      border: 1px solid var(--line-violet);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(139, 92, 246, 0.12);
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: flex-end;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 30px 90px rgba(124, 58, 237, 0.14), 0 10px 30px rgba(0, 0, 0, 0.05);
       position: relative;
       overflow: hidden;
     }
 
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      top: -30px;
+      left: 20px;
+      font-family: Georgia, serif;
+      font-size: clamp(10rem, 16vw, 15rem);
+      line-height: 1;
+      color: rgba(124, 58, 237, 0.07);
+      pointer-events: none;
+      font-weight: 900;
+      user-select: none;
+    }
+
+    .quote-card::after {
+      content: "";
+      position: absolute;
+      bottom: -90px;
+      right: -60px;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.25) 0%, rgba(235, 227, 253, 0) 70%);
+      pointer-events: none;
+      filter: blur(40px);
+    }
+
     .quote-card blockquote {
-      font-size: clamp(2rem, 4.4vw, 4.6rem);
-      line-height: 1.08;
-      letter-spacing: -0.055em;
-      margin: 0;
-      max-width: 1050px;
-      font-weight: 600;
-      color: #FFFFFF;
-    }
-
-    .person {
-      font-size: 1.02rem;
-      line-height: 1.6;
-      color: var(--text-muted);
-      justify-self: end;
-      font-family: var(--font-mono);
-    }
-
-    .person strong {
-      color: #FFFFFF;
-      font-size: 1.05rem;
       font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3.8rem);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      margin: 0;
+      max-width: 960px;
+      font-weight: 700;
+      color: #0E0B1F;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-card blockquote .grad-text {
+      background: linear-gradient(105deg, #6D28D9 0%, #8B5CF6 55%, #D97706 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      color: transparent !important;
+      text-shadow: none !important;
+      display: inline;
+    }
+
+    .quote-card .person {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      justify-self: end;
+      position: relative;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    .quote-card .person strong {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0E0B1F;
+      letter-spacing: -0.01em;
+    }
+
+    .quote-card .person-role {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #6D28D9;
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.22);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
     }
 
     /* ============================================================
@@ -2047,77 +2276,67 @@
       border-top: 1px solid var(--line);
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: clamp(36px, 6vw, 84px);
-      margin-top: 56px;
-      align-items: start;
-    }
-
-    .contact-info-side {
+    .contact-card-modern {
+      position: relative;
+      background: linear-gradient(145deg, rgba(24, 20, 42, 0.75) 0%, rgba(13, 11, 24, 0.9) 100%);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      border-radius: var(--radius-xl);
+      padding: clamp(40px, 5vw, 68px) clamp(24px, 5vw, 64px);
       display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .contact-big-title {
-      font-size: clamp(2.8rem, 6.5vw, 6.8rem);
-      line-height: 0.88;
-      letter-spacing: -0.065em;
-      font-weight: 700;
-      color: #FFFFFF;
-    }
-
-    .contact-desc {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 440px;
-    }
-
-    .direct-contact-pill {
-      background: var(--card-bg);
-      border: 1px solid var(--line-violet);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(20px);
     }
 
-    .copy-email-trigger {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: rgba(167, 139, 250, 0.12);
-      border: 1px solid var(--line-violet);
-      padding: 14px 20px;
-      border-radius: var(--radius-full);
-      color: #fff;
-      font-family: var(--font-mono);
-      font-size: 0.92rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
+    .contact-spotlight {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+      z-index: 1;
     }
 
-    .copy-email-trigger:hover {
-      background: var(--violet-light);
-      color: var(--ink);
-      box-shadow: 0 0 24px rgba(167, 139, 250, 0.6);
+    .contact-card-modern:hover .contact-spotlight {
+      opacity: 1;
     }
 
-    /* Form Card */
-    .contact-form-card {
-      background: var(--card-bg);
-      border: 1px solid var(--line-violet);
-      border-radius: var(--radius-xl);
-      padding: clamp(32px, 4.5vw, 56px);
-      backdrop-filter: blur(24px);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+    .contact-portrait-wrap {
+      flex-shrink: 0;
+      max-width: 440px;
+      position: relative;
+    }
+
+    .floating-contact-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+      filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.7));
+      transition: transform 0.4s ease;
+    }
+
+    .floating-contact-img:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    @media (max-width: 992px) {
+      .contact-card-modern {
+        flex-direction: column-reverse !important;
+        align-items: flex-start !important;
+        padding: 40px 24px !important;
+      }
+      .contact-portrait-wrap {
+        max-width: 280px;
+        align-self: center;
+      }
     }
 
     .form-group-grid {
@@ -2493,21 +2712,6 @@
     /* Responsive Breakpoints */
     /* Responsive Breakpoints */
     @media (max-width: 980px) {
-      .about-interactive-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .about-nav-tabs {
-        position: static;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .about-tab-btn {
-        flex: 1;
-        min-width: 180px;
-      }
-
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -2901,8 +3105,8 @@
 
     <div class="menu">
       <a href="#about" data-i18n="nav.about">Chi sono</a>
+      <a href="#work" data-i18n="nav.projects">Progetti</a>
       <a href="#services" data-i18n="nav.services">Servizi</a>
-      <a href="projects.html" data-i18n="nav.projects">Progetti</a>
       <a href="#contact" data-i18n="nav.contact">Contatti</a>
     </div>
 
@@ -2947,17 +3151,17 @@
           </div>
           <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
         </a>
-        <a href="#services" class="mobile-nav-item">
+        <a href="#work" class="mobile-nav-item">
           <div class="mobile-item-left">
             <span class="mobile-item-num">02</span>
-            <span data-i18n="nav.services">Servizi</span>
+            <span data-i18n="nav.projects">Progetti</span>
           </div>
           <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
         </a>
-        <a href="projects.html" class="mobile-nav-item">
+        <a href="#services" class="mobile-nav-item">
           <div class="mobile-item-left">
             <span class="mobile-item-num">03</span>
-            <span data-i18n="nav.projects">Progetti</span>
+            <span data-i18n="nav.services">Servizi</span>
           </div>
           <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
         </a>
@@ -3088,197 +3292,220 @@
   <div class="page-frame">
     <div class="shell">
 
-      <!-- ================= ABOUT INTERACTIVE TABS ================= -->
+      <!-- ================= ABOUT SECTION (STORYTELLING & PILLARS - OPTION B) ================= -->
       <section id="about">
-        <div class="section-label reveal" data-i18n="about.section_label">01 — Chi Sono &amp; Percorso</div>
+        <div class="section-label reveal" data-i18n="about.section_label">01 — Chi Sono &amp; Visione</div>
         <h2 class="headline reveal" data-i18n-html="about.headline">
-          <span class="grad-text">Dal design al codice:</span> <span class="muted-text">un percorso in continua
-            evoluzione.</span>
+          <span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Progetto esperienze digitali con uno scopo.</span>
         </h2>
 
-        <!-- Interactive 2-Column Tabs Wrapper with Minimalist Linear Rows -->
-        <div class="about-interactive-wrap reveal">
-
-          <!-- Tab Selectors Sidebar -->
-          <div class="about-nav-tabs" role="tablist">
-            <button class="about-tab-btn active" data-tab="exp" role="tab" aria-selected="true">
-              <div>
-                <div class="tab-title" data-i18n="about.tab_exp_title">Esperienza</div>
-                <span class="tab-sub" data-i18n="about.tab_exp_sub">Lavoro &amp; Agenzia</span>
-              </div>
-              <span class="tab-badge" data-i18n="about.tab_exp_badge">06 Ruoli</span>
-            </button>
-
-            <button class="about-tab-btn" data-tab="cert" role="tab" aria-selected="false">
-              <div>
-                <div class="tab-title" data-i18n="about.tab_cert_title">Corsi &amp; Certificazioni</div>
-                <span class="tab-sub" data-i18n="about.tab_cert_sub">Competenze Tecniche</span>
-              </div>
-              <span class="tab-badge" data-i18n="about.tab_cert_badge">Cert</span>
-            </button>
-
-            <button class="about-tab-btn" data-tab="edu" role="tab" aria-selected="false">
-              <div>
-                <div class="tab-title" data-i18n="about.tab_edu_title">Formazione</div>
-                <span class="tab-sub" data-i18n="about.tab_edu_sub">Percorso Accademico</span>
-              </div>
-              <span class="tab-badge" data-i18n="about.tab_edu_badge">110/110L</span>
-            </button>
+        <div class="about-story-wrap reveal">
+          <!-- Story Narrative Card -->
+          <div class="about-story-hero">
+            <div class="about-story-kicker">
+              <span data-i18n="about.story_kicker">Design · UI/UX · Web</span>
+            </div>
+            <div class="about-story-body">
+              <p data-i18n-html="about.story_p1">
+                Sono una designer con un percorso tra <strong>graphic design, UI/UX e sviluppo web</strong>. Mi piace capire prima il problema, fare ordine nelle informazioni e trasformare idee complesse in esperienze digitali chiare, intuitive e piacevoli.
+              </p>
+              <p data-i18n-html="about.story_p2">
+                La mia curiosità mi ha portata anche al codice. Capire cosa accade dietro un'interfaccia mi permette di progettare con maggior criterio, comunicare meglio con lo sviluppo e creare soluzioni pensate non solo per apparire bene, ma anche per <strong>funzionare</strong>.
+              </p>
+            </div>
           </div>
 
-          <!-- Dynamic Display Panel with Minimalist Rows -->
-          <div class="about-display-panel" id="aboutDisplayPanel">
-
-            <!-- Pane 1: Esperienza (All 6 Roles in clean minimalist style) -->
-            <div class="tab-content-pane active" id="pane-exp">
-              <div class="about-snapshot-list">
-                <!-- Exp 1 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.exp1_role">UI/UX &amp; Web Designer</h3>
-                    <p class="about-row-meta" data-i18n="about.exp1_org">BeDigit · Ibrido · Italia</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.exp1_date">Gen. 2026 — In corso</div>
+          <!-- 3 Pillars Grid -->
+          <div class="about-pillars-grid">
+            <!-- Pillar 1 -->
+            <div class="about-pillar-card">
+              <div class="about-pillar-header">
+                <div class="about-pillar-icon" aria-hidden="true">
+                  <i class="fa-solid fa-ear-listen"></i>
                 </div>
-
-                <!-- Exp 2 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.exp2_role">Freelance Designer</h3>
-                    <p class="about-row-meta" data-i18n="about.exp2_org">Freelance · Remoto · Italia</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.exp2_date">Giu. 2024 — In corso</div>
-                </div>
-
-                <!-- Exp 3 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.exp3_role">Laravel Developer Trainee</h3>
-                    <p class="about-row-meta" data-i18n="about.exp3_org">Universo Srl (Cliente: C.F.A. SRL) · Remoto</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.exp3_date">Set. 2025</div>
-                </div>
-
-                <!-- Exp 4 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.exp4_role">Junior Front-End Developer</h3>
-                    <p class="about-row-meta" data-i18n="about.exp4_org">Sinkronia Srl · Ibrido · Foggia</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.exp4_date">Mar. 2024 — Giu. 2024</div>
-                </div>
-
-                <!-- Exp 5 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.exp5_role">Graphic Designer</h3>
-                    <p class="about-row-meta" data-i18n="about.exp5_org">Giats Srl · In Sede · Bisceglie</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.exp5_date">Feb. 2022 — Dic. 2022</div>
-                </div>
-
-                <!-- Exp 6 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.exp6_role">Administrador Territorial</h3>
-                    <p class="about-row-meta" data-i18n="about.exp6_org">Sistemas &amp; Computadores S.A. · Colombia</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.exp6_date">Gen. 2006 — Ago. 2012</div>
-                </div>
+                <span class="about-pillar-tag" data-i18n="about.pillar1_tag">01 / Ascoltare</span>
               </div>
+              <h3 class="about-pillar-title" data-i18n="about.pillar1_title">Capire prima di decidere</h3>
+              <p class="about-pillar-desc" data-i18n="about.pillar1_desc">
+                Osservare persone, bisogni e contesto per evitare di progettare sulla base di supposizioni.
+              </p>
             </div>
 
-            <!-- Pane 2: Corsi e Certificazioni (All 4 Courses in clean minimalist style) -->
-            <div class="tab-content-pane" id="pane-cert">
-              <div class="about-snapshot-list">
-                <!-- Cert 1 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.cert1_role">Sviluppo Web con Laravel, PHP e JavaScript</h3>
-                    <p class="about-row-meta" data-i18n="about.cert1_org">Universo &amp; FormaTemp · Online · 248 h</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.cert1_date">2025</div>
+            <!-- Pillar 2 -->
+            <div class="about-pillar-card">
+              <div class="about-pillar-header">
+                <div class="about-pillar-icon" aria-hidden="true">
+                  <i class="fa-solid fa-compass"></i>
                 </div>
-
-                <!-- Cert 2 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.cert2_role">Corso Web Developer</h3>
-                    <p class="about-row-meta" data-i18n="about.cert2_org">Fondo per la Repubblica Digitale · In Sede · 500 h</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.cert2_date">2023 — 2024</div>
-                </div>
-
-                <!-- Cert 3 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.cert3_role">Front-End Dev con JS, jQuery e TypeScript</h3>
-                    <p class="about-row-meta" data-i18n="about.cert3_org">Archimede &amp; FormaTemp · Online · 248 h</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.cert3_date">2023</div>
-                </div>
-
-                <!-- Cert 4 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.cert4_role">Corso di Motion Graphics</h3>
-                    <p class="about-row-meta" data-i18n="about.cert4_org">10 Skills Academy · Online · 248 h</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.cert4_date">2023</div>
-                </div>
+                <span class="about-pillar-tag" data-i18n="about.pillar2_tag">02 / Guidare</span>
               </div>
+              <h3 class="about-pillar-title" data-i18n="about.pillar2_title">Rendere ogni passaggio più semplice</h3>
+              <p class="about-pillar-desc" data-i18n="about.pillar2_desc">
+                Costruire gerarchie e percorsi chiari affinché l’esperienza risulti intuitiva e senza frizioni inutili.
+              </p>
             </div>
 
-            <!-- Pane 3: Formazione (All 4 Academic Milestones in clean minimalist style) -->
-            <div class="tab-content-pane" id="pane-edu">
-              <div class="about-snapshot-list">
-                <!-- Edu 1 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.edu1_role">Tecnologo in Analisi e Sviluppo Software</h3>
-                    <p class="about-row-meta"><span data-i18n="about.edu1_org_clean">SENA · Colombia</span> · <span data-i18n="about.status_in_progress">In corso</span></p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.edu1_date">2025 — 2027</div>
+            <!-- Pillar 3 -->
+            <div class="about-pillar-card">
+              <div class="about-pillar-header">
+                <div class="about-pillar-icon" aria-hidden="true">
+                  <i class="fa-solid fa-code"></i>
                 </div>
-
-                <!-- Edu 2 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.edu2_role">IFTS – Tecnico Sviluppo Applicazioni Informatiche</h3>
-                    <p class="about-row-meta" data-i18n="about.edu2_org">Regione Puglia</p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.edu2_date">2025 — 2026</div>
-                </div>
-
-                <!-- Edu 3 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.edu3_role">Laurea Magistrale in Graphic Design</h3>
-                    <p class="about-row-meta"><span data-i18n="about.edu3_org">Accademia di Belle Arti di Foggia</span> · <span data-i18n="about.status_honors">110/110 con Lode</span></p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.edu3_date">2022 — 2025</div>
-                </div>
-
-                <!-- Edu 4 -->
-                <div class="about-snapshot-row">
-                  <div class="about-row-main">
-                    <h3 class="about-row-title" data-i18n="about.edu4_role">Laurea Triennale in Graphic Design</h3>
-                    <p class="about-row-meta"><span data-i18n="about.edu4_org">Accademia di Belle Arti di Foggia</span> · <span data-i18n="about.status_honors">110/110 con Lode</span></p>
-                  </div>
-                  <div class="about-row-date" data-i18n="about.edu4_date">2018 — 2022</div>
-                </div>
+                <span class="about-pillar-tag" data-i18n="about.pillar3_tag">03 / Realizzare</span>
               </div>
+              <h3 class="about-pillar-title" data-i18n="about.pillar3_title">Progettare pensando alla realtà</h3>
+              <p class="about-pillar-desc" data-i18n="about.pillar3_desc">
+                Unire design e conoscenza del front-end per creare soluzioni utili, coerenti e concretamente realizzabili.
+              </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- Card Footer -->
-            <div class="about-snapshot-footer">
-              <p class="about-snapshot-caption" data-i18n="about.snapshot_caption">Il mio percorso, corsi e competenze in dettaglio.</p>
-              <a href="cv.html" class="about-snapshot-cta" id="aboutResumeBtn">
-                <span data-i18n="about.snapshot_cta">Vedi CV completo</span>
-                <span class="arrow" aria-hidden="true">↗</span>
+      <!-- ================= 02 — SELECTED WORK ================= -->
+      <section id="work">
+        <div class="section-label reveal" data-i18n="work.section_label">02 — Portfolio Selezionato</div>
+        <div class="work-head">
+          <h2 class="headline reveal" data-i18n-html="work.headline"><span class="grad-text">Una selezione</span> <span class="muted-text">di lavori e case study.</span></h2>
+          <p class="reveal" data-i18n="work.intro">UI/UX, web e identità visiva: progetti diversi raccontati attraverso processo, decisioni e risultato.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-tabs reveal">
+          <button class="filter-btn active" data-filter="all" data-i18n="work.filter_all">Tutti</button>
+          <button class="filter-btn" data-filter="ux" data-i18n="work.filter_ux">UI/UX</button>
+          <button class="filter-btn" data-filter="web" data-i18n="work.filter_web">Web &amp; Front-end</button>
+          <button class="filter-btn" data-filter="brand" data-i18n="work.filter_brand">Brand &amp; Visual</button>
+        </div>
+
+        <div class="projects reveal">
+          <!-- Project 01: Eureka -->
+          <article class="project" data-category="brand" data-project="eureka">
+            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/eureka/hero.png');"></div>
+            <div class="project-top">
+              <span>Brand Identity · Progetto Accademico</span>
+              <span>2021</span>
+            </div>
+            <div>
+              <h3 class="project-title">Eureka</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
+            </div>
+          </article>
+
+          <!-- Project 02: Apulia Promoting US -->
+          <article class="project" data-category="brand" data-project="apulia">
+            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/apulia/hero-manifesto.jpg');"></div>
+            <div class="project-top">
+              <span>Brand Identity &amp; Campagna</span>
+              <span>2021</span>
+            </div>
+            <div>
+              <h3 class="project-title">Apulia Promoting US</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
+            </div>
+          </article>
+
+          <!-- Project 03: Honey + Coconut -->
+          <article class="project" data-category="brand" data-project="honey">
+            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/honeyCoconut.png');"></div>
+            <div class="project-top">
+              <span>Packaging 3D Design · Blender</span>
+              <span>2024</span>
+            </div>
+            <div>
+              <h3 class="project-title">Honey + Coconut</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
+            </div>
+          </article>
+          <!-- Project 04: Teatro Petruzzelli -->
+          <article class="project" data-category="brand" data-project="petruzzelli">
+            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/petruzzelli/mockup-instagram.jpg');"></div>
+            <div class="project-top">
+              <span>Brand Identity &amp; Comunicazione</span>
+              <span>2020</span>
+            </div>
+            <div>
+              <h3 class="project-title">Teatro Petruzzelli</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Empty State for Filters -->
+        <div id="filterEmptyStateHome" style="display: none; text-align: center; padding: 48px 24px; background: rgba(22, 19, 36, 0.6); border: 1px dashed var(--line); border-radius: var(--radius-lg); margin-top: 32px;">
+          <p id="emptyMsgTextHome" data-i18n="work.empty_filter" style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 16px;">Case study UI/UX &amp; Web Design in arrivo o consultabili su richiesta privata.</p>
+          <a href="#contact" class="btn secondary" style="display: inline-flex; align-items: center; gap: 8px; border-radius: var(--radius-full); padding: 10px 24px; font-size: 0.84rem;">
+            <span data-i18n="work.empty_filter_btn">Richiedi Informazioni</span> <span>↗</span>
+          </a>
+        </div>
+
+        <!-- Callout to All Projects Page -->
+        <div style="margin-top: 44px; text-align: center;" class="reveal">
+          <a href="projects.html" class="btn secondary"
+            style="display: inline-flex; align-items: center; gap: 10px; border-radius: var(--radius-full); padding: 14px 36px; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; color: #FFFFFF; border-color: var(--line-violet); background: rgba(139, 92, 246, 0.12); transition: all 0.3s ease;">
+            <span data-i18n="work.btn_all_projects">Vedi tutti i progetti &amp; case study ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= 03 — TRA DESIGN E CODICE (Light Breathing Section) ================= -->
+      <section class="services" id="services">
+        <div class="services-grid">
+          <!-- Left Column: Title, Intro & CTA -->
+          <div class="services-left-col reveal">
+            <div class="services-label">
+              <span data-i18n="services.section_label">03 — Tra Design e Codice</span>
+            </div>
+            <h2 class="services-title" data-i18n-html="services.headline">
+              <span class="services-grad-text">Un approccio,</span><br />
+              <span class="services-dark-title">più discipline.</span>
+            </h2>
+            <p class="services-desc" data-i18n="services.intro">Dall’esperienza utente all’identità visiva, fino alla costruzione dell’interfaccia: competenze diverse che uso e combino in base alle esigenze del progetto.</p>
+            <div class="services-cta-wrap">
+              <a href="#process" class="services-btn">
+                <span data-i18n="services.btn">Scopri il mio approccio</span>
+                <i class="fa-solid fa-arrow-right"></i>
               </a>
             </div>
+          </div>
 
+          <!-- Right Column: Disciplines List -->
+          <div class="services-right-col reveal">
+            <!-- 01 UI/UX Design -->
+            <div class="service-row">
+              <div class="service-icon-box">
+                <i class="fa-solid fa-arrow-pointer"></i>
+              </div>
+              <h3 class="service-row-title" data-i18n="services.card1_title">UI/UX Design</h3>
+              <p class="service-row-desc" data-i18n="services.card1_desc">Ricerca, architettura dell’informazione, user flow, wireframe, prototipazione e progettazione di interfacce.</p>
+            </div>
+
+            <!-- 02 Visual & Web Design -->
+            <div class="service-row">
+              <div class="service-icon-box">
+                <i class="fa-regular fa-image"></i>
+              </div>
+              <h3 class="service-row-title" data-i18n="services.card2_title">Visual & Web Design</h3>
+              <p class="service-row-desc" data-i18n="services.card2_desc">Layout, tipografia, composizione e sistemi visivi applicati a prodotti ed esperienze digitali.</p>
+            </div>
+
+            <!-- 03 Front-end Development -->
+            <div class="service-row">
+              <div class="service-icon-box">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h3 class="service-row-title" data-i18n="services.card3_title">Front-end Development</h3>
+              <p class="service-row-desc" data-i18n="services.card3_desc">HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.</p>
+            </div>
+
+            <!-- 04 AI Exploration -->
+            <div class="service-row">
+              <div class="service-icon-box">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <h3 class="service-row-title" data-i18n="services.card4_title">AI Exploration</h3>
+              <p class="service-row-desc" data-i18n="services.card4_desc">Strumenti AI integrati nel processo di ricerca, ideazione, prototipazione e sperimentazione.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -3341,197 +3568,91 @@
         </div>
       </section>
 
-      <!-- ================= Il mio spazio progettuale ================= -->
-      <section class="services" id="services">
-        <div class="section-label reveal" data-i18n="services.section_label">02 — Il mio spazio progettuale</div>
-        <div class="services-head">
-          <h2 class="headline reveal" data-i18n-html="services.headline">Un <span
-              class="grad-text">approccio</span>,<span class="muted-text"> più competenze.</span></h2>
-          <p class="services-intro reveal" data-i18n="services.intro">Mi muovo tra UI/UX, web design, visual e front-end
-            con curiosità e voglia di crescere, cercando di migliorare progetto dopo progetto.</p>
-        </div>
-
-        <div class="service-list reveal">
-          <article class="service" data-service="uiux">
-            <span class="service-num">[01]</span>
-            <h3 data-i18n="services.card1_title">UI/UX Design</h3>
-            <p data-i18n="services.card1_desc">Ricerca e analisi, architettura dell’informazione, wireframe, user flow,
-              prototipazione e progettazione di interfacce.</p>
-          </article>
-
-          <article class="service" data-service="frontend">
-            <span class="service-num">[02]</span>
-            <h3 data-i18n="services.card2_title">Visual & Web Design</h3>
-            <p data-i18n="services.card2_desc">Layout, composizione, tipografia, identità visiva e applicazione dei
-              sistemi grafici al digitale.</p>
-          </article>
-
-          <article class="service" data-service="brand">
-            <span class="service-num">[03]</span>
-            <h3 data-i18n="services.card3_title">Web Development</h3>
-            <p data-i18n="services.card3_desc">HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze
-              che continuo a consolidare.</p>
-          </article>
-
-          <article class="service" data-service="brand">
-            <span class="service-num">[04]</span>
-            <h3 data-i18n="services.card4_title">AI Exploration</h3>
-            <p data-i18n="services.card4_desc">Utilizzo e sperimentazione di strumenti AI a supporto di ricerca,
-              ideazione, prototipazione e sviluppo.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- ================= SELECTED WORK ================= -->
-      <section id="work">
-        <div class="section-label reveal" data-i18n="work.section_label">03 — Portfolio Selezionato</div>
-        <div class="work-head">
-          <h2 class="headline reveal" data-i18n-html="work.headline"> <span class="grad-text">Progetti</span> </h2>
-          <p class="reveal" data-i18n="work.intro">Clicca su ciascuna card per aprire l'anteprima rapida, oppure amplia
-            il progetto per visualizzare le 4 fasi e le specifiche complete.</p>
-        </div>
-
-        <!-- Filters -->
-        <div class="filter-tabs reveal">
-          <button class="filter-btn active" data-filter="all" data-i18n="work.filter_all">Tutti</button>
-          <button class="filter-btn" data-filter="ux" data-i18n="work.filter_ux">UI/UX Design</button>
-          <button class="filter-btn" data-filter="web" data-i18n="work.filter_web">Web &amp; Front-end</button>
-          <button class="filter-btn" data-filter="brand" data-i18n="work.filter_brand">Brand &amp; Art</button>
-        </div>
-
-        <div class="projects reveal">
-          <!-- Project 01 --->
-          <article class="project" data-category="ux web" data-project="agribox">
-            <div class="art art-a"></div>
-            <div class="project-top">
-              <span>UI/UX Design</span>
-              <span>2026</span>
-            </div>
-            <div>
-              <h3 class="project-title" data-i18n="work.project1_title">Progetto 01</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
-            </div>
-          </article>
-
-          <!-- Project 02 --->
-          <article class="project" data-category="ux web" data-project="footsy">
-            <div class="art art-b"></div>
-            <div class="project-top">
-              <span>UI/UX Design</span>
-              <span>2026</span>
-            </div>
-            <div>
-              <h3 class="project-title" data-i18n="work.project2_title">Progetto 02</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
-            </div>
-          </article>
-
-          <!-- Project 03 --->
-          <article class="project" data-category="ux web" data-project="mininno">
-            <div class="art art-c"></div>
-            <div class="project-top">
-              <span>UI/UX Design</span>
-              <span>2026</span>
-            </div>
-            <div>
-              <h3 class="project-title" data-i18n="work.project3_title">Progetto 03</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
-            </div>
-          </article>
-
-          <!-- Project 04 --->
-          <article class="project" data-category="ux web" data-project="honey">
-            <div class="art art-d"></div>
-            <div class="project-top">
-              <span>UI/UX Design</span>
-              <span>2026</span>
-            </div>
-            <div>
-              <h3 class="project-title" data-i18n="work.project4_title">Progetto 04</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima &amp;
-                Fasi ↗</span>
-            </div>
-          </article>
-        </div>
-
-        <!-- Callout to All Projects Page -->
-        <div style="margin-top: 44px; text-align: center;" class="reveal">
-          <a href="projects.html" class="btn secondary"
-            style="display: inline-flex; align-items: center; gap: 10px; border-radius: var(--radius-full); padding: 14px 36px; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; color: #FFFFFF; border-color: var(--line-violet); background: rgba(139, 92, 246, 0.12); transition: all 0.3s ease;">
-            <span data-i18n="work.btn_all_projects">Vedi Tutti i Progetti &amp; Case Studies (2)</span>
-            <span>↗</span>
-          </a>
-        </div>
-      </section>
-
+      <!-- ================= 04 — IL MIO PROCESSO ================= -->
       <section id="process">
-        <div class="section-label reveal" data-i18n="process.section_label">04 — Metodo</div>
-        <h2 class="headline reveal" data-i18n-html="process.headline"><span class="grad-text">Meno complessità.</span>
-          <span class="muted-text">Più criterio.</span>
-        </h2>
-
-        <div class="process-grid reveal">
-          <p class="process-note" data-i18n="process.intro">
-            Ogni progetto parte dal capire prima di disegnare. Cerco di osservare, organizzare e semplificare, lasciando
-            spazio alla sperimentazione e a ciò che posso imparare lungo il percorso.
+        <div class="section-label reveal" data-i18n="process.section_label">04 — Il Mio Processo</div>
+        
+        <div class="process-header-grid reveal">
+          <h2 class="process-main-title" data-i18n-html="process.headline">
+            Capire prima.<br />
+            <span class="grad-text">Progettare meglio.</span>
+          </h2>
+          <p class="process-header-desc" data-i18n="process.intro">
+            Ogni progetto nasce da persone, bisogni e contesti diversi. Per questo non parto subito dalla soluzione: prima ascolto, osservo e cerco di capire cosa serve davvero. Da lì, costruisco il progetto passo dopo passo.
           </p>
+        </div>
 
-          <div class="steps">
-            <div class="step">
-              <span>01</span>
-              <div>
-                <h4 data-i18n="process.step1_title">Comprendere</h4>
-                <p data-i18n="process.step1_desc">Osservare il contesto, le persone, gli obiettivi e i vincoli prima di
-                  cercare una soluzione.</p>
+        <div class="process-timeline-container reveal">
+          <!-- Fluid Wave Connecting Line (SVG) -->
+          <svg class="process-wave-svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 0,60 C 120,15 180,95 280,55 C 380,15 440,95 540,55 C 640,15 700,95 800,55 C 880,20 940,85 1000,55" 
+                  fill="none" stroke="rgba(167, 139, 250, 0.4)" stroke-width="2.5" stroke-dasharray="6 6" />
+          </svg>
+
+          <!-- 5 Steps Row -->
+          <div class="process-steps-row">
+            <!-- 01 Comprendere -->
+            <div class="process-step-col">
+              <span class="process-step-num">01</span>
+              <div class="process-step-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
               </div>
+              <h4 class="process-step-title" data-i18n="process.step1_title">Comprendere</h4>
+              <p class="process-step-desc" data-i18n="process.step1_desc">Ascoltare, osservare e conoscere il contesto, le persone e gli obiettivi.</p>
             </div>
-            <div class="step">
-              <span>02</span>
-              <div>
-                <h4 data-i18n="process.step2_title">Definire</h4>
-                <p data-i18n="process.step2_desc">Trasformare ciò che emerge in priorità, problemi da risolvere,
-                  contenuti e requisiti più chiari.</p>
+
+            <!-- 02 Mettere a fuoco -->
+            <div class="process-step-col">
+              <span class="process-step-num">02</span>
+              <div class="process-step-icon">
+                <i class="fa-solid fa-crosshairs"></i>
               </div>
+              <h4 class="process-step-title" data-i18n="process.step2_title">Mettere a fuoco</h4>
+              <p class="process-step-desc" data-i18n="process.step2_desc">Dare ordine alle informazioni e capire quali sono le priorità e i problemi reali da affrontare.</p>
             </div>
-            <div class="step">
-              <span>03</span>
-              <div>
-                <h4 data-i18n="process.step3_title">Esplorare</h4>
-                <p data-i18n="process.step3_desc">Generare idee, confrontare alternative e cercare la direzione più
-                  adatta al progetto.</p>
+
+            <!-- 03 Esplorare -->
+            <div class="process-step-col">
+              <span class="process-step-num">03</span>
+              <div class="process-step-icon">
+                <i class="fa-regular fa-lightbulb"></i>
               </div>
+              <h4 class="process-step-title" data-i18n="process.step3_title">Esplorare</h4>
+              <p class="process-step-desc" data-i18n="process.step3_desc">Provare strade diverse, confrontare idee e cercare la direzione più adatta.</p>
             </div>
-            <div class="step">
-              <span>04</span>
-              <div>
-                <h4 data-i18n="process.step4_title">Progettare</h4>
-                <p data-i18n="process.step4_desc">Dare forma alla soluzione attraverso flussi, wireframe, interfacce e
-                  prototipi.</p>
+
+            <!-- 04 Progettare -->
+            <div class="process-step-col">
+              <span class="process-step-num">04</span>
+              <div class="process-step-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
               </div>
+              <h4 class="process-step-title" data-i18n="process.step4_title">Progettare</h4>
+              <p class="process-step-desc" data-i18n="process.step4_desc">Trasformare ciò che emerge in flussi, wireframe, interfacce e prototipi.</p>
             </div>
-            <div class="step">
-              <span>05</span>
-              <div>
-                <h4 data-i18n="process.step5_title">Costruire &amp; Iterare</h4>
-                <p data-i18n="process.step5_desc">Portare il progetto verso lo sviluppo, testare ciò che funziona e
-                  migliorarlo attraverso feedback e nuove evidenze.</p>
+
+            <!-- 05 Migliorare -->
+            <div class="process-step-col">
+              <span class="process-step-num">05</span>
+              <div class="process-step-icon">
+                <i class="fa-solid fa-arrow-trend-up"></i>
               </div>
+              <h4 class="process-step-title" data-i18n="process.step5_title">Migliorare</h4>
+              <p class="process-step-desc" data-i18n="process.step5_desc">Verificare ciò che funziona, ascoltare i feedback e affinare la soluzione nel tempo.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= QUOTE ================= -->
+      <!-- ================= QUOTE (Light Breathing Section) ================= -->
       <section class="quote-section">
         <div class="quote-card reveal">
           <blockquote>
             “Pay attention to <span class="grad-text">what users do</span>, not what they say.”
           </blockquote>
           <div class="person">
-            <strong>Jakob Nielsen</strong><br>
+            <strong>Jakob Nielsen</strong>
+            <span class="person-role">UX Pioneer</span>
           </div>
         </div>
       </section>
@@ -3638,12 +3759,12 @@
     <div class="drawer-panel" id="drawerPanel" role="dialog" aria-modal="true">
       <button class="drawer-close" id="drawerClose" aria-label="Chiudi modale">✕</button>
 
-      <div class="drawer-category" id="drawerCategory">E-COMMERCE · UI/UX</div>
-      <h3 class="drawer-title grad-text" id="drawerTitle">AgriBox Platform</h3>
-      <p class="drawer-lead" id="drawerLead">Catalogo e-commerce che unisce retail B2C e area B2B con sconti a volume.
+      <div class="drawer-category" id="drawerCategory">BRAND IDENTITY · PROGETTO ACCADEMICO</div>
+      <h3 class="drawer-title grad-text" id="drawerTitle">Eureka</h3>
+      <p class="drawer-lead" id="drawerLead">Un’identità visiva per una piattaforma professionale pensata per connettere persone, talento e nuove opportunità.
       </p>
 
-      <div class="drawer-preview" id="drawerPreview"></div>
+      <div class="drawer-preview" id="drawerPreview" style="background: url('./img/eureka/hero.png') center/cover no-repeat;"></div>
 
       <div class="drawer-specs">
         <div class="drawer-spec">
@@ -3691,153 +3812,62 @@
         "nav.resume_desc": "Esplora il percorso completo, l'esperienza, la formazione accademica e le certificazioni.",
         "nav.resume_cta": "Visualizza CV / Resume",
         "nav.select_lang": "Lingua:",
-        "hero.eyebrow": "<i></i> Bisceglie, Italia · Remoto / Ibrido / On-site",
+        "hero.eyebrow": "Bisceglie, Italia  · Remoto / Ibrido / On-site",
         "hero.title": 'Design, sviluppo e <br>qualche altra <span class="grad-text">ossessione <br><span style="white-space: nowrap;">creativa.</span></span>',
         "hero.desc": "UI/UX Designer con un background in Graphic Design e sviluppo web. Progetto interfacce digitali chiare, intuitive e curate nei dettagli.",
         "hero.btn_work": "Vedi Progetti ↗",
         "hero.btn_resume": "Resume / CV",
-        "about.section_label": "01 — Chi Sono & Percorso",
-        "about.headline": '<span class="grad-text">Dal design al codice:</span> <span class="muted-text">un percorso in continua evoluzione.</span>',
-        "about.tab_exp_title": "Esperienza",
-        "about.tab_exp_sub": "Lavoro & Agenzia",
-        "about.tab_exp_badge": "06 Ruoli",
-        "about.tab_cert_title": "Corsi & Certificazioni",
-        "about.tab_cert_sub": "Competenze Tecniche",
-        "about.tab_cert_badge": "Cert",
-        "about.tab_edu_title": "Formazione",
-        "about.tab_edu_sub": "Percorso Accademico",
-        "about.tab_edu_badge": "110/110L",
-        "about.pane_exp_badge": "Percorso Lavorativo",
-        "about.pane_exp_title": "Esperienza Professionale",
-        "about.pane_exp_date": "2006 — Oggi",
-        "about.status_in_progress": "In corso",
-        "about.status_completed": "Completato",
-        "about.status_honors": "110/110 con Lode",
-        "about.status_cert": "248h · Certificato",
-        "about.status_cert2": "500h · Certificato",
-        "about.exp1_date": "Gen. 2026 — In corso",
-        "about.exp1_role": "UI/UX & Web Designer",
-        "about.exp1_org": "BeDigit · Ibrido · Italia",
-        "about.exp1_contract": "Full-time (gen–giu 2026) · Part-time (da giu 2026)",
-        "about.exp1_desc": "Progettazione di esperienze web e interfacce in Figma, dall'analisi dei requisiti all'architettura dell'informazione, fino a user flow, wireframe e prototipi ad alta fedeltà. Collaborazione con il team di sviluppo.",
-        "about.exp2_date": "Giu. 2024 — In corso",
-        "about.exp2_role": "Freelance Designer",
-        "about.exp2_org": "Freelance · Remoto · Italia",
-        "about.exp2_desc": "Sviluppo di progetti web e UI/UX su misura combinando struttura dei contenuti, esperienza utente e design visivo.",
-        "about.exp3_date": "Set. 2025",
-        "about.exp3_role": "Laravel Developer Trainee",
-        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto",
-        "about.exp3_desc": "Sviluppo di due micro-progetti web back-end: gestione controller, routing, modellazione dati, migrazioni, operazioni CRUD e autenticazione.",
-        "about.exp4_date": "Mar. 2024 — Giu. 2024",
-        "about.exp4_role": "Junior Front-End Developer",
-        "about.exp4_org": "Sinkronia Srl · Ibrido · Foggia",
-        "about.exp4_desc": "Partecipazione all'intero ciclo di vita del software: dall'analisi dei requisiti e UI/UX design, fino all'implementazione front-end di una sezione dell'ERP I-Quadra in Angular.",
-        "about.exp5_date": "Feb. 2022 — Dic. 2022",
-        "about.exp5_role": "Graphic Designer",
-        "about.exp5_org": "Giats Srl · In Sede · Bisceglie",
-        "about.exp5_desc": "Progettazione e produzione di materiali grafici personalizzati per il mercato all'ingrosso. Gestione del processo creativo dal concept visivo alla consegna finale.",
-        "about.exp6_date": "Gen. 2006 — Ago. 2012",
-        "about.exp6_role": "Administrador Territorial",
-        "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
-        "about.exp6_desc": "Coordinamento del personale e delle attività operative, gestione della comunicazione tra clienti e team, e organizzazione delle risorse informatiche e documentali.",
-        "about.exp3_duration": "1 mese",
-        "about.exp4_duration": "4 mesi",
-        "about.exp5_duration": "11 mesi",
-        "about.exp6_duration": "6 anni e 8 mesi",
-        "about.pane_cert_badge": "Specializzazioni Tecniche",
-        "about.pane_cert_title": "Corsi & Certificazioni",
-        "about.pane_cert_date": "Aggiornamento Continuo",
-        "about.cert1_date": "2025",
-        "about.cert1_role": "Sviluppo Web con Laravel, PHP e JavaScript",
-        "about.cert1_org": "Universo & FormaTemp · Online · 248 h",
-        "about.cert1_desc": "Formazione pratica incentrata su sviluppo web back-end con PHP e Laravel, programmazione orientata agli oggetti, database relazionali e creazione di applicazioni.",
-        "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Corso Web Developer",
-        "about.cert2_org": "Fondo per la Repubblica Digitale · In Sede · 500 h",
-        "about.cert2_desc": "Formazione intensiva in sviluppo web full-stack, OOP (programmazione orientata agli oggetti) e stack tecnologico moderno sia lato client che server.",
-        "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev con JS, jQuery e TypeScript",
-        "about.cert3_org": "Archimede & FormaTemp · Online · 248 h",
-        "about.cert3_desc": "Corso specializzato nella costruzione di interfacce web interattive utilizzando JavaScript, TypeScript, HTML5, CSS3 e Bootstrap.",
-        "about.cert4_date": "2023",
-        "about.cert4_role": "Corso di Motion Graphics",
-        "about.cert4_org": "10 Skills Academy · Online · 248 h",
-        "about.cert4_desc": "Formazione in montaggio video e animazione grafica con Adobe Premiere Pro e After Effects.",
-        "about.pane_edu_badge": "Titoli Accademici",
-        "about.pane_edu_title": "Formazione Accademica",
-        "about.pane_edu_date": "Massimo dei Voti",
-        "about.edu1_date": "2025 — 2027",
-        "about.edu1_role": "Tecnologo in Analisi e Sviluppo Software",
-        "about.edu1_org_clean": "SENA · Colombia",
-        "about.edu1_desc": "Percorso focalizzato sull’intero ciclo di vita del software: analisi, progettazione, sviluppo, testing e deploy.",
-        "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
-        "about.edu2_date": "2025 — 2026",
-        "about.edu2_role": "IFTS – Tecnico Sviluppo Applicazioni Informatiche",
-        "about.edu2_org": "Regione Puglia",
-        "about.edu2_desc": "Formazione professionale focalizzata sulla progettazione e sviluppo di applicazioni IT, inclusa programmazione, sviluppo web, database e analisi dei requisiti.",
-        "about.edu3_date": "2022 — 2025",
-        "about.edu3_role": "Laurea Magistrale in Graphic Design",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia",
-        "about.edu3_desc": "Formazione avanzata specializzata in Web Design e UI/UX. Sviluppo di progetti focalizzati su user experience, architettura dell'informazione, prototipazione in Figma e tecnologie web.",
-        "about.edu4_date": "2018 — 2022",
-        "about.edu4_role": "Laurea Triennale in Graphic Design",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia",
-        "about.edu4_desc": "Solida formazione in graphic design, comunicazione visiva, branding e produzione di contenuti digitali. Competenze in identità visiva, design editoriale, multimedialità e fondamenti di web design.",
-        "about.cv_cta_title": "Vuoi approfondire l'esperienza completa e tutti i progetti?",
-        "about.cv_cta_sub": "Trovi i dettagli completi su mansioni, tecnologie, progetti accademici e il CV scaricabile in PDF.",
-        "about.cv_cta_btn": "Visualizza CV Completo",
-        "about.snap1_role": "UI/UX & Web Designer",
-        "about.snap1_org": "BeDigit · Italia",
-        "about.snap1_date": "2026 — In corso",
-        "about.snap2_role": "Freelance Designer",
-        "about.snap2_org": "Progetti grafici, web e UI/UX",
-        "about.snap2_date": "2024 — In corso",
-        "about.snap3_role": "Front-end Developer Junior",
-        "about.snap3_org": "Sinkronia · Italia",
-        "about.snap3_date": "2024",
-        "about.snap4_role": "Graphic Designer",
-        "about.snap4_org": "Giats · Italia",
-        "about.snap4_date": "2022",
-        "about.snapshot_caption": "Il mio percorso, corsi e competenze in dettaglio.",
-        "about.snapshot_cta": "Vedi CV completo",
+        "about.section_label": "01 — Chi Sono & Visione",
+        "about.headline": '<span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Progetto esperienze digitali con uno scopo.</span>',
+        "about.story_kicker": "Design · UI/UX · Web",
+        "about.story_p1": 'Sono una designer con un percorso tra <strong>graphic design, UI/UX e sviluppo web</strong>. Mi piace capire prima il problema, fare ordine nelle informazioni e trasformare idee complesse in esperienze digitali chiare, intuitive e piacevoli.',
+        "about.story_p2": 'La mia curiosità mi ha portata anche al codice. Capire cosa accade dietro un\'interfaccia mi permette di progettare con maggior criterio, comunicare meglio con lo sviluppo e creare soluzioni pensate non solo per apparire bene, ma anche per <strong>funzionare</strong>.',
+        "about.pillar1_tag": "01 / Ascoltare",
+        "about.pillar1_title": "Capire prima di decidere",
+        "about.pillar1_desc": "Osservare persone, bisogni e contesto per evitare di progettare sulla base di supposizioni.",
+        "about.pillar2_tag": "02 / Guidare",
+        "about.pillar2_title": "Rendere ogni passaggio più semplice",
+        "about.pillar2_desc": "Costruire gerarchie e percorsi chiari affinché l’esperienza risulti intuitiva e senza frizioni inutili.",
+        "about.pillar3_tag": "03 / Realizzare",
+        "about.pillar3_title": "Progettare pensando alla realtà",
+        "about.pillar3_desc": "Unire design e conoscenza del front-end per creare soluzioni utili, coerenti e concretamente realizzabili.",
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
-        "services.section_label": "02 — Il mio spazio progettuale",
-        "services.headline": 'Un <span class="grad-text">approccio</span>,<span class="muted-text"> più competenze.</span>',
-        "services.intro": "Mi muovo tra UI/UX, web design, visual e front-end con curiosità e voglia di crescere, cercando di migliorare progetto dopo progetto.",
+        "services.section_label": "03 — Tra Design e Codice",
+        "services.headline": '<span class="services-grad-text">Un approccio,</span><br><span class="services-dark-title">più discipline.</span>',
+        "services.intro": "Dall’esperienza utente all’identità visiva, fino alla costruzione dell’interfaccia: competenze diverse che uso e combino in base alle esigenze del progetto.",
+        "services.btn": "Scopri il mio approccio",
         "services.card1_title": "UI/UX Design",
-        "services.card1_desc": "Ricerca e analisi, architettura dell’informazione, wireframe, user flow, prototipazione e progettazione di interfacce.",
+        "services.card1_desc": "Ricerca, architettura dell’informazione, user flow, wireframe, prototipazione e progettazione di interfacce.",
         "services.card2_title": "Visual & Web Design",
-        "services.card2_desc": "Layout, composizione, tipografia, identità visiva e applicazione dei sistemi grafici al digitale.",
-        "services.card3_title": "Web Development",
-        "services.card3_desc": "HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze che continuo a consolidare.",
+        "services.card2_desc": "Layout, tipografia, composizione e sistemi visivi applicati a prodotti ed esperienze digitali.",
+        "services.card3_title": "Front-end Development",
+        "services.card3_desc": "HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.",
         "services.card4_title": "AI Exploration",
-        "services.card4_desc": "Utilizzo e sperimentazione di strumenti AI a supporto di ricerca, ideazione, prototipazione e sviluppo.",
-        "work.section_label": "03 — Portfolio Selezionato",
-        "work.headline": '<span class="grad-text">Progetti</span>',
-        "work.intro": "Clicca su ciascuna card per aprire l'anteprima rapida, oppure amplia il progetto per visualizzare le 4 fasi e le specifiche complete.",
+        "services.card4_desc": "Strumenti AI integrati nel processo di ricerca, ideazione, prototipazione e sperimentazione.",
+        "work.section_label": "02 — Portfolio Selezionato",
+        "work.headline": '<span class="grad-text">Una selezione</span> <span class="muted-text">di lavori e case study.</span>',
+        "work.intro": "UI/UX, web e identità visiva: progetti diversi raccontati attraverso processo, decisioni e risultato.",
         "work.filter_all": "Tutti",
-        "work.filter_ux": "UI/UX Design",
+        "work.filter_ux": "UI/UX",
         "work.filter_web": "Web & Front-end",
-        "work.filter_brand": "Brand & Art",
-        "work.project1_title": "Progetto 01",
-        "work.project2_title": "Progetto 02",
-        "work.project3_title": "Progetto 03",
-        "work.project4_title": "Progetto 04",
-        "work.card_action": "Anteprima & Fasi ↗",
-        "work.btn_all_projects": "Vedi Tutti i Progetti & Case Studies (2)",
-        "process.section_label": "04 — Metodo",
-        "process.headline": '<span class="grad-text">Meno complessità.</span> <span class="muted-text">Più criterio.</span>',
-        "process.intro": "Ogni progetto parte dal capire prima di disegnare. Cerco di osservare, organizzare e semplificare, lasciando spazio alla sperimentazione e a ciò che posso imparare lungo il percorso.",
+        "work.filter_brand": "Brand & Visual",
+        "work.card_action": "Anteprima Rapida ↗",
+        "work.btn_all_projects": "Vedi tutti i progetti & case study ↗",
+        "work.empty_filter": "Case study UI/UX & Web Design in arrivo o consultabili su richiesta privata.",
+        "work.empty_filter_btn": "Richiedi Informazioni",
+        "process.section_label": "04 — Il Mio Processo",
+        "process.headline": 'Capire prima.<br><span class="grad-text">Progettare meglio.</span>',
+        "process.intro": "Ogni progetto nasce da persone, bisogni e contesti diversi. Per questo non parto subito dalla soluzione: prima ascolto, osservo e cerco di capire cosa serve davvero. Da lì, costruisco il progetto passo dopo passo.",
         "process.step1_title": "Comprendere",
-        "process.step1_desc": "Osservare il contesto, le persone, gli obiettivi e i vincoli prima di cercare una soluzione.",
-        "process.step2_title": "Definire",
-        "process.step2_desc": "Trasformare ciò che emerge in priorità, problemi da risolvere, contenuti e requisiti più chiari.",
+        "process.step1_desc": "Ascoltare, osservare e conoscere il contesto, le persone e gli obiettivi.",
+        "process.step2_title": "Mettere a fuoco",
+        "process.step2_desc": "Dare ordine alle informazioni e capire quali sono le priorità e i problemi reali da affrontare.",
         "process.step3_title": "Esplorare",
-        "process.step3_desc": "Generare idee, confrontare alternative e cercare la direzione più adatta al progetto.",
+        "process.step3_desc": "Provare strade diverse, confrontare idee e cercare la direzione più adatta.",
         "process.step4_title": "Progettare",
-        "process.step4_desc": "Dare forma alla soluzione attraverso flussi, wireframe, interfacce e prototipi.",
-        "process.step5_title": "Costruire & Iterare",
-        "process.step5_desc": "Portare il progetto verso lo sviluppo, testare ciò che funziona e migliorarlo attraverso feedback e nuove evidenze.",
+        "process.step4_desc": "Trasformare ciò che emerge in flussi, wireframe, interfacce e prototipi.",
+        "process.step5_title": "Migliorare",
+        "process.step5_desc": "Verificare ciò che funziona, ascoltare i feedback e affinare la soluzione nel tempo.",
         "contact.badge": "Disponibile per nuove opportunità & progetti",
         "contact.title": 'Iniziamo da un <span class="grad-text">ciao</span>',
         "contact.desc": "Ciao! Se hai un’opportunità, un progetto da condividere o semplicemente ti va di scambiare due idee, scrivimi. Sono sempre felice di conoscere persone, progetti e prospettive nuove",
@@ -3860,153 +3890,62 @@
         "nav.resume_desc": "Explora mi trayectoria completa, experiencia laboral, formación académica y certificaciones.",
         "nav.resume_cta": "Ver CV / Resume",
         "nav.select_lang": "Idioma:",
-        "hero.eyebrow": "<i></i> Bisceglie, Italia · Remoto / Híbrido / Presencial",
+        "hero.eyebrow": "Bisceglie, Italia · Remoto / Híbrido / Presencial",
         "hero.title": 'Diseño, desarrollo y <br>alguna otra <span class="grad-text">obsesión <br><span style="white-space: nowrap;">creativa.</span></span>',
         "hero.desc": "Diseñadora UI/UX con background en Diseño Gráfico y desarrollo web. Diseño interfaces digitales claras, intuitivas y cuidadas en los detalles.",
         "hero.btn_work": "Ver Proyectos ↗",
         "hero.btn_resume": "Descargar CV",
-        "about.section_label": "01 — Sobre Mí & Trayectoria",
-        "about.headline": '<span class="grad-text">Del diseño al código:</span> <span class="muted-text">un camino en constante evolución.</span>',
-        "about.tab_exp_title": "Experiencia",
-        "about.tab_exp_sub": "Trabajo & Agencia",
-        "about.tab_exp_badge": "06 Roles",
-        "about.tab_cert_title": "Cursos & Certificaciones",
-        "about.tab_cert_sub": "Habilidades Técnicas",
-        "about.tab_cert_badge": "Cert",
-        "about.tab_edu_title": "Educación",
-        "about.tab_edu_sub": "Formación Académica",
-        "about.tab_edu_badge": "110/110L",
-        "about.pane_exp_badge": "Trayectoria Laboral",
-        "about.pane_exp_title": "Experiencia Profesional",
-        "about.pane_exp_date": "2006 — Hoy",
-        "about.exp1_date": "Ene. 2026 — En curso",
-        "about.exp1_role": "UI/UX & Web Designer",
-        "about.exp1_org": "BeDigit · Híbrido · Italia",
-        "about.exp1_contract": "Full-time (ene–jun 2026) · Part-time (desde jun 2026)",
-        "about.exp1_desc": "Diseño de experiencias web e interfaces en Figma, desde el análisis de requerimientos y arquitectura de la información, hasta flujos de usuario, wireframes y prototipos de alta fidelidad. Colaboración con el equipo de desarrollo.",
-        "about.exp2_date": "Jun. 2024 — Actualidad",
-        "about.exp2_role": "Freelance Designer",
-        "about.exp2_org": "Freelance · Remoto · Italia",
-        "about.exp2_desc": "Desarrollo de proyectos web y UI/UX adaptados a las necesidades y objetivos de cada cliente, combinando estructura de contenidos, experiencia de usuario y diseño visual.",
-        "about.exp3_date": "Sep. 2025",
-        "about.exp3_role": "Laravel Developer Trainee",
-        "about.exp3_org": "Universo Srl (Cliente: C.F.A. SRL) · Remoto",
-        "about.exp3_desc": "Desarrollo de dos micro-proyectos web back-end: gestión de controladores, routing, modelado de datos, migraciones, CRUD y autenticación.",
-        "about.exp4_date": "Mar. 2024 — Jun. 2024",
-        "about.exp4_role": "Junior Front-End Developer",
-        "about.exp4_org": "Sinkronia Srl · Híbrido · Foggia",
-        "about.exp4_desc": "Participación en todo el ciclo de vida del software: análisis de requerimientos, diseño UI/UX e implementación front-end de una sección del ERP I-Quadra en Angular.",
-        "about.exp5_date": "Feb. 2022 — Dic. 2022",
-        "about.exp5_role": "Graphic Designer",
-        "about.exp5_org": "Giats Srl · En Sede · Bisceglie",
-        "about.exp5_desc": "Diseño y producción de materiales gráficos personalizados para el mercado mayorista. Gestión del proceso creativo desde la propuesta visual hasta la entrega final.",
-        "about.exp6_date": "Ene. 2006 — Ago. 2012",
-        "about.exp6_role": "Administrador Territorial",
-        "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
-        "about.exp6_desc": "Coordinación operativa de personal, gestión de comunicación entre clientes y equipos, y organización de recursos informáticos y documentales.",
-        "about.exp3_duration": "1 mes",
-        "about.exp4_duration": "4 meses",
-        "about.exp5_duration": "11 meses",
-        "about.exp6_duration": "6 años y 8 meses",
-        "about.pane_cert_badge": "Especializaciones Técnicas",
-        "about.pane_cert_title": "Cursos & Certificaciones",
-        "about.pane_cert_date": "Actualización Continua",
-        "about.cert1_date": "2025",
-        "about.cert1_role": "Desarrollo Web con Laravel, PHP y JavaScript",
-        "about.cert1_org": "Universo & FormaTemp · Online · 248 h",
-        "about.cert1_desc": "Formación práctica centrada en desarrollo web back-end con PHP y Laravel, programación orientada a objetos, bases de datos relacionales y creación de aplicaciones.",
-        "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Curso Web Developer",
-        "about.cert2_org": "Fondo per la Repubblica Digitale · Presencial · 500 h",
-        "about.cert2_desc": "Formación intensiva en desarrollo web full-stack, POO y stack tecnológico moderno tanto en cliente como en servidor.",
-        "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev con JS, jQuery y TypeScript",
-        "about.cert3_org": "Archimede & FormaTemp · Online · 248 h",
-        "about.cert3_desc": "Curso especializado en construcción de interfaces web interactivas con JavaScript, TypeScript, HTML5, CSS3 y Bootstrap.",
-        "about.cert4_date": "2023",
-        "about.cert4_role": "Curso de Motion Graphics",
-        "about.cert4_org": "10 Skills Academy · Online · 248 h",
-        "about.cert4_desc": "Formación en edición de video y animación gráfica con Adobe Premiere Pro y After Effects.",
-        "about.pane_edu_badge": "Títulos Académicos",
-        "about.pane_edu_title": "Formación Académica",
-        "about.pane_edu_date": "Máxima Calificación",
-        "about.status_in_progress": "En curso",
-        "about.status_completed": "Completado",
-        "about.status_honors": "110/110 Cum Laude",
-        "about.status_cert": "248h · Certificado",
-        "about.status_cert2": "500h · Certificado",
-        "about.edu1_date": "2025 — 2027",
-        "about.edu1_role": "Tecnóloga en Análisis y Desarrollo de Software",
-        "about.edu1_org_clean": "SENA · Colombia",
-        "about.edu1_desc": "Trayectoria enfocada en el ciclo de vida completo del software: análisis, diseño, desarrollo, testing y despliegue.",
-        "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
-        "about.edu2_date": "2025 — 2026",
-        "about.edu2_role": "IFTS – Técnica en Desarrollo de Aplicaciones Informáticas",
-        "about.edu2_org": "Regione Puglia",
-        "about.edu2_desc": "Especialización profesional enfocada en desarrollo de aplicaciones IT, programación, desarrollo web, bases de datos relacionales y análisis de requisitos.",
-        "about.edu3_date": "2022 — 2025",
-        "about.edu3_role": "Licenciatura Magistral en Diseño Gráfico (Máster)",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia",
-        "about.edu3_desc": "Especialización avanzada en Web Design y UI/UX. Desarrollo de proyectos centrados en experiencia de usuario, arquitectura de información, prototipado en Figma y tecnologías web.",
-        "about.edu4_date": "2018 — 2022",
-        "about.edu4_role": "Licenciatura Trienal en Diseño Gráfico (Grado)",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia",
-        "about.edu4_desc": "Sólida formación en diseño gráfico, comunicación visual, branding y producción de contenidos digitales. Competencias en identidad visual, diseño editorial, multimedia y fundamentos de diseño web.",
-        "about.cv_cta_title": "¿Quieres conocer la trayectoria completa y todos los proyectos?",
-        "about.cv_cta_sub": "Consulta el detalle de responsabilidades, tecnologías, proyectos académicos y el CV descargable en PDF.",
-        "about.cv_cta_btn": "Ver CV Completo",
-        "about.snap1_role": "UI/UX & Web Designer",
-        "about.snap1_org": "BeDigit · Italia",
-        "about.snap1_date": "2026 — Actualidad",
-        "about.snap2_role": "Diseñadora freelance",
-        "about.snap2_org": "Diseño gráfico, web y UI/UX",
-        "about.snap2_date": "2024 — Actualidad",
-        "about.snap3_role": "Front-end Developer Junior",
-        "about.snap3_org": "Sinkronia · Italia",
-        "about.snap3_date": "2024",
-        "about.snap4_role": "Graphic Designer",
-        "about.snap4_org": "Giats · Italia",
-        "about.snap4_date": "2022",
-        "about.snapshot_caption": "Mi trayectoria, cursos y competencias en detalle.",
-        "about.snapshot_cta": "Ver CV completo",
+        "about.section_label": "01 — Chi Sono & Visione",
+        "about.headline": '<span class="grad-text">Hola, soy Paty.</span> <span class="muted-text">Diseño experiencias digitales con propósito.</span>',
+        "about.story_kicker": "Diseño · UI/UX · Web",
+        "about.story_p1": 'Soy diseñadora con una trayectoria entre el <strong>diseño gráfico, UI/UX y desarrollo web</strong>. Me gusta entender primero el problema, ordenar la información y transformar ideas complejas en experiencias digitales claras, intuitivas y agradables.',
+        "about.story_p2": 'Mi curiosidad me llevó también al código. Entender lo que ocurre detrás de una interfaz me permite diseñar con mayor criterio, comunicarme mejor con desarrollo y crear soluciones pensadas no solo para verse bien, sino también para <strong>funcionar</strong>.',
+        "about.pillar1_tag": "01 / Escuchar",
+        "about.pillar1_title": "Entender antes de decidir",
+        "about.pillar1_desc": "Observar personas, necesidades y contexto para evitar diseñar sobre la base de suposiciones.",
+        "about.pillar2_tag": "02 / Guiar",
+        "about.pillar2_title": "Hacer cada paso más simple",
+        "about.pillar2_desc": "Construir jerarquías y recorridos claros para que la experiencia resulte intuitiva y sin fricciones innecesarias.",
+        "about.pillar3_tag": "03 / Realizar",
+        "about.pillar3_title": "Diseñar pensando en la realidad",
+        "about.pillar3_desc": "Unir diseño y conocimiento del front-end para crear soluciones útiles, coherentes y concretamente realizables.",
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
-        "services.section_label": "02 — Mi espacio de trabajo",
-        "services.headline": 'Un <span class="grad-text">enfoque</span>,<span class="muted-text"> múltiples disciplinas.</span>',
-        "services.intro": "Me muevo entre UI/UX, diseño web, visual y front-end con curiosidad y ganas de crecer, evolucionando proyecto tras proyecto.",
+        "services.section_label": "03 — Entre Diseño y Código",
+        "services.headline": '<span class="services-grad-text">Un enfoque,</span><br><span class="services-dark-title">más disciplinas.</span>',
+        "services.intro": "Desde la experiencia de usuario y la identidad visual hasta la construcción de la interfaz: diferentes habilidades que uso y combino según las necesidades del proyecto.",
+        "services.btn": "Descubre mi enfoque",
         "services.card1_title": "Diseño UI/UX",
-        "services.card1_desc": "Investigación y análisis, arquitectura de la información, wireframes, user flows, prototipado y diseño de interfaces.",
+        "services.card1_desc": "Investigación, arquitectura de la información, user flows, wireframes, prototipado y diseño de interfaces.",
         "services.card2_title": "Diseño Visual & Web",
-        "services.card2_desc": "Maquetación, composición, tipografía, identidad visual y aplicación de sistemas gráficos al entorno digital.",
-        "services.card3_title": "Desarrollo Web",
-        "services.card3_desc": "HTML, CSS, JavaScript y desarrollo de interfaces responsive, con habilidades en continuo fortalecimiento.",
+        "services.card2_desc": "Maquetación, tipografía, composición y sistemas visuales aplicados a productos y experiencias digitales.",
+        "services.card3_title": "Desarrollo Front-end",
+        "services.card3_desc": "HTML, CSS, JavaScript y desarrollo de interfaces responsive, con habilidades que continúo consolidando a través de la práctica.",
         "services.card4_title": "Exploración con IA",
-        "services.card4_desc": "Uso y experimentación con herramientas de IA para potenciar investigación, ideación, prototipado y desarrollo.",
-        "work.section_label": "03 — Portafolio Seleccionado",
-        "work.headline": '<span class="grad-text">Proyectos</span>',
-        "work.intro": "Haz clic en cada tarjeta para abrir la vista rápida, o amplía el proyecto para ver las 4 fases y detalles completos.",
+        "services.card4_desc": "Herramientas de IA integradas en el proceso de investigación, ideación, prototipado y experimentación.",
+        "work.section_label": "02 — Portafolio Seleccionado",
+        "work.headline": '<span class="grad-text">Una selección</span> <span class="muted-text">de proyectos y case studies.</span>',
+        "work.intro": "UI/UX, web e identidad visual: diferentes proyectos explicados a través de su proceso, decisiones y resultados.",
         "work.filter_all": "Todos",
-        "work.filter_ux": "Diseño UI/UX",
+        "work.filter_ux": "UI/UX",
         "work.filter_web": "Web & Front-end",
-        "work.filter_brand": "Branding & Arte",
-        "work.project1_title": "Proyecto 01",
-        "work.project2_title": "Proyecto 02",
-        "work.project3_title": "Proyecto 03",
-        "work.project4_title": "Proyecto 04",
-        "work.card_action": "Vista previa & Fases ↗",
-        "work.btn_all_projects": "Ver Todos los Proyectos & Case Studies (2)",
-        "process.section_label": "04 — Método",
-        "process.headline": '<span class="grad-text">Menos complejidad.</span> <span class="muted-text">Más criterio.</span>',
-        "process.intro": "Cada proyecto comienza por comprender antes de diseñar. Busco observar, estructurar y simplificar, dejando espacio para la experimentación y el aprendizaje continuo.",
+        "work.filter_brand": "Brand & Visual",
+        "work.card_action": "Vista Previa ↗",
+        "work.btn_all_projects": "Ver todos los proyectos & case studies ↗",
+        "work.empty_filter": "Case studies de UI/UX & Web Design en preparación o disponibles bajo petición privada.",
+        "work.empty_filter_btn": "Solicitar Información",
+        "process.section_label": "04 — Mi Proceso",
+        "process.headline": 'Entender primero.<br><span class="grad-text">Diseñar mejor.</span>',
+        "process.intro": "Cada proyecto nace de personas, necesidades y contextos diferentes. Por eso no comienzo de inmediato por la solución: primero escucho, observo y busco comprender qué se necesita realmente. A partir de ahí, construyo el proyecto paso a paso.",
         "process.step1_title": "Comprender",
-        "process.step1_desc": "Analizar el contexto, los usuarios, los objetivos y las limitaciones antes de proponer una solución.",
-        "process.step2_title": "Definir",
-        "process.step2_desc": "Transformar hallazgos en prioridades, problemas clave, arquitectura de contenido y requerimientos claros.",
+        "process.step1_desc": "Escuchar, observar y conocer el contexto, las personas y los objetivos.",
+        "process.step2_title": "Focalizar",
+        "process.step2_desc": "Ordenar la información y comprender qué prioridades y problemas reales abordar.",
         "process.step3_title": "Explorar",
-        "process.step3_desc": "Generar ideas, contrastar alternativas y elegir la dirección más sólida para el proyecto.",
+        "process.step3_desc": "Probar caminos diversos, contrastar ideas y buscar la dirección más adecuada.",
         "process.step4_title": "Diseñar",
-        "process.step4_desc": "Materializar la solución mediante flujos, wireframes, diseño de interfaz y prototipos interactivos.",
-        "process.step5_title": "Construir & Iterar",
-        "process.step5_desc": "Llevar el diseño al desarrollo, probar su funcionamiento y refinar con retroalimentación y nuevas evidencias.",
+        "process.step4_desc": "Transformar lo que surge en flujos, wireframes, interfaces y prototipos.",
+        "process.step5_title": "Mejorar",
+        "process.step5_desc": "Comprobar qué funciona, escuchar el feedback y perfeccionar la solución en el tiempo.",
         "contact.badge": "Disponible para nuevas oportunidades & proyectos",
         "contact.title": 'Empecemos con un <span class="grad-text">hola</span>',
         "contact.desc": "¡Hola! Si tienes una oportunidad laboral, un proyecto en mente o simplemente quieres intercambiar ideas, escríbeme. Siempre me alegra conectar con nuevas personas y proyectos.",
@@ -4034,148 +3973,57 @@
         "hero.desc": "UI/UX Designer with a background in Graphic Design and web development. I design clear, intuitive, and detail-oriented digital interfaces.",
         "hero.btn_work": "View Projects ↗",
         "hero.btn_resume": "Resume / CV",
-        "about.section_label": "01 — About Me & Journey",
-        "about.headline": '<span class="grad-text">From design to code:</span> <span class="muted-text">a journey in continuous evolution.</span>',
-        "about.tab_exp_title": "Experience",
-        "about.tab_exp_sub": "Work & Agency",
-        "about.tab_exp_badge": "06 Roles",
-        "about.tab_cert_title": "Courses & Certs",
-        "about.tab_cert_sub": "Technical Skills",
-        "about.tab_cert_badge": "Cert",
-        "about.tab_edu_title": "Education",
-        "about.tab_edu_sub": "Academic Journey",
-        "about.tab_edu_badge": "110/110L",
-        "about.pane_exp_badge": "Career Path",
-        "about.pane_exp_title": "Professional Experience",
-        "about.pane_exp_date": "2006 — Present",
-        "about.exp1_date": "Jan 2026 — Present",
-        "about.exp1_role": "UI/UX & Web Designer",
-        "about.exp1_org": "BeDigit · Hybrid · Italy",
-        "about.exp1_contract": "Full-time (Jan–Jun 2026) · Part-time (from Jun 2026)",
-        "about.exp1_desc": "Design of web experiences and interfaces in Figma, from requirements analysis and information architecture to user flows, wireframes, and high-fidelity prototypes. Collaboration with development.",
-        "about.exp2_date": "Jun 2024 — Present",
-        "about.exp2_role": "Freelance Designer",
-        "about.exp2_org": "Freelance · Remote · Italy",
-        "about.exp2_desc": "Working as a freelance designer on web, graphic design, and UI/UX projects, tailored to client goals by combining content structure, UX, and visual design.",
-        "about.exp3_date": "Sep 2025",
-        "about.exp3_role": "Laravel Developer Trainee",
-        "about.exp3_org": "Universo Srl (Client: C.F.A. SRL) · Remote",
-        "about.exp3_desc": "Development of two web micro-projects with PHP, Laravel, and MySQL: routing, controllers, data modeling, migrations, CRUD, and authentication.",
-        "about.exp4_date": "Mar 2024 — Jun 2024",
-        "about.exp4_role": "Junior Front-End Developer",
-        "about.exp4_org": "Sinkronia Srl · Hybrid · Foggia",
-        "about.exp4_desc": "Participation in the entire software lifecycle: requirements analysis, UI/UX design, and front-end implementation of an I-Quadra ERP section in Angular.",
-        "about.exp5_date": "Feb 2022 — Dec 2022",
-        "about.exp5_role": "Graphic Designer",
-        "about.exp5_org": "Giats Srl · On-site · Bisceglie",
-        "about.exp5_desc": "Design and production of custom graphic materials for the wholesale market. Management of the creative process from visual concept to final delivery.",
-        "about.exp6_date": "Jan 2006 — Aug 2012",
-        "about.exp6_role": "Regional Administrator",
-        "about.exp6_org": "Sistemas & Computadores S.A. · Colombia",
-        "about.exp6_desc": "Operational coordination of staff, client-team communication management, and organization of IT and administrative resources.",
-        "about.exp3_duration": "1 month",
-        "about.exp4_duration": "4 months",
-        "about.exp5_duration": "11 months",
-        "about.exp6_duration": "6 years, 8 months",
-        "about.pane_cert_badge": "Technical Specializations",
-        "about.pane_cert_title": "Courses & Certifications",
-        "about.pane_cert_date": "Continuous Learning",
-        "about.cert1_date": "2025",
-        "about.cert1_role": "Web Development with Laravel, PHP & JavaScript",
-        "about.cert1_org": "Universo & FormaTemp · Online · 248 h",
-        "about.cert1_desc": "Hands-on training focusing on back-end web development with PHP and Laravel, object-oriented programming, relational databases, and application architecture.",
-        "about.cert2_date": "2023 — 2024",
-        "about.cert2_role": "Web Developer Course",
-        "about.cert2_org": "Fondo per la Repubblica Digitale · On-site · 500 h",
-        "about.cert2_desc": "Intensive training in full-stack web development, OOP, and modern client/server tech stacks.",
-        "about.cert3_date": "2023",
-        "about.cert3_role": "Front-End Dev with JS, jQuery & TypeScript",
-        "about.cert3_org": "Archimede & FormaTemp · Online · 248 h",
-        "about.cert3_desc": "Specialized course in building interactive web interfaces using JavaScript, TypeScript, HTML5, CSS3, and Bootstrap.",
-        "about.cert4_date": "2023",
-        "about.cert4_role": "Motion Graphics Course",
-        "about.cert4_org": "10 Skills Academy · Online · 248 h",
-        "about.cert4_desc": "Training in video editing and motion graphics with Adobe Premiere Pro and After Effects.",
-        "about.pane_edu_badge": "Academic Degrees",
-        "about.pane_edu_title": "Academic Education",
-        "about.pane_edu_date": "Top Honors",
-        "about.status_in_progress": "In progress",
-        "about.status_completed": "Completed",
-        "about.status_honors": "110/110 Summa Cum Laude",
-        "about.status_cert": "248h · Certified",
-        "about.status_cert2": "500h · Certified",
-        "about.edu1_date": "2025 — 2027",
-        "about.edu1_role": "Associate Degree in Software Analysis & Development",
-        "about.edu1_org_clean": "SENA · Colombia",
-        "about.edu1_desc": "Program focused on the entire software lifecycle: analysis, design, development, testing, and deployment.",
-        "about.edu1_skills": "Java, Spring Boot & Hibernate · MongoDB · Python · Angular · JavaScript + Express · Laravel & PHP",
-        "about.edu2_date": "2025 — 2026",
-        "about.edu2_role": "IFTS – IT Applications Development Technician",
-        "about.edu2_org": "Regione Puglia",
-        "about.edu2_desc": "Vocational program focused on designing and developing IT software, web development, relational databases, and software requirements.",
-        "about.edu3_date": "2022 — 2025",
-        "about.edu3_role": "Master's Degree in Graphic Design",
-        "about.edu3_org": "Accademia di Belle Arti di Foggia",
-        "about.edu3_desc": "Advanced specialization in Web Design and UI/UX. Projects centered on user research, information architecture, Figma prototyping, and web technologies.",
-        "about.edu4_date": "2018 — 2022",
-        "about.edu4_role": "Bachelor's Degree in Graphic Design",
-        "about.edu4_org": "Accademia di Belle Arti di Foggia",
-        "about.edu4_desc": "Solid foundation in graphic design, visual communication, brand identity, and digital production. Skills in editorial design, multimedia, and web foundations.",
-        "about.cv_cta_title": "Want to explore full work experience & key projects?",
-        "about.cv_cta_sub": "Find comprehensive details on responsibilities, tools, academic milestones, and download the full PDF resume.",
-        "about.cv_cta_btn": "View Full CV / Resume",
-        "about.snap1_role": "UI/UX & Web Designer",
-        "about.snap1_org": "BeDigit · Italy",
-        "about.snap1_date": "2026 — Present",
-        "about.snap2_role": "Freelance Designer",
-        "about.snap2_org": "Graphic, web & UI/UX design",
-        "about.snap2_date": "2024 — Present",
-        "about.snap3_role": "Front-end Developer Junior",
-        "about.snap3_org": "Sinkronia · Italy",
-        "about.snap3_date": "2024",
-        "about.snap4_role": "Graphic Designer",
-        "about.snap4_org": "Giats · Italy",
-        "about.snap4_date": "2022",
-        "about.snapshot_caption": "My career path, courses, and full skills in detail.",
-        "about.snapshot_cta": "View full CV",
+        "about.section_label": "01 — About Me & Vision",
+        "about.headline": '<span class="grad-text">Hi, I\'m Paty.</span> <span class="muted-text">I design purpose-driven digital experiences.</span>',
+        "about.story_kicker": "Design · UI/UX · Web",
+        "about.story_p1": 'I am a designer with a journey across <strong>graphic design, UI/UX, and web development</strong>. I like to understand the problem first, organize information, and turn complex ideas into clear, intuitive, and delightful digital experiences.',
+        "about.story_p2": 'Curiosity led me to code as well. Understanding what happens behind an interface allows me to design with stronger intent, communicate better with developers, and create solutions built not only to look good, but to <strong>actually work</strong>.',
+        "about.pillar1_tag": "01 / Listen",
+        "about.pillar1_title": "Understand before deciding",
+        "about.pillar1_desc": "Observe people, needs, and context to avoid designing based on assumptions.",
+        "about.pillar2_tag": "02 / Guide",
+        "about.pillar2_title": "Making every step simpler",
+        "about.pillar2_desc": "Build clear hierarchies and user journeys so the experience is intuitive and free of unnecessary friction.",
+        "about.pillar3_tag": "03 / Deliver",
+        "about.pillar3_title": "Designing with reality in mind",
+        "about.pillar3_desc": "Uniting design and front-end knowledge to create useful, coherent, and practically feasible solutions.",
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
-        "services.section_label": "02 — My Design & Code Space",
-        "services.headline": 'One <span class="grad-text">approach</span>,<span class="muted-text"> multiple disciplines.</span>',
-        "services.intro": "Working across UI/UX, web design, visual identity, and front-end development with curiosity and dedication, evolving project after project.",
+        "services.section_label": "03 — Between Design & Code",
+        "services.headline": '<span class="services-grad-text">One approach,</span><br><span class="services-dark-title">multiple disciplines.</span>',
+        "services.intro": "From user experience to visual identity, all the way to interface construction: different skill sets that I use and combine based on project needs.",
+        "services.btn": "Explore my approach",
         "services.card1_title": "UI/UX Design",
-        "services.card1_desc": "Research and analysis, information architecture, wireframing, user flows, interactive prototyping, and interface design.",
+        "services.card1_desc": "Research, information architecture, user flows, wireframes, prototyping, and interface design.",
         "services.card2_title": "Visual & Web Design",
-        "services.card2_desc": "Layouts, composition, typography, brand identity, and translating design systems into digital experiences.",
-        "services.card3_title": "Web Development",
-        "services.card3_desc": "HTML, CSS, JavaScript, and responsive interface development with continuously expanding technical skills.",
+        "services.card2_desc": "Layout, typography, composition, and visual systems applied to digital products and experiences.",
+        "services.card3_title": "Front-end Development",
+        "services.card3_desc": "HTML, CSS, JavaScript, and responsive interface development, continuously strengthening skills through practice.",
         "services.card4_title": "AI Exploration",
-        "services.card4_desc": "Experimenting with AI workflows to enhance UX research, creative ideation, rapid prototyping, and development.",
-        "work.section_label": "03 — Selected Work",
-        "work.headline": '<span class="grad-text">Projects</span>',
-        "work.intro": "Click any card for a quick preview drawer, or open the full case study to view all 4 phases and detailed specs.",
+        "services.card4_desc": "AI tools integrated into the research, ideation, prototyping, and experimentation process.",
+        "work.section_label": "02 — Selected Work",
+        "work.headline": '<span class="grad-text">A selection</span> <span class="muted-text">of works and case studies.</span>',
+        "work.intro": "UI/UX, web, and visual identity: diverse projects told through process, design decisions, and outcomes.",
         "work.filter_all": "All",
-        "work.filter_ux": "UI/UX Design",
+        "work.filter_ux": "UI/UX",
         "work.filter_web": "Web & Front-end",
-        "work.filter_brand": "Brand & Art",
-        "work.project1_title": "Project 01",
-        "work.project2_title": "Project 02",
-        "work.project3_title": "Project 03",
-        "work.project4_title": "Project 04",
-        "work.card_action": "Preview & Phases ↗",
-        "work.btn_all_projects": "View All Projects & Case Studies (2)",
-        "process.section_label": "04 — Process",
-        "process.headline": '<span class="grad-text">Less complexity.</span> <span class="muted-text">More purpose.</span>',
-        "process.intro": "Every project begins with understanding before creating. I observe, structure, and simplify, leaving room for experimentation and continuous learning.",
+        "work.filter_brand": "Brand & Visual",
+        "work.card_action": "Quick Preview ↗",
+        "work.btn_all_projects": "View all projects & case studies ↗",
+        "work.empty_filter": "UI/UX & Web Design case studies in progress or available upon private request.",
+        "work.empty_filter_btn": "Request Information",
+        "process.section_label": "04 — My Process",
+        "process.headline": 'Understand first.<br><span class="grad-text">Design better.</span>',
+        "process.intro": "Every project stems from different people, needs, and contexts. That's why I don't jump straight into the solution: first I listen, observe, and understand what is truly needed. From there, I build the project step by step.",
         "process.step1_title": "Understand",
-        "process.step1_desc": "Observing context, user needs, goals, and constraints before proposing a solution.",
-        "process.step2_title": "Define",
-        "process.step2_desc": "Translating insights into priorities, core problems, content architecture, and clear requirements.",
+        "process.step1_desc": "Listening, observing, and learning the context, people, and goals.",
+        "process.step2_title": "Focus",
+        "process.step2_desc": "Structuring information to clarify real priorities and challenges.",
         "process.step3_title": "Explore",
-        "process.step3_desc": "Brainstorming ideas, testing alternatives, and selecting the most robust direction for the project.",
+        "process.step3_desc": "Testing different paths, comparing ideas, and finding the right direction.",
         "process.step4_title": "Design",
-        "process.step4_desc": "Giving shape to the solution through flows, wireframes, interface design, and interactive prototypes.",
-        "process.step5_title": "Build & Iterate",
-        "process.step5_desc": "Guiding the project into development, testing usability, and refining through real feedback and data.",
+        "process.step4_desc": "Turning insights into user flows, wireframes, interfaces, and prototypes.",
+        "process.step5_title": "Refine",
+        "process.step5_desc": "Validating what works, listening to feedback, and improving over time.",
         "contact.badge": "Available for new opportunities & projects",
         "contact.title": 'Let’s start with a <span class="grad-text">hello</span>',
         "contact.desc": "Hi! If you have an opportunity, a project to collaborate on, or simply want to exchange ideas, feel free to reach out. I'm always happy to connect with new people and perspectives.",
@@ -4193,144 +4041,159 @@
     /* 1. DATA DEI PROGETTI MULTI-LINGUA */
     const PROJECTS_I18N = {
       it: {
-        agribox: {
-          title: "Progetto 01",
-          category: "UI/UX DESIGN & WEB APP",
-          lead: "Ricerca utente, architettura dell'informazione e progettazione di un'applicazione web complessa.",
-          role: "2026 · UI/UX Designer",
-          stack: "Figma, Wireframing, Prototyping, Design System",
-          body: "Progetto focalizzato sulla semplificazione dei flussi operativi, riduzione del carico cognitivo e creazione di componenti riutilizzabili ad alta fedeltà.",
-          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        eureka: {
+          title: "Eureka",
+          category: "BRAND IDENTITY · PROGETTO ACCADEMICO",
+          lead: "Un’identità visiva per una piattaforma professionale pensata per connettere persone, talento e nuove opportunità.",
+          role: "2021 · Graphic Design & Branding",
+          stack: "Illustrator, Photoshop, Brand Guidelines",
+          body: "Eureka nasce come piattaforma professionale dedicata all’incontro tra persone in cerca di opportunità e realtà interessate a nuovi talenti. Il simbolo unisce quattro figure disposte intorno a uno spazio centrale, simboleggiando collaborazione, unione e crescita reciproca.",
+          bg: "url('./img/eureka/hero.png') center/cover no-repeat",
+          url: "eureka.html"
         },
-        footsy: {
-          title: "Progetto 02",
-          category: "UI/UX DESIGN & PLATFORM",
-          lead: "Piattaforma digitale focalizzata sull'ottimizzazione dell'esperienza utente e design di sistema.",
-          role: "2026 · Product Designer & UI/UX",
-          stack: "Figma, User Flows, Micro-interactions",
-          body: "Ottimizzazione del percorso utente attraverso un'interfaccia interattiva e intuitiva, guidata da test di usabilità e feedback continuo.",
-          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
-        },
-        mininno: {
-          title: "Progetto 03",
-          category: "UI/UX DESIGN & RESPONSIVE WEB",
-          lead: "Esperienza digitale con focus su tipografia svizzera, gerarchia visiva e interattività modulare.",
-          role: "2026 · UI/UX & Web Designer",
-          stack: "Figma, Design System, Responsive UI",
-          body: "Una struttura asimmetrica ed elegante dove contenuti e griglia guidano l'utente in un percorso chiaro, accessibile e fluido.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        apulia: {
+          title: "Apulia Promoting US",
+          category: "BRAND IDENTITY · PROGETTO ACCADEMICO",
+          lead: "Identità visiva e campagna territoriale 'Percorrendo Boccadoro' per valorizzare l’oasi naturale di Boccadoro-Ariscianne e riscoprirne il patrimonio.",
+          role: "2021 · Brand Identity & Campagna",
+          stack: "Illustrator, Photoshop, Meta Pro",
+          body: "Progetto accademico di Graphic Design 3 per l'associazione studentesca Apulia Promoting US e la campagna 'Percorrendo Boccadoro'. Ricerca fotografica e ambientale, marchio circolare che sintetizza sole, mare, maggese e terra, manifesti illustrati, guida da campo e flipbook editoriale.",
+          bg: "url('./img/apulia/hero-manifesto.jpg') center/cover no-repeat",
+          url: "apulia.html"
         },
         honey: {
-          title: "Progetto 04",
-          category: "UI/UX DESIGN & DASHBOARD",
-          lead: "Dashboard e interfaccia di monitoraggio con data visualization e flussi analitici.",
-          role: "2026 · UI/UX Designer",
-          stack: "Figma, Data Visualization, UI Tokens",
-          body: "Progettazione di componenti avanzati per la visualizzazione di metriche e gestione dei dati in tempo reale con interfaccia chiara e moderna.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(167, 139, 250, 0.25), transparent 45%), linear-gradient(145deg, #161228, #2A1D4E 55%, #0B0816)"
+          title: "Honey + Coconut",
+          category: "3D PACKAGING · PRODUCT VISUALIZATION",
+          lead: "Un progetto di modellazione 3D realizzato in Blender, in cui ho sviluppato packaging, materiali e visual per Honey + Coconut, con un’estetica fresca, delicata e contemporanea.",
+          role: "2024 · Progetto di Modellazione 3D",
+          stack: "Blender",
+          body: "Honey + Coconut è un progetto di modellazione 3D realizzato in Blender, focalizzato sull'esplorazione del product design, materiali, illuminazione e composizione. L'idea nasce per creare un contenitore cosmetico semplice ispirato alle tonalità calde del miele e alla sensazione morbida e naturale del cocco.",
+          bg: "url('./img/honeyCoconut.png') center/cover no-repeat",
+          url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
         },
-        sumisura: {
-          title: "suMisura® Doors",
-          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
-          lead: "Configuratore interattivo per la personalizzazione e il preventivo online di porte blindate.",
-          role: "2026 · UI/UX Designer & Frontend Logic",
-          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-          body: "Una procedura guidata in 4 passaggi visivi che permette di selezionare classe di sicurezza, rivestimenti in legno, maniglie e serrature biometriche con anteprima dinamica.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        hockney: {
+          title: "The art of admiring art",
+          category: "POSTER DESIGN · DAVID HOCKNEY",
+          lead: "Una campagna visual e una serie di poster ispirati alla filosofia dello \"slow looking\" di David Hockney, che invitano i visitatori a fermarsi, sedersi e osservare davvero l'arte al Musée d'Orsay.",
+          role: "2020 · Graphic Design",
+          stack: "Photoshop, Illustrator",
+          body: "Una campagna visual d'autore e serie di poster per il Musée d'Orsay ispirati a David Hockney. Una riflessione grafica sull'atto del soffermarsi, la sedia come invito spaziale a rallentare, e la forza della composizione tipografica svizzera unita a cromie ultramarine.",
+          bg: "url('./img/hockney/bus-shelter.png') center/cover no-repeat",
+          url: "hockney.html"
+        },
+        petruzzelli: {
+          title: "Teatro Petruzzelli",
+          category: "BRAND IDENTITY · PROGETTO ACCADEMICO",
+          lead: "Una proposta di identità visiva e comunicazione che esplora come avvicinare il pubblico al teatro, dalla scoperta di un evento al desiderio di viverlo.",
+          role: "2020 · Identità Visiva & Comunicazione",
+          stack: "Illustrator, Photoshop, Copywriting",
+          body: "Progetto accademico per l'Accademia di Belle Arti di Foggia. Ricerca storica e architettonica sul Petruzzelli di Bari, indagine sul pubblico con sondaggio statistico, sistema visivo flessibile, manifesti d'autore, cartellonistica orizzontale, stendardi urbani e campagna social.",
+          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          url: "Petruzzelli.html"
         }
       },
       es: {
-        agribox: {
-          title: "Proyecto 01",
-          category: "DISEÑO UI/UX & WEB APP",
-          lead: "Investigación de usuarios, arquitectura de información y diseño de aplicación web compleja.",
-          role: "2026 · Diseñadora UI/UX",
-          stack: "Figma, Wireframing, Prototipado, Design System",
-          body: "Proyecto enfocado en simplificar flujos de trabajo, reducir la carga cognitiva y estructurar componentes reutilizables de alta fidelidad.",
-          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        eureka: {
+          title: "Eureka",
+          category: "IDENTIDAD DE MARCA · PROYECTO ACADÉMICO",
+          lead: "Una identidad visual para una plataforma profesional creada para conectar personas, talento y nuevas oportunidades.",
+          role: "2021 · Diseño Gráfico & Branding",
+          stack: "Illustrator, Photoshop, Manual de Marca",
+          body: "Eureka nace como una plataforma profesional dedicada al encuentro entre personas que buscan oportunidades y organizaciones interesadas en nuevos talentos. El símbolo representa a cuatro figuras conectadas en un espacio central, comunicando colaboración y descubrimiento.",
+          bg: "url('./img/eureka/hero.png') center/cover no-repeat",
+          url: "eureka.html"
         },
-        footsy: {
-          title: "Proyecto 02",
-          category: "DISEÑO UI/UX & PLATAFORMA",
-          lead: "Plataforma digital centrada en la optimización de la experiencia de usuario y sistema de diseño.",
-          role: "2026 · Product Designer & UI/UX",
-          stack: "Figma, Flujos de Usuario, Micro-interacciones",
-          body: "Optimización del recorrido de usuario mediante interfaces intuitivas y pruebas de usabilidad continuas.",
-          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
-        },
-        mininno: {
-          title: "Proyecto 03",
-          category: "DISEÑO UI/UX & WEB RESPONSIVA",
-          lead: "Experiencia digital con énfasis en tipografía editorial, jerarquía visual e interactividad modular.",
-          role: "2026 · Diseñadora UI/UX & Web",
-          stack: "Figma, Design System, UI Responsiva",
-          body: "Estructura limpia donde el contenido y la cuadrícula guían a la persona usuaria a través de una experiencia accesible y fluida.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        apulia: {
+          title: "Apulia Promoting US",
+          category: "IDENTIDAD DE MARCA · PROYECTO ACADÉMICO",
+          lead: "Identidad visual y campaña territorial 'Percorrendo Boccadoro' para poner en valor el oasis natural de Boccadoro-Ariscianne y su patrimonio.",
+          role: "2021 · Identidad de Marca & Campaña",
+          stack: "Illustrator, Photoshop, Meta Pro",
+          body: "Proyecto académico de Graphic Design 3 para la asociación estudiantil Apulia Promoting US y la iniciativa 'Percorrendo Boccadoro'. Investigación territorial, imagotipo circular inspirado en el sol, mar, barbecho y tierra, carteles ilustrados, guía desplegable y manual interactivo.",
+          bg: "url('./img/apulia/hero-manifesto.jpg') center/cover no-repeat",
+          url: "apulia.html"
         },
         honey: {
-          title: "Proyecto 04",
-          category: "DISEÑO UI/UX & DASHBOARD",
-          lead: "Dashboard y panel analítico con visualización de datos y flujos de gestión.",
-          role: "2026 · Diseñadora UI/UX",
-          stack: "Figma, Data Visualization, UI Tokens",
-          body: "Diseño de componentes modulares para visualización de métricas en tiempo real con estética moderna y legible.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(167, 139, 250, 0.25), transparent 45%), linear-gradient(145deg, #161228, #2A1D4E 55%, #0B0816)"
+          title: "Honey + Coconut",
+          category: "PACKAGING 3D · PRODUCT VISUALIZATION",
+          lead: "Un proyecto de modelado 3D realizado en Blender, donde desarrollé packaging, materiales y visuales para Honey + Coconut, con una estética fresca, delicada y contemporánea.",
+          role: "2024 · Proyecto de Modelado 3D",
+          stack: "Blender",
+          body: "Honey + Coconut es un proyecto 3D creado en Blender, enfocado en explorar el modelado de producto, materiales, iluminación y composición. La idea fue crear un envase cosmético sencillo inspirado en los tonos cálidos de la miel y la sensación suave y natural del coco.",
+          bg: "url('./img/honeyCoconut.png') center/cover no-repeat",
+          url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
         },
-        sumisura: {
-          title: "suMisura® Doors",
-          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
-          lead: "Configurador interactivo para la personalización y cotización online de puertas de seguridad acorazadas.",
-          role: "2026 · UI/UX Designer & Frontend Logic",
-          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-          body: "Un flujo guiado en 4 pasos que permite seleccionar grado de seguridad, acabados de madera, herrajes y cerraduras biométricas con previsualización en tiempo real.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        hockney: {
+          title: "The art of admiring art",
+          category: "POSTER DESIGN · DAVID HOCKNEY",
+          lead: "Una campaña visual y una serie de carteles inspiradas en la filosofía de David Hockney de observar con calma, que invitan a los visitantes a detenerse, sentarse y observar verdaderamente el arte en el Museo de Orsay.",
+          role: "2020 · Graphic Design",
+          stack: "Photoshop, Illustrator",
+          body: "Una campaña visual de autor y serie de carteles para el Musée d'Orsay inspirados en David Hockney. Una propuesta sobre el valor de detenerse, la silla como símbolo espacial para pausar el ritmo y la composición tipográfica suiza combinada con intensos azules ultramar.",
+          bg: "url('./img/hockney/bus-shelter.png') center/cover no-repeat",
+          url: "hockney.html"
+        },
+        petruzzelli: {
+          title: "Teatro Petruzzelli",
+          category: "IDENTIDAD DE MARCA · PROYECTO ACADÉMICO",
+          lead: "Una propuesta de identidad visual y comunicación que explora cómo acercar el público al teatro, desde el descubrimiento de un evento hasta el deseo de vivirlo.",
+          role: "2020 · Identidad Visual & Comunicación",
+          stack: "Illustrator, Photoshop, Copywriting",
+          body: "Proyecto académico para la Academia de Bellas Artes de Foggia. Investigación histórica y espacial sobre el Teatro Petruzzelli de Bari, encuesta a la ciudadanía, sistema visual modular, cartelería exterior, banderolas urbanas y campaña en redes sociales.",
+          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          url: "Petruzzelli.html"
         }
       },
       en: {
-        agribox: {
-          title: "Project 01",
-          category: "UI/UX DESIGN & WEB APP",
-          lead: "User research, information architecture, and interface design for a complex web platform.",
-          role: "2026 · UI/UX Designer",
-          stack: "Figma, Wireframing, Prototyping, Design System",
-          body: "Focused on workflow simplification, cognitive load reduction, and high-fidelity reusable component architecture.",
-          bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
+        eureka: {
+          title: "Eureka",
+          category: "BRAND IDENTITY · ACADEMIC PROJECT",
+          lead: "A visual identity for a professional platform designed to connect people, talent and new opportunities.",
+          role: "2021 · Graphic Design & Branding",
+          stack: "Illustrator, Photoshop, Brand Guidelines",
+          body: "Eureka was conceived as a professional platform connecting people seeking opportunities with organisations looking for new talent. The identity communicates openness, collaboration, and trust through an immediate, accessible visual language.",
+          bg: "url('./img/eureka/hero.png') center/cover no-repeat",
+          url: "eureka.html"
         },
-        footsy: {
-          title: "Project 02",
-          category: "UI/UX DESIGN & PLATFORM",
-          lead: "Digital platform centered around frictionless user journeys and scalable design systems.",
-          role: "2026 · Product Designer & UI/UX",
-          stack: "Figma, User Flows, Micro-interactions",
-          body: "Streamlined navigation and interactive modules validated through iterative usability testing.",
-          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
-        },
-        mininno: {
-          title: "Project 03",
-          category: "UI/UX DESIGN & RESPONSIVE WEB",
-          lead: "Digital experience with emphasis on editorial typography, visual hierarchy, and modular interactivity.",
-          role: "2026 · UI/UX & Web Designer",
-          stack: "Figma, Design System, Responsive UI",
-          body: "Crisp grid-based layout delivering an accessible, clear, and engaging journey across all viewports.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
+        apulia: {
+          title: "Apulia Promoting US",
+          category: "BRAND IDENTITY · ACADEMIC PROJECT",
+          lead: "Visual identity and territorial campaign 'Percorrendo Boccadoro' to rediscover and protect the natural heritage of Boccadoro-Ariscianne.",
+          role: "2021 · Brand Identity & Campaign",
+          stack: "Illustrator, Photoshop, Meta Pro",
+          body: "Academic Graphic Design 3 project for the university cultural association Apulia Promoting US and the 'Percorrendo Boccadoro' campaign. Environmental research, geometric mark synthesizing sun, sea, fallow land and earth, illustrated posters, field pocket guide, and interactive publication.",
+          bg: "url('./img/apulia/hero-manifesto.jpg') center/cover no-repeat",
+          url: "apulia.html"
         },
         honey: {
-          title: "Project 04",
-          category: "UI/UX DESIGN & DASHBOARD",
-          lead: "Analytics dashboard and management interface featuring clean data visualization.",
-          role: "2026 · UI/UX Designer",
-          stack: "Figma, Data Visualization, UI Tokens",
-          body: "Architected analytical components for monitoring complex metrics with real-time clarity and modern design.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(167, 139, 250, 0.25), transparent 45%), linear-gradient(145deg, #161228, #2A1D4E 55%, #0B0816)"
+          title: "Honey + Coconut",
+          category: "3D PACKAGING · PRODUCT VISUALIZATION",
+          lead: "A 3D modeling project created in Blender, developing packaging, materials, and visuals for Honey + Coconut with a fresh, delicate, and contemporary aesthetic.",
+          role: "2024 · 3D Modeling Project",
+          stack: "Blender",
+          body: "Honey + Coconut is a small 3D project created in Blender, focused on exploring product modeling, materials, lighting and composition. The idea was to create a simple cosmetic container inspired by the warm tones of honey and the soft, natural feeling associated with coconut.",
+          bg: "url('./img/honeyCoconut.png') center/cover no-repeat",
+          url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
         },
-        sumisura: {
-          title: "suMisura® Doors",
-          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
-          lead: "Interactive customizer for configuring and quoting armored security doors online.",
-          role: "2026 · UI/UX Designer & Frontend Logic",
-          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-          body: "A 4-step guided visual configurator that allows clients to customize security classes, premium wood finishes, handle finishes, and biometric locks with real-time vector rendering.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
+        hockney: {
+          title: "The art of admiring art",
+          category: "POSTER DESIGN · DAVID HOCKNEY",
+          lead: "A visual campaign and poster series inspired by David Hockney's slow-looking philosophy, inviting visitors to pause, take a seat, and truly observe art at the Musée d'Orsay.",
+          role: "2020 · Graphic Design",
+          stack: "Photoshop, Illustrator",
+          body: "An authorial visual campaign and poster series for the Musée d'Orsay inspired by David Hockney. An investigation into slow observation, using the chair as an architectural symbol to pause, pairing Swiss typography with high-voltage ultramarine tones.",
+          bg: "url('./img/hockney/bus-shelter.png') center/cover no-repeat",
+          url: "hockney.html"
+        },
+        petruzzelli: {
+          title: "Teatro Petruzzelli",
+          category: "BRAND IDENTITY · ACADEMIC PROJECT",
+          lead: "A visual identity and communication proposal exploring how to bring the public closer to the theater, from discovering an event to experiencing it.",
+          role: "2020 · Visual Identity & Communication",
+          stack: "Illustrator, Photoshop, Copywriting",
+          body: "Academic project at the Academy of Fine Arts of Foggia. Historical and architectural research on Bari's Petruzzelli theater, audience survey analysis, modular visual system, institutional posters, horizontal billboards, urban banners, and social campaign.",
+          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          url: "Petruzzelli.html"
         }
       }
     };
@@ -4537,28 +4400,7 @@
       }
     });
 
-    /* 2. INTERACTIVE ABOUT TABS */
-    const tabButtons = document.querySelectorAll('.about-tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-content-pane');
-
-    function switchAboutTab(tabKey) {
-      tabButtons.forEach(btn => {
-        const isActive = btn.dataset.tab === tabKey;
-        btn.classList.toggle('active', isActive);
-        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
-
-      tabPanes.forEach(pane => {
-        pane.classList.toggle('active', pane.id === `pane-${tabKey}`);
-      });
-    }
-
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => switchAboutTab(btn.dataset.tab));
-      btn.addEventListener('mouseenter', () => switchAboutTab(btn.dataset.tab));
-    });
-
-    /* 3. CURSORE MAGNETICO & SPOTLIGHT AMBIENTALE */
+    /* 2. CURSORE MAGNETICO & SPOTLIGHT AMBIENTALE */
     const cursorDot = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
     const spotlight = document.getElementById('ambientSpotlight');
@@ -4593,7 +4435,7 @@
     requestAnimationFrame(renderCursor);
 
     // Hover expansions
-    document.querySelectorAll('a, button, .project, .service, .about-tab-btn, .tech-item, .chip-label').forEach(el => {
+    document.querySelectorAll('a, button, .project, .service, .about-pillar-card, .tech-item, .chip-label').forEach(el => {
       el.addEventListener('mouseenter', () => cursorRing.classList.add('is-hover'));
       el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-hover'));
     });
@@ -4618,6 +4460,7 @@
     /* 5. FILTRO CATEGORIE PROGETTI */
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project');
+    const emptyStateHome = document.getElementById('filterEmptyStateHome');
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -4625,15 +4468,21 @@
         btn.classList.add('active');
 
         const filter = btn.dataset.filter;
+        let visibleCount = 0;
 
         projectCards.forEach(card => {
           const category = card.dataset.category || '';
           if (filter === 'all' || category.includes(filter)) {
             card.classList.remove('is-hidden');
+            visibleCount++;
           } else {
             card.classList.add('is-hidden');
           }
         });
+
+        if (emptyStateHome) {
+          emptyStateHome.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
       });
     });
 
@@ -4655,12 +4504,15 @@
       const data = langData[key] || (PROJECTS_I18N['it'] && PROJECTS_I18N['it'][key]);
       if (!data) return;
 
-      drawerTitle.textContent = data.title;
+      drawerTitle.innerHTML = data.title;
       drawerCategory.textContent = data.category;
       drawerLead.textContent = data.lead;
       drawerRole.textContent = data.role;
       drawerStack.textContent = data.stack;
       drawerBody.textContent = data.body;
+      if (data.bg && drawerPreview) {
+        drawerPreview.style.background = data.bg;
+      }
       if (data.url) {
         drawerCta.href = data.url;
         drawerCta.setAttribute('target', '_blank');
