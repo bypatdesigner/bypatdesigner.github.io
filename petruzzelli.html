@@ -120,6 +120,8 @@
       --gold-glow: rgba(229, 176, 30, 0.35);
 
       --velvet-tint: rgba(125, 1, 9, 0.08);
+      --red-velvet: #7D0109;           /* Velluto Rosso Cupo · Teatro Storico & Platea */
+      --gold-light: #FFDF80;           /* Oro Chiaro per Badge & Dettagli */
       
       /* Lines & Dividers */
       --line: rgba(31, 21, 23, 0.10);
@@ -770,15 +772,16 @@
     .story-card {
       padding: clamp(36px, 5vw, 68px);
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--red-velvet) 0%, #1e0508 100%);
+      background-color: var(--red-petruzzelli, #DC4C46);
+      background: linear-gradient(135deg, #E6524A 0%, var(--red-petruzzelli, #DC4C46) 50%, #C43B35 100%);
       color: #FFFFFF;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
       min-height: 480px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(125, 1, 9, 0.22);
+      box-shadow: 0 24px 60px rgba(220, 76, 70, 0.28);
     }
 
     .story-card::before {
@@ -788,47 +791,24 @@
       top: -0.22em;
       font-family: var(--font-display);
       font-size: clamp(7rem, 16vw, 15rem);
-      color: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.08);
       line-height: 1;
       font-weight: 800;
       pointer-events: none;
     }
 
-    .story-card h3 {
+    .story-card p,
+    .story-card-statement {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 3.6vw, 3.8rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      position: relative;
+      font-size: clamp(1.85rem, 2.9vw, 2.75rem);
+      line-height: 1.24;
+      letter-spacing: -0.03em;
       color: #FFFFFF;
-    }
-
-    .story-card p {
-      color: rgba(255, 255, 255, 0.90);
-      margin-top: 22px;
-      max-width: 520px;
+      font-weight: 700;
       position: relative;
-      font-size: 1.12rem;
-      line-height: 1.7;
-    }
-
-    .story-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-      position: relative;
-    }
-
-    .story-card-tags span {
-      padding: 5px 12px;
-      border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.12);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold-light);
+      z-index: 1;
+      max-width: 580px;
+      margin: 0;
     }
 
     /* Realm 3-card Showcase */
@@ -1463,7 +1443,8 @@
     .pdf-panel {
       margin-top: 48px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--red-velvet) 0%, #200407 100%);
+      background-color: #7D0109;
+      background: linear-gradient(135deg, var(--red-velvet, #7D0109) 0%, #200407 100%);
       color: #FFFFFF;
       padding: clamp(36px, 6vw, 68px);
       display: grid;
@@ -1995,7 +1976,7 @@
             </div>
             <div class="meta-row">
               <div class="meta-label" id="labelContext">Contesto</div>
-              <div class="meta-value" id="specTimeline">Accademia di Belle Arti di Foggia · Graphic Design II</div>
+              <div class="meta-value" id="specTimeline">Progetto accademico · Graphic Design II</div>
             </div>
             <div class="meta-row">
               <div class="meta-label" id="labelScope">Ambito</div>
@@ -2119,16 +2100,9 @@
         <!-- Symbol Story Layout -->
         <div class="symbol-layout">
           <div class="story-card">
-            <h3 id="storyCardTitle">Dalle ceneri alla scena:<br>1903 · 1991 · 2009.</h3>
-            <p id="storyCardText">
-              Inaugurato a San Valentino del 1903 con Gli Ugonotti, distrutto dal rogo doloso nella notte del 27 ottobre 1991 durante la Norma, e rinato com'era e dov'era nel 2009. Il Petruzzelli non è solo un edificio: è l'anima resiliente di un'intera terra.
+            <p class="story-card-statement" id="storyCardText">
+              Un’araba fenice che si è risvegliata dalle ceneri che finalmente può continuare a guardare verso il futuro.
             </p>
-            <div class="story-card-tags">
-              <span>Gli Ugonotti 1903</span>
-              <span>27 Ottobre 1991</span>
-              <span>ANNO MMVIII</span>
-              <span>4 Ottobre 2009</span>
-            </div>
           </div>
 
           <figure class="visual-card" id="visualStory" style="min-height: 480px;">
@@ -2447,7 +2421,7 @@
           Dalla ricerca preparatoria alle schede architettoniche e al sondaggio: naviga le tavole principali del progetto nel visualizzatore flipbook interattivo.
         </p>
         <p class="copy-body" id="flipbookBody">
-          Il flipbook permette di consultare rapidamente le tavole salienti dell’indagine visiva e della strategia di comunicazione, mantenendo l’esperienza immersiva della pubblicazione stampata originale dell'Accademia di Belle Arti di Foggia.
+          Il flipbook permette di consultare rapidamente le tavole salienti dell’indagine visiva e della strategia di comunicazione, mantenendo l’esperienza immersiva della pubblicazione stampata originale.
         </p>
 
         <!-- Interactive Flipbook Container -->
@@ -2701,7 +2675,7 @@
       labelAuthors: "Gruppo",
       labelLocation: "Luogo",
       specYear: "2020",
-      specTimeline: "Accademia di Belle Arti di Foggia · Graphic Design II",
+      specTimeline: "Progetto accademico · Graphic Design II",
       specScope: ["Identità visiva", "Manifesti", "Affissioni", "Social"],
       specAuthors: "Patricia Garcia, Giorgia de Giambattista, Miriana Briscese",
       caseLead: "Lo riconosciamo passando per strada. Ne conosciamo il nome illustre, l’imponente facciata neoclassica su Corso Cavour, il valore simbolico di quarto teatro più grande d’Italia. Entrare, però, è un’esperienza diversa: significa trovare un’occasione, sentirsi coinvolti, immaginare che quel luogo abbia qualcosa da offrire anche a noi.",
@@ -2730,8 +2704,7 @@
       realm3Title: "La Platea & La Cupola",
       realm3Desc: "1482 posti avvolti dal velluto rosso cupo delle poltrone Poltrona Frau, cinque ordini di palchi e la cupola interna in legno lamellare ad acustica calibrata sovrastata dal cartiglio «ANNO MMVIII».",
       realm3Meta: "1482 Posti · Poltrona Frau",
-      storyCardTitle: "Dalle ceneri alla scena:<br>1903 · 1991 · 2009.",
-      storyCardText: "Inaugurato a San Valentino del 1903 con Gli Ugonotti, distrutto dal rogo doloso nella notte del 27 ottobre 1991 durante la Norma, e rinato com'era e dov'era nel 2009. Il Petruzzelli non è solo un edificio: è l'anima resiliente di un'intera terra.",
+      storyCardText: "Un’araba fenice che si è risvegliata dalle ceneri che finalmente può continuare a guardare verso il futuro.",
 
       chap3No: "03 — Un’identità, tre colori di base",
       chap3Title: 'Il teatro cambia scena.<br><span class="red-highlight">La sua voce si fonda su tre colori di base.</span>',
@@ -2783,7 +2756,7 @@
       chap6No: "06 — Il documento",
       chap6Title: 'Sfoglia il dossier di ricerca<br><span class="red-highlight">o scarica il documento completo.</span>',
       flipbookLead: "Dalla ricerca preparatoria alle schede architettoniche e al sondaggio: naviga le tavole principali del progetto nel visualizzatore flipbook interattivo.",
-      flipbookBody: "Il flipbook permette di consultare rapidamente le tavole salienti dell’indagine visiva e della strategia di comunicazione, mantenendo l’esperienza immersiva della pubblicazione stampata originale dell'Accademia di Belle Arti di Foggia.",
+      flipbookBody: "Il flipbook permette di consultare rapidamente le tavole salienti dell’indagine visiva e della strategia di comunicazione, mantenendo l’esperienza immersiva della pubblicazione stampata originale.",
       flipbookBadge: "Project Book",
       flipbookHint: "Sfoglia",
       flipbookTabs: ["La Copertina", "La Fenice & Storia", "Il Percorso Architettonico", "Studio Cromatico MAFEI", "La Platea & Frau", "Il Sondaggio Pubblico"],
@@ -2830,7 +2803,7 @@
       labelAuthors: "Team",
       labelLocation: "Location",
       specYear: "2020",
-      specTimeline: "Academy of Fine Arts of Foggia · Graphic Design II",
+      specTimeline: "Academic project · Graphic Design II",
       specScope: ["Visual identity", "Posters", "Billboards", "Social"],
       specAuthors: "Patricia Garcia, Giorgia de Giambattista, Miriana Briscese",
       caseLead: "We recognize it when walking down the street. We know its illustrious name, its imposing neoclassical facade on Corso Cavour, and its symbolic stature as the fourth largest theater in Italy. Entering, however, is a different experience: it requires an occasion, a feeling of belonging, and imagining that this space has something meaningful to offer to each of us.",
@@ -2859,8 +2832,7 @@
       realm3Title: "The Auditorium & Dome",
       realm3Desc: "1,482 seats upholstered in deep red velvet by Poltrona Frau, five tiers of boxes, and the single-span lamellar timber acoustic dome crowned by the «ANNO MMVIII» cartouche.",
       realm3Meta: "1,482 Seats · Poltrona Frau",
-      storyCardTitle: "From ashes to stage:<br>1903 · 1991 · 2009.",
-      storyCardText: "Inaugurated on Valentine's Day 1903 with Meyerbeer's Les Huguenots, consumed by an arson fire on the night of October 27, 1991 during Bellini's Norma, and reborn faithfully in 2009. Petruzzelli is not merely a building: it is the resilient soul of an entire region.",
+      storyCardText: "A phoenix that has awakened from the ashes, finally ready to continue looking toward the future.",
 
       chap3No: "03 — One identity, three base colors",
       chap3Title: 'The theater changes scene.<br><span class="red-highlight">Its voice is built on three core colors.</span>',
@@ -2912,7 +2884,7 @@
       chap6No: "06 — The Document",
       chap6Title: 'Browse the research dossier<br><span class="red-highlight">or download the complete book.</span>',
       flipbookLead: "From preparatory research to architectural surveys and statistical data: flip through the main project plates in the interactive 3D viewer.",
-      flipbookBody: "The interactive viewer allows rapid exploration of key plates from the design strategy, preserving the tactile rhythm of the original printed publication produced at the Academy of Fine Arts of Foggia.",
+      flipbookBody: "The interactive viewer allows rapid exploration of key plates from the design strategy, preserving the tactile rhythm of the original printed publication.",
       flipbookBadge: "Project Book",
       flipbookHint: "Turn Page",
       flipbookTabs: ["The Cover", "The Phoenix & History", "Architectural Route", "MAFEI Color Study", "Auditorium & Frau", "Public Survey"],
@@ -2959,7 +2931,7 @@
       labelAuthors: "Equipo",
       labelLocation: "Lugar",
       specYear: "2020",
-      specTimeline: "Academia de Bellas Artes de Foggia · Graphic Design II",
+      specTimeline: "Proyecto académico · Graphic Design II",
       specScope: ["Identidad visual", "Cartelería", "Banderolas", "Social"],
       specAuthors: "Patricia Garcia, Giorgia de Giambattista, Miriana Briscese",
       caseLead: "Lo reconocemos al pasar por la calle. Sabemos su nombre ilustre, su imponente fachada neoclásica sobre Corso Cavour y su valor simbólico como el cuarto teatro más grande de Italia. Entrar, sin embargo, es una experiencia distinta: requiere encontrar una ocasión, sentirse convocado e imaginar que ese lugar tiene algo valioso para ofrecernos a nosotros también.",
@@ -2988,8 +2960,7 @@
       realm3Title: "La Platea y la Cúpula",
       realm3Desc: "1.482 butacas tapizadas en terciopelo rojo oscuro por Poltrona Frau, cinco órdenes de palcos y la cúpula de madera laminada antisísmica coronada por el cartel «ANNO MMVIII».",
       realm3Meta: "1.482 Plazas · Poltrona Frau",
-      storyCardTitle: "De las cenizas al escenario:<br>1903 · 1991 · 2009.",
-      storyCardText: "Inaugurado en San Valentín de 1903 con Los Hugonotes, destruido por las llamas en la noche del 27 de octubre de 1991 durante la Norma, y resurgido fielmente en 2009. El Petruzzelli no es solo un edificio: es el corazón resiliente de toda una región.",
+      storyCardText: "Un ave fénix que ha resurgido de sus cenizas y que finalmente puede seguir mirando hacia el futuro.",
 
       chap3No: "03 — Una identidad, tres colores de base",
       chap3Title: 'El teatro cambia de escena.<br><span class="red-highlight">Su voz se funda en tres colores de base.</span>',
@@ -3041,7 +3012,7 @@
       chap6No: "06 — El Documento",
       chap6Title: 'Hojea el dossier de investigación<br><span class="red-highlight">o descarga la memoria completa en PDF.</span>',
       flipbookLead: "Desde la investigación de campo hasta los planos arquitectónicos y los datos estadísticos: recorre las láminas principales en el visor 3D interactivo.",
-      flipbookBody: "El flipbook interactivo permite consultar con agilidad las láminas fundamentales de la estrategia visual, conservando el valor de la memoria editorial impresa elaborada en la Academia de Bellas Artes de Foggia.",
+      flipbookBody: "El flipbook interactivo permite consultar con agilidad las láminas fundamentales de la estrategia visual, conservando el valor de la memoria editorial impresa.",
       flipbookBadge: "Libro de Proyecto",
       flipbookHint: "Pasar Hoja",
       flipbookTabs: ["La Portada", "El Fénix & Historia", "Ruta Arquitectónica", "Estudio del Color MAFEI", "La Platea & Frau", "Encuesta Ciudadana"],
@@ -3209,10 +3180,9 @@
     const r3M = document.getElementById('realm3Meta');
     if (r3M) r3M.textContent = d.realm3Meta;
 
-    const sCardTitle = document.getElementById('storyCardTitle');
-    if (sCardTitle) sCardTitle.innerHTML = d.storyCardTitle;
     const sCardText = document.getElementById('storyCardText');
-    if (sCardText) sCardText.textContent = d.storyCardText;
+    if (sCardText && d.storyCardText) sCardText.textContent = d.storyCardText;
+
 
     // Chapter 03
     const c3No = document.getElementById('chap3No');
