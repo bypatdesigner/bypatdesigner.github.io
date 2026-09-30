@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Resume — Patricia Garcia | Graphic UI/UX Designer &amp; Junior Web Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  
+
   <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
   <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
   <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
@@ -14,31 +15,34 @@
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
       font-weight: 800;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
       font-weight: 700;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
       font-weight: 500;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
+        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
       font-weight: 400;
       font-display: swap;
       font-style: normal;
@@ -47,23 +51,25 @@
     @font-face {
       font-family: 'Satoshi';
       src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+        url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
       font-weight: 700;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Satoshi';
       src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
-           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+        url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
       font-weight: 500;
       font-display: swap;
       font-style: normal;
     }
+
     @font-face {
       font-family: 'Satoshi';
       src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
-           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+        url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
       font-weight: 400;
       font-display: swap;
       font-style: normal;
@@ -77,40 +83,42 @@
       --surface: #FFFFFF;
       --surface-subtle: #F3EFFC;
       --surface-hover: #ECE6F8;
-      
+
       --ink: #141133;
       --text: #2A264D;
       --text-muted: #59557A;
       --text-dim: #7C789E;
-      
+
       --purple: #34348E;
       --purple-light: #5E5EBA;
       --violet-accent: #7C3AED;
       --magenta: #DB13D9;
       --accent-emerald: #10B981;
-      
+
       --line: rgba(52, 52, 142, 0.12);
       --line-subtle: rgba(52, 52, 142, 0.07);
       --line-violet: rgba(124, 58, 237, 0.28);
-      
+
       --shadow-card: 0 16px 45px rgba(31, 24, 93, 0.06);
       --shadow-card-hover: 0 20px 50px rgba(31, 24, 93, 0.11);
       --shadow-sm: 0 6px 20px rgba(31, 24, 93, 0.04);
-      
+
       --radius-sm: 10px;
       --radius-md: 18px;
       --radius-lg: 24px;
       --radius-xl: 30px;
       --radius-full: 9999px;
-      
+
       --font-display: "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
       --font-body: "Satoshi", system-ui, -apple-system, sans-serif;
       --font-mono: "Satoshi", monospace;
-      
+
       --pad-x: clamp(16px, 3.5vw, 44px);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -134,7 +142,10 @@
       position: relative;
     }
 
-    h1, h2, h3, h4,
+    h1,
+    h2,
+    h3,
+    h4,
     .profile-name-title,
     .simple-cv-intro h1,
     .simple-section-title,
@@ -155,7 +166,8 @@
       text-decoration: none;
     }
 
-    img, svg {
+    img,
+    svg {
       max-width: 100%;
       display: block;
     }
@@ -170,25 +182,14 @@
     }
 
     .ambient-spotlight {
-      position: absolute;
-      width: 720px;
-      height: 720px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(219, 19, 217, 0.05) 45%, transparent 70%);
-      transform: translate(-50%, -50%);
-      left: 65%;
-      top: 25%;
-      transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: left, top;
+      display: none;
     }
 
     .ambient-grid {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 82% 14%, rgba(139, 92, 246, 0.10), transparent 36%),
-        radial-gradient(circle at 14% 34%, rgba(219, 19, 217, 0.06), transparent 36%),
-        radial-gradient(circle at 70% 75%, rgba(52, 52, 142, 0.05), transparent 42%),
+        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(124, 58, 237, 0.06) 0%, rgba(139, 92, 246, 0.02) 55%, transparent 85%),
         linear-gradient(180deg, #F9F8FD 0%, #F4F1FA 100%);
       opacity: 1;
     }
@@ -198,7 +199,7 @@
       position: absolute;
       inset: 0;
       opacity: 0.32;
-      background-image: 
+      background-image:
         linear-gradient(to right, rgba(52, 52, 142, 0.06) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(52, 52, 142, 0.06) 1px, transparent 1px);
       background-size: 58px 58px;
@@ -349,8 +350,17 @@
     }
 
     @keyframes pulseDot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.5; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.3);
+        opacity: 0.5;
+      }
     }
 
     /* Bio Info */
@@ -541,7 +551,7 @@
       font-weight: 700;
     }
 
-    .simple-cv-intro p + p {
+    .simple-cv-intro p+p {
       margin-top: 14px;
     }
 
@@ -661,6 +671,72 @@
       color: var(--text-dim);
       font-size: 0.74rem;
       line-height: 1.55;
+    }
+
+    /* Project Preview Thumbnails inside Entries */
+    .entry-projects-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .entry-thumb-link {
+      position: relative;
+      display: block;
+      width: 126px;
+      height: 82px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--surface-subtle);
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 6px rgba(20, 17, 51, 0.04);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .entry-thumb-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.32s ease;
+    }
+
+    .entry-thumb-link:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-color: var(--line-violet);
+      box-shadow: 0 8px 22px rgba(124, 58, 237, 0.16);
+    }
+
+    .entry-thumb-link:hover img {
+      transform: scale(1.06);
+    }
+
+    .entry-thumb-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 6px 8px;
+      background: linear-gradient(180deg, transparent 0%, rgba(14, 13, 24, 0.88) 100%);
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.22s ease;
+      pointer-events: none;
+    }
+
+    .entry-thumb-link:hover .entry-thumb-caption {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ============================================================
@@ -795,53 +871,114 @@
        RESPONSIVE BREAKPOINTS
        ============================================================ */
     @media (max-width: 1100px) {
-      .resume-layout { gap: 40px; }
-      .simple-skills-grid { grid-template-columns: 1fr 1fr; }
+      .resume-layout {
+        gap: 40px;
+      }
+
+      .simple-skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 900px) {
-      .resume-layout { grid-template-columns: 1fr; }
-      .profile-sidebar { position: static; height: auto; max-height: none; margin-bottom: 24px; }
-      .resume-content { max-width: none; }
-      .simple-cv-intro { margin-top: 10px; }
+      .resume-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-sidebar {
+        position: static;
+        height: auto;
+        max-height: none;
+        margin-bottom: 24px;
+      }
+
+      .resume-content {
+        max-width: none;
+      }
+
+      .simple-cv-intro {
+        margin-top: 10px;
+      }
     }
 
     @media (max-width: 640px) {
+
       .simple-section-head,
-      .simple-entry { grid-template-columns: 1fr; gap: 10px; }
-      .simple-entry { padding: 22px 0; }
+      .simple-entry {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .simple-entry {
+        padding: 22px 0;
+      }
+
+      .entry-thumb-link {
+        width: 105px;
+        height: 68px;
+      }
+
       .simple-skills-grid,
-      .simple-language-list { grid-template-columns: 1fr; }
-      .simple-section-head { gap: 8px; }
-      .resume-top-nav { margin-bottom: 34px; }
-      .simple-cv-intro { margin-bottom: 52px; }
+      .simple-language-list {
+        grid-template-columns: 1fr;
+      }
+
+      .simple-section-head {
+        gap: 8px;
+      }
+
+      .resume-top-nav {
+        margin-bottom: 34px;
+      }
+
+      .simple-cv-intro {
+        margin-bottom: 52px;
+      }
     }
 
     /* Print Styles */
     @media print {
-      body, html {
+
+      .entry-projects-row {
+        display: none !important;
+      }
+
+      body,
+      html {
         background: #FFFFFF !important;
         color: #111111 !important;
       }
-      .ambient-bg, .social-pills-row, .profile-actions-row, .back-home-link, .lang-switcher-pill, .simple-cv-footer a {
+
+      .ambient-bg,
+      .social-pills-row,
+      .profile-actions-row,
+      .back-home-link,
+      .lang-switcher-pill,
+      .simple-cv-footer a {
         display: none !important;
       }
+
       .resume-layout {
         display: block !important;
         padding: 0 !important;
       }
+
       .profile-sidebar {
         border: none !important;
         box-shadow: none !important;
         background: none !important;
         page-break-after: avoid;
       }
-      .simple-skill-group, .simple-language-item {
+
+      .simple-skill-group,
+      .simple-language-item {
         border: 1px solid #CCC !important;
         box-shadow: none !important;
         background: #FFF !important;
       }
-      .accent-gradient, .profile-name-title span {
+
+      .accent-gradient,
+      .profile-name-title span {
         background: none !important;
         color: #111 !important;
         -webkit-text-fill-color: initial !important;
@@ -862,44 +999,45 @@
 
     <!-- ================= LEFT STICKY BIO & PROFILE CARD ================= -->
     <aside class="profile-sidebar">
-      
+
       <!-- Top Brand & Socials -->
       <div class="profile-card-top">
         <a href="index.html">
           <img class="profile-brand-logo" src="./img/logo-dark.png" alt="Bypatdesigner Logo" />
         </a>
         <div class="social-pills-row">
-          <a class="social-icon-pill" href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-          <a class="social-icon-pill" href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-          <a class="social-icon-pill" href="https://github.com/bypatdesigner" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a class="social-icon-pill" href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener"
+            aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a class="social-icon-pill" href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener"
+            aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+          <a class="social-icon-pill" href="https://github.com/bypatdesigner" target="_blank" rel="noopener"
+            aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
       </div>
 
       <!-- Photo Box -->
       <div class="profile-photo-container">
         <img class="profile-photo-img" src="./img/perfil.png" alt="Patricia Garcia Portrait" />
-        <div class="vertical-status-badge">
-          <span class="status-pulse-dot"></span>
-          <span>Available for work</span>
-        </div>
       </div>
 
       <!-- Bio Summary -->
       <div class="profile-bio-box">
         <h2 class="profile-name-title">Patricia <span>Garcia</span></h2>
-        <div class="profile-role-sub">UI/UX Designer &amp; Junior Web Developer</div>
+        <div class="profile-role-sub">Junior UI/UX Designer &amp; Front-End Developer</div>
         <p class="profile-short-desc">
-          UI/UX Designer with a strong background in Graphic Design and front-end development skills. Designing clear, accessible, user-centered digital interfaces.
+          I design clear, accessible interfaces and build them with code. Graphic Design background, UI/UX focus, and software development training.
         </p>
       </div>
 
       <!-- CTA & Download Buttons -->
       <div class="profile-actions-row">
-        <a href="https://wa.me/393771392002?text=Hello+Patricia%21+%F0%9F%91%8B+I+saw+your+portfolio+and+would+love+to+connect+%F0%9F%98%8A" target="_blank" rel="noopener" class="btn-profile-cta">
+        <a href="https://wa.me/393771392002?text=Hello+Patricia%21+%F0%9F%91%8B+I+saw+your+portfolio+and+would+love+to+connect+%F0%9F%98%8A"
+          target="_blank" rel="noopener" class="btn-profile-cta">
           <span>Get in touch</span>
           <span>↗</span>
         </a>
-        <a class="btn-profile-download" id="downloadCvBtn" href="cv_pdf/CV_Patricia_Garcia_EN_2026.pdf" download="CV_Patricia_Garcia_EN_2026.pdf" target="_blank">
+        <a class="btn-profile-download" id="downloadCvBtn" href="cv_pdf/CV_Patricia_Garcia_EN_2026.pdf"
+          download="CV_Patricia_Garcia_EN_2026.pdf" target="_blank">
           <span>Download CV</span>
           <span>↓</span>
         </a>
@@ -928,10 +1066,10 @@
         <div class="simple-cv-kicker">✦ Curriculum Vitae · 2026</div>
         <h1>Professional <span class="accent-gradient">Profile</span></h1>
         <p>
-          I work across <strong>UI/UX, graphic, web design, and front-end development</strong>, always starting from people, context, and real needs.
+          I work across <strong>UI/UX, graphic, and web design</strong>, always starting from people, context, and real needs. I'm studying <strong>web development</strong> to design with better judgment and create interfaces that can actually be built.
         </p>
         <p>
-          I enjoy transforming complexity into <strong>clear, intuitive, and easy-to-use</strong> experiences, combining design with code literacy to create solutions that not only work visually, but are also feasible and robust to implement.
+          I enjoy transforming complexity into <strong>clear, intuitive, and easy-to-use</strong> experiences, combining design with code literacy to create solutions that not only work visually, but are also feasible to develop. I'm continuously strengthening my visual judgment so that my decisions are functional, not just aesthetic.
         </p>
         <div class="simple-cv-links">
           <a href="index.html" class="simple-text-link">Portfolio ↗</a>
@@ -950,7 +1088,8 @@
           <div>
             <h3>UI/UX &amp; Web Designer</h3>
             <div class="simple-entry-org">BeDigit S.r.l.</div>
-            <p>Designing websites and digital interfaces in Figma: requirements analysis, information architecture, user flows, wireframes, UI and interactive prototypes, collaborating closely with development teams.</p>
+            <p>Designing websites and digital interfaces in Figma: requirements analysis, information architecture, user
+              flows, wireframes, UI and interactive prototypes, collaborating closely with development teams.</p>
             <div class="simple-entry-meta">Figma · UI/UX · Web Design · Prototyping · Information Architecture</div>
           </div>
         </article>
@@ -960,7 +1099,8 @@
           <div>
             <h3>Freelance Designer</h3>
             <div class="simple-entry-org">Freelance</div>
-            <p>Tailored web and visual design projects, combining content structure, user experience, brand identity, and digital communication.</p>
+            <p>Tailored web and visual design projects, combining content structure, user experience, brand identity,
+              and digital communication.</p>
             <div class="simple-entry-meta">UI/UX · Web Design · Brand Identity · Graphic Design</div>
           </div>
         </article>
@@ -970,7 +1110,8 @@
           <div>
             <h3>Laravel Developer Trainee</h3>
             <div class="simple-entry-org">Universo Srl · Client C.F.A. SRL</div>
-            <p>Development of back-end web micro-projects: controller architecture, routing, relational database modeling, CRUD operations, and authentication.</p>
+            <p>Development of back-end web micro-projects: controller architecture, routing, relational database
+              modeling, CRUD operations, and authentication.</p>
             <div class="simple-entry-meta">PHP · Laravel · MySQL · MVC · Git</div>
           </div>
         </article>
@@ -980,7 +1121,8 @@
           <div>
             <h3>Junior Front-End Developer</h3>
             <div class="simple-entry-org">Sinkronia Srl</div>
-            <p>Contributed to the development cycle of an ERP section, from analysis and UI/UX design to front-end implementation.</p>
+            <p>Contributed to the development cycle of an ERP section, from analysis and UI/UX design to front-end
+              implementation.</p>
             <div class="simple-entry-meta">Angular · TypeScript · HTML · CSS · UI/UX</div>
           </div>
         </article>
@@ -1013,7 +1155,8 @@
         <div class="simple-skills-grid">
           <div class="simple-skill-group">
             <h3>UX / UI</h3>
-            <p>Figma · User flows · Wireframes · Prototyping · Information Architecture · Design Systems · Responsive Design</p>
+            <p>Figma · User flows · Wireframes · Prototyping · Information Architecture · Design Systems · Responsive
+              Design</p>
           </div>
           <div class="simple-skill-group">
             <h3>Visual</h3>
@@ -1037,7 +1180,8 @@
           <div>
             <h3>Technologist in Software Analysis and Development</h3>
             <div class="simple-entry-org">SENA · Colombia</div>
-            <p>Comprehensive training across the software lifecycle: analysis, design, development, testing, and deployment.</p>
+            <p>Comprehensive training across the software lifecycle: analysis, design, development, testing, and
+              deployment.</p>
           </div>
         </article>
 
@@ -1055,7 +1199,17 @@
           <div>
             <h3>Master's Degree in Graphic Design</h3>
             <div class="simple-entry-org">Accademia di Belle Arti di Foggia</div>
-            <p>Specialization in web design and UI/UX, focusing on user experience, information architecture, and prototyping.</p>
+            <p>Specialization in web design and UI/UX, focusing on user experience, information architecture, and
+              prototyping.</p>
+            <div class="entry-projects-row">
+              <a href="https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D" target="_blank" rel="noopener" class="entry-thumb-link" title="Honey + Coconut — 3D Modeling">
+                <img src="./img/honeyCoconut.png" alt="Honey + Coconut 3D" loading="lazy" />
+                <span class="entry-thumb-caption">
+                  <span>Honey + Coconut</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </span>
+              </a>
+            </div>
           </div>
         </article>
 
@@ -1065,6 +1219,29 @@
             <h3>Bachelor's Degree in Graphic Design</h3>
             <div class="simple-entry-org">Accademia di Belle Arti di Foggia</div>
             <p>Graphic design, visual communication, branding, typography, editorial design, and digital media.</p>
+            <div class="entry-projects-row">
+              <a href="eureka.html" class="entry-thumb-link" title="Eureka — Brand Identity">
+                <img src="./img/eureka/hero.png" alt="Eureka — Brand Identity" loading="lazy" />
+                <span class="entry-thumb-caption">
+                  <span>Eureka</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </span>
+              </a>
+              <a href="apulia.html" class="entry-thumb-link" title="Apulia Promoting US — Brand Identity &amp; Campaign">
+                <img src="./img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US" loading="lazy" />
+                <span class="entry-thumb-caption">
+                  <span>Apulia</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </span>
+              </a>
+              <a href="petruzzelli.html" class="entry-thumb-link" title="Teatro Petruzzelli — Visual Identity &amp; Communication">
+                <img src="./img/petruzzelli/mockup-instagram.jpg" alt="Teatro Petruzzelli" loading="lazy" />
+                <span class="entry-thumb-caption">
+                  <span>Petruzzelli</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </span>
+              </a>
+            </div>
           </div>
         </article>
       </section>
@@ -1142,14 +1319,6 @@
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
-    /* Ambient Spotlight follow */
-    const spotlight = document.getElementById('ambientSpotlight');
-    if (spotlight) {
-      window.addEventListener('mousemove', (e) => {
-        spotlight.style.left = `${e.clientX}px`;
-        spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
-      });
-    }
 
     /* Toast Helper */
     const toast = document.getElementById('toast');
@@ -1173,4 +1342,5 @@
     }
   </script>
 </body>
+
 </html>

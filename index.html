@@ -1208,58 +1208,90 @@
     }
 
     /* ============================================================
-       ABOUT SECTION: STORYTELLING & 3 VALORIAL PILLARS (OPTION B)
+       ABOUT SECTION: EDITORIAL STORYTELLING & 3 PILLARS (Full Width Light)
        ============================================================ */
+    #about {
+      background: radial-gradient(120% 120% at 15% 15%, #FFFFFF 0%, #F5F0FE 45%, #EBE3FD 100%);
+      color: #120E24;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      padding: clamp(72px, 8.5vw, 115px) 0 !important;
+      border-top: 1px solid rgba(124, 58, 237, 0.12);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+      border-left: 0 !important;
+      border-right: 0 !important;
+      box-shadow: none !important;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    #work {
+      padding: clamp(72px, 8.5vw, 115px) 0;
+    }
+
+    #about::after {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.28) 0%, rgba(235, 227, 253, 0) 70%);
+      pointer-events: none;
+      filter: blur(50px);
+    }
+
+    #about .section-label {
+      color: #5B21B6;
+    }
+
+    #about .headline {
+      color: #0E0B1F;
+      position: relative;
+      z-index: 1;
+    }
+
+    #about .headline .grad-text {
+      background: linear-gradient(105deg, #383892 0%, #5757B2 38%, #735FD4 72%, #845DED 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      animation: none !important;
+    }
+
+    #about .headline .muted-text {
+      color: #0E0B1F !important;
+      -webkit-text-fill-color: #0E0B1F !important;
+    }
+
     .about-story-wrap {
       margin-top: 40px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Narrative Lead Card */
-    /* ============================================================
-       ABOUT SECTION: EDITORIAL STORYTELLING & 3 PILLARS
-       ============================================================ */
-    #about {
-      padding-bottom: clamp(72px, 8vw, 110px);
-    }
-
-    .about-story-wrap {
-      margin-top: 48px;
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-    }
-
-    /* Narrative Lead: Clean Editorial Spread (no card-stack feeling) */
+    /* Narrative Lead */
     .about-story-hero {
       background: transparent;
       border: 0;
       box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
       padding: 0;
-      border-radius: 0;
       overflow: visible;
       display: grid;
-      grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1.55fr);
-      gap: clamp(32px, 6vw, 84px);
+      grid-template-columns: minmax(160px, 0.4fr) minmax(0, 1.6fr);
+      gap: clamp(24px, 5vw, 64px);
       align-items: start;
-    }
-
-    .about-story-hero::before {
-      display: none;
     }
 
     .about-story-kicker {
       margin: 4px 0 0;
       background: transparent;
       border: 0;
-      box-shadow: none;
-      padding: 0;
-      color: var(--violet-light);
-      border-radius: 0;
+      color: #7C3AED;
       letter-spacing: 0.16em;
       font-family: var(--font-mono);
       font-size: 0.85rem;
@@ -1272,13 +1304,13 @@
 
     .about-story-body {
       font-family: var(--font-body);
-      font-size: clamp(1.15rem, 1.55vw, 1.42rem);
-      line-height: 1.7;
-      color: #F5F3FF;
-      max-width: 900px;
+      font-size: clamp(1.05rem, 1.4vw, 1.28rem);
+      line-height: 1.72;
+      color: #373059;
+      max-width: 880px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
     }
 
     .about-story-body p {
@@ -1286,56 +1318,46 @@
     }
 
     .about-story-body strong {
-      color: #FFFFFF;
+      color: #0E0B1F;
       font-weight: 700;
-      text-shadow: none;
     }
 
-    /* 3 Pillars Grid: Architectural Border Columns */
+    /* 3 Pillars Grid: 3 Clean White Cards */
     .about-pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--line-light);
-      border-bottom: 1px solid var(--line);
+      gap: 20px;
+      border: 0;
       margin-top: 8px;
     }
 
     .about-pillar-card {
-      background: transparent;
-      border: 0;
-      border-right: 1px solid var(--line);
-      border-radius: 0;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      padding: 38px clamp(20px, 2.8vw, 38px) 42px;
+      background: #FFFFFF;
+      border: 1px solid rgba(124, 58, 237, 0.14);
+      border-radius: 18px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 18px rgba(52, 52, 142, 0.05);
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      gap: 20px;
+      gap: 16px;
       position: relative;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      min-height: 260px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .about-pillar-card:first-child {
-      padding-left: 0;
+      padding-left: 24px;
     }
 
     .about-pillar-card:last-child {
-      border-right: 0;
-      padding-right: 0;
-    }
-
-    .about-pillar-card::before {
-      display: none;
+      border-right: 1px solid rgba(124, 58, 237, 0.14);
+      padding-right: 24px;
     }
 
     .about-pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: none;
-      border-color: var(--line-light);
+      transform: translateY(-5px);
+      border-color: rgba(124, 58, 237, 0.38);
+      box-shadow: 0 16px 36px rgba(124, 58, 237, 0.14);
     }
 
     .about-pillar-header {
@@ -1349,21 +1371,20 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(139, 92, 246, 0.12);
-      border: 1px solid rgba(167, 139, 250, 0.28);
+      background: #EDE9FE;
+      border: 1px solid rgba(124, 58, 237, 0.22);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--violet-bright);
+      color: #6D28D9;
       font-size: 1.05rem;
-      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .about-pillar-card:hover .about-pillar-icon {
       background: #7C3AED;
       color: #FFFFFF;
-      transform: scale(1.08);
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+      box-shadow: 0 6px 18px rgba(124, 58, 237, 0.32);
     }
 
     .about-pillar-tag {
@@ -1371,83 +1392,83 @@
       border: 0;
       padding: 0;
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      color: var(--violet-light);
+      color: #6D28D9;
       text-transform: uppercase;
     }
 
     .about-pillar-title {
       font-family: var(--font-display);
-      font-size: clamp(1.32rem, 1.75vw, 1.7rem);
-      line-height: 1.15;
+      font-size: clamp(1.2rem, 1.55vw, 1.45rem);
+      line-height: 1.2;
       font-weight: 700;
-      color: #FFFFFF;
+      color: #0E0B1F;
       margin: 0;
       letter-spacing: -0.02em;
       transition: color 0.25s ease;
     }
 
     .about-pillar-card:hover .about-pillar-title {
-      color: var(--violet-bright);
+      color: #6D28D9;
     }
 
     .about-pillar-desc {
       font-family: var(--font-body);
-      font-size: 1.02rem;
-      line-height: 1.65;
-      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.62;
+      color: #59557A;
       margin: 0;
       font-weight: 400;
-      max-width: 400px;
     }
 
     @media (max-width: 980px) {
+      #about {
+        margin: 36px 0;
+        padding: 36px 20px;
+      }
       .about-story-hero {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
       }
       .about-pillars-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
       }
       .about-pillar-card,
       .about-pillar-card:first-child,
       .about-pillar-card:last-child {
-        padding: 28px 0;
-        min-height: 0;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .about-pillar-card:last-child {
-        border-bottom: 0;
+        padding: 24px;
+        border: 1px solid rgba(124, 58, 237, 0.14);
       }
     }
 
     /* ============================================================
        TOOL & TECH STACK TICKER
        ============================================================ */
+    /* ============================================================
+       TOOL & PROGRAM STACK MARQUEE (Full Width Integrated Ribbon like Hero Marquee)
+       ============================================================ */
     .tech-stack-section {
-      padding: 44px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: rgba(10, 9, 18, 0.65);
+      width: 100%;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 8, 18, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       overflow: hidden;
       position: relative;
-    }
-
-    .tech-stack-label {
-      text-align: center;
-      margin-bottom: 24px;
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
-      color: var(--text-dim);
-      font-weight: 600;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      z-index: 2;
     }
 
     .tech-track {
       display: flex;
-      gap: 36px;
+      gap: 20px;
       width: max-content;
       animation: techScroll 34s linear infinite;
       align-items: center;
@@ -1456,43 +1477,43 @@
     .tech-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 24px;
+      gap: 10px;
+      padding: 8px 18px;
       border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       color: #FFFFFF;
       font-family: var(--font-mono);
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       white-space: nowrap;
       user-select: none;
     }
 
     .tech-icon-box {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       display: grid;
       place-items: center;
       color: var(--violet-light);
       font-weight: 700;
-      font-size: 1.1rem;
-      transition: transform 0.3s ease, color 0.3s ease;
+      font-size: 0.98rem;
+      transition: transform 0.25s ease, color 0.25s ease;
     }
 
     .tech-item:hover {
       color: #FFFFFF;
-      background: rgba(167, 139, 250, 0.16);
+      background: rgba(167, 139, 250, 0.18);
       border-color: var(--line-violet);
-      box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.28);
     }
 
     .tech-item:hover .tech-icon-box {
       color: #FFFFFF;
-      transform: scale(1.15);
+      transform: scale(1.12);
     }
 
     @keyframes techScroll {
@@ -1502,18 +1523,22 @@
     }
 
     /* ============================================================
-       02 — TRA DESIGN E CODICE (Light Breathing Section)
+       03 — TRA DESIGN E CODICE (Full Width Light Canvas + White Card)
        ============================================================ */
     .services {
       background: radial-gradient(120% 120% at 15% 15%, #FFFFFF 0%, #F5F0FE 45%, #EBE3FD 100%);
       color: #120E24;
-      border-radius: clamp(24px, 3.5vw, 40px);
-      margin: 60px 14px;
-      padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 68px);
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 30px 90px rgba(124, 58, 237, 0.14), 0 10px 30px rgba(0, 0, 0, 0.06);
+      border-radius: 0 !important;
+      margin: 0 !important;
+      padding: clamp(96px, 11vw, 150px) 0 !important; /* Más amplio top y down */
+      border-top: 1px solid rgba(124, 58, 237, 0.12);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+      border-left: 0 !important;
+      border-right: 0 !important;
+      box-shadow: none !important;
       position: relative;
       overflow: hidden;
+      width: 100%;
     }
 
     .services::after {
@@ -1521,13 +1546,14 @@
       position: absolute;
       top: -120px;
       right: -80px;
-      width: 420px;
-      height: 420px;
+      width: 480px;
+      height: 480px;
       background: radial-gradient(circle, rgba(167, 139, 250, 0.28) 0%, rgba(235, 227, 253, 0) 70%);
       pointer-events: none;
       filter: blur(50px);
     }
 
+    /* Floating Pure White Card Container */
     .services-grid {
       display: grid;
       grid-template-columns: 1fr 1.25fr;
@@ -1535,6 +1561,11 @@
       align-items: center;
       position: relative;
       z-index: 1;
+      background: #FFFFFF;
+      border: 1px solid rgba(124, 58, 237, 0.14);
+      border-radius: clamp(24px, 3.5vw, 36px);
+      padding: clamp(48px, 6vw, 76px) clamp(32px, 5vw, 68px);
+      box-shadow: 0 20px 60px rgba(52, 52, 142, 0.08), 0 2px 10px rgba(0, 0, 0, 0.02);
     }
 
     .services-left-col {
@@ -1702,9 +1733,13 @@
 
     @media (max-width: 680px) {
       .services {
-        margin: 30px 10px;
-        padding: 38px 20px;
-        border-radius: 24px;
+        margin: 0 !important;
+        padding: 54px 0 !important;
+        border-radius: 0 !important;
+      }
+      .services-grid {
+        padding: 32px 18px !important;
+        border-radius: 20px !important;
       }
       .service-row {
         grid-template-columns: 48px 1fr;
@@ -2285,11 +2320,12 @@
       background: linear-gradient(145deg, rgba(24, 20, 42, 0.75) 0%, rgba(13, 11, 24, 0.9) 100%);
       border: 1px solid rgba(167, 139, 250, 0.22);
       border-radius: var(--radius-xl);
-      padding: clamp(40px, 5vw, 68px) clamp(24px, 5vw, 64px);
+      padding: clamp(48px, 6vw, 84px) clamp(24px, 5vw, 64px);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
+      justify-content: center;
+      text-align: center;
       overflow: hidden;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(20px);
@@ -2312,34 +2348,9 @@
       opacity: 1;
     }
 
-    .contact-portrait-wrap {
-      flex-shrink: 0;
-      max-width: 440px;
-      position: relative;
-    }
-
-    .floating-contact-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 24px;
-      filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.7));
-      transition: transform 0.4s ease;
-    }
-
-    .floating-contact-img:hover {
-      transform: translateY(-6px) scale(1.02);
-    }
-
     @media (max-width: 992px) {
       .contact-card-modern {
-        flex-direction: column-reverse !important;
-        align-items: flex-start !important;
-        padding: 40px 24px !important;
-      }
-      .contact-portrait-wrap {
-        max-width: 280px;
-        align-self: center;
+        padding: 44px 24px !important;
       }
     }
 
@@ -2896,15 +2907,8 @@
       }
 
       .contact-card-modern {
-        flex-direction: column;
-        text-align: left;
-      }
-
-      .contact-portrait-wrap {
-        width: 100%;
-        max-width: 280px;
-        margin-top: 24px;
-        align-self: center;
+        padding: 40px 20px;
+        text-align: center;
       }
     }
 
@@ -3039,43 +3043,6 @@
       }
     }
 
-    /* Floating Portrait Image Animation */
-    .contact-portrait-wrap {
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-      width: clamp(340px, 42vw, 520px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .floating-contact-img {
-      width: 100%;
-      height: auto;
-      max-height: 560px;
-      object-fit: contain;
-      animation: floatPortrait 6s ease-in-out infinite;
-      filter: drop-shadow(0 20px 40px rgba(139, 92, 246, 0.35));
-      transition: transform 0.4s ease, filter 0.4s ease;
-    }
-
-    .contact-card-modern:hover .floating-contact-img {
-      transform: translateY(-8px) scale(1.03) rotate(1deg);
-      filter: drop-shadow(0 28px 50px rgba(167, 139, 250, 0.5));
-    }
-
-    @keyframes floatPortrait {
-
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-16px) rotate(1.5deg);
-      }
-    }
 
     /* Interactive Mouse Spotlight on Contact Card */
     .contact-spotlight {
@@ -3222,7 +3189,7 @@
         </div>
         <h1 class="hero-title" id="heroTitle" data-decrypt-hero="true" data-i18n-html="hero.title"
           title="Clicca per decifrare di nuovo">
-          Design, sviluppo e <br>qualche altra <span class="grad-text">ossessione <br><span
+          Design, codice e <br>qualche altra <span class="grad-text">ossessione <br><span
               style="white-space: nowrap;">creativa.</span></span>
         </h1>
       </div>
@@ -3261,8 +3228,7 @@
         </div>
 
         <div class="hero-copy">
-          <p data-i18n="hero.desc">UI/UX Designer con un background in Graphic Design e sviluppo web. Progetto
-            interfacce digitali chiare, intuitive e curate nei dettagli.</p>
+          <p data-i18n="hero.desc">Junior UI/UX &amp; Web Designer in crescita verso un profilo ibrido. Unisco gusto per il design e consapevolezza di come si costruisce un sito o un'app.</p>
           <div class="actions">
             <a class="btn primary" id="heroWorkBtn" href="#work" data-i18n="hero.btn_work">Vedi Progetti ↗</a>
             <a class="btn secondary" id="heroResumeBtn" href="cv.html" data-i18n="hero.btn_resume">Resume / CV </a>
@@ -3292,15 +3258,15 @@
     </div>
   </header>
 
-  <!-- ================= REST OF THE HOME (CLEAN ORIGINAL BACKGROUND AS index.html) ================= -->
+  <!-- ================= REST OF THE HOME ================= -->
   <div class="page-frame">
-    <div class="shell">
 
-      <!-- ================= ABOUT SECTION (STORYTELLING & PILLARS - OPTION B) ================= -->
-      <section id="about">
+    <!-- ================= 01 — ABOUT SECTION (FULL WIDTH LIGHT) ================= -->
+    <section id="about">
+      <div class="shell">
         <div class="section-label reveal" data-i18n="about.section_label">01 — Chi Sono &amp; Visione</div>
         <h2 class="headline reveal" data-i18n-html="about.headline">
-          <span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Progetto esperienze digitali con uno scopo.</span>
+          <span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>
         </h2>
 
         <div class="about-story-wrap reveal">
@@ -3311,10 +3277,10 @@
             </div>
             <div class="about-story-body">
               <p data-i18n-html="about.story_p1">
-                Sono una designer con un percorso tra <strong>graphic design, UI/UX e sviluppo web</strong>. Mi piace capire prima il problema, fare ordine nelle informazioni e trasformare idee complesse in esperienze digitali chiare, intuitive e piacevoli.
+                Sono una graphic designer con un percorso che unisce <strong>UI/UX e sviluppo web</strong>. Mi piace partire dalle persone e dai problemi reali, mettere ordine tra contenuti e necessità e trasformare la complessità in esperienze digitali chiare, intuitive e piacevoli da usare.
               </p>
               <p data-i18n-html="about.story_p2">
-                La mia curiosità mi ha portata anche al codice. Capire cosa accade dietro un'interfaccia mi permette di progettare con maggior criterio, comunicare meglio con lo sviluppo e creare soluzioni pensate non solo per apparire bene, ma anche per <strong>funzionare</strong>.
+                La mia curiosità mi ha portata anche al codice. Non mi fermo al disegno dell’interfaccia: studiare e applicare lo sviluppo web mi permette di progettare con maggiore consapevolezza, capire cosa è realmente costruibile e creare soluzioni in cui design e codice lavorano insieme con criterio.
               </p>
             </div>
           </div>
@@ -3325,13 +3291,13 @@
             <div class="about-pillar-card">
               <div class="about-pillar-header">
                 <div class="about-pillar-icon" aria-hidden="true">
-                  <i class="fa-solid fa-ear-listen"></i>
+                  <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <span class="about-pillar-tag" data-i18n="about.pillar1_tag">01 / Ascoltare</span>
+                <span class="about-pillar-tag" data-i18n="about.pillar1_tag">01 / Discovery</span>
               </div>
-              <h3 class="about-pillar-title" data-i18n="about.pillar1_title">Capire prima di decidere</h3>
+              <h3 class="about-pillar-title" data-i18n="about.pillar1_title">Comprendere il problema</h3>
               <p class="about-pillar-desc" data-i18n="about.pillar1_desc">
-                Osservare persone, bisogni e contesto per evitare di progettare sulla base di supposizioni.
+                Osservare persone, bisogni, contesto e requisiti per raccogliere insight e definire con chiarezza il problema da affrontare.
               </p>
             </div>
 
@@ -3341,11 +3307,11 @@
                 <div class="about-pillar-icon" aria-hidden="true">
                   <i class="fa-solid fa-compass"></i>
                 </div>
-                <span class="about-pillar-tag" data-i18n="about.pillar2_tag">02 / Guidare</span>
+                <span class="about-pillar-tag" data-i18n="about.pillar2_tag">02 / Define &amp; Ideate</span>
               </div>
-              <h3 class="about-pillar-title" data-i18n="about.pillar2_title">Rendere ogni passaggio più semplice</h3>
+              <h3 class="about-pillar-title" data-i18n="about.pillar2_title">Dare struttura alla soluzione</h3>
               <p class="about-pillar-desc" data-i18n="about.pillar2_desc">
-                Costruire gerarchie e percorsi chiari affinché l’esperienza risulti intuitiva e senza frizioni inutili.
+                Trasformare gli insight in gerarchie, flussi e ipotesi progettuali, organizzando contenuti e priorità per costruire un’esperienza chiara e intuitiva.
               </p>
             </div>
 
@@ -3355,19 +3321,21 @@
                 <div class="about-pillar-icon" aria-hidden="true">
                   <i class="fa-solid fa-code"></i>
                 </div>
-                <span class="about-pillar-tag" data-i18n="about.pillar3_tag">03 / Realizzare</span>
+                <span class="about-pillar-tag" data-i18n="about.pillar3_tag">03 / Prototype &amp; Build</span>
               </div>
-              <h3 class="about-pillar-title" data-i18n="about.pillar3_title">Progettare pensando alla realtà</h3>
+              <h3 class="about-pillar-title" data-i18n="about.pillar3_title">Rendere l’idea concreta</h3>
               <p class="about-pillar-desc" data-i18n="about.pillar3_desc">
-                Unire design e conoscenza del front-end per creare soluzioni utili, coerenti e concretamente realizzabili.
+                Tradurre la soluzione in wireframe, interfacce e componenti, verificando coerenza, usabilità e fattibilità tecnica fino alla realizzazione.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ================= 02 — SELECTED WORK ================= -->
-      <section id="work">
+    <!-- ================= 02 — SELECTED WORK (FULL WIDTH DARK CANVAS) ================= -->
+    <section id="work">
+      <div class="shell">
         <div class="section-label reveal" data-i18n="work.section_label">02 — Portfolio Selezionato</div>
         <div class="work-head">
           <h2 class="headline reveal" data-i18n-html="work.headline"><span class="grad-text">Una selezione</span> <span class="muted-text">di lavori e case study.</span></h2>
@@ -3387,7 +3355,7 @@
           <article class="project" data-category="brand" data-project="eureka">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/eureka/hero.png');"></div>
             <div class="project-top">
-              <span>Brand Identity · Progetto Accademico</span>
+              <span data-i18n="work.project1_tag">Brand Identity · Progetto Accademico</span>
               <span>2021</span>
             </div>
             <div>
@@ -3400,7 +3368,7 @@
           <article class="project" data-category="brand" data-project="apulia">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/apulia/hero-manifesto.jpg');"></div>
             <div class="project-top">
-              <span>Brand Identity &amp; Campagna</span>
+              <span data-i18n="work.project2_tag">Brand Identity &amp; Campagna</span>
               <span>2021</span>
             </div>
             <div>
@@ -3413,7 +3381,7 @@
           <article class="project" data-category="brand" data-project="honey">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/honeyCoconut.png');"></div>
             <div class="project-top">
-              <span>Packaging 3D Design · Blender</span>
+              <span data-i18n="work.project3_tag">Packaging 3D Design · Blender</span>
               <span>2024</span>
             </div>
             <div>
@@ -3425,7 +3393,7 @@
           <article class="project" data-category="brand" data-project="petruzzelli">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/petruzzelli/mockup-instagram.jpg');"></div>
             <div class="project-top">
-              <span>Brand Identity &amp; Comunicazione</span>
+              <span data-i18n="work.project4_tag">Brand Identity &amp; Comunicazione</span>
               <span>2020</span>
             </div>
             <div>
@@ -3438,7 +3406,7 @@
           <article class="project" data-category="brand" data-project="miamiMango">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.3) 0%, rgba(14, 13, 24, 0.08) 40%, rgba(14, 13, 24, 0.88) 100%), url('./img/miami-mango/card-home.jpg');"></div>
             <div class="project-top">
-              <span>Brand Identity · Tavole da Surf</span>
+              <span data-i18n="work.project5_tag">Brand Identity · Tavole da Surf</span>
               <span>2022</span>
             </div>
             <div>
@@ -3463,10 +3431,12 @@
             <span data-i18n="work.btn_all_projects">Vedi tutti i progetti &amp; case study ↗</span>
           </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ================= 03 — TRA DESIGN E CODICE (Light Breathing Section) ================= -->
-      <section class="services" id="services">
+    <!-- ================= 03 — TRA DESIGN E CODICE (FULL WIDTH LIGHT) ================= -->
+    <section class="services" id="services">
+      <div class="shell">
         <div class="services-grid">
           <!-- Left Column: Title, Intro & CTA -->
           <div class="services-left-col reveal">
@@ -3474,10 +3444,10 @@
               <span data-i18n="services.section_label">03 — Tra Design e Codice</span>
             </div>
             <h2 class="services-title" data-i18n-html="services.headline">
-              <span class="services-grad-text">Un approccio,</span><br />
-              <span class="services-dark-title">più discipline.</span>
+              <span class="services-grad-text">Un occhio al design,</span><br />
+              <span class="services-dark-title">l'altro al codice.</span>
             </h2>
-            <p class="services-desc" data-i18n="services.intro">Dall’esperienza utente all’identità visiva, fino alla costruzione dell’interfaccia: competenze diverse che uso e combino in base alle esigenze del progetto.</p>
+            <p class="services-desc" data-i18n="services.intro">Dal gusto visivo alla logica di come si costruisce un prodotto digitale: discipline diverse che combino in base alle esigenze del progetto.</p>
             <div class="services-cta-wrap">
               <a href="#process" class="services-btn">
                 <span data-i18n="services.btn">Scopri il mio approccio</span>
@@ -3512,7 +3482,7 @@
                 <i class="fa-solid fa-code"></i>
               </div>
               <h3 class="service-row-title" data-i18n="services.card3_title">Front-end Development</h3>
-              <p class="service-row-desc" data-i18n="services.card3_desc">HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.</p>
+              <p class="service-row-desc" data-i18n="services.card3_desc">HTML, CSS, JavaScript, React, Laravel e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.</p>
             </div>
 
             <!-- 04 AI Exploration -->
@@ -3521,16 +3491,16 @@
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
               </div>
               <h3 class="service-row-title" data-i18n="services.card4_title">AI Exploration</h3>
-              <p class="service-row-desc" data-i18n="services.card4_desc">Strumenti AI integrati nel processo di ricerca, ideazione, prototipazione e sperimentazione.</p>
+              <p class="service-row-desc" data-i18n="services.card4_desc">Strumenti di IA per accelerare la ricerca, l'ideazione e la prototipazione. Le decisioni di design le prendo io.</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ================= TOOL & PROGRAM STACK MARQUEE ================= -->
-      <section class="tech-stack-section" id="tech" style="border-radius: var(--radius-xl); margin: 40px 0;">
-        <div class="tech-stack-label mono" data-i18n="tech.label">✦ Linguaggi, Framework &amp; Programmi ✦</div>
-        <div class="tech-track">
+    <!-- ================= TOOL & PROGRAM STACK MARQUEE (FULL WIDTH INTEGRATED RIBBON) ================= -->
+    <div class="tech-stack-section" id="tech" aria-hidden="true">
+      <div class="tech-track">
           <!-- First Loop -->
           <div class="tech-item"><span class="tech-icon-box"><i class="fa-brands fa-figma"></i></span><span>Figma</span>
           </div>
@@ -3583,9 +3553,10 @@
           <div class="tech-item"><span class="tech-icon-box"><i class="fa-solid fa-code"></i></span><span>VS Code</span>
           </div>
         </div>
-      </section>
+    </div>
 
-      <!-- ================= 04 — IL MIO PROCESSO ================= -->
+    <!-- ================= 04 — IL MIO PROCESSO ================= -->
+    <div class="shell">
       <section id="process">
         <div class="section-label reveal" data-i18n="process.section_label">04 — Il Mio Processo</div>
         
@@ -3664,86 +3635,58 @@
       <!-- ================= QUOTE (Light Breathing Section) ================= -->
       <section class="quote-section">
         <div class="quote-card reveal">
-          <blockquote>
+          <blockquote data-i18n-html="quote.text">
             “Pay attention to <span class="grad-text">what users do</span>, not what they say.”
           </blockquote>
           <div class="person">
             <strong>Jakob Nielsen</strong>
-            <span class="person-role">UX Pioneer</span>
+            <span class="person-role" data-i18n="quote.role">UX Pioneer</span>
           </div>
         </div>
       </section>
 
-      <!-- ================= MODERN CONTACT SECTION WITH FLOATING PORTRAIT ================= -->
-      <section class="contact-section" id="contact" style="padding: 60px 0;">
-        <div class="contact-card-modern reveal" style="
-          position: relative;
-          background: linear-gradient(145deg, rgba(24, 20, 42, 0.75) 0%, rgba(13, 11, 24, 0.9) 100%);
-          border: 1px solid rgba(167, 139, 250, 0.22);
-          border-radius: var(--radius-xl);
-          padding: clamp(40px, 5vw, 68px) clamp(24px, 5vw, 64px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 40px;
-          overflow: hidden;
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(20px);
-        ">
+      <!-- ================= MINIMAL CONTACT SECTION ================= -->
+      <section class="contact-section" id="contact" style="padding: clamp(60px, 8vw, 100px) 0;">
+        <div class="contact-card-modern reveal">
           <!-- Interactive Mouse Spotlight Halo -->
           <div class="contact-spotlight" id="contactSpotlight"></div>
 
-          <!-- Left Content Side -->
-          <div style="position: relative; z-index: 2; flex: 1; max-width: 680px; text-align: left;">
-            <!-- Availability Badge Left -->
-            <div
-              style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: var(--radius-full); background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.28); color: #34D399; font-size: 0.84rem; font-weight: 500; margin-bottom: 26px;">
-              <span
-                style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; box-shadow: 0 0 10px #10B981;"></span>
-              <span data-i18n="contact.badge">Disponibile per nuove opportunità &amp; progetti</span>
-            </div>
-
-            <!-- Title & Subtitle Left -->
+          <!-- Minimal Content -->
+          <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <!-- Title -->
             <h2 class="headline"
-              style="font-size: clamp(2.4rem, 4.8vw, 4.6rem); line-height: 1.02; margin: 0 0 20px; text-align: left;"
+              style="font-size: clamp(2.4rem, 4.8vw, 4.4rem); line-height: 1.05; margin: 0 0 20px; text-align: center;"
               data-i18n-html="contact.title">
               Iniziamo da un <span class="grad-text">ciao</span>
             </h2>
 
-            <p style="font-size: clamp(1.02rem, 1.35vw, 1.25rem); line-height: 1.62; color: var(--text-muted); margin: 0 0 36px 0; font-weight: 300; text-align: left;"
+            <p style="font-size: clamp(1.05rem, 1.35vw, 1.25rem); line-height: 1.65; color: var(--text-muted); margin: 0 0 36px 0; font-weight: 300; text-align: center; max-width: 620px;"
               data-i18n="contact.desc">
-              Ciao! Se hai un’opportunità, un progetto da condividere o semplicemente ti va di scambiare due idee,
-              scrivimi. Sono sempre felice di conoscere persone, progetti e prospettive nuove
+              Ciao! Se hai un progetto, un’idea o semplicemente vuoi fare due chiacchiere, scrivimi. Sarà un piacere conoscerti.
             </p>
 
-            <!-- Action Buttons Left -->
-            <div
-              style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 16px; width: 100%;">
-              <a class="glass-btn" id="contactWhatsAppBtn"
-                href="https://wa.me/393771392002?text=Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A"
-                target="_blank" rel="noopener" style="
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                padding: 18px 42px;
-                border-radius: var(--radius-full);
-                background: linear-gradient(135deg, var(--violet-primary) 0%, var(--violet-deep) 100%);
-                color: #FFFFFF;
-                font-weight: 600;
-                font-size: 1.08rem;
-                border: 1px solid rgba(192, 139, 232, 0.4);
-                box-shadow: 0 12px 36px rgba(139, 92, 246, 0.4);
-                transition: all 0.3s ease;
-              ">
-                <span data-i18n="contact.btn">Facciamo due chiacchiere</span>
-                <span style="font-size: 1.1rem; transform: translateX(2px);">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Floating Portrait Image Side -->
-          <div class="contact-portrait-wrap">
-            <img src="./img/patriciagarcia.png" alt="Patricia Garcia" class="floating-contact-img" />
+            <!-- Action Button -->
+            <a class="glass-btn" id="contactWhatsAppBtn"
+              href="https://wa.me/393771392002?text=Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A"
+              target="_blank" rel="noopener" style="
+              display: inline-flex;
+              align-items: center;
+              gap: 12px;
+              padding: 18px 42px;
+              border-radius: var(--radius-full);
+              background: linear-gradient(135deg, var(--violet-primary) 0%, var(--violet-deep) 100%);
+              color: #FFFFFF;
+              font-weight: 600;
+              font-size: 0.98rem;
+              letter-spacing: 0.04em;
+              text-transform: uppercase;
+              border: 1px solid rgba(192, 139, 232, 0.4);
+              box-shadow: 0 12px 36px rgba(139, 92, 246, 0.4);
+              transition: all 0.3s ease;
+            ">
+              <span data-i18n="contact.btn">Facciamo due chiacchiere</span>
+              <span style="font-size: 1.1rem; transform: translateX(2px);">↗</span>
+            </a>
           </div>
         </div>
       </section>
@@ -3830,37 +3773,37 @@
         "nav.resume_cta": "Visualizza CV / Resume",
         "nav.select_lang": "Lingua:",
         "hero.eyebrow": "Bisceglie, Italia  · Remoto / Ibrido / On-site",
-        "hero.title": 'Design, sviluppo e <br>qualche altra <span class="grad-text">ossessione <br><span style="white-space: nowrap;">creativa.</span></span>',
-        "hero.desc": "UI/UX Designer con un background in Graphic Design e sviluppo web. Progetto interfacce digitali chiare, intuitive e curate nei dettagli.",
+        "hero.title": 'Design, codice e <br>qualche altra <span class="grad-text">ossessione <br><span style="white-space: nowrap;">creativa.</span></span>',
+        "hero.desc": "Junior UI/UX & Web Designer in crescita verso un profilo ibrido. Unisco gusto per il design e consapevolezza di come si costruisce un sito o un'app.",
         "hero.btn_work": "Vedi Progetti ↗",
         "hero.btn_resume": "Resume / CV",
         "about.section_label": "01 — Chi Sono & Visione",
-        "about.headline": '<span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Progetto esperienze digitali con uno scopo.</span>',
+        "about.headline": '<span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>',
         "about.story_kicker": "Design · UI/UX · Web",
-        "about.story_p1": 'Sono una designer con un percorso tra <strong>graphic design, UI/UX e sviluppo web</strong>. Mi piace capire prima il problema, fare ordine nelle informazioni e trasformare idee complesse in esperienze digitali chiare, intuitive e piacevoli.',
-        "about.story_p2": 'La mia curiosità mi ha portata anche al codice. Capire cosa accade dietro un\'interfaccia mi permette di progettare con maggior criterio, comunicare meglio con lo sviluppo e creare soluzioni pensate non solo per apparire bene, ma anche per <strong>funzionare</strong>.',
-        "about.pillar1_tag": "01 / Ascoltare",
-        "about.pillar1_title": "Capire prima di decidere",
-        "about.pillar1_desc": "Osservare persone, bisogni e contesto per evitare di progettare sulla base di supposizioni.",
-        "about.pillar2_tag": "02 / Guidare",
-        "about.pillar2_title": "Rendere ogni passaggio più semplice",
-        "about.pillar2_desc": "Costruire gerarchie e percorsi chiari affinché l’esperienza risulti intuitiva e senza frizioni inutili.",
-        "about.pillar3_tag": "03 / Realizzare",
-        "about.pillar3_title": "Progettare pensando alla realtà",
-        "about.pillar3_desc": "Unire design e conoscenza del front-end per creare soluzioni utili, coerenti e concretamente realizzabili.",
+        "about.story_p1": 'Sono una graphic designer con un percorso che unisce <strong>UI/UX e sviluppo web</strong>. Mi piace partire dalle persone e dai problemi reali, mettere ordine tra contenuti e necessità e trasformare la complessità in esperienze digitali chiare, intuitive e piacevoli da usare.',
+        "about.story_p2": 'La mia curiosità mi ha portata anche al codice. Non mi fermo al disegno dell’interfaccia: studiare e applicare lo sviluppo web mi permette di progettare con maggiore consapevolezza, capire cosa è realmente costruibile e creare soluzioni in cui design e codice lavorano insieme con criterio.',
+        "about.pillar1_tag": "01 / Discovery",
+        "about.pillar1_title": "Comprendere il problema",
+        "about.pillar1_desc": "Osservare persone, bisogni, contesto e requisiti per raccogliere insight e definire con chiarezza il problema da affrontare.",
+        "about.pillar2_tag": "02 / Define & Ideate",
+        "about.pillar2_title": "Dare struttura alla soluzione",
+        "about.pillar2_desc": "Trasformare gli insight in gerarchie, flussi e ipotesi progettuali, organizzando contenuti e priorità per costruire un’esperienza chiara e intuitiva.",
+        "about.pillar3_tag": "03 / Prototype & Build",
+        "about.pillar3_title": "Rendere l’idea concreta",
+        "about.pillar3_desc": "Tradurre la soluzione in wireframe, interfacce e componenti, verificando coerenza, usabilità e fattibilità tecnica fino alla realizzazione.",
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
         "services.section_label": "03 — Tra Design e Codice",
-        "services.headline": '<span class="services-grad-text">Un approccio,</span><br><span class="services-dark-title">più discipline.</span>',
-        "services.intro": "Dall’esperienza utente all’identità visiva, fino alla costruzione dell’interfaccia: competenze diverse che uso e combino in base alle esigenze del progetto.",
+        "services.headline": '<span class="services-grad-text">Un occhio al design,</span><br><span class="services-dark-title">l\'altro al codice.</span>',
+        "services.intro": "Dal gusto visivo alla logica di come si costruisce un prodotto digitale: discipline diverse che combino in base alle esigenze del progetto.",
         "services.btn": "Scopri il mio approccio",
         "services.card1_title": "UI/UX Design",
         "services.card1_desc": "Ricerca, architettura dell’informazione, user flow, wireframe, prototipazione e progettazione di interfacce.",
         "services.card2_title": "Visual & Web Design",
         "services.card2_desc": "Layout, tipografia, composizione e sistemi visivi applicati a prodotti ed esperienze digitali.",
         "services.card3_title": "Front-end Development",
-        "services.card3_desc": "HTML, CSS, JavaScript e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.",
+        "services.card3_desc": "HTML, CSS, JavaScript, React, Laravel e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.",
         "services.card4_title": "AI Exploration",
-        "services.card4_desc": "Strumenti AI integrati nel processo di ricerca, ideazione, prototipazione e sperimentazione.",
+        "services.card4_desc": "Strumenti di IA per accelerare la ricerca, l'ideazione e la prototipazione. Le decisioni di design le prendo io.",
         "work.section_label": "02 — Portfolio Selezionato",
         "work.headline": '<span class="grad-text">Una selezione</span> <span class="muted-text">di lavori e case study.</span>',
         "work.intro": "UI/UX, web e identità visiva: progetti diversi raccontati attraverso processo, decisioni e risultato.",
@@ -3869,6 +3812,11 @@
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Visual",
         "work.card_action": "Anteprima Rapida ↗",
+        "work.project1_tag": "Brand Identity · Progetto Accademico",
+        "work.project2_tag": "Brand Identity & Campagna",
+        "work.project3_tag": "Packaging 3D Design · Blender",
+        "work.project4_tag": "Brand Identity & Comunicazione",
+        "work.project5_tag": "Brand Identity · Tavole da Surf",
         "work.btn_all_projects": "Vedi tutti i progetti & case study ↗",
         "work.empty_filter": "Case study UI/UX & Web Design in arrivo o consultabili su richiesta privata.",
         "work.empty_filter_btn": "Richiedi Informazioni",
@@ -3885,9 +3833,11 @@
         "process.step4_desc": "Trasformare ciò che emerge in flussi, wireframe, interfacce e prototipi.",
         "process.step5_title": "Migliorare",
         "process.step5_desc": "Verificare ciò che funziona, ascoltare i feedback e affinare la soluzione nel tempo.",
+        "quote.text": "“Presta attenzione a <span class=\"grad-text\">ciò che gli utenti fanno</span>, non a ciò che dicono.”",
+        "quote.role": "Pioniere della UX",
         "contact.badge": "Disponibile per nuove opportunità & progetti",
         "contact.title": 'Iniziamo da un <span class="grad-text">ciao</span>',
-        "contact.desc": "Ciao! Se hai un’opportunità, un progetto da condividere o semplicemente ti va di scambiare due idee, scrivimi. Sono sempre felice di conoscere persone, progetti e prospettive nuove",
+        "contact.desc": "Ciao! Se hai un progetto, un’idea o semplicemente vuoi fare due chiacchiere, scrivimi. Sarà un piacere conoscerti.",
         "contact.btn": "Facciamo due chiacchiere",
         "footer.resume": "Digital Resume ↗",
         "footer.back_to_top": "Torna all'inizio",
@@ -3908,38 +3858,38 @@
         "nav.resume_cta": "Ver CV / Resume",
         "nav.select_lang": "Idioma:",
         "hero.eyebrow": "Bisceglie, Italia · Remoto / Híbrido / Presencial",
-        "hero.title": 'Diseño, desarrollo y <br>alguna otra <span class="grad-text">obsesión <br><span style="white-space: nowrap;">creativa.</span></span>',
-        "hero.desc": "Diseñadora UI/UX con background en Diseño Gráfico y desarrollo web. Diseño interfaces digitales claras, intuitivas y cuidadas en los detalles.",
+        "hero.title": 'Diseño, código y <br>alguna otra <span class="grad-text">obsesión <br><span style="white-space: nowrap;">creativa.</span></span>',
+        "hero.desc": "Junior UI/UX & Web Designer en crecimiento hacia un perfil híbrido. Uno gusto por el diseño y conocimiento de cómo se construye una web o una app.",
         "hero.btn_work": "Ver Proyectos ↗",
         "hero.btn_resume": "Descargar CV",
-        "about.section_label": "01 — Chi Sono & Visione",
-        "about.headline": '<span class="grad-text">Hola, soy Paty.</span> <span class="muted-text">Diseño experiencias digitales con propósito.</span>',
+        "about.section_label": "01 — Sobre Mí & Visión",
+        "about.headline": '<span class="grad-text">Hola, soy Paty.</span> <span class="muted-text">Muevo píxeles y, a veces, llaves.</span>',
         "about.story_kicker": "Diseño · UI/UX · Web",
-        "about.story_p1": 'Soy diseñadora con una trayectoria entre el <strong>diseño gráfico, UI/UX y desarrollo web</strong>. Me gusta entender primero el problema, ordenar la información y transformar ideas complejas en experiencias digitales claras, intuitivas y agradables.',
-        "about.story_p2": 'Mi curiosidad me llevó también al código. Entender lo que ocurre detrás de una interfaz me permite diseñar con mayor criterio, comunicarme mejor con desarrollo y crear soluciones pensadas no solo para verse bien, sino también para <strong>funcionar</strong>.',
-        "about.pillar1_tag": "01 / Escuchar",
-        "about.pillar1_title": "Entender antes de decidir",
-        "about.pillar1_desc": "Observar personas, necesidades y contexto para evitar diseñar sobre la base de suposiciones.",
-        "about.pillar2_tag": "02 / Guiar",
-        "about.pillar2_title": "Hacer cada paso más simple",
-        "about.pillar2_desc": "Construir jerarquías y recorridos claros para que la experiencia resulte intuitiva y sin fricciones innecesarias.",
-        "about.pillar3_tag": "03 / Realizar",
-        "about.pillar3_title": "Diseñar pensando en la realidad",
-        "about.pillar3_desc": "Unir diseño y conocimiento del front-end para crear soluciones útiles, coherentes y concretamente realizables.",
+        "about.story_p1": 'Soy diseñadora gráfica con una trayectoria que une <strong>UI/UX y desarrollo web</strong>. Me gusta partir de las personas y de los problemas reales, poner orden entre contenidos y necesidades, y transformar la complejidad en experiencias digitales claras, intuitivas y agradables de usar.',
+        "about.story_p2": 'Mi curiosidad me llevó también al código. No me detengo en el diseño visual de la interfaz: estudiar y aplicar el desarrollo web me permite diseñar con mayor conciencia, entender qué es realmente construible y crear soluciones donde diseño y código trabajan juntos con criterio.',
+        "about.pillar1_tag": "01 / Discovery",
+        "about.pillar1_title": "Comprender el problema",
+        "about.pillar1_desc": "Observar personas, necesidades, contexto y requisitos para recoger insights y definir con claridad el problema a abordar.",
+        "about.pillar2_tag": "02 / Define & Ideate",
+        "about.pillar2_title": "Estructurar la solución",
+        "about.pillar2_desc": "Transformar los insights en jerarquías, flujos e hipótesis de diseño, organizando contenidos y prioridades para construir una experiencia clara e intuitiva.",
+        "about.pillar3_tag": "03 / Prototype & Build",
+        "about.pillar3_title": "Hacer la idea tangible",
+        "about.pillar3_desc": "Traducir la solución en wireframes, interfaces y componentes, verificando coherencia, usabilidad y viabilidad técnica hasta su desarrollo.",
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
         "services.section_label": "03 — Entre Diseño y Código",
-        "services.headline": '<span class="services-grad-text">Un enfoque,</span><br><span class="services-dark-title">más disciplinas.</span>',
-        "services.intro": "Desde la experiencia de usuario y la identidad visual hasta la construcción de la interfaz: diferentes habilidades que uso y combino según las necesidades del proyecto.",
+        "services.headline": '<span class="services-grad-text">Un ojo en el diseño,</span><br><span class="services-dark-title">otro en el código.</span>',
+        "services.intro": "Del gusto visual a la lógica de cómo se construye un producto digital: disciplinas distintas que combino según las necesidades del proyecto.",
         "services.btn": "Descubre mi enfoque",
         "services.card1_title": "Diseño UI/UX",
         "services.card1_desc": "Investigación, arquitectura de la información, user flows, wireframes, prototipado y diseño de interfaces.",
         "services.card2_title": "Diseño Visual & Web",
         "services.card2_desc": "Maquetación, tipografía, composición y sistemas visuales aplicados a productos y experiencias digitales.",
         "services.card3_title": "Desarrollo Front-end",
-        "services.card3_desc": "HTML, CSS, JavaScript y desarrollo de interfaces responsive, con habilidades que continúo consolidando a través de la práctica.",
+        "services.card3_desc": "HTML, CSS, JavaScript, React, Laravel y desarrollo de interfaces responsive, con habilidades que continúo consolidando a través de la práctica.",
         "services.card4_title": "Exploración con IA",
-        "services.card4_desc": "Herramientas de IA integradas en el proceso de investigación, ideación, prototipado y experimentación.",
-        "work.section_label": "02 — Portafolio Seleccionado",
+        "services.card4_desc": "Herramientas de IA para acelerar la investigación, la ideación y el prototipado. Las decisiones de diseño las tomo yo.",
+        "work.section_label": "02 — Proyectos Seleccionados",
         "work.headline": '<span class="grad-text">Una selección</span> <span class="muted-text">de proyectos y case studies.</span>',
         "work.intro": "UI/UX, web e identidad visual: diferentes proyectos explicados a través de su proceso, decisiones y resultados.",
         "work.filter_all": "Todos",
@@ -3947,6 +3897,11 @@
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Visual",
         "work.card_action": "Vista Previa ↗",
+        "work.project1_tag": "Identidad de Marca · Proyecto Académico",
+        "work.project2_tag": "Identidad de Marca & Campaña",
+        "work.project3_tag": "Diseño de Packaging 3D · Blender",
+        "work.project4_tag": "Identidad de Marca & Comunicación",
+        "work.project5_tag": "Identidad de Marca · Tablas de Surf",
         "work.btn_all_projects": "Ver todos los proyectos & case studies ↗",
         "work.empty_filter": "Case studies de UI/UX & Web Design en preparación o disponibles bajo petición privada.",
         "work.empty_filter_btn": "Solicitar Información",
@@ -3963,9 +3918,11 @@
         "process.step4_desc": "Transformar lo que surge en flujos, wireframes, interfaces y prototipos.",
         "process.step5_title": "Mejorar",
         "process.step5_desc": "Comprobar qué funciona, escuchar el feedback y perfeccionar la solución en el tiempo.",
+        "quote.text": "“Presta atención a <span class=\"grad-text\">lo que hacen los usuarios</span>, no a lo que dicen.”",
+        "quote.role": "Pionero de la UX",
         "contact.badge": "Disponible para nuevas oportunidades & proyectos",
         "contact.title": 'Empecemos con un <span class="grad-text">hola</span>',
-        "contact.desc": "¡Hola! Si tienes una oportunidad laboral, un proyecto en mente o simplemente quieres intercambiar ideas, escríbeme. Siempre me alegra conectar con nuevas personas y proyectos.",
+        "contact.desc": "¡Hola! Si tienes un proyecto, una idea o simplemente quieres charlar, escríbeme. Será un placer conocerte.",
         "contact.btn": "Hablemos",
         "footer.resume": "CV Digital ↗",
         "footer.back_to_top": "Volver al inicio",
@@ -3986,37 +3943,37 @@
         "nav.resume_cta": "View CV / Resume",
         "nav.select_lang": "Language:",
         "hero.eyebrow": "<i></i> Bisceglie, Italy · Remote / Hybrid / On-site",
-        "hero.title": 'Design, development <br>and other creative <span class="grad-text"><br><span style="white-space: nowrap;">obsessions.</span></span>',
-        "hero.desc": "UI/UX Designer with a background in Graphic Design and web development. I design clear, intuitive, and detail-oriented digital interfaces.",
+        "hero.title": 'Design, code and <br>other creative <span class="grad-text"><br><span style="white-space: nowrap;">obsessions.</span></span>',
+        "hero.desc": "Junior UI/UX & Web Designer growing toward a hybrid profile. Blending design sensibility with how websites and apps are actually built.",
         "hero.btn_work": "View Projects ↗",
         "hero.btn_resume": "Resume / CV",
         "about.section_label": "01 — About Me & Vision",
-        "about.headline": '<span class="grad-text">Hi, I\'m Paty.</span> <span class="muted-text">I design purpose-driven digital experiences.</span>',
+        "about.headline": '<span class="grad-text">Hi, I\'m Paty.</span> <span class="muted-text">Moving pixels and, sometimes, curly brackets.</span>',
         "about.story_kicker": "Design · UI/UX · Web",
-        "about.story_p1": 'I am a designer with a journey across <strong>graphic design, UI/UX, and web development</strong>. I like to understand the problem first, organize information, and turn complex ideas into clear, intuitive, and delightful digital experiences.',
-        "about.story_p2": 'Curiosity led me to code as well. Understanding what happens behind an interface allows me to design with stronger intent, communicate better with developers, and create solutions built not only to look good, but to <strong>actually work</strong>.',
-        "about.pillar1_tag": "01 / Listen",
-        "about.pillar1_title": "Understand before deciding",
-        "about.pillar1_desc": "Observe people, needs, and context to avoid designing based on assumptions.",
-        "about.pillar2_tag": "02 / Guide",
-        "about.pillar2_title": "Making every step simpler",
-        "about.pillar2_desc": "Build clear hierarchies and user journeys so the experience is intuitive and free of unnecessary friction.",
-        "about.pillar3_tag": "03 / Deliver",
-        "about.pillar3_title": "Designing with reality in mind",
-        "about.pillar3_desc": "Uniting design and front-end knowledge to create useful, coherent, and practically feasible solutions.",
+        "about.story_p1": 'I am a graphic designer with a path that bridges <strong>UI/UX and web development</strong>. I like starting from people and real problems, bringing order to content and requirements, and turning complexity into clear, intuitive, and delightful digital experiences.',
+        "about.story_p2": 'Curiosity led me to code as well. I don\'t stop at interface design: studying and applying web development allows me to design with greater awareness, understand what is realistically buildable, and create solutions where design and code work together with purpose.',
+        "about.pillar1_tag": "01 / Discovery",
+        "about.pillar1_title": "Understand the problem",
+        "about.pillar1_desc": "Observing people, needs, context, and requirements to gather insights and clearly define the problem to solve.",
+        "about.pillar2_tag": "02 / Define & Ideate",
+        "about.pillar2_title": "Structure the solution",
+        "about.pillar2_desc": "Transforming insights into hierarchies, user flows, and design hypotheses, organizing content and priorities to build a clear, intuitive experience.",
+        "about.pillar3_tag": "03 / Prototype & Build",
+        "about.pillar3_title": "Bring ideas to life",
+        "about.pillar3_desc": "Translating solutions into wireframes, interfaces, and components, ensuring consistency, usability, and technical feasibility through to implementation.",
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
         "services.section_label": "03 — Between Design & Code",
-        "services.headline": '<span class="services-grad-text">One approach,</span><br><span class="services-dark-title">multiple disciplines.</span>',
-        "services.intro": "From user experience to visual identity, all the way to interface construction: different skill sets that I use and combine based on project needs.",
+        "services.headline": '<span class="services-grad-text">One eye on design,</span><br><span class="services-dark-title">the other on code.</span>',
+        "services.intro": "From visual taste to the logic of how a digital product is built: distinct disciplines that I combine based on project needs.",
         "services.btn": "Explore my approach",
         "services.card1_title": "UI/UX Design",
         "services.card1_desc": "Research, information architecture, user flows, wireframes, prototyping, and interface design.",
         "services.card2_title": "Visual & Web Design",
         "services.card2_desc": "Layout, typography, composition, and visual systems applied to digital products and experiences.",
         "services.card3_title": "Front-end Development",
-        "services.card3_desc": "HTML, CSS, JavaScript, and responsive interface development, continuously strengthening skills through practice.",
+        "services.card3_desc": "HTML, CSS, JavaScript, React, Laravel, and responsive interface development, continuously strengthening skills through practice.",
         "services.card4_title": "AI Exploration",
-        "services.card4_desc": "AI tools integrated into the research, ideation, prototyping, and experimentation process.",
+        "services.card4_desc": "AI tools to accelerate research, ideation, and prototyping. The design decisions remain mine.",
         "work.section_label": "02 — Selected Work",
         "work.headline": '<span class="grad-text">A selection</span> <span class="muted-text">of works and case studies.</span>',
         "work.intro": "UI/UX, web, and visual identity: diverse projects told through process, design decisions, and outcomes.",
@@ -4025,6 +3982,11 @@
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Visual",
         "work.card_action": "Quick Preview ↗",
+        "work.project1_tag": "Brand Identity · Academic Project",
+        "work.project2_tag": "Brand Identity & Campaign",
+        "work.project3_tag": "3D Packaging Design · Blender",
+        "work.project4_tag": "Brand Identity & Communication",
+        "work.project5_tag": "Brand Identity · Surfboards",
         "work.btn_all_projects": "View all projects & case studies ↗",
         "work.empty_filter": "UI/UX & Web Design case studies in progress or available upon private request.",
         "work.empty_filter_btn": "Request Information",
@@ -4041,9 +4003,11 @@
         "process.step4_desc": "Turning insights into user flows, wireframes, interfaces, and prototypes.",
         "process.step5_title": "Refine",
         "process.step5_desc": "Validating what works, listening to feedback, and improving over time.",
+        "quote.text": "“Pay attention to <span class=\"grad-text\">what users do</span>, not what they say.”",
+        "quote.role": "UX Pioneer",
         "contact.badge": "Available for new opportunities & projects",
         "contact.title": 'Let’s start with a <span class="grad-text">hello</span>',
-        "contact.desc": "Hi! If you have an opportunity, a project to collaborate on, or simply want to exchange ideas, feel free to reach out. I'm always happy to connect with new people and perspectives.",
+        "contact.desc": "Hi! If you have a project, an idea, or simply want to chat, feel free to reach out. I'd love to connect.",
         "contact.btn": "Let's talk",
         "footer.resume": "Digital Resume ↗",
         "footer.back_to_top": "Back to top",
@@ -4618,9 +4582,11 @@
         const email = copyBtn.dataset.email || 'hello@bypatdesigner.com';
         try {
           await navigator.clipboard.writeText(email);
-          showToast("Email copiata: " + email + " ✓");
+          const copyMsg = currentLang === 'es' ? `Correo copiado: ${email} ✓` : (currentLang === 'en' ? `Email copied: ${email} ✓` : `Email copiata: ${email} ✓`);
+          showToast(copyMsg);
         } catch (err) {
-          showToast("Scrivimi a: " + email);
+          const writeMsg = currentLang === 'es' ? `Escríbeme a: ${email}` : (currentLang === 'en' ? `Write to: ${email}` : `Scrivimi a: ${email}`);
+          showToast(writeMsg);
         }
       });
     }
