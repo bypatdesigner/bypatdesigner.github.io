@@ -1265,6 +1265,33 @@
       -webkit-text-fill-color: #0E0B1F !important;
     }
 
+    .wave-hand-lottie {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: -0.12em;
+      width: clamp(2.4rem, 4.8vw, 4.4rem);
+      height: clamp(2.4rem, 4.8vw, 4.4rem);
+      margin: 0 0.18em 0 0.1em;
+      transform-origin: 50% 85%;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+      filter: drop-shadow(0 2px 8px rgba(124, 58, 237, 0.18));
+    }
+
+    .wave-hand-lottie:hover {
+      transform: scale(1.18) rotate(6deg);
+      filter: drop-shadow(0 4px 14px rgba(124, 58, 237, 0.3));
+    }
+
+    .wave-hand-lottie svg {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      overflow: visible;
+    }
+
     .about-story-wrap {
       margin-top: 40px;
       display: flex;
@@ -3266,7 +3293,7 @@
       <div class="shell">
         <div class="section-label reveal" data-i18n="about.section_label">01 — Chi Sono &amp; Visione</div>
         <h2 class="headline reveal" data-i18n-html="about.headline">
-          <span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>
+          <span class="grad-text">Ciao, sono Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Mano che saluta"></span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>
         </h2>
 
         <div class="about-story-wrap reveal">
@@ -3756,7 +3783,9 @@
     </div>
   </div>
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- ================= JAVASCRIPT & LOTTIE ANIMATIONS ================= -->
+  <script src="js/lottie.min.js"></script>
+  <script src="js/wave-hand-data.js"></script>
   <script>
     /* ============================================================
        0. MULTI-LANGUAGE SYSTEM (IT · ES · EN)
@@ -3778,7 +3807,7 @@
         "hero.btn_work": "Vedi Progetti ↗",
         "hero.btn_resume": "Resume / CV",
         "about.section_label": "01 — Chi Sono & Visione",
-        "about.headline": '<span class="grad-text">Ciao, sono Paty.</span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>',
+        "about.headline": '<span class="grad-text">Ciao, sono Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Mano che saluta"></span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>',
         "about.story_kicker": "Design · UI/UX · Web",
         "about.story_p1": 'Sono una graphic designer con un percorso che unisce <strong>UI/UX e sviluppo web</strong>. Mi piace partire dalle persone e dai problemi reali, mettere ordine tra contenuti e necessità e trasformare la complessità in esperienze digitali chiare, intuitive e piacevoli da usare.',
         "about.story_p2": 'La mia curiosità mi ha portata anche al codice. Non mi fermo al disegno dell’interfaccia: studiare e applicare lo sviluppo web mi permette di progettare con maggiore consapevolezza, capire cosa è realmente costruibile e creare soluzioni in cui design e codice lavorano insieme con criterio.',
@@ -3863,7 +3892,7 @@
         "hero.btn_work": "Ver Proyectos ↗",
         "hero.btn_resume": "Descargar CV",
         "about.section_label": "01 — Sobre Mí & Visión",
-        "about.headline": '<span class="grad-text">Hola, soy Paty.</span> <span class="muted-text">Muevo píxeles y, a veces, llaves.</span>',
+        "about.headline": '<span class="grad-text">Hola, soy Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Mano saludando"></span> <span class="muted-text">Muevo píxeles y, a veces, llaves.</span>',
         "about.story_kicker": "Diseño · UI/UX · Web",
         "about.story_p1": 'Soy diseñadora gráfica con una trayectoria que une <strong>UI/UX y desarrollo web</strong>. Me gusta partir de las personas y de los problemas reales, poner orden entre contenidos y necesidades, y transformar la complejidad en experiencias digitales claras, intuitivas y agradables de usar.',
         "about.story_p2": 'Mi curiosidad me llevó también al código. No me detengo en el diseño visual de la interfaz: estudiar y aplicar el desarrollo web me permite diseñar con mayor conciencia, entender qué es realmente construible y crear soluciones donde diseño y código trabajan juntos con criterio.',
@@ -3948,7 +3977,7 @@
         "hero.btn_work": "View Projects ↗",
         "hero.btn_resume": "Resume / CV",
         "about.section_label": "01 — About Me & Vision",
-        "about.headline": '<span class="grad-text">Hi, I\'m Paty.</span> <span class="muted-text">Moving pixels and, sometimes, curly brackets.</span>',
+        "about.headline": '<span class="grad-text">Hi, I\'m Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Waving hand"></span> <span class="muted-text">Moving pixels and, sometimes, curly brackets.</span>',
         "about.story_kicker": "Design · UI/UX · Web",
         "about.story_p1": 'I am a graphic designer with a path that bridges <strong>UI/UX and web development</strong>. I like starting from people and real problems, bringing order to content and requirements, and turning complexity into clear, intuitive, and delightful digital experiences.',
         "about.story_p2": 'Curiosity led me to code as well. I don\'t stop at interface design: studying and applying web development allows me to design with greater awareness, understand what is realistically buildable, and create solutions where design and code work together with purpose.',
@@ -4276,6 +4305,9 @@
           el.innerHTML = I18N[lang][key];
         }
       });
+
+      // Mount waving hand Lottie animation in headline
+      renderWaveHandLottie();
 
       // Update dynamic resume links
       const navResume = document.getElementById('navResumeBtn');
@@ -5053,6 +5085,52 @@
         }, { threshold: 0.3 });
         obs.observe(el);
       });
+    }
+
+    // ============================================================
+    // WAVING HAND LOTTIE ANIMATION IN HEADLINE
+    // ============================================================
+    let waveHandAnimInstance = null;
+
+    function renderWaveHandLottie() {
+      const container = document.getElementById('waveHandLottie');
+      if (!container) return;
+
+      if (waveHandAnimInstance) {
+        try {
+          waveHandAnimInstance.destroy();
+        } catch (e) { }
+        waveHandAnimInstance = null;
+      }
+      container.innerHTML = '';
+
+      if (typeof lottie === 'undefined' || !window.WAVING_HAND_LOTTIE_DATA) {
+        setTimeout(renderWaveHandLottie, 80);
+        return;
+      }
+
+      try {
+        waveHandAnimInstance = lottie.loadAnimation({
+          container: container,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          animationData: window.WAVING_HAND_LOTTIE_DATA
+        });
+
+        container.addEventListener('mouseenter', () => {
+          if (waveHandAnimInstance) {
+            waveHandAnimInstance.setSpeed(1.6);
+          }
+        });
+        container.addEventListener('mouseleave', () => {
+          if (waveHandAnimInstance) {
+            waveHandAnimInstance.setSpeed(1);
+          }
+        });
+      } catch (err) {
+        console.warn('Lottie hand load error:', err);
+      }
     }
 
     // Initialize WebGL Fluid inside Hero, Hero Constellations, Decrypt effects & Language
