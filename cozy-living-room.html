@@ -93,12 +93,13 @@
       --text-muted: #64748B;
       --text-dim: #94A3B8;
       
-      /* Warm Terracotta / Orange Accent */
-      --orange-primary: #F77E34;
-      --orange-tint: rgba(247, 126, 52, 0.08);
-      --orange-tint-hover: rgba(247, 126, 52, 0.16);
-      --orange-glow: rgba(247, 126, 52, 0.28);
-      --line-orange: rgba(247, 126, 52, 0.26);
+      /* Fuchsia Brand Palette (from 3D Cozy Living Room) */
+      --orange-primary: #d32796;
+      --fuchsia-primary: #d32796;
+      --orange-tint: rgba(211, 39, 150, 0.08);
+      --orange-tint-hover: rgba(211, 39, 150, 0.16);
+      --orange-glow: rgba(211, 39, 150, 0.28);
+      --line-orange: rgba(211, 39, 150, 0.26);
 
       /* Lines & Dividers */
       --line: rgba(16, 40, 58, 0.09);
@@ -106,9 +107,9 @@
 
       /* Shadows */
       --shadow-sm: 0 4px 14px rgba(16, 40, 58, 0.04);
-      --shadow-md: 0 14px 34px rgba(16, 40, 58, 0.06), 0 2px 6px rgba(247, 126, 52, 0.04);
-      --shadow-lg: 0 24px 60px rgba(16, 40, 58, 0.08), 0 0 35px rgba(247, 126, 52, 0.04);
-      --shadow-xl: 0 32px 80px rgba(16, 40, 58, 0.12), 0 0 45px rgba(247, 126, 52, 0.07);
+      --shadow-md: 0 14px 34px rgba(16, 40, 58, 0.06), 0 2px 6px rgba(211, 39, 150, 0.04);
+      --shadow-lg: 0 24px 60px rgba(16, 40, 58, 0.08), 0 0 35px rgba(211, 39, 150, 0.04);
+      --shadow-xl: 0 32px 80px rgba(16, 40, 58, 0.12), 0 0 45px rgba(211, 39, 150, 0.07);
 
       /* Radii */
       --radius-sm: 10px;
@@ -163,7 +164,7 @@
     }
 
     ::selection {
-      background: #FFE8D6;
+      background: #FCE7F3;
       color: var(--ink);
     }
 
@@ -186,7 +187,7 @@
       width: 900px;
       height: 900px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(247, 126, 52, 0.12) 0%, rgba(27, 42, 74, 0.04) 45%, transparent 72%);
+      background: radial-gradient(circle, rgba(211, 39, 150, 0.11) 0%, rgba(27, 42, 74, 0.04) 45%, transparent 72%);
       transform: translate(-50%, -50%);
       left: 50%;
       top: 18%;
@@ -299,7 +300,7 @@
     .lang-btn.active {
       background: var(--orange-primary);
       color: #FFFFFF;
-      box-shadow: 0 2px 10px rgba(247, 126, 52, 0.35);
+      box-shadow: 0 2px 10px rgba(211, 39, 150, 0.35);
     }
 
     /* Mobile Dropdown Language Wrapper */
@@ -395,7 +396,7 @@
       background: var(--surface);
       color: var(--orange-primary);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(247, 126, 52, 0.18);
+      box-shadow: 0 6px 18px rgba(211, 39, 150, 0.18);
     }
 
     /* ================= HERO SECTION ================= */
@@ -442,7 +443,7 @@
 
     .hero-title-highlight {
       display: inline-block;
-      color: var(--orange-primary);
+      color: var(--fuchsia-primary);
     }
 
     .hero-side {
@@ -544,7 +545,7 @@
     .asset-card:hover .asset-placeholder {
       border-color: var(--orange-primary);
       background: #FFFFFF;
-      box-shadow: 0 12px 36px rgba(247, 126, 52, 0.12);
+      box-shadow: 0 12px 36px rgba(211, 39, 150, 0.12);
     }
 
     .ph-badge {
@@ -816,8 +817,8 @@
     }
 
     .gallery-full-card {
-      min-height: clamp(360px, 50vw, 660px);
-      aspect-ratio: 16 / 9;
+      min-height: clamp(300px, 45vw, 620px);
+      aspect-ratio: 1024 / 459;
       margin-top: clamp(20px, 3vw, 32px);
       display: grid;
       place-items: center;
@@ -895,7 +896,7 @@
     .next-card:hover {
       border-color: var(--orange-primary);
       transform: translateY(-4px);
-      box-shadow: 0 28px 70px rgba(247, 126, 52, 0.15);
+      box-shadow: 0 28px 70px rgba(211, 39, 150, 0.15);
     }
 
     .next-card-tag {
@@ -979,7 +980,7 @@
       color: #FFFFFF;
       border-color: var(--orange-primary);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(247, 126, 52, 0.25);
+      box-shadow: 0 6px 20px rgba(211, 39, 150, 0.25);
     }
 
     .footer-links {
@@ -1080,7 +1081,7 @@
     <nav class="top-nav" aria-label="Navigazione case study">
       <a class="pill-link" href="projects.html" id="navBackProjects">← Tutti i progetti</a>
       <a class="nav-logo-link" href="index.html" aria-label="Home Bypatdesigner">
-        <img class="nav-logo" src="./img/logo.png" alt="Bypatdesigner" />
+        <img class="nav-logo" src="./img/logo-dark.png" alt="Bypatdesigner" />
       </a>
       <div class="nav-actions">
         <!-- Desktop Language Pill -->
@@ -1180,10 +1181,10 @@
 
           <div>
             <p class="copy-lead" id="conceptLead">
-              <strong><em>Cozy Living Room</em> è un esercizio di interior visualization sviluppato interamente in Blender per esplorare come volumi contenuti possano esprimere grande calore e personalità.</strong>
+              <strong><em>Cozy Living Room</em> è un esercizio di interior visualization sviluppato interamente in Blender.</strong>
             </p>
             <p class="copy-body" id="conceptBody" style="margin-top: 20px; font-weight: 700; color: var(--ink);">
-              <strong>L’obiettivo era creare un ambiente raccolto ma immediatamente riconoscibile, giocando con geometrie pure, arredi contemporanei, materiali tattili e una palette cromatica calda e accogliente.</strong>
+              <strong>L’obiettivo era creare un ambiente compatto ma riconoscibile, giocando con forme semplici, arredi, materiali e una palette cromatica molto caratterizzata.</strong>
             </p>
           </div>
         </div>
@@ -1253,62 +1254,44 @@
             </div>
           </figure>
 
-          <!-- 03 Top-Down View -->
+          <!-- 03 Clay / Model View -->
           <figure class="visual-card asset-card gallery-card" id="visualTop">
-            <img src="./img/cozy-living-room/03-top.webp" alt="Vista dall'alto del progetto Cozy Living Room" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.style.display='none'" />
+            <img src="./img/cozy-living-room/03-top.webp" alt="Modellazione 3D e clay render della scena Cozy Living Room in Blender" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.style.display='none'" />
             <div class="asset-placeholder">
-              <div class="ph-badge">Render 03 — Vista dall'alto</div>
-              <div class="placeholder-icon"><i class="fa-solid fa-layer-group"></i></div>
-              <div class="placeholder-title">Inquadratura zenitale / planimetrica</div>
-              <div class="placeholder-desc">Vista dall'alto che mostra la distribuzione degli arredi e l'equilibrio della composizione.</div>
+              <div class="ph-badge">Render 03 — Modellazione 3D / Clay</div>
+              <div class="placeholder-icon"><i class="fa-solid fa-shapes"></i></div>
+              <div class="placeholder-title">Vista solida / Clay render</div>
+              <div class="placeholder-desc">Studio dei volumi e della struttura geometrica pura prima dell'applicazione di materiali e illuminazione.</div>
               <div class="placeholder-specs">Formato: 1:1 · File: <code>./img/cozy-living-room/03-top.webp</code></div>
             </div>
           </figure>
         </div>
 
-        <!-- 04 Details & Materials Showcase (2 Views) -->
-        <div class="details-duo-grid" id="visualDetails">
-          <!-- 04-1 Close-up Details -->
-          <figure class="visual-card asset-card details-card" id="visualDetails1">
-            <img src="./img/cozy-living-room/04-details-1.webp" alt="Dettagli e materiali — Vista ravvicinata su divano e arredi" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.style.display='none'" />
-            <div class="asset-placeholder">
-              <div class="ph-badge">Render 04 — Dettagli e finiture</div>
-              <div class="placeholder-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-              <div class="placeholder-title">Macro dettagli su materiali e finiture</div>
-              <div class="placeholder-desc">Primo piano sui tessuti, riflessi delle superfici e interazione tra luce e materia.</div>
-              <div class="placeholder-specs">Formato: 4:3 · File: <code>./img/cozy-living-room/04-details-1.webp</code></div>
-            </div>
-          </figure>
-
-          <!-- 04-2 Isometric Warm Evening View -->
-          <figure class="visual-card asset-card details-card" id="visualDetails2">
-            <img src="./img/cozy-living-room/04-details-2.webp" alt="Dettagli e materiali — Vista isometrica con atmosfera calda" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.style.display='none'" />
-            <div class="asset-placeholder">
-              <div class="ph-badge">Render 04 — Atmosfera serale</div>
-              <div class="placeholder-icon"><i class="fa-solid fa-lightbulb"></i></div>
-              <div class="placeholder-title">Illuminazione calda e tramonto</div>
-              <div class="placeholder-desc">Inquadratura isometrica con le luci soffuse accese e atmosfera serale.</div>
-              <div class="placeholder-specs">Formato: 1:1 · File: <code>./img/cozy-living-room/04-details-2.webp</code></div>
-            </div>
-          </figure>
-        </div>
+        <!-- 04 Details & Materials Showcase (Full Panorama) -->
+        <figure class="visual-card asset-card gallery-full-card" id="visualDetails">
+          <img src="./img/cozy-living-room/04-details.webp" alt="Dettagli e vista panoramica con atmosfera calda e serale della Cozy Living Room" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.style.display='none'" />
+          <div class="asset-placeholder">
+            <div class="ph-badge">Render 04 — Dettagli e atmosfera</div>
+            <div class="placeholder-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="placeholder-title">Dettagli materici & vista serale</div>
+            <div class="placeholder-desc">Macro dettagli sui tessuti e vista isometrica completa al tramonto con luci calde accese.</div>
+            <div class="placeholder-specs">Formato: Panorama (1024×459) · File: <code>./img/cozy-living-room/04-details.webp</code></div>
+          </div>
+        </figure>
       </section>
 
       <!-- ================= 04 — RISULTATO FINALE ================= -->
       <section class="chapter" id="risultato">
-        <div class="chapter-head">
+        <div class="chapter-head" style="margin-bottom: clamp(32px, 5vw, 56px);">
           <div class="chapter-no" id="chap4No">04 — Risultato finale</div>
-          <h2 class="chapter-title" id="chap4Title">Un’atmosfera calda<br><span class="orange-highlight">e accogliente.</span></h2>
+          <h2 class="chapter-title" id="chap4Title" style="font-size: clamp(2rem, 3.6vw, 3.8rem); line-height: 1.2; max-width: 980px;">
+            Un piccolo esercizio 3D per esplorare <span class="orange-highlight">spazio, colore e atmosfera</span> attraverso una scena d’interni semplice ma curata in ogni dettaglio.
+          </h2>
         </div>
 
-        <div class="closing-card">
-          <div class="closing-text" id="closingText">
-            Un piccolo esercizio 3D per esplorare <span class="orange-highlight">spazio, colore e atmosfera</span> attraverso una scena d’interni semplice ma curata in ogni dettaglio.
-          </div>
-          <div class="closing-meta">
-            <span id="closingBadge1">Cozy Living Room · 3D Modeling</span>
-            <span id="closingBadge2">Paty García · 2024</span>
-          </div>
+        <div class="closing-meta" style="border-top: 1px solid var(--line); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase;">
+          <span id="closingBadge1">Cozy Living Room · 3D Modeling</span>
+          <span id="closingBadge2">Paty García · 2024</span>
         </div>
       </section>
     </main>
@@ -1380,8 +1363,8 @@
       specContext: "Progetto personale",
       specScope: "<span>3D Modeling</span><span>Interior Visualization</span><span>Lighting & Materials</span>",
       specTools: "<span>Blender</span>",
-      conceptLead: "<strong><em>Cozy Living Room</em> è un esercizio di interior visualization sviluppato interamente in Blender per esplorare come volumi contenuti possano esprimere grande calore e personalità.</strong>",
-      conceptBody: "<strong>L’obiettivo era creare un ambiente raccolto ma immediatamente riconoscibile, giocando con geometrie pure, arredi contemporanei, materiali tattili e una palette cromatica calda e accogliente.</strong>",
+      conceptLead: "<strong><em>Cozy Living Room</em> è un esercizio di interior visualization sviluppato interamente in Blender.</strong>",
+      conceptBody: "<strong>L’obiettivo era creare un ambiente compatto ma riconoscibile, giocando con forme semplici, arredi, materiali e una palette cromatica molto caratterizzata.</strong>",
       chap2No: "02 — Il Processo",
       chap2Title: "Dalle forme semplici<br><span class=\"orange-highlight\">all’atmosfera.</span>",
       processLead: "Un processo semplice: costruire lo spazio, definire materiali e colori e infine lavorare sulla luce per dare alla scena un’atmosfera più coerente e accogliente.",
@@ -1394,8 +1377,7 @@
       chap3No: "03 — Galleria",
       chap3Title: "Prospettive,<br><span class=\"orange-highlight\">luci e dettagli.</span>",
       chap4No: "04 — Risultato finale",
-      chap4Title: "Un’atmosfera calda<br><span class=\"orange-highlight\">e accogliente.</span>",
-      closingText: "Un piccolo esercizio 3D per esplorare <span class=\"orange-highlight\">spazio, colore e atmosfera</span> attraverso una scena d’interni semplice ma curata in ogni dettaglio.",
+      chap4Title: "Un piccolo esercizio 3D per esplorare <span class=\"orange-highlight\">spazio, colore e atmosfera</span> attraverso una scena d’interni semplice ma curata in ogni dettaglio.",
       closingBadge1: "Cozy Living Room · 3D Modeling",
       closingBadge2: "Paty García · 2024",
       nextTag: "Prossimo Progetto",
@@ -1422,15 +1404,15 @@
       labelYear: "Año",
       labelProject: "Proyecto",
       labelContext: "Contexto",
-      labelScope: "Ámbito",
+      labelScope: "Alcance",
       labelTools: "Herramientas",
       specYear: "2024",
       specProject: "Cozy Living Room",
       specContext: "Proyecto personal",
       specScope: "<span>3D Modeling</span><span>Interior Visualization</span><span>Lighting & Materials</span>",
       specTools: "<span>Blender</span>",
-      conceptLead: "<em>Cozy Living Room</em> es un ejercicio de visualización de interiores desarrollado enteramente en Blender para explorar cómo espacios reducidos pueden transmitir calidez y personalidad.",
-      conceptBody: "El objetivo fue crear un ambiente acogedor e inmediatamente reconocible, jugando con geometrías puras, mobiliario contemporáneo, texturas táctiles y una paleta cromática cálida y distintiva.",
+      conceptLead: "<strong><em>Cozy Living Room</em> es un ejercicio de visualización de interiores desarrollado enteramente en Blender.</strong>",
+      conceptBody: "<strong>El objetivo fue crear un ambiente compacto pero reconocible, jugando con formas simples, mobiliario, materiales y una paleta cromática muy marcada.</strong>",
       chap2No: "02 — El Proceso",
       chap2Title: "De las formas simples<br><span class=\"orange-highlight\">a la atmósfera.</span>",
       processLead: "Un proceso lineal y estructurado: definir los volúmenes, otorgar identidad a materiales y colores, y finalmente esculpir la luz para infundir un ambiente armónico y envolvente.",
@@ -1439,12 +1421,11 @@
       step2Title: "Materiales y Color",
       step2Desc: "Las superficies y texturas se estudiaron para aportar carácter, equilibrando tonalidades cálidas, acabados neutros y acentos táctiles en madera y tejidos.",
       step3Title: "Iluminación y Composición",
-      step3Desc: "Las fuentes de luz y el encuadre de cámara se ajustaron para valorizar el volumen de la sala, logrando una atmósfera íntima y equilibrada.",
+      step3Desc: "La iluminación y el encuadre fueron estudiados para valorizar la escena y hacer el espacio más armonioso, legible y acogedor.",
       chap3No: "03 — Galería",
       chap3Title: "Perspectivas,<br><span class=\"orange-highlight\">luces y detalles.</span>",
       chap4No: "04 — Resultado final",
-      chap4Title: "Una atmósfera cálida<br><span class=\"orange-highlight\">y acogedora.</span>",
-      closingText: "Un ejercicio de visualización 3D para explorar <span class=\"orange-highlight\">espacio, color y atmósfera</span> a través de una escena de interiores cuidada en cada detalle.",
+      chap4Title: "Un pequeño ejercicio 3D para explorar <span class=\"orange-highlight\">espacio, color y atmósfera</span> a través de una escena de interiores cuidada en cada detalle.",
       closingBadge1: "Cozy Living Room · 3D Modeling",
       closingBadge2: "Paty García · 2024",
       nextTag: "Siguiente Proyecto",
@@ -1478,8 +1459,8 @@
       specContext: "Personal project",
       specScope: "<span>3D Modeling</span><span>Interior Visualization</span><span>Lighting & Materials</span>",
       specTools: "<span>Blender</span>",
-      conceptLead: "<em>Cozy Living Room</em> is a 3D interior visualization exercise developed in Blender to explore how compact spaces can convey warmth and strong personality.",
-      conceptBody: "The goal was to create an intimate yet immediately recognizable environment, playing with clean geometries, essential furnishings, tactile surfaces and a rich, inviting color palette.",
+      conceptLead: "<strong><em>Cozy Living Room</em> is a 3D interior visualization exercise developed in Blender.</strong>",
+      conceptBody: "<strong>The goal was to create a compact yet recognizable space, playing with simple shapes, furnishings, materials, and a strongly defined color palette.</strong>",
       chap2No: "02 — The Process",
       chap2Title: "From simple shapes<br><span class=\"orange-highlight\">to atmosphere.</span>",
       processLead: "A structured, linear process: sculpting spatial volumes, defining materials and color harmony, and tuning lighting to bring depth and warmth to the scene.",
@@ -1488,7 +1469,7 @@
       step2Title: "Materials & Color",
       step2Desc: "Surfaces and shaders were calibrated to give life to the space, balancing warm tones, clean neutral backdrops, and rich wood and fabric textures.",
       step3Title: "Lighting & Composition",
-      step3Desc: "Light sources and camera framing were tuned to accentuate the scene's dimensions, crafting an atmosphere that feels welcoming, clear, and cohesive.",
+      step3Desc: "Lighting and camera framing were studied to enhance the scene, making the space more harmonious, readable, and welcoming.",
       chap3No: "03 — Gallery",
       chap3Title: "Perspectives,<br><span class=\"orange-highlight\">lights and details.</span>",
       chap4No: "04 — Final Result",
