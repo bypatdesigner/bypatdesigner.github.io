@@ -1936,7 +1936,11 @@
     }
 
     .project:nth-child(5) {
-      grid-column: span 12;
+      grid-column: span 6;
+    }
+
+    .project:nth-child(6) {
+      grid-column: span 6;
     }
 
     @media (max-width: 900px) {
@@ -3594,6 +3598,19 @@
               <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
             </div>
           </article>
+
+          <!-- Project 06: Cozy Living Room -->
+          <article class="project" data-category="blender 3d" data-project="cozyLivingRoom">
+            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.35) 0%, rgba(14, 13, 24, 0.15) 40%, rgba(14, 13, 24, 0.92) 100%), url('./img/cozy-living-room/card.webp');"></div>
+            <div class="project-top">
+              <span data-i18n="work.project6_tag">3D Modeling · Interior Design</span>
+              <span>2024</span>
+            </div>
+            <div>
+              <h3 class="project-title">Cozy Living Room</h3>
+              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
+            </div>
+          </article>
         </div>
 
         <!-- Empty State for Filters -->
@@ -4270,6 +4287,16 @@
           body: "Concept di brand per tavole da surf ad alte prestazioni sviluppato durante un corso di Tipografia per Branding. Il cuore del progetto è la costruzione del simbolo dalle iniziali M + M organizzate a suggerire la silhouette di una tavola da surf, con palette ad alto contrasto e video motion identity integrato.",
           bg: "url('./img/miami-mango/cover-card.jpg') center/cover no-repeat",
           url: "miami-mango.html"
+        },
+        cozyLivingRoom: {
+          title: "Cozy Living Room",
+          category: "3D MODELING · INTERIOR DESIGN",
+          lead: "Una scena 3D realizzata in Blender, progettata come esercizio di modellazione, materiali, illuminazione e composizione dello spazio.",
+          role: "2024 · Progetto Personale 3D",
+          stack: "Blender",
+          body: "Cozy Living Room è un esercizio di interior visualization sviluppato interamente in Blender. L’obiettivo era creare un ambiente compatto ma riconoscibile, giocando con forme semplici, arredi, materiali e una palette cromatica molto caratterizzata.",
+          bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
+          url: "cozy-living-room.html"
         }
       },
       es: {
@@ -4332,6 +4359,16 @@
           body: "Concepto de marca para tablas de surf de alto rendimiento desarrollado en un curso de Tipografía para Branding. El núcleo del proyecto es la construcción del símbolo a partir de las iniciales M + M organizadas hasta sugerir la silueta de una tabla de surf, con una paleta de alto contraste y animación de video integrada.",
           bg: "url('./img/miami-mango/cover-card.jpg') center/cover no-repeat",
           url: "miami-mango.html"
+        },
+        cozyLivingRoom: {
+          title: "Cozy Living Room",
+          category: "3D MODELING · DISEÑO DE INTERIORES",
+          lead: "Una escena 3D creada en Blender, concebida como ejercicio de modelado, materiales, iluminación y composición del espacio.",
+          role: "2024 · Proyecto Personal 3D",
+          stack: "Blender",
+          body: "Cozy Living Room es un ejercicio de visualización de interiores desarrollado enteramente en Blender. El objetivo fue crear un ambiente compacto pero reconocible, jugando con formas simples, mobiliario, materiales y una paleta cromática muy marcada.",
+          bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
+          url: "cozy-living-room.html"
         }
       },
       en: {
@@ -4394,6 +4431,16 @@
           body: "Concept brand for high-performance surfboards developed during a Typography for Branding course. The core of the project is the construction of the mark from the initials M + M organized into a vertical surfboard silhouette, supported by a high-contrast visual system and dynamic motion video.",
           bg: "url('./img/miami-mango/cover-card.jpg') center/cover no-repeat",
           url: "miami-mango.html"
+        },
+        cozyLivingRoom: {
+          title: "Cozy Living Room",
+          category: "3D MODELING · INTERIOR DESIGN",
+          lead: "A 3D interior scene crafted in Blender, exploring modeling, materials, warm lighting and composition.",
+          role: "2024 · Personal 3D Project",
+          stack: "Blender",
+          body: "Cozy Living Room is an interior visualization study created entirely in Blender. The goal was to create a compact yet recognizable space, playing with simple shapes, furnishings, materials, and a strongly defined color palette.",
+          bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
+          url: "cozy-living-room.html"
         }
       }
     };
@@ -4799,6 +4846,17 @@
             card.classList.add('is-hidden');
           }
         });
+
+        const visibleCards = Array.from(projectCards).filter(c => !c.classList.contains('is-hidden'));
+        if (filter !== 'all') {
+          visibleCards.forEach(c => {
+            if (visibleCards.length === 1) c.style.gridColumn = 'span 12';
+            else if (visibleCards.length === 2) c.style.gridColumn = 'span 6';
+            else c.style.gridColumn = '';
+          });
+        } else {
+          projectCards.forEach(c => c.style.gridColumn = '');
+        }
 
         if (emptyStateHome) {
           emptyStateHome.style.display = visibleCount === 0 ? 'block' : 'none';

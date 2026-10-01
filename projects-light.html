@@ -1223,6 +1223,38 @@
           </div>
         </article>
 
+        <!-- Project Card: Cozy Living Room -->
+        <article class="floating-project-card" data-cat="blender" onclick="openDrawer('cozyLivingRoom')">
+          <div class="card-media-box" style="background: #FDF4EB;">
+            <img src="./img/cozy-living-room/card.webp" alt="Cozy Living Room — 3D Interior Visualization" class="card-cover-img" />
+          </div>
+
+          <div class="card-details-box">
+            <div>
+              <div class="card-top-meta">
+                <span>3D MODELING · INTERIOR DESIGN</span>
+                <span>2024</span>
+              </div>
+              <h2 class="card-project-title grad-text">Cozy Living Room</h2>
+              <p class="card-project-desc">
+                Una scena 3D realizzata in Blender, progettata come esercizio di modellazione, materiali, illuminazione e composizione dello spazio.
+              </p>
+            </div>
+
+            <div class="card-footer-tags">
+              <div class="tech-pill-list">
+                <span class="mini-pill">Blender 3D</span>
+                <span class="mini-pill">Interior Visualization</span>
+                <span class="mini-pill">Lighting &amp; Shaders</span>
+              </div>
+              <div class="card-cta-arrow">
+                <span>Vedi Progetto</span>
+                <span>↗</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
 
       <!-- ================= COLUMN 2 (STAGGERED / FLOATING OFFSET) ================= -->
@@ -1438,6 +1470,16 @@
           bg: "url('./img/EEECOCONUT.png') center/cover no-repeat",
           url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
         },
+        cozyLivingRoom: {
+          title: "Cozy Living Room",
+          category: "3D MODELING · INTERIOR DESIGN",
+          lead: "Una scena 3D realizzata in Blender, progettata come esercizio di modellazione, materiali, illuminazione e composizione dello spazio.",
+          role: "2024 · Progetto Personale 3D",
+          stack: "Blender",
+          body: "Cozy Living Room è un esercizio di interior visualization sviluppato interamente in Blender. L’obiettivo era creare un ambiente compatto ma riconoscibile, giocando con forme semplici, arredi, materiali e una palette cromatica molto caratterizzata.",
+          bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
+          url: "cozy-living-room.html"
+        },
         hockney: {
           title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
           category: "POSTER DESIGN · DAVID HOCKNEY",
@@ -1532,6 +1574,16 @@
           bg: "url('./img/EEECOCONUT.png') center/cover no-repeat",
           url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
         },
+        cozyLivingRoom: {
+          title: "Cozy Living Room",
+          category: "3D MODELING · DISEÑO DE INTERIORES",
+          lead: "Una escena 3D creada en Blender, concebida como ejercicio de modelado, materiales, iluminación y composición del espacio.",
+          role: "2024 · Proyecto Personal 3D",
+          stack: "Blender",
+          body: "Cozy Living Room es un ejercicio de visualización de interiores desarrollado enteramente en Blender. El objetivo fue crear un ambiente compacto pero reconocible, jugando con formas simples, mobiliario, materiales y una paleta cromática muy marcada.",
+          bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
+          url: "cozy-living-room.html"
+        },
         hockney: {
           title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
           category: "POSTER DESIGN · DAVID HOCKNEY",
@@ -1625,6 +1677,16 @@
           body: "Honey + Coconut is a small 3D project created in Blender, focused on exploring product modeling, materials, lighting and composition. The idea was to create a simple cosmetic container inspired by the warm tones of honey and the soft, natural feeling associated with coconut.",
           bg: "url('./img/EEECOCONUT.png') center/cover no-repeat",
           url: "https://www.behance.net/gallery/212272235/Honey-Coconut-Modellation-3D"
+        },
+        cozyLivingRoom: {
+          title: "Cozy Living Room",
+          category: "3D MODELING · INTERIOR DESIGN",
+          lead: "A 3D interior scene crafted in Blender, exploring modeling, materials, warm lighting and composition.",
+          role: "2024 · Personal 3D Project",
+          stack: "Blender",
+          body: "Cozy Living Room is an interior visualization study created entirely in Blender. The goal was to create a compact yet recognizable space, playing with simple shapes, furnishings, materials, and a strongly defined color palette.",
+          bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
+          url: "cozy-living-room.html"
         },
         hockney: {
           title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
@@ -1731,7 +1793,7 @@
         if (emptyBtn && labels.emptyBtn) emptyBtn.textContent = labels.emptyBtn;
 
         // Update cards dynamically on the grid
-        ['agribox', 'footsy', 'mininno', 'honey', 'hockney', 'eureka', 'apulia'].forEach(key => {
+        ['agribox', 'footsy', 'mininno', 'honey', 'cozyLivingRoom', 'hockney', 'eureka', 'apulia'].forEach(key => {
           const cardData = PROJECTS_I18N[lang] && PROJECTS_I18N[lang][key];
           if (!cardData) return;
           const card = document.querySelector(`.floating-project-card[onclick*="'${key}'"]`);
