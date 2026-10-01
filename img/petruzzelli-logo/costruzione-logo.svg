@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%" style="background:#FDFCF9;">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(31,21,23,0.06)" stroke-width="1"/>
+    </pattern>
+    <pattern id="subgrid" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M 200 0 L 0 0 0 200" fill="none" stroke="rgba(155,27,34,0.12)" stroke-width="1.5"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9B1B22" />
+    </marker>
+  </defs>
+
+  <!-- Background Grids -->
+  <rect width="1200" height="800" fill="#FBF9F5"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <rect width="1200" height="800" fill="url(#subgrid)"/>
+
+  <!-- Outer frame border -->
+  <rect x="40" y="40" width="1120" height="720" fill="none" stroke="rgba(31,21,23,0.15)" stroke-width="1.5" rx="8"/>
+
+  <!-- Header Technical Info -->
+  <text x="70" y="80" font-family="'Cabinet Grotesk', system-ui, sans-serif" font-weight="800" font-size="16" letter-spacing="2" fill="#9B1B22">TEATRO PETRUZZELLI · TAVOLA DI COSTRUZIONE GEOMETRICA</text>
+  <text x="70" y="104" font-family="'Satoshi', system-ui, sans-serif" font-weight="500" font-size="12" letter-spacing="1" fill="#736467">GRIGLIE POLARI (R1, R2) + RETICOLA QUADRETTATA MODULARE · SISTEMA PROPORZIONALE</text>
+  <text x="1130" y="80" text-anchor="end" font-family="monospace" font-size="12" fill="#9B1B22">PAGE 06/07 — GRAPHIC DESIGN II</text>
+  <line x1="70" y1="120" x2="1130" y2="120" stroke="rgba(31,21,23,0.1)" stroke-width="1"/>
+
+  <!-- Center origin point: (600, 480) -->
+  <g transform="translate(600, 480)">
+    <!-- Polar Grid circles -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="rgba(212,160,23,0.35)" stroke-dasharray="4 4" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="160" fill="none" stroke="rgba(212,160,23,0.45)" stroke-dasharray="4 4" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="240" fill="none" stroke="rgba(155,27,34,0.35)" stroke-dasharray="6 6" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="270" fill="none" stroke="rgba(31,21,23,0.18)" stroke-width="1"/>
+
+    <!-- Polar Grid ray lines -->
+    <line x1="-320" y1="0" x2="320" y2="0" stroke="#9B1B22" stroke-width="1.5"/>
+    <line x1="0" y1="-340" x2="0" y2="40" stroke="#9B1B22" stroke-width="1.5"/>
+    <line x1="-240" y1="-240" x2="240" y2="240" stroke="rgba(212,160,23,0.4)" stroke-dasharray="4 4" stroke-width="1"/>
+    <line x1="240" y1="-240" x2="-240" y2="240" stroke="rgba(212,160,23,0.4)" stroke-dasharray="4 4" stroke-width="1"/>
+
+    <!-- Bounding construction box for dome -->
+    <rect x="-240" y="-240" width="480" height="240" fill="rgba(155,27,34,0.02)" stroke="rgba(155,27,34,0.25)" stroke-dasharray="6 3" stroke-width="1.2"/>
+
+    <!-- Dimension labels -->
+    <line x1="-240" y1="30" x2="240" y2="30" stroke="#9B1B22" stroke-width="1.2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <text x="0" y="50" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#9B1B22">BASE DOME WIDTH = 2 · R (480 px)</text>
+
+    <!-- Main Dome Mark Geometry -->
+    <line x1="-240" y1="0" x2="240" y2="0" stroke="#1F1517" stroke-width="12" stroke-linecap="round"/>
+    <path d="M -240 0 A 240 240 0 0 1 240 0" fill="none" stroke="#1F1517" stroke-width="14" stroke-linecap="round"/>
+    <line x1="0" y1="-240" x2="0" y2="0" stroke="#1F1517" stroke-width="10"/>
+    <path d="M 0 -240 Q -110 -110 -145 0" fill="none" stroke="#1F1517" stroke-width="10"/>
+    <path d="M 0 -240 Q 110 -110 145 0" fill="none" stroke="#1F1517" stroke-width="10"/>
+
+    <path d="M -46 -240 A 46 28 0 0 1 46 -240" fill="none" stroke="#1F1517" stroke-width="10"/>
+    <line x1="0" y1="-268" x2="0" y2="-305" stroke="#1F1517" stroke-width="8"/>
+    <path d="M -14 -290 L 0 -315 L 14 -290" fill="none" stroke="#1F1517" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 4 Dots -->
+    <circle cx="-160" cy="36" r="13" fill="#1F1517"/>
+    <circle cx="-54" cy="36" r="13" fill="#1F1517"/>
+    <circle cx="54" cy="36" r="13" fill="#1F1517"/>
+    <circle cx="160" cy="36" r="13" fill="#1F1517"/>
+
+    <circle cx="-240" cy="0" r="5" fill="#9B1B22"/>
+    <circle cx="240" cy="0" r="5" fill="#9B1B22"/>
+    <circle cx="0" cy="-240" r="5" fill="#9B1B22"/>
+    <circle cx="0" cy="0" r="4" fill="#D4A017"/>
+
+    <text x="-255" y="-10" font-family="monospace" font-size="11" font-weight="bold" fill="#9B1B22">P1 (-R, 0)</text>
+    <text x="255" y="-10" font-family="monospace" font-size="11" font-weight="bold" fill="#9B1B22">P2 (+R, 0)</text>
+    <text x="15" y="-245" font-family="monospace" font-size="11" font-weight="bold" fill="#9B1B22">APEX (0, -R)</text>
+    <text x="10" y="18" font-family="monospace" font-size="10" font-weight="bold" fill="#D4A017">ORIGIN (0,0)</text>
+  </g>
+
+  <!-- Technical Footer notes -->
+  <rect x="70" y="700" width="1060" height="40" rx="6" fill="#FFFFFF" stroke="rgba(31,21,23,0.1)"/>
+  <text x="90" y="725" font-family="'Satoshi', system-ui, sans-serif" font-size="12" fill="#493A3E">
+    <tspan font-weight="700" fill="#9B1B22">RELAZIONE ARCHITETTONICA:</tspan> I 4 punti alla base scandiscono il ritmo delle campate e aperture storiche. Il profilo d'arco riprende la cupola semisferica con lanterna di Armenise.
+  </text>
+</svg>

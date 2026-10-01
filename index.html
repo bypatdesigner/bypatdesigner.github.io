@@ -540,6 +540,136 @@
       box-shadow: 0 2px 10px rgba(167, 139, 250, 0.55);
     }
 
+    /* Mobile Language Dropdown ("Menu a Tendina") */
+    .lang-dropdown-wrapper {
+      display: none;
+      position: relative;
+      z-index: 55;
+    }
+
+    .lang-dropdown-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(22, 19, 36, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--line-violet);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      height: 38px;
+    }
+
+    .lang-dropdown-trigger:hover,
+    .lang-dropdown-wrapper.is-open .lang-dropdown-trigger {
+      border-color: var(--line-glow);
+      background: rgba(30, 26, 50, 0.92);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.35);
+    }
+
+    .lang-trigger-code {
+      color: var(--violet-light);
+      font-weight: 700;
+    }
+
+    .lang-trigger-chevron {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+    }
+
+    .lang-dropdown-wrapper.is-open .lang-trigger-chevron {
+      transform: rotate(180deg);
+      color: var(--violet-light);
+    }
+
+    .lang-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 146px;
+      background: rgba(14, 12, 24, 0.97);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--line-glow);
+      border-radius: 16px;
+      padding: 6px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 24px rgba(139, 92, 246, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.95);
+      pointer-events: none;
+      visibility: hidden;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lang-dropdown-wrapper.is-open .lang-dropdown-menu {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .lang-dropdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .lang-dropdown-item:hover {
+      background: rgba(139, 92, 246, 0.16);
+      color: #FFFFFF;
+    }
+
+    .lang-dropdown-item.active {
+      background: rgba(139, 92, 246, 0.25);
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    .lang-opt-name {
+      font-size: 0.86rem;
+    }
+
+    .lang-opt-code {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-dim);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .lang-dropdown-item.active .lang-opt-code {
+      background: var(--violet-light);
+      color: var(--ink);
+    }
+
     .nav-resume-btn {
       padding: 8px 20px;
       font-size: 0.78rem;
@@ -634,19 +764,23 @@
       top: 16px;
       left: 16px;
       right: 16px;
+      max-width: 420px;
+      margin: 0 auto;
       max-height: calc(100svh - 32px);
       overflow-y: auto;
-      background: rgba(14, 13, 24, 0.96);
+      background: rgba(12, 10, 22, 0.96);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       border: 1px solid var(--line-glow);
-      border-radius: 28px;
-      padding: 22px 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(139, 92, 246, 0.25);
-      transform: translateY(-24px) scale(0.96);
+      border-radius: 24px;
+      padding: 18px 16px 20px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(139, 92, 246, 0.22);
+      transform: translateY(-20px) scale(0.96);
       opacity: 0;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
 
     .mobile-nav-drawer.is-open .mobile-nav-panel {
@@ -659,29 +793,31 @@
       align-items: center;
       justify-content: space-between;
       padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
+      padding-left: 4px;
+      padding-right: 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .mobile-nav-tag {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       color: var(--violet-light);
       font-weight: 600;
     }
 
     .mobile-nav-close-btn {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--line);
       color: #FFFFFF;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+      font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.25s ease;
     }
@@ -695,7 +831,7 @@
     .mobile-nav-links {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .mobile-nav-item {
@@ -704,14 +840,14 @@
       justify-content: space-between;
       padding: 13px 16px;
       border-radius: 16px;
-      background: rgba(22, 19, 36, 0.65);
+      background: rgba(22, 19, 36, 0.5);
       border: 1px solid var(--line);
       color: #FFFFFF;
       font-family: var(--font-display);
-      font-size: 1.12rem;
-      font-weight: 700;
+      font-size: 1.08rem;
+      font-weight: 600;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.22s ease;
     }
 
     .mobile-nav-item:hover,
@@ -719,6 +855,7 @@
       background: rgba(139, 92, 246, 0.18);
       border-color: var(--violet-light);
       transform: translateX(4px);
+      color: #FFFFFF;
     }
 
     .mobile-item-left {
@@ -729,121 +866,32 @@
 
     .mobile-item-num {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       color: var(--violet-light);
       font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
     .mobile-item-arrow {
       font-size: 0.85rem;
       color: var(--text-dim);
-      transition: transform 0.25s, color 0.25s;
+      transition: transform 0.22s, color 0.22s;
     }
 
     .mobile-nav-item:hover .mobile-item-arrow {
-      transform: translateX(4px);
+      transform: translateX(3px);
       color: #FFFFFF;
     }
 
-    /* Resume Highlight Card inside Mobile Drawer */
-    .mobile-nav-highlight-card {
-      background: linear-gradient(135deg, rgba(32, 28, 54, 0.95), rgba(76, 29, 149, 0.4));
-      border: 1px solid var(--line-glow);
-      border-radius: 20px;
-      padding: 16px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    .mobile-nav-item-resume {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(167, 139, 250, 0.06));
+      border-color: rgba(167, 139, 250, 0.35);
+      margin-top: 4px;
     }
 
-    .mobile-resume-card-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .mobile-resume-badge {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--violet-light);
-      background: rgba(139, 92, 246, 0.2);
-      padding: 3px 10px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--line-violet);
-    }
-
-    .mobile-resume-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: #10B981;
-      font-weight: 600;
-    }
-
-    .mobile-resume-status .dot {
-      width: 6px;
-      height: 6px;
-      background: #10B981;
-      border-radius: 50%;
-      box-shadow: 0 0 6px #10B981;
-    }
-
-    .mobile-resume-desc {
-      font-size: 0.86rem;
-      line-height: 1.5;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .mobile-resume-cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: var(--radius-full);
-      background: var(--violet-light);
-      color: var(--ink);
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(167, 139, 250, 0.4);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .mobile-resume-cta-btn:hover {
-      background: #FFFFFF;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
-    }
-
-    .mobile-nav-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 10px;
-      border-top: 1px solid var(--line);
-    }
-
-    .mobile-nav-lang-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
-      justify-content: space-between;
-    }
-
-    .mobile-nav-lang-label {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      font-weight: 600;
+    .mobile-nav-item-resume:hover {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(167, 139, 250, 0.15));
+      border-color: var(--violet-light);
     }
 
     /* ============================================================
@@ -2872,7 +2920,7 @@
       }
 
       .brand {
-        padding: 4px 10px;
+        padding: 4px 6px;
       }
 
       .nav-actions-wrap {
@@ -2881,13 +2929,13 @@
         gap: 8px;
       }
 
-      .lang-pill {
-        padding: 2px 3px;
+      /* Hide horizontal 3-button pill on mobile, show compact dropdown */
+      .lang-desktop-pill {
+        display: none !important;
       }
 
-      .lang-btn {
-        padding: 4px 9px;
-        font-size: 0.70rem;
+      .lang-dropdown-wrapper {
+        display: inline-block;
       }
 
       .nav-resume-btn {
@@ -2898,8 +2946,9 @@
         display: flex;
       }
 
+      /* Keep logo large and crisp, no longer forced tiny */
       .brand-logo-img {
-        height: 28px;
+        height: 34px;
       }
 
       .hero {
@@ -3209,11 +3258,33 @@
     </div>
 
     <div class="nav-actions-wrap">
-      <!-- Glassmorphism Language Selector (IT | ES | EN) -->
-      <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
+      <!-- Desktop Language Selector (IT | ES | EN) -->
+      <div class="lang-pill lang-desktop-pill" role="group" aria-label="Selettore Lingua / Language Selector">
         <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
         <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
         <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+      </div>
+
+      <!-- Mobile Language Dropdown ("Menu a Tendina") -->
+      <div class="lang-dropdown-wrapper" id="langDropdownWrapper">
+        <button class="lang-dropdown-trigger" id="langDropdownTrigger" type="button" aria-label="Seleziona lingua" aria-expanded="false">
+          <span class="lang-trigger-code" id="langTriggerCode">IT</span>
+          <i class="fa-solid fa-chevron-down lang-trigger-chevron"></i>
+        </button>
+        <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu" aria-hidden="true">
+          <button class="lang-dropdown-item lang-btn active" data-lang="it" type="button" role="menuitem">
+            <span class="lang-opt-name">Italiano</span>
+            <span class="lang-opt-code">IT</span>
+          </button>
+          <button class="lang-dropdown-item lang-btn" data-lang="es" type="button" role="menuitem">
+            <span class="lang-opt-name">Español</span>
+            <span class="lang-opt-code">ES</span>
+          </button>
+          <button class="lang-dropdown-item lang-btn" data-lang="en" type="button" role="menuitem">
+            <span class="lang-opt-name">English</span>
+            <span class="lang-opt-code">EN</span>
+          </button>
+        </div>
       </div>
 
       <a class="btn primary nav-resume-btn" id="navResumeBtn" href="cv.html">
@@ -3230,13 +3301,13 @@
     </div>
   </nav>
 
-  <!-- ================= MOBILE NAVIGATION DRAWER ================= -->
+  <!-- ================= MOBILE NAVIGATION DRAWER (MINIMAL EN) ================= -->
   <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
     <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
     <div class="mobile-nav-panel">
       <div class="mobile-nav-head">
-        <span class="mobile-nav-tag" data-i18n="nav.menu_title">Menu di navigazione</span>
-        <button class="mobile-nav-close-btn" id="mobileNavCloseBtn" type="button" aria-label="Chiudi menu">
+        <span class="mobile-nav-tag">Menu</span>
+        <button class="mobile-nav-close-btn" id="mobileNavCloseBtn" type="button" aria-label="Close menu">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -3245,57 +3316,38 @@
         <a href="#about" class="mobile-nav-item">
           <div class="mobile-item-left">
             <span class="mobile-item-num">01</span>
-            <span data-i18n="nav.about">Chi sono</span>
+            <span>About</span>
           </div>
           <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
         </a>
         <a href="projects.html" class="mobile-nav-item">
           <div class="mobile-item-left">
             <span class="mobile-item-num">02</span>
-            <span data-i18n="nav.projects">Progetti</span>
+            <span>Projects</span>
           </div>
           <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
         </a>
         <a href="#services" class="mobile-nav-item">
           <div class="mobile-item-left">
             <span class="mobile-item-num">03</span>
-            <span data-i18n="nav.services">Servizi</span>
+            <span>Services</span>
           </div>
           <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
         </a>
         <a href="#contact" class="mobile-nav-item">
           <div class="mobile-item-left">
             <span class="mobile-item-num">04</span>
-            <span data-i18n="nav.contact">Contatti</span>
+            <span>Contact</span>
           </div>
           <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
         </a>
-      </div>
-
-      <!-- CV / Resume Highlight Card -->
-      <div class="mobile-nav-highlight-card">
-        <div class="mobile-resume-card-head">
-          <span class="mobile-resume-badge" data-i18n="nav.resume">Curriculum Vitae</span>
-          <span class="mobile-resume-status"><span class="dot"></span> Online &amp; PDF</span>
-        </div>
-        <p class="mobile-resume-desc" data-i18n="nav.resume_desc">Esplora il percorso completo, l'esperienza, la
-          formazione accademica e le certificazioni.</p>
-        <a href="cv.html" class="mobile-resume-cta-btn" id="mobileResumeLink">
-          <span data-i18n="nav.resume_cta">Visualizza CV / Resume</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-      </div>
-
-      <div class="mobile-nav-footer">
-        <div class="mobile-nav-lang-row">
-          <span class="mobile-nav-lang-label" data-i18n="nav.select_lang">Lingua:</span>
-          <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
-            <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano"
-              title="Italiano">IT</button>
-            <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
-            <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+        <a href="cv.html" class="mobile-nav-item mobile-nav-item-resume" id="mobileResumeLink">
+          <div class="mobile-item-left">
+            <span class="mobile-item-num">05</span>
+            <span>CV / Resume</span>
           </div>
-        </div>
+          <i class="fa-solid fa-arrow-up-right-from-square mobile-item-arrow"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -3472,14 +3524,15 @@
         <!-- Filters -->
         <div class="filter-tabs reveal">
           <button class="filter-btn active" data-filter="all" data-i18n="work.filter_all">Tutti</button>
-          <button class="filter-btn" data-filter="ux" data-i18n="work.filter_ux">UI/UX</button>
-          <button class="filter-btn" data-filter="web" data-i18n="work.filter_web">Web &amp; Front-end</button>
-          <button class="filter-btn" data-filter="brand" data-i18n="work.filter_brand">Brand &amp; Visual</button>
+          <button class="filter-btn" data-filter="graphic" data-i18n="work.filter_graphic">Graphic Design</button>
+          <button class="filter-btn" data-filter="blender" data-i18n="work.filter_blender">Blender 3D</button>
+          <button class="filter-btn" data-filter="ux" data-i18n="work.filter_ux" style="display: none;">UI/UX</button>
+          <button class="filter-btn" data-filter="web" data-i18n="work.filter_web" style="display: none;">Web &amp; Front-end</button>
         </div>
 
         <div class="projects reveal">
           <!-- Project 01: Eureka -->
-          <article class="project" data-category="brand" data-project="eureka">
+          <article class="project" data-category="graphic brand" data-project="eureka">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/eureka/hero.png');"></div>
             <div class="project-top">
               <span data-i18n="work.project1_tag">Brand Identity · Progetto Accademico</span>
@@ -3492,7 +3545,7 @@
           </article>
 
           <!-- Project 02: Apulia Promoting US -->
-          <article class="project" data-category="brand" data-project="apulia">
+          <article class="project" data-category="graphic brand" data-project="apulia">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/apulia/hero-manifesto.jpg');"></div>
             <div class="project-top">
               <span data-i18n="work.project2_tag">Brand Identity &amp; Campagna</span>
@@ -3505,7 +3558,7 @@
           </article>
 
           <!-- Project 03: Honey + Coconut -->
-          <article class="project" data-category="brand" data-project="honey">
+          <article class="project" data-category="blender 3d" data-project="honey">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/honeyCoconut.png');"></div>
             <div class="project-top">
               <span data-i18n="work.project3_tag">Packaging 3D Design · Blender</span>
@@ -3517,8 +3570,8 @@
             </div>
           </article>
           <!-- Project 04: Teatro Petruzzelli -->
-          <article class="project" data-category="brand" data-project="petruzzelli">
-            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/petruzzelli/mockup-instagram.jpg');"></div>
+          <article class="project" data-category="graphic brand" data-project="petruzzelli">
+            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/petruzzelli-logo/hero-poster.webp');"></div>
             <div class="project-top">
               <span data-i18n="work.project4_tag">Brand Identity &amp; Comunicazione</span>
               <span>2020</span>
@@ -3530,7 +3583,7 @@
           </article>
 
           <!-- Project 05: Miami Mango -->
-          <article class="project" data-category="brand" data-project="miamiMango">
+          <article class="project" data-category="graphic brand" data-project="miamiMango">
             <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.3) 0%, rgba(14, 13, 24, 0.08) 40%, rgba(14, 13, 24, 0.88) 100%), url('./img/miami-mango/card-home.jpg');"></div>
             <div class="project-top">
               <span data-i18n="work.project5_tag">Brand Identity · Tavole da Surf</span>
@@ -3938,6 +3991,8 @@
         "work.headline": '<span class="grad-text">Una selezione</span> <span class="muted-text">di lavori e case study.</span>',
         "work.intro": "UI/UX, web e identità visiva: progetti diversi raccontati attraverso processo, decisioni e risultato.",
         "work.filter_all": "Tutti",
+        "work.filter_graphic": "Graphic Design",
+        "work.filter_blender": "Blender 3D",
         "work.filter_ux": "UI/UX",
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Visual",
@@ -4023,6 +4078,8 @@
         "work.headline": '<span class="grad-text">Una selección</span> <span class="muted-text">de proyectos y case studies.</span>',
         "work.intro": "UI/UX, web e identidad visual: diferentes proyectos explicados a través de su proceso, decisiones y resultados.",
         "work.filter_all": "Todos",
+        "work.filter_graphic": "Graphic Design",
+        "work.filter_blender": "Blender 3D",
         "work.filter_ux": "UI/UX",
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Visual",
@@ -4108,6 +4165,8 @@
         "work.headline": '<span class="grad-text">A selection</span> <span class="muted-text">of works and case studies.</span>',
         "work.intro": "UI/UX, web, and visual identity: diverse projects told through process, design decisions, and outcomes.",
         "work.filter_all": "All",
+        "work.filter_graphic": "Graphic Design",
+        "work.filter_blender": "Blender 3D",
         "work.filter_ux": "UI/UX",
         "work.filter_web": "Web & Front-end",
         "work.filter_brand": "Brand & Visual",
@@ -4199,7 +4258,7 @@
           role: "2020 · Identità Visiva & Comunicazione",
           stack: "Illustrator, Photoshop, Copywriting",
           body: "Progetto accademico di Graphic Design II. Ricerca storica e architettonica sul Petruzzelli di Bari, indagine sul pubblico con sondaggio statistico, sistema visivo flessibile, manifesti d'autore, cartellonistica orizzontale, stendardi urbani e campagna social.",
-          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          bg: "url('./img/petruzzelli-logo/hero-poster.webp') center/cover no-repeat",
           url: "petruzzelli.html"
         },
         miamiMango: {
@@ -4261,7 +4320,7 @@
           role: "2020 · Identidad Visual & Comunicación",
           stack: "Illustrator, Photoshop, Copywriting",
           body: "Proyecto académico de Graphic Design II. Investigación histórica y espacial sobre el Teatro Petruzzelli de Bari, encuesta a la ciudadanía, sistema visual modular, cartelería exterior, banderolas urbanas y campaña en redes sociales.",
-          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          bg: "url('./img/petruzzelli-logo/hero-poster.webp') center/cover no-repeat",
           url: "petruzzelli.html"
         },
         miamiMango: {
@@ -4323,7 +4382,7 @@
           role: "2020 · Visual Identity & Communication",
           stack: "Illustrator, Photoshop, Copywriting",
           body: "Academic Graphic Design II project. Historical and architectural research on Bari's Petruzzelli theater, audience survey analysis, modular visual system, institutional posters, horizontal billboards, urban banners, and social campaign.",
-          bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
+          bg: "url('./img/petruzzelli-logo/hero-poster.webp') center/cover no-repeat",
           url: "petruzzelli.html"
         },
         miamiMango: {
@@ -4387,6 +4446,10 @@
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
+
+      // Update trigger code in mobile language dropdown
+      const triggerCode = document.getElementById('langTriggerCode');
+      if (triggerCode) triggerCode.textContent = lang.toUpperCase();
 
       // Update textContent for elements with data-i18n
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -4489,6 +4552,38 @@
     const mobileNavCloseBtn = document.getElementById('mobileNavCloseBtn');
     const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-item, #mobileResumeLink');
+
+    // Mobile Language Dropdown Controller ("Menu a Tendina")
+    const langDropdownWrapper = document.getElementById('langDropdownWrapper');
+    const langDropdownTrigger = document.getElementById('langDropdownTrigger');
+    const langDropdownMenu = document.getElementById('langDropdownMenu');
+
+    if (langDropdownTrigger && langDropdownWrapper) {
+      langDropdownTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = langDropdownWrapper.classList.toggle('is-open');
+        langDropdownTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (langDropdownMenu) langDropdownMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      });
+
+      if (langDropdownMenu) {
+        langDropdownMenu.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            langDropdownWrapper.classList.remove('is-open');
+            langDropdownTrigger.setAttribute('aria-expanded', 'false');
+            langDropdownMenu.setAttribute('aria-hidden', 'true');
+          });
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        if (!langDropdownWrapper.contains(e.target)) {
+          langDropdownWrapper.classList.remove('is-open');
+          langDropdownTrigger.setAttribute('aria-expanded', 'false');
+          if (langDropdownMenu) langDropdownMenu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
 
     function openMobileNav() {
       if (!mobileNavDrawer) return;

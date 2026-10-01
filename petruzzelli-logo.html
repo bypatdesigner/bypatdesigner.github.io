@@ -1,0 +1,1865 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">Teatro Petruzzelli — Logo Concept | Brand Design | Bypatdesigner</title>
+  <meta name="description" id="pageMetaDesc" content="Teatro Petruzzelli di Bari — proposta individuale di logo design sviluppata durante la fase esplorativa di un progetto accademico. Ricerca, concept, costruzione del segno e applicazioni." />
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Google Fonts: Montserrat & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
+  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
+  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS & TYPOGRAPHY
+       ============================================================ */
+    :root {
+      --canvas: #FBF9F5;
+      --canvas-subtle: #F3EFE7;
+      --surface: #FFFFFF;
+      --surface-elevated: #F7F4EC;
+      --surface-glass: rgba(255, 255, 255, 0.94);
+      --card-bg: rgba(255, 255, 255, 0.98);
+      
+      --ink: #1F1517;
+      --text-main: #2E2225;
+      --text-head: #1F1517;
+      --text-body: #493A3E;
+      --text-muted: #736467;
+      --text-dim: #98878B;
+      
+      /* Case Study Brand Accents */
+      --case-blue: #1F4788;
+      --case-blue-deep: #173765;
+      --case-blue-tint: rgba(31, 71, 136, 0.08);
+      --case-blue-line: rgba(31, 71, 136, 0.22);
+
+      --red-petruzzelli: #1F4788;
+      --gold-primary: #E5B01E;
+      --gold-tint: rgba(229, 176, 30, 0.12);
+      --red-tint: rgba(31, 71, 136, 0.08);
+      --line-red: rgba(31, 71, 136, 0.24);
+
+      /* UI lines & shadows */
+      --line: rgba(31, 21, 23, 0.10);
+      --line-light: rgba(31, 21, 23, 0.15);
+      --shadow-sm: 0 4px 14px rgba(31, 21, 23, 0.04);
+      --shadow-md: 0 14px 34px rgba(31, 21, 23, 0.06);
+      --shadow-lg: 0 24px 60px rgba(31, 21, 23, 0.08);
+      --shadow-xl: 0 32px 80px rgba(31, 21, 23, 0.12);
+
+      /* Radii */
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+
+      /* Fonts */
+      --font-display: "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+      --font-body: "Satoshi", system-ui, -apple-system, sans-serif;
+      --font-mono: "Satoshi", monospace;
+
+      --pad: clamp(20px, 4vw, 56px);
+      --max: 1400px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--canvas);
+      color-scheme: light;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    ::selection {
+      background: #E0E7F5;
+      color: var(--ink);
+    }
+
+    h1, h2, h3, h4, .display-font {
+      font-family: var(--font-display);
+      color: var(--ink);
+    }
+
+    /* Ambient Background Mesh & Dynamic Spotlight */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(31, 71, 136, 0.12) 0%, rgba(229, 176, 30, 0.06) 45%, transparent 72%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 18%;
+      transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(31, 21, 23, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(31, 21, 23, 0.035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      opacity: 0.85;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      background: transparent;
+      z-index: 1;
+    }
+
+    .noise {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .shell {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 700;
+    }
+
+    .red-accent, .red-highlight { color: var(--case-blue) !important; }
+    .gold-accent, .gold-highlight { color: var(--gold-primary) !important; }
+
+    /* ================= TOP NAVIGATION ================= */
+    .top-nav {
+      height: 90px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .top-nav > :first-child { justify-self: start; }
+
+    .nav-logo-link {
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+      transition: transform 0.25s ease;
+      filter: brightness(0);
+    }
+
+    .nav-logo:hover { transform: scale(1.05); }
+
+    .nav-actions {
+      justify-self: end;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-full);
+      padding: 3px 4px;
+      gap: 2px;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lang-btn:hover {
+      color: var(--case-blue);
+      background: var(--case-blue-tint);
+    }
+
+    .lang-btn.active {
+      background: var(--case-blue);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(31, 71, 136, 0.3);
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-full);
+      padding: 10px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-body);
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pill-link:hover {
+      border-color: var(--case-blue);
+      color: var(--case-blue);
+      background: var(--case-blue-tint);
+      transform: translateX(-3px);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      padding: clamp(48px, 7vw, 100px) 0 clamp(32px, 5vw, 64px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(32px, 6vw, 96px);
+      align-items: end;
+    }
+
+    .hero-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--case-blue);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      display: inline-block;
+      width: 26px;
+      height: 2px;
+      background: var(--case-blue);
+    }
+
+    h1.hero-title {
+      font-size: clamp(3.8rem, 8.5vw, 8.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .hero-title-highlight { color: var(--case-blue); }
+
+    .hero-side { padding-bottom: 8px; }
+
+    .hero-side strong {
+      display: block;
+      font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-family: var(--font-display);
+    }
+
+    .hero-side p {
+      color: var(--text-body);
+      font-size: 1.12rem;
+      line-height: 1.7;
+    }
+
+    .hero-quick-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-quick-index a {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.05em;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      background: var(--canvas-subtle);
+      border: 1px solid var(--line);
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .hero-quick-index a:hover {
+      background: var(--case-blue);
+      color: #FFFFFF;
+      border-color: var(--case-blue);
+      transform: translateY(-2px);
+    }
+
+    /* ================= VISUAL CARDS & MOCKUPS ================= */
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #FFFFFF;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+      cursor: zoom-in;
+      position: relative;
+    }
+
+    .visual-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--case-blue);
+    }
+
+    .visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .visual-card:hover img { transform: scale(1.018); }
+
+    .hero-visual {
+      margin-bottom: clamp(60px, 8vw, 110px);
+      background: #000;
+      position: relative;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .visual-card.video-card,
+    .visual-card:has(video) {
+      cursor: default;
+    }
+
+    .visual-card.video-card::after,
+    .visual-card:has(video)::after {
+      display: none !important;
+    }
+
+    .visual-card video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: inherit;
+    }
+
+    .visual-card video::-webkit-media-controls-mute-button,
+    .visual-card video::-webkit-media-controls-volume-slider,
+    .visual-card video::-webkit-media-controls-volume-slider-container {
+      display: none !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      visibility: hidden !important;
+    }
+
+    /* Zoom Indicator Overlay */
+    .visual-card::after {
+      content: "\f00e";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      color: var(--ink);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .visual-card:hover::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Asset cards & placeholders */
+    .asset-card {
+      min-height: clamp(340px, 52vw, 720px);
+      position: relative;
+      display: grid;
+      place-items: center;
+      background: #FFFFFF;
+    }
+
+    .asset-card.asset-card-short {
+      min-height: clamp(340px, 40vw, 560px);
+    }
+
+    .asset-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .asset-card.contain img {
+      object-fit: contain;
+      padding: clamp(6px, 1.2vw, 14px);
+    }
+
+    .asset-placeholder {
+      position: relative;
+      z-index: 1;
+      width: min(680px, 82%);
+      padding: 34px;
+      border: 1px dashed var(--case-blue-line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .asset-placeholder i {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--case-blue);
+      margin-bottom: 12px;
+    }
+
+    .asset-placeholder strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .asset-placeholder code {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--case-blue);
+      background: var(--case-blue-tint);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .asset-card.has-asset .asset-placeholder { display: none; }
+
+    .media-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: clamp(36px, 5vw, 64px);
+    }
+
+    /* ================= EDITORIAL CHAPTERS ================= */
+    .chapter {
+      padding: clamp(60px, 8vw, 110px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .chapter-soft-blue {
+      background: linear-gradient(180deg, rgba(31, 71, 136, 0.035), rgba(31, 71, 136, 0));
+      border-radius: var(--radius-xl);
+      padding-left: clamp(20px, 3vw, 42px);
+      padding-right: clamp(20px, 3vw, 42px);
+      margin-left: calc(clamp(20px, 3vw, 42px) * -1);
+      margin-right: calc(clamp(20px, 3vw, 42px) * -1);
+    }
+
+    .chapter-head {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: clamp(24px, 5vw, 84px);
+      margin-bottom: clamp(36px, 5vw, 64px);
+      align-items: baseline;
+    }
+
+    .chapter-no {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--case-blue);
+      font-weight: 700;
+    }
+
+    .chapter-title {
+      font-size: clamp(2.2rem, 4.4vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: var(--text-head);
+    }
+
+    /* Overview Grid */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: clamp(36px, 6vw, 96px);
+      align-items: start;
+    }
+
+    .meta-table {
+      position: sticky;
+      top: 36px;
+      border: 1px solid rgba(26, 24, 25, 0.08);
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      padding: 16px 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 14px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(26, 24, 25, 0.06);
+      font-size: 0.88rem;
+      align-items: baseline;
+    }
+
+    .meta-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .meta-row:first-child {
+      padding-top: 0;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 700;
+    }
+
+    .meta-value {
+      color: var(--text-head);
+      font-weight: 500;
+      line-height: 1.42;
+      font-size: 0.86rem;
+    }
+
+    .meta-value.tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .meta-value.tags span {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: rgba(26, 24, 25, 0.03);
+      border: 1px solid rgba(26, 24, 25, 0.06);
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--text-body);
+      font-weight: 500;
+    }
+
+    .copy-lead {
+      font-size: clamp(1.35rem, 2vw, 1.95rem);
+      line-height: 1.42;
+      letter-spacing: -0.02em;
+      color: var(--text-head);
+      max-width: 820px;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .copy-body {
+      margin-top: 24px;
+      max-width: 760px;
+      color: var(--text-body);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .copy-body strong {
+      color: var(--text-head);
+      font-weight: 600;
+    }
+
+    .logo-concept-note {
+      margin-top: 28px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--case-blue);
+      background: var(--case-blue-tint);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      color: var(--text-body);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .logo-concept-note strong { color: var(--case-blue); }
+
+    /* Caption */
+    .caption {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: clamp(24px, 5vw, 84px);
+      padding-top: 20px;
+      color: var(--text-muted);
+    }
+
+    .caption p {
+      max-width: 820px;
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* Concept 3-Card Grid */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .concept-card {
+      padding: 28px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--case-blue);
+      box-shadow: var(--shadow-md);
+    }
+
+    .concept-card .concept-num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--case-blue);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .concept-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .concept-card p {
+      color: var(--text-body);
+      line-height: 1.65;
+      font-size: 0.98rem;
+    }
+
+    /* Benchmark Section */
+    .benchmark-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+      gap: clamp(28px, 5vw, 74px);
+      align-items: end;
+      margin-top: clamp(64px, 8vw, 110px);
+      padding-top: clamp(54px, 7vw, 90px);
+      border-top: 1px solid var(--line);
+    }
+
+    .benchmark-intro h3 {
+      font-size: clamp(2rem, 3.6vw, 3.5rem);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    .benchmark-intro p {
+      color: var(--text-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .benchmark-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .benchmark-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #FFFFFF;
+      overflow: hidden;
+      min-width: 0;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .benchmark-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--case-blue-line);
+      box-shadow: var(--shadow-md);
+    }
+
+    .benchmark-logo-stage {
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      padding: 26px;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .benchmark-logo-stage img {
+      max-width: 78%;
+      max-height: 92px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+    }
+
+    .benchmark-logo-fallback {
+      position: absolute;
+      inset: 20px;
+      border: 1px dashed var(--case-blue-line);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 14px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .benchmark-logo-stage.has-logo .benchmark-logo-fallback { display: none; }
+    .benchmark-copy { padding: 20px; }
+    .benchmark-copy h4 { font-size: 1.08rem; margin-bottom: 10px; }
+
+    .benchmark-tag {
+      display: inline-flex;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--case-blue-tint);
+      color: var(--case-blue);
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .benchmark-copy p {
+      color: var(--text-body);
+      font-size: 0.94rem;
+      line-height: 1.62;
+    }
+
+    /* Process Strip */
+    .process-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin: 42px 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .process-step {
+      background: #FFFFFF;
+      padding: 30px 24px;
+      min-height: 180px;
+    }
+
+    .process-step strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      color: var(--ink);
+      margin: 10px 0 8px;
+    }
+
+    .process-step p {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    /* Logo Comparison: Current vs Proposal */
+    .compare-lead { max-width: 830px; }
+
+    .logo-comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 42px;
+    }
+
+    .logo-comparison-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .logo-comparison-stage {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      padding: clamp(34px, 6vw, 72px);
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .logo-comparison-stage.proposal { background: #3C3E92; }
+
+    .logo-comparison-stage img {
+      max-width: 82%;
+      max-height: 220px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+    }
+
+    .comparison-fallback {
+      position: absolute;
+      inset: 28px;
+      border: 1px dashed var(--case-blue-line);
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .logo-comparison-stage.proposal .comparison-fallback {
+      color: rgba(255, 255, 255, 0.75);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .logo-comparison-stage.has-logo .comparison-fallback { display: none; }
+    .logo-comparison-copy { padding: 24px; }
+    .logo-comparison-copy .mono { color: var(--case-blue); }
+    .logo-comparison-copy h3 { font-size: 1.55rem; margin: 8px 0 10px; }
+    .logo-comparison-copy p { color: var(--text-body); line-height: 1.7; }
+
+    .comparison-note {
+      margin-top: 24px;
+      padding: 22px 26px;
+      border-radius: var(--radius-md);
+      background: var(--case-blue-tint);
+      border: 1px solid var(--case-blue-line);
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* ================= INTERACTIVE LOGO TESTER ================= */
+    .interactive-logo-tester {
+      margin-top: clamp(42px, 6vw, 78px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .tester-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 18px 22px;
+      background: var(--canvas-subtle);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tester-pills { display: flex; gap: 7px; flex-wrap: wrap; }
+
+    .tester-btn {
+      border: 1px solid var(--line);
+      background: #FFFFFF;
+      color: var(--text-body);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tester-btn.active {
+      background: var(--case-blue);
+      color: #FFFFFF;
+      border-color: var(--case-blue);
+    }
+
+    .tester-canvas {
+      min-height: 460px;
+      display: grid;
+      place-items: center;
+      padding: clamp(48px, 8vw, 105px) 24px;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    .tester-canvas.theme-light { background: #FFFFFF; }
+    .tester-canvas.theme-dark { background: #2D2D2D; }
+    .tester-canvas.theme-blue { background: #3C3E92; }
+    .tester-canvas.theme-paper { background: #F2EEE5; }
+
+    .tester-logo-wrap {
+      width: var(--tester-logo-width, 360px);
+      max-width: 78vw;
+      transition: width 0.2s ease;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tester-logo-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+
+    .tester-fallback {
+      display: none;
+      color: var(--text-muted);
+      border: 1px dashed currentColor;
+      border-radius: 14px;
+      padding: 22px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .tester-logo-wrap.asset-missing .tester-fallback { display: block; }
+    .tester-logo-wrap.asset-missing img { display: none; }
+
+    .tester-canvas.theme-dark .tester-fallback,
+    .tester-canvas.theme-blue .tester-fallback { color: rgba(255, 255, 255, 0.75); }
+
+    .tester-footer {
+      display: grid;
+      grid-template-columns: 1fr minmax(220px, 420px);
+      align-items: center;
+      gap: 24px;
+      padding: 18px 22px;
+      border-top: 1px solid var(--line);
+      background: #FFFFFF;
+    }
+
+    .tester-footer p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .tester-scale-control {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .tester-scale-control label, .tester-scale-value {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .tester-scale-control input {
+      width: 100%;
+      accent-color: var(--case-blue);
+      cursor: pointer;
+    }
+
+    /* Typography Showcase Card */
+    .typography-showcase-card {
+      margin-top: clamp(36px, 5vw, 64px);
+      padding: clamp(36px, 5vw, 56px) clamp(28px, 4vw, 50px);
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .typography-showcase-header {
+      margin-bottom: 20px;
+    }
+
+    .typography-showcase-header .mono {
+      color: var(--case-blue);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .typography-showcase-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .typography-showcase-body {
+      font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+      line-height: 1.75;
+      color: var(--text-body);
+      max-width: 860px;
+    }
+
+    /* Closing Statement Banner */
+    .closing-logo-concept {
+      margin-top: clamp(60px, 8vw, 110px);
+      padding: clamp(50px, 8vw, 100px);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--case-blue) 0%, var(--case-blue-deep) 100%);
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(31, 71, 136, 0.24);
+    }
+
+    .closing-logo-concept::after {
+      content: "";
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      border: 85px solid rgba(255, 255, 255, 0.06);
+      right: -100px;
+      top: -120px;
+      pointer-events: none;
+    }
+
+    .closing-logo-concept .mono {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .closing-logo-concept h2 {
+      color: #FFFFFF;
+      max-width: 1000px;
+      font-size: clamp(2.2rem, 5vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Next Project Navigation Card */
+    .next-project {
+      padding: clamp(60px, 8vw, 120px) 0 40px;
+    }
+
+    .next-project-link {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: clamp(34px, 5vw, 64px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #FFFFFF;
+      box-shadow: 0 16px 40px rgba(24, 20, 21, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .next-project-link:hover {
+      border-color: var(--case-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(31, 71, 136, 0.16);
+    }
+
+    .next-project-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--case-blue);
+      font-weight: 700;
+    }
+
+    .next-project-title {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin: 12px 0 8px;
+      font-weight: 800;
+    }
+
+    .next-project-desc {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .next-project-arrow {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--case-blue-tint);
+      border: 1.5px solid var(--case-blue-line);
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      color: var(--case-blue);
+      transition: all 0.3s ease;
+    }
+
+    .next-project-link:hover .next-project-arrow {
+      background: var(--case-blue);
+      color: #FFFFFF;
+      transform: scale(1.08) rotate(45deg);
+    }
+
+    /* Footer */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding: 32px 0 48px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-left {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-back-top,
+    .footer-back-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line);
+      background: #FFFFFF;
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .footer-back-top:hover,
+    .footer-back-top-btn:hover {
+      background: var(--case-blue);
+      color: #FFFFFF;
+      border-color: var(--case-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(31, 71, 136, 0.22);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--case-blue);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 12, 13, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 30px;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content-box {
+      max-width: 92vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .lightbox-image {
+      max-width: 90vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .lightbox-close,
+    .lightbox-close-btn {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+      font-size: 1.4rem;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-close-btn:hover {
+      background: var(--case-blue);
+      border-color: var(--case-blue);
+      transform: scale(1.08);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1050px) {
+      .benchmark-grid { grid-template-columns: 1fr 1fr; }
+      .benchmark-intro { grid-template-columns: 1fr; }
+      .hero-grid, .overview-grid { grid-template-columns: 1fr; }
+      .concept-grid { grid-template-columns: 1fr; }
+      .process-strip { grid-template-columns: 1fr 1fr; }
+      .meta-table { position: static; margin-bottom: 24px; }
+      .chapter-head, .caption { grid-template-columns: 1fr; gap: 12px; }
+    }
+
+    @media (max-width: 768px) {
+      .benchmark-grid,
+      .logo-comparison-grid,
+      .media-duo { grid-template-columns: 1fr; }
+      .tester-footer { grid-template-columns: 1fr; }
+      .logo-comparison-stage { min-height: 280px; }
+      .process-strip { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .visual-card { border-radius: var(--radius-md); }
+      .hero-visual { margin-bottom: 40px; }
+      .top-nav {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        height: 72px;
+      }
+      .nav-logo { height: 24px; }
+      .pill-link { padding: 7px 12px; font-size: 0.72rem; }
+      .lang-btn { padding: 4px 7px; font-size: 0.70rem; }
+      h1.hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+      .meta-row { grid-template-columns: 100px 1fr; }
+      .caption p { font-size: 0.95rem; }
+      .next-project-link { grid-template-columns: 1fr; }
+      .next-project-arrow { display: none; }
+      .closing-logo-concept { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Ambient Background System -->
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-spotlight" id="ambientSpotlight"></div>
+  <div class="ambient-grid"></div>
+</div>
+
+<div class="page">
+  <div class="noise" aria-hidden="true"></div>
+
+  <div class="shell">
+    <nav class="top-nav" aria-label="Navigazione case study">
+      <a class="pill-link" href="projects.html" id="navBackProjects">← Tutti i progetti</a>
+      <a class="nav-logo-link" href="index.html" aria-label="Home Bypatdesigner">
+        <img class="nav-logo" src="./img/logo.png" alt="Bypatdesigner" />
+      </a>
+      <div class="nav-actions">
+        <div class="lang-pill" role="group" aria-label="Selettore lingua">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="it" aria-pressed="true">IT</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-kicker" id="caseCategory">LOGO DESIGN · PROGETTO ACCADEMICO · 2020</div>
+          <h1 class="hero-title" id="caseTitle">Teatro<br>Petruzzelli<span class="hero-title-highlight">.</span></h1>
+        </div>
+        <div class="hero-side">
+          <strong id="heroPunchline">Una cupola trasformata in segno.</strong>
+          <p id="heroIntro">Una proposta individuale di logo design nata dall’osservazione dell’architettura del Teatro Petruzzelli e dalla ricerca di un simbolo essenziale, riconoscibile e versatile.</p>
+          <div class="hero-quick-index">
+            <a href="#il-progetto" id="idx1">01 Il progetto</a>
+            <a href="#ricerca-concept" id="idx2">02 Osservare</a>
+            <a href="#dal-segno-al-logo" id="idx3">03 Dal riferimento al segno</a>
+            <a href="#confronto" id="idx4">04 Due approcci</a>
+            <a href="#sistema-visivo" id="idx5">05 Il marchio in uso</a>
+            <a href="#applicazioni" id="idx6">06 Applicazioni</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO VISUAL -->
+    <figure class="visual-card hero-visual" id="visualHero">
+      <img src="./img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli — Logo e scena operistica" loading="eager" />
+    </figure>
+
+    <main>
+      <!-- 01 — IL PROGETTO -->
+      <section class="chapter" id="il-progetto">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap1No">01 — Il progetto</div>
+          <h2 class="chapter-title" id="chap1Title">Una proposta personale<br><span class="red-highlight">nata nella fase esplorativa.</span></h2>
+        </div>
+
+        <div class="overview-grid">
+          <aside class="meta-table" aria-label="Informazioni progetto">
+            <div class="meta-row"><div class="meta-label" id="labelYear">Anno</div><div class="meta-value" id="specYear">2020</div></div>
+            <div class="meta-row"><div class="meta-label" id="labelContext">Contesto</div><div class="meta-value" id="specContext">Progetto accademico · Graphic Design II</div></div>
+            <div class="meta-row"><div class="meta-label" id="labelScope">Ambito</div><div class="meta-value tags" id="specScope"><span>Logo Design</span><span>Brand Design</span><span>Visual Identity</span></div></div>
+            <div class="meta-row"><div class="meta-label" id="labelRole">Ruolo</div><div class="meta-value" id="specRole">Concept, ricerca, logo design e sviluppo visivo</div></div>
+          </aside>
+
+          <div>
+            <p class="copy-lead" id="caseLead">L’obiettivo era creare un segno riconoscibile e contemporaneo, capace di distinguersi senza perdere il legame con il teatro. La ricerca ha quindi cercato una forma semplice, chiara e abbastanza versatile da funzionare su supporti e formati diversi.</p>
+            <div class="logo-concept-note" id="caseNote"><strong>Nota sul progetto.</strong> Questa proposta appartiene alla fase esplorativa iniziale. Il progetto collettivo è poi proseguito scegliendo un’altra direzione di marchio, sviluppata separatamente.</div>
+          </div>
+        </div>
+
+        <div style="margin-top: clamp(40px, 6vw, 76px);">
+          <figure class="visual-card asset-card" id="visualOverview">
+            <img src="./img/petruzzelli-logo/logo-overview.webp" alt="Panoramica della mia proposta logo Teatro Petruzzelli" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.style.display='none'" />
+            <div class="asset-placeholder"><i class="fa-regular fa-image"></i><strong>Visual principale / logo</strong><span>Qui rimane la tua composizione principale del progetto.</span><code>logo-overview.webp</code></div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 02 — OSSERVARE -->
+      <section class="chapter chapter-soft-blue" id="ricerca-concept">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap2No">02 — Osservare</div>
+          <h2 class="chapter-title" id="chap2Title">Cercare il segno<br><span class="gold-highlight">nell’architettura.</span></h2>
+        </div>
+
+        <p class="copy-lead" id="chap2Lead">Il punto di partenza è stato il teatro stesso. Tra i suoi elementi, la cupola è diventata il riferimento più forte per costruire un segno riconoscibile.</p>
+        <p class="copy-body" id="chap2Body">L’ho osservata da più punti di vista, cercando le linee, i ritmi e le proporzioni che la rendono caratteristica. L’idea non era disegnarla in modo realistico, ma capire quali elementi potessero essere ridotti e trasformati in un linguaggio grafico.</p>
+
+        <div class="concept-grid">
+          <article class="concept-card"><div class="concept-num">01 / Forma</div><h3 id="concept1Title">La cupola</h3><p id="concept1Text">Una sagoma immediatamente associabile al teatro e abbastanza forte da diventare il punto di partenza del concept.</p></article>
+          <article class="concept-card"><div class="concept-num">02 / Ritmo</div><h3 id="concept2Title">Le linee</h3><p id="concept2Text">Curve, assi e strutture radiali aiutano a leggere la forma e a capire cosa può essere semplificato.</p></article>
+          <article class="concept-card"><div class="concept-num">03 / Sintesi</div><h3 id="concept3Title">Il simbolo</h3><p id="concept3Text">La complessità architettonica viene progressivamente ridotta fino a diventare un segno autonomo.</p></article>
+        </div>
+
+        <div class="media-duo">
+          <figure class="visual-card asset-card asset-card-short contain has-asset">
+            <img src="./img/petruzzelli-logo/ricerca-cupola.png" alt="Ricerca visiva e architettonica sulla cupola del Teatro Petruzzelli — Mappa delle forme e linee" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.parentElement.classList.remove('has-asset')" />
+            <div class="asset-placeholder"><i class="fa-solid fa-landmark"></i><strong>La tua ricerca architettonica</strong><span>Foto della cupola, dettagli e punti di vista scelti da te.</span><code>ricerca-cupola.png</code></div>
+          </figure>
+          <figure class="visual-card asset-card asset-card-short contain has-asset">
+            <img src="./img/petruzzelli-logo/mappa-concettuale.png" alt="Costruzione del logo Teatro Petruzzelli — Elementi, composizione e area di protezione" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.parentElement.classList.remove('has-asset')" />
+            <div class="asset-placeholder"><i class="fa-solid fa-diagram-project"></i><strong>Costruzione e concetto</strong><span>Elemento superiore, cupola, composizione e area di protezione.</span><code>mappa-concettuale.png</code></div>
+          </figure>
+        </div>
+
+        <div class="benchmark-intro">
+          <div>
+            <div class="mono" id="benchmarkEyebrow">BENCHMARK VISIVO</div>
+            <h3 id="benchmarkTitle">Come si presentano altri teatri?</h3>
+          </div>
+          <p id="benchmarkIntro">Il confronto non serve a trovare un modello da copiare, ma a capire quali codici ricorrono nel settore e dove può aprirsi uno spazio per un linguaggio diverso.</p>
+        </div>
+
+        <div class="benchmark-grid" aria-label="Benchmark visivo dei marchi teatrali">
+          <article class="benchmark-card">
+            <div class="benchmark-logo-stage has-logo">
+              <img src="./img/petruzzelli-logo/benchmark-scala.png" alt="Logo Teatro alla Scala" loading="lazy" onload="this.parentElement.classList.add('has-logo')" onerror="this.parentElement.classList.remove('has-logo')" />
+              <div class="benchmark-logo-fallback">Inserisci il logo ufficiale<br><strong>Teatro alla Scala</strong><br><code>benchmark-scala.png</code></div>
+            </div>
+            <div class="benchmark-copy"><span class="benchmark-tag" id="tagScala">Classico / simbolico</span><h4>Teatro alla Scala</h4><p id="benchScala">Un’identità fortemente legata alla tradizione e a un immaginario storico riconoscibile.</p></div>
+          </article>
+          <article class="benchmark-card">
+            <div class="benchmark-logo-stage has-logo">
+              <img src="./img/petruzzelli-logo/benchmark-roh.png" alt="Logo Royal Opera House" loading="lazy" onload="this.parentElement.classList.add('has-logo')" onerror="this.parentElement.classList.remove('has-logo')" />
+              <div class="benchmark-logo-fallback">Inserisci il logo ufficiale<br><strong>Royal Opera House</strong><br><code>benchmark-roh.png</code></div>
+            </div>
+            <div class="benchmark-copy"><span class="benchmark-tag" id="tagRoh">Istituzionale</span><h4>Royal Opera House</h4><p id="benchRoh">Un marchio con una presenza istituzionale forte, costruito intorno alla riconoscibilità del nome e del simbolo.</p></div>
+          </article>
+          <article class="benchmark-card">
+            <div class="benchmark-logo-stage has-logo">
+              <img src="./img/petruzzelli-logo/benchmark-liceu.png" alt="Logo Gran Teatre del Liceu" loading="lazy" onload="this.parentElement.classList.add('has-logo')" onerror="this.parentElement.classList.remove('has-logo')" />
+              <div class="benchmark-logo-fallback">Inserisci il logo ufficiale<br><strong>Gran Teatre del Liceu</strong><br><code>benchmark-liceu.png</code></div>
+            </div>
+            <div class="benchmark-copy"><span class="benchmark-tag" id="tagLiceu">Geometrico</span><h4>Gran Teatre del Liceu</h4><p id="benchLiceu">Un linguaggio più sintetico e contemporaneo, dove la geometria assume un ruolo centrale.</p></div>
+          </article>
+          <article class="benchmark-card">
+            <div class="benchmark-logo-stage has-logo">
+              <img src="./img/petruzzelli-logo/tester-bianco.png" alt="La mia proposta per il Teatro Petruzzelli" loading="lazy" onload="this.parentElement.classList.add('has-logo')" onerror="this.parentElement.classList.remove('has-logo')" />
+              <div class="benchmark-logo-fallback">Inserisci il tuo logo<br><strong>Teatro Petruzzelli — Concept</strong><br><code>tester-bianco.png</code></div>
+            </div>
+            <div class="benchmark-copy"><span class="benchmark-tag" id="tagMine">Architettonico / sintetico</span><h4>La mia proposta</h4><p id="benchMine">La direzione esplora un’altra strada: usare un elemento dell’edificio come origine di un pittogramma semplice e autonomo.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 03 — DAL RIFERIMENTO AL SEGNO -->
+      <section class="chapter" id="dal-segno-al-logo">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap3No">03 — Dal riferimento al segno</div>
+          <h2 class="chapter-title" id="chap3Title">Ridurre la forma<br><span class="red-highlight">fino a renderla simbolo.</span></h2>
+        </div>
+
+        <p class="copy-lead" id="chap3Lead">Il passaggio decisivo è stato trasformare i riferimenti architettonici in una struttura più semplice, mantenendo la percezione della cupola senza descriverla letteralmente.</p>
+
+        <div class="process-strip">
+          <div class="process-step"><span class="mono">01</span><strong id="step1Title">Osservare</strong><p id="step1Text">Individuare ciò che rende la cupola riconoscibile.</p></div>
+          <div class="process-step"><span class="mono">02</span><strong id="step2Title">Scomporre</strong><p id="step2Text">Separare curve, assi, ritmi e rapporti tra le parti.</p></div>
+          <div class="process-step"><span class="mono">03</span><strong id="step3Title">Costruire</strong><p id="step3Text">Dare ordine alla forma attraverso proporzioni, reticolo e griglie polari.</p></div>
+          <div class="process-step"><span class="mono">04</span><strong id="step4Title">Sintetizzare</strong><p id="step4Text">Arrivare a un pittogramma leggibile anche separato dal logotipo.</p></div>
+        </div>
+
+        <figure class="visual-card asset-card contain has-asset" id="visualConstruction">
+          <img src="./img/petruzzelli-logo/costruzione-logo.png" alt="Costruzione geometrica del simbolo e pittogramma Teatro Petruzzelli" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.parentElement.classList.remove('has-asset')" />
+          <div class="asset-placeholder"><i class="fa-solid fa-bezier-curve"></i><strong>La tua tavola di costruzione</strong><span>Reticolo, griglie, proporzioni e sviluppo del pittogramma.</span><code>costruzione-logo.png</code></div>
+        </figure>
+
+        <div class="caption">
+          <div class="mono" id="constructionCaptionMono">03 / Costruzione</div>
+          <p id="constructionCaptionText">La griglia mi ha aiutato a controllare proporzioni e simmetrie, trasformando la forma della cupola in un segno più essenziale e riproducibile.</p>
+        </div>
+      </section>
+
+      <!-- 04 — DUE APPROCCI -->
+      <section class="chapter chapter-soft-blue" id="confronto">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap4No">04 — Due approcci</div>
+          <h2 class="chapter-title" id="chap4Title">Dal marchio esistente<br><span class="red-highlight">a un’esplorazione alternativa.</span></h2>
+        </div>
+
+        <p class="copy-lead compare-lead" id="chap4Lead">Il confronto aiuta a rendere evidente il punto di partenza della mia proposta: non reinterpretare il logo attuale, ma cercare un segno attraverso un altro elemento identitario del teatro.</p>
+
+        <div class="logo-comparison-grid">
+          <article class="logo-comparison-card">
+            <div class="logo-comparison-stage has-logo">
+              <img src="./img/petruzzelli-logo/logo-attuale-petruzzelli.jpg" alt="Logo attuale Fondazione Teatro Petruzzelli" loading="lazy" onload="this.parentElement.classList.add('has-logo')" onerror="this.parentElement.classList.remove('has-logo')" />
+              <div class="comparison-fallback">Inserisci qui il logo attuale del Teatro Petruzzelli.<br><code>logo-attuale-petruzzelli.jpg</code></div>
+            </div>
+            <div class="logo-comparison-copy"><div class="mono" id="currentLogoEyebrow">01 / Identità esistente</div><h3 id="currentLogoTitle">Il marchio attuale</h3><p id="currentLogoText">Il riferimento istituzionale da cui parte l’esercizio: un’identità già riconoscibile, con un proprio linguaggio e una propria storia.</p></div>
+          </article>
+
+          <article class="logo-comparison-card">
+            <div class="logo-comparison-stage proposal has-logo">
+              <img src="./img/petruzzelli-logo/tester-blu.png" alt="La mia proposta logo Teatro Petruzzelli" loading="lazy" onload="this.parentElement.classList.add('has-logo')" onerror="this.parentElement.classList.remove('has-logo')" />
+              <div class="comparison-fallback">Inserisci qui il tuo logo finale.<br><code>tester-blu.png</code></div>
+            </div>
+            <div class="logo-comparison-copy"><div class="mono" id="proposalLogoEyebrow">02 / Esplorazione personale</div><h3 id="proposalLogoTitle">La mia proposta</h3><p id="proposalLogoText">Un approccio che parte dall’architettura e concentra l’attenzione sulla cupola, trasformandola in un pittogramma geometrico e autonomo.</p></div>
+          </article>
+        </div>
+
+        <div class="comparison-note" id="comparisonNote"><strong>Non è un “prima e dopo”.</strong> Sono due approcci diversi. Il confronto serve a spiegare con chiarezza quale territorio ho scelto di esplorare nella mia proposta individuale.</div>
+      </section>
+
+      <!-- 05 — IL MARCHIO IN USO -->
+      <section class="chapter" id="sistema-visivo">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap5No">05 — Il marchio in uso</div>
+          <h2 class="chapter-title" id="chap5Title">Un segno semplice,<br><span class="gold-highlight">messo alla prova.</span></h2>
+        </div>
+
+        <p class="copy-lead" id="chap5Lead">Una volta definito il segno, il passo successivo è verificare come si comporta quando cambia il contesto: fondo, contrasto e dimensione.</p>
+        <p class="copy-body" id="chap5Body">Più che descriverne la versatilità, qui preferisco mostrarla. Il tester permette di vedere il marchio in condizioni diverse e di valutarne rapidamente la presenza visiva.</p>
+
+        <div class="interactive-logo-tester" id="interactiveLogoTester">
+          <div class="tester-header">
+            <span class="mono" id="testerLabel">TESTER INTERATTIVO · COMPORTAMENTO DEL MARCHIO</span>
+            <div class="tester-pills" role="group" aria-label="Sfondi del tester">
+              <button class="tester-btn active" data-theme="light" id="testerBtnLight">Bianco</button>
+              <button class="tester-btn" data-theme="dark" id="testerBtnDark">Nero</button>
+              <button class="tester-btn" data-theme="blue" id="testerBtnBlue">Blu</button>
+              <button class="tester-btn" data-theme="paper" id="testerBtnPaper">Carta</button>
+            </div>
+          </div>
+          <div class="tester-canvas theme-light" id="testerCanvas">
+            <div class="tester-logo-wrap" id="testerLogoWrap">
+              <img id="testerLogo" src="./img/petruzzelli-logo/tester-bianco.png" alt="Logo Teatro Petruzzelli — Bianco" onerror="this.parentElement.classList.add('asset-missing')" />
+              <div class="tester-fallback">Aggiungi il tuo logo per attivare il tester.<br><code>tester-bianco.png</code></div>
+            </div>
+          </div>
+          <div class="tester-footer">
+            <p id="testerHelp">Prova fondi diversi e cambia la dimensione: il tester usa il tuo asset reale, senza ricostruire il logo.</p>
+            <div class="tester-scale-control"><label for="testerScale" id="testerScaleLabel">Scala</label><input id="testerScale" type="range" min="180" max="520" value="360" step="10" /><span class="tester-scale-value" id="testerScaleValue">360 px</span></div>
+          </div>
+        </div>
+
+        <div class="typography-showcase-card" id="typographyCard">
+          <div class="typography-showcase-header">
+            <span class="mono" id="typeEyebrow">Tipografia</span>
+            <h3 class="typography-showcase-title" id="typeHeadline">Sequel Sans</h3>
+          </div>
+          <p class="typography-showcase-body" id="typeBody">
+            Sequel Sans completa il segno con un linguaggio tipografico essenziale e contemporaneo.
+            Le sue forme pulite dialogano con la costruzione geometrica della cupola, mantenendo equilibrio tra carattere, leggibilità e semplicità. La scelta permette al marchio di adattarsi con chiarezza a scale e supporti diversi.
+          </p>
+        </div>
+      </section>
+
+      <!-- 06 — APPLICAZIONI -->
+      <section class="chapter" id="applicazioni">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap6No">06 — Applicazioni</div>
+          <h2 class="chapter-title" id="chap6Title">Dal segno<br><span class="red-highlight">al contesto.</span></h2>
+        </div>
+
+        <p class="copy-lead" id="chap6Lead">Le applicazioni chiudono il percorso mostrando il marchio fuori dalla tavola di costruzione, su alcuni dei supporti sviluppati nel progetto.</p>
+        <p class="copy-body" id="chap6Body">Qui manterrei una selezione breve e molto visiva: pochi mockup, tutti realizzati da me, per lasciare che sia il progetto a parlare senza costruire un sistema di brand più esteso di quello realmente sviluppato.</p>
+
+        <div class="media-duo">
+          <figure class="visual-card asset-card asset-card-short has-asset">
+            <img src="./img/petruzzelli-logo/coordinato-identita.webp" alt="Coordinato d'identità visiva, cartoleria e supporti istituzionali Teatro Petruzzelli" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.parentElement.classList.remove('has-asset')" />
+            <div class="asset-placeholder"><i class="fa-solid fa-layer-group"></i><strong>Coordinato istituzionale</strong><span>Cartoleria, libretto d'opera, biglietti d'ingresso e supporti ufficiali.</span><code>coordinato-identita.webp</code></div>
+          </figure>
+          <figure class="visual-card asset-card asset-card-short has-asset">
+            <img src="./img/petruzzelli-logo/applicazione-02.webp" alt="Brand book, linee guida d'identità visiva e cancelleria coordinata Teatro Petruzzelli" loading="lazy" onload="this.parentElement.classList.add('has-asset')" onerror="this.parentElement.classList.remove('has-asset')" />
+            <div class="asset-placeholder"><i class="fa-solid fa-book-open"></i><strong>Brand book & linee guida</strong><span>Manuale di identità visiva, brochure, biglietti da visita e cancelleria coordinata.</span><code>applicazione-02.webp</code></div>
+          </figure>
+        </div>
+
+        <section class="closing-logo-concept">
+          <div class="mono" id="closingSmall">Teatro Petruzzelli · Logo Concept</div>
+          <h2 id="closingTitle">Osservare l’architettura, ridurla all’essenziale e trasformarla in un segno.</h2>
+        </section>
+      </section>
+
+      <section class="next-project" aria-label="Prossimo progetto">
+        <a class="next-project-link" href="petruzzelli.html">
+          <div>
+            <div class="next-project-label" id="nextTag">Continua il progetto</div>
+            <h3 class="next-project-title" id="nextTitle">Teatro Petruzzelli — Identità & Comunicazione</h3>
+            <p class="next-project-desc" id="nextDesc">La direzione sviluppata successivamente come progetto collettivo.</p>
+          </div>
+          <div class="next-project-arrow" aria-hidden="true">↗</div>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-left"><span>© 2026 Bypatdesigner</span></div>
+      <div class="footer-links"><a href="index.html" id="footerHome">Home</a><a href="projects.html" id="footerProjects">Progetti</a><a href="cv.html" id="footerCv">CV</a></div>
+      <button class="footer-back-top" id="footerBackTopBtn" type="button"><span id="footerBackTop">Torna all'inizio</span> ↑</button>
+    </footer>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Anteprima immagine">
+  <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Chiudi anteprima">×</button>
+  <div class="lightbox-content-box"><img id="lightboxImg" src="" alt="" /><div id="lightboxCaption" class="lightbox-caption"></div></div>
+</div>
+
+<script>
+  // Ambient spotlight
+  const spotlight = document.getElementById('ambientSpotlight');
+  if (spotlight) {
+    let ticking = false;
+    window.addEventListener('pointermove', (e) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          spotlight.style.left = `${e.clientX}px`;
+          spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  document.getElementById('footerBackTopBtn')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Lightbox for the project images
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const modalCap = document.getElementById('lightboxCaption');
+  const closeBtn = document.getElementById('lightboxCloseBtn');
+  const closeLightbox = () => { modal?.classList.remove('active'); document.body.style.overflow = ''; };
+  const openLightbox = (img) => {
+    if (!modal || !modalImg || !img || img.style.display === 'none') return;
+    modalImg.src = img.currentSrc || img.src;
+    modalImg.alt = img.alt || '';
+    if (modalCap) modalCap.textContent = img.alt || '';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+  closeBtn?.addEventListener('click', closeLightbox);
+  modal?.addEventListener('click', (e) => { if (e.target === modal || e.target.classList.contains('lightbox-content-box')) closeLightbox(); });
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  document.querySelectorAll('.asset-card img, .hero-visual img').forEach(img => img.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(img); }));
+
+  // Interactive logo tester
+  const themeImages = {
+    light: './img/petruzzelli-logo/tester-bianco.png',
+    dark: './img/petruzzelli-logo/tester-nero.png',
+    blue: './img/petruzzelli-logo/tester-blu.png',
+    paper: './img/petruzzelli-logo/tester-carta.png'
+  };
+
+  // Preload tester images for smooth switching
+  Object.values(themeImages).forEach(src => {
+    const pre = new Image();
+    pre.src = src;
+  });
+
+  const testerCanvas = document.getElementById('testerCanvas');
+  const testerLogo = document.getElementById('testerLogo');
+  document.querySelectorAll('.tester-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tester-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const theme = btn.dataset.theme;
+      if (testerCanvas) testerCanvas.className = `tester-canvas theme-${theme}`;
+      if (testerLogo && themeImages[theme]) {
+        testerLogo.src = themeImages[theme];
+        testerLogo.alt = `Logo Teatro Petruzzelli — ${btn.textContent.trim()}`;
+      }
+    });
+  });
+  const testerScale = document.getElementById('testerScale');
+  const testerLogoWrap = document.getElementById('testerLogoWrap');
+  const testerScaleValue = document.getElementById('testerScaleValue');
+  testerScale?.addEventListener('input', () => {
+    const value = `${testerScale.value}px`;
+    testerLogoWrap?.style.setProperty('--tester-logo-width', value);
+    if (testerScaleValue) testerScaleValue.textContent = value;
+  });
+
+  const I18N = {
+    it: {
+      caseCategory:'LOGO DESIGN · PROGETTO ACCADEMICO · 2020',
+      heroPunchline:'Una cupola trasformata in segno.',
+      heroIntro:'Una proposta individuale di logo design nata dall’osservazione dell’architettura del Teatro Petruzzelli e dalla ricerca di un simbolo essenziale, riconoscibile e versatile.',
+      idx:['01 Il progetto','02 Osservare','03 Dal riferimento al segno','04 Due approcci','05 Il marchio in uso','06 Applicazioni'],
+      navBack:'← Tutti i progetti',
+      chap1No:'01 — Il progetto', chap1Title:'Una proposta personale<br><span class="red-highlight">nata nella fase esplorativa.</span>',
+      labelYear:'Anno', labelContext:'Contesto', labelScope:'Ambito', labelRole:'Ruolo', specContext:'Progetto accademico · Graphic Design II', specScope:['Logo Design','Brand Design','Visual Identity'], specRole:'Concept, ricerca, logo design e sviluppo visivo',
+      caseLead:'L’obiettivo era creare un segno riconoscibile e contemporaneo, capace di distinguersi senza perdere il legame con il teatro. La ricerca ha quindi cercato una forma semplice, chiara e abbastanza versatile da funzionare su supporti e formati diversi.',
+      caseNote:'<strong>Nota sul progetto.</strong> Questa proposta appartiene alla fase esplorativa iniziale. Il progetto collettivo è poi proseguito scegliendo un’altra direzione di marchio, sviluppata separatamente.',
+      chap2No:'02 — Osservare', chap2Title:'Cercare il segno<br><span class="gold-highlight">nell’architettura.</span>',
+      chap2Lead:'Il punto di partenza è stato il teatro stesso. Tra i suoi elementi, la cupola è diventata il riferimento più forte per costruire un segno riconoscibile.',
+      chap2Body:'L’ho osservata da più punti di vista, cercando le linee, i ritmi e le proporzioni che la rendono caratteristica. L’idea non era disegnarla in modo realistico, ma capire quali elementi potessero essere ridotti e trasformati in un linguaggio grafico.',
+      concept1Title:'La cupola', concept1Text:'Una sagoma immediatamente associabile al teatro e abbastanza forte da diventare il punto di partenza del concept.',
+      concept2Title:'Le linee', concept2Text:'Curve, assi e strutture radiali aiutano a leggere la forma e a capire cosa può essere semplificato.',
+      concept3Title:'Il simbolo', concept3Text:'La complessità architettonica viene progressivamente ridotta fino a diventare un segno autonomo.',
+      benchmarkEyebrow:'BENCHMARK VISIVO', benchmarkTitle:'Come si presentano altri teatri?', benchmarkIntro:'Il confronto non serve a trovare un modello da copiare, ma a capire quali codici ricorrono nel settore e dove può aprirsi uno spazio per un linguaggio diverso.',
+      tagScala:'Classico / simbolico', tagRoh:'Istituzionale', tagLiceu:'Geometrico', tagMine:'Architettonico / sintetico',
+      benchScala:'Un’identità fortemente legata alla tradizione e a un immaginario storico riconoscibile.', benchRoh:'Un marchio con una presenza istituzionale forte, costruito intorno alla riconoscibilità del nome e del simbolo.', benchLiceu:'Un linguaggio più sintetico e contemporaneo, dove la geometria assume un ruolo centrale.', benchMine:'La direzione esplora un’altra strada: usare un elemento dell’edificio come origine di un pittogramma semplice e autonomo.',
+      chap3No:'03 — Dal riferimento al segno', chap3Title:'Ridurre la forma<br><span class="red-highlight">fino a renderla simbolo.</span>', chap3Lead:'Il passaggio decisivo è stato trasformare i riferimenti architettonici in una struttura più semplice, mantenendo la percezione della cupola senza descriverla letteralmente.',
+      step1Title:'Osservare', step1Text:'Individuare ciò che rende la cupola riconoscibile.', step2Title:'Scomporre', step2Text:'Separare curve, assi, ritmi e rapporti tra le parti.', step3Title:'Costruire', step3Text:'Dare ordine alla forma attraverso proporzioni, reticolo e griglie polari.', step4Title:'Sintetizzare', step4Text:'Arrivare a un pittogramma leggibile anche separato dal logotipo.',
+      constructionCaptionMono:'03 / Costruzione', constructionCaptionText:'La griglia mi ha aiutato a controllare proporzioni e simmetrie, trasformando la forma della cupola in un segno più essenziale e riproducibile.',
+      chap4No:'04 — Due approcci', chap4Title:'Dal marchio esistente<br><span class="red-highlight">a un’esplorazione alternativa.</span>', chap4Lead:'Il confronto aiuta a rendere evidente il punto di partenza della mia proposta: non reinterpretare il logo attuale, ma cercare un segno attraverso un altro elemento identitario del teatro.',
+      currentLogoEyebrow:'01 / Identità esistente', currentLogoTitle:'Il marchio attuale', currentLogoText:'Il riferimento istituzionale da cui parte l’esercizio: un’identità già riconoscibile, con un proprio linguaggio e una propria storia.', proposalLogoEyebrow:'02 / Esplorazione personale', proposalLogoTitle:'La mia proposta', proposalLogoText:'Un approccio che parte dall’architettura e concentra l’attenzione sulla cupola, trasformandola in un pittogramma geometrico e autonomo.', comparisonNote:'<strong>Non è un “prima e dopo”.</strong> Sono due approcci diversi. Il confronto serve a spiegare con chiarezza quale territorio ho scelto di esplorare nella mia proposta individuale.',
+      chap5No:'05 — Il marchio in uso', chap5Title:'Un segno semplice,<br><span class="gold-highlight">messo alla prova.</span>', chap5Lead:'Una volta definito il segno, il passo successivo è verificare come si comporta quando cambia il contesto: fondo, contrasto e dimensione.', chap5Body:'Più che descriverne la versatilità, qui preferisco mostrarla. Il tester permette di vedere il marchio in condizioni diverse e di valutarne rapidamente la presenza visiva.',
+      testerLabel:'TESTER INTERATTIVO · COMPORTAMENTO DEL MARCHIO', testerBtnLight:'Bianco', testerBtnDark:'Nero', testerBtnBlue:'Blu', testerBtnPaper:'Carta', testerHelp:'Prova fondi diversi e cambia la dimensione: il tester usa il tuo asset reale, senza ricostruire il logo.', testerScaleLabel:'Scala',
+      typeEyebrow:'Tipografia', typeHeadline:'Sequel Sans', typeBody:'Sequel Sans completa il segno con un linguaggio tipografico essenziale e contemporaneo. Le sue forme pulite dialogano con la costruzione geometrica della cupola, mantenendo equilibrio tra carattere, leggibilità e semplicità. La scelta permette al marchio di adattarsi con chiarezza a scale e supporti diversi.',
+      chap6No:'06 — Applicazioni', chap6Title:'Dal segno<br><span class="red-highlight">al contesto.</span>', chap6Lead:'Le applicazioni chiudono il percorso mostrando il marchio fuori dalla tavola di costruzione, su alcuni dei supporti sviluppati nel progetto.', chap6Body:'Qui manterrei una selezione breve e molto visiva: pochi mockup, tutti realizzati da me, per lasciare che sia il progetto a parlare senza costruire un sistema di brand più esteso di quello realmente sviluppato.',
+      closingSmall:'Teatro Petruzzelli · Logo Concept', closingTitle:'Osservare l’architettura, ridurla all’essenziale e trasformarla in un segno.', nextTag:'Continua il progetto', nextTitle:'Teatro Petruzzelli — Identità & Comunicazione', nextDesc:'La direzione sviluppata successivamente come progetto collettivo.', footerBackTop:'Torna all’inizio', footerHome:'Home', footerProjects:'Progetti', footerCv:'CV'
+    },
+    es: {
+      caseCategory:'DISEÑO DE LOGO · PROYECTO ACADÉMICO · 2020',
+      heroPunchline:'Una cúpula transformada en símbolo.', heroIntro:'Una propuesta individual de diseño de logo nacida de la observación de la arquitectura del Teatro Petruzzelli y de la búsqueda de un símbolo esencial, reconocible y versátil.', idx:['01 El proyecto','02 Observar','03 De la referencia al símbolo','04 Dos enfoques','05 La marca en uso','06 Aplicaciones'], navBack:'← Todos los proyectos',
+      chap1No:'01 — El proyecto', chap1Title:'Una propuesta personal<br><span class="red-highlight">nacida en la fase exploratoria.</span>', labelYear:'Año', labelContext:'Contexto', labelScope:'Ámbito', labelRole:'Rol', specContext:'Proyecto académico · Diseño Gráfico II', specScope:['Diseño de logo','Brand Design','Identidad visual'], specRole:'Concepto, investigación, diseño de logo y desarrollo visual', caseLead:'El objetivo era crear un símbolo reconocible y contemporáneo, capaz de diferenciarse sin perder el vínculo con el teatro. La investigación buscó una forma simple, clara y suficientemente versátil para funcionar en distintos soportes y formatos.', caseNote:'<strong>Nota sobre el proyecto.</strong> Esta propuesta pertenece a la fase exploratoria inicial. El proyecto colectivo continuó después con otra dirección de marca, desarrollada por separado.',
+      chap2No:'02 — Observar', chap2Title:'Buscar el símbolo<br><span class="gold-highlight">en la arquitectura.</span>', chap2Lead:'El punto de partida fue el propio teatro. Entre sus elementos, la cúpula se convirtió en la referencia más fuerte para construir un símbolo reconocible.', chap2Body:'La observé desde distintos puntos de vista, buscando las líneas, ritmos y proporciones que la hacen característica. La idea no era dibujarla de forma realista, sino entender qué elementos podían reducirse y transformarse en lenguaje gráfico.', concept1Title:'La cúpula', concept1Text:'Una silueta asociable de inmediato al teatro y suficientemente fuerte para convertirse en el punto de partida del concepto.', concept2Title:'Las líneas', concept2Text:'Curvas, ejes y estructuras radiales ayudan a leer la forma y a entender qué puede simplificarse.', concept3Title:'El símbolo', concept3Text:'La complejidad arquitectónica se reduce progresivamente hasta convertirse en un signo autónomo.',
+      benchmarkEyebrow:'BENCHMARK VISUAL', benchmarkTitle:'¿Cómo se presentan otros teatros?', benchmarkIntro:'La comparación no busca un modelo que copiar, sino entender qué códigos se repiten en el sector y dónde puede abrirse espacio para un lenguaje diferente.', tagScala:'Clásico / simbólico', tagRoh:'Institucional', tagLiceu:'Geométrico', tagMine:'Arquitectónico / sintético', benchScala:'Una identidad muy vinculada a la tradición y a un imaginario histórico reconocible.', benchRoh:'Una marca con fuerte presencia institucional, construida alrededor del reconocimiento del nombre y del símbolo.', benchLiceu:'Un lenguaje más sintético y contemporáneo, donde la geometría ocupa un papel central.', benchMine:'La dirección explora otro camino: usar un elemento del edificio como origen de un pictograma simple y autónomo.',
+      chap3No:'03 — De la referencia al símbolo', chap3Title:'Reducir la forma<br><span class="red-highlight">hasta convertirla en símbolo.</span>', chap3Lead:'El paso decisivo fue transformar las referencias arquitectónicas en una estructura más simple, manteniendo la percepción de la cúpula sin describirla literalmente.', step1Title:'Observar', step1Text:'Identificar aquello que hace reconocible la cúpula.', step2Title:'Descomponer', step2Text:'Separar curvas, ejes, ritmos y relaciones entre las partes.', step3Title:'Construir', step3Text:'Ordenar la forma mediante proporciones, retícula y rejillas polares.', step4Title:'Sintetizar', step4Text:'Llegar a un pictograma legible incluso separado del logotipo.', constructionCaptionMono:'03 / Construcción', constructionCaptionText:'La retícula me ayudó a controlar proporciones y simetrías, transformando la forma de la cúpula en un símbolo más esencial y reproducible.',
+      chap4No:'04 — Dos enfoques', chap4Title:'De la marca existente<br><span class="red-highlight">a una exploración alternativa.</span>', chap4Lead:'La comparación ayuda a mostrar con claridad el punto de partida de mi propuesta: no reinterpretar el logo actual, sino buscar un símbolo a través de otro elemento identitario del teatro.', currentLogoEyebrow:'01 / Identidad existente', currentLogoTitle:'La marca actual', currentLogoText:'La referencia institucional desde la que parte el ejercicio: una identidad ya reconocible, con su propio lenguaje y su propia historia.', proposalLogoEyebrow:'02 / Exploración personal', proposalLogoTitle:'Mi propuesta', proposalLogoText:'Un enfoque que parte de la arquitectura y centra la atención en la cúpula, transformándola en un pictograma geométrico y autónomo.', comparisonNote:'<strong>No es un “antes y después”.</strong> Son dos enfoques distintos. La comparación sirve para explicar con claridad el territorio que decidí explorar en mi propuesta individual.',
+      chap5No:'05 — La marca en uso', chap5Title:'Un símbolo simple,<br><span class="gold-highlight">puesto a prueba.</span>', chap5Lead:'Una vez definido el símbolo, el siguiente paso es comprobar cómo se comporta cuando cambia el contexto: fondo, contraste y tamaño.', chap5Body:'Más que describir su versatilidad, prefiero mostrarla. El tester permite ver la marca en distintas condiciones y valorar rápidamente su presencia visual.', testerLabel:'TESTER INTERACTIVO · COMPORTAMIENTO DE LA MARCA', testerBtnLight:'Blanco', testerBtnDark:'Negro', testerBtnBlue:'Azul', testerBtnPaper:'Papel', testerHelp:'Prueba distintos fondos y cambia el tamaño: el tester utiliza tu archivo real, sin reconstruir el logo.', testerScaleLabel:'Escala',
+      typeEyebrow:'Tipografía', typeHeadline:'Sequel Sans', typeBody:'Sequel Sans completa el símbolo con un lenguaje tipográfico esencial y contemporáneo. Sus formas limpias dialogan con la construcción geométrica de la cúpula, manteniendo el equilibrio entre carácter, legibilidad y simplicidad. La elección permite que la marca se adapte con claridad a diferentes escalas y soportes.',
+      chap6No:'06 — Aplicaciones', chap6Title:'Del símbolo<br><span class="red-highlight">al contexto.</span>', chap6Lead:'Las aplicaciones cierran el recorrido mostrando la marca fuera de la lámina de construcción, en algunos de los soportes desarrollados en el proyecto.', chap6Body:'Mantendría una selección breve y muy visual: pocos mockups, todos realizados por mí, para dejar que el proyecto hable sin construir un sistema de marca más amplio de lo que realmente se desarrolló.', closingSmall:'Teatro Petruzzelli · Concepto de Logo', closingTitle:'Observar la arquitectura, reducirla a lo esencial y transformarla en un símbolo.', nextTag:'Continuar el proyecto', nextTitle:'Teatro Petruzzelli — Identidad & Comunicación', nextDesc:'La dirección desarrollada posteriormente como proyecto colectivo.', footerBackTop:'Volver arriba', footerHome:'Inicio', footerProjects:'Proyectos', footerCv:'CV'
+    },
+    en: {
+      caseCategory:'LOGO DESIGN · ACADEMIC PROJECT · 2020', heroPunchline:'A dome transformed into a symbol.', heroIntro:'An individual logo design proposal born from observing Teatro Petruzzelli’s architecture and searching for an essential, recognizable and versatile symbol.', idx:['01 The project','02 Observe','03 From reference to symbol','04 Two approaches','05 The mark in use','06 Applications'], navBack:'← All projects',
+      chap1No:'01 — The project', chap1Title:'A personal proposal<br><span class="red-highlight">born during the exploratory phase.</span>', labelYear:'Year', labelContext:'Context', labelScope:'Scope', labelRole:'Role', specContext:'Academic project · Graphic Design II', specScope:['Logo Design','Brand Design','Visual Identity'], specRole:'Concept, research, logo design and visual development', caseLead:'The goal was to create a recognizable, contemporary mark that could stand apart without losing its connection to the theatre. The research therefore looked for a simple, clear form that could work across different media and formats.', caseNote:'<strong>Project note.</strong> This proposal belongs to the initial exploratory phase. The collective project later continued with a different brand direction, developed separately.',
+      chap2No:'02 — Observe', chap2Title:'Finding the symbol<br><span class="gold-highlight">inside the architecture.</span>', chap2Lead:'The starting point was the theatre itself. Among its architectural elements, the dome became the strongest reference for building a recognizable mark.', chap2Body:'I observed it from different points of view, looking for the lines, rhythms and proportions that make it distinctive. The intention was not to draw it realistically, but to understand which elements could be reduced and translated into graphic language.', concept1Title:'The dome', concept1Text:'A silhouette immediately associated with the theatre and strong enough to become the starting point of the concept.', concept2Title:'The lines', concept2Text:'Curves, axes and radial structures help read the form and identify what can be simplified.', concept3Title:'The symbol', concept3Text:'Architectural complexity is gradually reduced until it becomes an autonomous mark.',
+      benchmarkEyebrow:'VISUAL BENCHMARK', benchmarkTitle:'How do other theatres present themselves?', benchmarkIntro:'The comparison is not about finding a model to copy, but about understanding recurring visual codes in the sector and where there may be room for a different language.', tagScala:'Classic / symbolic', tagRoh:'Institutional', tagLiceu:'Geometric', tagMine:'Architectural / synthetic', benchScala:'An identity strongly connected to tradition and a recognizable historical visual language.', benchRoh:'A mark with a strong institutional presence, built around recognition of both name and symbol.', benchLiceu:'A more synthetic and contemporary language in which geometry plays a central role.', benchMine:'This direction explores another path: using an element of the building as the origin of a simple, autonomous pictogram.',
+      chap3No:'03 — From reference to symbol', chap3Title:'Reduce the form<br><span class="red-highlight">until it becomes a symbol.</span>', chap3Lead:'The key step was translating architectural references into a simpler structure while preserving the perception of the dome without describing it literally.', step1Title:'Observe', step1Text:'Identify what makes the dome recognizable.', step2Title:'Deconstruct', step2Text:'Separate curves, axes, rhythms and relationships between parts.', step3Title:'Construct', step3Text:'Give order to the form through proportions, a grid and polar guides.', step4Title:'Synthesize', step4Text:'Reach a pictogram that remains legible even when separated from the wordmark.', constructionCaptionMono:'03 / Construction', constructionCaptionText:'The grid helped me control proportions and symmetry, translating the dome into a more essential and reproducible mark.',
+      chap4No:'04 — Two approaches', chap4Title:'From the existing mark<br><span class="red-highlight">to an alternative exploration.</span>', chap4Lead:'The comparison makes the starting point of my proposal clearer: rather than reinterpreting the current logo, I explored another identity cue from the theatre.', currentLogoEyebrow:'01 / Existing identity', currentLogoTitle:'The current mark', currentLogoText:'The institutional reference from which the exercise begins: an already recognizable identity with its own language and history.', proposalLogoEyebrow:'02 / Personal exploration', proposalLogoTitle:'My proposal', proposalLogoText:'An approach that starts from the architecture and focuses on the dome, transforming it into a geometric, autonomous pictogram.', comparisonNote:'<strong>This is not a “before and after”.</strong> They are two different approaches. The comparison simply clarifies the territory I chose to explore in my individual proposal.',
+      chap5No:'05 — The mark in use', chap5Title:'A simple mark,<br><span class="gold-highlight">put to the test.</span>', chap5Lead:'Once the mark was defined, the next step was to see how it behaves when the context changes: background, contrast and size.', chap5Body:'Rather than describing its versatility, I prefer to show it. The tester makes it possible to view the mark in different conditions and quickly assess its visual presence.', testerLabel:'INTERACTIVE TESTER · BRAND MARK BEHAVIOR', testerBtnLight:'White', testerBtnDark:'Black', testerBtnBlue:'Blue', testerBtnPaper:'Paper', testerHelp:'Try different backgrounds and change the size: the tester uses your real asset rather than reconstructing the logo.', testerScaleLabel:'Scale',
+      typeEyebrow:'Typography', typeHeadline:'Sequel Sans', typeBody:'Sequel Sans completes the mark with an essential, contemporary typographic language. Its clean forms dialogue with the geometric construction of the dome, balancing character, legibility, and simplicity. This choice allows the brand to adapt with clarity across different scales and media.',
+      chap6No:'06 — Applications', chap6Title:'From the mark<br><span class="red-highlight">to context.</span>', chap6Lead:'The applications close the process by showing the mark beyond the construction sheet, across some of the media developed for the project.', chap6Body:'I would keep the selection short and highly visual: a few mockups, all made by me, so the project can speak for itself without suggesting a broader brand system than the one actually developed.', closingSmall:'Teatro Petruzzelli · Logo Concept', closingTitle:'Observe the architecture, reduce it to the essential and transform it into a symbol.', nextTag:'Continue the project', nextTitle:'Teatro Petruzzelli — Identity & Communication', nextDesc:'The direction later developed as the collective project.', footerBackTop:'Back to top', footerHome:'Home', footerProjects:'Projects', footerCv:'CV'
+    }
+  };
+
+  const setText = (id, value) => { const el = document.getElementById(id); if (el && value !== undefined) el.textContent = value; };
+  const setHTML = (id, value) => { const el = document.getElementById(id); if (el && value !== undefined) el.innerHTML = value; };
+
+  function applyLanguage(lang) {
+    const t = I18N[lang] || I18N.it;
+    document.documentElement.lang = lang;
+    const htmlKeys = ['chap1Title','caseNote','chap2Title','chap3Title','chap4Title','comparisonNote','chap5Title','chap6Title'];
+    const textKeys = ['caseCategory','heroPunchline','heroIntro','chap1No','labelYear','labelContext','labelScope','labelRole','specContext','specRole','caseLead','caseBody','chap2No','chap2Lead','chap2Body','concept1Title','concept1Text','concept2Title','concept2Text','concept3Title','concept3Text','benchmarkEyebrow','benchmarkTitle','benchmarkIntro','tagScala','tagRoh','tagLiceu','tagMine','benchScala','benchRoh','benchLiceu','benchMine','chap3No','chap3Lead','step1Title','step1Text','step2Title','step2Text','step3Title','step3Text','step4Title','step4Text','constructionCaptionMono','constructionCaptionText','chap4No','chap4Lead','currentLogoEyebrow','currentLogoTitle','currentLogoText','proposalLogoEyebrow','proposalLogoTitle','proposalLogoText','chap5No','chap5Lead','chap5Body','testerLabel','testerBtnLight','testerBtnDark','testerBtnBlue','testerBtnPaper','testerHelp','testerScaleLabel','typeEyebrow','typeHeadline','typeBody','chap6No','chap6Lead','chap6Body','closingSmall','closingTitle','nextTag','nextTitle','nextDesc','footerBackTop','footerHome','footerProjects','footerCv'];
+    htmlKeys.forEach(k => setHTML(k, t[k]));
+    textKeys.forEach(k => setText(k, t[k]));
+    t.idx.forEach((value, i) => setText(`idx${i + 1}`, value));
+    setText('navBackProjects', t.navBack);
+    const scope = document.getElementById('specScope');
+    if (scope && Array.isArray(t.specScope)) scope.innerHTML = t.specScope.map(v => `<span>${v}</span>`).join('');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    localStorage.setItem('portfolioLang', lang);
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
+  applyLanguage(localStorage.getItem('portfolioLang') || 'it');
+</script>
+</body>
+</html>
