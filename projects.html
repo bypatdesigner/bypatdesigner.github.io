@@ -570,140 +570,315 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    /* Meta Details Below Media — refined padding & uniform height structure */
+    /* ============================================================
+       SIMPLIFIED FLOATING PROJECT CARDS (Clean Title + Category + Year)
+       ============================================================ */
     .card-details-box {
-      padding: clamp(20px, 2.4vw, 28px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex: 1 1 auto;
-      border-top: 1px solid var(--line);
-      background: rgba(14, 13, 24, 0.6);
-    }
-
-    .card-top-meta {
+      padding: clamp(16px, 2.2vw, 24px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      margin-bottom: 10px;
+      border-top: 1px solid var(--line);
+      background: rgba(14, 13, 24, 0.7);
+      transition: background 0.3s ease;
+    }
+
+    .card-details-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
     }
 
     .card-project-title {
-      font-size: clamp(1.35rem, 1.9vw, 1.8rem);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      margin-bottom: 8px;
-      line-height: 1.2;
-      min-height: 2.4em;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      background: linear-gradient(105deg, #FFFFFF 5%, #E4DCFD 30%, #C4B5FD 55%, #A78BFA 78%, #F6BE65 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      background-size: 200% 100%;
-      animation: gradShimmer 12s ease-in-out infinite alternate;
-      transition: filter 0.3s ease;
-    }
-
-    .card-project-title .card-title-main {
       font-family: var(--font-display) !important;
-      font-size: clamp(1.85rem, 2.5vw, 2.35rem) !important;
+      font-size: clamp(1.45rem, 2.1vw, 2rem) !important;
       font-weight: 800 !important;
-      letter-spacing: -0.035em;
-      line-height: 1.05;
-      display: block;
-    }
-
-    .card-project-title .card-title-sub {
-      display: block;
-      font-family: var(--font-body) !important;
-      font-size: clamp(0.9rem, 1.05vw, 1.02rem) !important;
-      font-weight: 500 !important;
-      letter-spacing: 0.03em;
-      line-height: 1.3;
-      margin-top: 4px;
-      background: none !important;
-      -webkit-background-clip: initial !important;
-      background-clip: initial !important;
-      -webkit-text-fill-color: var(--text-dim) !important;
-      color: var(--text-dim) !important;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin: 0;
+      color: #FFFFFF;
+      transition: color 0.3s ease, transform 0.3s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .floating-project-card:hover .card-project-title {
-      filter: drop-shadow(0 0 14px rgba(167, 139, 250, 0.4));
+      background: linear-gradient(105deg, #FFFFFF 5%, #E4DCFD 35%, #C4B5FD 70%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transform: translateX(2px);
     }
 
-    .card-project-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 16px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      min-height: 4.65em;
-    }
-
-    .card-footer-tags {
+    .card-meta-row {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-    }
-
-    .tech-pill-list {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .mini-pill {
+      gap: 8px;
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .card-meta-discipline {
       font-weight: 600;
-      padding: 4px 11px;
-      border-radius: var(--radius-full);
-      background: rgba(139, 92, 246, 0.12);
-      border: 1px solid rgba(167, 139, 250, 0.28);
-      color: #DDD6FE;
-      letter-spacing: 0.02em;
-      transition: all 0.2s ease;
-    }
-
-    .mini-pill:hover,
-    .floating-project-card:hover .mini-pill {
-      background: rgba(139, 92, 246, 0.18);
-      border-color: rgba(167, 139, 250, 0.45);
-      color: #F5F3FF;
-    }
-
-    .card-cta-arrow {
-      font-family: var(--font-mono);
-      font-size: 0.86rem;
-      font-weight: 700;
       color: var(--violet-light);
+    }
+
+    .card-meta-dot {
+      opacity: 0.45;
+    }
+
+    .card-meta-year {
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+
+    .card-cta-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--text-dim);
+      font-size: 1.2rem;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .floating-project-card:hover .card-cta-icon {
+      background: rgba(139, 92, 246, 0.25);
+      border-color: var(--violet-light);
+      color: #FFFFFF;
+      transform: scale(1.08) translate(2px, -2px);
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
+    }
+
+    /* ============================================================
+       VIEW TOGGLE BUTTON ("Vedi altri progetti")
+       ============================================================ */
+    .view-toggle-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: clamp(36px, 5vh, 56px) 0 clamp(44px, 6vh, 68px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn-toggle-view {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: transform 0.25s ease;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(0.96rem, 1.15vw, 1.1rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 14px 34px;
+      border-radius: var(--radius-full);
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid var(--line-violet);
+      color: #FFFFFF;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .floating-project-card:hover .card-cta-arrow {
+    .btn-toggle-view:hover {
+      background: rgba(139, 92, 246, 0.28);
+      border-color: var(--violet-light);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(139, 92, 246, 0.4);
+    }
+
+    .btn-toggle-icon {
+      font-size: 1.15rem;
+      transition: transform 0.3s ease;
+      color: var(--violet-light);
+    }
+
+    .btn-toggle-view:hover .btn-toggle-icon {
+      transform: translateY(2px);
+      color: #FFFFFF;
+    }
+
+    .btn-toggle-view.is-compact:hover .btn-toggle-icon {
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       COMPACT VISUAL ARCHIVE LIST (Inspired by Reference Screenshot)
+       [ Título ]   [ Disciplina / Identificador ]   [ Año ]   →
+       Hover reveals rounded image preview on the right
+       ============================================================ */
+    .compact-projects-table {
+      display: none;
+      width: 100%;
+      margin: 0 0 clamp(60px, 8vh, 100px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .compact-project-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(200px, 1.8fr) minmax(160px, 1.4fr) minmax(70px, 0.6fr) clamp(150px, 16vw, 220px) 44px;
+      align-items: center;
+      gap: clamp(12px, 1.8vw, 24px);
+      padding: clamp(20px, 2.5vh, 28px) clamp(16px, 2.4vw, 32px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      overflow: visible;
+    }
+
+    .compact-project-row:hover {
+      background: rgba(255, 255, 255, 0.035);
+      border-bottom-color: rgba(167, 139, 250, 0.35);
+    }
+
+    .compact-col-title {
+      min-width: 0;
+    }
+
+    .compact-title-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.2vw, 2.15rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-block;
+    }
+
+    .compact-project-row:hover .compact-title-text {
+      color: #FFFFFF;
+      background: linear-gradient(105deg, #FFFFFF 10%, #E4DCFD 50%, #C4B5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       transform: translateX(4px);
-      color: #fff;
+    }
+
+    .compact-col-discipline {
+      min-width: 0;
+    }
+
+    .compact-badge-disc {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+      color: var(--text-dim);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.25s ease;
+    }
+
+    .compact-project-row:hover .compact-badge-disc {
+      color: var(--text-body);
+    }
+
+    .compact-col-year {
+      min-width: 0;
+    }
+
+    .compact-year-text {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    /* Visual Image Preview in the Row (Always visible for rich aesthetic, scales on hover) */
+    .compact-row-preview {
+      grid-column: 4;
+      grid-row: 1;
+      width: 100%;
+      height: clamp(75px, 7vw, 105px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      opacity: 0.95;
+      transform: scale(1);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      background: var(--surface-elevated);
+      position: relative;
+    }
+
+    .compact-project-row:hover .compact-row-preview {
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 20px rgba(139, 92, 246, 0.35);
+      border: 1px solid rgba(167, 139, 250, 0.45);
+    }
+
+    .compact-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .compact-project-row:hover .compact-preview-img {
+      transform: scale(1.04);
+    }
+
+    .compact-col-action {
+      grid-column: 5;
+      grid-row: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .compact-arrow {
+      font-size: 1.4rem;
+      color: var(--violet-light);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+      display: inline-block;
+    }
+
+    .compact-project-row:hover .compact-arrow {
+      transform: translateX(6px);
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 860px) {
+      .compact-project-row {
+        grid-template-columns: 1fr auto auto;
+        gap: 8px 16px;
+        padding: 18px 14px;
+      }
+      .compact-col-discipline {
+        grid-column: 1;
+        font-size: 0.9rem;
+      }
+      .compact-col-year {
+        grid-column: 1;
+        font-size: 0.82rem;
+      }
+      .compact-row-preview {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        width: 80px;
+        height: 56px;
+        border-radius: 8px;
+        align-self: center;
+      }
+      .compact-col-action {
+        grid-column: 3;
+        grid-row: 1 / span 3;
+        align-self: center;
+      }
     }
 
     /* ============================================================
@@ -1331,298 +1506,400 @@
   <main class="shell">    <!-- ================= PAGE HERO ================= -->
     <header class="page-hero">
       <div class="hero-glow-backdrop" aria-hidden="true"></div>
-      <div class="hero-tagline">✦ UNA SELECCIÓN DE MI TRABAJO</div>
+      <div class="hero-tagline">Projects</div>
       <div class="hero-title-row">
-        <h1 class="hero-main-title">Ideas que <span class="grad-text">toman forma</span>.</h1>
+        <h1 class="hero-main-title">Idee che <span class="grad-text">prendono forma</span>.</h1>
       </div>
       <p class="hero-sub-text">
-        Proyectos de diseño gráfico, web y UI/UX donde combino creatividad, estructura y código para construir experiencias claras, visuales y funcionales.
+        UI/UX, web development e visual design.
       </p>
-      <div class="hero-explore-hint" id="heroIndicator">
-        Explora los proyectos <span class="explore-arrow">↓</span>
-      </div>
     </header>
 
     <!-- ================= INTERACTIVE CATEGORY FILTER BAR ================= -->
-    <div class="filters-bar" role="tablist" aria-label="Filtra proyectos por categoría">
-      <button class="filter-pill active" onclick="filterProjects('all', this)" id="filterBtnAll">Tutti i Progetti</button>
-      <button class="filter-pill" onclick="filterProjects('graphic', this)" id="filterBtnGraphic">Graphic Design</button>
-      <button class="filter-pill" onclick="filterProjects('blender', this)" id="filterBtnBlender">Blender 3D</button>
-      <button class="filter-pill" onclick="filterProjects('development', this)" id="filterBtnDev" style="display: none;">Desarrollo Web</button>
-      <button class="filter-pill" onclick="filterProjects('uiux', this)" id="filterBtnUiux" style="display: none;">UI/UX &amp; Web Design</button>
-      <button class="filter-pill" onclick="filterProjects('editorial', this)" id="filterBtnEditorial" style="display: none;">Editorial</button>
-      <button class="filter-pill" onclick="filterProjects('video', this)" id="filterBtnVideo" style="display: none;">Video</button>
+    <div class="filters-bar" role="tablist" aria-label="Filtra progetti per categoria">
+      <button class="filter-pill active" onclick="filterProjects('all', this)" id="filterBtnAll">Tutti</button>
+      <button class="filter-pill" onclick="filterProjects('uiux', this)" id="filterBtnUiux">UI/UX</button>
+      <button class="filter-pill" onclick="filterProjects('development', this)" id="filterBtnDev">Development</button>
+      <button class="filter-pill" onclick="filterProjects('graphic', this)" id="filterBtnGraphic">Graphic</button>
+      <button class="filter-pill" onclick="filterProjects('3d', this)" id="filterBtn3D">3D</button>
     </div>
 
-    <!-- ================= ASYMMETRICAL / FLOATING MASONRY PROJECTS GRID (OKC Media Style) ================= -->
-    <div class="floating-masonry-grid" id="projectsGrid">
+    <!-- ================= FEATURED PROJECTS GRID ================= -->
+    <div class="floating-masonry-grid" id="projectsGrid" style="display: none;">
       
       <!-- ================= COLUMN 1 ================= -->
       <div class="project-column">
 
-        <!-- Project Card: Eureka - Brand Identity -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('eureka')">
-          <div class="card-media-box" style="background: #0d1b2a;">
-            <img src="./img/eureka/hero.png" alt="Eureka — Brand Identity" class="card-cover-img" />
-          </div>
-
-          <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>BRAND IDENTITY · PROGETTO ACCADEMICO</span>
-                <span>2021</span>
-              </div>
-              <h2 class="card-project-title grad-text"><span class="card-title-main">Eureka</span><span class="card-title-sub">Brand Identity</span></h2>
-              <p class="card-project-desc">
-                Un’identità visiva per una piattaforma professionale pensata per connettere persone, talento e nuove opportunità.
-              </p>
-            </div>
-
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Brand Identity</span>
-                <span class="mini-pill">Logo Design</span>
-                <span class="mini-pill">Brand Guidelines</span>
-              </div>
-              <div class="card-cta-arrow">
-                <span>Anteprima Rapida</span>
-                <span>↗</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-<!-- Project Card: Apulia Promoting US - Brand Identity & Campagna -->
+        <!-- Project Card 1: Apulia Promoting US -->
         <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('apulia')">
           <div class="card-media-box" style="background: #1e2c26;">
             <img src="./img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US — Brand Identity & Campagna" class="card-cover-img" />
           </div>
-
           <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>BRAND IDENTITY · PROGETTO ACCADEMICO</span>
-                <span>2021</span>
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Apulia Promoting US</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">Brand Identity &amp; Campagna</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2021</span>
               </div>
-              <h2 class="card-project-title grad-text"><span class="card-title-main">Apulia Promoting US</span><span class="card-title-sub">Brand Identity & Campagna</span></h2>
-              <p class="card-project-desc">
-                Identità visiva e campagna territoriale "Percorrendo Boccadoro" per valorizzare l’oasi naturale di Boccadoro-Ariscianne e riscoprirne il patrimonio.
-              </p>
             </div>
-
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Brand Identity</span>
-                <span class="mini-pill">Advertising</span>
-                <span class="mini-pill">Editorial &amp; Visual</span>
-              </div>
-              <div class="card-cta-arrow">
-                <span>Anteprima Rapida</span>
-                <span>↗</span>
-              </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
             </div>
           </div>
         </article>
 
-        <!-- Project Card: Miami Mango — Brand Identity & Tavole da Surf -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('miamiMango')">
-          <div class="card-media-box" style="background: #34348E;">
-            <img src="./img/miami-mango/card-home.jpg" alt="Miami Mango — Brand Identity &amp; Tavole da Surf" class="card-cover-img" />
+        <!-- Project Card 2: Eureka -->
+        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('eureka')">
+          <div class="card-media-box" style="background: #0d1b2a;">
+            <img src="./img/eureka/hero.png" alt="Eureka — Brand Identity" class="card-cover-img" />
           </div>
-
           <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>BRAND IDENTITY · PROGETTO ACCADEMICO</span>
-                <span>2022</span>
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Eureka</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">Brand Identity</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2021</span>
               </div>
-              <h2 class="card-project-title grad-text"><span class="card-title-main">Miami Mango</span><span class="card-title-sub">Brand Identity · Tavole da Surf</span></h2>
-              <p class="card-project-desc">
-                Concept di brand per tavole da surf ad alte prestazioni. Monogramma geometrico M + M a silhouette di tavola, palette energica e video animazione.
-              </p>
             </div>
-
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Brand Identity</span>
-                <span class="mini-pill">Logo Design</span>
-                <span class="mini-pill">Surfwear</span>
-              </div>
-              <div class="card-cta-arrow">
-                <span>Anteprima Rapida</span>
-                <span>↗</span>
-              </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
             </div>
           </div>
         </article>
 
-        <!-- Project Card: Cozy Living Room -->
-        <article class="floating-project-card" data-cat="blender" onclick="openDrawer('cozyLivingRoom')">
-          <div class="card-media-box" style="background: #171120;">
-            <img src="./img/cozy-living-room/card.webp" alt="Cozy Living Room — 3D Interior Visualization" class="card-cover-img" />
+        <!-- Project Card 3 (3D): Honey + Coconut -->
+        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('honey')">
+          <div class="card-media-box" style="background: #130e1c;">
+            <img src="./img/honeyCoconut.png" alt="Honey + Coconut — 3D Packaging" class="card-cover-img" />
           </div>
-
           <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>3D MODELING · INTERIOR DESIGN</span>
-                <span>2024</span>
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Honey + Coconut</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">3D Packaging</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2024</span>
               </div>
-              <h2 class="card-project-title grad-text">Cozy Living Room</h2>
-              <p class="card-project-desc">
-                Una scena 3D realizzata in Blender, progettata come esercizio di modellazione, materiali, illuminazione e composizione dello spazio.
-              </p>
             </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
+            </div>
+          </div>
+        </article>
 
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Blender 3D</span>
-                <span class="mini-pill">Interior Visualization</span>
-                <span class="mini-pill">Lighting &amp; Shaders</span>
+        <!-- Project Card 4 (3D): Robot Character -->
+        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('robotCharacter')">
+          <div class="card-media-box" style="background: #0d0b18;">
+            <img src="./img/robot-character/card-cover.png" alt="Robot Character — Character Design & 3D" class="card-cover-img" />
+          </div>
+          <div class="card-details-box">
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Robot Character</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">Character Design &amp; 3D</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2024</span>
               </div>
-              <div class="card-cta-arrow">
-                <span>Vedi Progetto</span>
-                <span>↗</span>
-              </div>
+            </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
             </div>
           </div>
         </article>
 
       </div>
 
-      <!-- ================= COLUMN 2 (STAGGERED / FLOATING OFFSET) ================= -->
+      <!-- ================= COLUMN 2 (STAGGERED OFFSET) ================= -->
       <div class="project-column staggered-col">
 
-        <!-- Project Card 4: Honey + Coconut -->
-        <article class="floating-project-card" data-cat="blender" onclick="openDrawer('honey')">
-          <div class="card-media-box" style="background: #130e1c;">
-            <img src="./img/honeyCoconut.png" alt="Honey + Coconut 3D Packaging" class="card-cover-img" />
-          </div>
-
-          <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>PACKAGING 3D DESIGN · BLENDER</span>
-                <span>2024</span>
-              </div>
-              <h2 class="card-project-title grad-text">Honey + Coconut</h2>
-              <p class="card-project-desc">
-                Un progetto di modellazione 3D realizzato in Blender, in cui ho sviluppato packaging, materiali e visual per Honey + Coconut, con un’estetica fresca, delicata e contemporanea.
-              </p>
-            </div>
-
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Blender 3D</span>
-                <span class="mini-pill">3D Packaging</span>
-                <span class="mini-pill">Product Visualization</span>
-              </div>
-              <div class="card-cta-arrow">
-                <span>Anteprima Rapida</span>
-                <span>↗</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Card 5: The art of admiring art - Poster Design -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('hockney')">
-          <div class="card-media-box" style="background: #0c101d;">
-            <img src="./img/hockney/bus-shelter.png" alt="The art of admiring art — Poster Design David Hockney" class="card-cover-img" />
-          </div>
-
-          <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>POSTER DESIGN · DAVID HOCKNEY</span>
-                <span>2020</span>
-              </div>
-              <h2 class="card-project-title grad-text"><span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span></h2>
-              <p class="card-project-desc">
-                Una campagna visiva e una serie di poster ispirati alla filosofia dello "slow looking" di David Hockney, che invitano i visitatori a fermarsi, sedersi e osservare davvero l'arte al Musée d'Orsay.
-              </p>
-            </div>
-
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Photoshop</span>
-                <span class="mini-pill">Illustrator</span>
-                <span class="mini-pill">Poster Design</span>
-              </div>
-              <div class="card-cta-arrow">
-                <span>Anteprima Rapida</span>
-                <span>↗</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Card: Teatro Petruzzelli - Identità Visiva & Comunicazione -->
+        <!-- Project Card 5: Teatro Petruzzelli -->
         <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('petruzzelli')">
           <div class="card-media-box" style="background: #2a1114;">
-            <img src="./img/petruzzelli/mockup-instagram.jpg" alt="Teatro Petruzzelli — Campagna Social &amp; Identità Visiva" class="card-cover-img" />
+            <img src="./img/petruzzelli/mockup-instagram.jpg" alt="Teatro Petruzzelli — Identità Visiva" class="card-cover-img" />
           </div>
-
           <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>BRAND IDENTITY · PROGETTO ACCADEMICO</span>
-                <span>2020</span>
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Teatro Petruzzelli</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">Identità Visiva &amp; Comunicazione</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2020</span>
               </div>
-              <h2 class="card-project-title grad-text"><span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Identità Visiva & Comunicazione</span></h2>
-              <p class="card-project-desc">
-                Una proposta di identità visiva e comunicazione che esplora come avvicinare il pubblico al teatro, dalla scoperta di un evento al desiderio di viverlo.
-              </p>
             </div>
-
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Brand Identity</span>
-                <span class="mini-pill">Advertising</span>
-                <span class="mini-pill">Copywriting</span>
-              </div>
-              <div class="card-cta-arrow">
-                <span>Anteprima Rapida</span>
-                <span>↗</span>
-              </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
             </div>
           </div>
         </article>
 
-        <!-- Project Card: Teatro Petruzzelli - Logo Concept & Brand Manual -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('petruzzelliLogo')">
-          <div class="card-media-box" style="background: #1c090c;">
-            <img src="./img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli — Logo Concept &amp; Brand Manual" class="card-cover-img" />
+        <!-- Project Card 6: Miami Mango -->
+        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('miamiMango')">
+          <div class="card-media-box" style="background: #34348E;">
+            <img src="./img/miami-mango/card-home.jpg" alt="Miami Mango — Brand Identity" class="card-cover-img" />
           </div>
-
           <div class="card-details-box">
-            <div>
-              <div class="card-top-meta">
-                <span>LOGO DESIGN · BRAND IDENTITY</span>
-                <span>2020</span>
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Miami Mango</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">Brand Identity</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2022</span>
               </div>
-              <h2 class="card-project-title grad-text"><span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Logo Concept &amp; Brand Manual</span></h2>
-              <p class="card-project-desc">
-                Proposta individuale di logo design nata dall’osservazione dell’architettura della cupola. Tavola di costruzione su griglie polari, manuale d'uso e tipografia Sequel Sans.
-              </p>
             </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
+            </div>
+          </div>
+        </article>
 
-            <div class="card-footer-tags">
-              <div class="tech-pill-list">
-                <span class="mini-pill">Logo Design</span>
-                <span class="mini-pill">Brand Manual</span>
-                <span class="mini-pill">Sequel Sans</span>
+        <!-- Project Card 7 (3D): Cozy Living Room -->
+        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('cozyLivingRoom')">
+          <div class="card-media-box" style="background: #171120;">
+            <img src="./img/cozy-living-room/card.webp" alt="Cozy Living Room — 3D Interior Design" class="card-cover-img" />
+          </div>
+          <div class="card-details-box">
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Cozy Living Room</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">3D Interior Design</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2024</span>
               </div>
-              <div class="card-cta-arrow">
-                <span>Anteprima Rapida</span>
-                <span>↗</span>
+            </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 8 (3D): Robot -->
+        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('robot')">
+          <div class="card-media-box" style="background: #090d15;">
+            <img src="./img/robot/robot-cover.png" alt="Robot — 3D Modeling & Rendering" class="card-cover-img" />
+          </div>
+          <div class="card-details-box">
+            <div class="card-details-left">
+              <h2 class="card-project-title grad-text">Robot</h2>
+              <div class="card-meta-row">
+                <span class="card-meta-discipline">3D Modeling &amp; Lighting</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-year">2024</span>
               </div>
+            </div>
+            <div class="card-cta-icon" aria-hidden="true">
+              <span>↗</span>
             </div>
           </div>
         </article>
 
       </div>
 
+    </div>
+
+    <!-- ================= COMPACT VISUAL ARCHIVE LIST (Image Hover Preview) ================= -->
+    <div class="compact-projects-table" id="compactProjectsTable" style="display: block;">
+      
+      <!-- 1. Apulia Promoting US -->
+      <div class="compact-project-row" data-cat="graphic" data-project="apulia" onclick="openDrawer('apulia')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Apulia Promoting US</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">Brand Identity &amp; Campagna</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2021</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 2. Eureka -->
+      <div class="compact-project-row" data-cat="graphic" data-project="eureka" onclick="openDrawer('eureka')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Eureka</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">Brand Identity</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2021</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/eureka/hero.png" alt="Eureka" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 3. Teatro Petruzzelli -->
+      <div class="compact-project-row" data-cat="graphic" data-project="petruzzelli" onclick="openDrawer('petruzzelli')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Teatro Petruzzelli</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">Identità Visiva &amp; Comunicazione</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2020</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/petruzzelli/mockup-instagram.jpg" alt="Teatro Petruzzelli" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 4. Miami Mango -->
+      <div class="compact-project-row" data-cat="graphic" data-project="miamiMango" onclick="openDrawer('miamiMango')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Miami Mango</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">Brand Identity</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2022</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/miami-mango/card-home.jpg" alt="Miami Mango" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 5. Teatro Petruzzelli — Logo (Atrás / Archivo) -->
+      <div class="compact-project-row" data-cat="graphic" data-project="petruzzelliLogo" onclick="openDrawer('petruzzelliLogo')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Teatro Petruzzelli — Logo</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">Logo Design &amp; Brand Manual</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2020</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli Logo" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 6. The art of admiring art (Atrás / Archivo) -->
+      <div class="compact-project-row" data-cat="graphic" data-project="hockney" onclick="openDrawer('hockney')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">The art of admiring art</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">Poster Design</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2020</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/hockney/hero.jpg" alt="The art of admiring art" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 7. Honey + Coconut -->
+      <div class="compact-project-row" data-cat="3d" data-project="honey" onclick="openDrawer('honey')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Honey + Coconut</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">3D Packaging</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2024</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/honeyCoconut.png" alt="Honey + Coconut" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 8. Robot Character -->
+      <div class="compact-project-row" data-cat="3d" data-project="robotCharacter" onclick="openDrawer('robotCharacter')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Robot Character</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">Character Design &amp; 3D</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2024</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/robot-character/card-cover.png" alt="Robot Character" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 9. Cozy Living Room -->
+      <div class="compact-project-row" data-cat="3d" data-project="cozyLivingRoom" onclick="openDrawer('cozyLivingRoom')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Cozy Living Room</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">3D Interior Design</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2024</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/cozy-living-room/card.webp" alt="Cozy Living Room" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 10. Robot -->
+      <div class="compact-project-row" data-cat="3d" data-project="robot" onclick="openDrawer('robot')">
+        <div class="compact-col-title">
+          <span class="compact-title-text">Robot</span>
+        </div>
+        <div class="compact-col-discipline">
+          <span class="compact-badge-disc">3D Modeling &amp; Lighting</span>
+        </div>
+        <div class="compact-col-year">
+          <span class="compact-year-text">2024</span>
+        </div>
+        <div class="compact-col-action">
+          <span class="compact-arrow">→</span>
+        </div>
+        <div class="compact-row-preview" aria-hidden="true">
+          <img src="./img/robot/robot-cover.png" alt="Robot" class="compact-preview-img" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= VIEW TOGGLE BUTTON ================= -->
+    <div class="view-toggle-container" id="viewToggleContainer">
+      <button class="btn-toggle-view is-compact" id="btnToggleCompact" onclick="toggleCompactView()" aria-label="Cambia visualizzazione">
+        <span class="btn-toggle-text" id="btnToggleText">Visualizza a schede</span>
+        <span class="btn-toggle-icon" id="btnToggleIcon">↑</span>
+      </button>
     </div>
 
     <!-- ================= EMPTY STATE CONTAINER (For categories with upcoming projects like Video) ================= -->
@@ -1716,19 +1993,18 @@
           ctaTitle: "Hai in mente una nuova visione digitale?",
           ctaSub: "Dalla definizione della strategia visiva alla scrittura del codice front-end per la produzione: parliamo di come trasformare la tua idea in un'esperienza d'impatto.",
           ctaBtn: "Parliamo del tuo Progetto +",
-          heroTagline: "✦ UNA SELEZIONE DEL MIO LAVORO",
+          heroTagline: "Projects",
           heroTitle: "Idee che <span class=\"grad-text\">prendono forma</span>.",
-          heroSub: "Progetti di graphic design, web e UI/UX in cui unisco creatività, struttura e codice per costruire esperienze chiare, visive e funzionali.",
-          heroIndicator: "Esplora i progetti ↓",
-          filterAll: "Tutti i Progetti",
-          filterDev: "Sviluppo Web",
-          filterUiux: "UI/UX & Web Design",
-          filterGraphic: "Graphic Design",
-          filterBlender: "Blender 3D",
-          filterEditorial: "Editorial",
-          filterVideo: "Video",
-          emptyMsg: "Progetti video e motion in arrivo o disponibili su richiesta privata.",
-          emptyBtn: "Richiedi Progetti Video ↗"
+          heroSub: "UI/UX, web development e visual design.",
+          filterAll: "Tutti",
+          filterUiux: "UI/UX",
+          filterDev: "Development",
+          filterGraphic: "Graphic",
+          filter3D: "3D",
+          btnSeeOther: "Vedi altri progetti (elenco)",
+          btnBackToGrid: "Visualizza a schede",
+          emptyMsg: "Progetti in questa categoria in arrivo o disponibili su richiesta privata.",
+          emptyBtn: "Richiedi Informazioni ↗"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -1776,6 +2052,26 @@
           body: "Cozy Living Room è un esercizio di interior visualization sviluppato interamente in Blender. L’obiettivo era creare un ambiente compatto ma riconoscibile, giocando con forme semplici, arredi, materiali e una palette cromatica molto caratterizzata.",
           bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
           url: "cozy-living-room.html"
+        },
+        robot: {
+          title: "Robot",
+          category: "3D MODELING · BLENDER · 2024",
+          lead: "Un progetto 3D realizzato in Blender come esercizio di modellazione, materiali, illuminazione e rendering.",
+          role: "2024 · Progetto Personale 3D",
+          stack: "Blender, 3D Modeling, Materials, Lighting, Rendering",
+          body: "Il progetto nasce dalla combinazione di forme geometriche semplici e componenti meccanici. L’obiettivo era costruire un robot visivamente riconoscibile, mantenendo una struttura chiara e coerente, con superfici lucide e materiali metallici su una palette basata su blu, giallo e nero.",
+          bg: "url('./img/robot/robot-cover.png') center/cover no-repeat",
+          url: "robot.html"
+        },
+        robotCharacter: {
+          title: "Robot Character",
+          category: "CHARACTER DESIGN · 3D MODELING · BLENDER",
+          lead: "Un personaggio originale progettato da zero e sviluppato in Blender, dallo sketch iniziale alla modellazione, ai materiali e all’ambientazione finale.",
+          role: "2024 · Character Design & 3D Modeling",
+          stack: "Blender, Character Design, 3D Modeling, Materials, Environment",
+          body: "Il progetto parte dal disegno di un personaggio robotico originale, definito attraverso uno sketch. Dallo sketch sono state sviluppate forme, proporzioni e dettagli, trasformando progressivamente il personaggio in un modello 3D completo ambientato in una scena giocosa e luminosa.",
+          bg: "url('./img/robot-character/card-cover.png') center/cover no-repeat",
+          url: "robot-character.html"
         },
         hockney: {
           title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
@@ -1860,19 +2156,18 @@
           ctaTitle: "¿Tienes en mente una nueva visión digital?",
           ctaSub: "Desde la estrategia visual hasta el código front-end para producción: hablemos de cómo transformar tu idea en una experiencia memorable.",
           ctaBtn: "Hablemos de tu Proyecto +",
-          heroTagline: "✦ UNA SELECCIÓN DE MI TRABAJO",
-          heroTitle: "Ideas que <span class=\"grad-text\">toman forma</span>.",
-          heroSub: "Proyectos de diseño gráfico, web y UI/UX donde combino creatividad, estructura y código para construir experiencias claras, visuales y funcionales.",
-          heroIndicator: "Explora los proyectos ↓",
-          filterAll: "Todos los Proyectos",
-          filterDev: "Desarrollo Web",
-          filterUiux: "UI/UX & Web Design",
-          filterGraphic: "Graphic Design",
-          filterBlender: "Blender 3D",
-          filterEditorial: "Editorial",
-          filterVideo: "Video",
-          emptyMsg: "Proyectos de video y motion disponibles bajo petición privada.",
-          emptyBtn: "Solicitar Proyectos de Video ↗"
+          heroTagline: "Projects",
+          heroTitle: "Idee che <span class=\"grad-text\">prendono forma</span>.",
+          heroSub: "UI/UX, web development e visual design.",
+          filterAll: "Todos",
+          filterUiux: "UI/UX",
+          filterDev: "Development",
+          filterGraphic: "Graphic",
+          filter3D: "3D",
+          btnSeeOther: "Ver otros proyectos (lista)",
+          btnBackToGrid: "Visualizar en tarjetas",
+          emptyMsg: "Proyectos en esta categoría en preparación o disponibles bajo petición privada.",
+          emptyBtn: "Solicitar Información ↗"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -1920,6 +2215,26 @@
           body: "Cozy Living Room es un ejercicio de visualización de interiores desarrollado enteramente en Blender. El objetivo fue crear un ambiente compacto pero reconocible, jugando con formas simples, mobiliario, materiales y una paleta cromática muy marcada.",
           bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
           url: "cozy-living-room.html"
+        },
+        robot: {
+          title: "Robot",
+          category: "3D MODELING · BLENDER · 2024",
+          lead: "Un proyecto 3D realizado en Blender como ejercicio de modelado, materiales, iluminación y renderizado.",
+          role: "2024 · Proyecto Personal 3D",
+          stack: "Blender, 3D Modeling, Materials, Lighting, Rendering",
+          body: "El proyecto nace de la combinación de formas geométricas simples y componentes mecánicos. El objetivo era construir un robot reconocible visualmente, manteniendo una estructura clara y coherente con una paleta basada en azul, amarillo y negro.",
+          bg: "url('./img/robot/robot-cover.png') center/cover no-repeat",
+          url: "robot.html"
+        },
+        robotCharacter: {
+          title: "Robot Character",
+          category: "DISEÑO DE PERSONAJE · MODELADO 3D · BLENDER",
+          lead: "Un personaje original diseñado desde cero y desarrollado en Blender, desde el boceto inicial hasta la escena final.",
+          role: "2024 · Diseño de Personaje & Modelado 3D",
+          stack: "Blender, Character Design, Modelado 3D, Materiales, Ambientación",
+          body: "El proyecto parte del diseño de un personaje robótico original, definido mediante un boceto. A partir del boceto se desarrollaron formas, proporciones y detalles, transformando progressivamente el personaje en un modelo 3D completo dentro de una escena lúdica y luminosa.",
+          bg: "url('./img/robot-character/card-cover.png') center/cover no-repeat",
+          url: "robot-character.html"
         },
         hockney: {
           title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
@@ -2004,19 +2319,18 @@
           ctaTitle: "Have a new digital vision in mind?",
           ctaSub: "From visual strategy to production front-end code: let's discuss turning your idea into a high-impact experience.",
           ctaBtn: "Let's Talk About Your Project +",
-          heroTagline: "✦ A SELECTION OF MY WORK",
+          heroTagline: "Projects",
           heroTitle: "Ideas taking <span class=\"grad-text\">shape</span>.",
-          heroSub: "Graphic design, web, and UI/UX projects where I blend creativity, structure, and code to craft clear, visual, and functional experiences.",
-          heroIndicator: "Explore the projects ↓",
-          filterAll: "All Projects",
-          filterDev: "Web Development",
-          filterUiux: "UI/UX & Web Design",
-          filterGraphic: "Graphic Design",
-          filterBlender: "Blender 3D",
-          filterEditorial: "Editorial",
-          filterVideo: "Video",
-          emptyMsg: "Video and motion design projects available upon private request.",
-          emptyBtn: "Request Video Projects ↗"
+          heroSub: "UI/UX, web development, and visual design.",
+          filterAll: "All",
+          filterUiux: "UI/UX",
+          filterDev: "Development",
+          filterGraphic: "Graphic",
+          filter3D: "3D",
+          btnSeeOther: "View other projects (list)",
+          btnBackToGrid: "View as cards",
+          emptyMsg: "Projects in this category coming soon or available upon private request.",
+          emptyBtn: "Request Information ↗"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -2064,6 +2378,26 @@
           body: "Cozy Living Room is an interior visualization study created entirely in Blender. The goal was to create a compact yet recognizable space, playing with simple shapes, furnishings, materials, and a strongly defined color palette.",
           bg: "url('./img/cozy-living-room/card.webp') center/cover no-repeat",
           url: "cozy-living-room.html"
+        },
+        robot: {
+          title: "Robot",
+          category: "3D MODELING · BLENDER · 2024",
+          lead: "A 3D project created in Blender as an exercise in modeling, materials, lighting, and rendering.",
+          role: "2024 · Personal 3D Project",
+          stack: "Blender, 3D Modeling, Materials, Lighting, Rendering",
+          body: "The project originates from combining simple geometric shapes and mechanical components. The goal was to build a visually recognizable robot while maintaining a clear and coherent structure, driven by a vibrant palette of blue, yellow, and black.",
+          bg: "url('./img/robot/robot-cover.png') center/cover no-repeat",
+          url: "robot.html"
+        },
+        robotCharacter: {
+          title: "Robot Character",
+          category: "CHARACTER DESIGN · 3D MODELING · BLENDER",
+          lead: "An original character designed from scratch and developed in Blender, from the initial sketch to the final scene.",
+          role: "2024 · Character Design & 3D Modeling",
+          stack: "Blender, Character Design, 3D Modeling, Materials, Environment",
+          body: "The project starts with the design of an original robot character defined through a sketch. Shapes, proportions, and details were developed from the sketch, progressively transforming the character into a complete 3D model set within a playful and colorful environment.",
+          bg: "url('./img/robot-character/card-cover.png') center/cover no-repeat",
+          url: "robot-character.html"
         },
         hockney: {
           title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
@@ -2171,7 +2505,6 @@
         const heroTag = document.querySelector('.hero-tagline');
         const heroTitle = document.querySelector('.hero-main-title');
         const heroSub = document.querySelector('.hero-sub-text');
-        const heroIndicator = document.getElementById('heroIndicator');
         const bTop = document.getElementById('footerBackToTopText');
 
         if (pLabel) pLabel.textContent = labels.preview;
@@ -2187,44 +2520,104 @@
         if (heroTag && labels.heroTagline) heroTag.textContent = labels.heroTagline;
         if (heroTitle && labels.heroTitle) heroTitle.innerHTML = labels.heroTitle;
         if (heroSub && labels.heroSub) heroSub.innerHTML = labels.heroSub;
-        if (heroIndicator && labels.heroIndicator) {
-          heroIndicator.innerHTML = `${labels.heroIndicator.replace('↓', '').trim()} <span class="explore-arrow">↓</span>`;
-        }
 
         // Update category filters
         const fAll = document.getElementById('filterBtnAll');
-        const fDev = document.getElementById('filterBtnDev');
         const fUiux = document.getElementById('filterBtnUiux');
+        const fDev = document.getElementById('filterBtnDev');
         const fGraphic = document.getElementById('filterBtnGraphic');
-        const fBlender = document.getElementById('filterBtnBlender');
-        const fEdit = document.getElementById('filterBtnEditorial');
-        const fVideo = document.getElementById('filterBtnVideo');
+        const f3D = document.getElementById('filterBtn3D');
 
         if (fAll && labels.filterAll) fAll.textContent = labels.filterAll;
-        if (fDev && labels.filterDev) fDev.textContent = labels.filterDev;
         if (fUiux && labels.filterUiux) fUiux.textContent = labels.filterUiux;
+        if (fDev && labels.filterDev) fDev.textContent = labels.filterDev;
         if (fGraphic && labels.filterGraphic) fGraphic.textContent = labels.filterGraphic;
-        if (fBlender && labels.filterBlender) fBlender.textContent = labels.filterBlender;
-        if (fEdit && labels.filterEditorial) fEdit.textContent = labels.filterEditorial;
-        if (fVideo && labels.filterVideo) fVideo.textContent = labels.filterVideo;
+        if (f3D && labels.filter3D) f3D.textContent = labels.filter3D;
+
+        // Update toggle button
+        const toggleBtnText = document.getElementById('btnToggleText');
+        if (toggleBtnText) {
+          toggleBtnText.textContent = isCompactView ? (labels.btnBackToGrid || "Visualizza a schede") : (labels.btnSeeOther || "Vedi altri progetti (elenco)");
+        }
 
         const emptyText = document.getElementById('emptyMsgText');
         const emptyBtn = document.getElementById('emptyMsgBtn');
         if (emptyText && labels.emptyMsg) emptyText.textContent = labels.emptyMsg;
         if (emptyBtn && labels.emptyBtn) emptyBtn.textContent = labels.emptyBtn;
 
-        // Update cards dynamically on the grid
-        ['agribox', 'footsy', 'mininno', 'honey', 'cozyLivingRoom', 'hockney', 'eureka', 'apulia', 'petruzzelli', 'petruzzelliLogo', 'miamiMango'].forEach(key => {
-          const cardData = PROJECTS_I18N[lang] && PROJECTS_I18N[lang][key];
-          if (!cardData) return;
+        // Update cards dynamically on the grid & compact rows
+        const disciplinesMap = {
+          it: {
+            miamiMango: "Brand Identity",
+            eureka: "Brand Identity",
+            honey: "3D Packaging",
+            cozyLivingRoom: "3D Interior Design",
+            robotCharacter: "Character Design & 3D",
+            robot: "3D Modeling & Lighting",
+            apulia: "Brand Identity & Campagna",
+            petruzzelli: "Identità Visiva & Comunicazione",
+            petruzzelliLogo: "Logo Design & Brand Manual",
+            hockney: "Poster Design"
+          },
+          es: {
+            miamiMango: "Identidad de Marca",
+            eureka: "Identidad de Marca",
+            honey: "Packaging 3D",
+            cozyLivingRoom: "Diseño de Interiores 3D",
+            robotCharacter: "Diseño de Personaje & 3D",
+            robot: "Modelado 3D & Iluminación",
+            apulia: "Identidad de Marca & Campaña",
+            petruzzelli: "Identidad Visual & Comunicación",
+            petruzzelliLogo: "Diseño de Logo & Manual",
+            hockney: "Diseño de Póster"
+          },
+          en: {
+            miamiMango: "Brand Identity",
+            eureka: "Brand Identity",
+            honey: "3D Packaging",
+            cozyLivingRoom: "3D Interior Design",
+            robotCharacter: "Character Design & 3D",
+            robot: "3D Modeling & Lighting",
+            apulia: "Brand Identity & Campaign",
+            petruzzelli: "Visual Identity & Communication",
+            petruzzelliLogo: "Logo Design & Brand Manual",
+            hockney: "Poster Design"
+          }
+        };
+
+        const titlesMap = {
+          miamiMango: "Miami Mango",
+          eureka: "Eureka",
+          honey: "Honey + Coconut",
+          cozyLivingRoom: "Cozy Living Room",
+          robotCharacter: "Robot Character",
+          robot: "Robot",
+          apulia: "Apulia Promoting US",
+          petruzzelli: "Teatro Petruzzelli",
+          petruzzelliLogo: "Teatro Petruzzelli — Logo",
+          hockney: "The art of admiring art"
+        };
+
+        ['miamiMango', 'eureka', 'honey', 'cozyLivingRoom', 'robotCharacter', 'robot', 'apulia', 'petruzzelli', 'petruzzelliLogo', 'hockney'].forEach(key => {
+          const disc = (disciplinesMap[lang] && disciplinesMap[lang][key]) || disciplinesMap.it[key];
+          const cleanT = titlesMap[key];
+
+          // Grid card
           const card = document.querySelector(`.floating-project-card[onclick*="'${key}'"]`);
           if (card) {
             const title = card.querySelector('.card-project-title');
-            const desc = card.querySelector('.card-project-desc');
-            const topMeta = card.querySelector('.card-top-meta span:first-child');
-            if (title) title.innerHTML = cardData.title;
-            if (desc) desc.textContent = cardData.lead;
-            if (topMeta) topMeta.textContent = cardData.category;
+            const discipline = card.querySelector('.card-meta-discipline');
+            if (title) title.textContent = cleanT;
+            if (discipline) discipline.textContent = disc;
+          }
+
+          // Compact row
+          const row = document.querySelector(`.compact-project-row[data-project="${key}"]`);
+          if (row) {
+            const rowTitle = row.querySelector('.compact-title-text');
+            const rowDisc = row.querySelector('.compact-badge-disc');
+            if (rowTitle) rowTitle.textContent = cleanT;
+            if (rowDisc) rowDisc.textContent = disc;
           }
         });
       }
@@ -2370,27 +2763,122 @@
       }
     });
 
-    /* 3. FILTER PROJECTS BY CATEGORY */
-    function filterProjects(cat, btn) {
-      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
+    /* 3. VIEW TOGGLE (GRID / COMPACT ARCHIVE) */
+    const defaultCategoryViews = {
+      all: true,          // lista
+      uiux: false,        // card
+      development: false, // card
+      graphic: false,     // card
+      '3d': true          // lista
+    };
+
+    let isCompactView = true; // "Todos en projects deja por defecto en lista"
+    let currentFilterCat = 'all';
+
+    function applyView(compact, shouldScroll = false) {
+      isCompactView = compact;
+      const grid = document.getElementById('projectsGrid');
+      const compactTable = document.getElementById('compactProjectsTable');
+      const toggleBtnContainer = document.getElementById('viewToggleContainer');
+      const toggleBtn = document.getElementById('btnToggleCompact');
+      const toggleText = document.getElementById('btnToggleText');
+      const toggleIcon = document.getElementById('btnToggleIcon');
+
+      const lang = currentLang || 'it';
+      const labels = {
+        it: { more: "Vedi altri progetti (elenco)", back: "Visualizza a schede" },
+        es: { more: "Ver otros proyectos (lista)", back: "Visualizar en tarjetas" },
+        en: { more: "View other projects (list)", back: "View as cards" }
+      };
+      const curLabels = labels[lang] || labels.it;
+
+      if (isCompactView) {
+        if (grid) grid.style.display = 'none';
+        if (compactTable) {
+          compactTable.style.display = 'block';
+          compactTable.style.opacity = '1';
+          if (toggleBtnContainer) compactTable.after(toggleBtnContainer);
+        }
+        if (toggleText) toggleText.textContent = curLabels.back;
+        if (toggleIcon) toggleIcon.textContent = "↑";
+        if (toggleBtn) toggleBtn.classList.add('is-compact');
+
+        if (shouldScroll && compactTable) {
+          compactTable.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        if (compactTable) compactTable.style.display = 'none';
+        if (grid) {
+          grid.style.display = 'grid';
+          grid.style.opacity = '1';
+          if (toggleBtnContainer) grid.after(toggleBtnContainer);
+        }
+        if (toggleText) toggleText.textContent = curLabels.more;
+        if (toggleIcon) toggleIcon.textContent = "↓";
+        if (toggleBtn) toggleBtn.classList.remove('is-compact');
+
+        if (shouldScroll && grid) {
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    function toggleCompactView() {
+      applyView(!isCompactView, true);
+      // Re-apply current category filter to the active view while preserving user's manual toggle
+      const activeFilterBtn = document.querySelector('.filter-pill.active');
+      filterProjects(currentFilterCat, activeFilterBtn || document.getElementById('filterBtnAll'), true);
+    }
+
+    /* 4. FILTER PROJECTS BY CATEGORY */
+    function filterProjects(cat, btn, preserveView = false) {
+      if (btn) {
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      currentFilterCat = cat;
+
+      // Apply default view mode for this category if not preserving manual toggle
+      if (!preserveView) {
+        const targetView = (defaultCategoryViews[cat] !== undefined) ? defaultCategoryViews[cat] : false;
+        applyView(targetView, false);
+      }
 
       const cards = document.querySelectorAll('.floating-project-card');
-      let visibleCount = 0;
+      let visibleCards = 0;
       cards.forEach(card => {
         const itemCats = (card.getAttribute('data-cat') || '').split(' ');
         if (cat === 'all' || itemCats.includes(cat)) {
           card.style.display = 'flex';
           card.style.opacity = '1';
-          visibleCount++;
+          visibleCards++;
         } else {
           card.style.display = 'none';
         }
       });
 
+      const rows = document.querySelectorAll('.compact-project-row');
+      let visibleRows = 0;
+      rows.forEach(row => {
+        const itemCats = (row.getAttribute('data-cat') || '').split(' ');
+        if (cat === 'all' || itemCats.includes(cat)) {
+          row.style.display = 'grid';
+          row.style.opacity = '1';
+          visibleRows++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      const activeVisibleCount = isCompactView ? visibleRows : visibleCards;
+      const toggleBtnContainer = document.getElementById('viewToggleContainer');
+      if (toggleBtnContainer) {
+        toggleBtnContainer.style.display = activeVisibleCount === 0 ? 'none' : 'flex';
+      }
+
       const emptyMsg = document.getElementById('filterEmptyState');
       if (emptyMsg) {
-        if (visibleCount === 0) {
+        if (activeVisibleCount === 0) {
           emptyMsg.style.display = 'block';
           const emptyText = document.getElementById('emptyMsgText');
           const emptyBtn = document.getElementById('emptyMsgBtn');
@@ -2399,22 +2887,16 @@
               it: {
                 development: { text: "Progetti di sviluppo web in arrivo o disponibili su richiesta privata.", btn: "Richiedi Informazioni ↗" },
                 uiux: { text: "Case study UI/UX & Web Design in arrivo o consultabili su richiesta privata.", btn: "Richiedi Case Study UI/UX ↗" },
-                editorial: { text: "Progetti editoriali in arrivo o disponibili su richiesta privata.", btn: "Richiedi Informazioni ↗" },
-                video: { text: "Progetti video e motion in arrivo o disponibili su richiesta privata.", btn: "Richiedi Progetti Video ↗" },
                 default: { text: "Progetti in questa categoria in preparazione o disponibili su richiesta privata.", btn: "Contattami ↗" }
               },
               es: {
                 development: { text: "Proyectos de desarrollo web en preparación o disponibles bajo petición privada.", btn: "Solicitar Información ↗" },
                 uiux: { text: "Case studies de UI/UX & Web Design en preparación o disponibles bajo petición privada.", btn: "Solicitar Case Studies UI/UX ↗" },
-                editorial: { text: "Proyectos editoriales en preparación o disponibles bajo petición privada.", btn: "Solicitar Información ↗" },
-                video: { text: "Proyectos de video y motion disponibles bajo petición privada.", btn: "Solicitar Proyectos de Video ↗" },
                 default: { text: "Proyectos en esta categoría en preparación o disponibles bajo petición privada.", btn: "Contáctame ↗" }
               },
               en: {
                 development: { text: "Web development projects in progress or available upon private request.", btn: "Request Information ↗" },
                 uiux: { text: "UI/UX & Web Design case studies in progress or available upon private request.", btn: "Request UI/UX Projects ↗" },
-                editorial: { text: "Editorial projects in progress or available upon private request.", btn: "Request Information ↗" },
-                video: { text: "Video and motion design projects available upon private request.", btn: "Request Video Projects ↗" },
                 default: { text: "Projects in this category coming soon or available upon private request.", btn: "Contact Me ↗" }
               }
             };
@@ -2438,7 +2920,7 @@
       }
     });
 
-    // Initialize Language from localStorage
+    // Initialize Language & default category view from localStorage
     document.addEventListener('DOMContentLoaded', () => {
       try {
         const savedLang = localStorage.getItem('bypat_lang');
@@ -2446,6 +2928,9 @@
           setLanguage(savedLang);
         }
       } catch (e) {}
+
+      // Initial filter: 'all' defaults to lista
+      filterProjects('all', document.getElementById('filterBtnAll'));
     });
   </script>
 </body>

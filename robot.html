@@ -1,0 +1,1856 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">Robot — 3D Modeling & Rendering | Bypatdesigner</title>
+  <meta name="description" id="pageMetaDesc" content="Robot — un progetto 3D realizzato in Blender come esercizio di modellazione, materiali, illuminazione e rendering di Patricia Garcia." />
+  <link rel="icon" type="image/png" href="./img/logo.png" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
+  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
+  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+
+  <style>
+    /* ============================================================
+       LOCAL WEBFONTS — CABINET GROTESK & SATOSHI
+       ============================================================ */
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
+      font-weight: 800;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cabinet Grotesk';
+      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff') format('woff');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+           url('./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+
+    /* ============================================================
+       DESIGN TOKENS — DARK PALETTE WITH WHITE, BLUE & YELLOW
+       ============================================================ */
+    :root {
+      --canvas: #090D15;
+      --canvas-subtle: #0E1524;
+      --surface: #121A2D;
+      --surface-elevated: #18233C;
+      --surface-glass: rgba(18, 26, 45, 0.85);
+
+      /* High-Contrast White & Off-White Typography */
+      --ink: #FFFFFF;
+      --text-main: #F1F5F9;
+      --text-head: #FFFFFF;
+      --text-body: #CBD5E1;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+
+      /* Vibrant Palette (Cobalt Blue & Golden Yellow) */
+      --blue-primary: #3B82F6;
+      --blue-deep: #2563EB;
+      --blue-tint: rgba(59, 130, 246, 0.12);
+      --blue-tint-hover: rgba(59, 130, 246, 0.22);
+      --blue-glow: rgba(59, 130, 246, 0.35);
+      --line-blue: rgba(59, 130, 246, 0.32);
+
+      --yellow-primary: #FACC15;
+      --yellow-gold: #EAB308;
+      --yellow-tint: rgba(250, 204, 21, 0.12);
+      --yellow-tint-hover: rgba(250, 204, 21, 0.22);
+      --yellow-glow: rgba(250, 204, 21, 0.3);
+      --line-yellow: rgba(250, 204, 21, 0.32);
+
+      /* Structural Lines */
+      --line: rgba(255, 255, 255, 0.08);
+      --line-light: rgba(255, 255, 255, 0.14);
+
+      /* Shadows with subtle Blue/Yellow depth */
+      --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(59, 130, 246, 0.12);
+      --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 35px rgba(59, 130, 246, 0.18);
+      --shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.65), 0 0 45px rgba(250, 204, 21, 0.18);
+
+      /* Radii */
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --radius-full: 9999px;
+
+      /* Fonts */
+      --font-display: "Cabinet Grotesk", "CabinetGrotesk-Extrabold", "CabinetGrotesk-Bold", system-ui, -apple-system, sans-serif;
+      --font-body: "Satoshi", "Satoshi-Regular", "Satoshi-Medium", system-ui, -apple-system, sans-serif;
+      --font-mono: "Satoshi", "Satoshi-Medium", monospace;
+
+      --pad: clamp(20px, 4vw, 56px);
+      --max: 1360px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--canvas);
+      color-scheme: dark;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    ::selection {
+      background: rgba(59, 130, 246, 0.35);
+      color: #FFFFFF;
+    }
+
+    h1, h2, h3, h4, .display-font {
+      font-family: var(--font-display);
+      color: var(--ink);
+    }
+
+    /* Ambient Spotlight & Mesh Grid */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ambient-spotlight {
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, rgba(250, 204, 21, 0.08) 38%, transparent 70%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 20%;
+      transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left, top;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 30%, #000 65%, transparent 100%);
+      opacity: 0.85;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      background: transparent;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      z-index: 1;
+    }
+
+    .shell {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* ================= TOP NAVIGATION ================= */
+    .top-nav {
+      height: 88px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-logo-link:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-logo {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-actions {
+      justify-self: end;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text-head);
+      background: var(--surface-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-sm);
+      justify-self: start;
+      width: fit-content;
+      max-width: fit-content;
+      white-space: nowrap;
+    }
+
+    .pill-link:hover {
+      border-color: var(--blue-primary);
+      background: var(--surface-elevated);
+      color: var(--blue-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
+    }
+
+    /* Glassmorphism Language Selector */
+    .lang-pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-full);
+      padding: 3px 4px;
+      gap: 2px;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lang-btn:hover {
+      color: var(--yellow-primary);
+      background: var(--yellow-tint);
+    }
+
+    .lang-btn.active {
+      background: var(--blue-primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.45);
+    }
+
+    /* Mobile Dropdown Language Wrapper */
+    .lang-dropdown-wrapper {
+      display: none;
+      position: relative;
+    }
+
+    .lang-dropdown-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      background: var(--surface-glass);
+      border: 1px solid var(--line-light);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lang-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 6px;
+      min-width: 140px;
+      z-index: 100;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .lang-dropdown-wrapper.open .lang-dropdown-menu {
+      display: flex;
+    }
+
+    .lang-dropdown-item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 8px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: left;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lang-dropdown-item:hover,
+    .lang-dropdown-item.active {
+      background: var(--blue-tint);
+      color: var(--blue-primary);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      padding: clamp(64px, 8.5vw, 110px) 0 clamp(36px, 5vw, 64px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: clamp(36px, 6vw, 96px);
+      align-items: flex-end;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--yellow-primary);
+      margin-bottom: 22px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--yellow-primary);
+    }
+
+    h1.hero-title {
+      font-size: clamp(3.6rem, 8.2vw, 7.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      color: var(--ink);
+      font-weight: 800;
+      max-width: 950px;
+      text-wrap: balance;
+    }
+
+    .hero-title-highlight {
+      display: inline-block;
+      color: var(--blue-primary);
+    }
+
+    .hero-side {
+      padding-bottom: 0.6rem;
+    }
+
+    .hero-side p {
+      font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 520px;
+      font-weight: 400;
+    }
+
+    .hero-quick-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 26px;
+    }
+
+    .hero-quick-index a {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1.5px solid var(--line);
+      padding-bottom: 3px;
+      transition: all 0.2s ease;
+    }
+
+    .hero-quick-index a:hover {
+      color: var(--yellow-primary);
+      border-color: var(--yellow-primary);
+      transform: translateY(-1px);
+    }
+
+    /* ================= CHAPTER / SECTION STYLING ================= */
+    .chapter {
+      padding: clamp(60px, 8vw, 100px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .chapter-head {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      align-items: baseline;
+      margin-bottom: clamp(32px, 5vw, 56px);
+    }
+
+    .chapter-no {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chapter-no::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--yellow-primary);
+      box-shadow: 0 0 10px var(--yellow-primary);
+    }
+
+    h2.chapter-title {
+      font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-weight: 800;
+      max-width: 950px;
+      text-wrap: balance;
+    }
+
+    .accent-blue {
+      color: var(--blue-primary);
+    }
+
+    .accent-yellow {
+      color: var(--yellow-primary);
+    }
+
+    /* ================= 01 CONCEPT & META STRIP ================= */
+    .concept-statement-box {
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto clamp(36px, 5vw, 56px) auto;
+      padding: 0 12px;
+    }
+
+    .copy-lead,
+    .concept-lead-text {
+      font-size: clamp(1.85rem, 3.4vw, 3rem);
+      line-height: 1.28;
+      letter-spacing: -0.025em;
+      color: var(--text-head);
+      max-width: 960px;
+      margin: 0 auto;
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-wrap: balance;
+    }
+
+    .copy-body,
+    .concept-body-text {
+      margin: clamp(16px, 2.2vw, 22px) auto 0 auto;
+      max-width: 760px;
+      color: var(--text-muted);
+      font-size: clamp(0.96rem, 1.22vw, 1.12rem);
+      line-height: 1.68;
+      font-weight: 400;
+      text-wrap: pretty;
+    }
+
+    .meta-strip {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(20px, 2.5vw, 26px) clamp(24px, 3.5vw, 36px);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(80px, auto)) 1fr;
+      gap: clamp(18px, 2.2vw, 32px);
+      align-items: center;
+      margin-bottom: clamp(32px, 5vw, 54px);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-right: 1px solid var(--line);
+      padding-right: clamp(14px, 1.8vw, 24px);
+    }
+
+    .meta-item:last-child,
+    .meta-item.meta-item-focus {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .meta-value {
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .meta-value.tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      font-weight: 500;
+    }
+
+    .meta-value.tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .meta-value.tags span::before {
+      content: "/";
+      color: var(--yellow-primary);
+      font-weight: 700;
+    }
+
+    /* ================= VISUAL CARDS & LIGHTBOX ================= */
+    .visual-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .visual-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--blue-primary);
+    }
+
+    .visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .visual-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .card-zoom-badge {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(9, 13, 21, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .visual-card:hover .card-zoom-badge {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Concept Showcase Image */
+    .concept-visual-card {
+      margin-top: clamp(32px, 4.5vw, 52px);
+      width: 100%;
+      max-width: 1040px;
+      margin-left: auto;
+      margin-right: auto;
+      aspect-ratio: 16 / 9;
+      min-height: 0;
+    }
+
+    /* ================= 02 PROCESS 3-CARD GRID ================= */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 3vw, 32px);
+      margin-top: clamp(20px, 3vw, 32px);
+    }
+
+    .process-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4vw, 42px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 330px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--blue-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .process-card:hover::before {
+      background: linear-gradient(90deg, var(--blue-primary), var(--yellow-primary));
+    }
+
+    .process-index {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--yellow-primary);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .process-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2vw, 1.85rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .process-card p {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    /* ================= CONSTRUCTION / BLUEPRINT SHOWCASE ================= */
+    .construction-wrapper {
+      margin-top: clamp(40px, 6vw, 64px);
+      background: rgba(14, 21, 36, 0.65);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 40px);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .construction-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .construction-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: clamp(20px, 3vw, 32px);
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .construction-tag {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .construction-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--yellow-primary);
+      box-shadow: 0 0 8px var(--yellow-primary);
+    }
+
+    .construction-desc {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .construction-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .construction-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: zoom-in;
+      position: relative;
+    }
+
+    .construction-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--yellow-primary);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), 0 0 20px rgba(250, 204, 21, 0.15);
+    }
+
+    .construction-card-img-wrap {
+      aspect-ratio: 1 / 1;
+      background: #101520;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 12px;
+      position: relative;
+    }
+
+    .construction-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: contrast(1.05);
+      transition: transform 0.4s ease;
+    }
+
+    .construction-card:hover .construction-card-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .construction-card-footer {
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      background: var(--surface-elevated);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+    }
+
+    .construction-card-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .construction-card-axis {
+      font-size: 0.7rem;
+      color: var(--yellow-primary);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    /* ================= 03 GALLERY 2-COLUMN GRID ================= */
+    .gallery-intro {
+      color: var(--text-muted);
+      font-size: clamp(0.96rem, 1.2vw, 1.1rem);
+      line-height: 1.68;
+      max-width: 820px;
+      margin-bottom: clamp(28px, 4.5vw, 44px);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(24px, 3.5vw, 44px);
+      align-items: stretch;
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .gallery-card {
+      width: 100%;
+      min-width: 0;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      min-height: 0;
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(250, 204, 21, 0.05);
+    }
+
+    /* ================= 04 FINAL RESULT SECTION ================= */
+    .result-lead {
+      font-size: clamp(1.45rem, 2.3vw, 2.3rem);
+      line-height: 1.35;
+      letter-spacing: -0.025em;
+      color: var(--text-head);
+      font-family: var(--font-display);
+      font-weight: 700;
+      max-width: 980px;
+      margin-bottom: clamp(32px, 5vw, 52px);
+    }
+
+    .final-showcase-card {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+      display: block;
+      background: var(--canvas-subtle);
+      border-color: var(--line-light);
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.6), 0 0 35px rgba(59, 130, 246, 0.15);
+    }
+
+    .final-showcase-card:hover {
+      border-color: var(--yellow-primary);
+      box-shadow: 0 32px 85px rgba(0, 0, 0, 0.75), 0 0 50px rgba(250, 204, 21, 0.25);
+    }
+
+    .closing-meta {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ================= NEXT PROJECT NAVIGATION ================= */
+    .next-section {
+      padding: clamp(70px, 9vw, 120px) 0 60px;
+    }
+
+    .next-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: clamp(34px, 5vw, 64px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .next-card:hover {
+      border-color: var(--yellow-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 28px 70px rgba(250, 204, 21, 0.18);
+    }
+
+    .next-card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow-primary);
+    }
+
+    .next-card h2 {
+      font-size: clamp(2.2rem, 4.4vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      color: var(--text-head);
+      margin: 14px 0 10px;
+      font-weight: 800;
+    }
+
+    .next-card p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .next-arrow-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: var(--yellow-tint);
+      border: 1.5px solid var(--line-yellow);
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      color: var(--yellow-primary);
+      transition: all 0.3s ease;
+    }
+
+    .next-card:hover .next-arrow-circle {
+      background: var(--yellow-primary);
+      color: #090D15;
+      transform: scale(1.08) rotate(45deg);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding: 32px 0 48px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-back-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-light);
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .footer-back-top-btn:hover {
+      background: var(--blue-primary);
+      color: #FFFFFF;
+      border-color: var(--blue-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--yellow-primary);
+    }
+
+    /* ================= LIGHTBOX MODAL ================= */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 13, 21, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 1000;
+      padding: 24px;
+      place-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      display: grid;
+      opacity: 1;
+    }
+
+    .lightbox-img-wrapper {
+      position: relative;
+      max-width: 94vw;
+      max-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 88vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(59, 130, 246, 0.25);
+      border: 1px solid var(--line-light);
+      object-fit: contain;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface-glass);
+      border: 1px solid var(--line-light);
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s ease;
+      z-index: 1010;
+    }
+
+    .lightbox-close-btn:hover {
+      background: var(--yellow-primary);
+      color: #090D15;
+      transform: scale(1.1);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .meta-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .meta-item {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 12px;
+      }
+      .meta-item.meta-item-focus {
+        grid-column: 1 / -1;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .chapter-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+      .process-card {
+        min-height: auto;
+      }
+      .construction-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .lang-pill {
+        display: none;
+      }
+      .lang-dropdown-wrapper {
+        display: inline-block;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-nav {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        height: 72px;
+      }
+      .nav-logo {
+        height: 24px;
+      }
+      .pill-link {
+        padding: 7px 12px;
+        font-size: 0.72rem;
+      }
+      h1.hero-title {
+        font-size: clamp(3rem, 15vw, 4.6rem);
+      }
+      .meta-strip {
+        grid-template-columns: 1fr;
+        padding: 18px 20px;
+        gap: 14px;
+      }
+      .gallery-grid,
+      .construction-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-card {
+        aspect-ratio: auto;
+        min-height: 280px;
+      }
+      .next-card {
+        grid-template-columns: 1fr;
+      }
+      .next-arrow-circle {
+        display: none;
+      }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Ambient Background System -->
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-spotlight" id="ambientSpotlight"></div>
+  <div class="ambient-grid"></div>
+</div>
+
+<div class="page">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="shell">
+
+    <!-- ================= FLOATING GLASS NAVBAR ================= -->
+    <nav class="top-nav" aria-label="Navigazione case study">
+      <a class="pill-link" href="projects.html" id="navBackProjects">← Tutti i progetti</a>
+      <a class="nav-logo-link" href="index.html" aria-label="Home Bypatdesigner">
+        <img class="nav-logo" src="./img/logo.png" alt="Bypatdesigner" />
+      </a>
+      <div class="nav-actions">
+        <!-- Desktop Language Pill -->
+        <div class="lang-pill" role="group" aria-label="Selettore lingua">
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn active" data-lang="it" aria-pressed="true">IT</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+
+        <!-- Mobile Language Dropdown -->
+        <div class="lang-dropdown-wrapper" id="langDropdownWrapper">
+          <button class="lang-dropdown-trigger" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Seleziona lingua">
+            <span id="currentLangLabel">IT</span>
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem;"></i>
+          </button>
+          <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu">
+            <button class="lang-dropdown-item active" data-lang="it" role="menuitem">IT — Italiano</button>
+            <button class="lang-dropdown-item" data-lang="es" role="menuitem">ES — Español</button>
+            <button class="lang-dropdown-item" data-lang="en" role="menuitem">EN — English</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HERO HEADER ================= -->
+    <header class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-kicker" id="caseCategory">3D Modeling · Blender · 2024</div>
+          <h1 class="hero-title" id="caseTitle">
+            Robot<span class="hero-title-highlight">.</span>
+          </h1>
+        </div>
+        <div class="hero-side">
+          <p id="heroIntro">
+            Un progetto 3D realizzato in Blender come esercizio di modellazione, materiali, illuminazione e rendering.
+          </p>
+          <div class="hero-quick-index">
+            <a href="#concept" id="idx1">01 Concept</a>
+            <a href="#processo" id="idx2">02 Il Processo</a>
+            <a href="#galleria" id="idx3">03 Galleria</a>
+            <a href="#risultato" id="idx4">04 Risultato</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================= 01 — CONCEPT ================= -->
+      <section class="chapter" id="concept">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap1No">01 — Il Concept</div>
+          <h2 class="chapter-title" id="chap1Title">Costruire un<br><span class="accent-yellow">personaggio.</span></h2>
+        </div>
+
+        <!-- Centered & Enlarged Concept Statement -->
+        <div class="concept-statement-box">
+          <p class="concept-lead-text copy-lead" id="conceptLead">
+            Il progetto nasce dalla combinazione di forme geometriche semplici e componenti meccanici.
+          </p>
+          <p class="concept-body-text copy-body" id="conceptBody">
+            L’obiettivo era costruire un robot visivamente riconoscibile, mantenendo una struttura chiara e coerente.
+          </p>
+        </div>
+
+        <!-- Meta Specs Strip -->
+        <aside class="meta-strip" aria-label="Informazioni progetto">
+          <div class="meta-item">
+            <div class="meta-label" id="labelYear">Anno</div>
+            <div class="meta-value" id="specYear">2024</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label" id="labelProject">Project</div>
+            <div class="meta-value" id="specProject">Robot</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label" id="labelType">Type</div>
+            <div class="meta-value" id="specType">Personal</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label" id="labelSoftware">Software</div>
+            <div class="meta-value" id="specSoftware">Blender</div>
+          </div>
+          <div class="meta-item meta-item-focus">
+            <div class="meta-label" id="labelFocus">Focus</div>
+            <div class="meta-value tags" id="specFocus">
+              <span>3D Modeling</span>
+              <span>Materials</span>
+              <span>Lighting</span>
+              <span>Rendering</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Concept Visual Image (Img) -->
+        <figure class="visual-card concept-visual-card" data-lightbox="./img/robot/robot-1.jpg">
+          <img src="./img/robot/robot-1.jpg" alt="Robot 3D Model — Vista concept e composizione su podio dorato" loading="eager" />
+          <div class="card-zoom-badge"><i class="fa-solid fa-expand"></i> Ingrandisci</div>
+        </figure>
+      </section>
+
+      <!-- ================= 02 — IL PROCESSO ================= -->
+      <section class="chapter" id="processo">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap2No">02 — Il Processo</div>
+          <h2 class="chapter-title" id="chap2Title">Dalle <span class="accent-yellow">forme</span><br>al modello.</h2>
+        </div>
+
+        <div class="process-grid">
+          <!-- Step 1: Modeling -->
+          <article class="process-card">
+            <div class="process-index">01</div>
+            <div>
+              <h3 id="step1Title">Modeling</h3>
+              <p id="step1Desc">
+                Il robot è stato costruito attraverso la combinazione di volumi geometrici, elementi articolati e una base cingolata.
+              </p>
+            </div>
+          </article>
+
+          <!-- Step 2: Materials & Color -->
+          <article class="process-card">
+            <div class="process-index">02</div>
+            <div>
+              <h3 id="step2Title">Materials &amp; Color</h3>
+              <p id="step2Desc">
+                La scena utilizza superfici lucide e materiali metallici, con una palette basata su blu, giallo e nero.
+              </p>
+            </div>
+          </article>
+
+          <!-- Step 3: Lighting & Rendering -->
+          <article class="process-card">
+            <div class="process-index">03</div>
+            <div>
+              <h3 id="step3Title">Lighting &amp; Rendering</h3>
+              <p id="step3Desc">
+                L’illuminazione è stata impostata per evidenziare i volumi, le riflessioni dei materiali e i dettagli principali del modello.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Construction / Orthographic Blueprint Showcase -->
+        <div class="construction-wrapper">
+          <div class="construction-header">
+            <div class="construction-tag" id="constructionTag">Costruzione · Viste ortografiche</div>
+            <div class="construction-desc" id="constructionDesc">Top · Front · Side · Back · Blender Viewport</div>
+          </div>
+          <div class="construction-grid">
+            <!-- 01: Top View -->
+            <figure class="construction-card" data-lightbox="./img/robot/robot-top.png">
+              <div class="construction-card-img-wrap">
+                <img src="./img/robot/robot-top.png" alt="Costruzione 3D — Vista dall'alto (Top View) in Blender" loading="lazy" />
+              </div>
+              <div class="construction-card-footer">
+                <span class="construction-card-title" id="constCard1Title">Top View</span>
+                <span class="construction-card-axis" id="constCard1Axis">Axis: Z-Top</span>
+              </div>
+            </figure>
+
+            <!-- 02: Front View -->
+            <figure class="construction-card" data-lightbox="./img/robot/robot-front.png">
+              <div class="construction-card-img-wrap">
+                <img src="./img/robot/robot-front.png" alt="Costruzione 3D — Vista frontale (Front View) in Blender" loading="lazy" />
+              </div>
+              <div class="construction-card-footer">
+                <span class="construction-card-title" id="constCard2Title">Front View</span>
+                <span class="construction-card-axis" id="constCard2Axis">Axis: Y-Front</span>
+              </div>
+            </figure>
+
+            <!-- 03: Side View -->
+            <figure class="construction-card" data-lightbox="./img/robot/robot-side.png">
+              <div class="construction-card-img-wrap">
+                <img src="./img/robot/robot-side.png" alt="Costruzione 3D — Vista laterale (Side View) in Blender" loading="lazy" />
+              </div>
+              <div class="construction-card-footer">
+                <span class="construction-card-title" id="constCard3Title">Side View</span>
+                <span class="construction-card-axis" id="constCard3Axis">Axis: X-Side</span>
+              </div>
+            </figure>
+
+            <!-- 04: Back View -->
+            <figure class="construction-card" data-lightbox="./img/robot/robot-back.png">
+              <div class="construction-card-img-wrap">
+                <img src="./img/robot/robot-back.png" alt="Costruzione 3D — Vista posteriore (Back View) in Blender" loading="lazy" />
+              </div>
+              <div class="construction-card-footer">
+                <span class="construction-card-title" id="constCard4Title">Back View</span>
+                <span class="construction-card-axis" id="constCard4Axis">Axis: -Y-Back</span>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 03 — GALLERIA ================= -->
+      <section class="chapter" id="galleria">
+        <div class="chapter-head">
+          <div class="chapter-no" id="chap3No">03 — Galleria</div>
+          <h2 class="chapter-title" id="chap3Title"><span class="accent-yellow">Viste</span> del<br>modello.</h2>
+        </div>
+
+        <p class="gallery-intro" id="galleryIntro">
+          Le diverse inquadrature mostrano il robot da più punti di vista, mettendo in evidenza la struttura, le proporzioni e i dettagli della modellazione.
+        </p>
+
+        <!-- Two Gallery Images (Img img) -->
+        <div class="gallery-grid">
+          <figure class="visual-card gallery-card" data-lightbox="./img/robot/robot-2.jpg">
+            <img src="./img/robot/robot-2.jpg" alt="Robot 3D Model — Vista prospettica dal basso verso l'alto" loading="lazy" />
+            <div class="card-zoom-badge"><i class="fa-solid fa-expand"></i> Ingrandisci</div>
+          </figure>
+
+          <figure class="visual-card gallery-card" data-lightbox="./img/robot/robot-4.png">
+            <img src="./img/robot/robot-4.png" alt="Robot 3D Model — Vista laterale a tre quarti con dettagli dei giunti" loading="lazy" />
+            <div class="card-zoom-badge"><i class="fa-solid fa-expand"></i> Ingrandisci</div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= 04 — RISULTATO FINALE ================= -->
+      <section class="chapter" id="risultato">
+        <div class="chapter-head" style="margin-bottom: clamp(28px, 4vw, 48px); align-items: start;">
+          <div class="chapter-no" id="chap4No">04 — Risultato finale</div>
+          <h2 class="chapter-title" id="chap4Title" style="font-size: clamp(1.35rem, 2.2vw, 2.1rem); font-weight: 600; line-height: 1.4; max-width: 880px; letter-spacing: -0.02em;">
+            Un esercizio di modellazione 3D focalizzato sulla <span class="accent-blue">costruzione del soggetto</span>, sulla definizione dei materiali e sulla <span class="accent-yellow">resa finale</span> della scena.
+          </h2>
+        </div>
+
+        <!-- Final Result Showcase Image (img) -->
+        <figure class="visual-card final-showcase-card" data-lightbox="./img/robot/robot-3.png">
+          <img src="./img/robot/robot-3.png" alt="Robot 3D Model — Vista frontale completa del risultato finale" loading="lazy" />
+          <div class="card-zoom-badge"><i class="fa-solid fa-expand"></i> Ingrandisci</div>
+        </figure>
+
+        <div class="closing-meta">
+          <span id="closingBadge1">Robot · 3D Modeling &amp; Rendering</span>
+          <span id="closingBadge2">Patricia Garcia · Blender · 2024</span>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= NEXT PROJECT NAVIGATION ================= -->
+    <section class="next-section">
+      <a class="next-card" href="cozy-living-room.html" aria-label="Prossimo progetto Cozy Living Room">
+        <div>
+          <div class="next-card-tag" id="nextTag">Prossimo Progetto</div>
+          <h2 id="nextTitle">Cozy Living Room.</h2>
+          <p id="nextDesc" id="nextDesc">3D Interior Visualization — Visualizzazione d'interni sviluppata in Blender focalizzata su forme, colori e atmosfera.</p>
+        </div>
+        <div class="next-arrow-circle">↗</div>
+      </a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <span>© 2026 BYPATDESIGNER — Patricia Garcia</span>
+      <button class="footer-back-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Torna all'inizio">
+        <span>↑</span>
+        <span id="footerBackTopText">Torna all'inizio</span>
+      </button>
+      <div class="footer-links">
+        <a href="index.html" id="footerHomeLink">Home</a>
+        <a href="projects.html" id="footerProjectsLink">Progetti</a>
+        <a href="cv.html" id="footerCvLink">CV</a>
+        <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener">Behance ↗</a>
+        <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ================= LIGHTBOX MODAL ================= -->
+<div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Visualizzazione immagine a schermo intero">
+  <button class="lightbox-close-btn" id="lightboxClose" aria-label="Chiudi visualizzazione">&times;</button>
+  <div class="lightbox-img-wrapper">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Anteprima ad alta risoluzione" />
+  </div>
+</div>
+
+<script>
+  // Dynamic Ambient Spotlight Tracking
+  const spotlight = document.getElementById('ambientSpotlight');
+  window.addEventListener('mousemove', (e) => {
+    if (spotlight) {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
+    }
+  });
+
+  // Lightbox functionality
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('[data-lightbox]').forEach(card => {
+    card.addEventListener('click', () => {
+      const src = card.getAttribute('data-lightbox');
+      if (src && lightboxImg && lightboxModal) {
+        lightboxImg.src = src;
+        lightboxModal.classList.add('active');
+        lightboxModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    if (lightboxModal) {
+      lightboxModal.classList.remove('active');
+      lightboxModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Translations for Multi-Language Support (IT is official exact text provided by user)
+  const translations = {
+    it: {
+      pageTitle: "Robot — 3D Modeling & Rendering | Bypatdesigner",
+      pageMetaDesc: "Robot — un progetto 3D realizzato in Blender come esercizio di modellazione, materiali, illuminazione e rendering di Patricia Garcia.",
+      navBackProjects: "← Tutti i progetti",
+      caseCategory: "3D Modeling · Blender · 2024",
+      caseTitle: "Robot<span class=\"hero-title-highlight\">.</span>",
+      heroIntro: "Un progetto 3D realizzato in Blender come esercizio di modellazione, materiali, illuminazione e rendering.",
+      idx1: "01 Il Concept",
+      idx2: "02 Il Processo",
+      idx3: "03 Galleria",
+      idx4: "04 Risultato",
+      chap1No: "01 — Il Concept",
+      chap1Title: "Costruire un<br><span class=\"accent-yellow\">personaggio.</span>",
+      conceptLead: "Il progetto nasce dalla combinazione di forme geometriche semplici e componenti meccanici.",
+      conceptBody: "L’obiettivo era costruire un robot visivamente riconoscibile, mantenendo una struttura chiara e coerente.",
+      labelYear: "Anno",
+      labelProject: "Project",
+      labelType: "Type",
+      labelSoftware: "Software",
+      labelFocus: "Focus",
+      specYear: "2024",
+      specProject: "Robot",
+      specType: "Personal",
+      specSoftware: "Blender",
+      specFocus: "<span>3D Modeling</span><span>Materials</span><span>Lighting</span><span>Rendering</span>",
+      chap2No: "02 — Il Processo",
+      chap2Title: "Dalle <span class=\"accent-yellow\">forme</span><br>al modello.",
+      step1Title: "Modeling",
+      step1Desc: "Il robot è stato costruito attraverso la combinazione di volumi geometrici, elementi articolati e una base cingolata.",
+      step2Title: "Materials & Color",
+      step2Desc: "La scena utilizza superfici lucide e materiali metallici, con una palette basata su blu, giallo e nero.",
+      step3Title: "Lighting & Rendering",
+      step3Desc: "L’illuminazione è stata impostata per evidenziare i volumi, le riflessioni dei materiali e i dettagli principali del modello.",
+      constructionTag: "Costruzione · Viste ortografiche",
+      constructionDesc: "Top · Front · Side · Back · Blender Viewport",
+      constCard1Title: "Top View",
+      constCard2Title: "Front View",
+      constCard3Title: "Side View",
+      constCard4Title: "Back View",
+      chap3No: "03 — Galleria",
+      chap3Title: "<span class=\"accent-yellow\">Viste</span> del<br>modello.",
+      galleryIntro: "Le diverse inquadrature mostrano il robot da più punti di vista, mettendo in evidenza la struttura, le proporzioni e i dettagli della modellazione.",
+      chap4No: "04 — Risultato finale",
+      chap4Title: "Un esercizio di modellazione 3D focalizzato sulla <span class=\"accent-blue\">costruzione del soggetto</span>, sulla definizione dei materiali e sulla <span class=\"accent-yellow\">resa finale</span> della scena.",
+      closingBadge1: "Robot · 3D Modeling & Rendering",
+      closingBadge2: "Patricia Garcia · Blender · 2024",
+      nextTag: "Prossimo Progetto",
+      nextTitle: "Cozy Living Room.",
+      nextDesc: "3D Interior Visualization — Visualizzazione d'interni sviluppata in Blender focalizzata su forme, colori e atmosfera.",
+      footerBackTopText: "Torna all'inizio",
+      footerHomeLink: "Home",
+      footerProjectsLink: "Progetti",
+      footerCvLink: "CV"
+    },
+    es: {
+      pageTitle: "Robot — Modelado 3D y Renderizado | Bypatdesigner",
+      pageMetaDesc: "Robot — un proyecto 3D realizado en Blender como ejercicio de modelado, materiales, iluminación y renderizado por Patricia Garcia.",
+      navBackProjects: "← Todos los proyectos",
+      caseCategory: "3D Modeling · Blender · 2024",
+      caseTitle: "Robot<span class=\"hero-title-highlight\">.</span>",
+      heroIntro: "Un proyecto 3D realizado en Blender como ejercicio de modelado, materiales, iluminación y renderizado.",
+      idx1: "01 Concepto",
+      idx2: "02 El Proceso",
+      idx3: "03 Galería",
+      idx4: "04 Resultado",
+      chap1No: "01 — El Concepto",
+      chap1Title: "Construir un<br><span class=\"accent-yellow\">personaje.</span>",
+      conceptLead: "El proyecto nace de la combinación de formas geométricas simples y componentes mecánicos.",
+      conceptBody: "El objetivo era construir un robot reconocible visualmente, manteniendo una estructura clara y coherente.",
+      labelYear: "Año",
+      labelProject: "Proyecto",
+      labelType: "Tipo",
+      labelSoftware: "Software",
+      labelFocus: "Enfoque",
+      specYear: "2024",
+      specProject: "Robot",
+      specType: "Personal",
+      specSoftware: "Blender",
+      specFocus: "<span>3D Modeling</span><span>Materials</span><span>Lighting</span><span>Rendering</span>",
+      chap2No: "02 — El Proceso",
+      chap2Title: "De las <span class=\"accent-yellow\">formas</span><br>al modelo.",
+      step1Title: "Modelado",
+      step1Desc: "El robot se construyó a través de la combinación de volúmenes geométricos, elementos articulados y una base de orugas.",
+      step2Title: "Materiales y Color",
+      step2Desc: "La escena utiliza superficies brillantes y materiales metálicos, con una paleta basada en azul, amarillo y negro.",
+      step3Title: "Iluminación y Render",
+      step3Desc: "La iluminación se configuró para resaltar los volúmenes, los reflejos de los materiales y los detalles principales del modelo.",
+      constructionTag: "Construcción · Vistas ortográficas",
+      constructionDesc: "Top · Front · Side · Back · Blender Viewport",
+      constCard1Title: "Vista Superior",
+      constCard2Title: "Vista Frontal",
+      constCard3Title: "Vista Lateral",
+      constCard4Title: "Vista Posterior",
+      chap3No: "03 — Galería",
+      chap3Title: "<span class=\"accent-yellow\">Vistas</span> del<br>modelo.",
+      galleryIntro: "Las diferentes tomas muestran el robot desde varios puntos de vista, destacando la estructura, las proporciones y los detalles del modelado.",
+      chap4No: "04 — Resultado final",
+      chap4Title: "Un ejercicio de modelado 3D enfocado en la <span class=\"accent-blue\">construcción del personaje</span>, la definición de los materiales y el <span class=\"accent-yellow\">acabado final</span> de la escena.",
+      closingBadge1: "Robot · 3D Modeling & Rendering",
+      closingBadge2: "Patricia Garcia · Blender · 2024",
+      nextTag: "Siguiente Proyecto",
+      nextTitle: "Cozy Living Room.",
+      nextDesc: "3D Interior Visualization — Visualización de interiores creada en Blender enfocada en formas, colores y atmósfera.",
+      footerBackTopText: "Volver arriba",
+      footerHomeLink: "Inicio",
+      footerProjectsLink: "Proyectos",
+      footerCvLink: "CV"
+    },
+    en: {
+      pageTitle: "Robot — 3D Modeling & Rendering | Bypatdesigner",
+      pageMetaDesc: "Robot — a 3D project made in Blender as an exercise in modeling, materials, lighting, and rendering by Patricia Garcia.",
+      navBackProjects: "← All projects",
+      caseCategory: "3D Modeling · Blender · 2024",
+      caseTitle: "Robot<span class=\"hero-title-highlight\">.</span>",
+      heroIntro: "A 3D project created in Blender as an exercise in modeling, materials, lighting, and rendering.",
+      idx1: "01 Concept",
+      idx2: "02 Process",
+      idx3: "03 Gallery",
+      idx4: "04 Result",
+      chap1No: "01 — The Concept",
+      chap1Title: "Building a<br><span class=\"accent-yellow\">character.</span>",
+      conceptLead: "The project originates from combining simple geometric shapes and mechanical components.",
+      conceptBody: "The goal was to build a visually recognizable robot while maintaining a clear and coherent structure.",
+      labelYear: "Year",
+      labelProject: "Project",
+      labelType: "Type",
+      labelSoftware: "Software",
+      labelFocus: "Focus",
+      specYear: "2024",
+      specProject: "Robot",
+      specType: "Personal",
+      specSoftware: "Blender",
+      specFocus: "<span>3D Modeling</span><span>Materials</span><span>Lighting</span><span>Rendering</span>",
+      chap2No: "02 — The Process",
+      chap2Title: "From <span class=\"accent-yellow\">shapes</span><br>to model.",
+      step1Title: "Modeling",
+      step1Desc: "The robot was constructed through a combination of geometric volumes, articulated elements, and a caterpillar tread base.",
+      step2Title: "Materials & Color",
+      step2Desc: "The scene features glossy surfaces and metallic shaders, driven by a palette of blue, yellow, and black.",
+      step3Title: "Lighting & Rendering",
+      step3Desc: "Lighting was calibrated to highlight volumes, material reflections, and key model details.",
+      constructionTag: "Construction · Orthographic views",
+      constructionDesc: "Top · Front · Side · Back · Blender Viewport",
+      constCard1Title: "Top View",
+      constCard2Title: "Front View",
+      constCard3Title: "Side View",
+      constCard4Title: "Back View",
+      chap3No: "03 — Gallery",
+      chap3Title: "<span class=\"accent-yellow\">Views</span> of the<br>model.",
+      galleryIntro: "Different camera perspectives showcase the robot from multiple angles, emphasizing structure, proportions, and modeling details.",
+      chap4No: "04 — Final Result",
+      chap4Title: "A 3D modeling study focused on <span class=\"accent-blue\">character construction</span>, material definition, and the <span class=\"accent-yellow\">final presentation</span> of the scene.",
+      closingBadge1: "Robot · 3D Modeling & Rendering",
+      closingBadge2: "Patricia Garcia · Blender · 2024",
+      nextTag: "Next Project",
+      nextTitle: "Cozy Living Room.",
+      nextDesc: "3D Interior Visualization — Interior visualization made in Blender exploring shapes, colors, and warm atmosphere.",
+      footerBackTopText: "Back to top",
+      footerHomeLink: "Home",
+      footerProjectsLink: "Projects",
+      footerCvLink: "CV"
+    }
+  };
+
+  function applyLanguage(lang) {
+    if (!translations[lang]) return;
+    const t = translations[lang];
+
+    document.title = t.pageTitle;
+    const metaDesc = document.getElementById('pageMetaDesc');
+    if (metaDesc) metaDesc.content = t.pageMetaDesc;
+    document.documentElement.lang = lang;
+
+    for (const [key, value] of Object.entries(t)) {
+      const el = document.getElementById(key);
+      if (el) {
+        if (value.includes('<') && value.includes('>')) {
+          el.innerHTML = value;
+        } else {
+          el.textContent = value;
+        }
+      }
+    }
+
+    // Desktop Buttons State
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.dataset.lang === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    // Mobile Dropdown State
+    const currentLangLabel = document.getElementById('currentLangLabel');
+    if (currentLangLabel) currentLangLabel.textContent = lang.toUpperCase();
+
+    document.querySelectorAll('.lang-dropdown-item').forEach(item => {
+      item.classList.toggle('active', item.dataset.lang === lang);
+    });
+
+    localStorage.setItem('portfolio_language', lang);
+  }
+
+  // Mobile Dropdown Toggle
+  const dropdownWrapper = document.getElementById('langDropdownWrapper');
+  const dropdownTrigger = document.getElementById('langDropdownTrigger');
+
+  if (dropdownTrigger && dropdownWrapper) {
+    dropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdownWrapper.classList.toggle('open');
+      dropdownTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', () => {
+      dropdownWrapper.classList.remove('open');
+      dropdownTrigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  // Language Button Listeners
+  document.querySelectorAll('.lang-btn, .lang-dropdown-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyLanguage(btn.dataset.lang);
+      if (dropdownWrapper) dropdownWrapper.classList.remove('open');
+    });
+  });
+
+  // Initialize Language (defaults to 'it' to match official Italian text)
+  const savedLang = localStorage.getItem('portfolio_language') || 'it';
+  applyLanguage(savedLang);
+</script>
+
+</body>
+</html>
