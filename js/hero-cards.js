@@ -1,7 +1,7 @@
 (() => {
   'use strict';
-  const hero = document.querySelector('.hero');
-  const layer = document.querySelector('.hero-card-trail');
+  const hero = document.querySelector('[data-card-trail]') || document.querySelector('.hero');
+  const layer = hero?.querySelector('.hero-card-trail, .about-card-trail');
   const replay = document.querySelector('.cards-replay');
   if (!hero || !layer) return;
   const cards = [...layer.querySelectorAll('img')];
