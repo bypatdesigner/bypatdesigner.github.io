@@ -3695,7 +3695,8 @@
       transition: opacity 0.3s ease;
     }
   </style>
-  <link rel="stylesheet" href="about-cards.css?v=1">
+  <link rel="stylesheet" href="about-cards.css?v=2">
+  <link rel="stylesheet" href="hero-minimal.css?v=5">
 </head>
 
 <body>
@@ -3820,84 +3821,33 @@
     </div>
   </div>
 
-  <!-- ================= HERO (EXACT HERO FROM index-starfield-fluid.html: WebGL Fluid + Starfield Particles) ================= -->
-  <header class="hero" id="top">
-    <!-- WebGL Mesh Drift Fluid Shader Canvas (Scoped ONLY inside Hero) -->
-    <canvas id="meshDriftCanvas" class="hero-fluid-canvas"></canvas>
-
-    <div class="hero-inner" style="padding-top: 180px; ">
-      <div class="hero-head">
-        <div class="eyebrow" id="heroEyebrow" data-decrypt="true" data-i18n-html="hero.eyebrow"
-          title="Clicca per decifrare di nuovo">
-          <i></i> Bisceglie, Italia · Remoto / Ibrido / On-site
-        </div>
-        <h1 class="hero-title" id="heroTitle" data-decrypt-hero="true" data-i18n-html="hero.title"
-          title="Clicca per decifrare di nuovo">
-          Design, codice e <br>qualche altra <span class="grad-text">ossessione <br><span
-              style="white-space: nowrap;">creativa.</span></span>
-        </h1>
+  <!-- ================= HERO (PATRICIA GARCIA STATEMENT & ENLARGED ROLE) ================= -->
+  <header class="hero hero-minimal" id="top" aria-labelledby="heroTitle" data-card-trail>
+    <div class="hero-card-trail" aria-hidden="true"><img src="img/cards/Frame%201.png" alt="" draggable="false"><img src="img/cards/Frame%202.png" alt="" draggable="false"><img src="img/cards/Frame%203.png" alt="" draggable="false"><img src="img/cards/Frame%204.png" alt="" draggable="false"><img src="img/cards/Frame%205.png" alt="" draggable="false"><img src="img/cards/Frame%207.png" alt="" draggable="false"><img src="img/cards/Frame%208.png" alt="" draggable="false"><img src="img/cards/image%2012.png" alt="" draggable="false"></div>
+    <canvas id="meshDriftCanvas" class="hero-fluid-canvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <div class="hero-top-meta">
+        <a href="mailto:bypatdesigner@gmail.com" class="hero-email-link">bypatdesigner@gmail.com</a>
+        <span class="hero-location" data-i18n="hero.loc">Bisceglie, Italia</span>
       </div>
 
-      <div class="hero-bottom">
-        <div class="hero-social-glass">
-          <a class="glass-btn" href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener"
-            aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-            </svg>
-            <span>LinkedIn</span>
-            <span class="arrow">↗</span>
-          </a>
+      <div class="hero-main-content">
+        <h1 class="hero-title" id="heroTitle">
+          Patricia Garcia
+        </h1>
 
-          <a class="glass-btn" href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener"
-            aria-label="Behance">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M22 7h-7V5h7v2m-1.72 6.5c-.14.77-.66 1.5-1.57 2.05-.91.56-2.07.84-3.48.84-1.67 0-3.05-.47-4.14-1.4-1.09-.94-1.63-2.3-1.63-4.08 0-1.74.52-3.1 1.56-4.08C12.06 5.85 13.43 5.37 15.13 5.37c1.55 0 2.85.44 3.91 1.33 1.05.88 1.58 2.15 1.58 3.8 0 .34-.02.72-.07 1.13h-7.66c.06.87.35 1.54.88 2.01.53.47 1.23.7 2.1.7.67 0 1.23-.13 1.68-.38.45-.26.78-.65 1-1.18h2.74m-6.86-3.8h4.81c-.04-.63-.26-1.12-.66-1.47-.4-.36-.93-.53-1.6-.53-.7 0-1.26.17-1.68.52-.42.34-.69.83-.81 1.47M2.5 5h4.94c1.17 0 2.06.24 2.67.72.61.48.91 1.17.91 2.07 0 .61-.15 1.1-.46 1.48-.31.38-.76.66-1.35.84.79.16 1.39.48 1.8.96.41.48.62 1.12.62 1.92 0 1.05-.35 1.86-1.04 2.43C9.9 16.03 8.87 16.3 7.5 16.3H2.5V5m2.76 4.35h2.15c.6 0 1.04-.1 1.32-.3.28-.2.42-.51.42-.92 0-.39-.13-.69-.39-.89-.26-.2-.68-.3-1.25-.3H5.26v2.41m0 4.74h2.46c.64 0 1.11-.12 1.41-.37.3-.25.45-.61.45-1.07 0-.49-.16-.86-.48-1.1-.32-.25-.82-.37-1.5-.37H5.26v2.91z" />
-            </svg>
-            <span>Behance</span>
-            <span class="arrow">↗</span>
-          </a>
+        <div class="hero-sub-grid">
+          <div class="hero-role-wrapper">
+            <h2 class="hero-role-primary" data-i18n="hero.role_primary">UI/UX Designer</h2>
+            <p class="hero-role-secondary" data-i18n="hero.role_secondary">bridging Design &amp; Code</p>
+          </div>
 
-          <a class="glass-btn" href="https://github.com/bypatdesigner" target="_blank" rel="noopener"
-            aria-label="GitHub">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
-            </svg>
-            <span>GitHub</span>
-            <span class="arrow">↗</span>
-          </a>
-        </div>
-
-        <div class="hero-copy">
-          <p data-i18n="hero.desc">Mi muovo tra design e codice. Lavoro in UI/UX e web design e mi formo nello sviluppo software per progettare soluzioni digitali più consapevoli, dal design allo sviluppo.</p>
-          <div class="actions">
-            <a class="btn primary" id="heroWorkBtn" href="#work" data-i18n="hero.btn_work">Vedi Progetti ↗</a>
-            <a class="btn secondary" id="heroResumeBtn" href="cv.html" data-i18n="hero.btn_resume">Resume / CV </a>
+          <div class="hero-statement-wrapper">
+            <p class="hero-statement" id="heroStatement" data-i18n="hero.statement">
+              Design, codice e qualche altra ossessione creativa. Creo identità, interfacce ed esperienze digitali che danno forma alle idee.
+            </p>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- ================= HERO INTEGRATED MARQUEE ================= -->
-    <div class="hero-marquee" aria-hidden="true">
-      <div class="track">
-        <span>UI/UX Design</span>
-        <span>Web Interfaces</span>
-        <span>Front-end Development</span>
-        <span>Design Systems</span>
-        <span>Brand Identity</span>
-        <span>Figma Prototyping</span>
-        <span>Responsive Web</span>
-        <span>UI/UX Design</span>
-        <span>Web Interfaces</span>
-        <span>Front-end Development</span>
-        <span>Design Systems</span>
-        <span>Brand Identity</span>
-        <span>Figma Prototyping</span>
-        <span>Responsive Web</span>
       </div>
     </div>
   </header>
@@ -3906,8 +3856,7 @@
   <div class="page-frame">
 
     <!-- ================= ABOUT SECTION ================= -->
-    <section id="about" data-card-trail>
-      <div class="about-card-trail" aria-hidden="true"><img src="img/cards/Frame%201.png" alt="" draggable="false"><img src="img/cards/Frame%202.png" alt="" draggable="false"><img src="img/cards/Frame%203.png" alt="" draggable="false"><img src="img/cards/Frame%204.png" alt="" draggable="false"><img src="img/cards/Frame%205.png" alt="" draggable="false"><img src="img/cards/Frame%207.png" alt="" draggable="false"><img src="img/cards/Frame%208.png" alt="" draggable="false"><img src="img/cards/image%2012.png" alt="" draggable="false"></div>
+    <section id="about">
       <div class="shell">
         <div class="about-header-wrap reveal">
           <div class="section-label about-label" data-i18n="about.section_label">Chi Sono &amp; Visione</div>
@@ -3936,10 +3885,10 @@
         </div>
         <div class="stack-images">
           <img class="stack-image stack-image-back" src="img/apulia/hero-manifesto.jpg" alt="Campagna visiva Apulia Promoting US" width="600" height="900">
-          <img class="stack-image stack-image-front" src="img/eureka/hero.png" alt="Identità visiva Eureka" width="600" height="900">
+          <img class="stack-image stack-image-front" src="img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli: logo e identità visiva" width="600" height="900">
         </div>
-        <a class="stack-project-link" href="eureka.html">
-          <strong>Eureka</strong>
+        <a class="stack-project-link" href="petruzzelli-logo.html">
+          <strong>Teatro Petruzzelli</strong>
           <span data-i18n="project.view">Scopri il progetto ↗</span>
         </a>
         <div class="stack-caption">
@@ -4333,8 +4282,12 @@
         "nav.resume_desc": "Esplora il percorso completo, l'esperienza, la formazione accademica e le certificazioni.",
         "nav.resume_cta": "Visualizza CV / Resume",
         "nav.select_lang": "Lingua:",
+        "hero.loc": "Bisceglie, Italia",
+        "hero.role_primary": "UI/UX Designer",
+        "hero.role_secondary": "bridging Design & Code",
+        "hero.statement": "Design, codice e qualche altra ossessione creativa. Creo identità, interfacce ed esperienze digitali che danno forma alle idee.",
         "hero.eyebrow": "Bisceglie, Italia  · Remoto / Ibrido / On-site",
-        "hero.title": 'Design, codice e <br>qualche altra <span class="grad-text">ossessione <br><span style="white-space: nowrap;">creativa.</span></span>',
+        "hero.title": 'Patricia Garcia',
         "hero.desc": "Mi muovo tra design e codice. Lavoro in UI/UX e web design e mi formo nello sviluppo software per progettare soluzioni digitali più consapevoli, dal design allo sviluppo.",
         "hero.btn_work": "Vedi Progetti ↗",
         "hero.btn_resume": "Resume / CV",
@@ -4440,8 +4393,12 @@
         "nav.resume_desc": "Explora mi trayectoria completa, experiencia laboral, formación académica y certificaciones.",
         "nav.resume_cta": "Ver CV / Resume",
         "nav.select_lang": "Idioma:",
+        "hero.loc": "Bisceglie, Italia",
+        "hero.role_primary": "UI/UX Designer",
+        "hero.role_secondary": "bridging Design & Code",
+        "hero.statement": "Diseño, código y alguna otra obsesión creativa. Creo identidades, interfaces y experiencias digitales que dan forma a las ideas.",
         "hero.eyebrow": "Bisceglie, Italia · Remoto / Híbrido / Presencial",
-        "hero.title": 'Diseño, código y <br>alguna otra <span class="grad-text">obsesión <br><span style="white-space: nowrap;">creativa.</span></span>',
+        "hero.title": 'Patricia Garcia',
         "hero.desc": "Me muevo entre diseño y código. Trabajo en UI/UX y diseño web y me formo en desarrollo de software para diseñar soluciones digitales más conscientes, del diseño al desarrollo.",
         "hero.btn_work": "Ver Proyectos ↗",
         "hero.btn_resume": "Descargar CV",
@@ -4547,8 +4504,12 @@
         "nav.resume_desc": "Explore full career trajectory, work experience, academic background, and certifications.",
         "nav.resume_cta": "View CV / Resume",
         "nav.select_lang": "Language:",
+        "hero.loc": "Bisceglie, Italy",
+        "hero.role_primary": "UI/UX Designer",
+        "hero.role_secondary": "bridging Design & Code",
+        "hero.statement": "Design, code and other creative obsessions. Crafting identities, interfaces and digital experiences that shape ideas.",
         "hero.eyebrow": "<i></i> Bisceglie, Italy · Remote / Hybrid / On-site",
-        "hero.title": 'Design, code and <br>other creative <span class="grad-text"><br><span style="white-space: nowrap;">obsessions.</span></span>',
+        "hero.title": 'Patricia Garcia',
         "hero.desc": "Moving between design and code. Working in UI/UX and web design while training in software development to design more mindful digital solutions, from design to code.",
         "hero.btn_work": "View Projects ↗",
         "hero.btn_resume": "Resume / CV",
@@ -4903,7 +4864,7 @@
 
     let currentLang = 'it';
 
-    function setLanguage(lang, triggerDecrypt = true) {
+    function setLanguage(lang) {
       if (!I18N[lang]) return;
       currentLang = lang;
 
@@ -4985,21 +4946,6 @@
           waText = "Hi+Patricia%21+%F0%9F%91%8B+I+came+across+your+portfolio+and+would+love+to+connect+%F0%9F%98%8A";
         }
         waBtn.href = `https://wa.me/393771392002?text=${waText}`;
-      }
-
-      // Re-trigger decrypt effects on hero title & eyebrow for futuristic effect
-      if (triggerDecrypt) {
-        const heroTitle = document.getElementById('heroTitle');
-        if (heroTitle && typeof DecryptText !== 'undefined') {
-          const heroDecrypt = new DecryptText(heroTitle, { duration: 1300, delay: 50 });
-          heroDecrypt.start();
-        }
-
-        const heroEyebrow = document.getElementById('heroEyebrow');
-        if (heroEyebrow && typeof DecryptText !== 'undefined') {
-          const eyebrowDecrypt = new DecryptText(heroEyebrow, { duration: 1000, delay: 0 });
-          eyebrowDecrypt.start();
-        }
       }
 
       // Save preference to localStorage
@@ -5488,29 +5434,29 @@
           float distToMouse = length(st - mouseNorm);
           float mouseInfluence = smoothstep(0.55, 0.0, distToMouse) * 0.14;
 
-          float t = u_time * 0.075;
+          float t = u_time * 0.038;
 
-          // Domain Warping Mesh Drift
+          // Domain Warping Mesh Drift with broad, silky fluid dynamics
           vec2 q = vec2(
-            fbm(st * 1.25 + vec2(0.0, 0.0) + t * 0.32 + mouseInfluence),
-            fbm(st * 1.25 + vec2(5.2, 1.3) + t * 0.26 - mouseInfluence)
+            fbm(st * 0.85 + vec2(0.0, 0.0) + t * 0.22 + mouseInfluence),
+            fbm(st * 0.85 + vec2(5.2, 1.3) + t * 0.18 - mouseInfluence)
           );
 
           vec2 r = vec2(
-            fbm(st * 1.5 + 4.0 * q + vec2(1.7, 9.2) + t * 0.22),
-            fbm(st * 1.5 + 4.0 * q + vec2(8.3, 2.8) + t * 0.16)
+            fbm(st * 0.95 + 2.0 * q + vec2(1.7, 9.2) + t * 0.15),
+            fbm(st * 0.95 + 2.0 * q + vec2(8.3, 2.8) + t * 0.12)
           );
 
-          float f = fbm(st * 1.35 + 3.0 * r + t * 0.14);
+          float f = fbm(st * 0.9 + 1.8 * r + t * 0.10);
 
-          // 4-Color Mesh Palette Drift Blending (Electric Cyan, Cosmic Violet, Magenta Glow)
-          vec3 col = mix(u_color1, u_color2, clamp(f * f * 3.2, 0.0, 1.0));
-          col = mix(col, u_color3, clamp(length(q) * 1.15, 0.0, 1.0));
-          col = mix(col, u_color4, clamp(pow(r.x * 1.3, 2.0), 0.0, 1.0));
+          // Ethereal subtle color blending on deep cosmic canvas
+          vec3 col = mix(u_color1, u_color2, smoothstep(0.12, 0.88, f * 1.5));
+          col = mix(col, u_color3, smoothstep(0.2, 0.95, length(q) * 0.85));
+          col = mix(col, u_color4, smoothstep(0.35, 1.0, r.x * 1.1) * 0.6);
 
           // Soft vignette effect
           float vignette = uv.x * uv.y * (1.0 - uv.x) * (1.0 - uv.y);
-          col *= clamp(16.0 * vignette + 0.35, 0.0, 1.0);
+          col *= clamp(14.0 * vignette + 0.45, 0.0, 1.0);
 
           gl_FragColor = vec4(col, 0.95);
         }
@@ -5567,11 +5513,11 @@
       const color3Loc = gl.getUniformLocation(program, 'u_color3');
       const color4Loc = gl.getUniformLocation(program, 'u_color4');
 
-      // 4-color palette: Deep space ink, Electric violet, Cyan azure, Luminous magenta glow
-      gl.uniform3f(color1Loc, 0.04, 0.03, 0.09);
-      gl.uniform3f(color2Loc, 0.52, 0.22, 0.95);
-      gl.uniform3f(color3Loc, 0.0, 0.78, 1.0);
-      gl.uniform3f(color4Loc, 0.88, 0.45, 0.95);
+      // 4-color palette: Deep space ink, Subtle Royal Violet, Deep Electric Azure, Soft Lavender Glow
+      gl.uniform3f(color1Loc, 0.035, 0.03, 0.075);
+      gl.uniform3f(color2Loc, 0.42, 0.18, 0.85);
+      gl.uniform3f(color3Loc, 0.05, 0.45, 0.72);
+      gl.uniform3f(color4Loc, 0.65, 0.42, 0.88);
 
       let currentMouseX = window.innerWidth * 0.5;
       let currentMouseY = window.innerHeight * 0.3;
@@ -5619,125 +5565,6 @@
     /* ============================================================
        11. DECRYPT TEXT ANIMATION ENGINE (Motiq / 21st.dev Style)
        ============================================================ */
-    class DecryptText {
-      constructor(element, options = {}) {
-        this.element = element;
-        this.charset = options.charset || '!<>-_\\/[]{}—=+*^?#________0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-        this.duration = options.duration || 1400;
-        this.delay = options.delay || 0;
-        this.isRunning = false;
-
-        this.originalHTML = element.innerHTML;
-        this.parseNodes();
-      }
-
-      parseNodes() {
-        this.textSegments = [];
-        const traverse = (node) => {
-          if (node.nodeType === Node.TEXT_NODE) {
-            const text = node.textContent;
-            if (text.trim().length > 0) {
-              this.textSegments.push({ node, originalText: text });
-            }
-          } else if (node.nodeType === Node.ELEMENT_NODE) {
-            Array.from(node.childNodes).forEach(traverse);
-          }
-        };
-        traverse(this.element);
-        this.totalLength = this.textSegments.reduce((sum, seg) => sum + seg.originalText.length, 0);
-      }
-
-      start() {
-        if (this.isRunning) return;
-        this.isRunning = true;
-
-        setTimeout(() => {
-          const startTime = performance.now();
-
-          const update = (now) => {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / this.duration, 1.0);
-
-            const ease = 1 - Math.pow(1 - progress, 3);
-            const revealedTotal = Math.floor(ease * this.totalLength);
-
-            let countAccumulator = 0;
-            this.textSegments.forEach(seg => {
-              const segLen = seg.originalText.length;
-              let segOutput = '';
-
-              for (let i = 0; i < segLen; i++) {
-                const globalIndex = countAccumulator + i;
-                const targetChar = seg.originalText[i];
-
-                if (targetChar === ' ' || targetChar === '\n' || targetChar === '\t') {
-                  segOutput += targetChar;
-                } else if (globalIndex < revealedTotal) {
-                  segOutput += targetChar;
-                } else {
-                  const scramble = this.charset[Math.floor(Math.random() * this.charset.length)];
-                  segOutput += scramble;
-                }
-              }
-
-              seg.node.textContent = segOutput;
-              countAccumulator += segLen;
-            });
-
-            if (progress < 1.0) {
-              requestAnimationFrame(update);
-            } else {
-              this.element.innerHTML = this.originalHTML;
-              this.isRunning = false;
-              this.parseNodes();
-            }
-          };
-
-          requestAnimationFrame(update);
-        }, this.delay);
-      }
-    }
-
-    function initDecryptTextEffects() {
-      const heroTitle = document.getElementById('heroTitle');
-      if (heroTitle) {
-        const heroDecrypt = new DecryptText(heroTitle, { duration: 1600, delay: 250 });
-        heroDecrypt.start();
-        heroTitle.addEventListener('click', () => heroDecrypt.start());
-      }
-
-      const heroEyebrow = document.getElementById('heroEyebrow');
-      if (heroEyebrow) {
-        const eyebrowDecrypt = new DecryptText(heroEyebrow, { duration: 1200, delay: 100 });
-        eyebrowDecrypt.start();
-        heroEyebrow.addEventListener('click', () => eyebrowDecrypt.start());
-      }
-
-      document.querySelectorAll('.section-label, .contact-big-title').forEach((el) => {
-        const decryptInst = new DecryptText(el, { duration: 1100, delay: 0 });
-
-        el.addEventListener('mouseenter', () => {
-          if (!decryptInst.isRunning) decryptInst.start();
-        });
-
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              decryptInst.start();
-              obs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-        obs.observe(el);
-      });
-    }
-
-    // ============================================================
-    // WAVING HAND LOTTIE ANIMATION IN HEADLINE
-    // ============================================================
-    const INLINE_WAVE_HAND_DATA = {"v":"5.7.4","fr":25,"ip":0,"op":250,"w":1080,"h":1080,"nm":"CH_MEDIA_2.0_RELAUNCH_HAND","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Layer 1","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":1,"k":[{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.581],"y":[0]},"t":0,"s":[0]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":5.346,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":10.26,"s":[-21]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":15.173,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":20.086,"s":[-21]},{"i":{"x":[0.474],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":25,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":31,"s":[0]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.581],"y":[0]},"t":50,"s":[0]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":55.346,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":60.26,"s":[-21]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":65.173,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":70.086,"s":[-21]},{"i":{"x":[0.474],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":75,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":81,"s":[0]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.581],"y":[0]},"t":100,"s":[0]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":105.346,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":110.26,"s":[-21]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":115.173,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":120.086,"s":[-21]},{"i":{"x":[0.474],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":125,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":131,"s":[0]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.581],"y":[0]},"t":150,"s":[0]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":155.346,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":160.26,"s":[-21]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":165.173,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":170.086,"s":[-21]},{"i":{"x":[0.474],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":175,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":181,"s":[0]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.581],"y":[0]},"t":200,"s":[0]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":205.346,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":210.26,"s":[-21]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":215.173,"s":[16]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":220.086,"s":[-21]},{"i":{"x":[0.474],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":225,"s":[16]},{"t":231,"s":[0]}],"ix":10},"p":{"a":0,"k":[540,932.501,0],"ix":2,"l":2},"a":{"a":0,"k":[0,392.501,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-145.516,9.806],[0.66,14.952],[43.099,-42.161],[-0.459,-39.553],[-5.1,47.258]],"o":[[-6.567,-2.671],[-41.412,5.669],[-55.948,54.696],[0.372,31.89],[6.413,-59.693]],"v":[[139.235,80.388],[126.451,55.891],[-14.074,115.322],[-79.105,268.696],[-56.231,268.434]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.937254905701,0.588235318661,0.270588248968,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[33.514,14.819],[30.557,-43.34],[26.358,-4.224],[2.845,8.822],[-5.557,32.175],[0,0],[26.923,6.501],[4.793,-20.598],[0,0],[-4.837,61.135],[0,0],[0,0],[25.172,0.963],[1.292,-22.13],[0,0],[4.597,42.924],[0,0],[25.172,-4.028],[-3.48,-22.392],[0,0],[27.93,89.963],[0,0],[26.201,-7.354],[-5.669,-21.167],[0,0],[0,-61.442],[-216.152,0],[-2.06,13.897],[-22.611,30.316],[-13.681,15.542]],"o":[[-30.229,-13.374],[-20.069,28.454],[-10.068,1.62],[-2.999,-14.886],[0,0],[4.772,-20.598],[-26.922,-6.501],[0,0],[-10.791,53.978],[0,0],[0,0],[1.248,-22.151],[-25.172,-0.963],[0,0],[-3.13,59.253],[0,0],[-3.48,-22.392],[-25.172,4.05],[0,0],[12.98,82.849],[0,0],[-5.691,-21.167],[-26.201,7.355],[0,0],[14.25,89.242],[0,61.446],[216.154,0],[0,0],[32.152,-43.1],[6.936,-7.858]],"v":[[302.614,-40.484],[198.642,7.409],[146.304,80.604],[127.921,67.276],[131.136,-2.791],[191.111,-272.352],[157.776,-319.391],[105.812,-292.096],[52.272,-47.685],[26.311,-64.649],[26.311,-64.671],[41.655,-351.24],[0.701,-392.456],[-43.908,-356.187],[-58.53,-62.679],[-87.467,-68.677],[-121.482,-306.127],[-171.126,-339.967],[-208.03,-292.709],[-175.306,-75.703],[-207.221,-59.877],[-242.111,-191.758],[-294.863,-218.703],[-326.69,-169.103],[-292.587,-45.146],[-278.337,140.754],[-33.926,392.501],[228.741,159.033],[254.044,96.32],[322.447,11.699]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,0.86274510622,0.364705890417,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":250,"st":0,"bm":0}],"markers":[]};
-    let waveHandAnimInstance = null;
-
     function renderWaveHandLottie() {
       const container = document.getElementById('waveHandLottie');
       if (!container) return;
@@ -6007,7 +5834,6 @@
 
       // 2. Initialize shader, decrypt text, plinth work scenes & services
       initHeroMeshDriftShader();
-      initDecryptTextEffects();
       initPlinthWorkScenes();
       initPlinthServices();
       initAboutScrollReveal();
@@ -6049,7 +5875,7 @@
       }
     }
   </script>
-  <script src="js/hero-cards.js?v=3" defer></script>
+  <script src="js/hero-cards.js?v=4" defer></script>
 </body>
 
 </html>
