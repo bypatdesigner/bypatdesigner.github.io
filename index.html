@@ -924,15 +924,6 @@
       opacity: 1;
     }
 
-    .hero-constellation-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
     /* Pátina oscura transparente sutil para probar contraste y legibilidad */
     .hero::before {
       content: "";
@@ -1256,16 +1247,16 @@
     }
 
     /* ============================================================
-       ABOUT SECTION: EDITORIAL STORYTELLING & 3 PILLARS (Full Width Light)
+       ABOUT SECTION: EDITORIAL STORYTELLING & MINIMALIST IMPACT
        ============================================================ */
     #about {
-      background: radial-gradient(120% 120% at 15% 15%, #FFFFFF 0%, #F5F0FE 45%, #EBE3FD 100%);
+      background: #F6F6F8;
       color: #120E24;
       border-radius: 0 !important;
       margin: 0 !important;
-      padding: clamp(72px, 8.5vw, 115px) 0 !important;
-      border-top: 1px solid rgba(124, 58, 237, 0.12);
-      border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+      padding: clamp(90px, 11vw, 150px) 0 !important;
+      border-top: 1px solid rgba(14, 11, 31, 0.08);
+      border-bottom: 1px solid rgba(14, 11, 31, 0.08);
       border-left: 0 !important;
       border-right: 0 !important;
       box-shadow: none !important;
@@ -1274,248 +1265,120 @@
       width: 100%;
     }
 
-    #work {
-      padding: clamp(72px, 8.5vw, 115px) 0;
-    }
-
     #about::after {
-      content: "";
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(167, 139, 250, 0.28) 0%, rgba(235, 227, 253, 0) 70%);
-      pointer-events: none;
-      filter: blur(50px);
+      display: none;
     }
 
-    #about .section-label {
-      color: #5B21B6;
-    }
-
-    #about .headline {
-      color: #0E0B1F;
+    .about-header-wrap {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
       position: relative;
       z-index: 1;
     }
 
-    #about .headline .grad-text {
-      background: linear-gradient(105deg, #383892 0%, #5757B2 38%, #735FD4 72%, #845DED 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      animation: none !important;
-    }
-
-    #about .headline .muted-text {
-      color: #0E0B1F !important;
-      -webkit-text-fill-color: #0E0B1F !important;
-    }
-
-    .wave-hand-lottie {
+    #about .section-label,
+    .about-label {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5B21B6;
+      margin: 0;
+      padding-top: 14px;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      vertical-align: -0.12em;
-      width: clamp(2.4rem, 4.8vw, 4.4rem);
-      height: clamp(2.4rem, 4.8vw, 4.4rem);
-      margin: 0 0.18em 0 0.1em;
-      transform-origin: 50% 85%;
-      cursor: pointer;
-      user-select: none;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-      filter: drop-shadow(0 2px 8px rgba(124, 58, 237, 0.18));
+      gap: 8px;
     }
 
-    .wave-hand-lottie:hover {
-      transform: scale(1.18) rotate(6deg);
-      filter: drop-shadow(0 4px 14px rgba(124, 58, 237, 0.3));
-    }
-
-    .wave-hand-lottie svg {
-      width: 100% !important;
-      height: 100% !important;
-      display: block;
-      overflow: visible;
-    }
-
-    .about-story-wrap {
-      margin-top: 40px;
+    .about-right-col {
       display: flex;
       flex-direction: column;
-      gap: 40px;
-      position: relative;
-      z-index: 1;
+      align-items: flex-start;
+      max-width: 980px;
     }
 
-    /* Narrative Lead */
-    .about-story-hero {
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-      padding: 0;
-      overflow: visible;
-      display: grid;
-      grid-template-columns: minmax(160px, 0.4fr) minmax(0, 1.6fr);
-      gap: clamp(24px, 5vw, 64px);
-      align-items: start;
+    .about-statement {
+      font-family: var(--font-display, 'Cabinet Grotesk', -apple-system, sans-serif);
+      font-size: clamp(36px, 4.2vw, 62px);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+      font-weight: 500;
+      color: #0E0B1F;
+      margin: 0 0 clamp(36px, 4.5vw, 54px);
+      text-wrap: pretty;
+      max-width: 1180px;
     }
 
-    .about-story-kicker {
-      margin: 4px 0 0;
-      background: transparent;
-      border: 0;
-      color: #7C3AED;
-      letter-spacing: 0.16em;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
+    .about-statement.scroll-ready {
+      color: rgba(14, 11, 31, 0.18);
+    }
+
+    .about-statement .scroll-word {
+      display: inline-block;
+      color: rgba(14, 11, 31, 0.18);
+      transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: color;
+    }
+
+    .about-action-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
-    }
-
-    .about-story-body {
-      font-family: var(--font-body);
-      font-size: clamp(1.05rem, 1.4vw, 1.28rem);
-      line-height: 1.72;
-      color: #373059;
-      max-width: 880px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .about-story-body p {
-      margin: 0;
-    }
-
-    .about-story-body strong {
-      color: #0E0B1F;
-      font-weight: 700;
-    }
-
-    /* 3 Pillars Grid: 3 Clean White Cards */
-    .about-pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      border: 0;
-      margin-top: 8px;
-    }
-
-    .about-pillar-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(124, 58, 237, 0.14);
-      border-radius: 18px;
-      padding: 32px 24px;
-      box-shadow: 0 4px 18px rgba(52, 52, 142, 0.05);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
       gap: 16px;
-      position: relative;
+    }
+
+    .about-services-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      background: #0E0B1F;
+      color: #FFFFFF;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 10px 28px rgba(14, 11, 31, 0.18), 0 0 20px rgba(124, 58, 237, 0.2);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .about-pillar-card:first-child {
-      padding-left: 24px;
-    }
-
-    .about-pillar-card:last-child {
-      border-right: 1px solid rgba(124, 58, 237, 0.14);
-      padding-right: 24px;
-    }
-
-    .about-pillar-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(124, 58, 237, 0.38);
-      box-shadow: 0 16px 36px rgba(124, 58, 237, 0.14);
-    }
-
-    .about-pillar-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .about-pillar-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #EDE9FE;
-      border: 1px solid rgba(124, 58, 237, 0.22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6D28D9;
-      font-size: 1.05rem;
-      transition: all 0.3s ease;
-    }
-
-    .about-pillar-card:hover .about-pillar-icon {
-      background: #7C3AED;
+    .about-services-btn:hover {
+      background: #6D28D9;
       color: #FFFFFF;
-      box-shadow: 0 6px 18px rgba(124, 58, 237, 0.32);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(109, 40, 217, 0.35);
     }
 
-    .about-pillar-tag {
-      background: transparent;
-      border: 0;
-      padding: 0;
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #6D28D9;
-      text-transform: uppercase;
+    .about-btn-arrow {
+      display: inline-block;
+      transition: transform 0.25s ease;
+      font-size: 1.05rem;
+      line-height: 1;
     }
 
-    .about-pillar-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.2rem, 1.55vw, 1.45rem);
-      line-height: 1.2;
-      font-weight: 700;
-      color: #0E0B1F;
-      margin: 0;
-      letter-spacing: -0.02em;
-      transition: color 0.25s ease;
+    .about-services-btn:hover .about-btn-arrow {
+      transform: translateY(3px);
     }
 
-    .about-pillar-card:hover .about-pillar-title {
-      color: #6D28D9;
-    }
-
-    .about-pillar-desc {
-      font-family: var(--font-body);
-      font-size: 0.96rem;
-      line-height: 1.62;
-      color: #59557A;
-      margin: 0;
-      font-weight: 400;
-    }
-
-    @media (max-width: 980px) {
-      #about {
-        margin: 36px 0;
-        padding: 36px 20px;
-      }
-      .about-story-hero {
+    @media (max-width: 960px) {
+      .about-header-wrap {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 20px;
       }
-      .about-pillars-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+      #about .section-label,
+      .about-label {
+        padding-top: 0;
       }
-      .about-pillar-card,
-      .about-pillar-card:first-child,
-      .about-pillar-card:last-child {
-        padding: 24px;
-        border: 1px solid rgba(124, 58, 237, 0.14);
+      .about-statement {
+        font-size: clamp(24px, 5.8vw, 38px);
+        line-height: 1.32;
+        margin-bottom: 28px;
+        font-weight: 500;
       }
     }
 
@@ -1600,237 +1463,207 @@
     /* ============================================================
        03 — TRA DESIGN E CODICE (Full Width Light Canvas + White Card)
        ============================================================ */
-    .services {
-      background: radial-gradient(120% 120% at 15% 15%, #FFFFFF 0%, #F5F0FE 45%, #EBE3FD 100%);
-      color: #120E24;
-      border-radius: 0 !important;
-      margin: 0 !important;
-      padding: clamp(96px, 11vw, 150px) 0 !important; /* Más amplio top y down */
-      border-top: 1px solid rgba(124, 58, 237, 0.12);
-      border-bottom: 1px solid rgba(124, 58, 237, 0.12);
-      border-left: 0 !important;
-      border-right: 0 !important;
-      box-shadow: none !important;
+    /* ============================================================
+       03 — TRA DESIGN E CODICE (EDITORIAL ACCORDION & VIOLET CANVAS)
+       ============================================================ */
+    /* ============================================================
+    /* ============================================================
+       03 — AREE DI COMPETENZA (LIGHT MODE / EDITORIAL SEZIONE 1 IMPACT)
+       ============================================================ */
+    .services-section {
+      padding: clamp(90px, 12vw, 150px) 0 clamp(90px, 12vw, 150px);
+      background: #F6F6F8 !important;
+      color: #120E24 !important;
       position: relative;
       overflow: hidden;
-      width: 100%;
+      border-top: 1px solid rgba(14, 11, 31, 0.08);
+      border-bottom: 1px solid rgba(14, 11, 31, 0.08);
     }
 
-    .services::after {
-      content: "";
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(167, 139, 250, 0.28) 0%, rgba(235, 227, 253, 0) 70%);
-      pointer-events: none;
-      filter: blur(50px);
+    .services-section::after {
+      display: none;
     }
 
-    /* Floating Pure White Card Container */
-    .services-grid {
+    .services-header-wrap {
       display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: clamp(36px, 5.5vw, 84px);
-      align-items: center;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+      margin-bottom: clamp(60px, 7vw, 90px);
       position: relative;
       z-index: 1;
-      background: #FFFFFF;
-      border: 1px solid rgba(124, 58, 237, 0.14);
-      border-radius: clamp(24px, 3.5vw, 36px);
-      padding: clamp(48px, 6vw, 76px) clamp(32px, 5vw, 68px);
-      box-shadow: 0 20px 60px rgba(52, 52, 142, 0.08), 0 2px 10px rgba(0, 0, 0, 0.02);
-    }
-
-    .services-left-col {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
     }
 
     .services-label {
-      display: inline-flex;
-      align-items: center;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: #5B21B6;
-      margin-bottom: 22px;
-    }
-
-    .services-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.08;
-      margin: 0 0 24px;
-    }
-
-    .services-grad-text {
-      background: linear-gradient(105deg, #383892 0%, #5757B2 38%, #735FD4 72%, #845DED 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: inline-block;
-    }
-
-    .services-dark-title {
-      color: #0E0B1F;
-      display: inline-block;
-    }
-
-    .services-desc {
-      color: #453F59;
-      font-size: clamp(1rem, 1.25vw, 1.12rem);
-      line-height: 1.68;
-      max-width: 440px;
-      margin: 0 0 34px;
-      font-weight: 450;
-    }
-
-    .services-cta-wrap {
-      display: flex;
-      align-items: center;
-    }
-
-    .services-btn {
+      margin: 0;
+      padding-top: 10px;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: #0E0B1F;
-      color: #FFFFFF;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 9999px;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(14, 11, 31, 0.22);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 8px;
     }
 
-    .services-btn i {
-      font-size: 0.85rem;
-      transition: transform 0.25s ease;
+    .services-lead-statement {
+      font-family: var(--font-display, 'Cabinet Grotesk', -apple-system, sans-serif);
+      font-size: clamp(36px, 4.2vw, 62px);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+      font-weight: 500;
+      color: #0E0B1F;
+      margin: 0;
+      max-width: 1180px;
+      text-wrap: pretty;
     }
 
-    .services-btn:hover {
-      background: #5B21B6;
-      color: #FFFFFF;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 32px rgba(91, 33, 182, 0.38);
+    .services-lead-statement.scroll-ready {
+      color: rgba(14, 11, 31, 0.18);
     }
 
-    .services-btn:hover i {
+    .services-lead-statement .scroll-word {
+      display: inline-block;
+      color: rgba(14, 11, 31, 0.18);
+      transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: color;
+    }
+
+    .services-body-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-preview-col {
+      position: sticky;
+      top: 140px;
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 12px;
+    }
+
+    .service-preview {
+      width: 190px;
+      height: 190px;
+      transform: rotate(-7deg);
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(124, 58, 237, 0.22);
+      box-shadow: 0 20px 50px rgba(124, 58, 237, 0.16), 0 4px 14px rgba(0, 0, 0, 0.05);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+      background: #FFFFFF;
+    }
+
+    .service-preview:hover {
+      transform: rotate(-3deg) scale(1.04);
+      box-shadow: 0 25px 60px rgba(124, 58, 237, 0.25), 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.25s ease;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service {
+      border-bottom: 1px solid rgba(124, 58, 237, 0.14);
+      transition: border-color 0.25s ease;
+    }
+
+    .service:first-child {
+      border-top: 1px solid rgba(124, 58, 237, 0.14);
+    }
+
+    .service summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: clamp(28px, 4.2vw, 44px) 0;
+      list-style: none;
+      font-size: clamp(32px, 4.8vw, 76px);
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+      font-weight: 500;
+      color: #0E0B1F;
+      cursor: pointer;
+      font-family: var(--font-display, var(--font-body));
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .service summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .service-sign {
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      color: #7C3AED;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+      line-height: 1;
+    }
+
+    .service[open] .service-sign {
+      transform: rotate(45deg);
+      color: #5B21B6;
+    }
+
+    .service summary:hover {
+      color: #6D28D9;
       transform: translateX(4px);
     }
 
-    .services-right-col {
-      display: flex;
-      flex-direction: column;
+    .service summary:hover .service-sign {
+      color: #5B21B6;
     }
 
-    .service-row {
-      display: grid;
-      grid-template-columns: 56px 200px 1fr;
-      align-items: center;
-      gap: 22px;
-      padding: 24px 0;
-      border-bottom: 1px solid rgba(124, 58, 237, 0.14);
-      transition: all 0.25s ease;
+    .service p {
+      max-width: 58ch;
+      margin: 0 0 34px;
+      font-size: clamp(15px, 1.1vw, 17px);
+      line-height: 1.68;
+      color: #4A4468;
+      font-family: var(--font-body);
     }
 
-    .service-row:first-child {
-      padding-top: 0;
-    }
-
-    .service-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .service-icon-box {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: rgba(124, 58, 237, 0.12);
-      color: #6D28D9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      flex-shrink: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .service-row:hover .service-icon-box {
-      background: #6D28D9;
-      color: #FFFFFF;
-      transform: scale(1.08) rotate(-4deg);
-      box-shadow: 0 8px 24px rgba(109, 40, 217, 0.32);
-    }
-
-    .service-row-title {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #0E0B1F;
-      letter-spacing: -0.02em;
-      margin: 0;
-      transition: color 0.25s ease;
-    }
-
-    .service-row:hover .service-row-title {
-      color: #6D28D9;
-    }
-
-    .service-row-desc {
-      color: #423C56;
-      font-size: 0.94rem;
-      line-height: 1.55;
-      margin: 0;
-      font-weight: 450;
-    }
-
-    @media (max-width: 1080px) {
-      .services-grid {
+    @media (max-width: 960px) {
+      .services-header-wrap {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 16px;
+        margin-bottom: 40px;
       }
-      .services-desc {
-        max-width: 600px;
+      .services-label {
+        padding-top: 0;
       }
-    }
-
-    @media (max-width: 680px) {
-      .services {
-        margin: 0 !important;
-        padding: 54px 0 !important;
-        border-radius: 0 !important;
+      .services-lead-statement {
+        font-size: clamp(24px, 5.8vw, 38px);
+        line-height: 1.32;
+        font-weight: 500;
       }
-      .services-grid {
-        padding: 32px 18px !important;
-        border-radius: 20px !important;
+      .services-body-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
-      .service-row {
-        grid-template-columns: 48px 1fr;
-        gap: 10px 16px;
-        align-items: start;
-        padding: 18px 0;
+      .services-preview-col {
+        display: none;
       }
-      .service-icon-box {
-        width: 48px;
-        height: 48px;
-        font-size: 1.15rem;
-        border-radius: 13px;
-      }
-      .service-row-desc {
-        grid-column: 1 / -1;
-        padding-left: 2px;
+      .service summary {
+        font-size: clamp(26px, 5.8vw, 40px);
+        padding: 20px 0;
       }
     }
 
@@ -1887,71 +1720,385 @@
       box-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
     }
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 24px;
-      margin-top: 40px;
+    /* ============================================================
+       02 - WORK: GSAP HORIZONTAL SCROLLING GALLERY
+       ============================================================ */
+    /* Page 1 (Imagen 2): Fullscreen Intro Screen */
+    .work-intro-screen {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #0A0912;
+      padding: clamp(60px, 10vh, 120px) var(--pad);
+      text-align: center;
+      overflow: hidden;
+      z-index: 5;
     }
 
-    .project {
-      position: relative;
-      min-height: 480px;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--surface-elevated);
-      border: 1px solid var(--line);
-      padding: 32px;
+    .work-intro-content {
+      max-width: 1180px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      gap: clamp(18px, 2.8vh, 30px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .work-intro-screen .section-label {
+      margin-bottom: 0;
+      justify-content: center;
+    }
+
+    .work-intro-title {
+      font-family: var(--font-display);
+      font-size: 92px;
+      font-size: clamp(2.6rem, 5.8vw, 92px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      margin: 0;
+      color: #FFFFFF;
+    }
+
+    @media (min-width: 1200px) {
+      .work-intro-title {
+        font-size: 92px;
+      }
+    }
+
+    .work-intro-scroll-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: clamp(0.78rem, 1vw, 0.88rem);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: clamp(10px, 2vh, 20px);
+    }
+
+    .work-intro-scroll-hint .scroll-arrow-down {
+      display: inline-block;
+      animation: bounceDown 1.8s ease-in-out infinite;
+      color: var(--violet-light);
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ============================================================
+       STACK SECTION & CINEMATIC PROJECT SCENES (home-plinth style)
+       ============================================================ */
+    .stack-section {
+      height: 200svh;
+      position: relative;
+      background: var(--ink, #07060C);
+      color: var(--text);
+    }
+
+    .stack-stage {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: clip;
+      background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.14) 0%, rgba(14, 10, 24, 0.96) 55%, #07050D 100%);
+    }
+
+    .stack-type {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+      opacity: 0.13;
+      font-size: clamp(65px, 12vw, 220px);
+      line-height: 1.1;
+      letter-spacing: -0.055em;
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      color: #C084FC;
+    }
+
+    .stack-type span {
+      will-change: transform;
+    }
+
+    .stack-images {
+      position: relative;
+      width: 100%;
+      height: 75%;
+      display: grid;
+      place-items: center;
+    }
+
+    .stack-image {
+      position: absolute;
+      width: clamp(180px, 20vw, 310px);
+      height: clamp(270px, 30vw, 450px);
+      border-radius: 24px;
+      will-change: transform;
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65), 0 0 35px rgba(139, 92, 246, 0.25);
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .stack-image-back {
+      transform: rotate(-14deg);
+    }
+
+    .stack-image-front {
+      transform: translate(30px, 25px) rotate(12deg);
+    }
+
+    .stack-caption {
+      position: absolute;
+      bottom: 35px;
+      left: var(--pad);
+      right: var(--pad);
+      display: flex;
       justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      z-index: 2;
+      font-family: var(--font-body);
+    }
+
+    .stack-caption a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .stack-caption a:hover {
+      text-decoration: underline;
+      color: #FFFFFF;
+    }
+
+    .stack-project-link {
+      position: absolute;
+      bottom: 12%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      visibility: hidden;
+      opacity: 0;
+      font-size: 24px;
+      z-index: 3;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-family: var(--font-display, var(--font-body));
+      transition: opacity 0.3s ease;
+    }
+
+    .stack-project-link span {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: var(--font-mono, monospace);
+    }
+
+    .stack-project-link:hover span {
+      text-decoration: underline;
+      color: #FFFFFF;
+    }
+
+    /* Project Scenes (Full screen cinematic scroll — Dark Violet Atmosphere) */
+    .project-scene {
+      position: relative;
+      isolation: isolate;
+      height: 160svh;
+      display: block;
+      background: #080514;
+      color: #F5F3FC;
+    }
+
+    .scene-pin {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: clip;
+      background: radial-gradient(ellipse 85% 65% at 50% 45%, rgba(139, 92, 246, 0.18) 0%, rgba(16, 11, 28, 0.96) 55%, #07050E 100%);
+    }
+
+    .scene-background {
+      position: absolute;
+      z-index: -2;
+      inset: -8%;
+      width: 116%;
+      height: 116%;
+      filter: blur(18px) brightness(0.32) saturate(0.9);
+      opacity: 0.7;
+      object-fit: cover;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .scene-pin:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.08) 0%, rgba(7, 5, 14, 0.5) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .scene-top {
+      position: absolute;
+      left: var(--pad);
+      right: var(--pad);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-family: var(--font-mono, monospace);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #DDD6FE;
+      z-index: 2;
+      top: clamp(80px, 12vh, 110px);
+    }
+
+    .scene-top span:first-child {
+      color: #A78BFA;
+      font-weight: 600;
+    }
+
+    .scene-marquee {
+      position: absolute;
+      left: 0;
+      top: 37%;
+      width: 100%;
+      overflow: hidden;
+      font-size: clamp(85px, 12vw, 210px);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.06em;
+      opacity: 0.32;
+      z-index: 0;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      color: #DDD6FE;
+      text-shadow: 0 0 50px rgba(167, 139, 250, 0.3);
+    }
+
+    .scene-marquee span {
+      display: inline-block;
+      will-change: transform;
+    }
+
+    .scene-card {
+      position: relative;
+      z-index: 1;
+      width: min(60%, 780px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(var(--scroll-y, 0px)) rotate(var(--scroll-rotation, 4deg)) scale(var(--scroll-scale, 1));
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
       cursor: pointer;
-      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .project:hover {
-      transform: translateY(-8px);
-      border-color: var(--line-violet);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 30px rgba(139, 92, 246, 0.25);
+    .scene-card > img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/10;
+      border-radius: 24px;
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7), 0 0 45px rgba(139, 92, 246, 0.22);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      object-fit: cover;
     }
 
-    .project.is-hidden {
-      display: none;
+    .scene-card h2 {
+      font-size: clamp(24px, 2.5vw, 34px);
+      letter-spacing: -0.025em;
+      margin-top: 24px;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-family: var(--font-display, var(--font-body));
     }
 
-    .project:nth-child(1) {
-      grid-column: span 7;
+    .project-view {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-top: 10px;
+      color: #A78BFA;
+      font-family: var(--font-mono, monospace);
+      display: inline-block;
+      transition: all 0.25s ease;
     }
 
-    .project:nth-child(2) {
-      grid-column: span 5;
+    .scene-card:hover,
+    .scene-card:focus-visible {
+      transform: translateY(var(--scroll-y, 0px)) rotate(0deg) scale(1.025);
     }
 
-    .project:nth-child(3) {
-      grid-column: span 5;
+    .scene-card:hover > img,
+    .scene-card:focus-visible > img {
+      border-color: rgba(192, 139, 232, 0.65);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75), 0 0 55px rgba(167, 139, 250, 0.45);
     }
 
-    .project:nth-child(4) {
-      grid-column: span 7;
+    .scene-card:hover .project-view {
+      color: #FFFFFF;
+      text-shadow: 0 0 12px rgba(192, 139, 232, 0.85);
     }
 
-    .project:nth-child(5) {
-      grid-column: span 6;
+    .archive-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 38px var(--pad);
+      border-block: 1px solid rgba(167, 139, 250, 0.22);
+      font-size: clamp(15px, 1.2vw, 18px);
+      color: #FFFFFF;
+      text-decoration: none;
+      background: linear-gradient(180deg, #07050E 0%, #120C24 100%);
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      font-family: var(--font-body);
+      font-weight: 500;
     }
 
-    .project:nth-child(6) {
-      grid-column: span 6;
+    .archive-bar:hover {
+      background: rgba(139, 92, 246, 0.16);
+      border-color: rgba(192, 132, 252, 0.5);
+      color: #FFFFFF;
     }
 
-    @media (max-width: 900px) {
-      .projects {
-        grid-template-columns: 1fr;
-      }
-      .project:nth-child(n) {
-        grid-column: span 1;
-        min-height: 380px;
-        padding: 24px;
-      }
+    @media (max-width: 760px) {
+      .stack-section { height: 145svh; }
+      .stack-image { width: 190px; height: 290px; }
+      .stack-caption { font-size: 12px; gap: 24px; }
+      .project-scene { height: 130svh; }
+      .scene-card { width: 88%; }
+      .scene-card > img { aspect-ratio: 4/3; }
+      .scene-top { top: 80px; font-size: 11px; }
+      .scene-bottom { font-size: 11px; }
+      .archive-bar { font-size: 14px; gap: 20px; }
     }
 
     .project-top {
@@ -2141,63 +2288,78 @@
     /* ============================================================
        04 — IL MIO PROCESSO (Horizontal Wave Timeline Edition)
        ============================================================ */
-    .process-header-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: clamp(30px, 5vw, 60px);
-      align-items: end;
-      margin-bottom: clamp(48px, 6vw, 72px);
+    .process-section {
+      padding: clamp(90px, 12vw, 150px) 0 clamp(110px, 14vw, 170px);
+      position: relative;
     }
 
-    .process-main-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
+    .process-header-wrap {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+      margin-bottom: clamp(60px, 7vw, 90px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-label {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #A78BFA;
+      margin: 0;
+      padding-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .process-lead-statement {
+      font-family: var(--font-display, 'Cabinet Grotesk', -apple-system, sans-serif);
+      font-size: clamp(36px, 4.2vw, 62px);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+      font-weight: 500;
       color: #FFFFFF;
       margin: 0;
+      max-width: 1180px;
+      text-wrap: pretty;
     }
 
-    .process-header-desc {
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 1.25vw, 1.15rem);
-      line-height: 1.7;
-      color: #DDD6FE;
-      margin: 0;
-      max-width: 480px;
-      justify-self: end;
+    .process-lead-statement.scroll-ready {
+      color: rgba(255, 255, 255, 0.20);
+    }
+
+    .process-lead-statement .scroll-word {
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.20);
+      transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: color;
     }
 
     .process-timeline-container {
       position: relative;
-      padding: 30px 0 10px;
-    }
-
-    .process-wave-svg {
-      position: absolute;
-      top: 52px;
-      left: 0;
-      width: 100%;
-      height: 90px;
-      pointer-events: none;
-      z-index: 1;
-      overflow: visible;
+      padding: 10px 0 20px;
     }
 
     .process-steps-row {
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: clamp(14px, 2vw, 24px);
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(24px, 3.5vw, 48px);
     }
 
     .process-step-col {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      transition: transform 0.3s ease;
+      text-align: left;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
 
     .process-step-col:hover {
@@ -2205,82 +2367,76 @@
     }
 
     .process-step-num {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #A78BFA;
-      letter-spacing: 0.08em;
-      margin-bottom: 14px;
-      display: inline-block;
-    }
-
-    .process-step-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(46, 32, 84, 0.95), rgba(24, 18, 44, 0.95));
-      border: 1px solid rgba(192, 139, 232, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 5vw, 4.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
       color: #FFFFFF;
-      font-size: 1.25rem;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.28);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 12px;
+      display: inline-block;
+      background: linear-gradient(180deg, #FFFFFF 15%, #DDD6FE 75%, #C084FC 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 24px rgba(167, 139, 250, 0.45));
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    .process-step-col:hover .process-step-icon {
-      background: linear-gradient(135deg, #7C3AED, #A855F7);
-      border-color: #FFFFFF;
-      transform: scale(1.12);
-      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.55), 0 0 25px rgba(192, 139, 232, 0.7);
+    .process-step-col:hover .process-step-num {
+      transform: translateY(-3px) scale(1.02);
+      filter: drop-shadow(0 0 32px rgba(192, 132, 252, 0.7));
     }
 
     .process-step-title {
       font-family: var(--font-display);
-      font-size: clamp(1.1rem, 1.35vw, 1.25rem);
+      font-size: clamp(1.35rem, 1.6vw, 1.6rem);
       font-weight: 700;
       color: #FFFFFF;
-      margin: 0 0 8px;
-      letter-spacing: -0.015em;
-      transition: color 0.25s ease;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
     }
 
-    .process-step-col:hover .process-step-title {
-      color: #C084FC;
+    .process-step-sub {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+      font-weight: 600;
+      color: #DDD6FE;
+      margin: 0 0 14px;
+      line-height: 1.4;
     }
 
     .process-step-desc {
       font-family: var(--font-body);
-      font-size: 0.88rem;
-      line-height: 1.58;
-      color: #C4BFDC;
+      font-size: clamp(0.88rem, 0.95vw, 0.96rem);
+      line-height: 1.68;
+      color: #A39DBB;
       margin: 0;
     }
 
-    @media (max-width: 1024px) {
-      .process-header-grid {
+    @media (max-width: 960px) {
+      .process-header-wrap {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
+        margin-bottom: 40px;
       }
-      .process-header-desc {
-        justify-self: start;
-        max-width: 100%;
+      .process-label {
+        padding-top: 0;
       }
-      .process-wave-svg {
-        display: none;
+      .process-lead-statement {
+        font-size: clamp(24px, 5.8vw, 38px);
+        line-height: 1.32;
+        font-weight: 500;
       }
       .process-steps-row {
         grid-template-columns: repeat(2, 1fr);
-        gap: 32px 20px;
+        gap: 40px 24px;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 580px) {
       .process-steps-row {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 36px;
       }
     }
 
@@ -2292,15 +2448,15 @@
     }
 
     .quote-card {
-      background: radial-gradient(120% 120% at 15% 15%, #FFFFFF 0%, #F5F0FE 45%, #EBE3FD 100%);
+      background: #F6F6F8;
       border-radius: clamp(24px, 3.5vw, 40px);
       padding: clamp(44px, 6.5vw, 84px) clamp(28px, 5.5vw, 72px);
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 40px;
       align-items: flex-end;
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 0 30px 90px rgba(124, 58, 237, 0.14), 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(14, 11, 31, 0.08);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
       position: relative;
       overflow: hidden;
     }
@@ -2313,22 +2469,14 @@
       font-family: Georgia, serif;
       font-size: clamp(10rem, 16vw, 15rem);
       line-height: 1;
-      color: rgba(124, 58, 237, 0.07);
+      color: rgba(14, 11, 31, 0.06);
       pointer-events: none;
       font-weight: 900;
       user-select: none;
     }
 
     .quote-card::after {
-      content: "";
-      position: absolute;
-      bottom: -90px;
-      right: -60px;
-      width: 380px;
-      height: 380px;
-      background: radial-gradient(circle, rgba(167, 139, 250, 0.25) 0%, rgba(235, 227, 253, 0) 70%);
-      pointer-events: none;
-      filter: blur(40px);
+      display: none;
     }
 
     .quote-card blockquote {
@@ -2533,80 +2681,406 @@
     }
 
     /* ============================================================
-       MINIMALIST CLEAN FOOTER (Logo | @bypatdesigner | Socials)
+       CINEMATIC PLINTH-STYLE FOOTER (Let's build something...)
        ============================================================ */
-    footer.site-footer {
-      border-top: 1px solid rgba(167, 139, 250, 0.22);
-      padding: 28px var(--pad);
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 20px;
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      background: transparent;
-      width: 100%;
-    }
-
-    .footer-col-left {
-      justify-self: start;
+    footer.site-footer.plinth-footer {
+      position: relative;
+      background: radial-gradient(ellipse 95% 65% at 50% 18%, rgba(139, 92, 246, 0.1) 0%, rgba(9, 7, 15, 0.98) 55%, #040307 100%);
+      border-top: 1px solid rgba(167, 139, 250, 0.16);
+      padding: clamp(130px, 16vh, 220px) clamp(28px, 5.5vw, 84px) clamp(44px, 5vh, 64px);
+      min-height: 88vh;
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .plinth-ambient-glow {
+      position: absolute;
+      top: -25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1100px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, rgba(139, 92, 246, 0.04) 50%, transparent 72%);
+      pointer-events: none;
+      filter: blur(65px);
+      z-index: 0;
+    }
+
+    .plinth-star {
+      position: absolute;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 24px rgba(192, 139, 232, 0.75);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .plinth-star-1 {
+      width: 4.5px;
+      height: 4.5px;
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: plinthStarPulse 4s ease-in-out infinite alternate;
+    }
+
+    .plinth-star-2 {
+      width: 4px;
+      height: 4px;
+      top: 50%;
+      left: 28%;
+      animation: plinthStarPulse 5.5s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes plinthStarPulse {
+      0% {
+        transform: scale(0.85);
+        opacity: 0.5;
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+      }
+      100% {
+        transform: scale(1.3);
+        opacity: 1;
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.95), 0 0 26px rgba(167, 139, 250, 0.9);
+      }
+    }
+
+    .plinth-headline-wrap {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1480px;
+      width: 100%;
+      margin: 0 auto clamp(90px, 14vh, 180px);
+    }
+
+    .plinth-footer-headline {
+      font-family: var(--font-display, var(--font-body));
+      font-size: clamp(3rem, 6.8vw, 6.6rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      margin: 0 auto;
+      max-width: 1400px;
+      text-wrap: balance;
+      transition: opacity 0.3s ease;
+    }
+
+    .plinth-footer-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      align-items: start;
+      gap: clamp(40px, 5.5vw, 100px);
+      max-width: 1540px;
+      width: 100%;
+      margin: 0 auto;
+      padding-bottom: clamp(70px, 10vh, 130px);
+    }
+
+    .plinth-col-left {
+      justify-self: start;
+      max-width: 470px;
+    }
+
+    .plinth-desc {
+      font-size: clamp(1rem, 1.16vw, 1.15rem);
+      line-height: 1.72;
+      color: rgba(226, 220, 248, 0.74);
+      font-weight: 300;
+      margin: 0;
+      letter-spacing: -0.005em;
+    }
+
+    .plinth-col-center {
+      justify-self: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
       align-items: center;
     }
 
-    .footer-logo-link {
-      display: inline-flex;
-      align-items: center;
+    .plinth-talk-label {
+      display: block;
+      font-size: clamp(1.4rem, 1.85vw, 1.8rem);
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+
+    .plinth-email-link {
+      display: inline-block;
+      font-size: clamp(1.02rem, 1.22vw, 1.22rem);
+      color: rgba(226, 220, 248, 0.72);
       text-decoration: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      font-family: var(--font-mono, monospace);
+      transition: all 0.25s ease;
+      margin-bottom: 26px;
+      cursor: pointer;
     }
 
-    .footer-logo-link:hover {
-      opacity: 0.85;
+    .plinth-email-link:hover {
+      color: var(--violet-bright, #c084fc);
+      text-shadow: 0 0 16px rgba(192, 132, 252, 0.45);
       transform: translateY(-1px);
     }
 
-    .footer-logo-img {
-      height: 28px;
+    .plinth-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .plinth-cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border: 1px solid rgba(167, 139, 250, 0.32);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .plinth-cv-btn:hover {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32), rgba(167, 139, 250, 0.18));
+      border-color: rgba(192, 132, 252, 0.65);
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .plinth-arrow {
+      font-size: 1rem;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+
+    .plinth-cv-btn:hover .plinth-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    .plinth-whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      background: rgba(37, 211, 102, 0.08);
+      color: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(37, 211, 102, 0.24);
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.28s ease;
+    }
+
+    .plinth-whatsapp-link:hover {
+      background: rgba(37, 211, 102, 0.18);
+      border-color: rgba(37, 211, 102, 0.55);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.2);
+    }
+
+    .plinth-col-right {
+      justify-self: end;
+    }
+
+    .plinth-social-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    .plinth-social-item {
+      color: rgba(226, 220, 248, 0.7);
+      font-family: var(--font-body);
+      font-size: 1.02rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+
+    .plinth-social-item:hover {
+      color: #ffffff;
+      transform: translateX(-4px);
+    }
+
+    .plinth-footer-bottom {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      max-width: 1540px;
+      width: 100%;
+      margin: 0 auto;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(226, 220, 248, 0.45);
+    }
+
+    .plinth-bottom-left {
+      justify-self: start;
+    }
+
+    .plinth-bottom-center {
+      justify-self: center;
+    }
+
+    .plinth-brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+    }
+
+    .plinth-brand-mark:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
+
+    .plinth-footer-logo {
+      height: 32px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.25));
+      filter: drop-shadow(0 2px 10px rgba(139, 92, 246, 0.35));
+      transition: filter 0.28s ease, transform 0.28s ease;
     }
 
-    .footer-col-center {
-      justify-self: center;
-      text-align: center;
+    .plinth-brand-mark:hover .plinth-footer-logo {
+      filter: drop-shadow(0 4px 18px rgba(192, 132, 252, 0.65));
     }
 
-    .footer-handle {
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      letter-spacing: 0.05em;
+    .plinth-tagline {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(226, 220, 248, 0.55);
       font-weight: 500;
-      user-select: none;
     }
 
-    .footer-col-right {
+    .plinth-bottom-right {
       justify-self: end;
       display: flex;
       align-items: center;
-      gap: 24px;
     }
 
-    .footer-social-link {
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.84rem;
-      letter-spacing: 0.04em;
+    .plinth-back-top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(226, 220, 248, 0.7);
       text-decoration: none;
-      transition: color 0.25s ease, text-shadow 0.25s ease;
-      font-weight: 500;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      cursor: pointer;
     }
 
-    .footer-social-link:hover {
-      color: var(--violet-bright);
-      text-shadow: 0 0 12px rgba(191, 167, 255, 0.35);
+    .plinth-back-top-link:hover {
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .plinth-back-top-link:hover .plinth-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    .plinth-footer-subline {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-top: 22px;
+      max-width: 1540px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .plinth-copyright-text {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.74rem;
+      letter-spacing: 0.05em;
+      color: rgba(226, 220, 248, 0.4);
+      font-weight: 400;
+    }
+
+    @media (max-width: 860px) {
+      footer.site-footer.plinth-footer {
+        padding: 90px var(--pad) 36px;
+        min-height: auto;
+      }
+      .plinth-headline-wrap {
+        margin-bottom: 60px;
+      }
+      .plinth-footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        padding-bottom: 60px;
+      }
+      .plinth-col-left {
+        justify-self: center;
+        max-width: 520px;
+        text-align: center;
+      }
+      .plinth-col-center {
+        justify-self: center;
+      }
+      .plinth-col-right {
+        justify-self: center;
+      }
+      .plinth-social-stack {
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+      }
+      .plinth-social-item:hover {
+        transform: translateY(-2px);
+      }
+      .plinth-footer-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        text-align: center;
+      }
+      .plinth-bottom-left,
+      .plinth-bottom-center,
+      .plinth-bottom-right {
+        justify-self: center;
+        text-align: center;
+      }
     }
 
     /* Toast Notification */
@@ -2842,17 +3316,6 @@
     .process-step-col.visible {
       opacity: 1;
       transform: translateY(0) scale(1);
-    }
-
-    /* Process Wave SVG Dynamic Draw on Scroll */
-    .process-wave-svg path {
-      stroke-dasharray: 1200;
-      stroke-dashoffset: 1200;
-      transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .process-timeline-container.visible .process-wave-svg path {
-      stroke-dashoffset: 0;
     }
 
     /* Dynamic Navbar Scrolled State */
@@ -3361,9 +3824,6 @@
     <!-- WebGL Mesh Drift Fluid Shader Canvas (Scoped ONLY inside Hero) -->
     <canvas id="meshDriftCanvas" class="hero-fluid-canvas"></canvas>
 
-    <!-- Starfield Constellations Physics Canvas (Scoped ONLY inside Hero) -->
-    <canvas id="constellationCanvas" class="hero-constellation-canvas"></canvas>
-
     <div class="hero-inner" style="padding-top: 180px; ">
       <div class="hero-head">
         <div class="eyebrow" id="heroEyebrow" data-decrypt="true" data-i18n-html="hero.eyebrow"
@@ -3444,252 +3904,165 @@
   <!-- ================= REST OF THE HOME ================= -->
   <div class="page-frame">
 
-    <!-- ================= 01 — ABOUT SECTION (FULL WIDTH LIGHT) ================= -->
+    <!-- ================= ABOUT SECTION ================= -->
     <section id="about">
       <div class="shell">
-        <div class="section-label reveal" data-i18n="about.section_label">01 — Chi Sono &amp; Visione</div>
-        <h2 class="headline reveal" data-i18n-html="about.headline">
-          <span class="grad-text">Ciao, sono Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Mano che saluta"></span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>
-        </h2>
-
-        <div class="about-story-wrap reveal">
-          <!-- Story Narrative Card -->
-          <div class="about-story-hero">
-            <div class="about-story-kicker">
-              <span data-i18n="about.story_kicker">Design · UI/UX · Web</span>
-            </div>
-            <div class="about-story-body">
-              <p data-i18n-html="about.story_p1">
-                Sono una graphic designer con un percorso che unisce <strong>UI/UX e sviluppo web</strong>. Mi piace partire dalle persone e dai problemi reali, mettere ordine tra contenuti e necessità e trasformare la complessità in esperienze digitali chiare, intuitive e piacevoli da usare.
-              </p>
-              <p data-i18n-html="about.story_p2">
-                La mia curiosità mi ha portata anche al codice. Non mi fermo al disegno dell’interfaccia: studiare e applicare lo sviluppo web mi permette di progettare con maggiore consapevolezza, capire cosa è realmente costruibile e creare soluzioni in cui design e codice lavorano insieme con criterio.
-              </p>
-            </div>
-          </div>
-
-          <!-- 3 Pillars Grid -->
-          <div class="about-pillars-grid">
-            <!-- Pillar 1 -->
-            <div class="about-pillar-card">
-              <div class="about-pillar-header">
-                <div class="about-pillar-icon" aria-hidden="true">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <span class="about-pillar-tag" data-i18n="about.pillar1_tag">01 / Discovery</span>
-              </div>
-              <h3 class="about-pillar-title" data-i18n="about.pillar1_title">Comprendere il problema</h3>
-              <p class="about-pillar-desc" data-i18n="about.pillar1_desc">
-                Osservare persone, bisogni, contesto e requisiti per raccogliere insight e definire con chiarezza il problema da affrontare.
-              </p>
-            </div>
-
-            <!-- Pillar 2 -->
-            <div class="about-pillar-card">
-              <div class="about-pillar-header">
-                <div class="about-pillar-icon" aria-hidden="true">
-                  <i class="fa-solid fa-compass"></i>
-                </div>
-                <span class="about-pillar-tag" data-i18n="about.pillar2_tag">02 / Define &amp; Ideate</span>
-              </div>
-              <h3 class="about-pillar-title" data-i18n="about.pillar2_title">Dare struttura alla soluzione</h3>
-              <p class="about-pillar-desc" data-i18n="about.pillar2_desc">
-                Trasformare gli insight in gerarchie, flussi e ipotesi progettuali, organizzando contenuti e priorità per costruire un’esperienza chiara e intuitiva.
-              </p>
-            </div>
-
-            <!-- Pillar 3 -->
-            <div class="about-pillar-card">
-              <div class="about-pillar-header">
-                <div class="about-pillar-icon" aria-hidden="true">
-                  <i class="fa-solid fa-code"></i>
-                </div>
-                <span class="about-pillar-tag" data-i18n="about.pillar3_tag">03 / Prototype &amp; Build</span>
-              </div>
-              <h3 class="about-pillar-title" data-i18n="about.pillar3_title">Rendere l’idea concreta</h3>
-              <p class="about-pillar-desc" data-i18n="about.pillar3_desc">
-                Tradurre la soluzione in wireframe, interfacce e componenti, verificando coerenza, usabilità e fattibilità tecnica fino alla realizzazione.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= 02 — SELECTED WORK (FULL WIDTH DARK CANVAS) ================= -->
-    <section id="work">
-      <div class="shell">
-        <div class="section-label reveal" data-i18n="work.section_label">02 — Portfolio Selezionato</div>
-        <div class="work-head">
-          <h2 class="headline reveal" data-i18n-html="work.headline"><span class="grad-text">Una selezione</span> <span class="muted-text">di lavori e case study.</span></h2>
-          <p class="reveal" data-i18n="work.intro">UI/UX, web e identità visiva: progetti diversi raccontati attraverso processo, decisioni e risultato.</p>
-        </div>
-
-        <!-- Filters -->
-        <div class="filter-tabs reveal">
-          <button class="filter-btn active" data-filter="all" data-i18n="work.filter_all">Tutti</button>
-          <button class="filter-btn" data-filter="graphic" data-i18n="work.filter_graphic">Graphic Design</button>
-          <button class="filter-btn" data-filter="blender" data-i18n="work.filter_blender">Blender 3D</button>
-          <button class="filter-btn" data-filter="ux" data-i18n="work.filter_ux" style="display: none;">UI/UX</button>
-          <button class="filter-btn" data-filter="web" data-i18n="work.filter_web" style="display: none;">Web &amp; Front-end</button>
-        </div>
-
-        <div class="projects reveal">
-          <!-- Project 01: Eureka -->
-          <article class="project" data-category="graphic brand" data-project="eureka">
-            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/eureka/hero.png');"></div>
-            <div class="project-top">
-              <span data-i18n="work.project1_tag">Brand Identity · Progetto Accademico</span>
-              <span>2021</span>
-            </div>
-            <div>
-              <h3 class="project-title">Eureka</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
-            </div>
-          </article>
-
-          <!-- Project 02: Apulia Promoting US -->
-          <article class="project" data-category="graphic brand" data-project="apulia">
-            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/apulia/hero-manifesto.jpg');"></div>
-            <div class="project-top">
-              <span data-i18n="work.project2_tag">Brand Identity &amp; Campagna</span>
-              <span>2021</span>
-            </div>
-            <div>
-              <h3 class="project-title">Apulia Promoting US</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
-            </div>
-          </article>
-
-          <!-- Project 03: Honey + Coconut -->
-          <article class="project" data-category="blender 3d" data-project="honey">
-            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/honeyCoconut.png');"></div>
-            <div class="project-top">
-              <span data-i18n="work.project3_tag">Packaging 3D Design · Blender</span>
-              <span>2024</span>
-            </div>
-            <div>
-              <h3 class="project-title">Honey + Coconut</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
-            </div>
-          </article>
-          <!-- Project 04: Teatro Petruzzelli -->
-          <article class="project" data-category="graphic brand" data-project="petruzzelli">
-            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.45) 0%, rgba(14, 13, 24, 0.2) 40%, rgba(14, 13, 24, 0.94) 100%), url('./img/petruzzelli-logo/hero-poster.webp');"></div>
-            <div class="project-top">
-              <span data-i18n="work.project4_tag">Brand Identity &amp; Comunicazione</span>
-              <span>2020</span>
-            </div>
-            <div>
-              <h3 class="project-title">Teatro Petruzzelli</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
-            </div>
-          </article>
-
-          <!-- Project 05: Miami Mango -->
-          <article class="project" data-category="graphic brand" data-project="miamiMango">
-            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.3) 0%, rgba(14, 13, 24, 0.08) 40%, rgba(14, 13, 24, 0.88) 100%), url('./img/miami-mango/card-home.jpg');"></div>
-            <div class="project-top">
-              <span data-i18n="work.project5_tag">Brand Identity · Tavole da Surf</span>
-              <span>2022</span>
-            </div>
-            <div>
-              <h3 class="project-title">Miami Mango</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
-            </div>
-          </article>
-
-          <!-- Project 06: Cozy Living Room -->
-          <article class="project" data-category="blender 3d" data-project="cozyLivingRoom">
-            <div class="art" style="background-image: linear-gradient(180deg, rgba(14, 13, 24, 0.35) 0%, rgba(14, 13, 24, 0.15) 40%, rgba(14, 13, 24, 0.92) 100%), url('./img/cozy-living-room/card.webp');"></div>
-            <div class="project-top">
-              <span data-i18n="work.project6_tag">3D Modeling · Interior Design</span>
-              <span>2024</span>
-            </div>
-            <div>
-              <h3 class="project-title">Cozy Living Room</h3>
-              <span class="project-action-pill" style="margin-top: 14px;" data-i18n="work.card_action">Anteprima Rapida ↗</span>
-            </div>
-          </article>
-        </div>
-
-        <!-- Empty State for Filters -->
-        <div id="filterEmptyStateHome" style="display: none; text-align: center; padding: 48px 24px; background: rgba(22, 19, 36, 0.6); border: 1px dashed var(--line); border-radius: var(--radius-lg); margin-top: 32px;">
-          <p id="emptyMsgTextHome" data-i18n="work.empty_filter" style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 16px;">Case study UI/UX &amp; Web Design in arrivo o consultabili su richiesta privata.</p>
-          <a href="#contact" class="btn secondary" style="display: inline-flex; align-items: center; gap: 8px; border-radius: var(--radius-full); padding: 10px 24px; font-size: 0.84rem;">
-            <span data-i18n="work.empty_filter_btn">Richiedi Informazioni</span> <span>↗</span>
-          </a>
-        </div>
-
-        <!-- Callout to All Projects Page -->
-        <div style="margin-top: 44px; text-align: center;" class="reveal">
-          <a href="projects.html" class="btn secondary"
-            style="display: inline-flex; align-items: center; gap: 10px; border-radius: var(--radius-full); padding: 14px 36px; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; color: #FFFFFF; border-color: var(--line-violet); background: rgba(139, 92, 246, 0.12); transition: all 0.3s ease;">
-            <span data-i18n="work.btn_all_projects">Vedi tutti i progetti &amp; case study ↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= 03 — TRA DESIGN E CODICE (FULL WIDTH LIGHT) ================= -->
-    <section class="services" id="services">
-      <div class="shell">
-        <div class="services-grid">
-          <!-- Left Column: Title, Intro & CTA -->
-          <div class="services-left-col reveal">
-            <div class="services-label">
-              <span data-i18n="services.section_label">03 — Tra Design e Codice</span>
-            </div>
-            <h2 class="services-title" data-i18n-html="services.headline">
-              <span class="services-grad-text">Un occhio al design,</span><br />
-              <span class="services-dark-title">l'altro al codice.</span>
+        <div class="about-header-wrap reveal">
+          <div class="section-label about-label" data-i18n="about.section_label">Chi Sono &amp; Visione</div>
+          <div class="about-right-col">
+            <h2 class="about-statement" data-i18n="about.statement">
+              Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.
             </h2>
-            <p class="services-desc" data-i18n="services.intro">Dal gusto visivo alla logica di come si costruisce un prodotto digitale: discipline diverse che combino in base alle esigenze del progetto.</p>
-            <div class="services-cta-wrap">
-              <a href="#process" class="services-btn">
-                <span data-i18n="services.btn">Scopri il mio approccio</span>
-                <i class="fa-solid fa-arrow-right"></i>
+            <div class="about-action-wrap">
+              <a href="#services" class="about-services-btn" data-i18n-html="about.btn_services">
+                <span>Aree di competenza</span>
+                <span class="about-btn-arrow">↓</span>
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Right Column: Disciplines List -->
-          <div class="services-right-col reveal">
-            <!-- 01 UI/UX Design -->
-            <div class="service-row">
-              <div class="service-icon-box">
-                <i class="fa-solid fa-arrow-pointer"></i>
-              </div>
-              <h3 class="service-row-title" data-i18n="services.card1_title">UI/UX Design</h3>
-              <p class="service-row-desc" data-i18n="services.card1_desc">Ricerca, architettura dell’informazione, user flow, wireframe, prototipazione e progettazione di interfacce.</p>
-            </div>
+    <!-- ================= 02 — WORK / STACK SECTION & CINEMATIC SCENES (HOME-PLINTH) ================= -->
+    <section class="stack-section" id="work" aria-label="Progetti selezionati">
+      <div class="stack-stage">
+        <div class="stack-type" aria-hidden="true">
+          <span data-i18n="stack.line1">Identità visive · Esperienze digitali ·</span>
+          <span data-i18n="stack.line2">Idee in movimento · Nuove prospettive ·</span>
+          <span data-i18n="stack.line3">Design, codice e curiosità ·</span>
+        </div>
+        <div class="stack-images">
+          <img class="stack-image stack-image-back" src="img/apulia/hero-manifesto.jpg" alt="Campagna visiva Apulia Promoting US" width="600" height="900">
+          <img class="stack-image stack-image-front" src="img/eureka/hero.png" alt="Identità visiva Eureka" width="600" height="900">
+        </div>
+        <a class="stack-project-link" href="eureka.html">
+          <strong>Eureka</strong>
+          <span data-i18n="project.view">Scopri il progetto ↗</span>
+        </a>
+        <div class="stack-caption">
+          <p data-i18n="stack.caption_title">Una selezione di progetti</p>
+          <a href="#eureka"><span data-i18n="stack.caption_link">Esplora il lavoro</span> <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
 
-            <!-- 02 Visual & Web Design -->
-            <div class="service-row">
-              <div class="service-icon-box">
-                <i class="fa-regular fa-image"></i>
-              </div>
-              <h3 class="service-row-title" data-i18n="services.card2_title">Visual & Web Design</h3>
-              <p class="service-row-desc" data-i18n="services.card2_desc">Layout, tipografia, composizione e sistemi visivi applicati a prodotti ed esperienze digitali.</p>
-            </div>
+    <!-- Project 01: Eureka -->
+    <section class="project-scene" id="eureka" aria-labelledby="eureka-title">
+      <div class="scene-pin">
+        <img class="scene-background" src="img/eureka/hero.png" alt="" loading="lazy">
+        <div class="scene-top">
+          <span data-i18n="project.eureka.tag">Brand identity / Progetto accademico</span>
+          <span>2021</span>
+        </div>
+        <div class="scene-marquee" aria-hidden="true"><span>Eureka · Eureka · Eureka · Eureka · </span></div>
+        <a class="scene-card" href="eureka.html">
+          <img src="img/eureka/hero.png" alt="Eureka: sistema di identità visiva" width="1400" height="900" loading="lazy">
+          <h2 id="eureka-title">Eureka</h2>
+          <span class="project-view" data-i18n="project.view">Scopri il progetto ↗</span>
+        </a>
+      </div>
+    </section>
 
-            <!-- 03 Front-end Development -->
-            <div class="service-row">
-              <div class="service-icon-box">
-                <i class="fa-solid fa-code"></i>
-              </div>
-              <h3 class="service-row-title" data-i18n="services.card3_title">Front-end Development</h3>
-              <p class="service-row-desc" data-i18n="services.card3_desc">HTML, CSS, JavaScript, React, Laravel e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.</p>
-            </div>
+    <!-- Project 02: Apulia Promoting US -->
+    <section class="project-scene" id="apulia" aria-labelledby="apulia-title">
+      <div class="scene-pin">
+        <img class="scene-background" src="img/apulia/hero-manifesto.jpg" alt="" loading="lazy">
+        <div class="scene-top">
+          <span data-i18n="project.apulia.tag">Brand identity / Campagna</span>
+          <span>2021</span>
+        </div>
+        <div class="scene-marquee" aria-hidden="true"><span>Apulia · Apulia · Apulia · Apulia · </span></div>
+        <a class="scene-card" href="apulia.html">
+          <img src="img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US: manifesto della campagna" width="1400" height="900" loading="lazy">
+          <h2 id="apulia-title">Apulia Promoting US</h2>
+          <span class="project-view" data-i18n="project.view">Scopri il progetto ↗</span>
+        </a>
+      </div>
+    </section>
 
-            <!-- 04 AI Exploration -->
-            <div class="service-row">
-              <div class="service-icon-box">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-              </div>
-              <h3 class="service-row-title" data-i18n="services.card4_title">AI Exploration</h3>
-              <p class="service-row-desc" data-i18n="services.card4_desc">Strumenti di IA per accelerare la ricerca, l'ideazione e la prototipazione. Le decisioni di design le prendo io.</p>
+    <!-- Project 03: Miami Mango -->
+    <section class="project-scene" id="miami" aria-labelledby="miami-title">
+      <div class="scene-pin">
+        <img class="scene-background" src="img/miami-mango/card-home.jpg" alt="" loading="lazy">
+        <div class="scene-top">
+          <span data-i18n="project.miami.tag">Brand identity / Tavole da surf</span>
+          <span>2022</span>
+        </div>
+        <div class="scene-marquee" aria-hidden="true"><span>Miami Mango · Miami Mango · Miami Mango · </span></div>
+        <a class="scene-card" href="miami-mango.html">
+          <img src="img/miami-mango/card-home.jpg" alt="Miami Mango: identità per tavole da surf" width="1400" height="900" loading="lazy">
+          <h2 id="miami-title">Miami Mango</h2>
+          <span class="project-view" data-i18n="project.view">Scopri il progetto ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Archive Link Bar -->
+    <a class="archive-bar" href="projects.html">
+      <span data-i18n="archive_bar.text">Altre idee. Altri progetti.</span>
+      <span><span data-i18n="archive_bar.link">Esplora il portfolio</span> <span aria-hidden="true">↗</span></span>
+    </a>
+
+    <!-- ================= 03 — AREE DI COMPETENZA (PLINTH LARGE SERVICES + 04 HEADER STYLE) ================= -->
+    <section class="services-section section-pad" id="services">
+      <div class="shell">
+        <!-- 03 Header: Label + Lead Statement at 40pt -->
+        <div class="services-header-wrap reveal">
+          <div class="section-label services-label" data-i18n="services.section_label">Aree di competenza</div>
+          <h2 class="services-lead-statement" data-i18n="services.intro_desc">
+            Dal design visivo allo sviluppo web, esploro ogni progetto con curiosità, attenzione ai dettagli e voglia di trovare soluzioni concrete.
+          </h2>
+        </div>
+
+        <!-- Services Content: Interactive Preview Card on left + Large Accordions on right -->
+        <div class="services-body-grid">
+          <div class="services-preview-col reveal" aria-hidden="true">
+            <div class="service-preview">
+              <img id="service-preview" src="img/eureka/hero.png" alt="" width="400" height="400" loading="lazy">
             </div>
+          </div>
+
+          <div class="service-list">
+            <details class="service reveal" data-preview="img/eureka/hero.png">
+              <summary>
+                <span data-i18n="services.card1_title">UI/UX Design</span>
+                <span class="service-sign" aria-hidden="true">+</span>
+              </summary>
+              <p data-i18n="services.card1_desc">
+                Ricerca, architettura dell’informazione, wireframe e prototipi. Parto dalle persone per progettare interfacce comprensibili e piacevoli da usare.
+              </p>
+            </details>
+
+            <details class="service reveal" data-preview="img/apulia/hero-manifesto.jpg">
+              <summary>
+                <span data-i18n="services.card2_title">Visual &amp; Web Design</span>
+                <span class="service-sign" aria-hidden="true">+</span>
+              </summary>
+              <p data-i18n="services.card2_desc">
+                Identità visive e siti web con una direzione precisa. Tipografia, colore e composizione lavorano insieme per raccontare il tuo progetto.
+              </p>
+            </details>
+
+            <details class="service reveal" data-preview="img/miami-mango/card-home.jpg">
+              <summary>
+                <span data-i18n="services.card3_title">Front-end Development</span>
+                <span class="service-sign" aria-hidden="true">+</span>
+              </summary>
+              <p data-i18n="services.card3_desc">
+                Dal prototipo al browser: interfacce responsive, accessibili e curate anche nelle interazioni, con HTML, CSS e JavaScript.
+              </p>
+            </details>
+
+            <details class="service reveal" data-preview="img/robot-character/final-hero.png">
+              <summary>
+                <span data-i18n="services.card4_title">3D &amp; AI Exploration</span>
+                <span class="service-sign" aria-hidden="true">+</span>
+              </summary>
+              <p data-i18n="services.card4_desc">
+                Modellazione, materiali ed esplorazioni con nuovi strumenti. Un laboratorio per trovare prospettive e linguaggi visivi diversi.
+              </p>
+            </details>
           </div>
         </div>
       </div>
@@ -3754,159 +4127,142 @@
 
     <!-- ================= 04 — IL MIO PROCESSO ================= -->
     <div class="shell">
-      <section id="process">
-        <div class="section-label reveal" data-i18n="process.section_label">04 — Il Mio Processo</div>
-        
-        <div class="process-header-grid reveal">
-          <h2 class="process-main-title" data-i18n-html="process.headline">
-            Capire prima.<br />
-            <span class="grad-text">Progettare meglio.</span>
-          </h2>
-          <p class="process-header-desc" data-i18n="process.intro">
+      <section id="process" class="process-section">
+        <div class="process-header-wrap reveal">
+          <div class="section-label process-label" data-i18n="process.section_label">Il Mio Processo</div>
+          <h2 class="process-lead-statement" data-i18n="process.intro">
             Ogni progetto nasce da persone, bisogni e contesti diversi. Per questo non parto subito dalla soluzione: prima ascolto, osservo e cerco di capire cosa serve davvero. Da lì, costruisco il progetto passo dopo passo.
-          </p>
+          </h2>
         </div>
 
         <div class="process-timeline-container reveal">
-          <!-- Fluid Wave Connecting Line (SVG) -->
-          <svg class="process-wave-svg" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M 0,60 C 120,15 180,95 280,55 C 380,15 440,95 540,55 C 640,15 700,95 800,55 C 880,20 940,85 1000,55" 
-                  fill="none" stroke="rgba(167, 139, 250, 0.4)" stroke-width="2.5" stroke-dasharray="6 6" />
-          </svg>
-
-          <!-- 5 Steps Row -->
+          <!-- 4 Steps Row -->
           <div class="process-steps-row">
-            <!-- 01 Comprendere -->
+            <!-- 01 Discovery -->
             <div class="process-step-col">
-              <span class="process-step-num">01</span>
-              <div class="process-step-icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <h4 class="process-step-title" data-i18n="process.step1_title">Comprendere</h4>
-              <p class="process-step-desc" data-i18n="process.step1_desc">Ascoltare, osservare e conoscere il contesto, le persone e gli obiettivi.</p>
+              <span class="process-step-num">01.</span>
+              <h3 class="process-step-title" data-i18n="process.step1_title">Discovery</h3>
+              <p class="process-step-sub" data-i18n="process.step1_sub">Ascoltare e comprendere</p>
+              <p class="process-step-desc" data-i18n="process.step1_desc">
+                Esploro il contesto, ascolto le persone e analizzo bisogni e obiettivi per capire quali problemi vale davvero la pena risolvere.
+              </p>
             </div>
 
-            <!-- 02 Mettere a fuoco -->
+            <!-- 02 Define -->
             <div class="process-step-col">
-              <span class="process-step-num">02</span>
-              <div class="process-step-icon">
-                <i class="fa-solid fa-crosshairs"></i>
-              </div>
-              <h4 class="process-step-title" data-i18n="process.step2_title">Mettere a fuoco</h4>
-              <p class="process-step-desc" data-i18n="process.step2_desc">Dare ordine alle informazioni e capire quali sono le priorità e i problemi reali da affrontare.</p>
+              <span class="process-step-num">02.</span>
+              <h3 class="process-step-title" data-i18n="process.step2_title">Define</h3>
+              <p class="process-step-sub" data-i18n="process.step2_sub">Mettere a fuoco</p>
+              <p class="process-step-desc" data-i18n="process.step2_desc">
+                Organizzo le informazioni raccolte, individuo le priorità e definisco una direzione chiara da cui partire.
+              </p>
             </div>
 
-            <!-- 03 Esplorare -->
+            <!-- 03 Design -->
             <div class="process-step-col">
-              <span class="process-step-num">03</span>
-              <div class="process-step-icon">
-                <i class="fa-regular fa-lightbulb"></i>
-              </div>
-              <h4 class="process-step-title" data-i18n="process.step3_title">Esplorare</h4>
-              <p class="process-step-desc" data-i18n="process.step3_desc">Provare strade diverse, confrontare idee e cercare la direzione più adatta.</p>
+              <span class="process-step-num">03.</span>
+              <h3 class="process-step-title" data-i18n="process.step3_title">Design</h3>
+              <p class="process-step-sub" data-i18n="process.step3_sub">Dare forma alle idee</p>
+              <p class="process-step-desc" data-i18n="process.step3_desc">
+                Esploro soluzioni, progetto flussi e interfacce e realizzo prototipi, cercando il giusto equilibrio tra estetica e funzionalità.
+              </p>
             </div>
 
-            <!-- 04 Progettare -->
+            <!-- 04 Test & Iterate -->
             <div class="process-step-col">
-              <span class="process-step-num">04</span>
-              <div class="process-step-icon">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </div>
-              <h4 class="process-step-title" data-i18n="process.step4_title">Progettare</h4>
-              <p class="process-step-desc" data-i18n="process.step4_desc">Trasformare ciò che emerge in flussi, wireframe, interfacce e prototipi.</p>
-            </div>
-
-            <!-- 05 Migliorare -->
-            <div class="process-step-col">
-              <span class="process-step-num">05</span>
-              <div class="process-step-icon">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-              </div>
-              <h4 class="process-step-title" data-i18n="process.step5_title">Migliorare</h4>
-              <p class="process-step-desc" data-i18n="process.step5_desc">Verificare ciò che funziona, ascoltare i feedback e affinare la soluzione nel tempo.</p>
+              <span class="process-step-num">04.</span>
+              <h3 class="process-step-title" data-i18n="process.step4_title">Test &amp; Iterate</h3>
+              <p class="process-step-sub" data-i18n="process.step4_sub">Provare e migliorare</p>
+              <p class="process-step-desc" data-i18n="process.step4_desc">
+                Verifico ciò che funziona, raccolgo feedback e perfeziono le soluzioni. Perché un buon progetto non nasce perfetto: migliora nel tempo.
+              </p>
             </div>
           </div>
         </div>
       </section>
+    </div>
 
-      <!-- ================= QUOTE (Light Breathing Section) ================= -->
-      <section class="quote-section">
-        <div class="quote-card reveal">
-          <blockquote data-i18n-html="quote.text">
-            “Pay attention to <span class="grad-text">what users do</span>, not what they say.”
-          </blockquote>
-          <div class="person">
-            <strong>Jakob Nielsen</strong>
-            <span class="person-role" data-i18n="quote.role">UX Pioneer</span>
-          </div>
+    <!-- ================= CINEMATIC PLINTH-STYLE FOOTER & CONTACT ================= -->
+    <footer class="site-footer plinth-footer" id="contact">
+        <div class="plinth-ambient-glow" aria-hidden="true"></div>
+        <div class="contact-spotlight" id="contactSpotlight"></div>
+        <div class="plinth-star plinth-star-1" aria-hidden="true"></div>
+        <div class="plinth-star plinth-star-2" aria-hidden="true"></div>
+
+        <!-- Big Cinematic Headline -->
+        <div class="plinth-headline-wrap reveal">
+          <h2 class="plinth-footer-headline" data-i18n-html="footer.headline">
+            <span class="grad-text">Costruiamo</span> qualcosa che valga la pena ricordare.
+          </h2>
         </div>
-      </section>
 
-      <!-- ================= MINIMAL CONTACT SECTION ================= -->
-      <section class="contact-section" id="contact" style="padding: clamp(60px, 8vw, 100px) 0;">
-        <div class="contact-card-modern reveal">
-          <!-- Interactive Mouse Spotlight Halo -->
-          <div class="contact-spotlight" id="contactSpotlight"></div>
-
-          <!-- Minimal Content -->
-          <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <!-- Title -->
-            <h2 class="headline"
-              style="font-size: clamp(2.4rem, 4.8vw, 4.4rem); line-height: 1.05; margin: 0 0 20px; text-align: center;"
-              data-i18n-html="contact.title">
-              Iniziamo da un <span class="grad-text">ciao</span>
-            </h2>
-
-            <p style="font-size: clamp(1.05rem, 1.35vw, 1.25rem); line-height: 1.65; color: var(--text-muted); margin: 0 0 36px 0; font-weight: 300; text-align: center; max-width: 620px;"
-              data-i18n="contact.desc">
-              Ciao! Se hai un progetto, un’idea o semplicemente vuoi fare due chiacchiere, scrivimi. Sarà un piacere conoscerti.
+        <!-- 3-Column Base Area -->
+        <div class="plinth-footer-grid reveal">
+          <!-- Left Column (Subtle paragraph) -->
+          <div class="plinth-col plinth-col-left">
+            <p class="plinth-desc" data-i18n="footer.desc">
+              Un progetto da sviluppare, una collaborazione o una nuova opportunità professionale? Mi muovo tra design e codice per creare esperienze digitali che siano belle, intuitive e funzionali.
             </p>
+          </div>
 
-            <!-- Action Button -->
-            <a class="glass-btn" id="contactWhatsAppBtn"
-              href="https://wa.me/393771392002?text=Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A"
-              target="_blank" rel="noopener" style="
-              display: inline-flex;
-              align-items: center;
-              gap: 12px;
-              padding: 18px 42px;
-              border-radius: var(--radius-full);
-              background: linear-gradient(135deg, var(--violet-primary) 0%, var(--violet-deep) 100%);
-              color: #FFFFFF;
-              font-weight: 600;
-              font-size: 0.98rem;
-              letter-spacing: 0.04em;
-              text-transform: uppercase;
-              border: 1px solid rgba(192, 139, 232, 0.4);
-              box-shadow: 0 12px 36px rgba(139, 92, 246, 0.4);
-              transition: all 0.3s ease;
-            ">
-              <span data-i18n="contact.btn">Facciamo due chiacchiere</span>
-              <span style="font-size: 1.1rem; transform: translateX(2px);">↗</span>
+          <!-- Center Column (Scrivimi / Email / CV / WhatsApp) -->
+          <div class="plinth-col plinth-col-center">
+            <span class="plinth-talk-label" data-i18n="footer.talk_label">Scrivimi</span>
+            <a href="mailto:hello@bypatdesigner.com" class="plinth-email-link" id="copyEmailBtn" data-email="hello@bypatdesigner.com" title="Clicca per scrivere o copiare">
+              hello@bypatdesigner.com
+            </a>
+
+            <div class="plinth-action-row">
+              <a href="cv.html" class="plinth-cv-btn" id="footerResumeLink">
+                <span data-i18n="footer.cv_btn">Scopri il mio CV</span>
+                <span class="plinth-arrow">↗</span>
+              </a>
+
+              <a class="plinth-whatsapp-link" id="contactWhatsAppBtn"
+                href="https://wa.me/393771392002?text=Ciao+Patricia%21+%F0%9F%91%8B+Ho+visto+il+tuo+portfolio+e+mi+piacerebbe+parlare+con+te+%F0%9F%98%8A"
+                target="_blank" rel="noopener" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span data-i18n="footer.whatsapp_label">WhatsApp</span>
+                <span class="plinth-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column (Socials stacked) -->
+          <div class="plinth-col plinth-col-right">
+            <div class="plinth-social-stack">
+              <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="LinkedIn">LinkedIn</a>
+              <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="Behance">Behance</a>
+              <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="GitHub">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Baseline Bar -->
+        <div class="plinth-footer-bottom">
+          <div class="plinth-bottom-col plinth-bottom-left">
+            <span class="plinth-tagline" data-i18n="footer.tagline">DESIGN, CODE & A LITTLE CURIOSITY.</span>
+          </div>
+          <div class="plinth-bottom-col plinth-bottom-center">
+            <a href="#top" class="plinth-brand-mark" aria-label="Torna su / Bypatdesigner">
+              <img src="./img/logo.png" alt="Bypatdesigner Logo" class="plinth-footer-logo" />
+            </a>
+          </div>
+          <div class="plinth-bottom-col plinth-bottom-right">
+            <a href="#top" class="plinth-back-top-link" aria-label="Torna all'inizio">
+              <span data-i18n="footer.back_to_top_cta">BACK TO TOP</span>
+              <span class="plinth-arrow">↗</span>
             </a>
           </div>
         </div>
-      </section>
 
-      <!-- ================= MINIMALIST FOOTER ================= -->
-      <footer class="site-footer">
-        <div class="footer-col-left">
-          <a href="index.html" class="footer-logo-link" aria-label="Ir al inicio / Bypatdesigner">
-            <img src="./img/logo.png" alt="Pat" class="footer-logo-img" />
-          </a>
-        </div>
-        <div class="footer-col-center">
-          <span class="footer-handle">@bypatdesigner</span>
-        </div>
-        <div class="footer-col-right">
-          <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn de Patricia Garcia">LinkedIn</a>
-          <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Behance de Patricia Garcia">Behance</a>
-          <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub de Patricia Garcia">GitHub</a>
+        <!-- Copyright Subline -->
+        <div class="plinth-footer-subline">
+          <span class="plinth-copyright-text" data-i18n="footer.copyright">© 2026 Patricia García — Designed & built with intention.</span>
         </div>
       </footer>
 
     </div>
-  </div>
 
   <!-- Toast Notification -->
   <div class="toast" id="toast">Email copiata negli appunti! ✓</div>
@@ -3955,7 +4311,10 @@
 
   <!-- ================= JAVASCRIPT & LOTTIE ANIMATIONS ================= -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-  <script src="js/lottie.min.js"></script>
+  <!-- GSAP 3 Core & ScrollTrigger for Pinned Horizontal Gallery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script src="js/wave-hand-data.js"></script>
   <script>
     /* ============================================================
@@ -3977,35 +4336,25 @@
         "hero.desc": "Mi muovo tra design e codice. Lavoro in UI/UX e web design e mi formo nello sviluppo software per progettare soluzioni digitali più consapevoli, dal design allo sviluppo.",
         "hero.btn_work": "Vedi Progetti ↗",
         "hero.btn_resume": "Resume / CV",
-        "about.section_label": "01 — Chi Sono & Visione",
-        "about.headline": '<span class="grad-text">Ciao, sono Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Mano che saluta"></span> <span class="muted-text">Sposto pixel e, a volte, parentesi graffe.</span>',
-        "about.story_kicker": "Design · UI/UX · Web",
-        "about.story_p1": 'Sono una graphic designer con un percorso che unisce <strong>UI/UX e sviluppo web</strong>. Mi piace partire dalle persone e dai problemi reali, mettere ordine tra contenuti e necessità e trasformare la complessità in esperienze digitali chiare, intuitive e piacevoli da usare.',
-        "about.story_p2": 'La mia curiosità mi ha portata anche al codice. Non mi fermo al disegno dell’interfaccia: studiare e applicare lo sviluppo web mi permette di progettare con maggiore consapevolezza, capire cosa è realmente costruibile e creare soluzioni in cui design e codice lavorano insieme con criterio.',
-        "about.pillar1_tag": "01 / Discovery",
-        "about.pillar1_title": "Comprendere il problema",
-        "about.pillar1_desc": "Osservare persone, bisogni, contesto e requisiti per raccogliere insight e definire con chiarezza il problema da affrontare.",
-        "about.pillar2_tag": "02 / Define & Ideate",
-        "about.pillar2_title": "Dare struttura alla soluzione",
-        "about.pillar2_desc": "Trasformare gli insight in gerarchie, flussi e ipotesi progettuali, organizzando contenuti e priorità per costruire un’esperienza chiara e intuitiva.",
-        "about.pillar3_tag": "03 / Prototype & Build",
-        "about.pillar3_title": "Rendere l’idea concreta",
-        "about.pillar3_desc": "Tradurre la soluzione in wireframe, interfacce e componenti, verificando coerenza, usabilità e fattibilità tecnica fino alla realizzazione.",
+        "about.section_label": "Chi Sono & Visione",
+        "about.statement": "Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.",
+        "about.headline": "Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.",
+        "about.desc": "Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.",
+        "about.btn_services": '<span>Aree di competenza</span> <span class="about-btn-arrow">↓</span>',
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
-        "services.section_label": "03 — Tra Design e Codice",
-        "services.headline": '<span class="services-grad-text">Un occhio al design,</span><br><span class="services-dark-title">l\'altro al codice.</span>',
-        "services.intro": "Dal gusto visivo alla logica di come si costruisce un prodotto digitale: discipline diverse che combino in base alle esigenze del progetto.",
-        "services.btn": "Scopri il mio approccio",
+        "services.section_label": "Aree di competenza",
+        "services.intro_title": 'Non solo come appare.<br><span class="grad-text">Anche come funziona.</span>',
+        "services.intro_desc": "Dal design visivo allo sviluppo web, esploro ogni progetto con curiosità, attenzione ai dettagli e voglia di trovare soluzioni concrete.",
         "services.card1_title": "UI/UX Design",
-        "services.card1_desc": "Ricerca, architettura dell’informazione, user flow, wireframe, prototipazione e progettazione di interfacce.",
+        "services.card1_desc": "Ricerca, architettura dell’informazione, wireframe e prototipi. Parto dalle persone per progettare interfacce comprensibili e piacevoli da usare.",
         "services.card2_title": "Visual & Web Design",
-        "services.card2_desc": "Layout, tipografia, composizione e sistemi visivi applicati a prodotti ed esperienze digitali.",
+        "services.card2_desc": "Identità visive e siti web con una direzione precisa. Tipografia, colore e composizione lavorano insieme per raccontare il tuo progetto.",
         "services.card3_title": "Front-end Development",
-        "services.card3_desc": "HTML, CSS, JavaScript, React, Laravel e sviluppo di interfacce responsive, con competenze che continuo a consolidare attraverso la pratica.",
-        "services.card4_title": "AI Exploration",
-        "services.card4_desc": "Strumenti di IA per accelerare la ricerca, l'ideazione e la prototipazione. Le decisioni di design le prendo io.",
-        "work.section_label": "02 — Portfolio Selezionato",
-        "work.headline": '<span class="grad-text">Una selezione</span> <span class="muted-text">di lavori e case study.</span>',
+        "services.card3_desc": "Dal prototipo al browser: interfacce responsive, accessibili e curate anche nelle interazioni, con HTML, CSS e JavaScript.",
+        "services.card4_title": "3D & AI Exploration",
+        "services.card4_desc": "Modellazione, materiali ed esplorazioni con nuovi strumenti. Un laboratorio per trovare prospettive e linguaggi visivi diversi.",
+        "work.section_label": "Progetti in Evidenza",
+        "work.headline": '<span class="grad-text">Una selezione</span> <span class="muted-text">di progetti e case study.</span>',
         "work.intro": "UI/UX, web e identità visiva: progetti diversi raccontati attraverso processo, decisioni e risultato.",
         "work.filter_all": "Tutti",
         "work.filter_graphic": "Graphic Design",
@@ -4020,27 +4369,57 @@
         "work.project4_tag": "Brand Identity & Comunicazione",
         "work.project5_tag": "Brand Identity · Tavole da Surf",
         "work.btn_all_projects": "Vedi tutti i progetti & case study ↗",
+        "work.scroll_hint": "Scorri per esplorare →",
+        "work.archive_tag": "Archivio Completo",
+        "work.archive_title": "Scopri tutti i progetti",
+        "work.archive_desc": "Case study dettagliati di UI/UX, Web Design, Brand Identity e modellazione 3D.",
+        "work.all_link": "Tutti i progetti ↗",
+        "stack.line1": "Identità visive · Esperienze digitali ·",
+        "stack.line2": "Idee in movimento · Nuove prospettive ·",
+        "stack.line3": "Design, codice e curiosità ·",
+        "stack.caption_title": "Una selezione di progetti",
+        "stack.caption_link": "Esplora il lavoro",
+        "project.eureka.tag": "Brand identity / Progetto accademico",
+        "project.eureka.bottom": "Identità che prendono forma.",
+        "project.apulia.tag": "Brand identity / Campagna",
+        "project.apulia.bottom": "Un territorio, una nuova prospettiva.",
+        "project.miami.tag": "Brand identity / Tavole da surf",
+        "project.miami.bottom": "Colore, carattere e movimento.",
+        "project.view": "Scopri il progetto ↗",
+        "archive_bar.text": "Altre idee. Altri progetti.",
+        "archive_bar.link": "Esplora il portfolio",
         "work.empty_filter": "Case study UI/UX & Web Design in arrivo o consultabili su richiesta privata.",
         "work.empty_filter_btn": "Richiedi Informazioni",
-        "process.section_label": "04 — Il Mio Processo",
+        "process.section_label": "Il Mio Processo",
         "process.headline": 'Capire prima.<br><span class="grad-text">Progettare meglio.</span>',
         "process.intro": "Ogni progetto nasce da persone, bisogni e contesti diversi. Per questo non parto subito dalla soluzione: prima ascolto, osservo e cerco di capire cosa serve davvero. Da lì, costruisco il progetto passo dopo passo.",
-        "process.step1_title": "Comprendere",
-        "process.step1_desc": "Ascoltare, osservare e conoscere il contesto, le persone e gli obiettivi.",
-        "process.step2_title": "Mettere a fuoco",
-        "process.step2_desc": "Dare ordine alle informazioni e capire quali sono le priorità e i problemi reali da affrontare.",
-        "process.step3_title": "Esplorare",
-        "process.step3_desc": "Provare strade diverse, confrontare idee e cercare la direzione più adatta.",
-        "process.step4_title": "Progettare",
-        "process.step4_desc": "Trasformare ciò che emerge in flussi, wireframe, interfacce e prototipi.",
-        "process.step5_title": "Migliorare",
-        "process.step5_desc": "Verificare ciò che funziona, ascoltare i feedback e affinare la soluzione nel tempo.",
+        "process.step1_title": "Discovery",
+        "process.step1_sub": "Ascoltare e comprendere",
+        "process.step1_desc": "Esploro il contesto, ascolto le persone e analizzo bisogni e obiettivi per capire quali problemi vale davvero la pena risolvere.",
+        "process.step2_title": "Define",
+        "process.step2_sub": "Mettere a fuoco",
+        "process.step2_desc": "Organizzo le informazioni raccolte, individuo le priorità e definisco una direzione chiara da cui partire.",
+        "process.step3_title": "Design",
+        "process.step3_sub": "Dare forma alle idee",
+        "process.step3_desc": "Esploro soluzioni, progetto flussi e interfacce e realizzo prototipi, cercando il giusto equilibrio tra estetica e funzionalità.",
+        "process.step4_title": "Test & Iterate",
+        "process.step4_sub": "Provare e migliorare",
+        "process.step4_desc": "Verifico ciò che funziona, raccolgo feedback e perfeziono le soluzioni. Perché un buon progetto non nasce perfetto: migliora nel tempo.",
         "quote.text": "“Presta attenzione a <span class=\"grad-text\">ciò che gli utenti fanno</span>, non a ciò che dicono.”",
         "quote.role": "Pioniere della UX",
         "contact.badge": "Disponibile per nuove opportunità & progetti",
         "contact.title": 'Iniziamo da un <span class="grad-text">ciao</span>',
         "contact.desc": "Ciao! Se hai un progetto, un’idea o semplicemente vuoi fare due chiacchiere, scrivimi. Sarà un piacere conoscerti.",
         "contact.btn": "Facciamo due chiacchiere",
+        "footer.headline": '<span class="grad-text">Costruiamo</span> qualcosa che valga la pena ricordare.',
+        "footer.desc": "Un progetto da sviluppare, una collaborazione o una nuova opportunità professionale? Mi muovo tra design e codice per creare esperienze digitali che siano belle, intuitive e funzionali.",
+        "footer.talk_label": "Scrivimi",
+        "footer.cv_btn": "Scopri il mio CV",
+        "footer.whatsapp_label": "WhatsApp",
+        "footer.credits": "HANDCRAFTED BY PATRICIA GARCIA",
+        "footer.tagline": "DESIGN, CODE & A LITTLE CURIOSITY.",
+        "footer.back_to_top_cta": "TORNA SU",
+        "footer.copyright": "© 2026 Patricia García — Progettato e realizzato con cura.",
         "footer.resume": "Digital Resume ↗",
         "footer.back_to_top": "Torna all'inizio",
         "drawer.preview_label": "Anteprima Interfaccia",
@@ -4064,34 +4443,24 @@
         "hero.desc": "Me muevo entre diseño y código. Trabajo en UI/UX y diseño web y me formo en desarrollo de software para diseñar soluciones digitales más conscientes, del diseño al desarrollo.",
         "hero.btn_work": "Ver Proyectos ↗",
         "hero.btn_resume": "Descargar CV",
-        "about.section_label": "01 — Sobre Mí & Visión",
-        "about.headline": '<span class="grad-text">Hola, soy Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Mano saludando"></span> <span class="muted-text">Muevo píxeles y, a veces, llaves.</span>',
-        "about.story_kicker": "Diseño · UI/UX · Web",
-        "about.story_p1": 'Soy diseñadora gráfica con una trayectoria que une <strong>UI/UX y desarrollo web</strong>. Me gusta partir de las personas y de los problemas reales, poner orden entre contenidos y necesidades, y transformar la complejidad en experiencias digitales claras, intuitivas y agradables de usar.',
-        "about.story_p2": 'Mi curiosidad me llevó también al código. No me detengo en el diseño visual de la interfaz: estudiar y aplicar el desarrollo web me permite diseñar con mayor conciencia, entender qué es realmente construible y crear soluciones donde diseño y código trabajan juntos con criterio.',
-        "about.pillar1_tag": "01 / Discovery",
-        "about.pillar1_title": "Comprender el problema",
-        "about.pillar1_desc": "Observar personas, necesidades, contexto y requisitos para recoger insights y definir con claridad el problema a abordar.",
-        "about.pillar2_tag": "02 / Define & Ideate",
-        "about.pillar2_title": "Estructurar la solución",
-        "about.pillar2_desc": "Transformar los insights en jerarquías, flujos e hipótesis de diseño, organizando contenidos y prioridades para construir una experiencia clara e intuitiva.",
-        "about.pillar3_tag": "03 / Prototype & Build",
-        "about.pillar3_title": "Hacer la idea tangible",
-        "about.pillar3_desc": "Traducir la solución en wireframes, interfaces y componentes, verificando coherencia, usabilidad y viabilidad técnica hasta su desarrollo.",
+        "about.section_label": "Sobre Mí & Visión",
+        "about.statement": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código. Trabajo en UI/UX y diseño web y profundizo en el desarrollo de software para diseñar experiencias digitales claras, intuitivas y funcionales, combinando sensibilidad visual, atención a las personas y competencias técnicas.",
+        "about.headline": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código. Trabajo en UI/UX y diseño web y profundizo en el desarrollo de software para diseñar experiencias digitales claras, intuitivas y funcionales, combinando sensibilidad visual, atención a las personas y competencias técnicas.",
+        "about.desc": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código. Trabajo en UI/UX y diseño web y profundizo en el desarrollo de software para diseñar experiencias digitales claras, intuitivas y funcionales, combinando sensibilidad visual, atención a las personas y competencias técnicas.",
+        "about.btn_services": '<span>Áreas de competencia</span> <span class="about-btn-arrow">↓</span>',
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
-        "services.section_label": "03 — Entre Diseño y Código",
-        "services.headline": '<span class="services-grad-text">Un ojo en el diseño,</span><br><span class="services-dark-title">otro en el código.</span>',
-        "services.intro": "Del gusto visual a la lógica de cómo se construye un producto digital: disciplinas distintas que combino según las necesidades del proyecto.",
-        "services.btn": "Descubre mi enfoque",
-        "services.card1_title": "Diseño UI/UX",
-        "services.card1_desc": "Investigación, arquitectura de la información, user flows, wireframes, prototipado y diseño de interfaces.",
-        "services.card2_title": "Diseño Visual & Web",
-        "services.card2_desc": "Maquetación, tipografía, composición y sistemas visuales aplicados a productos y experiencias digitales.",
-        "services.card3_title": "Desarrollo Front-end",
-        "services.card3_desc": "HTML, CSS, JavaScript, React, Laravel y desarrollo de interfaces responsive, con habilidades que continúo consolidando a través de la práctica.",
-        "services.card4_title": "Exploración con IA",
-        "services.card4_desc": "Herramientas de IA para acelerar la investigación, la ideación y el prototipado. Las decisiones de diseño las tomo yo.",
-        "work.section_label": "02 — Proyectos Seleccionados",
+        "services.section_label": "Áreas de competencia",
+        "services.intro_title": 'No solo cómo se ve.<br><span class="grad-text">También cómo funciona.</span>',
+        "services.intro_desc": "Del diseño visual al desarrollo web, exploro cada proyecto con curiosidad, atención al detalle y ganas de encontrar soluciones concretas.",
+        "services.card1_title": "UI/UX Design",
+        "services.card1_desc": "Investigación, arquitectura de la información, wireframes y prototipos. Parto de las personas para diseñar interfaces comprensibles y agradables de usar.",
+        "services.card2_title": "Visual & Web Design",
+        "services.card2_desc": "Identidades visuales y sitios web con dirección precisa. Tipografía, color y composición trabajando juntos para contar tu proyecto.",
+        "services.card3_title": "Front-end Development",
+        "services.card3_desc": "Del prototipo al navegador: interfaces responsive, accesibles y cuidadas al detalle con HTML, CSS y JavaScript.",
+        "services.card4_title": "3D & AI Exploration",
+        "services.card4_desc": "Modelado, materiales y exploración con nuevas herramientas para descubrir perspectivas y lenguajes visuales frescos.",
+        "work.section_label": "Proyectos destacados",
         "work.headline": '<span class="grad-text">Una selección</span> <span class="muted-text">de proyectos y case studies.</span>',
         "work.intro": "UI/UX, web e identidad visual: diferentes proyectos explicados a través de su proceso, decisiones y resultados.",
         "work.filter_all": "Todos",
@@ -4107,27 +4476,57 @@
         "work.project4_tag": "Identidad de Marca & Comunicación",
         "work.project5_tag": "Identidad de Marca · Tablas de Surf",
         "work.btn_all_projects": "Ver todos los proyectos & case studies ↗",
+        "work.scroll_hint": "Desliza para explorar →",
+        "work.archive_tag": "Archivo Completo",
+        "work.archive_title": "Descubre todos los proyectos",
+        "work.archive_desc": "Estudios de caso detallados de UI/UX, Diseño Web, Identidad de Marca y modelado 3D.",
+        "work.all_link": "Todos los proyectos ↗",
+        "stack.line1": "Identidades visuales · Experiencias digitales ·",
+        "stack.line2": "Ideas en movimiento · Nuevas perspectivas ·",
+        "stack.line3": "Diseño, código y curiosidad ·",
+        "stack.caption_title": "Una selección de proyectos",
+        "stack.caption_link": "Explora los proyectos",
+        "project.eureka.tag": "Identidad de Marca / Proyecto Académico",
+        "project.eureka.bottom": "Identidades que toman forma.",
+        "project.apulia.tag": "Identidad de Marca / Campaña",
+        "project.apulia.bottom": "Un territorio, una nueva perspectiva.",
+        "project.miami.tag": "Identidad de Marca / Tablas de Surf",
+        "project.miami.bottom": "Color, carácter y movimiento.",
+        "project.view": "Descubre el proyecto ↗",
+        "archive_bar.text": "Más ideas. Otros proyectos.",
+        "archive_bar.link": "Explora el portfolio",
         "work.empty_filter": "Case studies de UI/UX & Web Design en preparación o disponibles bajo petición privada.",
         "work.empty_filter_btn": "Solicitar Información",
-        "process.section_label": "04 — Mi Proceso",
+        "process.section_label": "Mi Proceso",
         "process.headline": 'Entender primero.<br><span class="grad-text">Diseñar mejor.</span>',
         "process.intro": "Cada proyecto nace de personas, necesidades y contextos diferentes. Por eso no comienzo de inmediato por la solución: primero escucho, observo y busco comprender qué se necesita realmente. A partir de ahí, construyo el proyecto paso a paso.",
-        "process.step1_title": "Comprender",
-        "process.step1_desc": "Escuchar, observar y conocer el contexto, las personas y los objetivos.",
-        "process.step2_title": "Focalizar",
-        "process.step2_desc": "Ordenar la información y comprender qué prioridades y problemas reales abordar.",
-        "process.step3_title": "Explorar",
-        "process.step3_desc": "Probar caminos diversos, contrastar ideas y buscar la dirección más adecuada.",
-        "process.step4_title": "Diseñar",
-        "process.step4_desc": "Transformar lo que surge en flujos, wireframes, interfaces y prototipos.",
-        "process.step5_title": "Mejorar",
-        "process.step5_desc": "Comprobar qué funciona, escuchar el feedback y perfeccionar la solución en el tiempo.",
+        "process.step1_title": "Discovery",
+        "process.step1_sub": "Escuchar y comprender",
+        "process.step1_desc": "Exploro el contexto, escucho a las personas y analizo necesidades y objetivos para entender qué problemas realmente vale la pena resolver.",
+        "process.step2_title": "Define",
+        "process.step2_sub": "Enfocar",
+        "process.step2_desc": "Organizo la información recogida, identifico prioridades y defino una dirección clara desde la cual partir.",
+        "process.step3_title": "Design",
+        "process.step3_sub": "Dar forma a las ideas",
+        "process.step3_desc": "Exploro soluciones, diseño flujos e interfaces y creo prototipos, buscando el equilibrio justo entre estética y funcionalidad.",
+        "process.step4_title": "Test & Iterate",
+        "process.step4_sub": "Probar y mejorar",
+        "process.step4_desc": "Verifico lo que funciona, recopilo feedback y perfecciono las soluciones. Porque un buen proyecto no nace perfecto: mejora con el tiempo.",
         "quote.text": "“Presta atención a <span class=\"grad-text\">lo que hacen los usuarios</span>, no a lo que dicen.”",
         "quote.role": "Pionero de la UX",
         "contact.badge": "Disponible para nuevas oportunidades & proyectos",
         "contact.title": 'Empecemos con un <span class="grad-text">hola</span>',
         "contact.desc": "¡Hola! Si tienes un proyecto, una idea o simplemente quieres charlar, escríbeme. Será un placer conocerte.",
         "contact.btn": "Hablemos",
+        "footer.headline": '<span class="grad-text">Construyamos</span> algo que valga la pena recordar.',
+        "footer.desc": "¿Un proyecto por desarrollar, una colaboración o una nueva oportunidad profesional? Me muevo entre diseño y código para crear experiencias digitales que sean atractivas, intuitivas y funcionales.",
+        "footer.talk_label": "Escríbeme",
+        "footer.cv_btn": "Descubre mi CV",
+        "footer.whatsapp_label": "WhatsApp",
+        "footer.credits": "DISEÑADO & DESARROLLADO POR PATRICIA GARCIA",
+        "footer.tagline": "DESIGN, CODE & A LITTLE CURIOSITY.",
+        "footer.back_to_top_cta": "VOLVER ARRIBA",
+        "footer.copyright": "© 2026 Patricia García — Diseñado y construido con intención.",
         "footer.resume": "CV Digital ↗",
         "footer.back_to_top": "Volver al inicio",
         "drawer.preview_label": "Vista Previa de Interfaz",
@@ -4151,35 +4550,25 @@
         "hero.desc": "Moving between design and code. Working in UI/UX and web design while training in software development to design more mindful digital solutions, from design to code.",
         "hero.btn_work": "View Projects ↗",
         "hero.btn_resume": "Resume / CV",
-        "about.section_label": "01 — About Me & Vision",
-        "about.headline": '<span class="grad-text">Hi, I\'m Paty.</span> <span class="wave-hand-lottie" id="waveHandLottie" aria-label="Waving hand"></span> <span class="muted-text">Moving pixels and, sometimes, curly brackets.</span>',
-        "about.story_kicker": "Design · UI/UX · Web",
-        "about.story_p1": 'I am a graphic designer with a path that bridges <strong>UI/UX and web development</strong>. I like starting from people and real problems, bringing order to content and requirements, and turning complexity into clear, intuitive, and delightful digital experiences.',
-        "about.story_p2": 'Curiosity led me to code as well. I don\'t stop at interface design: studying and applying web development allows me to design with greater awareness, understand what is realistically buildable, and create solutions where design and code work together with purpose.',
-        "about.pillar1_tag": "01 / Discovery",
-        "about.pillar1_title": "Understand the problem",
-        "about.pillar1_desc": "Observing people, needs, context, and requirements to gather insights and clearly define the problem to solve.",
-        "about.pillar2_tag": "02 / Define & Ideate",
-        "about.pillar2_title": "Structure the solution",
-        "about.pillar2_desc": "Transforming insights into hierarchies, user flows, and design hypotheses, organizing content and priorities to build a clear, intuitive experience.",
-        "about.pillar3_tag": "03 / Prototype & Build",
-        "about.pillar3_title": "Bring ideas to life",
-        "about.pillar3_desc": "Translating solutions into wireframes, interfaces, and components, ensuring consistency, usability, and technical feasibility through to implementation.",
+        "about.section_label": "About Me & Vision",
+        "about.statement": "Hi, I'm Paty, a graphic designer moving between design and code. I work in UI/UX and web design while deepening software development to design clear, intuitive, and functional digital experiences, combining visual sensibility, empathy for people, and technical skills.",
+        "about.headline": "Hi, I'm Paty, a graphic designer moving between design and code. I work in UI/UX and web design while deepening software development to design clear, intuitive, and functional digital experiences, combining visual sensibility, empathy for people, and technical skills.",
+        "about.desc": "Hi, I'm Paty, a graphic designer moving between design and code. I work in UI/UX and web design while deepening software development to design clear, intuitive, and functional digital experiences, combining visual sensibility, empathy for people, and technical skills.",
+        "about.btn_services": '<span>Areas of Expertise</span> <span class="about-btn-arrow">↓</span>',
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
-        "services.section_label": "03 — Between Design & Code",
-        "services.headline": '<span class="services-grad-text">One eye on design,</span><br><span class="services-dark-title">the other on code.</span>',
-        "services.intro": "From visual taste to the logic of how a digital product is built: distinct disciplines that I combine based on project needs.",
-        "services.btn": "Explore my approach",
+        "services.section_label": "Areas of Expertise",
+        "services.intro_title": 'Not just how it looks.<br><span class="grad-text">Also how it works.</span>',
+        "services.intro_desc": "From visual design to web development, I explore every project with curiosity, attention to detail, and a drive to craft tangible solutions.",
         "services.card1_title": "UI/UX Design",
-        "services.card1_desc": "Research, information architecture, user flows, wireframes, prototyping, and interface design.",
+        "services.card1_desc": "Research, information architecture, wireframes, and prototypes. Starting from people to design clear and engaging interfaces.",
         "services.card2_title": "Visual & Web Design",
-        "services.card2_desc": "Layout, typography, composition, and visual systems applied to digital products and experiences.",
+        "services.card2_desc": "Visual identities and websites with clear direction. Typography, color, and composition working together to tell your story.",
         "services.card3_title": "Front-end Development",
-        "services.card3_desc": "HTML, CSS, JavaScript, React, Laravel, and responsive interface development, continuously strengthening skills through practice.",
-        "services.card4_title": "AI Exploration",
-        "services.card4_desc": "AI tools to accelerate research, ideation, and prototyping. The design decisions remain mine.",
-        "work.section_label": "02 — Selected Work",
-        "work.headline": '<span class="grad-text">A selection</span> <span class="muted-text">of works and case studies.</span>',
+        "services.card3_desc": "From prototype to browser: responsive, accessible, and finely tuned interactive interfaces with HTML, CSS, and JavaScript.",
+        "services.card4_title": "3D & AI Exploration",
+        "services.card4_desc": "3D modeling, textures, and creative exploration with modern AI tools to discover fresh perspectives and visual languages.",
+        "work.section_label": "Featured Projects",
+        "work.headline": '<span class="grad-text">A selection</span> <span class="muted-text">of projects and case studies.</span>',
         "work.intro": "UI/UX, web, and visual identity: diverse projects told through process, design decisions, and outcomes.",
         "work.filter_all": "All",
         "work.filter_graphic": "Graphic Design",
@@ -4194,19 +4583,42 @@
         "work.project4_tag": "Brand Identity & Communication",
         "work.project5_tag": "Brand Identity · Surfboards",
         "work.btn_all_projects": "View all projects & case studies ↗",
+        "work.scroll_hint": "Scroll to explore →",
+        "work.archive_tag": "Full Archive",
+        "work.archive_title": "Discover all projects",
+        "work.archive_desc": "Detailed case studies in UI/UX, Web Design, Brand Identity, and 3D modeling.",
+        "work.all_link": "All projects ↗",
+        "stack.line1": "Visual identities · Digital experiences ·",
+        "stack.line2": "Ideas in motion · New perspectives ·",
+        "stack.line3": "Design, code & curiosity ·",
+        "stack.caption_title": "A curated selection of work",
+        "stack.caption_link": "Explore the work",
+        "project.eureka.tag": "Brand Identity / Academic Project",
+        "project.eureka.bottom": "Identities taking shape.",
+        "project.apulia.tag": "Brand Identity / Campaign",
+        "project.apulia.bottom": "A territory, a new perspective.",
+        "project.miami.tag": "Brand Identity / Surfboards",
+        "project.miami.bottom": "Color, character & motion.",
+        "project.view": "View project ↗",
+        "archive_bar.text": "More ideas. More projects.",
+        "archive_bar.link": "Explore the portfolio",
         "work.empty_filter": "UI/UX & Web Design case studies in progress or available upon private request.",
         "work.empty_filter_btn": "Request Information",
-        "process.section_label": "04 — My Process",
+        "process.section_label": "My Process",
         "process.headline": 'Understand first.<br><span class="grad-text">Design better.</span>',
         "process.intro": "Every project stems from different people, needs, and contexts. That's why I don't jump straight into the solution: first I listen, observe, and understand what is truly needed. From there, I build the project step by step.",
-        "process.step1_title": "Understand",
-        "process.step1_desc": "Listening, observing, and learning the context, people, and goals.",
-        "process.step2_title": "Focus",
-        "process.step2_desc": "Structuring information to clarify real priorities and challenges.",
-        "process.step3_title": "Explore",
-        "process.step3_desc": "Testing different paths, comparing ideas, and finding the right direction.",
-        "process.step4_title": "Design",
-        "process.step4_desc": "Turning insights into user flows, wireframes, interfaces, and prototypes.",
+        "process.step1_title": "Discovery",
+        "process.step1_sub": "Listen & understand",
+        "process.step1_desc": "I explore context, listen to people, and analyze needs and goals to pinpoint which problems are truly worth solving.",
+        "process.step2_title": "Define",
+        "process.step2_sub": "Bring into focus",
+        "process.step2_desc": "I organize gathered insights, identify priorities, and define a clear direction to build upon.",
+        "process.step3_title": "Design",
+        "process.step3_sub": "Shape ideas",
+        "process.step3_desc": "I explore solutions, design user flows and interfaces, and create prototypes, balancing aesthetics with functionality.",
+        "process.step4_title": "Test & Iterate",
+        "process.step4_sub": "Test & refine",
+        "process.step4_desc": "I test what works, gather feedback, and refine solutions. Because great work isn't born perfect: it gets better over time.",
         "process.step5_title": "Refine",
         "process.step5_desc": "Validating what works, listening to feedback, and improving over time.",
         "quote.text": "“Pay attention to <span class=\"grad-text\">what users do</span>, not what they say.”",
@@ -4215,6 +4627,15 @@
         "contact.title": 'Let’s start with a <span class="grad-text">hello</span>',
         "contact.desc": "Hi! If you have a project, an idea, or simply want to chat, feel free to reach out. I'd love to connect.",
         "contact.btn": "Let's talk",
+        "footer.headline": '<span class="grad-text">Let’s build</span> something worth remembering.',
+        "footer.desc": "A project to develop, a collaboration, or a new professional opportunity? I move between design and code to create digital experiences that are beautiful, intuitive, and functional.",
+        "footer.talk_label": "Let's talk",
+        "footer.cv_btn": "Explore my CV",
+        "footer.whatsapp_label": "WhatsApp",
+        "footer.credits": "HANDCRAFTED BY PATRICIA GARCIA",
+        "footer.tagline": "DESIGN, CODE & A LITTLE CURIOSITY.",
+        "footer.back_to_top_cta": "BACK TO TOP",
+        "footer.copyright": "© 2026 Patricia García — Designed & built with intention.",
         "footer.resume": "Digital Resume ↗",
         "footer.back_to_top": "Back to top",
         "drawer.preview_label": "Interface Preview",
@@ -4519,6 +4940,11 @@
 
       // Mount waving hand Lottie animation in headline
       renderWaveHandLottie();
+
+      // Re-initialize About statement progressive scroll reveal with new language
+      if (typeof initAboutScrollReveal === 'function') {
+        initAboutScrollReveal();
+      }
 
       // Update dynamic resume links
       const navResume = document.getElementById('navResumeBtn');
@@ -4838,6 +5264,7 @@
         let visibleCount = 0;
 
         projectCards.forEach(card => {
+          if (card.classList.contains('horiz-card-cta')) return;
           const category = card.dataset.category || '';
           if (filter === 'all' || category.includes(filter)) {
             card.classList.remove('is-hidden');
@@ -4847,19 +5274,12 @@
           }
         });
 
-        const visibleCards = Array.from(projectCards).filter(c => !c.classList.contains('is-hidden'));
-        if (filter !== 'all') {
-          visibleCards.forEach(c => {
-            if (visibleCards.length === 1) c.style.gridColumn = 'span 12';
-            else if (visibleCards.length === 2) c.style.gridColumn = 'span 6';
-            else c.style.gridColumn = '';
-          });
-        } else {
-          projectCards.forEach(c => c.style.gridColumn = '');
-        }
-
         if (emptyStateHome) {
           emptyStateHome.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
         }
       });
     });
@@ -5193,118 +5613,6 @@
       requestAnimationFrame(render);
     }
 
-    /* ============================================================
-       10. HERO CONSTELLATION STARFIELD MATRIX ENGINE
-       ============================================================ */
-    function initHeroConstellations() {
-      const canvas = document.getElementById('constellationCanvas');
-      const heroElem = document.getElementById('top');
-      if (!canvas || !heroElem) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      let w = 0, h = 0;
-
-      function resize() {
-        if (!heroElem) return;
-        const rect = heroElem.getBoundingClientRect();
-        w = canvas.width = rect.width;
-        h = canvas.height = rect.height;
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
-      const numParticles = 80;
-      const particles = [];
-      for (let i = 0; i < numParticles; i++) {
-        particles.push({
-          x: Math.random() * (w || window.innerWidth),
-          y: Math.random() * (h || 800),
-          vx: (Math.random() - 0.5) * 0.45,
-          vy: (Math.random() - 0.5) * 0.45,
-          radius: Math.random() * 2.2 + 1.0,
-          color: Math.random() > 0.35 ? '#A78BFA' : (Math.random() > 0.5 ? '#38BDF8' : '#F472B6'),
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-
-      let mouse = { x: -9999, y: -9999 };
-      heroElem.addEventListener('mousemove', (e) => {
-        const rect = heroElem.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-      });
-      heroElem.addEventListener('mouseleave', () => {
-        mouse.x = -9999;
-        mouse.y = -9999;
-      });
-
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-
-        // Ambient radial spotlight around cursor
-        if (mouse.x > 0 && mouse.y > 0) {
-          const glow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 340);
-          glow.addColorStop(0, 'rgba(139, 92, 246, 0.28)');
-          glow.addColorStop(0.5, 'rgba(217, 70, 239, 0.08)');
-          glow.addColorStop(1, 'transparent');
-          ctx.fillStyle = glow;
-          ctx.fillRect(0, 0, w, h);
-        }
-
-        // Draw connecting constellation bonds
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 135) {
-              const alpha = (1 - dist / 135) * 0.38;
-              ctx.strokeStyle = `rgba(167, 139, 250, ${alpha})`;
-              ctx.lineWidth = 1;
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.stroke();
-            }
-          }
-        }
-
-        // Draw particles & update position
-        particles.forEach(p => {
-          p.pulse += 0.025;
-          p.x += p.vx;
-          p.y += p.vy;
-
-          if (p.x < 0) p.x = w;
-          if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h;
-          if (p.y > h) p.y = 0;
-
-          // Mouse gravity pull
-          const mdx = mouse.x - p.x;
-          const mdy = mouse.y - p.y;
-          const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
-          if (mDist < 200 && mDist > 0) {
-            const force = (1 - mDist / 200) * 0.85;
-            p.x += (mdx / mDist) * force;
-            p.y += (mdy / mDist) * force;
-          }
-
-          const currentR = p.radius + Math.sin(p.pulse) * 0.8;
-          ctx.fillStyle = p.color;
-          ctx.shadowColor = p.color;
-          ctx.shadowBlur = 10;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, Math.max(0.5, currentR), 0, Math.PI * 2);
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        });
-
-        requestAnimationFrame(draw);
-      }
-      draw();
-    }
 
     /* ============================================================
        11. DECRYPT TEXT ANIMATION ENGINE (Motiq / 21st.dev Style)
@@ -5469,7 +5777,215 @@
       }
     }
 
-    // Initialize WebGL Fluid inside Hero, Hero Constellations, Decrypt effects & Language
+    /* ============================================================
+       10. PLINTH WORK SCENES & CARD FANNING SCROLL ENGINE
+       ============================================================ */
+    function initPlinthWorkScenes() {
+      const stack = document.querySelector('.stack-section');
+      const stackFront = document.querySelector('.stack-image-front');
+      const stackBack = document.querySelector('.stack-image-back');
+      const stackLines = [...document.querySelectorAll('.stack-type span')];
+      const stackCaption = document.querySelector('.stack-caption');
+      const stackLink = document.querySelector('.stack-project-link');
+      const scenes = [...document.querySelectorAll('.project-scene')];
+
+      if (!stack) return;
+
+      const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+      const mix = (a, b, t) => a + (b - a) * t;
+      const ease = t => 1 - Math.pow(1 - t, 3);
+
+      let ticking = false;
+
+      function drawScroll() {
+        ticking = false;
+        const height = window.innerHeight;
+        const width = window.innerWidth;
+
+        // 1. Stack Section Card Fan and Expansion Scrub
+        const stackRect = stack.getBoundingClientRect();
+        if (stackRect.top < height && stackRect.bottom > 0) {
+          const progress = clamp(-stackRect.top / Math.max(1, stackRect.height - height));
+          const fan = ease(clamp(progress / 0.4));
+          const expansion = ease(clamp((progress - 0.35) / 0.5));
+          const spread = fan * Math.min(width * 0.2, 300) * (1 - expansion);
+
+          if (stackBack) {
+            stackBack.style.transform = `translate(${-spread - expansion * width * 0.4}px, ${-fan * 40}px) rotate(${-14 - fan * 18}deg) scale(${1 - expansion * 0.2})`;
+            stackBack.style.opacity = String(1 - expansion);
+          }
+
+          if (stackFront) {
+            const portraitWidth = width <= 760 ? 190 : Math.min(310, Math.max(180, width * 0.2));
+            const targetWidth = Math.min(width * 0.85, 780);
+            const targetHeight = Math.min(targetWidth * 0.625, height * 0.58);
+            stackFront.style.width = `${mix(portraitWidth, targetWidth, expansion)}px`;
+            stackFront.style.height = `${mix(portraitWidth * 1.5, targetHeight, expansion)}px`;
+            stackFront.style.transform = `translate(${(30 + spread) * (1 - expansion)}px, ${25 * (1 - expansion)}px) rotate(${12 * (1 - expansion)}deg)`;
+          }
+
+          stackLines.forEach((line, index) => {
+            line.style.transform = `translateX(${(index % 2 ? -1 : 1) * progress * 300}px)`;
+            line.style.opacity = String(1 - expansion * 0.6);
+          });
+
+          if (stackLink) {
+            stackLink.style.opacity = String(clamp((progress - 0.7) / 0.15));
+            stackLink.style.visibility = progress > 0.7 ? 'visible' : 'hidden';
+          }
+
+          if (stackCaption) {
+            stackCaption.style.opacity = String(1 - expansion);
+          }
+        }
+
+        // 2. Project Scenes Scrub (Eureka, Apulia, Miami Mango)
+        scenes.forEach(scene => {
+          const rect = scene.getBoundingClientRect();
+          if (rect.top >= height || rect.bottom <= 0) return;
+          const progress = clamp(-rect.top / Math.max(1, rect.height - height));
+          const arrival = ease(clamp((height - rect.top) / height));
+          const card = scene.querySelector('.scene-card');
+          const marquee = scene.querySelector('.scene-marquee');
+          const bg = scene.querySelector('.scene-background');
+
+          if (card) {
+            card.style.setProperty('--scroll-y', `${mix(140, -65, progress)}px`);
+            card.style.setProperty('--scroll-rotation', `${mix(12, -4, progress)}deg`);
+            card.style.setProperty('--scroll-scale', String(mix(0.72, 1.08, ease(progress))));
+            card.style.opacity = String(arrival);
+          }
+
+          if (bg) {
+            bg.style.transform = `scale(${mix(1.15, 1, progress)})`;
+          }
+
+          if (marquee) {
+            marquee.style.transform = `translateX(${-progress * width * 0.28}px)`;
+          }
+        });
+      }
+
+      function scheduleScroll() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(drawScroll);
+        }
+      }
+
+      window.addEventListener('scroll', scheduleScroll, { passive: true });
+      window.addEventListener('resize', scheduleScroll);
+      scheduleScroll();
+    }
+
+    // Interactive Plinth Services (Preview on hover + single open toggle)
+    function initPlinthServices() {
+      const preview = document.getElementById('service-preview');
+      const services = document.querySelectorAll('.service');
+      services.forEach(service => {
+        const updatePreview = () => {
+          if (preview && service.dataset.preview) {
+            preview.style.opacity = '0.7';
+            preview.src = service.dataset.preview;
+            setTimeout(() => { preview.style.opacity = '1'; }, 80);
+          }
+        };
+        service.addEventListener('pointerenter', updatePreview);
+        service.addEventListener('focusin', updatePreview);
+        service.addEventListener('toggle', () => {
+          if (!service.open) return;
+          updatePreview();
+          services.forEach(other => {
+            if (other !== service) other.open = false;
+          });
+        });
+      });
+    }
+
+    /* 11. EDITORIAL STATEMENTS PROGRESSIVE SCROLL REVEAL ENGINE */
+    let statementScrollRevealRaf = null;
+
+    function initAboutScrollReveal() {
+      const statements = document.querySelectorAll('.about-statement, .services-lead-statement, .process-lead-statement');
+      if (!statements.length) return;
+
+      statements.forEach(statement => {
+        // Extract raw text if already populated with scroll-word spans or plain text
+        const rawText = statement.textContent.trim().replace(/\s+/g, ' ');
+        if (!rawText) return;
+
+        // Split into individual words
+        const words = rawText.split(' ').filter(Boolean);
+        statement.innerHTML = words.map(w => `<span class="scroll-word">${w}</span>`).join(' ');
+        statement.classList.add('scroll-ready');
+      });
+
+      updateAboutScrollReveal();
+    }
+
+    function updateAboutScrollReveal() {
+      const statements = document.querySelectorAll('.about-statement, .services-lead-statement, .process-lead-statement');
+      if (!statements.length) return;
+      const vh = window.innerHeight;
+
+      statements.forEach(statement => {
+        const words = statement.querySelectorAll('.scroll-word');
+        if (!words.length) return;
+
+        const rect = statement.getBoundingClientRect();
+        if (rect.top > vh || rect.bottom < 0) return;
+
+        const isDark = statement.classList.contains('process-lead-statement');
+
+        // Start revealing when the section enters lower viewport (80%)
+        // Complete reveal smoothly as user scrolls through the reading block
+        const startY = vh * 0.80;
+        const endY = vh * 0.20;
+        const scrollRange = (startY - endY) + (rect.height * 0.40);
+
+        const progress = Math.min(1, Math.max(0, (startY - rect.top) / Math.max(1, scrollRange)));
+        const totalWords = words.length;
+        const wordProgress = progress * (totalWords + 1);
+
+        for (let i = 0; i < totalWords; i++) {
+          const diff = wordProgress - i;
+          if (isDark) {
+            // Dark section: reveals from ghost white (rgba 255, 255, 255, 0.20) to solid #FFFFFF
+            if (diff >= 1) {
+              words[i].style.color = '#FFFFFF';
+            } else if (diff > 0) {
+              const alpha = 0.20 + diff * 0.80;
+              words[i].style.color = `rgba(255, 255, 255, ${alpha.toFixed(3)})`;
+            } else {
+              words[i].style.color = 'rgba(255, 255, 255, 0.20)';
+            }
+          } else {
+            // Light section: reveals from ghost dark (rgba 14, 11, 31, 0.16) to solid #0E0B1F
+            if (diff >= 1) {
+              words[i].style.color = '#0E0B1F';
+            } else if (diff > 0) {
+              const alpha = 0.16 + diff * 0.84;
+              words[i].style.color = `rgba(14, 11, 31, ${alpha.toFixed(3)})`;
+            } else {
+              words[i].style.color = 'rgba(14, 11, 31, 0.16)';
+            }
+          }
+        }
+      });
+    }
+
+    function scheduleAboutScrollReveal() {
+      if (statementScrollRevealRaf) return;
+      statementScrollRevealRaf = requestAnimationFrame(() => {
+        statementScrollRevealRaf = null;
+        updateAboutScrollReveal();
+      });
+    }
+
+    window.addEventListener('scroll', scheduleAboutScrollReveal, { passive: true });
+    window.addEventListener('resize', scheduleAboutScrollReveal);
+
+    // Initialize WebGL Fluid inside Hero, Decrypt effects, Work Gallery & Language
     function initApp() {
       // 1. Initialize language first so all DOM elements match the dictionary
       let initialLang = 'it';
@@ -5487,20 +6003,32 @@
       } catch (e) { }
       setLanguage(initialLang, false);
 
-      // 2. Initialize shaders, constellations & decrypt text animations
+      // 2. Initialize shader, decrypt text, plinth work scenes & services
       initHeroMeshDriftShader();
-      initHeroConstellations();
       initDecryptTextEffects();
+      initPlinthWorkScenes();
+      initPlinthServices();
+      initAboutScrollReveal();
 
-      // Mouse Spotlight effect on Contact Card
-      const contactCardEl = document.querySelector('.contact-card-modern');
-      if (contactCardEl) {
-        contactCardEl.addEventListener('mousemove', (e) => {
-          const rect = contactCardEl.getBoundingClientRect();
+      // Mouse Spotlight effect on Plinth Footer
+      const footerSpotlightEl = document.querySelector('.plinth-footer') || document.querySelector('.contact-card-modern');
+      if (footerSpotlightEl) {
+        footerSpotlightEl.addEventListener('mousemove', (e) => {
+          const rect = footerSpotlightEl.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
-          contactCardEl.style.setProperty('--mouse-x', `${x}px`);
-          contactCardEl.style.setProperty('--mouse-y', `${y}px`);
+          footerSpotlightEl.style.setProperty('--mouse-x', `${x}px`);
+          footerSpotlightEl.style.setProperty('--mouse-y', `${y}px`);
+          const spot = footerSpotlightEl.querySelector('.contact-spotlight');
+          if (spot) {
+            spot.style.left = `${x}px`;
+            spot.style.top = `${y}px`;
+            spot.style.opacity = '1';
+          }
+        });
+        footerSpotlightEl.addEventListener('mouseleave', () => {
+          const spot = footerSpotlightEl.querySelector('.contact-spotlight');
+          if (spot) spot.style.opacity = '0';
         });
       }
     }
