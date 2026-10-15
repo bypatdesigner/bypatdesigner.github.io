@@ -941,7 +941,7 @@
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: clamp(95px, 11vh, 130px) var(--pad) clamp(40px, 5vh, 60px);
+      padding: clamp(95px, 11vh, 130px) var(--pad) clamp(24px, 3.5vh, 44px);
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -1302,14 +1302,26 @@
 
     .about-statement {
       font-family: var(--font-display, 'Cabinet Grotesk', -apple-system, sans-serif);
-      font-size: clamp(36px, 4.2vw, 62px);
-      line-height: 1.25;
-      letter-spacing: -0.035em;
+      font-size: clamp(24px, 2.7vw, 38px);
+      line-height: 1.38;
+      letter-spacing: -0.03em;
       font-weight: 500;
       color: #0E0B1F;
       margin: 0 0 clamp(36px, 4.5vw, 54px);
       text-wrap: pretty;
-      max-width: 1180px;
+      max-width: 1040px;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(18px, 2.2vw, 28px);
+    }
+
+    .about-statement p {
+      margin: 0;
+    }
+
+    .about-statement strong {
+      font-weight: 700;
+      color: inherit;
     }
 
     .about-statement.scroll-ready {
@@ -1375,8 +1387,9 @@
         padding-top: 0;
       }
       .about-statement {
-        font-size: clamp(24px, 5.8vw, 38px);
-        line-height: 1.32;
+        font-size: clamp(20px, 4.8vw, 28px);
+        line-height: 1.36;
+        gap: 16px;
         margin-bottom: 28px;
         font-weight: 500;
       }
@@ -3838,7 +3851,7 @@
 
         <div class="hero-sub-grid">
           <div class="hero-role-wrapper">
-            <h2 class="hero-role-primary" data-i18n="hero.role_primary">UI/UX Designer</h2>
+            <h2 class="hero-role-primary" data-i18n="hero.role_primary">Graphic &amp; UI/UX Designer</h2>
             <p class="hero-role-secondary" data-i18n="hero.role_secondary">bridging Design &amp; Code</p>
           </div>
 
@@ -3848,6 +3861,26 @@
             </p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- ================= HERO INTEGRATED MARQUEE ================= -->
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="track">
+        <span>UI/UX Design</span>
+        <span>Web Interfaces</span>
+        <span>Front-end Development</span>
+        <span>Design Systems</span>
+        <span>Brand Identity</span>
+        <span>Figma Prototyping</span>
+        <span>Responsive Web</span>
+        <span>UI/UX Design</span>
+        <span>Web Interfaces</span>
+        <span>Front-end Development</span>
+        <span>Design Systems</span>
+        <span>Brand Identity</span>
+        <span>Figma Prototyping</span>
+        <span>Responsive Web</span>
       </div>
     </div>
   </header>
@@ -3861,9 +3894,12 @@
         <div class="about-header-wrap reveal">
           <div class="section-label about-label" data-i18n="about.section_label">Chi Sono &amp; Visione</div>
           <div class="about-right-col">
-            <h2 class="about-statement" data-i18n="about.statement">
-              Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.
-            </h2>
+            <div class="about-statement" data-i18n-html="about.statement">
+              <p>Ciao, sono Paty, una graphic designer che si muove tra design e codice.</p>
+              <p>Nel mio lavoro quotidiano mi occupo di UI/UX e web design, progettando esperienze digitali chiare, intuitive e funzionali, con un approccio centrato sulle persone e attenzione ai loro bisogni.</p>
+              <p>Parallelamente porto avanti <strong>Bypatdesigner</strong>, il mio progetto freelance, dove seguo i progetti dall'identità visiva alla realizzazione di siti e interfacce, unendo design e codice.</p>
+              <p>Amo studiare, sperimentare e imparare attraverso tentativi ed errori. Per questo continuo a formarmi nello sviluppo software, dal front-end al back-end, con l'obiettivo di costruire un <strong>profilo ibrido tra UX design e sviluppo</strong>.</p>
+            </div>
             <div class="about-action-wrap">
               <a href="#services" class="about-services-btn" data-i18n-html="about.btn_services">
                 <span>Aree di competenza</span>
@@ -4283,7 +4319,7 @@
         "nav.resume_cta": "Visualizza CV / Resume",
         "nav.select_lang": "Lingua:",
         "hero.loc": "Bisceglie, Italia",
-        "hero.role_primary": "UI/UX Designer",
+        "hero.role_primary": "Graphic & UI/UX Designer",
         "hero.role_secondary": "bridging Design & Code",
         "hero.statement": "Design, codice e qualche altra ossessione creativa. Creo identità, interfacce ed esperienze digitali che danno forma alle idee.",
         "hero.eyebrow": "Bisceglie, Italia  · Remoto / Ibrido / On-site",
@@ -4292,9 +4328,9 @@
         "hero.btn_work": "Vedi Progetti ↗",
         "hero.btn_resume": "Resume / CV",
         "about.section_label": "Chi Sono & Visione",
-        "about.statement": "Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.",
-        "about.headline": "Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.",
-        "about.desc": "Ciao, sono Paty, una graphic designer che si muove tra design e codice. Mi occupo di UI/UX e web design e approfondisco lo sviluppo software per progettare esperienze digitali chiare, intuitive e funzionali, unendo sensibilità visiva, attenzione alle persone e competenze tecniche.",
+        "about.statement": "<p>Ciao, sono Paty, una graphic designer che si muove tra design e codice.</p><p>Nel mio lavoro quotidiano mi occupo di UI/UX e web design, progettando esperienze digitali chiare, intuitive e funzionali, con un approccio centrato sulle persone e attenzione ai loro bisogni.</p><p>Parallelamente porto avanti <strong>Bypatdesigner</strong>, il mio progetto freelance, dove seguo i progetti dall'identità visiva alla realizzazione di siti e interfacce, unendo design e codice.</p><p>Amo studiare, sperimentare e imparare attraverso tentativi ed errori. Per questo continuo a formarmi nello sviluppo software, dal front-end al back-end, con l'obiettivo di costruire un <strong>profilo ibrido tra UX design e sviluppo</strong>.</p>",
+        "about.headline": "Ciao, sono Paty, una graphic designer che si muove tra design e codice.",
+        "about.desc": "Ciao, sono Paty, una graphic designer che si muove tra design e codice.",
         "about.btn_services": '<span>Aree di competenza</span> <span class="about-btn-arrow">↓</span>',
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
         "services.section_label": "Aree di competenza",
@@ -4394,7 +4430,7 @@
         "nav.resume_cta": "Ver CV / Resume",
         "nav.select_lang": "Idioma:",
         "hero.loc": "Bisceglie, Italia",
-        "hero.role_primary": "UI/UX Designer",
+        "hero.role_primary": "Graphic & UI/UX Designer",
         "hero.role_secondary": "bridging Design & Code",
         "hero.statement": "Diseño, código y alguna otra obsesión creativa. Creo identidades, interfaces y experiencias digitales que dan forma a las ideas.",
         "hero.eyebrow": "Bisceglie, Italia · Remoto / Híbrido / Presencial",
@@ -4403,9 +4439,9 @@
         "hero.btn_work": "Ver Proyectos ↗",
         "hero.btn_resume": "Descargar CV",
         "about.section_label": "Sobre Mí & Visión",
-        "about.statement": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código. Trabajo en UI/UX y diseño web y profundizo en el desarrollo de software para diseñar experiencias digitales claras, intuitivas y funcionales, combinando sensibilidad visual, atención a las personas y competencias técnicas.",
-        "about.headline": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código. Trabajo en UI/UX y diseño web y profundizo en el desarrollo de software para diseñar experiencias digitales claras, intuitivas y funcionales, combinando sensibilidad visual, atención a las personas y competencias técnicas.",
-        "about.desc": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código. Trabajo en UI/UX y diseño web y profundizo en el desarrollo de software para diseñar experiencias digitales claras, intuitivas y funcionales, combinando sensibilidad visual, atención a las personas y competencias técnicas.",
+        "about.statement": "<p>Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.</p><p>En mi trabajo diario me dedico a UI/UX y diseño web, creando experiencias digitales claras, intuitivas y funcionales, con un enfoque centrado en las personas y atención a sus necesidades.</p><p>En paralelo desarrollo <strong>Bypatdesigner</strong>, mi proyecto freelance, donde gestiono proyectos desde la identidad visual hasta la creación de sitios e interfaces, combinando sensibilidad visual y competencias técnicas.</p><p>Me apasiona estudiar, experimentar y aprender cosas nuevas, por eso continúo formándome en desarrollo de software, de front-end a back-end, con el objetivo de construir un <strong>perfil híbrido que combine lo mejor de ambos mundos</strong>.</p>",
+        "about.headline": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.",
+        "about.desc": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.",
         "about.btn_services": '<span>Áreas de competencia</span> <span class="about-btn-arrow">↓</span>',
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
         "services.section_label": "Áreas de competencia",
@@ -4505,7 +4541,7 @@
         "nav.resume_cta": "View CV / Resume",
         "nav.select_lang": "Language:",
         "hero.loc": "Bisceglie, Italy",
-        "hero.role_primary": "UI/UX Designer",
+        "hero.role_primary": "Graphic & UI/UX Designer",
         "hero.role_secondary": "bridging Design & Code",
         "hero.statement": "Design, code and other creative obsessions. Crafting identities, interfaces and digital experiences that shape ideas.",
         "hero.eyebrow": "<i></i> Bisceglie, Italy · Remote / Hybrid / On-site",
@@ -4514,9 +4550,9 @@
         "hero.btn_work": "View Projects ↗",
         "hero.btn_resume": "Resume / CV",
         "about.section_label": "About Me & Vision",
-        "about.statement": "Hi, I'm Paty, a graphic designer moving between design and code. I work in UI/UX and web design while deepening software development to design clear, intuitive, and functional digital experiences, combining visual sensibility, empathy for people, and technical skills.",
-        "about.headline": "Hi, I'm Paty, a graphic designer moving between design and code. I work in UI/UX and web design while deepening software development to design clear, intuitive, and functional digital experiences, combining visual sensibility, empathy for people, and technical skills.",
-        "about.desc": "Hi, I'm Paty, a graphic designer moving between design and code. I work in UI/UX and web design while deepening software development to design clear, intuitive, and functional digital experiences, combining visual sensibility, empathy for people, and technical skills.",
+        "about.statement": "<p>Hi, I'm Paty, a graphic designer moving between design and code.</p><p>In my day-to-day work, I focus on UI/UX and web design, crafting clear, intuitive, and functional digital experiences with a human-centered approach and attention to people's needs.</p><p>Alongside this, I run <strong>Bypatdesigner</strong>, my freelance venture, where I take projects from brand identity to the creation of websites and interfaces, uniting design and code.</p><p>I love studying, experimenting, and learning through trial and error. That's why I continue training in software development, from front-end to back-end, aiming to build a <strong>hybrid profile bridging UX design and engineering</strong>.</p>",
+        "about.headline": "Hi, I'm Paty, a graphic designer moving between design and code.",
+        "about.desc": "Hi, I'm Paty, a graphic designer moving between design and code.",
         "about.btn_services": '<span>Areas of Expertise</span> <span class="about-btn-arrow">↓</span>',
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
         "services.section_label": "Areas of Expertise",
@@ -5739,13 +5775,41 @@
       if (!statements.length) return;
 
       statements.forEach(statement => {
-        // Extract raw text if already populated with scroll-word spans or plain text
-        const rawText = statement.textContent.trim().replace(/\s+/g, ' ');
-        if (!rawText) return;
+        // Reset previously wrapped .scroll-word elements if re-initializing
+        const existingWords = statement.querySelectorAll('.scroll-word');
+        if (existingWords.length) {
+          existingWords.forEach(w => {
+            w.replaceWith(document.createTextNode(w.textContent));
+          });
+          statement.normalize();
+        }
 
-        // Split into individual words
-        const words = rawText.split(' ').filter(Boolean);
-        statement.innerHTML = words.map(w => `<span class="scroll-word">${w}</span>`).join(' ');
+        // Recursively wrap text nodes into .scroll-word spans, preserving HTML structure (<p>, <strong>)
+        function wrapTextNodes(node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            if (!text.trim()) return;
+            const tokens = text.split(/(\s+)/);
+            const frag = document.createDocumentFragment();
+            tokens.forEach(tok => {
+              if (!tok) return;
+              if (/^\s+$/.test(tok)) {
+                frag.appendChild(document.createTextNode(tok));
+              } else {
+                const span = document.createElement('span');
+                span.className = 'scroll-word';
+                span.textContent = tok;
+                frag.appendChild(span);
+              }
+            });
+            node.parentNode.replaceChild(frag, node);
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.classList && node.classList.contains('scroll-word')) return;
+            Array.from(node.childNodes).forEach(wrapTextNodes);
+          }
+        }
+
+        wrapTextNodes(statement);
         statement.classList.add('scroll-ready');
       });
 
