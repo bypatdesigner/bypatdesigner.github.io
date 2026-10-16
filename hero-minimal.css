@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('./img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
 /* ============================================================
-   HERO MINIMAL — PATRICIA GARCIA STATEMENT & ENLARGED ROLE LAYOUT
+   HERO MINIMAL — 3D CHARACTER SHOWCASE & MONUMENTAL TITLE
    ============================================================ */
 .hero.hero-minimal {
   height: 100svh;
@@ -12,30 +20,25 @@
   border-radius: 0;
   box-shadow: none;
   overflow: hidden;
-  background: #06050C;
+  background: #000000;
 }
 
 .hero.hero-minimal::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  background: radial-gradient(circle at 70% 30%, rgba(6, 5, 12, 0.08) 0%, rgba(6, 5, 12, 0.45) 75%),
-              linear-gradient(180deg, rgba(6, 5, 12, 0.28) 0%, rgba(6, 5, 12, 0.05) 45%, rgba(6, 5, 12, 0.72) 100%);
+  display: none;
 }
 
 .hero-minimal .hero-inner {
   position: relative;
   z-index: 3;
   width: 100%;
-  max-width: var(--max-width, 1440px);
+  max-width: 1740px;
   margin: 0 auto;
-  padding: clamp(105px, 14vh, 135px) 14px clamp(44px, 6vh, 68px);
+  padding: clamp(96px, 12vh, 125px) clamp(24px, 4vw, 64px) 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: calc(100svh - 60px);
+  min-height: 640px;
   box-sizing: border-box;
 }
 
@@ -44,8 +47,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: 4px;
   max-width: fit-content;
+  z-index: 10;
 }
 
 .hero-minimal .hero-email-link {
@@ -67,99 +71,132 @@
 
 .hero-minimal .hero-location {
   font-family: 'Satoshi', system-ui, sans-serif;
-  font-size: clamp(11.5px, 0.85vw, 13px);
+  font-size: clamp(13px, 0.9vw, 15px);
   color: rgba(229, 224, 245, 0.65);
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
 }
 
-/* 2. Main Content Block (Giant Name + Sub-Grid) */
-.hero-minimal .hero-main-content {
+/* 2. Main Stage (Middle Row: Role on Left, 3D Character Centered) */
+.hero-minimal .hero-main-stage {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: clamp(18px, 2.8vh, 32px);
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  flex: 1;
 }
 
-.hero-minimal .hero-title {
-  font-family: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
-  font-size: clamp(56px, min(10.4vw, 15svh), 180px);
-  line-height: 0.92;
-  letter-spacing: -0.055em;
-  font-weight: 800;
-  color: #FFFFFF;
-  margin: 0;
-  white-space: nowrap;
-  cursor: default;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
-}
-
-/* 3. Sub-Grid: Enlarged Role on Left vs Editorial Intro on Right */
-.hero-minimal .hero-sub-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-  gap: clamp(32px, 5vw, 90px);
-  align-items: end;
-  width: 100%;
-}
-
-/* Enlarged & Styled Role Block */
+/* Role Left */
 .hero-minimal .hero-role-wrapper {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  max-width: 680px;
+  margin-top: -30px;
 }
 
 .hero-minimal .hero-role-primary {
   font-family: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
-  font-size: clamp(26px, 2.8vw, 46px);
+  font-size: clamp(22px, 2.2vw, 38px);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: #FFFFFF;
   margin: 0;
+  white-space: nowrap;
 }
 
 .hero-minimal .hero-role-secondary {
   font-family: 'Satoshi', system-ui, sans-serif;
-  font-size: clamp(18px, 1.8vw, 26px);
+  font-size: clamp(15px, 1.35vw, 22px);
   font-weight: 500;
   line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: #D8CAFF;
+  letter-spacing: -0.015em;
+  color: #C084FC;
   margin: 0;
-  text-shadow: 0 0 24px rgba(167, 139, 250, 0.3);
+  text-shadow: 0 0 24px rgba(167, 139, 250, 0.35);
+  white-space: nowrap;
 }
 
-/* Right Editorial Statement */
-.hero-minimal .hero-statement-wrapper {
+/* 3D Character Illustration (Brought slightly inward for harmonious balance) */
+.hero-minimal .hero-character-wrap {
+  position: absolute;
+  right: clamp(40px, 8.5vw, 160px);
+  left: auto;
+  bottom: -40px;
+  transform: none;
+  z-index: 2;
+  pointer-events: none;
   display: flex;
-  flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
-.hero-minimal .hero-statement {
-  font-family: 'Satoshi', system-ui, sans-serif;
-  font-size: clamp(15px, 1.15vw, 19px);
-  line-height: 1.55;
-  color: #E8E2F4;
-  max-width: 40ch;
-  margin: 0;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+.hero-minimal .hero-character-img {
+  height: clamp(380px, 58vh, 660px);
+  max-width: 58vw;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 3. Bottom Giant Title: Patricia Garcia (Edge-to-Edge Spanning) */
+.hero-minimal .hero-title-wrap {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  margin-top: -30px;
+  padding-bottom: clamp(6px, 1.5vh, 16px);
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.hero-minimal .hero-title {
+  font-family: 'Funnel Display', sans-serif !important;
+  font-size: clamp(48px, 12.4vw, 205pt) !important;
+  line-height: 0.88 !important;
+  letter-spacing: -0.025em !important;
+  font-weight: 800 !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+  width: 100%;
+  white-space: nowrap;
+  cursor: default;
+  display: block;
+  pointer-events: auto;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.45);
+  text-align: right !important;
 }
 
 /* Responsiveness */
 @media (max-width: 1080px) {
+  .hero-minimal .hero-main-stage {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-minimal .hero-role-wrapper {
+    position: static;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .hero-minimal .hero-character-wrap {
+    left: 50%;
+    bottom: -20px;
+  }
+  .hero-minimal .hero-character-img {
+    height: clamp(300px, 46vh, 480px);
+  }
   .hero-minimal .hero-title {
-    font-size: clamp(48px, 10vw, 110px);
-  }
-  .hero-minimal .hero-sub-grid {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-  .hero-minimal .hero-statement {
-    max-width: 50ch;
+    font-size: clamp(44px, 11vw, 110px) !important;
   }
 }
 
@@ -168,34 +205,26 @@
     min-height: 640px;
   }
   .hero-minimal .hero-inner {
-    padding: 100px 14px 40px;
-    gap: 32px;
+    padding: 90px 16px 0;
+  }
+  .hero-minimal .hero-character-img {
+    height: clamp(260px, 38vh, 380px);
+  }
+  .hero-minimal .hero-title-wrap {
+    justify-content: flex-end;
+    text-align: right;
   }
   .hero-minimal .hero-title {
-    font-size: clamp(40px, 12vw, 68px);
+    font-size: clamp(38px, 12vw, 68px) !important;
     white-space: normal;
+    line-height: 0.95 !important;
+    text-align: right !important;
+    margin-left: auto !important;
   }
   .hero-minimal .hero-role-primary {
-    font-size: clamp(22px, 6.2vw, 32px);
+    font-size: clamp(20px, 5.8vw, 26px);
   }
   .hero-minimal .hero-role-secondary {
-    font-size: clamp(16px, 4.4vw, 21px);
-  }
-  .hero-minimal .hero-statement {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-}
-
-@media (max-height: 660px) and (min-width: 769px) {
-  .hero.hero-minimal {
-    height: auto;
-    min-height: 640px;
-  }
-  .hero-minimal .hero-inner {
-    min-height: 640px;
-  }
-  .hero-minimal .hero-title {
-    font-size: clamp(48px, 7.5vw, 90px);
+    font-size: clamp(15px, 4.2vw, 19px);
   }
 }

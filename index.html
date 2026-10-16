@@ -24,8 +24,15 @@
 
   <style>
     /* ============================================================
-       CABINET GROTESK & SATOSHI FONT MAPPINGS
+       FUNNEL DISPLAY (HERO NAME), CABINET GROTESK & SATOSHI
        ============================================================ */
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-display: swap;
+      font-style: normal;
+    }
     @font-face {
       font-family: 'Cabinet Grotesk';
       src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
@@ -386,11 +393,10 @@
       transform: translateX(-50%);
       z-index: 50;
       width: min(calc(100% - 40px), 1420px);
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 24px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding: 10px 24px;
+      padding: 8px 18px;
       background: rgba(14, 13, 24, 0.78);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
@@ -398,8 +404,7 @@
       border-radius: var(--radius-full);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
       font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
@@ -408,12 +413,18 @@
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(139, 92, 246, 0.2);
     }
 
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
-      padding: 6px 14px;
+      padding: 4px 6px;
       border-radius: var(--radius-full);
       transition: background 0.25s ease, transform 0.25s ease;
     }
@@ -429,6 +440,12 @@
 
     .brand:hover .brand-logo-img {
       transform: scale(1.05);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .menu {
@@ -671,52 +688,115 @@
     }
 
     .nav-resume-btn {
-      padding: 8px 20px;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      font-size: 0.86rem;
+      font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+      letter-spacing: -0.01em;
+      text-transform: none;
+      font-weight: 500;
       white-space: nowrap;
+      border-radius: var(--radius-full);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      background: rgba(22, 19, 36, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #FFFFFF !important;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Hamburger Button (Desktop: Hidden, Mobile <= 900px: Visible) */
+    .nav-resume-btn:hover {
+      background: #FFFFFF !important;
+      color: #07060C !important;
+      border-color: #FFFFFF !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+    }
+
+    /* Bespoke diagonal arrow icon & micro-interactions */
+    .icon-arrow-diagonal {
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    a:hover > .icon-arrow-diagonal,
+    a:hover .icon-arrow-diagonal,
+    button:hover > .icon-arrow-diagonal,
+    button:hover .icon-arrow-diagonal,
+    .scene-card:hover .icon-arrow-diagonal,
+    .stack-project-link:hover .icon-arrow-diagonal,
+    .mobile-nav-item:hover .icon-arrow-diagonal {
+      transform: translate(2.5px, -2.5px);
+    }
+
+    .icon-arrow-down {
+      transform: none;
+    }
+    a:hover > .icon-arrow-down,
+    a:hover .icon-arrow-down,
+    button:hover > .icon-arrow-down,
+    button:hover .icon-arrow-down {
+      transform: translateY(3px);
+    }
+
+    /* Hamburger Button (Always Visible across Desktop & Mobile - Grande) */
     .hamburger-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
+      display: inline-flex;
       align-items: center;
-      gap: 5px;
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-full);
-      background: rgba(167, 139, 250, 0.12);
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border-radius: 50%;
+      background: rgba(22, 19, 36, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--line-violet);
       cursor: pointer;
-      padding: 0;
+      color: #FFFFFF;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
       position: relative;
       z-index: 52;
+      flex-shrink: 0;
     }
 
     .hamburger-btn:hover {
-      background: rgba(167, 139, 250, 0.24);
+      background: rgba(167, 139, 250, 0.25);
       border-color: var(--line-glow);
-      box-shadow: 0 0 16px rgba(139, 92, 246, 0.35);
-      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.4);
+      transform: scale(1.06);
+    }
+
+    .hamburger-text {
+      display: none;
+    }
+
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 22px;
+      height: 15px;
     }
 
     .hamburger-bar {
-      width: 18px;
+      width: 100%;
       height: 2px;
       background: #FFFFFF;
-      border-radius: 2px;
+      border-radius: 3px;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
       transform-origin: center;
     }
 
     .hamburger-btn.is-active .hamburger-bar:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+      transform: translateY(6.5px) rotate(45deg);
       background: var(--violet-light);
     }
 
@@ -726,172 +806,270 @@
     }
 
     .hamburger-btn.is-active .hamburger-bar:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+      transform: translateY(-6.5px) rotate(-45deg);
       background: var(--violet-light);
     }
 
-    /* Mobile Navigation Drawer */
-    .mobile-nav-drawer {
+    /* ============================================================
+       FULLSCREEN EDITORIAL BLACK MENU OVERLAY (PLINTH AESTHETIC)
+       ============================================================ */
+    .fullscreen-menu-overlay {
       position: fixed;
       inset: 0;
-      z-index: 100;
-      pointer-events: none;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: #000000;
+      z-index: 99999;
+      opacity: 0;
       visibility: hidden;
-      transition: visibility 0.35s ease;
-    }
-
-    .mobile-nav-drawer.is-open {
-      pointer-events: auto;
-      visibility: visible;
-    }
-
-    .mobile-nav-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(7, 6, 12, 0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      opacity: 0;
-      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .mobile-nav-drawer.is-open .mobile-nav-backdrop {
-      opacity: 1;
-    }
-
-    .mobile-nav-panel {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      right: 16px;
-      max-width: 420px;
-      margin: 0 auto;
-      max-height: calc(100svh - 32px);
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
       overflow-y: auto;
-      background: rgba(12, 10, 22, 0.96);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border: 1px solid var(--line-glow);
-      border-radius: 24px;
-      padding: 18px 16px 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(139, 92, 246, 0.22);
-      transform: translateY(-20px) scale(0.96);
-      opacity: 0;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-x: hidden;
+      color: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    .fullscreen-menu-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .menu-overlay-inner {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      justify-content: space-between;
+      padding: clamp(24px, 4vh, 48px) clamp(24px, 5vw, 64px);
+      box-sizing: border-box;
     }
 
-    .mobile-nav-drawer.is-open .mobile-nav-panel {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-
-    .mobile-nav-head {
+    .menu-overlay-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 12px;
-      padding-left: 4px;
-      padding-right: 4px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      width: 100%;
+      padding-bottom: 20px;
+      z-index: 10;
     }
 
-    .mobile-nav-tag {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--violet-light);
-      font-weight: 600;
-    }
-
-    .mobile-nav-close-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--line);
-      color: #FFFFFF;
+    .menu-brand-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      transition: opacity 0.25s ease;
+    }
+
+    .menu-brand-link:hover {
+      opacity: 0.8;
+    }
+
+    .menu-close-btn {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
       transition: all 0.25s ease;
     }
 
-    .mobile-nav-close-btn:hover {
-      background: rgba(167, 139, 250, 0.2);
-      border-color: var(--line-glow);
+    .menu-close-btn:hover {
       color: var(--violet-light);
+      transform: scale(1.05);
     }
 
-    .mobile-nav-links {
+    .menu-close-icon {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .menu-overlay-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 240px 1fr 220px;
+      gap: clamp(24px, 4vw, 56px);
+      align-items: center;
+      margin: auto 0;
+      width: 100%;
+      padding: 30px 0;
+    }
+
+    .menu-col-left {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-    }
-
-    .mobile-nav-item {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 13px 16px;
-      border-radius: 16px;
-      background: rgba(22, 19, 36, 0.5);
-      border: 1px solid var(--line);
-      color: #FFFFFF;
-      font-family: var(--font-display);
-      font-size: 1.08rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.22s ease;
+      height: 100%;
+      min-height: 340px;
     }
 
-    .mobile-nav-item:hover,
-    .mobile-nav-item:active {
-      background: rgba(139, 92, 246, 0.18);
-      border-color: var(--violet-light);
-      transform: translateX(4px);
-      color: #FFFFFF;
-    }
-
-    .mobile-item-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .mobile-item-num {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      color: var(--violet-light);
-      font-weight: 600;
+    .menu-studio-label {
+      display: block;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.42);
+      margin-bottom: 18px;
       letter-spacing: 0.04em;
     }
 
-    .mobile-item-arrow {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      transition: transform 0.22s, color 0.22s;
+    .menu-social-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .mobile-nav-item:hover .mobile-item-arrow {
-      transform: translateX(3px);
+    .menu-social-links a {
       color: #FFFFFF;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.22s ease, transform 0.22s ease;
+      display: inline-block;
     }
 
-    .mobile-nav-item-resume {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(167, 139, 250, 0.06));
-      border-color: rgba(167, 139, 250, 0.35);
-      margin-top: 4px;
+    .menu-social-links a:hover {
+      color: var(--violet-light);
+      transform: translateX(4px);
     }
 
-    .mobile-nav-item-resume:hover {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(167, 139, 250, 0.15));
-      border-color: var(--violet-light);
+    .menu-email-block {
+      margin-top: 32px;
+    }
+
+    .menu-email-link {
+      color: #FFFFFF;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.22s ease;
+    }
+
+    .menu-email-link:hover {
+      color: var(--violet-light);
+      text-decoration: underline;
+    }
+
+    /* Center: Massive Editorial Navigation Items */
+    .menu-col-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .editorial-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(8px, 1.8vh, 22px);
+    }
+
+    .editorial-nav-item {
+      display: block;
+    }
+
+    .editorial-nav-link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: clamp(12px, 2vw, 26px);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .editorial-nav-num {
+      font-family: 'Cabinet Grotesk', 'Satoshi', sans-serif;
+      font-size: clamp(0.95rem, 1.3vw, 1.35rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: -0.01em;
+      transform: translateY(-0.8em);
+      transition: color 0.3s ease;
+    }
+
+    .editorial-nav-label {
+      font-family: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: clamp(2.8rem, 6.2vw, 6.6rem);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+      color: rgba(255, 255, 255, 0.42);
+      transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .editorial-nav-link:hover .editorial-nav-label {
+      color: #FFFFFF;
+      transform: translateX(12px);
+    }
+
+    .editorial-nav-link:hover .editorial-nav-num {
+      color: var(--violet-light);
+    }
+
+    /* Right Side: Location Info */
+    .menu-col-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      min-height: 340px;
+      text-align: right;
+    }
+
+    .menu-location-block p {
+      margin: 0;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .menu-location-block .menu-location-name {
+      color: #FFFFFF;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    @media (max-width: 1024px) {
+      .menu-overlay-main {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        margin: 20px 0;
+      }
+      .menu-col-left, .menu-col-right {
+        min-height: auto;
+        text-align: left;
+      }
+      .menu-col-right {
+        justify-content: flex-start;
+      }
+      .editorial-nav-label {
+        font-size: clamp(2.2rem, 7.5vw, 4rem);
+      }
     }
 
     /* ============================================================
@@ -941,7 +1119,7 @@
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: clamp(95px, 11vh, 130px) var(--pad) clamp(24px, 3.5vh, 44px);
+      padding: clamp(95px, 11vh, 130px) var(--pad) clamp(60px, 7.5vh, 84px);
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -1317,20 +1495,21 @@
 
     .about-statement p {
       margin: 0;
+      color: #0E0B1F;
     }
 
     .about-statement strong {
       font-weight: 700;
-      color: inherit;
+      color: #0E0B1F;
     }
 
     .about-statement.scroll-ready {
-      color: rgba(14, 11, 31, 0.18);
+      color: rgba(14, 11, 31, 0.35);
     }
 
     .about-statement .scroll-word {
       display: inline-block;
-      color: rgba(14, 11, 31, 0.18);
+      color: rgba(14, 11, 31, 0.35);
       transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: color;
     }
@@ -1344,37 +1523,38 @@
     .about-services-btn {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 28px;
+      gap: 14px;
+      padding: 16px 36px;
       border-radius: var(--radius-full);
-      background: #0E0B1F;
-      color: #FFFFFF;
-      font-family: var(--font-mono, monospace);
-      font-size: 0.88rem;
+      border: 2px solid #0E0B1F;
+      background: transparent;
+      color: #0E0B1F !important;
+      font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+      font-size: 1.16rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      text-transform: none;
       text-decoration: none;
-      box-shadow: 0 10px 28px rgba(14, 11, 31, 0.18), 0 0 20px rgba(124, 58, 237, 0.2);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .about-services-btn svg {
+      stroke: #0E0B1F;
+      transition: stroke 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .about-services-btn:hover {
-      background: #6D28D9;
-      color: #FFFFFF;
-      transform: translateY(-3px);
-      box-shadow: 0 14px 36px rgba(109, 40, 217, 0.35);
+      background: #0E0B1F;
+      color: #FFFFFF !important;
+      border-color: #0E0B1F;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(14, 11, 31, 0.18);
     }
 
-    .about-btn-arrow {
-      display: inline-block;
-      transition: transform 0.25s ease;
-      font-size: 1.05rem;
-      line-height: 1;
-    }
-
-    .about-services-btn:hover .about-btn-arrow {
-      transform: translateY(3px);
+    .about-services-btn:hover svg {
+      stroke: #FFFFFF;
+      transform: translate(3px, -3px);
     }
 
     @media (max-width: 960px) {
@@ -1906,7 +2086,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       visibility: hidden;
       opacity: 0;
       font-size: 24px;
@@ -1917,17 +2097,31 @@
       transition: opacity 0.3s ease;
     }
 
-    .stack-project-link span {
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-family: var(--font-mono, monospace);
+    .stack-project-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      background: rgba(14, 13, 24, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #FFFFFF;
+      font-family: 'Satoshi', system-ui, sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      text-transform: none;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .stack-project-link:hover span {
-      text-decoration: underline;
-      color: #FFFFFF;
+    .stack-project-link:hover .stack-project-pill {
+      border-color: #FFFFFF;
+      background: #FFFFFF;
+      color: #07060C;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(255, 255, 255, 0.2);
     }
 
     /* Project Scenes (Full screen cinematic scroll — Dark Violet Atmosphere) */
@@ -2055,14 +2249,23 @@
     }
 
     .project-view {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-top: 10px;
-      color: #A78BFA;
-      font-family: var(--font-mono, monospace);
-      display: inline-block;
-      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      background: rgba(14, 13, 24, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #FFFFFF;
+      font-family: 'Satoshi', system-ui, sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      text-transform: none;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .scene-card:hover,
@@ -2077,8 +2280,16 @@
     }
 
     .scene-card:hover .project-view {
-      color: #FFFFFF;
-      text-shadow: 0 0 12px rgba(192, 139, 232, 0.85);
+      border-color: #FFFFFF;
+      background: #FFFFFF;
+      color: #07060C;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(255, 255, 255, 0.22);
+    }
+
+    .scene-card:hover .project-view .icon-arrow-diagonal {
+      transform: translate(2.5px, -2.5px);
+      stroke: #07060C;
     }
 
     .archive-bar {
@@ -2858,24 +3069,27 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      padding: 12px 28px;
+      padding: 12px 24px;
       border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color: #ffffff;
-      border: 1px solid rgba(167, 139, 250, 0.32);
-      font-size: 0.95rem;
+      font-family: 'Satoshi', system-ui, sans-serif;
+      font-size: 0.94rem;
       font-weight: 500;
+      letter-spacing: -0.01em;
       text-decoration: none;
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(12px);
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .plinth-cv-btn:hover {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32), rgba(167, 139, 250, 0.18));
-      border-color: rgba(192, 132, 252, 0.65);
-      color: #ffffff;
-      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+      background: #FFFFFF;
+      border-color: #FFFFFF;
+      color: #07060C;
+      box-shadow: 0 10px 28px rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
     }
 
@@ -2885,8 +3099,9 @@
       transition: transform 0.25s ease;
     }
 
-    .plinth-cv-btn:hover .plinth-arrow {
-      transform: translate(2px, -2px);
+    .plinth-cv-btn:hover .plinth-arrow,
+    .plinth-cv-btn:hover .icon-arrow-diagonal {
+      transform: translate(2.5px, -2.5px);
     }
 
     .plinth-whatsapp-link {
@@ -3390,45 +3605,32 @@
 
     @media (max-width: 900px) {
       .nav-bar {
-        grid-template-columns: auto 1fr;
-        padding: 8px 16px;
-        top: 16px;
+        padding: 6px 14px;
+        top: 14px;
+        width: calc(100% - 24px);
       }
 
-      .menu {
-        display: none;
+      .nav-left {
+        gap: 10px;
       }
 
       .brand {
-        padding: 4px 6px;
+        padding: 2px 4px;
       }
 
-      .nav-actions-wrap {
-        grid-column: 2;
-        justify-self: end;
-        gap: 8px;
+      .brand-logo-img {
+        height: 30px;
       }
 
-      /* Hide horizontal 3-button pill on mobile, show compact dropdown */
-      .lang-desktop-pill {
-        display: none !important;
-      }
-
-      .lang-dropdown-wrapper {
-        display: inline-block;
-      }
-
-      .nav-resume-btn {
-        display: none;
+      .lang-pill .lang-btn {
+        padding: 4px 9px;
+        font-size: 0.7rem;
       }
 
       .hamburger-btn {
-        display: flex;
-      }
-
-      /* Keep logo large and crisp, no longer forced tiny */
-      .brand-logo-img {
-        height: 34px;
+        width: 42px;
+        height: 42px;
+        padding: 0;
       }
 
       .hero {
@@ -3709,7 +3911,7 @@
     }
   </style>
   <link rel="stylesheet" href="about-cards.css?v=2">
-  <link rel="stylesheet" href="hero-minimal.css?v=5">
+  <link rel="stylesheet" href="hero-minimal.css?v=12">
 </head>
 
 <body>
@@ -3728,140 +3930,138 @@
 
   <!-- ================= FLOATING GLASS NAVBAR ================= -->
   <nav class="nav-bar" aria-label="Navigazione principale">
-    <a class="brand" href="#top">
-      <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
-    </a>
-
-    <div class="menu">
-      <a href="#about" data-i18n="nav.about">Chi sono</a>
-      <a href="projects.html" data-i18n="nav.projects">Progetti</a>
-      <a href="#services" data-i18n="nav.services">Servizi</a>
-      <a href="#contact" data-i18n="nav.contact">Contatti</a>
+    <div class="nav-left">
+      <a class="brand" href="#top" aria-label="Bypatdesigner Home">
+        <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
+      </a>
     </div>
 
-    <div class="nav-actions-wrap">
-      <!-- Desktop Language Selector (IT | ES | EN) -->
-      <div class="lang-pill lang-desktop-pill" role="group" aria-label="Selettore Lingua / Language Selector">
+    <div class="nav-right">
+      <!-- Language Selector (IT | ES | EN) on the right beside the hamburger -->
+      <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
         <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
         <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
         <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
       </div>
 
-      <!-- Mobile Language Dropdown ("Menu a Tendina") -->
-      <div class="lang-dropdown-wrapper" id="langDropdownWrapper">
-        <button class="lang-dropdown-trigger" id="langDropdownTrigger" type="button" aria-label="Seleziona lingua" aria-expanded="false">
-          <span class="lang-trigger-code" id="langTriggerCode">IT</span>
-          <i class="fa-solid fa-chevron-down lang-trigger-chevron"></i>
-        </button>
-        <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu" aria-hidden="true">
-          <button class="lang-dropdown-item lang-btn active" data-lang="it" type="button" role="menuitem">
-            <span class="lang-opt-name">Italiano</span>
-            <span class="lang-opt-code">IT</span>
-          </button>
-          <button class="lang-dropdown-item lang-btn" data-lang="es" type="button" role="menuitem">
-            <span class="lang-opt-name">Español</span>
-            <span class="lang-opt-code">ES</span>
-          </button>
-          <button class="lang-dropdown-item lang-btn" data-lang="en" type="button" role="menuitem">
-            <span class="lang-opt-name">English</span>
-            <span class="lang-opt-code">EN</span>
-          </button>
-        </div>
-      </div>
-
-      <a class="btn primary nav-resume-btn" id="navResumeBtn" href="cv.html">
-        <span data-i18n="nav.resume">Resume</span>
-      </a>
-
-      <!-- Mobile Hamburger Button -->
-      <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Menu di navigazione"
-        aria-expanded="false">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <!-- Large Hamburger Button (Opens Fullscreen Black Menu) -->
+      <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Menu di navigazione" aria-expanded="false">
+        <span class="hamburger-icon" aria-hidden="true">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </span>
       </button>
     </div>
   </nav>
 
-  <!-- ================= MOBILE NAVIGATION DRAWER (MINIMAL EN) ================= -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
-    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
-    <div class="mobile-nav-panel">
-      <div class="mobile-nav-head">
-        <span class="mobile-nav-tag">Menu</span>
-        <button class="mobile-nav-close-btn" id="mobileNavCloseBtn" type="button" aria-label="Close menu">
-          <i class="fa-solid fa-xmark"></i>
+  <!-- ================= FULLSCREEN EDITORIAL BLACK MENU (PLINTH AESTHETIC) ================= -->
+  <div class="fullscreen-menu-overlay" id="mobileNavDrawer" aria-hidden="true">
+    <div class="menu-overlay-inner">
+      <!-- Header row inside menu -->
+      <div class="menu-overlay-header">
+        <a class="menu-brand-link" href="#top" id="menuBrandLink" aria-label="Vai a inizio pagina">
+          <span class="menu-brand-name">Pat</span>
+        </a>
+        <button class="menu-close-btn" id="mobileNavCloseBtn" type="button" aria-label="Chiudi menu">
+          <span class="menu-close-text" data-i18n="nav.close">Close</span>
+          <span class="menu-close-icon" aria-hidden="true">&times;</span>
         </button>
       </div>
 
-      <div class="mobile-nav-links">
-        <a href="#about" class="mobile-nav-item">
-          <div class="mobile-item-left">
-            <span class="mobile-item-num">01</span>
-            <span>About</span>
+      <!-- Main Stage -->
+      <div class="menu-overlay-main">
+        <!-- Left Side: Studio details & Socials & Email -->
+        <div class="menu-col-left">
+          <div class="menu-studio-block">
+            <span class="menu-studio-label" data-i18n="menu.studio_details">Studio details</span>
+            <ul class="menu-social-links" role="list">
+              <li><a href="https://linkedin.com/in/patricia-garcia-design" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://behance.net/bypatdesigner" target="_blank" rel="noopener noreferrer">Behance</a></li>
+              <li><a href="https://github.com/bypatdesigner" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://instagram.com/bypatdesigner" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            </ul>
           </div>
-          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
-        </a>
-        <a href="projects.html" class="mobile-nav-item">
-          <div class="mobile-item-left">
-            <span class="mobile-item-num">02</span>
-            <span>Projects</span>
+          <div class="menu-email-block">
+            <a href="mailto:bypatdesigner@gmail.com" class="menu-email-link">bypatdesigner@gmail.com</a>
           </div>
-          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
-        </a>
-        <a href="#services" class="mobile-nav-item">
-          <div class="mobile-item-left">
-            <span class="mobile-item-num">03</span>
-            <span>Services</span>
+        </div>
+
+        <!-- Center: Massive Editorial Navigation Items -->
+        <nav class="menu-col-center" aria-label="Menu navigazione a schermo intero">
+          <ul class="editorial-nav-list" role="list">
+            <li class="editorial-nav-item">
+              <a href="#about" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(01)</span>
+                <span class="editorial-nav-label" data-i18n="nav.about">Chi sono</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="projects.html" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(02)</span>
+                <span class="editorial-nav-label" data-i18n="nav.projects">Progetti</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="#services" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(03)</span>
+                <span class="editorial-nav-label" data-i18n="nav.services">Servizi</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="#contact" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(04)</span>
+                <span class="editorial-nav-label" data-i18n="nav.contact">Contatti</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="cv.html" class="editorial-nav-link mobile-nav-item" id="mobileResumeLink">
+                <span class="editorial-nav-num">(05)</span>
+                <span class="editorial-nav-label" data-i18n="nav.resume">Resume CV</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Right Side: Location Info -->
+        <div class="menu-col-right">
+          <div class="menu-location-block">
+            <p class="menu-location-name">Patricia Garcia</p>
+            <p class="menu-location-geo">Bisceglie, Puglia</p>
+            <p class="menu-location-country">Italy</p>
+            <p class="menu-location-role">UI/UX & Front-end</p>
           </div>
-          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
-        </a>
-        <a href="#contact" class="mobile-nav-item">
-          <div class="mobile-item-left">
-            <span class="mobile-item-num">04</span>
-            <span>Contact</span>
-          </div>
-          <i class="fa-solid fa-arrow-right mobile-item-arrow"></i>
-        </a>
-        <a href="cv.html" class="mobile-nav-item mobile-nav-item-resume" id="mobileResumeLink">
-          <div class="mobile-item-left">
-            <span class="mobile-item-num">05</span>
-            <span>CV / Resume</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square mobile-item-arrow"></i>
-        </a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= HERO (PATRICIA GARCIA STATEMENT & ENLARGED ROLE) ================= -->
-  <header class="hero hero-minimal" id="top" aria-labelledby="heroTitle" data-card-trail>
-    <div class="hero-card-trail" aria-hidden="true"><img src="img/cards/Frame%201.png" alt="" draggable="false"><img src="img/cards/Frame%202.png" alt="" draggable="false"><img src="img/cards/Frame%203.png" alt="" draggable="false"><img src="img/cards/Frame%204.png" alt="" draggable="false"><img src="img/cards/Frame%205.png" alt="" draggable="false"><img src="img/cards/Frame%207.png" alt="" draggable="false"><img src="img/cards/Frame%208.png" alt="" draggable="false"><img src="img/cards/image%2012.png" alt="" draggable="false"></div>
-    <canvas id="meshDriftCanvas" class="hero-fluid-canvas" aria-hidden="true"></canvas>
+  <!-- ================= HERO (PATRICIA GARCIA 3D SHOWCASE & STATEMENT) ================= -->
+  <header class="hero hero-minimal" id="top" aria-labelledby="heroTitle">
     <div class="hero-inner">
-      <div class="hero-top-meta">
-        <a href="mailto:bypatdesigner@gmail.com" class="hero-email-link">bypatdesigner@gmail.com</a>
-        <span class="hero-location" data-i18n="hero.loc">Bisceglie, Italia</span>
+      <div class="hero-main-stage">
+        <!-- Left Role Info -->
+        <div class="hero-role-wrapper">
+          <h2 class="hero-role-primary" data-i18n="hero.role_primary">Graphic &amp; UI/UX Designer</h2>
+          <p class="hero-role-secondary" data-i18n="hero.role_secondary">Bridging Design &amp; Code</p>
+          <span class="hero-location" data-i18n="hero.loc">Bisceglie, Italia</span>
+        </div>
+
+        <!-- 3D Character Illustration (Center-Right) -->
+        <div class="hero-character-wrap" aria-hidden="true">
+          <img src="img/hero-patricia-3d.png" alt="Patricia Garcia 3D Avatar" class="hero-character-img" />
+        </div>
       </div>
 
-      <div class="hero-main-content">
+      <!-- Giant Name Anchor along the bottom -->
+      <div class="hero-title-wrap">
         <h1 class="hero-title" id="heroTitle">
           Patricia Garcia
         </h1>
-
-        <div class="hero-sub-grid">
-          <div class="hero-role-wrapper">
-            <h2 class="hero-role-primary" data-i18n="hero.role_primary">Graphic &amp; UI/UX Designer</h2>
-            <p class="hero-role-secondary" data-i18n="hero.role_secondary">bridging Design &amp; Code</p>
-          </div>
-
-          <div class="hero-statement-wrapper">
-            <p class="hero-statement" id="heroStatement" data-i18n="hero.statement">
-              Design, codice e qualche altra ossessione creativa. Creo identità, interfacce ed esperienze digitali che danno forma alle idee.
-            </p>
-          </div>
-        </div>
       </div>
+
+      <!-- Hidden hook for i18n data binding -->
+      <p class="hero-statement" id="heroStatement" data-i18n-html="hero.statement" style="display:none;"></p>
     </div>
 
     <!-- ================= HERO INTEGRATED MARQUEE ================= -->
@@ -3901,9 +4101,9 @@
               <p>Amo studiare, sperimentare e imparare attraverso tentativi ed errori. Per questo continuo a formarmi nello sviluppo software, dal front-end al back-end, con l'obiettivo di costruire un <strong>profilo ibrido tra UX design e sviluppo</strong>.</p>
             </div>
             <div class="about-action-wrap">
-              <a href="#services" class="about-services-btn" data-i18n-html="about.btn_services">
-                <span>Aree di competenza</span>
-                <span class="about-btn-arrow">↓</span>
+              <a href="cv.html" class="about-services-btn" data-i18n-html="about.btn_services">
+                <span>Resume CV</span>
+                <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>
               </a>
             </div>
           </div>
@@ -3925,7 +4125,13 @@
         </div>
         <a class="stack-project-link" href="petruzzelli-logo.html">
           <strong>Teatro Petruzzelli</strong>
-          <span data-i18n="project.view">Scopri il progetto ↗</span>
+          <span class="stack-project-pill">
+            <span data-i18n="project.view_text">Scopri il progetto</span>
+            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
+              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+            </svg>
+          </span>
         </a>
         <div class="stack-caption">
           <p data-i18n="stack.caption_title">Una selezione di progetti</p>
@@ -3946,7 +4152,13 @@
         <a class="scene-card" href="eureka.html">
           <img src="img/eureka/hero.png" alt="Eureka: sistema di identità visiva" width="1400" height="900" loading="lazy">
           <h2 id="eureka-title">Eureka</h2>
-          <span class="project-view" data-i18n="project.view">Scopri il progetto ↗</span>
+          <span class="project-view">
+            <span data-i18n="project.view_text">Scopri il progetto</span>
+            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
+              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+            </svg>
+          </span>
         </a>
       </div>
     </section>
@@ -3963,7 +4175,13 @@
         <a class="scene-card" href="apulia.html">
           <img src="img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US: manifesto della campagna" width="1400" height="900" loading="lazy">
           <h2 id="apulia-title">Apulia Promoting US</h2>
-          <span class="project-view" data-i18n="project.view">Scopri il progetto ↗</span>
+          <span class="project-view">
+            <span data-i18n="project.view_text">Scopri il progetto</span>
+            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
+              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+            </svg>
+          </span>
         </a>
       </div>
     </section>
@@ -3980,7 +4198,13 @@
         <a class="scene-card" href="miami-mango.html">
           <img src="img/miami-mango/card-home.jpg" alt="Miami Mango: identità per tavole da surf" width="1400" height="900" loading="lazy">
           <h2 id="miami-title">Miami Mango</h2>
-          <span class="project-view" data-i18n="project.view">Scopri il progetto ↗</span>
+          <span class="project-view">
+            <span data-i18n="project.view_text">Scopri il progetto</span>
+            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
+              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+            </svg>
+          </span>
         </a>
       </div>
     </section>
@@ -3988,7 +4212,13 @@
     <!-- Archive Link Bar -->
     <a class="archive-bar" href="projects.html">
       <span data-i18n="archive_bar.text">Altre idee. Altri progetti.</span>
-      <span><span data-i18n="archive_bar.link">Esplora il portfolio</span> <span aria-hidden="true">↗</span></span>
+      <span class="archive-bar-cta">
+        <span data-i18n="archive_bar.link">Esplora il portfolio</span>
+        <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
+          <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+        </svg>
+      </span>
     </a>
 
     <!-- ================= 03 — AREE DI COMPETENZA (PLINTH LARGE SERVICES + 04 HEADER STYLE) ================= -->
@@ -4202,7 +4432,10 @@
             <div class="plinth-action-row">
               <a href="cv.html" class="plinth-cv-btn" id="footerResumeLink">
                 <span data-i18n="footer.cv_btn">Scopri il mio CV</span>
-                <span class="plinth-arrow">↗</span>
+                <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
+                  <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+                </svg>
               </a>
 
               <a class="plinth-whatsapp-link" id="contactWhatsAppBtn"
@@ -4210,7 +4443,10 @@
                 target="_blank" rel="noopener" aria-label="WhatsApp">
                 <i class="fa-brands fa-whatsapp"></i>
                 <span data-i18n="footer.whatsapp_label">WhatsApp</span>
-                <span class="plinth-arrow">↗</span>
+                <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
+                  <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+                </svg>
               </a>
             </div>
           </div>
@@ -4313,7 +4549,9 @@
         "nav.services": "Servizi",
         "nav.projects": "Progetti",
         "nav.contact": "Contatti",
-        "nav.resume": "Resume",
+        "nav.resume": "Resume CV",
+        "nav.close": "Chiudi",
+        "menu.studio_details": "Studio details",
         "nav.menu_title": "Menu di navigazione",
         "nav.resume_desc": "Esplora il percorso completo, l'esperienza, la formazione accademica e le certificazioni.",
         "nav.resume_cta": "Visualizza CV / Resume",
@@ -4321,7 +4559,7 @@
         "hero.loc": "Bisceglie, Italia",
         "hero.role_primary": "Graphic & UI/UX Designer",
         "hero.role_secondary": "bridging Design & Code",
-        "hero.statement": "Design, codice e qualche altra ossessione creativa. Creo identità, interfacce ed esperienze digitali che danno forma alle idee.",
+        "hero.statement": '<span class="hero-highlight">Design, codice</span> e qualche altra <strong>ossessione creativa</strong>.<br><span class="hero-highlight">Trasformo idee in</span> <strong>identità, interfacce ed esperienze digitali</strong>.',
         "hero.eyebrow": "Bisceglie, Italia  · Remoto / Ibrido / On-site",
         "hero.title": 'Patricia Garcia',
         "hero.desc": "Mi muovo tra design e codice. Lavoro in UI/UX e web design e mi formo nello sviluppo software per progettare soluzioni digitali più consapevoli, dal design allo sviluppo.",
@@ -4331,7 +4569,7 @@
         "about.statement": "<p>Ciao, sono Paty, una graphic designer che si muove tra design e codice.</p><p>Nel mio lavoro quotidiano mi occupo di UI/UX e web design, progettando esperienze digitali chiare, intuitive e funzionali, con un approccio centrato sulle persone e attenzione ai loro bisogni.</p><p>Parallelamente porto avanti <strong>Bypatdesigner</strong>, il mio progetto freelance, dove seguo i progetti dall'identità visiva alla realizzazione di siti e interfacce, unendo design e codice.</p><p>Amo studiare, sperimentare e imparare attraverso tentativi ed errori. Per questo continuo a formarmi nello sviluppo software, dal front-end al back-end, con l'obiettivo di costruire un <strong>profilo ibrido tra UX design e sviluppo</strong>.</p>",
         "about.headline": "Ciao, sono Paty, una graphic designer che si muove tra design e codice.",
         "about.desc": "Ciao, sono Paty, una graphic designer che si muove tra design e codice.",
-        "about.btn_services": '<span>Aree di competenza</span> <span class="about-btn-arrow">↓</span>',
+        "about.btn_services": '<span>Resume CV</span> <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>',
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
         "services.section_label": "Aree di competenza",
         "services.intro_title": 'Non solo come appare.<br><span class="grad-text">Anche come funziona.</span>',
@@ -4377,6 +4615,7 @@
         "project.miami.tag": "Brand identity / Tavole da surf",
         "project.miami.bottom": "Colore, carattere e movimento.",
         "project.view": "Scopri il progetto ↗",
+        "project.view_text": "Scopri il progetto",
         "archive_bar.text": "Altre idee. Altri progetti.",
         "archive_bar.link": "Esplora il portfolio",
         "work.empty_filter": "Case study UI/UX & Web Design in arrivo o consultabili su richiesta privata.",
@@ -4424,7 +4663,9 @@
         "nav.services": "Servicios",
         "nav.projects": "Proyectos",
         "nav.contact": "Contacto",
-        "nav.resume": "CV / Resume",
+        "nav.resume": "Resume CV",
+        "nav.close": "Cerrar",
+        "menu.studio_details": "Studio details",
         "nav.menu_title": "Menú de navegación",
         "nav.resume_desc": "Explora mi trayectoria completa, experiencia laboral, formación académica y certificaciones.",
         "nav.resume_cta": "Ver CV / Resume",
@@ -4432,7 +4673,7 @@
         "hero.loc": "Bisceglie, Italia",
         "hero.role_primary": "Graphic & UI/UX Designer",
         "hero.role_secondary": "bridging Design & Code",
-        "hero.statement": "Diseño, código y alguna otra obsesión creativa. Creo identidades, interfaces y experiencias digitales que dan forma a las ideas.",
+        "hero.statement": '<span class="hero-highlight">Diseño, código</span> y alguna que otra <strong>obsesión creativa</strong>.<br><span class="hero-highlight">Transformo ideas en</span> <strong>identidades, interfaces y experiencias digitales</strong>.',
         "hero.eyebrow": "Bisceglie, Italia · Remoto / Híbrido / Presencial",
         "hero.title": 'Patricia Garcia',
         "hero.desc": "Me muevo entre diseño y código. Trabajo en UI/UX y diseño web y me formo en desarrollo de software para diseñar soluciones digitales más conscientes, del diseño al desarrollo.",
@@ -4442,7 +4683,7 @@
         "about.statement": "<p>Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.</p><p>En mi trabajo diario me dedico a UI/UX y diseño web, creando experiencias digitales claras, intuitivas y funcionales, con un enfoque centrado en las personas y atención a sus necesidades.</p><p>En paralelo desarrollo <strong>Bypatdesigner</strong>, mi proyecto freelance, donde gestiono proyectos desde la identidad visual hasta la creación de sitios e interfaces, combinando sensibilidad visual y competencias técnicas.</p><p>Me apasiona estudiar, experimentar y aprender cosas nuevas, por eso continúo formándome en desarrollo de software, de front-end a back-end, con el objetivo de construir un <strong>perfil híbrido que combine lo mejor de ambos mundos</strong>.</p>",
         "about.headline": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.",
         "about.desc": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.",
-        "about.btn_services": '<span>Áreas de competencia</span> <span class="about-btn-arrow">↓</span>',
+        "about.btn_services": '<span>Resume CV</span> <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>',
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
         "services.section_label": "Áreas de competencia",
         "services.intro_title": 'No solo cómo se ve.<br><span class="grad-text">También cómo funciona.</span>',
@@ -4488,6 +4729,7 @@
         "project.miami.tag": "Identidad de Marca / Tablas de Surf",
         "project.miami.bottom": "Color, carácter y movimiento.",
         "project.view": "Descubre el proyecto ↗",
+        "project.view_text": "Descubre el proyecto",
         "archive_bar.text": "Más ideas. Otros proyectos.",
         "archive_bar.link": "Explora el portfolio",
         "work.empty_filter": "Case studies de UI/UX & Web Design en preparación o disponibles bajo petición privada.",
@@ -4535,7 +4777,9 @@
         "nav.services": "Services",
         "nav.projects": "Projects",
         "nav.contact": "Contact",
-        "nav.resume": "Resume",
+        "nav.resume": "Resume CV",
+        "nav.close": "Close",
+        "menu.studio_details": "Studio details",
         "nav.menu_title": "Navigation Menu",
         "nav.resume_desc": "Explore full career trajectory, work experience, academic background, and certifications.",
         "nav.resume_cta": "View CV / Resume",
@@ -4543,7 +4787,7 @@
         "hero.loc": "Bisceglie, Italy",
         "hero.role_primary": "Graphic & UI/UX Designer",
         "hero.role_secondary": "bridging Design & Code",
-        "hero.statement": "Design, code and other creative obsessions. Crafting identities, interfaces and digital experiences that shape ideas.",
+        "hero.statement": '<span class="hero-highlight">Design, code</span> and other <strong>creative obsessions</strong>.<br><span class="hero-highlight">I turn ideas into</span> <strong>identities, interfaces, and digital experiences</strong>.',
         "hero.eyebrow": "<i></i> Bisceglie, Italy · Remote / Hybrid / On-site",
         "hero.title": 'Patricia Garcia',
         "hero.desc": "Moving between design and code. Working in UI/UX and web design while training in software development to design more mindful digital solutions, from design to code.",
@@ -4553,7 +4797,7 @@
         "about.statement": "<p>Hi, I'm Paty, a graphic designer moving between design and code.</p><p>In my day-to-day work, I focus on UI/UX and web design, crafting clear, intuitive, and functional digital experiences with a human-centered approach and attention to people's needs.</p><p>Alongside this, I run <strong>Bypatdesigner</strong>, my freelance venture, where I take projects from brand identity to the creation of websites and interfaces, uniting design and code.</p><p>I love studying, experimenting, and learning through trial and error. That's why I continue training in software development, from front-end to back-end, aiming to build a <strong>hybrid profile bridging UX design and engineering</strong>.</p>",
         "about.headline": "Hi, I'm Paty, a graphic designer moving between design and code.",
         "about.desc": "Hi, I'm Paty, a graphic designer moving between design and code.",
-        "about.btn_services": '<span>Areas of Expertise</span> <span class="about-btn-arrow">↓</span>',
+        "about.btn_services": '<span>Resume CV</span> <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>',
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
         "services.section_label": "Areas of Expertise",
         "services.intro_title": 'Not just how it looks.<br><span class="grad-text">Also how it works.</span>',
@@ -4599,6 +4843,7 @@
         "project.miami.tag": "Brand Identity / Surfboards",
         "project.miami.bottom": "Color, character & motion.",
         "project.view": "View project ↗",
+        "project.view_text": "View project",
         "archive_bar.text": "More ideas. More projects.",
         "archive_bar.link": "Explore the portfolio",
         "work.empty_filter": "UI/UX & Web Design case studies in progress or available upon private request.",
@@ -5008,7 +5253,7 @@
     const mobileNavDrawer = document.getElementById('mobileNavDrawer');
     const mobileNavCloseBtn = document.getElementById('mobileNavCloseBtn');
     const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-item, #mobileResumeLink');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-item, #mobileResumeLink, #menuBrandLink, .editorial-nav-link');
 
     // Mobile Language Dropdown Controller ("Menu a Tendina")
     const langDropdownWrapper = document.getElementById('langDropdownWrapper');
@@ -5853,14 +6098,14 @@
               words[i].style.color = 'rgba(255, 255, 255, 0.20)';
             }
           } else {
-            // Light section: reveals from ghost dark (rgba 14, 11, 31, 0.16) to solid #0E0B1F
+            // Light section: reveals from subtle dark (rgba 14, 11, 31, 0.35) to solid #0E0B1F
             if (diff >= 1) {
               words[i].style.color = '#0E0B1F';
             } else if (diff > 0) {
-              const alpha = 0.16 + diff * 0.84;
+              const alpha = 0.35 + diff * 0.65;
               words[i].style.color = `rgba(14, 11, 31, ${alpha.toFixed(3)})`;
             } else {
-              words[i].style.color = 'rgba(14, 11, 31, 0.16)';
+              words[i].style.color = 'rgba(14, 11, 31, 0.35)';
             }
           }
         }

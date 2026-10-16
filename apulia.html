@@ -191,26 +191,13 @@
       color: var(--ink);
     }
 
-    /* Ambient Background Mesh & Dynamic Spotlight */
+    /* Ambient Background Mesh */
     .ambient-bg {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
       overflow: hidden;
-    }
-
-    .ambient-spotlight {
-      position: absolute;
-      width: 840px;
-      height: 840px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(217, 183, 141, 0.16) 0%, rgba(99, 120, 104, 0.08) 45%, transparent 70%);
-      transform: translate(-50%, -50%);
-      left: 50%;
-      top: 20%;
-      transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: left, top;
     }
 
     .ambient-grid {
@@ -531,13 +518,19 @@
     }
 
     .chapter-title {
-      font-size: clamp(2.4rem, 4.4vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+      font-size: 56px;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
       color: var(--ink);
       font-weight: 800;
-      max-width: 960px;
+      max-width: 1040px;
       text-wrap: balance;
+    }
+
+    @media (max-width: 1024px) {
+      .chapter-title {
+        font-size: clamp(2rem, 4.6vw, 48px);
+      }
     }
 
     .chapter-title span.green-highlight {
@@ -1533,7 +1526,6 @@
 
 <!-- Ambient Background System -->
 <div class="ambient-bg" aria-hidden="true">
-  <div class="ambient-spotlight" id="ambientSpotlight"></div>
   <div class="ambient-grid"></div>
 </div>
 
@@ -1612,7 +1604,7 @@
             </div>
             <div class="meta-row">
               <div class="meta-label" id="labelContext">Contesto</div>
-              <div class="meta-value" id="specTimeline">Progetto accademico · Graphic Design 3</div>
+              <div class="meta-value" id="specTimeline">Progetto accademico</div>
             </div>
             <div class="meta-row">
               <div class="meta-label" id="labelScope">Ambito</div>
@@ -1631,8 +1623,11 @@
               </div>
             </div>
             <div class="meta-row">
-              <div class="meta-label" id="labelLocation">Territorio</div>
-              <div class="meta-value" id="specLocation">Boccadoro-Ariscianne (Trani - Barletta)</div>
+              <div class="meta-label" id="labelLocation">Tools</div>
+              <div class="meta-value tags" id="specLocation">
+                <span>Illustrator</span>
+                <span>Photoshop</span>
+              </div>
             </div>
           </aside>
 
@@ -2003,15 +1998,6 @@
 </div>
 
 <script>
-  // Ambient Dynamic Spotlight Tracking
-  const spotlight = document.getElementById('ambientSpotlight');
-  window.addEventListener('mousemove', (e) => {
-    if (spotlight) {
-      spotlight.style.left = `${e.clientX}px`;
-      spotlight.style.top = `${e.clientY + window.scrollY * 0.15}px`;
-    }
-  });
-
   // Function to copy Hex color code with visual feedback
   function copyHex(hex, el) {
     if (navigator.clipboard) {
@@ -2052,13 +2038,13 @@
       labelContext: "Contesto",
       labelScope: "Ambito",
       labelAuthors: "Autrici",
-      labelLocation: "Territorio",
+      labelLocation: "Tools",
       specYear: "2020/21",
       specIndustry: "Brand Identity & Campagna",
-      specTimeline: "Progetto accademico · Graphic Design 3",
+      specTimeline: "Progetto accademico",
       specScope: ["Logo Design", "Advertising", "Editorial", "Social", "Web Concept"],
       specAuthors: "Jeanny Patricia Garcia<br>Giorgia de Giambattista",
-      specLocation: "Boccadoro-Ariscianne (Trani - Barletta)",
+      specLocation: ["Illustrator", "Photoshop"],
       caseLead: "Tra Trani e Barletta, la costa custodisce l'oasi di Boccadoro-Ariscianne: un mosaico ecologico unico ricco di specie vegetali, uccelli migratori e sorgenti naturali. Un patrimonio da comprendere prima ancora che da promuovere.",
       caseBody: "Il brief nasce da una criticità reale: l’area è poco valorizzata e dimenticata da gran parte della comunità locale. Per molti residenti è solo un ricordo dell’infanzia o un paesaggio periferico ignorato dalla quotidianità.",
       caseQuestion: "“Come riaccendere curiosità e senso di appartenenza verso un luogo che resta ai margini dello sguardo quotidiano?”",
@@ -2141,13 +2127,13 @@
       labelContext: "Context",
       labelScope: "Scope",
       labelAuthors: "Authors",
-      labelLocation: "Territory",
+      labelLocation: "Tools",
       specYear: "2020/21",
       specIndustry: "Brand Identity & Campaign",
-      specTimeline: "Academic project · Graphic Design 3",
+      specTimeline: "Academic project",
       specScope: ["Logo Design", "Advertising", "Editorial", "Social", "Web Concept"],
       specAuthors: "Jeanny Patricia Garcia<br>Giorgia de Giambattista",
-      specLocation: "Boccadoro-Ariscianne (Trani - Barletta, Italy)",
+      specLocation: ["Illustrator", "Photoshop"],
       caseLead: "Between Trani and Barletta along the Adriatic coast lies the Boccadoro-Ariscianne oasis: a unique ecological sanctuary rich in indigenous flora, migratory birds, and freshwater springs. A natural asset that needed to be understood before being promoted.",
       caseBody: "The brief stems from a genuine challenge: the reserve had suffered from neglect and was largely overlooked by the local community. For many residents it was merely a distant childhood memory or a marginal coastline bypassed in daily life.",
       caseQuestion: "“How can we rekindle curiosity and stewardship for a place that has faded from daily awareness?”",
@@ -2230,13 +2216,13 @@
       labelContext: "Contexto",
       labelScope: "Alcance",
       labelAuthors: "Autoras",
-      labelLocation: "Territorio",
+      labelLocation: "Tools",
       specYear: "2020/21",
       specIndustry: "Identidad de Marca y Campaña",
-      specTimeline: "Proyecto académico · Graphic Design 3",
+      specTimeline: "Proyecto académico",
       specScope: ["Diseño de Logo", "Publicidad", "Editorial", "Social Media", "Concepto Web"],
       specAuthors: "Jeanny Patricia Garcia<br>Giorgia de Giambattista",
-      specLocation: "Boccadoro-Ariscianne (Trani - Barletta, Italia)",
+      specLocation: ["Illustrator", "Photoshop"],
       caseLead: "Entre Trani y Barletta, la costa custodia el oasis de Boccadoro-Ariscianne: un mosaico ecológico único rico en flora autóctona, aves migratorias y manantiales naturales. Un patrimonio que requería comprensión antes de ser promocionado.",
       caseBody: "El brief surge de un problema real: el territorio estaba descuidado y olvidado por gran parte de la comunidad local. Para muchos habitantes era solo un vago recuerdo de infancia o una zona periférica ignorada en la rutina diaria.",
       caseQuestion: "“¿Cómo reavivar la curiosidad y el sentido de pertenencia hacia un lugar que permanece al margen de la mirada cotidiana?”",
@@ -2376,7 +2362,13 @@
     const sAuth = document.getElementById('specAuthors');
     if (sAuth) sAuth.innerHTML = d.specAuthors;
     const sLoc = document.getElementById('specLocation');
-    if (sLoc) sLoc.textContent = d.specLocation;
+    if (sLoc && d.specLocation) {
+      if (Array.isArray(d.specLocation)) {
+        sLoc.innerHTML = d.specLocation.map(tag => `<span>${tag}</span>`).join('');
+      } else {
+        sLoc.textContent = d.specLocation;
+      }
+    }
 
     const cLead = document.getElementById('caseLead');
     if (cLead) cLead.textContent = d.caseLead;
