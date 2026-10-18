@@ -27,13 +27,32 @@
   display: none;
 }
 
+/* Bottom Gradient Overlay behind PATRICIA GARCIA */
+.hero.hero-minimal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.72) 30%,
+    rgba(0, 0, 0, 0.35) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
 .hero-minimal .hero-inner {
   position: relative;
   z-index: 3;
   width: 100%;
-  max-width: 1740px;
+  max-width: var(--max-width, 1440px);
   margin: 0 auto;
-  padding: clamp(96px, 12vh, 125px) clamp(24px, 4vw, 64px) 0;
+  padding: clamp(96px, 12vh, 125px) var(--pad, clamp(24px, 4vw, 64px)) 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,11 +90,12 @@
 
 .hero-minimal .hero-location {
   font-family: 'Satoshi', system-ui, sans-serif;
-  font-size: clamp(13px, 0.9vw, 15px);
-  color: rgba(229, 224, 245, 0.65);
+  font-size: clamp(11.5px, 0.8vw, 13px);
+  color: #A1A1AA !important; /* Grigio chiaro */
   font-weight: 400;
   letter-spacing: 0.04em;
-  margin-top: 2px;
+  margin-top: 3px;
+  display: block;
 }
 
 /* 2. Main Stage (Middle Row: Role on Left, 3D Character Centered) */
@@ -94,31 +114,59 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
   max-width: 680px;
   margin-top: -30px;
+  padding: 14px 22px;
+}
+
+/* Subtle feathered dark vignette behind role info so 3D objects don't compete with text */
+.hero-minimal .hero-role-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -12px -36px -12px -20px;
+  background: radial-gradient(
+    ellipse at 28% 50%,
+    rgba(6, 5, 12, 0.88) 0%,
+    rgba(6, 5, 12, 0.72) 45%,
+    rgba(6, 5, 12, 0.3) 75%,
+    rgba(6, 5, 12, 0) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hero-minimal .hero-role-primary {
-  font-family: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
-  font-size: clamp(22px, 2.2vw, 38px);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-family: 'Funnel Display', system-ui, -apple-system, sans-serif;
+  font-size: clamp(16px, 1.28vw, 21px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: #FFFFFF;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   white-space: nowrap;
+}
+
+.hero-minimal .hero-role-line {
+  display: block;
+  color: #FFFFFF;
 }
 
 .hero-minimal .hero-role-secondary {
   font-family: 'Satoshi', system-ui, sans-serif;
-  font-size: clamp(15px, 1.35vw, 22px);
+  font-size: clamp(13px, 0.95vw, 15.5px);
   font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.015em;
-  color: #C084FC;
-  margin: 0;
-  text-shadow: 0 0 24px rgba(167, 139, 250, 0.35);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: #C084FC !important; /* Viola chiaro */
+  margin: 2px 0 0 0;
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.35);
   white-space: nowrap;
 }
 
@@ -146,35 +194,38 @@
   -webkit-user-drag: none;
 }
 
-/* 3. Bottom Giant Title: Patricia Garcia (Edge-to-Edge Spanning) */
+/* 3. Bottom Giant Title: Patricia Garcia (Centered & Balanced) */
 .hero-minimal .hero-title-wrap {
   position: relative;
   z-index: 4;
   width: 100%;
   margin-top: -30px;
-  padding-bottom: clamp(6px, 1.5vh, 16px);
+  margin-bottom: clamp(32px, 5vh, 60px);
+  padding-bottom: clamp(20px, 3vh, 36px);
   pointer-events: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-end;
   box-sizing: border-box;
 }
 
 .hero-minimal .hero-title {
+  position: relative;
+  z-index: 4;
   font-family: 'Funnel Display', sans-serif !important;
-  font-size: clamp(48px, 12.4vw, 205pt) !important;
+  font-size: clamp(42px, 10.5vw, 175pt) !important;
   line-height: 0.88 !important;
   letter-spacing: -0.025em !important;
   font-weight: 800 !important;
   color: #FFFFFF !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
   width: 100%;
   white-space: nowrap;
   cursor: default;
   display: block;
-  pointer-events: auto;
-  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.45);
-  text-align: right !important;
+  pointer-events: none;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.65);
+  text-align: center !important;
 }
 
 /* Responsiveness */
@@ -211,20 +262,63 @@
     height: clamp(260px, 38vh, 380px);
   }
   .hero-minimal .hero-title-wrap {
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: center;
+    text-align: center;
   }
   .hero-minimal .hero-title {
     font-size: clamp(38px, 12vw, 68px) !important;
     white-space: normal;
     line-height: 0.95 !important;
-    text-align: right !important;
+    text-align: center !important;
     margin-left: auto !important;
+    margin-right: auto !important;
   }
   .hero-minimal .hero-role-primary {
-    font-size: clamp(20px, 5.8vw, 26px);
+    font-size: clamp(15.5px, 4.2vw, 19px);
   }
   .hero-minimal .hero-role-secondary {
-    font-size: clamp(15px, 4.2vw, 19px);
+    font-size: clamp(12.5px, 3.4vw, 15px);
   }
 }
+
+/* ============================================================
+   SPLINE 3D FULL WIDTH / FULL HERO BACKDROP
+   ============================================================ */
+.hero-spline-full-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  z-index: 1;
+  pointer-events: auto;
+  outline: none;
+  background: transparent !important;
+  touch-action: pan-y;
+}
+
+/* Allow mouse interaction across entire Hero to drive the 3D scene */
+.hero-minimal .hero-inner {
+  pointer-events: none;
+}
+
+.hero-minimal .hero-role-wrapper {
+  pointer-events: auto;
+}
+
+.hero-minimal .hero-title-wrap,
+.hero-minimal .hero-title {
+  pointer-events: none;
+}
+
+/* Hide Spline branding badge */
+a[href*="spline.design"],
+#spline-watermark,
+.spline-watermark {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+

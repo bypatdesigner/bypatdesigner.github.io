@@ -6,9 +6,13 @@
   <title style="padding-bottom: 24px!important;margin-bottom: 0px !important;" >Tutti i Progetti &amp; Case Studies — Patricia Garcia | Bypatdesigner</title>
   <meta name="description" content="Galleria completa dei progetti di design e front-end di Patricia Garcia: e-commerce, configuratori interattivi, architettura dell'informazione e design system." />
 
-  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
-  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
-  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+  <!-- Local Web Fonts: Funnel Display & Satoshi -->
+    <!-- Funnel Display Web & Local Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./font/funnel-display.css" />
+<link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
 
   <!-- Google Fonts: JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,6 +20,52 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+        /* ============================================================
+       FUNNEL DISPLAY & SATOSHI
+       ============================================================ */
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-display: swap;
+      font-style: normal;
+    }
+
     /* ============================================================
        DESIGN TOKENS — OKC MEDIA INSPIRED FLOATING ARCHITECTURE
        ============================================================ */
@@ -48,7 +98,7 @@
       --radius-xl: 36px;
       --radius-full: 9999px;
       
-      --font-display: "CabinetGrotesk-Extrabold", "CabinetGrotesk-Bold", "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+      --font-display: "Funnel Display", system-ui, -apple-system, sans-serif;
       --font-body: "Satoshi-Regular", "Satoshi-Medium", "Satoshi", system-ui, -apple-system, sans-serif;
       --font-mono: "Satoshi-Medium", "Satoshi", "JetBrains Mono", monospace;
       
@@ -66,6 +116,7 @@
       scroll-behavior: smooth;
       background: var(--ink);
       color-scheme: dark;
+      overflow-x: clip;
     }
 
     body {
@@ -77,7 +128,7 @@
       line-height: 1.68;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      overflow-x: clip;
       position: relative;
     }
 
@@ -180,155 +231,517 @@
     }
 
     /* ============================================================
-       FLOATING GLASS NAVBAR (Exact structure and style as Home)
+       FLOATING GLASS NAVBAR (Exact structure and style as Home Hero Header)
        ============================================================ */
-    .nav-bar {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      width: min(calc(100% - 40px), 1420px);
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 24px;
-      align-items: center;
-      padding: 10px 24px;
-      background: rgba(14, 13, 24, 0.78);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid var(--line-violet);
-      border-radius: var(--radius-full);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: border-color 0.3s, box-shadow 0.3s;
+    .nav-bar,
+    .nav-bar.nav-scrolled,
+    header.nav-bar {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      transform: none !important;
+      border-radius: 0 !important;
+      border-top: none !important;
+      border-left: none !important;
+      border-right: none !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: linear-gradient(180deg, rgba(18, 14, 32, 0.45) 0%, rgba(7, 6, 12, 0.28) 100%) !important;
+      backdrop-filter: blur(28px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(139, 92, 246, 0.15) !important;
+      padding-top: 18px !important;
+      padding-bottom: 18px !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      z-index: 9999 !important;
+      box-sizing: border-box !important;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
-    .nav-bar:hover {
-      border-color: var(--line-glow);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(139, 92, 246, 0.2);
+    .nav-bar .nav-inner {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      width: 100% !important;
     }
 
-    .brand {
+    .nav-bar.nav-scrolled {
+      padding-top: 13px !important;
+      padding-bottom: 13px !important;
+      background: linear-gradient(180deg, rgba(18, 14, 32, 0.72) 0%, rgba(7, 6, 12, 0.58) 100%) !important;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.35) !important;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(139, 92, 246, 0.25) !important;
+    }
+
+    .nav-left {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .brand,
+    .nav-bar .brand {
+      padding: 0 !important;
+      margin: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      transform: none !important;
+    }
+
+    .brand-logo-img,
+    .nav-bar .brand-logo-img {
+      height: 32px !important;
+      width: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+      filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.3));
+    }
+
+    .nav-right,
+    .nav-bar .nav-right {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 14px !important;
+    }
+
+    /* Resume CV Button - Visually identical to Home Header Button */
+    .nav-contact-btn,
+    .nav-portfolio-btn {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      padding: 6px 14px;
+      padding: 9px 18px;
       border-radius: var(--radius-full);
-      transition: background 0.25s ease, transform 0.25s ease;
+      background: var(--violet-primary);
+      color: #FFFFFF !important;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
     }
 
-    .brand-logo-img {
-      height: 34px;
+    .nav-contact-btn:hover,
+    .nav-portfolio-btn:hover {
+      background: var(--violet-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(139, 92, 246, 0.4);
+    }
+
+    .nav-contact-btn:focus-visible,
+    .nav-portfolio-btn:focus-visible {
+      outline: 2px solid var(--violet-bright);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 560px) {
+      .nav-contact-btn,
+      .nav-portfolio-btn { display: none; }
+    }
+
+    /* Desktop Language Pill & Sliding Indicator */
+    .lang-pill {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(22, 19, 36, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--line-violet);
+      border-radius: var(--radius-full);
+      padding: 3px 4px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      isolation: isolate;
+    }
+
+    .lang-pill:hover {
+      border-color: var(--line-glow);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .lang-pill .lang-indicator {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 0;
+      width: 32px;
+      background: var(--violet-primary);
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 10px rgba(139, 92, 246, 0.45);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .lang-btn {
+      position: relative;
+      z-index: 2;
+      padding: 5px 12px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      border-radius: var(--radius-full);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      line-height: 1;
+    }
+
+    .lang-btn:hover {
+      color: #FFFFFF;
+      text-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+    }
+
+    .lang-btn.active {
+      color: #FFFFFF !important;
+      font-weight: 700;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    /* Large Hamburger Button */
+    .hamburger-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border-radius: 50%;
+      background: rgba(22, 19, 36, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--line-violet);
+      cursor: pointer;
+      color: #FFFFFF;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .hamburger-btn:hover {
+      background: rgba(167, 139, 250, 0.25);
+      border-color: var(--line-glow);
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.4);
+      transform: scale(1.06);
+    }
+
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 22px;
+      height: 14px;
+      pointer-events: none;
+    }
+
+    .hamburger-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 2px;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease, background 0.22s ease;
+      transform-origin: center;
+    }
+
+    .hamburger-btn.is-active .hamburger-bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+      background: var(--violet-light);
+    }
+
+    .hamburger-btn.is-active .hamburger-bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger-btn.is-active .hamburger-bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+      background: var(--violet-light);
+    }
+
+    /* FULLSCREEN EDITORIAL BLACK MENU OVERLAY (PLINTH AESTHETIC) */
+    .fullscreen-menu-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: #000000;
+      z-index: 99999;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+      overflow-y: auto;
+      overflow-x: hidden;
+      color: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    .fullscreen-menu-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .menu-overlay-inner {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(24px, 4vh, 48px) clamp(24px, 5vw, 64px);
+      box-sizing: border-box;
+    }
+
+    .menu-overlay-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 20px;
+      z-index: 10;
+    }
+
+    .menu-brand-link .brand-logo-img {
+      height: 38px;
       width: auto;
-      object-fit: contain;
-      margin: 0;
-      filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.3));
-      transition: transform 0.3s ease;
+      display: block;
     }
 
-    .brand:hover .brand-logo-img {
+    .menu-brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-family: 'Funnel Display', system-ui, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      transition: opacity 0.25s ease;
+    }
+
+    .menu-brand-link:hover { opacity: 0.8; }
+
+    .menu-close-btn {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      transition: all 0.25s ease;
+    }
+
+    .menu-close-btn:hover {
+      color: var(--violet-light);
       transform: scale(1.05);
     }
 
-    .menu {
-      display: flex;
-      gap: 28px;
+    .menu-close-icon {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .menu-overlay-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 240px 1fr 220px;
+      gap: clamp(24px, 4vw, 56px);
       align-items: center;
+      margin: auto 0;
+      width: 100%;
+      padding: 30px 0;
+    }
+
+    .menu-col-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      min-height: 340px;
+    }
+
+    .menu-studio-label {
+      display: block;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.42);
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+
+    .menu-social-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .menu-social-links a {
+      color: #FFFFFF;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.22s ease, transform 0.22s ease;
+      display: inline-block;
+    }
+
+    .menu-social-links a:hover {
+      color: var(--violet-light);
+      transform: translateX(4px);
+    }
+
+    .menu-email-block { margin-top: 32px; }
+
+    .menu-email-link {
+      color: #FFFFFF;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.22s ease;
+    }
+
+    .menu-email-link:hover {
+      color: var(--violet-light);
+      text-decoration: underline;
+    }
+
+    .menu-col-center {
+      display: flex;
+      flex-direction: column;
       justify-content: center;
     }
 
-    .menu a {
-      color: var(--text-muted);
-      font-weight: 500;
-      transition: color 0.25s ease;
-      position: relative;
-      padding: 6px 0;
-      text-decoration: none;
+    .editorial-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(8px, 1.8vh, 22px);
     }
 
-    .menu a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--violet-light);
-      transform: scaleX(0);
-      transform-origin: right;
+    .editorial-nav-item { display: block; }
+
+    .editorial-nav-link {
+      display: inline-flex;
+      align-items: baseline;
+      gap: clamp(12px, 2vw, 26px);
+      text-decoration: none;
+      cursor: pointer;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .menu a:hover,
-    .menu a.active {
-      color: #FFFFFF;
+    .editorial-nav-num {
+      font-family: 'Funnel Display', 'Satoshi', sans-serif;
+      font-size: clamp(0.95rem, 1.3vw, 1.35rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: -0.01em;
+      transform: translateY(-0.8em);
+      transition: color 0.3s ease;
     }
 
-    .menu a:hover::after,
-    .menu a.active::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    .nav-actions-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-self: end;
-    }
-
-    .nav-resume-btn {
-      padding: 8px 20px;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 700;
+    .editorial-nav-label {
+      font-family: 'Funnel Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: clamp(2.8rem, 6.2vw, 6.6rem);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+      color: rgba(255, 255, 255, 0.42);
+      transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
     }
 
+    .editorial-nav-link:hover .editorial-nav-label {
+      color: #FFFFFF;
+      transform: translateX(12px);
+    }
+
+    .editorial-nav-link:hover .editorial-nav-num {
+      color: var(--violet-light);
+    }
+
+    .menu-col-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      min-height: 340px;
+      text-align: right;
+    }
+
+    .menu-location-block p {
+      margin: 0;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .menu-location-block .menu-location-name {
+      color: #FFFFFF;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    @media (max-width: 1024px) {
+      .menu-overlay-main {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        margin: 20px 0;
+      }
+      .menu-col-left, .menu-col-right {
+        min-height: auto;
+        text-align: left;
+      }
+      .menu-col-right { justify-content: flex-start; }
+      .editorial-nav-label {
+        font-size: clamp(2.2rem, 7.5vw, 4rem);
+      }
+    }
+
     @media (max-width: 900px) {
-      .nav-bar {
-        grid-template-columns: auto 1fr;
-        padding: 8px 16px;
-        top: 16px;
-      }
-
-      .menu {
-        display: none;
-      }
-
       .brand {
         padding: 4px 6px;
       }
-
-      .nav-actions-wrap {
-        grid-column: 2;
-        justify-self: end;
-        gap: 8px;
-      }
-
-      /* Hide horizontal 3-button pill on mobile, show compact dropdown */
       .lang-desktop-pill {
         display: none !important;
       }
-
       .lang-dropdown-wrapper {
         display: inline-block !important;
-      }
-
-      .nav-resume-btn {
-        padding: 6px 14px;
-        font-size: 0.72rem;
-        letter-spacing: 0.05em;
-      }
-
-      /* Keep logo large and crisp, no longer forced tiny */
-      .brand-logo-img {
-        height: 34px;
       }
     }
 
@@ -341,18 +754,23 @@
        ============================================================ */
     .page-hero {
       position: relative;
-      margin-bottom: clamp(20px, 3vh, 30px);
+      min-height: calc(84vh - 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(40px, 7vh, 90px) 0 clamp(20px, 3vh, 40px);
+      margin-bottom: clamp(10px, 2vh, 20px);
     }
 
     .hero-glow-backdrop {
       position: absolute;
-      top: -15px;
-      left: -25px;
-      width: min(520px, 88vw);
-      height: 220px;
+      top: 10%;
+      left: 10%;
+      width: min(720px, 90vw);
+      height: 380px;
       border-radius: 50%;
-      background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.18) 0%, rgba(192, 139, 232, 0.05) 50%, transparent 72%);
-      filter: blur(44px);
+      background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.22) 0%, rgba(192, 139, 232, 0.06) 50%, transparent 72%);
+      filter: blur(60px);
       pointer-events: none;
       z-index: 0;
     }
@@ -362,12 +780,12 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
+      font-size: clamp(0.78rem, 0.9vw, 0.9rem);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--violet-light);
+      color: #A78BFA;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: clamp(18px, 2.5vh, 32px);
       position: relative;
       z-index: 1;
     }
@@ -375,99 +793,368 @@
     .hero-title-row {
       position: relative;
       z-index: 1;
-      margin-top: 0;
-      margin-bottom: 16px;
+      margin: 0;
     }
 
     .hero-main-title {
-      font-size: clamp(2.6rem, 5.4vw, 5.4rem);
+      font-family: 'Funnel Display', sans-serif !important;
+      font-size: clamp(68px, 11.8vw, 190px) !important;
       margin: 0;
-      padding-bottom: 0;
-      line-height: 1.0;
-      letter-spacing: -0.035em;
-      font-weight: 700;
-      max-width: 1100px;
-      color: var(--text-main);
+      padding: 0;
+      line-height: 0.88 !important;
+      letter-spacing: -0.04em !important;
+      font-weight: 800 !important;
+      color: #FFFFFF !important;
+      max-width: 100%;
+    }
+
+    .hero-main-title .hero-title-line {
+      display: block;
+    }
+
+    .hero-main-title .hero-line-violet {
+      color: #A78BFA !important;
+      background: none !important;
+      -webkit-text-fill-color: #A78BFA !important;
+    }
+
+    .hero-main-title .hero-dot {
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      display: inline;
     }
 
     .hero-sub-text {
-      position: relative;
-      z-index: 1;
-      font-size: clamp(1.04rem, 1.2vw, 1.16rem);
-      line-height: 1.6;
-      color: var(--text-muted);
-      max-width: 680px;
-      font-weight: 400;
-      margin: 0 0 18px 0;
-    }
-
-    .hero-explore-hint {
-      position: relative;
-      z-index: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
-      color: var(--violet-light);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      background: rgba(139, 92, 246, 0.08);
-      border: 1px solid rgba(167, 139, 250, 0.22);
-      width: fit-content;
-      transition: all 0.25s ease;
-      cursor: default;
-      user-select: none;
-    }
-
-    .hero-explore-hint .explore-arrow {
-      display: inline-block;
-      transition: transform 0.25s ease;
-      font-size: 0.95rem;
-    }
-
-    .hero-explore-hint:hover {
-      background: rgba(139, 92, 246, 0.16);
-      border-color: var(--line-violet);
-      color: #FFFFFF;
-    }
-
-    .hero-explore-hint:hover .explore-arrow {
-      transform: translateY(2px);
+      display: none;
     }
 
     /* ============================================================
-       INTERACTIVE CATEGORY FILTERS
+       INTERACTIVE CATEGORY FILTER PILLS
        ============================================================ */
     .filters-bar {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: clamp(24px, 3.5vh, 34px);
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--line);
+      align-items: center;
+      margin-top: clamp(28px, 4vh, 44px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .filter-count {
+      display: inline-block;
+      margin-left: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.78em;
+      opacity: 0.6;
+    }
+
+    @keyframes pillIn {
+      from { opacity: 0; translate: 0 14px; }
+      to   { opacity: 1; translate: 0 0; }
+    }
+
+    .filter-pill {
+      opacity: 0;
+      animation: pillIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(0.35s + var(--i, 0) * 0.12s);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .filter-pill { animation: none; opacity: 1; }
+    }
+
+    .filter-pill {
+      font-family: var(--font-body);
+      font-size: clamp(0.82rem, 0.95vw, 0.92rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(22, 19, 36, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      user-select: none;
+    }
+
+    .filter-pill:hover {
+      color: #FFFFFF;
+      background: rgba(167, 139, 250, 0.18);
+      border-color: var(--line-violet);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+    }
+
+    .filter-pill.active {
+      color: #07060C;
+      background: #FFFFFF;
+      border-color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(167, 139, 250, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       UNCODE FULL-WIDTH STICKY STACKING PORTFOLIO CARDS
+       https://undsgn.com/uncode/homepages/portfolio-cards/
+       ============================================================ */
+    .mivon-portfolio-stack {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0 auto clamp(60px, 9vh, 120px);
       position: relative;
       z-index: 1;
     }
 
-    .filter-pill {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      padding: 8px 18px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-muted);
+    .mivon-card {
+      position: sticky;
+      top: clamp(72px, 9vh, 100px);
+      margin-bottom: clamp(40px, 8vh, 90px);
+      width: 100%;
+      height: clamp(580px, 90vh, 980px);
+      border-radius: clamp(24px, 2.8vw, 38px);
+      overflow: hidden;
       cursor: pointer;
-      transition: all 0.25s ease;
+      background: #0E0D18;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 32px 80px -15px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.4s ease, 
+                  box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(32px, 4.5vw, 72px);
+      box-sizing: border-box;
+      text-decoration: none;
+      color: #FFFFFF;
+      will-change: transform;
     }
 
-    .filter-pill:hover, .filter-pill.active {
-      color: #fff;
-      background: rgba(139, 92, 246, 0.2);
-      border-color: var(--line-violet);
-      box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+    .mivon-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .mivon-card:hover {
+      border-color: rgba(192, 132, 252, 0.65);
+      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.9), 0 0 40px rgba(167, 139, 250, 0.32);
+    }
+
+    .mivon-card-media {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .mivon-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+      filter: brightness(0.85) contrast(1.06);
+    }
+
+    .mivon-card:hover .mivon-card-img {
+      transform: scale(1.045);
+      filter: brightness(0.96) contrast(1.08);
+    }
+
+    .mivon-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, 
+        rgba(7, 6, 12, 0.52) 0%, 
+        rgba(7, 6, 12, 0.12) 35%, 
+        rgba(7, 6, 12, 0.38) 65%, 
+        rgba(7, 6, 12, 0.88) 100%);
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mivon-card:hover .mivon-card-overlay {
+      opacity: 0.82;
+    }
+
+    /* Top Row: Tags + Date */
+    .mivon-card-header {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .mivon-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mivon-tag {
+      font-family: var(--font-body);
+      font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      background: rgba(22, 19, 36, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .mivon-date {
+      font-family: var(--font-mono);
+      font-size: clamp(0.8rem, 0.9vw, 0.88rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.04em;
+      background: rgba(22, 19, 36, 0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Center: View Badge floating (reveals on hover) */
+    .mivon-card-center {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .mivon-card-center .mivon-view-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.92);
+      color: #07060C;
+      font-family: var(--font-body);
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: auto;
+    }
+
+    .mivon-card:hover .mivon-view-badge {
+      transform: scale(1.05);
+      opacity: 1;
+      background: #FFFFFF;
+      box-shadow: 0 0 32px rgba(255, 255, 255, 0.6), 0 8px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Bottom Row: Project Title & Discipline at Bottom-Left + Arrow at Bottom-Right */
+    .mivon-card-footer {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .mivon-footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: calc(100% - 64px);
+    }
+
+    .mivon-title {
+      font-family: 'Funnel Display', sans-serif !important;
+      font-size: clamp(28px, 3.6vw, 50px) !important;
+      font-weight: 800 !important;
+      line-height: 0.95 !important;
+      letter-spacing: -0.04em !important;
+      color: #FFFFFF !important;
+      margin: 0 !important;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.75);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), letter-spacing 0.35s ease;
+    }
+
+    .mivon-card:hover .mivon-title {
+      transform: translateX(4px);
+      letter-spacing: -0.015em !important;
+    }
+
+    .mivon-discipline {
+      font-family: var(--font-body);
+      font-size: clamp(0.92rem, 1.1vw, 1.08rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .mivon-action-arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: rgba(22, 19, 36, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .mivon-card:hover .mivon-action-arrow {
+      background: #FFFFFF;
+      color: #07060C;
+      transform: rotate(45deg) scale(1.08);
+      box-shadow: 0 0 24px rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .mivon-card {
+        height: clamp(460px, 80vh, 680px);
+        padding: 22px;
+        margin-bottom: 36px;
+      }
+      .mivon-title {
+        font-size: clamp(24px, 6vw, 34px) !important;
+      }
+      .mivon-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .mivon-action-arrow {
+        display: none;
+      }
     }
 
     /* ============================================================
@@ -1444,6 +2131,292 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Metro Project Items Container */
+    .metro-project-list {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(90px, 12vw, 160px);
+      overflow: visible;
+    }
+
+    .design-project-item {
+      position: relative;
+      overflow: visible;
+    }
+
+    /* UNIFIED 2-COLUMN GRID (Content Left, Thumb Right for all cards) */
+    .metro-item-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      align-items: center;
+      overflow: visible;
+    }
+
+    @media (min-width: 992px) {
+      .metro-item-grid {
+        grid-template-columns: 4.8fr 7.2fr;
+        gap: clamp(40px, 5.5vw, 90px);
+      }
+
+      /* Alternating: Card (thumb) on Left, Text (content) on Right */
+      .design-project-item.layout-thumb-left .metro-item-grid {
+        grid-template-columns: 7.2fr 4.8fr;
+      }
+
+      .design-project-item.layout-thumb-left .metro-thumb-col {
+        order: 1;
+      }
+
+      .design-project-item.layout-thumb-left .metro-content-col {
+        order: 2;
+        padding-left: clamp(10px, 1.8vw, 28px);
+        padding-right: 0;
+      }
+
+      /* Default: Text on Left, Card on Right */
+      .design-project-item.layout-content-left .metro-content-col {
+        order: 1;
+        padding-right: clamp(10px, 1.8vw, 28px);
+        padding-left: 0;
+      }
+
+      .design-project-item.layout-content-left .metro-thumb-col {
+        order: 2;
+      }
+    }
+
+    /* Lateral Slide Columns manipulated by GSAP */
+    .design-project-thumb {
+      width: 100%;
+      will-change: transform;
+      overflow: visible;
+    }
+
+    .design-project-content {
+      will-change: transform, opacity;
+      overflow: visible;
+      text-align: left;
+    }
+
+    /* Metro Content Column Styling */
+    .metro-item-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--violet-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .metro-index,
+    .metro-slash {
+      display: none !important;
+    }
+
+    .metro-project-list { counter-reset: project; }
+    .design-project-item { counter-increment: project; }
+    .metro-item-meta .metro-category::before {
+      content: counter(project, decimal-leading-zero) "  —  ";
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .metro-category {
+      color: #C084FC !important; /* VIOLA FORTE */
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      font-size: 0.92rem !important;
+      text-shadow: 0 0 16px rgba(192, 132, 252, 0.4);
+      display: inline-block;
+    }
+
+    .metro-project-title {
+      font-size: clamp(2rem, 3.2vw, 40pt);
+      line-height: 1.08;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      margin: 0 0 20px 0;
+      font-family: var(--font-display);
+      text-align: left;
+    }
+
+    @media (min-width: 992px) {
+      .metro-project-title {
+        font-size: 40pt;
+      }
+    }
+
+    .metro-project-title a {
+      font-weight: 400;
+      color: var(--text-main);
+      display: inline-block;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .metro-project-title a:hover {
+      color: var(--violet-bright);
+      transform: translateX(4px);
+    }
+
+    .metro-project-summary {
+      font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+      line-height: 1.65;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .metro-project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .metro-project-tags span {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+
+    .metro-project-tags span + span::before {
+      content: '/';
+      margin: 0 10px;
+      color: var(--violet-light);
+    }
+
+    /* Enlace de proyecto: texto con subrayado, sin caja ni degradado */
+    .tp-btn-metro {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      background: none;
+      border: none;
+      border-bottom: 1.5px solid var(--violet-light);
+      border-radius: 0;
+      transition: color 0.3s ease, border-color 0.3s ease, gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tp-btn-metro:hover {
+      color: var(--violet-bright);
+      border-color: var(--violet-bright);
+      gap: 16px;
+    }
+
+    .tp-btn-metro:hover .metro-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    /* Metro Thumbnail Frame */
+    .metro-thumb-link {
+      display: block;
+      position: relative;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .metro-thumb-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10.5;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #12101E;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      transform: translateZ(0);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+    }
+
+    .metro-thumb-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7, 6, 12, 0.4) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+      transition: opacity 0.4s ease;
+    }
+
+    .metro-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+      transform: scale(1);
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+
+    .metro-floating-cursor {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 76px;
+      height: 76px;
+      margin-left: -38px;
+      margin-top: -38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: #07060C;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      z-index: 3;
+      opacity: 0;
+      transform: scale(0.6);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hover States on Card */
+    .metro-thumb-link:hover .metro-thumb-frame {
+      border-color: rgba(192, 139, 232, 0.6);
+      box-shadow: 0 30px 80px rgba(139, 92, 246, 0.28), 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .metro-thumb-link:hover .metro-thumb-img {
+      transform: scale(1.055);
+    }
+
+    .metro-thumb-link:hover .metro-thumb-frame::after {
+      opacity: 0.2;
+    }
+
+    .metro-thumb-link:hover .metro-floating-cursor {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+
+    .metro-arrow { transition: transform 0.3s ease; }
+    .design-project-item[style*="display: none"] { display: none !important; }
+    .metro-project-list { counter-reset: project; }
+
+    /* Responsive: alternating rows stack on mobile */
+    @media (max-width: 991px) {
+      .metro-item-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -1454,453 +2427,592 @@
     <div class="ambient-grid"></div>
   </div>
 
-  <!-- ================= FLOATING GLASS NAVBAR ================= -->
+  <!-- ================= FLOATING GLASS NAVBAR (Home Hero Header) ================= -->
   <nav class="nav-bar" aria-label="Navigazione principale">
-    <a class="brand" href="index.html">
-      <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
-    </a>
-
-    <div class="menu">
-      <a href="index.html#about" data-i18n="nav.about">Chi sono</a>
-      <a href="index.html#services" data-i18n="nav.services">Servizi</a>
-      <a href="projects.html" class="active" data-i18n="nav.projects">Progetti</a>
-      <a href="index.html#contact" data-i18n="nav.contact">Contatti</a>
-    </div>
-
-    <div class="nav-actions-wrap">
-      <!-- Desktop Language Selector (IT | ES | EN) -->
-      <div class="lang-pill lang-desktop-pill" role="group" aria-label="Selettore Lingua / Language Selector">
-        <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
-        <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
-        <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+    <div class="nav-inner shell">
+      <div class="nav-left">
+        <a class="brand" href="index.html" aria-label="Bypatdesigner Home">
+          <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
+        </a>
       </div>
 
-      <!-- Mobile Language Dropdown ("Menu a Tendina") -->
-      <div class="lang-dropdown-wrapper" id="langDropdownWrapper">
-        <button class="lang-dropdown-trigger" id="langDropdownTrigger" type="button" aria-label="Seleziona lingua" aria-expanded="false">
-          <span class="lang-trigger-code" id="langTriggerCode">IT</span>
-          <i class="fa-solid fa-chevron-down lang-trigger-chevron"></i>
-        </button>
-        <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu" aria-hidden="true">
-          <button class="lang-dropdown-item lang-btn active" data-lang="it" type="button" role="menuitem">
-            <span class="lang-opt-name">Italiano</span>
-            <span class="lang-opt-code">IT</span>
-          </button>
-          <button class="lang-dropdown-item lang-btn" data-lang="es" type="button" role="menuitem">
-            <span class="lang-opt-name">Español</span>
-            <span class="lang-opt-code">ES</span>
-          </button>
-          <button class="lang-dropdown-item lang-btn" data-lang="en" type="button" role="menuitem">
-            <span class="lang-opt-name">English</span>
-            <span class="lang-opt-code">EN</span>
-          </button>
+      <div class="nav-right">
+        <!-- Botón de Resume CV en la barra superior (mismo diseño que el botón de hero/home) -->
+        <a class="nav-portfolio-btn nav-contact-btn" id="navResumeBtn" href="cv.html" data-i18n="nav.resume">Resume CV</a>
+
+        <!-- Desktop Language Selector (IT | ES | EN) -->
+        <div class="lang-pill lang-desktop-pill" id="metroLangPill" role="group" aria-label="Selettore Lingua / Language Selector">
+          <span class="lang-indicator" aria-hidden="true"></span>
+          <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
+          <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
+          <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
         </div>
-      </div>
 
-      <a class="btn primary nav-resume-btn" id="navResumeBtn" href="cv.html">
-        <span data-i18n="nav.resume">Resume</span>
-      </a>
+        <!-- Mobile Language Dropdown ("Menu a Tendina") -->
+        <div class="lang-dropdown-wrapper" id="langDropdownWrapper">
+          <button class="lang-dropdown-trigger" id="langDropdownTrigger" type="button" aria-label="Seleziona lingua" aria-expanded="false">
+            <span class="lang-trigger-code" id="langTriggerCode">IT</span>
+            <i class="fa-solid fa-chevron-down lang-trigger-chevron"></i>
+          </button>
+          <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu" aria-hidden="true">
+            <button class="lang-dropdown-item lang-btn active" data-lang="it" type="button" role="menuitem">
+              <span class="lang-opt-name">Italiano</span>
+              <span class="lang-opt-code">IT</span>
+            </button>
+            <button class="lang-dropdown-item lang-btn" data-lang="es" type="button" role="menuitem">
+              <span class="lang-opt-name">Español</span>
+              <span class="lang-opt-code">ES</span>
+            </button>
+            <button class="lang-dropdown-item lang-btn" data-lang="en" type="button" role="menuitem">
+              <span class="lang-opt-name">English</span>
+              <span class="lang-opt-code">EN</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Large Hamburger Button (Opens Fullscreen Black Menu) -->
+        <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Menu di navigazione" aria-expanded="false">
+          <span class="hamburger-icon" aria-hidden="true">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </span>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <main class="shell">    <!-- ================= PAGE HERO ================= -->
+  <!-- ================= FULLSCREEN EDITORIAL BLACK MENU (PLINTH AESTHETIC) ================= -->
+  <div class="fullscreen-menu-overlay" id="mobileNavDrawer" aria-hidden="true">
+    <div class="menu-overlay-inner">
+      <!-- Header row inside menu -->
+      <div class="menu-overlay-header">
+        <a class="menu-brand-link brand" href="index.html" id="menuBrandLink" aria-label="Bypatdesigner Home">
+          <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
+        </a>
+        <button class="menu-close-btn" id="mobileNavCloseBtn" type="button" aria-label="Chiudi menu">
+          <span class="menu-close-text" data-i18n="nav.close">Chiudi</span>
+          <span class="menu-close-icon" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Main Stage -->
+      <div class="menu-overlay-main">
+        <!-- Left Side: Studio details & Socials & Email -->
+        <div class="menu-col-left">
+          <div class="menu-studio-block">
+            <span class="menu-studio-label" data-i18n="menu.studio_details">Contact</span>
+            <ul class="menu-social-links" role="list">
+              <li><a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://behance.net/bypatdesigner" target="_blank" rel="noopener noreferrer">Behance</a></li>
+              <li><a href="https://github.com/bypatdesigner" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://instagram.com/bypatdesigner" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            </ul>
+          </div>
+          <div class="menu-email-block">
+            <a href="mailto:bypatdesigner@gmail.com" class="menu-email-link">bypatdesigner@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- Center: Massive Editorial Navigation Items -->
+        <nav class="menu-col-center" aria-label="Menu navigazione a schermo intero">
+          <ul class="editorial-nav-list" role="list">
+            <li class="editorial-nav-item">
+              <a href="index.html#about" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(01)</span>
+                <span class="editorial-nav-label" data-i18n="nav.about">Chi sono</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="projects.html" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(02)</span>
+                <span class="editorial-nav-label" data-i18n="nav.projects">Portfolio</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="index.html#services" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(03)</span>
+                <span class="editorial-nav-label" data-i18n="nav.services">Servizi</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="index.html#contact" class="editorial-nav-link mobile-nav-item">
+                <span class="editorial-nav-num">(04)</span>
+                <span class="editorial-nav-label" data-i18n="nav.contact">Contatti</span>
+              </a>
+            </li>
+            <li class="editorial-nav-item">
+              <a href="cv.html" class="editorial-nav-link mobile-nav-item" id="mobileResumeLink">
+                <span class="editorial-nav-num">(05)</span>
+                <span class="editorial-nav-label" data-i18n="nav.resume">Resume CV</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Right Side: Location Info -->
+        <div class="menu-col-right">
+          <div class="menu-location-block">
+            <p class="menu-location-name">Patricia Garcia</p>
+            <p class="menu-location-geo">Bisceglie, Puglia</p>
+            <p class="menu-location-country">Italy</p>
+            <p class="menu-location-role">UI/UX & Front-end</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="shell">
+    <!-- ================= PAGE HERO (WHERE IDEAS TAKE SHAPE) ================= -->
     <header class="page-hero">
       <div class="hero-glow-backdrop" aria-hidden="true"></div>
-      <div class="hero-tagline">Projects</div>
+      <div class="hero-tagline" data-i18n="hero.tagline">PORTFOLIO &amp; CASE STUDIES</div>
       <div class="hero-title-row">
-        <h1 class="hero-main-title">Idee che <span class="grad-text">prendono forma</span>.</h1>
+        <h1 class="hero-main-title" id="pageHeroTitle">
+          <span class="hero-title-line" id="titleLine1">Explore</span>
+          <span class="hero-title-line hero-line-violet" id="titleLine2">My work<span class="hero-dot">.</span></span>
+        </h1>
       </div>
-      <p class="hero-sub-text">
-        UI/UX, web development e visual design.
-      </p>
+      <nav class="filters-bar" aria-label="Filtra progetti por categoría">
+        <button class="filter-pill active" data-cat="all" style="--i:0" onclick="filterProjects('all', this)" id="filterBtnAll">
+          <span class="filter-pill-text">All</span><span class="filter-count" data-count-for="all"></span>
+        </button>
+        <button class="filter-pill" data-cat="uiux" style="--i:1" onclick="filterProjects('uiux', this)" id="filterBtnUiux">
+          <span class="filter-pill-text">UI/UX</span><span class="filter-count" data-count-for="uiux"></span>
+        </button>
+        <button class="filter-pill" data-cat="graphic" style="--i:2" onclick="filterProjects('graphic', this)" id="filterBtnGraphic">
+          <span class="filter-pill-text">Graphic design</span><span class="filter-count" data-count-for="graphic"></span>
+        </button>
+        <button class="filter-pill" data-cat="development" style="--i:3" onclick="filterProjects('development', this)" id="filterBtnDev">
+          <span class="filter-pill-text">Development</span><span class="filter-count" data-count-for="development"></span>
+        </button>
+        <button class="filter-pill" data-cat="3d" style="--i:4" onclick="filterProjects('3d', this)" id="filterBtn3D">
+          <span class="filter-pill-text">3D</span><span class="filter-count" data-count-for="3d"></span>
+        </button>
+      </nav>
     </header>
 
-    <!-- ================= INTERACTIVE CATEGORY FILTER BAR ================= -->
-    <div class="filters-bar" role="tablist" aria-label="Filtra progetti per categoria">
-      <button class="filter-pill active" onclick="filterProjects('all', this)" id="filterBtnAll">Tutti</button>
-      <button class="filter-pill" onclick="filterProjects('uiux', this)" id="filterBtnUiux">UI/UX</button>
-      <button class="filter-pill" onclick="filterProjects('development', this)" id="filterBtnDev">Development</button>
-      <button class="filter-pill" onclick="filterProjects('graphic', this)" id="filterBtnGraphic">Graphic</button>
-      <button class="filter-pill" onclick="filterProjects('3d', this)" id="filterBtn3D">3D</button>
-    </div>
-
-    <!-- ================= FEATURED PROJECTS GRID ================= -->
-    <div class="floating-masonry-grid" id="projectsGrid" style="display: none;">
-      
-      <!-- ================= COLUMN 1 ================= -->
-      <div class="project-column">
-
-        <!-- Project Card 1: Apulia Promoting US -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('apulia')">
-          <div class="card-media-box" style="background: #1e2c26;">
-            <img src="./img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US — Brand Identity & Campagna" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Apulia Promoting US</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">Brand Identity &amp; Campagna</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2021</span>
+    <!-- ================= PROJECT LIST (HOME STRUCTURE) ================= -->
+<div class="metro-project-list" id="projectRows">
+          <!-- 01: Cinepass App -->
+          <article class="design-project-item layout-thumb-left" data-cat="all uiux development">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">UI/UX design · 2023</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('cinepass')">Cinepass App</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Applicazione mobile per la prenotazione rapida di biglietti cinema, selezione posti interattiva ed esplorazione palinsesti.
+                </p>
+                <div class="metro-project-tags">
+                  <span>UX Research</span>
+                  <span>UI Design</span>
+                  <span>Prototyping</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('cinepass')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('cinepass')" aria-label="Apri Cinepass App">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/cinepass/Cover.jpg" alt="Cinepass" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project Card 2: Eureka -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('eureka')">
-          <div class="card-media-box" style="background: #0d1b2a;">
-            <img src="./img/eureka/hero.png" alt="Eureka — Brand Identity" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Eureka</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">Brand Identity</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2021</span>
+          <!-- 02: Apulia Promoting US -->
+          <article class="design-project-item layout-content-left" data-cat="all graphic uiux">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">Brand identity · 2021</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('apulia')">Apulia Promoting US</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Identità visiva e campagna territoriale 'Percorrendo Boccadoro' per valorizzare l’oasi naturale di Boccadoro-Ariscianne e riscoprirne il patrimonio.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Logo Design</span>
+                  <span>Advertising</span>
+                  <span>Editorial</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('apulia')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('apulia')" aria-label="Apri Apulia Promoting US">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project Card 3 (3D): Honey + Coconut -->
-        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('honey')">
-          <div class="card-media-box" style="background: #130e1c;">
-            <img src="./img/honeyCoconut.png" alt="Honey + Coconut — 3D Packaging" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Honey + Coconut</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">3D Packaging</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2024</span>
+          <!-- 03: Miami Mango -->
+          <article class="design-project-item layout-thumb-left" data-cat="all graphic uiux">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">Brand identity · 2022</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('miamiMango')">Miami Mango</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Concept di brand per tavole da surf ad alte prestazioni. Monogramma geometrico M + M a silhouette di tavola, palette energica e video animazione.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Logo Design</span>
+                  <span>Color Palette</span>
+                  <span>Packaging</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('miamiMango')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('miamiMango')" aria-label="Apri Miami Mango">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/miami-mango/surf-hero-wide.jpg" alt="Miami Mango" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project Card 4 (3D): Robot Character -->
-        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('robotCharacter')">
-          <div class="card-media-box" style="background: #0d0b18;">
-            <img src="./img/robot-character/card-cover.png" alt="Robot Character — Character Design & 3D" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Robot Character</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">Character Design &amp; 3D</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2024</span>
+          <!-- 04: Eureka Platform -->
+          <article class="design-project-item layout-content-left" data-cat="all graphic">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">Brand identity · 2021</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('eureka')">Eureka Platform</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Un’identità visiva per una piattaforma professionale pensata per connettere persone, talento e nuove opportunità.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Logo Design</span>
+                  <span>Visual Identity</span>
+                  <span>Brand Guidelines</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('eureka')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('eureka')" aria-label="Apri Eureka Platform">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/eureka/hero.png" alt="Eureka" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-      </div>
-
-      <!-- ================= COLUMN 2 (STAGGERED OFFSET) ================= -->
-      <div class="project-column staggered-col">
-
-        <!-- Project Card 5: Teatro Petruzzelli -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('petruzzelli')">
-          <div class="card-media-box" style="background: #2a1114;">
-            <img src="./img/petruzzelli/mockup-instagram.jpg" alt="Teatro Petruzzelli — Identità Visiva" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Teatro Petruzzelli</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">Identità Visiva &amp; Comunicazione</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2020</span>
+          <!-- 05: Teatro Petruzzelli -->
+          <article class="design-project-item layout-thumb-left" data-cat="all graphic uiux">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">Brand identity · 2020</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('petruzzelli')">Teatro Petruzzelli</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Una proposta di identità visiva e comunicazione che esplora come avvicinare il pubblico al teatro, dalla scoperta di un evento al desiderio di viverlo.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Logo Design</span>
+                  <span>Brand Design</span>
+                  <span>Visual Identity</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('petruzzelli')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('petruzzelli')" aria-label="Apri Teatro Petruzzelli">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/petruzzelli/manifesto.webp" alt="Teatro Petruzzelli" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project Card 6: Miami Mango -->
-        <article class="floating-project-card" data-cat="graphic" onclick="openDrawer('miamiMango')">
-          <div class="card-media-box" style="background: #34348E;">
-            <img src="./img/miami-mango/card-home.jpg" alt="Miami Mango — Brand Identity" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Miami Mango</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">Brand Identity</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2022</span>
+          <!-- 06: Robot Character -->
+          <article class="design-project-item layout-content-left" data-cat="all 3d">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">3D · 2024</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('robotCharacter')">Robot Character</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Un personaggio originale progettato da zero e sviluppato in Blender, dallo sketch iniziale alla modellazione, ai materiali e all’ambientazione finale.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Blender</span>
+                  <span>Character Design</span>
+                  <span>3D Modeling</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('robotCharacter')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('robotCharacter')" aria-label="Apri Robot Character">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/robot-character/card-cover.png" alt="Robot Character" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project Card 7 (3D): Cozy Living Room -->
-        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('cozyLivingRoom')">
-          <div class="card-media-box" style="background: #171120;">
-            <img src="./img/cozy-living-room/card.webp" alt="Cozy Living Room — 3D Interior Design" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Cozy Living Room</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">3D Interior Design</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2024</span>
+          <!-- 07: AgriBox Platform -->
+          <article class="design-project-item layout-thumb-left" data-cat="all development uiux">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">UI/UX · Development · 2026</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('agribox')">AgriBox Platform</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Piattaforma e-commerce per prodotti agricoli con gestione differenziata di listini retail e wholesale.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Figma</span>
+                  <span>React</span>
+                  <span>Tailwind CSS</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('agribox')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('agribox')" aria-label="Apri AgriBox Platform">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/cards/Frame 1.png" alt="AGRIBOX+" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project Card 8 (3D): Robot -->
-        <article class="floating-project-card" data-cat="3d" onclick="openDrawer('robot')">
-          <div class="card-media-box" style="background: #090d15;">
-            <img src="./img/robot/robot-cover.png" alt="Robot — 3D Modeling & Rendering" class="card-cover-img" />
-          </div>
-          <div class="card-details-box">
-            <div class="card-details-left">
-              <h2 class="card-project-title grad-text">Robot</h2>
-              <div class="card-meta-row">
-                <span class="card-meta-discipline">3D Modeling &amp; Lighting</span>
-                <span class="card-meta-dot">·</span>
-                <span class="card-meta-year">2024</span>
+          <!-- 08: Cozy Living Room -->
+          <article class="design-project-item layout-content-left" data-cat="all 3d">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">3D · 2024</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('cozyLivingRoom')">Cozy Living Room</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Una scena 3D realizzata in Blender, progettata come esercizio di modellazione, materiali, illuminazione e composizione dello spazio.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Blender</span>
+                  <span>Interior Design</span>
+                  <span>Lighting</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('cozyLivingRoom')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('cozyLivingRoom')" aria-label="Apri Cozy Living Room">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/cozyLivingRoom.jpg" alt="Cozy Living Room" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
               </div>
             </div>
-            <div class="card-cta-icon" aria-hidden="true">
-              <span>↗</span>
+          </article>
+
+          <!-- 09: Honey + Coconut -->
+          <article class="design-project-item layout-thumb-left" data-cat="all 3d">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">3D · 2024</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('honey')">Honey + Coconut</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Un progetto di modellazione 3D realizzato in Blender, in cui ho sviluppato packaging, materiali e visual per Honey + Coconut, con un’estetica fresca, delicata e contemporanea.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Blender</span>
+                  <span>Product Visualization</span>
+                  <span>Packaging</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('honey')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('honey')" aria-label="Apri Honey + Coconut">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/honeyCoconut.png" alt="Honey + Coconut" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-      </div>
+          <!-- 10: Robot 3D -->
+          <article class="design-project-item layout-content-left" data-cat="all 3d">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">3D · 2024</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('robot')">Robot 3D</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Un progetto 3D realizzato in Blender come esercizio di modellazione, materiali, illuminazione e rendering.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Blender</span>
+                  <span>3D Modeling</span>
+                  <span>Materials</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('robot')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('robot')" aria-label="Apri Robot 3D">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/robot/robot-cover.png" alt="Robot 3D" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
 
-    </div>
-
-    <!-- ================= COMPACT VISUAL ARCHIVE LIST (Image Hover Preview) ================= -->
-    <div class="compact-projects-table" id="compactProjectsTable" style="display: block;">
-      
-      <!-- 1. Apulia Promoting US -->
-      <div class="compact-project-row" data-cat="graphic" data-project="apulia" onclick="openDrawer('apulia')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Apulia Promoting US</span>
+          <!-- 11: David Hockney -->
+          <article class="design-project-item layout-thumb-left" data-cat="all graphic">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category">Graphic design · 2020</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="#" onclick="event.preventDefault(); openDrawer('hockney')">David Hockney</a>
+                </h3>
+                <p class="metro-project-summary">
+                  Una campagna visual e una serie di poster ispirati alla filosofia dello 'slow looking' di David Hockney, che invitano i visitatori a fermarsi, sedersi e osservare davvero l'arte al Musée d'Orsay.
+                </p>
+                <div class="metro-project-tags">
+                  <span>Photoshop</span>
+                  <span>Illustrator</span>
+                  <span>Poster</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="#" onclick="event.preventDefault(); openDrawer('hockney')">
+                    <span>Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="#" onclick="event.preventDefault(); openDrawer('hockney')" aria-label="Apri David Hockney">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="./img/hockney/hero.jpg" alt="David Hockney" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">Brand Identity &amp; Campagna</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2021</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 2. Eureka -->
-      <div class="compact-project-row" data-cat="graphic" data-project="eureka" onclick="openDrawer('eureka')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Eureka</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">Brand Identity</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2021</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/eureka/hero.png" alt="Eureka" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 3. Teatro Petruzzelli -->
-      <div class="compact-project-row" data-cat="graphic" data-project="petruzzelli" onclick="openDrawer('petruzzelli')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Teatro Petruzzelli</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">Identità Visiva &amp; Comunicazione</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2020</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/petruzzelli/mockup-instagram.jpg" alt="Teatro Petruzzelli" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 4. Miami Mango -->
-      <div class="compact-project-row" data-cat="graphic" data-project="miamiMango" onclick="openDrawer('miamiMango')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Miami Mango</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">Brand Identity</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2022</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/miami-mango/card-home.jpg" alt="Miami Mango" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 5. Teatro Petruzzelli — Logo (Atrás / Archivo) -->
-      <div class="compact-project-row" data-cat="graphic" data-project="petruzzelliLogo" onclick="openDrawer('petruzzelliLogo')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Teatro Petruzzelli — Logo</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">Logo Design &amp; Brand Manual</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2020</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli Logo" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 6. The art of admiring art (Atrás / Archivo) -->
-      <div class="compact-project-row" data-cat="graphic" data-project="hockney" onclick="openDrawer('hockney')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">The art of admiring art</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">Poster Design</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2020</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/hockney/hero.jpg" alt="The art of admiring art" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 7. Honey + Coconut -->
-      <div class="compact-project-row" data-cat="3d" data-project="honey" onclick="openDrawer('honey')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Honey + Coconut</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">3D Packaging</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2024</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/honeyCoconut.png" alt="Honey + Coconut" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 8. Robot Character -->
-      <div class="compact-project-row" data-cat="3d" data-project="robotCharacter" onclick="openDrawer('robotCharacter')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Robot Character</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">Character Design &amp; 3D</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2024</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/robot-character/card-cover.png" alt="Robot Character" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 9. Cozy Living Room -->
-      <div class="compact-project-row" data-cat="3d" data-project="cozyLivingRoom" onclick="openDrawer('cozyLivingRoom')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Cozy Living Room</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">3D Interior Design</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2024</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/cozy-living-room/card.webp" alt="Cozy Living Room" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-      <!-- 10. Robot -->
-      <div class="compact-project-row" data-cat="3d" data-project="robot" onclick="openDrawer('robot')">
-        <div class="compact-col-title">
-          <span class="compact-title-text">Robot</span>
-        </div>
-        <div class="compact-col-discipline">
-          <span class="compact-badge-disc">3D Modeling &amp; Lighting</span>
-        </div>
-        <div class="compact-col-year">
-          <span class="compact-year-text">2024</span>
-        </div>
-        <div class="compact-col-action">
-          <span class="compact-arrow">→</span>
-        </div>
-        <div class="compact-row-preview" aria-hidden="true">
-          <img src="./img/robot/robot-cover.png" alt="Robot" class="compact-preview-img" loading="lazy" />
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ================= VIEW TOGGLE BUTTON ================= -->
-    <div class="view-toggle-container" id="viewToggleContainer">
-      <button class="btn-toggle-view is-compact" id="btnToggleCompact" onclick="toggleCompactView()" aria-label="Cambia visualizzazione">
-        <span class="btn-toggle-text" id="btnToggleText">Visualizza a schede</span>
-        <span class="btn-toggle-icon" id="btnToggleIcon">↑</span>
-      </button>
-    </div>
 
     <!-- ================= EMPTY STATE CONTAINER (For categories with upcoming projects like Video) ================= -->
     <div class="filter-empty-msg" id="filterEmptyState" style="display:none; width: 100%; text-align: center; padding: 60px 24px; background: rgba(255, 255, 255, 0.02); border: 1px dashed var(--line); border-radius: var(--radius-lg); margin: 0 0 80px;">
@@ -1978,6 +3090,8 @@
   </div>
 
   <!-- ================= JAVASCRIPT ================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     /* 1. DATA DEI PROGETTI MULTI-LINGUA */
     const PROJECTS_I18N = {
@@ -1993,18 +3107,27 @@
           ctaTitle: "Hai in mente una nuova visione digitale?",
           ctaSub: "Dalla definizione della strategia visiva alla scrittura del codice front-end per la produzione: parliamo di come trasformare la tua idea in un'esperienza d'impatto.",
           ctaBtn: "Parliamo del tuo Progetto +",
-          heroTagline: "Projects",
-          heroTitle: "Idee che <span class=\"grad-text\">prendono forma</span>.",
-          heroSub: "UI/UX, web development e visual design.",
-          filterAll: "Tutti",
+          heroTagline: "Portfolio & Case Studies",
+          heroTitleLine1: "Esplora",
+          heroTitleLine2: "I miei lavori",
+          heroSub: "UI/UX, front-end development, visual identity & 3D.",
+          filterAll: "Ultimi progetti",
           filterUiux: "UI/UX",
           filterDev: "Development",
           filterGraphic: "Graphic",
           filter3D: "3D",
-          btnSeeOther: "Vedi altri progetti (elenco)",
-          btnBackToGrid: "Visualizza a schede",
           emptyMsg: "Progetti in questa categoria in arrivo o disponibili su richiesta privata.",
           emptyBtn: "Richiedi Informazioni ↗"
+        },
+        cinepass: {
+          title: '<span class="card-title-main">Cinepass</span><span class="card-title-sub">Mobile App · UI/UX & Prototyping</span>',
+          category: "UI/UX DESIGN · MOBILE APP",
+          lead: "Applicazione mobile per la prenotazione rapida di biglietti cinema, selezione posti interattiva ed esplorazione palinsesti.",
+          role: "2023 · UI/UX Designer & Prototyping",
+          stack: "Figma, Design System, Prototyping, iOS & Android UI",
+          body: "Cinepass ripensa l'esperienza di acquisto dei biglietti cinematografici da mobile. Flow semplificato in 3 tap, mappa posti interattiva ad alto contrasto, trailer in-app e sincronizzazione calendario e wallet.",
+          bg: "url('./img/cinepass/Cover.jpg') center/cover no-repeat",
+          url: "cinepass-project.html"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -2014,24 +3137,6 @@
           stack: "Figma, React, Tailwind CSS",
           body: "Abbiamo disegnato un'architettura a doppia vista: navigazione veloce per il consumatore finale e tabelle di ordinazione rapida con prezzi dinamici a volume per le aziende agricole registrate con P.IVA.",
           bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
-        },
-        footsy: {
-          title: "Footsy Shoes",
-          category: "DIGITAL STORE & UI",
-          lead: "E-commerce dedicato a calzature per bambini con configuratore taglie assistito.",
-          role: "2026 · Product Designer & UI Developer",
-          stack: "Figma, React, Micro-animations",
-          body: "Progettato per ridurre i resi tipici del settore calzature per bambini attraverso un selettore interattivo del piede e schede prodotto con visualizzazione 360° dei materiali.",
-          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
-        },
-        mininno: {
-          title: "Mininno Costruzioni",
-          category: "EDITORIAL WEB & ARCHITETTURA",
-          lead: "Sito istituzionale ed editoriale per una storica impresa edile pugliese con focus sull'architettura.",
-          role: "2026 · Brand Identity & Web Developer",
-          stack: "Figma, JavaScript ES6+, Semantic CSS",
-          body: "Un'esperienza dove la fotografia architettonica e la griglia svizzera guidano l'utente. Layout asimmetrici, transizioni fluide tra i progetti e schede cantiere arricchite da schemi tecnici e materiali.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
         },
         honey: {
           title: "Honey + Coconut",
@@ -2076,7 +3181,7 @@
         hockney: {
           title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
           category: "POSTER DESIGN · DAVID HOCKNEY",
-          lead: "Una campagna visual e una serie di poster ispirati alla filosofia dello \"slow looking\" di David Hockney, che invitano i visitatori a fermarsi, sedersi e osservare davvero l'arte al Musée d'Orsay.",
+          lead: "Una campagna visual e una serie di poster ispirati alla filosofia dello 'slow looking' di David Hockney, che invitano i visitatori a fermarsi, sedersi e osservare davvero l'arte al Musée d'Orsay.",
           role: "2020 · Graphic Design",
           stack: "Photoshop, Illustrator",
           body: "Una campagna visual d'autore e serie di poster per il Musée d'Orsay ispirati a David Hockney. Una riflessione grafica sull'atto del soffermarsi, la sedia come invito spaziale a rallentare, e la forza della composizione tipografica svizzera unita a cromie ultramarine.",
@@ -2113,16 +3218,6 @@
           bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
           url: "petruzzelli.html"
         },
-        petruzzelliLogo: {
-          title: '<span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Logo Concept & Brand Manual</span>',
-          category: "LOGO DESIGN · PROGETTO ACCADEMICO",
-          lead: "Proposta individuale di logo design nata dall'architettura della cupola: costruzione su griglie polari, studio comparativo europeo e tipografia Sequel Sans.",
-          role: "2020 · Logo Design & Brand Manual",
-          stack: "Illustrator, Griglie Polari, Sequel Sans",
-          body: "Fase esplorativa individuale del progetto dedicato al Teatro Petruzzelli di Bari. Analisi geometrica della cupola e della lanterna, benchmark sui grandi teatri lirici internazionali, costruzione rigorosa su reticola ortogonale e polare, adozione della tipografia Sequel Sans e manuale d'uso completo in positivo e negativo.",
-          bg: "url('./img/petruzzelli-logo/hero-poster.webp') center/cover no-repeat",
-          url: "petruzzelli-logo.html"
-        },
         miamiMango: {
           title: '<span class="card-title-main">Miami Mango</span><span class="card-title-sub">Brand Identity · Tavole da Surf</span>',
           category: "BRAND IDENTITY · PROGETTO ACCADEMICO · 2022",
@@ -2132,16 +3227,6 @@
           body: "Concept di brand per tavole da surf ad alte prestazioni sviluppato durante un corso di Tipografia per Branding. Il cuore del progetto è la costruzione del simbolo dalle iniziali M + M organizzate a suggerire la silhouette di una tavola da surf, con palette ad alto contrasto e video motion identity integrato.",
           bg: "url('./img/miami-mango/cover-card.jpg') center/cover no-repeat",
           url: "miami-mango.html"
-        },
-
-        sumisura: {
-          title: "suMisura® Doors",
-          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
-          lead: "Configuratore interattivo per la personalizzazione e il preventivo online di porte blindate.",
-          role: "2026 · UI/UX Designer & Frontend Logic",
-          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-          body: "Una procedura guidata in 4 passaggi visivi che permette di selezionare classe di sicurezza, rivestimenti in legno, maniglie e serrature biometriche con anteprima dinamica.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
         }
       },
       es: {
@@ -2156,18 +3241,27 @@
           ctaTitle: "¿Tienes en mente una nueva visión digital?",
           ctaSub: "Desde la estrategia visual hasta el código front-end para producción: hablemos de cómo transformar tu idea en una experiencia memorable.",
           ctaBtn: "Hablemos de tu Proyecto +",
-          heroTagline: "Projects",
-          heroTitle: "Idee che <span class=\"grad-text\">prendono forma</span>.",
-          heroSub: "UI/UX, web development e visual design.",
-          filterAll: "Todos",
+          heroTagline: "Portfolio & Case Studies",
+          heroTitleLine1: "Explora",
+          heroTitleLine2: "Mi trabajo",
+          heroSub: "UI/UX, front-end development, visual identity & 3D.",
+          filterAll: "Últimos proyectos",
           filterUiux: "UI/UX",
           filterDev: "Development",
           filterGraphic: "Graphic",
           filter3D: "3D",
-          btnSeeOther: "Ver otros proyectos (lista)",
-          btnBackToGrid: "Visualizar en tarjetas",
           emptyMsg: "Proyectos en esta categoría en preparación o disponibles bajo petición privada.",
           emptyBtn: "Solicitar Información ↗"
+        },
+        cinepass: {
+          title: '<span class="card-title-main">Cinepass</span><span class="card-title-sub">App Móvil · UI/UX & Prototipado</span>',
+          category: "DISEÑO UI/UX · APP MÓVIL",
+          lead: "Aplicación móvil para la reserva rápida de entradas de cine, selección interactiva de butacas y cartelera.",
+          role: "2023 · Diseñadora UI/UX & Prototipado",
+          stack: "Figma, Design System, Prototyping, iOS & Android UI",
+          body: "Cinepass redefine la experiencia de compra de entradas de cine en dispositivos móviles. Flujo optimizado en 3 pasos, mapa interactivo de asientos con alto contraste, trailers in-app y sincronización con billeteras digitales.",
+          bg: "url('./img/cinepass/Cover.jpg') center/cover no-repeat",
+          url: "cinepass-project.html"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -2177,24 +3271,6 @@
           stack: "Figma, React, Tailwind CSS",
           body: "Diseñamos una arquitectura de doble flujo: compra rápida para el consumidor final y tablas de pedidos dinámicas con precios por volumen para empresas agrícolas.",
           bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
-        },
-        footsy: {
-          title: "Footsy Shoes",
-          category: "DIGITAL STORE & UI",
-          lead: "E-commerce dedicado al calzado infantil con medidor de tallas interactivo y guiado.",
-          role: "2026 · Product Designer & UI Developer",
-          stack: "Figma, React, Micro-animations",
-          body: "Diseñado para reducir devoluciones habituales mediante un selector interactivo del pie y fichas de producto con vista 360° de materiales.",
-          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
-        },
-        mininno: {
-          title: "Mininno Costruzioni",
-          category: "EDITORIAL WEB & ARQUITECTURA",
-          lead: "Sitio web corporativo y editorial para una constructora histórica con enfoque en arquitectura contemporánea.",
-          role: "2026 · Brand Identity & Web Developer",
-          stack: "Figma, JavaScript ES6+, Semantic CSS",
-          body: "Una experiencia donde la fotografía de arquitectura y la tipografía suiza guían al usuario. Diseños asimétricos y fichas de obra con planos técnicos y materiales.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
         },
         honey: {
           title: "Honey + Coconut",
@@ -2228,83 +3304,63 @@
         },
         robotCharacter: {
           title: "Robot Character",
-          category: "DISEÑO DE PERSONAJE · MODELADO 3D · BLENDER",
+          category: "CHARACTER DESIGN · 3D MODELING · BLENDER",
           lead: "Un personaje original diseñado desde cero y desarrollado en Blender, desde el boceto inicial hasta la escena final.",
           role: "2024 · Diseño de Personaje & Modelado 3D",
-          stack: "Blender, Character Design, Modelado 3D, Materiales, Ambientación",
-          body: "El proyecto parte del diseño de un personaje robótico original, definido mediante un boceto. A partir del boceto se desarrollaron formas, proporciones y detalles, transformando progressivamente el personaje en un modelo 3D completo dentro de una escena lúdica y luminosa.",
+          stack: "Blender, Character Design, Modelado 3D, Materiales, Entorno",
+          body: "El proyecto comienza con el diseño de un personaje robot original definido a través de un boceto. Progresivamente se transformó en un modelo 3D completo ambientado en una escena colorida y expresiva.",
           bg: "url('./img/robot-character/card-cover.png') center/cover no-repeat",
           url: "robot-character.html"
         },
         hockney: {
-          title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Poster Design</span>',
+          title: '<span class="card-title-main">The art of admiring art</span><span class="card-title-sub">Diseño de Póster</span>',
           category: "POSTER DESIGN · DAVID HOCKNEY",
-          lead: "Una campaña visual y una serie de carteles inspiradas en la filosofía de David Hockney de observar con calma, que invitan a los visitantes a detenerse, sentarse y observar verdaderamente el arte en el Museo de Orsay.",
+          lead: "Campaña visual y serie de pósters inspirados en la filosofía del 'slow looking' de David Hockney para el Musée d'Orsay.",
           role: "2020 · Graphic Design",
           stack: "Photoshop, Illustrator",
-          body: "Una campaña visual de autor y serie de carteles para el Musée d'Orsay inspirados en David Hockney. Una propuesta sobre el valor de detenerse, la silla como símbolo espacial para pausar el ritmo y la composición tipográfica suiza combinada con intensos azules ultramar.",
+          body: "Campaña visual de autor y serie de carteles para el Musée d'Orsay. Una reflexión sobre el detenerse y observar el arte con calma, combinando la tipografía suiza con intensas tonalidades de azul ultramar.",
           bg: "url('./img/hockney/bus-shelter.png') center/cover no-repeat",
           url: "hockney.html"
         },
         eureka: {
-          title: '<span class="card-title-main">Eureka</span><span class="card-title-sub">Brand Identity</span>',
-          category: "IDENTIDAD DE MARCA · 2021",
-          lead: "Una identidad visual para una plataforma profesional creada para conectar personas, talento y nuevas oportunidades.",
+          title: '<span class="card-title-main">Eureka</span><span class="card-title-sub">Identidad de Marca</span>',
+          category: "BRAND IDENTITY · 2021",
+          lead: "Identidad visual para una plataforma profesional concebida para conectar personas, talento y nuevas oportunidades.",
           role: "2021 · Diseño Gráfico & Branding",
-          stack: "Illustrator, Photoshop, Manual de Marca",
-          body: "Eureka nace como una plataforma profesional dedicada al encuentro entre personas que buscan oportunidades y organizaciones interesadas en nuevos talentos. El símbolo representa a cuatro figuras conectadas en un espacio central, comunicando colaboración y descubrimiento.",
+          stack: "Illustrator, Photoshop, Brand Guidelines",
+          body: "Eureka nace como plataforma profesional dedicada al encuentro de talentos y oportunidades. La marca comunica cercanía, confianza y proyección a través de un símbolo geométrico modular.",
           bg: "url('./img/eureka/hero.png') center/cover no-repeat",
           url: "eureka.html"
         },
         apulia: {
-          title: '<span class="card-title-main">Apulia Promoting US</span><span class="card-title-sub">Identidad de Marca y Campaña</span>',
-          category: "IDENTIDAD DE MARCA · PROYECTO ACADÉMICO",
-          lead: "Identidad visual y campaña territorial 'Percorrendo Boccadoro' para poner en valor el oasis natural de Boccadoro-Ariscianne y su patrimonio.",
-          role: "2021 · Identidad de Marca & Campaña",
+          title: '<span class="card-title-main">Apulia Promoting US</span><span class="card-title-sub">Identidad de Marca & Campaña</span>',
+          category: "BRAND IDENTITY · PROYECTO ACADÉMICO",
+          lead: "Identidad visual y campaña territorial 'Percorrendo Boccadoro' para valorizar el patrimonio natural costero.",
+          role: "2021 · Brand Identity & Campaña",
           stack: "Illustrator, Photoshop, Meta Pro",
-          body: "Proyecto académico de Graphic Design 3 para la asociación estudiantil Apulia Promoting US y la iniciativa 'Percorrendo Boccadoro'. Investigación territorial, imagotipo circular inspirado en el sol, mar, barbecho y tierra, carteles ilustrados, guía desplegable y manual interactivo.",
+          body: "Proyecto académico de Diseño Gráfico 3. Investigación fotográfica y ambiental, isotipo que sintetiza sol, mar y tierra, cartelería de gran formato y guía editorial.",
           bg: "url('./img/apulia/hero-manifesto.jpg') center/cover no-repeat",
           url: "apulia.html"
         },
         petruzzelli: {
           title: '<span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Identidad Visual & Comunicación</span>',
-          category: "IDENTIDAD DE MARCA · PROYECTO ACADÉMICO",
-          lead: "Una propuesta de identidad visual y comunicación que explora cómo acercar el público al teatro, desde el descubrimiento de un evento hasta el deseo de vivirlo.",
+          category: "BRAND IDENTITY · PROYECTO ACADÉMICO",
+          lead: "Propuesta de identidad y comunicación para conectar a nuevas generaciones de espectadores con el gran teatro de ópera.",
           role: "2020 · Identidad Visual & Comunicación",
           stack: "Illustrator, Photoshop, Copywriting",
-          body: "Proyecto académico de Graphic Design II. Investigación histórica y espacial sobre el Teatro Petruzzelli de Bari, encuesta a la ciudadanía, sistema visual modular, cartelería exterior, banderolas urbanas y campaña en redes sociales.",
+          body: "Investigación sobre el emblemático teatro lírico de Bari, sistema visual flexible, cartelería institucional y campaña exterior integrada.",
           bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
           url: "petruzzelli.html"
         },
-        petruzzelliLogo: {
-          title: '<span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Concepto de Logo & Manual</span>',
-          category: "DISEÑO DE LOGO · PROYECTO ACADÉMICO",
-          lead: "Propuesta individual de diseño de logo nacida de la arquitectura de la cúpula: construcción sobre mallas polares, benchmark europeo y tipografía Sequel Sans.",
-          role: "2020 · Diseño de Logo & Manual de Marca",
-          stack: "Illustrator, Mallas Polares, Sequel Sans",
-          body: "Fase exploratoria individual del proyecto dedicado al Teatro Petruzzelli de Bari. Análisis geométrico de la cúpula y linterna, benchmark de los principales teatros de ópera europeos, construcción matemática sobre retícula modular y polar, adopción de la tipografía Sequel Sans y manual de normas en positivo y negativo.",
-          bg: "url('./img/petruzzelli-logo/hero-poster.webp') center/cover no-repeat",
-          url: "petruzzelli-logo.html"
-        },
         miamiMango: {
-          title: '<span class="card-title-main">Miami Mango</span><span class="card-title-sub">Brand Identity · Tablas de Surf</span>',
+          title: '<span class="card-title-main">Miami Mango</span><span class="card-title-sub">Identidad de Marca · Tablas de Surf</span>',
           category: "BRAND IDENTITY · PROYECTO ACADÉMICO",
           lead: "Concepto de marca para tablas de surf de alto rendimiento. Monograma geométrico M + M con silueta de tabla, paleta enérgica y video animación.",
           role: "2022 · Brand Identity · Tipografía para Branding",
           stack: "Tipografía, Illustrator, Motion Design, Video MP4",
-          body: "Concepto de marca para tablas de surf de alto rendimiento desarrollado en un curso de Tipografía para Branding. El núcleo del proyecto es la construcción del símbolo a partir de las iniciales M + M organizadas hasta sugerir la silueta de una tabla de surf, con una paleta de alto contraste y animación de video integrada.",
+          body: "Concepto de marca para tablas de surf desarrollado en un curso de Tipografía para Branding. Monograma con las iniciales M + M en forma de tabla, paleta enérgica y animación audiovisual de logotipo.",
           bg: "url('./img/miami-mango/cover-card.jpg') center/cover no-repeat",
           url: "miami-mango.html"
-        },
-
-        sumisura: {
-          title: "suMisura® Doors",
-          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
-          lead: "Configurador interactivo para la personalización y cotización online de puertas de seguridad acorazadas.",
-          role: "2026 · UI/UX Designer & Frontend Logic",
-          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-          body: "Un flujo guiado en 4 pasos que permite seleccionar grado de seguridad, acabados de madera, herrajes y cerraduras biométricas con previsualización in tiempo real.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
         }
       },
       en: {
@@ -2319,18 +3375,27 @@
           ctaTitle: "Have a new digital vision in mind?",
           ctaSub: "From visual strategy to production front-end code: let's discuss turning your idea into a high-impact experience.",
           ctaBtn: "Let's Talk About Your Project +",
-          heroTagline: "Projects",
-          heroTitle: "Ideas taking <span class=\"grad-text\">shape</span>.",
-          heroSub: "UI/UX, web development, and visual design.",
-          filterAll: "All",
+          heroTagline: "Portfolio & Case Studies",
+          heroTitleLine1: "Explore",
+          heroTitleLine2: "My work",
+          heroSub: "UI/UX, front-end development, visual identity & 3D.",
+          filterAll: "Latest projects",
           filterUiux: "UI/UX",
           filterDev: "Development",
           filterGraphic: "Graphic",
           filter3D: "3D",
-          btnSeeOther: "View other projects (list)",
-          btnBackToGrid: "View as cards",
           emptyMsg: "Projects in this category coming soon or available upon private request.",
           emptyBtn: "Request Information ↗"
+        },
+        cinepass: {
+          title: '<span class="card-title-main">Cinepass</span><span class="card-title-sub">Mobile App · UI/UX & Prototyping</span>',
+          category: "UI/UX DESIGN · MOBILE APP",
+          lead: "Mobile application for fast cinema ticket booking, interactive seat selection and movie discovery.",
+          role: "2023 · UI/UX Designer & Prototyping",
+          stack: "Figma, Design System, Prototyping, iOS & Android UI",
+          body: "Cinepass reimagines movie ticket booking on mobile devices. Streamlined 3-step checkout, interactive high-contrast seat selection, in-app trailers and instant ticket wallet integration.",
+          bg: "url('./img/cinepass/Cover.jpg') center/cover no-repeat",
+          url: "cinepass-project.html"
         },
         agribox: {
           title: "AgriBox Platform",
@@ -2340,24 +3405,6 @@
           stack: "Figma, React, Tailwind CSS",
           body: "Architected a dual-view purchasing experience: frictionless retail checkout for individuals and bulk ordering tables with dynamic volume tiers for verified farms.",
           bg: "radial-gradient(circle at 80% 20%, rgba(212, 255, 51, 0.25), transparent 50%), linear-gradient(145deg, #132210, #29441B 55%, #0B1109)"
-        },
-        footsy: {
-          title: "Footsy Shoes",
-          category: "DIGITAL STORE & UI",
-          lead: "E-commerce platform dedicated to children's footwear featuring an interactive size finder.",
-          role: "2026 · Product Designer & UI Developer",
-          stack: "Figma, React, Micro-animations",
-          body: "Engineered to drastically cut return rates through an assisted foot measurement selector and interactive 360° material inspection.",
-          bg: "radial-gradient(circle at 80% 30%, rgba(255, 118, 86, 0.3), transparent 50%), linear-gradient(145deg, #131E3C, #2A488A 55%, #0A0F1E)"
-        },
-        mininno: {
-          title: "Mininno Costruzioni",
-          category: "EDITORIAL WEB & ARCHITECTURE",
-          lead: "Institutional and editorial website for a historical construction firm with an architectural focus.",
-          role: "2026 · Brand Identity & Web Developer",
-          stack: "Figma, JavaScript ES6+, Semantic CSS",
-          body: "An immersive experience where architectural photography and Swiss grid layouts guide the visitor. Asymmetrical typography, fluid page transitions, and detailed technical project specs.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(229, 221, 208, 0.2), transparent 45%), linear-gradient(145deg, #0F141B, #28394E 55%, #0B0E13)"
         },
         honey: {
           title: "Honey + Coconut",
@@ -2439,16 +3486,6 @@
           bg: "url('./img/petruzzelli/mockup-instagram.jpg') center/cover no-repeat",
           url: "petruzzelli.html"
         },
-        petruzzelliLogo: {
-          title: '<span class="card-title-main">Teatro Petruzzelli</span><span class="card-title-sub">Logo Concept & Brand Manual</span>',
-          category: "LOGO DESIGN · ACADEMIC PROJECT",
-          lead: "Individual logo design proposal born from the theater's dome architecture: polar coordinate construction, European benchmark study, and Sequel Sans typography.",
-          role: "2020 · Logo Design & Brand Manual",
-          stack: "Illustrator, Polar Grids, Sequel Sans",
-          body: "Individual exploratory phase of the Teatro Petruzzelli project in Bari. Geometric deconstruction of the dome and lantern, benchmark analysis across major European opera houses, rigorous polar and modular grid construction, Sequel Sans font selection, and comprehensive usage guidelines in positive and negative.",
-          bg: "url('./img/petruzzelli-logo/hero-poster.webp') center/cover no-repeat",
-          url: "petruzzelli-logo.html"
-        },
         miamiMango: {
           title: '<span class="card-title-main">Miami Mango</span><span class="card-title-sub">Brand Identity · Surfboards</span>',
           category: "BRAND IDENTITY · ACADEMIC PROJECT",
@@ -2458,21 +3495,12 @@
           body: "Concept brand for high-performance surfboards developed during a Typography for Branding course. The core of the project is the construction of the mark from the initials M + M organized into a vertical surfboard silhouette, supported by a high-contrast visual system and dynamic motion video.",
           bg: "url('./img/miami-mango/cover-card.jpg') center/cover no-repeat",
           url: "miami-mango.html"
-        },
-
-        sumisura: {
-          title: "suMisura® Doors",
-          category: "PRODUCT CONFIGURATOR & DESIGN SYSTEM",
-          lead: "Interactive customizer for configuring and quoting armored security doors online.",
-          role: "2026 · UI/UX Designer & Frontend Logic",
-          stack: "Figma Tokens, JavaScript, SVG Dynamic Renderer",
-          body: "A 4-step guided visual configurator that allows clients to customize security classes, premium wood finishes, handle finishes, and biometric locks with real-time vector rendering.",
-          bg: "radial-gradient(circle at 75% 25%, rgba(199, 167, 114, 0.3), transparent 50%), linear-gradient(145deg, #120F16, #3D3126 55%, #0A080C)"
         }
       }
     };
 
     let currentLang = 'it';
+    let currentFilterCat = 'all';
 
     function setLanguage(lang) {
       if (!PROJECTS_I18N[lang]) return;
@@ -2490,7 +3518,7 @@
       const triggerCode = document.getElementById('langTriggerCode');
       if (triggerCode) triggerCode.textContent = lang.toUpperCase();
 
-      // Update UI labels if available
+      // Update UI labels
       const labels = PROJECTS_I18N[lang].labels;
       if (labels) {
         const pLabel = document.getElementById('drawerPreviewLabel');
@@ -2503,121 +3531,85 @@
         const cSub = document.getElementById('ctaSub');
         const cBtn = document.getElementById('ctaBigBtn');
         const heroTag = document.querySelector('.hero-tagline');
-        const heroTitle = document.querySelector('.hero-main-title');
-        const heroSub = document.querySelector('.hero-sub-text');
-        const bTop = document.getElementById('footerBackToTopText');
+        const heroSub = document.getElementById('pageHeroSub');
+
+        const tLine1 = document.getElementById('titleLine1');
+        const tLine2 = document.getElementById('titleLine2');
+        if (tLine1 && labels.heroTitleLine1) tLine1.textContent = labels.heroTitleLine1;
+        if (tLine2 && labels.heroTitleLine2) {
+          tLine2.innerHTML = `${labels.heroTitleLine2}<span class="hero-dot">.</span>`;
+        }
 
         if (pLabel) pLabel.textContent = labels.preview;
         if (rLabel) rLabel.textContent = labels.role;
         if (sLabel) sLabel.textContent = labels.stack;
         if (btnProj) btnProj.textContent = labels.btnProject;
         if (btnCont) btnCont.textContent = labels.btnContact;
-        if (bTop && labels.backToTop) bTop.textContent = labels.backToTop;
         if (cBadge) cBadge.textContent = labels.ctaBadge;
         if (cTitle) cTitle.textContent = labels.ctaTitle;
         if (cSub) cSub.textContent = labels.ctaSub;
         if (cBtn && cBtn.querySelector('span')) cBtn.querySelector('span').textContent = labels.ctaBtn;
         if (heroTag && labels.heroTagline) heroTag.textContent = labels.heroTagline;
-        if (heroTitle && labels.heroTitle) heroTitle.innerHTML = labels.heroTitle;
-        if (heroSub && labels.heroSub) heroSub.innerHTML = labels.heroSub;
+        if (heroSub && labels.heroSub) heroSub.textContent = labels.heroSub;
 
         // Update category filters
-        const fAll = document.getElementById('filterBtnAll');
-        const fUiux = document.getElementById('filterBtnUiux');
-        const fDev = document.getElementById('filterBtnDev');
-        const fGraphic = document.getElementById('filterBtnGraphic');
-        const f3D = document.getElementById('filterBtn3D');
-
-        if (fAll && labels.filterAll) fAll.textContent = labels.filterAll;
-        if (fUiux && labels.filterUiux) fUiux.textContent = labels.filterUiux;
-        if (fDev && labels.filterDev) fDev.textContent = labels.filterDev;
-        if (fGraphic && labels.filterGraphic) fGraphic.textContent = labels.filterGraphic;
-        if (f3D && labels.filter3D) f3D.textContent = labels.filter3D;
-
-        // Update toggle button
-        const toggleBtnText = document.getElementById('btnToggleText');
-        if (toggleBtnText) {
-          toggleBtnText.textContent = isCompactView ? (labels.btnBackToGrid || "Visualizza a schede") : (labels.btnSeeOther || "Vedi altri progetti (elenco)");
-        }
+        const fTextAll = document.getElementById('filterTextAll');
+        if (fTextAll && labels.filterAll) fTextAll.textContent = labels.filterAll;
 
         const emptyText = document.getElementById('emptyMsgText');
         const emptyBtn = document.getElementById('emptyMsgBtn');
         if (emptyText && labels.emptyMsg) emptyText.textContent = labels.emptyMsg;
         if (emptyBtn && labels.emptyBtn) emptyBtn.textContent = labels.emptyBtn;
 
-        // Update cards dynamically on the grid & compact rows
-        const disciplinesMap = {
+        // Dynamic disciplines in Mivon cards
+        const mivonDisciplinesMap = {
           it: {
-            miamiMango: "Brand Identity",
-            eureka: "Brand Identity",
-            honey: "3D Packaging",
-            cozyLivingRoom: "3D Interior Design",
-            robotCharacter: "Character Design & 3D",
-            robot: "3D Modeling & Lighting",
-            apulia: "Brand Identity & Campagna",
-            petruzzelli: "Identità Visiva & Comunicazione",
-            petruzzelliLogo: "Logo Design & Brand Manual",
-            hockney: "Poster Design"
+            apulia: "Territorial Campaign & Digital Experience",
+            cinepass: "Cinema Booking & Movie Discovery Experience",
+            eureka: "Visual System & Creative Packaging",
+            miamiMango: "Surfboards, Apparel & Motion Visuals",
+            petruzzelli: "Modular Identity & Cultural Communication",
+            agribox: "E-Commerce Architecture & Wholesale Platform",
+            honey: "Product Design, Lighting & Materials 3D",
+            robotCharacter: "Original Character Design & 3D Scene",
+            cozyLivingRoom: "Atmospheric Lighting & 3D Visualization",
+            robot: "Hard Surface Modeling & Studio Lighting",
+            hockney: "Editorial Retrospective & Visual Identity"
           },
           es: {
-            miamiMango: "Identidad de Marca",
-            eureka: "Identidad de Marca",
-            honey: "Packaging 3D",
-            cozyLivingRoom: "Diseño de Interiores 3D",
-            robotCharacter: "Diseño de Personaje & 3D",
-            robot: "Modelado 3D & Iluminación",
-            apulia: "Identidad de Marca & Campaña",
-            petruzzelli: "Identidad Visual & Comunicación",
-            petruzzelliLogo: "Diseño de Logo & Manual",
-            hockney: "Diseño de Póster"
+            apulia: "Campaña Territorial & Experiencia Digital",
+            cinepass: "Reserva de Cine & Experiencia Móvil",
+            eureka: "Sistema Visual & Packaging Creativo",
+            miamiMango: "Tablas de Surf, Apparel & Motion Graphics",
+            petruzzelli: "Identidad Modular & Comunicación Cultural",
+            agribox: "Arquitectura E-Commerce & Plataforma B2B",
+            honey: "Diseño de Producto, Iluminación & Materiales 3D",
+            robotCharacter: "Diseño de Personaje Original & Escena 3D",
+            cozyLivingRoom: "Iluminación Atmosférica & Visualización 3D",
+            robot: "Modelado Hard Surface & Iluminación de Estudio",
+            hockney: "Retrospectiva Editorial & Identidad Visual"
           },
           en: {
-            miamiMango: "Brand Identity",
-            eureka: "Brand Identity",
-            honey: "3D Packaging",
-            cozyLivingRoom: "3D Interior Design",
-            robotCharacter: "Character Design & 3D",
-            robot: "3D Modeling & Lighting",
-            apulia: "Brand Identity & Campaign",
-            petruzzelli: "Visual Identity & Communication",
-            petruzzelliLogo: "Logo Design & Brand Manual",
-            hockney: "Poster Design"
+            apulia: "Territorial Campaign & Digital Experience",
+            cinepass: "Cinema Booking & Movie Discovery Experience",
+            eureka: "Visual System & Creative Packaging",
+            miamiMango: "Surfboards, Apparel & Motion Visuals",
+            petruzzelli: "Modular Identity & Cultural Communication",
+            agribox: "E-Commerce Architecture & Wholesale Platform",
+            honey: "Product Design, Lighting & Materials 3D",
+            robotCharacter: "Original Character Design & 3D Scene",
+            cozyLivingRoom: "Atmospheric Lighting & 3D Visualization",
+            robot: "Hard Surface Modeling & Studio Lighting",
+            hockney: "Editorial Retrospective & Visual Identity"
           }
         };
 
-        const titlesMap = {
-          miamiMango: "Miami Mango",
-          eureka: "Eureka",
-          honey: "Honey + Coconut",
-          cozyLivingRoom: "Cozy Living Room",
-          robotCharacter: "Robot Character",
-          robot: "Robot",
-          apulia: "Apulia Promoting US",
-          petruzzelli: "Teatro Petruzzelli",
-          petruzzelliLogo: "Teatro Petruzzelli — Logo",
-          hockney: "The art of admiring art"
-        };
-
-        ['miamiMango', 'eureka', 'honey', 'cozyLivingRoom', 'robotCharacter', 'robot', 'apulia', 'petruzzelli', 'petruzzelliLogo', 'hockney'].forEach(key => {
-          const disc = (disciplinesMap[lang] && disciplinesMap[lang][key]) || disciplinesMap.it[key];
-          const cleanT = titlesMap[key];
-
-          // Grid card
-          const card = document.querySelector(`.floating-project-card[onclick*="'${key}'"]`);
-          if (card) {
-            const title = card.querySelector('.card-project-title');
-            const discipline = card.querySelector('.card-meta-discipline');
-            if (title) title.textContent = cleanT;
-            if (discipline) discipline.textContent = disc;
-          }
-
-          // Compact row
-          const row = document.querySelector(`.compact-project-row[data-project="${key}"]`);
-          if (row) {
-            const rowTitle = row.querySelector('.compact-title-text');
-            const rowDisc = row.querySelector('.compact-badge-disc');
-            if (rowTitle) rowTitle.textContent = cleanT;
-            if (rowDisc) rowDisc.textContent = disc;
+        const mivonDisc = mivonDisciplinesMap[lang] || mivonDisciplinesMap.it;
+        Object.keys(mivonDisc).forEach(k => {
+          const c = document.querySelector(`.mivon-card[onclick*="'${k}'"]`);
+          if (c) {
+            const discEl = c.querySelector('.mivon-discipline');
+            if (discEl) discEl.textContent = mivonDisc[k];
           }
         });
       }
@@ -2627,17 +3619,15 @@
       const footerResume = document.getElementById('footerResumeLink');
       if (footerResume) {
         footerResume.href = resumeUrl;
-        footerResume.removeAttribute('target');
-        footerResume.removeAttribute('rel');
       }
 
       const navTranslations = {
-        it: { about: "Chi sono", services: "Servizi", projects: "Progetti", contact: "Contatti", resume: "Resume" },
-        es: { about: "Sobre mí", services: "Servicios", projects: "Proyectos", contact: "Contacto", resume: "Currículum" },
-        en: { about: "About", services: "Services", projects: "Projects", contact: "Contact", resume: "Resume" }
+        it: { about: "Chi sono", services: "Servizi", projects: "Portfolio", contact: "Contatti", resume: "Resume CV", close: "Chiudi" },
+        es: { about: "Sobre mí", services: "Servicios", projects: "Portfolio", proyectos: "Portfolio", contact: "Contacto", resume: "Resume CV", close: "Cerrar" },
+        en: { about: "About", services: "Services", projects: "Portfolio", contact: "Contact", resume: "Resume CV", close: "Close" }
       };
       const navData = navTranslations[lang] || navTranslations.it;
-      document.querySelectorAll('.menu a[data-i18n]').forEach(link => {
+      document.querySelectorAll('.menu a[data-i18n], .editorial-nav-link [data-i18n]').forEach(link => {
         const key = link.dataset.i18n.replace('nav.', '');
         if (navData[key]) link.textContent = navData[key];
       });
@@ -2645,28 +3635,45 @@
       const navResumeBtn = document.getElementById('navResumeBtn');
       if (navResumeBtn) {
         navResumeBtn.href = resumeUrl;
-        const navResumeSpan = navResumeBtn.querySelector('span');
-        if (navResumeSpan) navResumeSpan.textContent = navData.resume;
+        navResumeBtn.textContent = navData.resume;
       }
 
-      // Save preference
+      updateDesktopLangIndicator(lang);
+
       try {
         localStorage.setItem('bypat_lang', lang);
       } catch(e) {}
     }
+
+    function updateDesktopLangIndicator(lang) {
+      const desktopPill = document.getElementById('metroLangPill') || document.querySelector('.lang-desktop-pill');
+      if (!desktopPill) return;
+      const indicator = desktopPill.querySelector('.lang-indicator');
+      const activeBtn = desktopPill.querySelector(`.lang-btn[data-lang="${lang}"]`) || desktopPill.querySelector('.lang-btn.active');
+      if (!indicator || !activeBtn) return;
+      const pillRect = desktopPill.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      if (btnRect.width === 0) return;
+      indicator.style.transform = `translateX(${btnRect.left - pillRect.left}px)`;
+      indicator.style.width = `${btnRect.width}px`;
+    }
+
+    window.addEventListener('resize', () => {
+      updateDesktopLangIndicator(currentLang);
+    });
 
     // Set up click listeners on language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const selectedLang = btn.dataset.lang;
-        if (selectedLang !== currentLang) {
+        if (selectedLang && selectedLang !== currentLang) {
           setLanguage(selectedLang);
         }
       });
     });
 
-    // Mobile Language Dropdown Controller ("Menu a Tendina")
+    // Mobile Language Dropdown Controller
     const langDropdownWrapper = document.getElementById('langDropdownWrapper');
     const langDropdownTrigger = document.getElementById('langDropdownTrigger');
     const langDropdownMenu = document.getElementById('langDropdownMenu');
@@ -2698,6 +3705,70 @@
       });
     }
 
+    // Fullscreen Editorial Black Menu Controller
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+    const mobileNavCloseBtn = document.getElementById('mobileNavCloseBtn');
+
+    function openMobileNav() {
+      if (!mobileNavDrawer) return;
+      mobileNavDrawer.classList.add('is-open');
+      mobileNavDrawer.setAttribute('aria-hidden', 'false');
+      if (hamburgerBtn) {
+        hamburgerBtn.classList.add('is-active');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+      }
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+      if (!mobileNavDrawer) return;
+      mobileNavDrawer.classList.remove('is-open');
+      mobileNavDrawer.setAttribute('aria-hidden', 'true');
+      if (hamburgerBtn) {
+        hamburgerBtn.classList.remove('is-active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+      document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (mobileNavDrawer && mobileNavDrawer.classList.contains('is-open')) {
+          closeMobileNav();
+        } else {
+          openMobileNav();
+        }
+      });
+    }
+
+    if (mobileNavCloseBtn) {
+      mobileNavCloseBtn.addEventListener('click', closeMobileNav);
+    }
+
+    document.querySelectorAll('.mobile-nav-item, #mobileResumeLink, #menuBrandLink, .editorial-nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNavDrawer && mobileNavDrawer.classList.contains('is-open')) {
+        closeMobileNav();
+      }
+    });
+
+    const mainNav = document.querySelector('.nav-bar');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (mainNav) {
+        if (scrollY > 30) {
+          mainNav.classList.add('nav-scrolled');
+        } else {
+          mainNav.classList.remove('nav-scrolled');
+        }
+      }
+    }, { passive: true });
+
     /* 2. QUICK-VIEW MODAL DRAWER */
     const drawerOverlay = document.getElementById('drawerOverlay');
     const drawerClose = document.getElementById('drawerClose');
@@ -2721,7 +3792,7 @@
       drawerLead.textContent = data.lead;
       drawerRole.textContent = data.role;
       drawerStack.textContent = data.stack;
-      if (drawerBody) drawerBody.textContent = data.body;
+      if (drawerBody) drawerBody.textContent = data.body || '';
       drawerPreview.style.background = data.bg;
 
       if (data.url) {
@@ -2763,175 +3834,172 @@
       }
     });
 
-    /* 3. VIEW TOGGLE (GRID / COMPACT ARCHIVE) */
-    const defaultCategoryViews = {
-      all: true,          // lista
-      uiux: false,        // card
-      development: false, // card
-      graphic: false,     // card
-      '3d': true          // lista
-    };
+    /* 3. FILTER PROJECTS BY CATEGORY (MIVON CARDS) */
+    function updateFilterCounts() {
+      const cards = document.querySelectorAll('.design-project-item');
+      document.querySelectorAll('.filter-count').forEach(el => {
+        const cat = el.getAttribute('data-count-for');
+        const n = cat === 'all'
+          ? cards.length
+          : [...cards].filter(c => (c.getAttribute('data-cat') || '').split(/\s+/).includes(cat)).length;
+        el.textContent = '(' + n + ')';
+      });
+    }
+    document.addEventListener('DOMContentLoaded', updateFilterCounts);
 
-    let isCompactView = true; // "Todos en projects deja por defecto en lista"
-    let currentFilterCat = 'all';
-
-    function applyView(compact, shouldScroll = false) {
-      isCompactView = compact;
-      const grid = document.getElementById('projectsGrid');
-      const compactTable = document.getElementById('compactProjectsTable');
-      const toggleBtnContainer = document.getElementById('viewToggleContainer');
-      const toggleBtn = document.getElementById('btnToggleCompact');
-      const toggleText = document.getElementById('btnToggleText');
-      const toggleIcon = document.getElementById('btnToggleIcon');
-
-      const lang = currentLang || 'it';
-      const labels = {
-        it: { more: "Vedi altri progetti (elenco)", back: "Visualizza a schede" },
-        es: { more: "Ver otros proyectos (lista)", back: "Visualizar en tarjetas" },
-        en: { more: "View other projects (list)", back: "View as cards" }
-      };
-      const curLabels = labels[lang] || labels.it;
-
-      if (isCompactView) {
-        if (grid) grid.style.display = 'none';
-        if (compactTable) {
-          compactTable.style.display = 'block';
-          compactTable.style.opacity = '1';
-          if (toggleBtnContainer) compactTable.after(toggleBtnContainer);
-        }
-        if (toggleText) toggleText.textContent = curLabels.back;
-        if (toggleIcon) toggleIcon.textContent = "↑";
-        if (toggleBtn) toggleBtn.classList.add('is-compact');
-
-        if (shouldScroll && compactTable) {
-          compactTable.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function filterProjects(cat, btn) {
+      if (btn) {
+        // Toggle behavior: if already active, clicking it resets filter to show all
+        if (btn.classList.contains('active')) {
+          btn.classList.remove('active');
+          cat = 'all';
+        } else {
+          document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
         }
       } else {
-        if (compactTable) compactTable.style.display = 'none';
-        if (grid) {
-          grid.style.display = 'grid';
-          grid.style.opacity = '1';
-          if (toggleBtnContainer) grid.after(toggleBtnContainer);
-        }
-        if (toggleText) toggleText.textContent = curLabels.more;
-        if (toggleIcon) toggleIcon.textContent = "↓";
-        if (toggleBtn) toggleBtn.classList.remove('is-compact');
-
-        if (shouldScroll && grid) {
-          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    }
-
-    function toggleCompactView() {
-      applyView(!isCompactView, true);
-      // Re-apply current category filter to the active view while preserving user's manual toggle
-      const activeFilterBtn = document.querySelector('.filter-pill.active');
-      filterProjects(currentFilterCat, activeFilterBtn || document.getElementById('filterBtnAll'), true);
-    }
-
-    /* 4. FILTER PROJECTS BY CATEGORY */
-    function filterProjects(cat, btn, preserveView = false) {
-      if (btn) {
         document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
       }
       currentFilterCat = cat;
 
-      // Apply default view mode for this category if not preserving manual toggle
-      if (!preserveView) {
-        const targetView = (defaultCategoryViews[cat] !== undefined) ? defaultCategoryViews[cat] : false;
-        applyView(targetView, false);
-      }
-
-      const cards = document.querySelectorAll('.floating-project-card');
+      const cards = document.querySelectorAll('.design-project-item');
       let visibleCards = 0;
       cards.forEach(card => {
-        const itemCats = (card.getAttribute('data-cat') || '').split(' ');
+        const itemCats = (card.getAttribute('data-cat') || '').split(/\s+/);
         if (cat === 'all' || itemCats.includes(cat)) {
-          card.style.display = 'flex';
-          card.style.opacity = '1';
+          card.style.display = '';
           visibleCards++;
         } else {
           card.style.display = 'none';
         }
       });
 
-      const rows = document.querySelectorAll('.compact-project-row');
-      let visibleRows = 0;
-      rows.forEach(row => {
-        const itemCats = (row.getAttribute('data-cat') || '').split(' ');
-        if (cat === 'all' || itemCats.includes(cat)) {
-          row.style.display = 'grid';
-          row.style.opacity = '1';
-          visibleRows++;
-        } else {
-          row.style.display = 'none';
-        }
-      });
-
-      const activeVisibleCount = isCompactView ? visibleRows : visibleCards;
-      const toggleBtnContainer = document.getElementById('viewToggleContainer');
-      if (toggleBtnContainer) {
-        toggleBtnContainer.style.display = activeVisibleCount === 0 ? 'none' : 'flex';
-      }
-
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
       const emptyMsg = document.getElementById('filterEmptyState');
       if (emptyMsg) {
-        if (activeVisibleCount === 0) {
-          emptyMsg.style.display = 'block';
-          const emptyText = document.getElementById('emptyMsgText');
-          const emptyBtn = document.getElementById('emptyMsgBtn');
-          if (emptyText && emptyBtn) {
-            const msgs = {
-              it: {
-                development: { text: "Progetti di sviluppo web in arrivo o disponibili su richiesta privata.", btn: "Richiedi Informazioni ↗" },
-                uiux: { text: "Case study UI/UX & Web Design in arrivo o consultabili su richiesta privata.", btn: "Richiedi Case Study UI/UX ↗" },
-                default: { text: "Progetti in questa categoria in preparazione o disponibili su richiesta privata.", btn: "Contattami ↗" }
-              },
-              es: {
-                development: { text: "Proyectos de desarrollo web en preparación o disponibles bajo petición privada.", btn: "Solicitar Información ↗" },
-                uiux: { text: "Case studies de UI/UX & Web Design en preparación o disponibles bajo petición privada.", btn: "Solicitar Case Studies UI/UX ↗" },
-                default: { text: "Proyectos en esta categoría en preparación o disponibles bajo petición privada.", btn: "Contáctame ↗" }
-              },
-              en: {
-                development: { text: "Web development projects in progress or available upon private request.", btn: "Request Information ↗" },
-                uiux: { text: "UI/UX & Web Design case studies in progress or available upon private request.", btn: "Request UI/UX Projects ↗" },
-                default: { text: "Projects in this category coming soon or available upon private request.", btn: "Contact Me ↗" }
-              }
-            };
-            const langDict = msgs[currentLang] || msgs.it;
-            const categoryInfo = langDict[cat] || langDict.default;
-            emptyText.textContent = categoryInfo.text;
-            emptyBtn.textContent = categoryInfo.btn;
-          }
-        } else {
-          emptyMsg.style.display = 'none';
-        }
+        emptyMsg.style.display = visibleCards === 0 ? 'block' : 'none';
       }
     }
 
-    /* 4. AMBIENT SPOTLIGHT FOLLOW */
-    const spotlight = document.getElementById('ambientSpotlight');
-    window.addEventListener('mousemove', (e) => {
-      if (spotlight) {
-        spotlight.style.left = `${e.clientX}px`;
-        spotlight.style.top = `${e.clientY + window.scrollY * 0.12}px`;
-      }
-    });
-
-    // Initialize Language & default category view from localStorage
+    // Initialize on DOM load
     document.addEventListener('DOMContentLoaded', () => {
       try {
         const savedLang = localStorage.getItem('bypat_lang');
         if (savedLang && (savedLang === 'es' || savedLang === 'en' || savedLang === 'it')) {
           setLanguage(savedLang);
+        } else {
+          setLanguage('it');
         }
-      } catch (e) {}
+      } catch (e) {
+        setLanguage('it');
+      }
 
-      // Initial filter: 'all' defaults to lista
-      filterProjects('all', document.getElementById('filterBtnAll'));
+      filterProjects('all', null);
     });
+
+    function initMetroPortfolio() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP or ScrollTrigger not loaded yet');
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 991px)", () => {
+        // 2. Set initial positions and ScrollTrigger scrub based on layout direction (alternating)
+        document.querySelectorAll(".design-project-item").forEach(item => {
+          let isThumbLeft = item.classList.contains("layout-thumb-left");
+          let thumb = item.querySelector(".design-project-thumb");
+          let content = item.querySelector(".design-project-content");
+
+          if (isThumbLeft) {
+            // Card on Left: glides in from left with -8deg rotation
+            if (thumb) gsap.set(thumb, { x: -360, rotate: -8, transformOrigin: "center center" });
+            if (content) gsap.set(content, { x: 100, opacity: 0.2 });
+          } else {
+            // Card on Right: glides in from right with +8deg rotation
+            if (thumb) gsap.set(thumb, { x: 360, rotate: 8, transformOrigin: "center center" });
+            if (content) gsap.set(content, { x: -100, opacity: 0.2 });
+          }
+
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: item,
+              start: "top 95%",
+              end: "center 55%",
+              scrub: 1.2
+            }
+          });
+
+          if (thumb) {
+            tl.to(thumb, { x: 0, rotate: 0, ease: "power1.out" }, 0);
+          }
+          if (content) {
+            tl.to(content, { x: 0, opacity: 1, ease: "power1.out" }, 0);
+          }
+        });
+      });
+
+      mm.add("(max-width: 990px)", () => {
+        gsap.set(".design-project-thumb", { x: 0, rotate: 0 });
+        document.querySelectorAll(".design-project-item").forEach(item => {
+          gsap.fromTo(item,
+            { y: 60, opacity: 0.3 },
+            {
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 90%",
+                end: "center 70%",
+                scrub: 1
+              }
+            }
+          );
+        });
+      });
+
+      // 4. Mouse 3D tilt and floating cursor on thumbnails
+      const frames = document.querySelectorAll('.metro-thumb-frame');
+      frames.forEach(frame => {
+        const cursor = frame.querySelector('.metro-floating-cursor');
+
+        frame.addEventListener('mousemove', (e) => {
+          const rect = frame.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          if (cursor) {
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+          }
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -3;
+          const rotateY = ((x - centerX) / centerX) * 3;
+
+          frame.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg)';
+        });
+
+        frame.addEventListener('mouseleave', () => {
+          frame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+      });
+
+      // Refresh ScrollTrigger to ensure correct offsets
+      ScrollTrigger.refresh();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMetroPortfolio);
+    } else {
+      initMetroPortfolio();
+    }
+    window.addEventListener('load', () => { if (window.ScrollTrigger) ScrollTrigger.refresh(); });
+
   </script>
 </body>
 </html>

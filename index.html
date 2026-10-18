@@ -4,28 +4,62 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bypatdesigner — Patricia Garcia | UI/UX &amp; Front-end</title>
+  <title>Bypatdesigner — Patricia Garcia | Portfolio</title>
   <meta name="description"
-    content="Portfolio di Patricia Garcia — Digital Designer e Front-end Developer a Bisceglie, Puglia. Creo interfacce chiare, sistemi visivi solidi ed esperienze web ad alto impatto." />
+    content="Portfolio di Patricia Garcia — UI/UX Designer e Front-end Developer a Bisceglie, Puglia. Creo interfacce chiare, sistemi visivi solidi ed esperienze web ad alto impatto." />
 
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
-  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
-  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
-
-  <!-- Google Fonts: Raleway (Headlines) & Space Grotesk (Body, Pills & Tech) -->
+  <!-- Local Web Fonts: Funnel Display & Satoshi -->
+    <!-- Funnel Display Web & Local Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./font/funnel-display.css" />
+<link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+
 
   <style>
-    /* ============================================================
-       FUNNEL DISPLAY (HERO NAME), CABINET GROTESK & SATOSHI
+    
+        /* ============================================================
+       FUNNEL DISPLAY & SATOSHI
        ============================================================ */
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-display: swap;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Funnel Display';
+      src: url('./img/INFORMACION/static/FunnelDisplay-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-display: swap;
+      font-style: normal;
+    }
     @font-face {
       font-family: 'Funnel Display';
       src: url('./img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
@@ -33,41 +67,13 @@
       font-display: swap;
       font-style: normal;
     }
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
-      font-weight: 800;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
-      font-weight: 700;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
-      font-weight: 500;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
-      font-weight: 400;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
     @font-face {
       font-family: 'Satoshi';
@@ -133,7 +139,7 @@
       --radius-xl: 32px;
       --radius-full: 9999px;
 
-      --font-display: "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+      --font-display: "Funnel Display", system-ui, -apple-system, sans-serif;
       --font-body: "Satoshi", system-ui, -apple-system, sans-serif;
       --font-mono: "Satoshi", monospace;
 
@@ -292,7 +298,7 @@
     }
 
     .grad-text {
-      font-family: 'CabinetGrotesk-Extrabold', 'Cabinet Grotesk', var(--font-display) !important;
+      font-family: 'Funnel Display', var(--font-display) !important; font-weight: 800;
       font-weight: 800 !important;
       background: linear-gradient(105deg, #FFFFFF 0%, #E9E4FC 28%, #BFA7FF 52%, #8B5CF6 74%, #F6BE65 100%);
       -webkit-background-clip: text;
@@ -303,7 +309,7 @@
     }
 
     .muted-text {
-      font-family: 'CabinetGrotesk-Medium', 'Cabinet Grotesk', var(--font-display) !important;
+      font-family: 'Funnel Display', var(--font-display) !important; font-weight: 500;
       color: var(--text-muted);
       font-weight: 500 !important;
     }
@@ -512,6 +518,7 @@
     }
 
     .lang-pill {
+      position: relative;
       display: inline-flex;
       align-items: center;
       gap: 2px;
@@ -523,6 +530,7 @@
       padding: 3px 4px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      isolation: isolate;
     }
 
     .lang-pill:hover {
@@ -530,7 +538,23 @@
       box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
 
+    .lang-pill .lang-indicator {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 0;
+      width: 32px;
+      background: var(--violet-primary);
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 10px rgba(139, 92, 246, 0.45);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
     .lang-btn {
+      position: relative;
+      z-index: 2;
       padding: 5px 12px;
       font-size: 0.74rem;
       font-weight: 600;
@@ -541,7 +565,7 @@
       background: transparent;
       border: none;
       cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       line-height: 1;
     }
 
@@ -552,9 +576,9 @@
 
     .lang-btn.active {
       color: #07060C;
-      background: linear-gradient(135deg, #C08BE8 0%, #A78BFA 100%);
       font-weight: 700;
-      box-shadow: 0 2px 10px rgba(167, 139, 250, 0.55);
+      background: transparent;
+      box-shadow: none;
     }
 
     /* Mobile Language Dropdown ("Menu a Tendina") */
@@ -857,13 +881,19 @@
       z-index: 10;
     }
 
+    .menu-brand-link .brand-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
     .menu-brand-link {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
       color: #FFFFFF;
-      font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+      font-family: 'Funnel Display', system-ui, sans-serif;
       font-size: 1.25rem;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -1001,7 +1031,7 @@
     }
 
     .editorial-nav-num {
-      font-family: 'Cabinet Grotesk', 'Satoshi', sans-serif;
+      font-family: 'Funnel Display', 'Satoshi', sans-serif;
       font-size: clamp(0.95rem, 1.3vw, 1.35rem);
       font-weight: 500;
       color: rgba(255, 255, 255, 0.35);
@@ -1011,7 +1041,7 @@
     }
 
     .editorial-nav-label {
-      font-family: 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Funnel Display', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: clamp(2.8rem, 6.2vw, 6.6rem);
       font-weight: 800;
       line-height: 0.96;
@@ -1197,7 +1227,7 @@
     }
 
     .hero-title {
-      font-family: 'CabinetGrotesk-Extrabold', 'CabinetGrotesk-Black', 'CabinetGrotesk-Bold', sans-serif !important;
+      font-family: 'Funnel Display', sans-serif !important; font-weight: 800;
       font-size: clamp(2.8rem, 5.8vw, 7.5rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
@@ -1289,7 +1319,7 @@
 
     .hero-copy .btn,
     .hero .actions .btn {
-      font-family: 'CabinetGrotesk-Bold', 'CabinetGrotesk-Extrabold', 'CabinetGrotesk-Medium', sans-serif !important;
+      font-family: 'Funnel Display', sans-serif !important; font-weight: 700;
       font-weight: 700;
     }
 
@@ -1320,8 +1350,8 @@
     }
 
     .btn.primary {
-      background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
-      border-color: var(--violet-light);
+      background: var(--violet-primary);
+      border-color: var(--violet-primary);
       color: var(--ink);
       font-weight: 700;
       box-shadow: 0 10px 30px rgba(139, 92, 246, 0.45);
@@ -1478,12 +1508,12 @@
       max-width: 980px;
     }
 
-    .about-statement {
-      font-family: var(--font-display, 'Cabinet Grotesk', -apple-system, sans-serif);
+        .about-statement {
+      font-family: var(--font-display, 'Funnel Display', -apple-system, sans-serif);
       font-size: clamp(24px, 2.7vw, 38px);
       line-height: 1.38;
       letter-spacing: -0.03em;
-      font-weight: 500;
+      font-weight: 400;
       color: #0E0B1F;
       margin: 0 0 clamp(36px, 4.5vw, 54px);
       text-wrap: pretty;
@@ -1496,11 +1526,18 @@
     .about-statement p {
       margin: 0;
       color: #0E0B1F;
+      font-weight: 400;
     }
 
-    .about-statement strong {
-      font-weight: 700;
+    .about-statement strong,
+    .about-statement b {
+      font-weight: 600;
       color: #0E0B1F;
+    }
+
+    .about-statement strong .scroll-word,
+    .about-statement .scroll-word strong {
+      font-weight: 600 !important;
     }
 
     .about-statement.scroll-ready {
@@ -1523,67 +1560,48 @@
     .about-services-btn {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
-      padding: 16px 36px;
-      border-radius: var(--radius-full);
-      border: 2px solid #0E0B1F;
+      gap: 10px;
+      padding: 4px 0;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1.5px solid var(--violet-light);
       background: transparent;
       color: #0E0B1F !important;
       font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
-      font-size: 1.16rem;
-      font-weight: 700;
+      font-size: clamp(1.1rem, 1.35vw, 1.25rem);
+      font-weight: 600;
       letter-spacing: -0.01em;
       text-transform: none;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: none;
+      transition: color 0.3s ease, border-color 0.3s ease, gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .about-services-btn svg {
-      stroke: #0E0B1F;
-      transition: stroke 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      stroke: currentColor;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .about-services-btn:hover {
-      background: #0E0B1F;
-      color: #FFFFFF !important;
-      border-color: #0E0B1F;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(14, 11, 31, 0.18);
+      background: transparent;
+      color: var(--violet-bright) !important;
+      border-color: var(--violet-bright);
+      transform: none;
+      box-shadow: none;
+      gap: 16px;
     }
 
     .about-services-btn:hover svg {
-      stroke: #FFFFFF;
+      stroke: currentColor;
       transform: translate(3px, -3px);
     }
 
-    @media (max-width: 960px) {
-      .about-header-wrap {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      #about .section-label,
-      .about-label {
-        padding-top: 0;
-      }
-      .about-statement {
-        font-size: clamp(20px, 4.8vw, 28px);
-        line-height: 1.36;
-        gap: 16px;
-        margin-bottom: 28px;
-        font-weight: 500;
-      }
-    }
-
     /* ============================================================
-       TOOL & TECH STACK TICKER
-       ============================================================ */
-    /* ============================================================
-       TOOL & PROGRAM STACK MARQUEE (Full Width Integrated Ribbon like Hero Marquee)
+       TOOL & PROGRAM STACK MARQUEE (DYNAMIC LANGUAGES & TECH BANNER)
        ============================================================ */
     .tech-stack-section {
       width: 100%;
-      padding: 16px 0;
+      padding: 18px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(10, 8, 18, 0.88);
@@ -1595,13 +1613,19 @@
       border-radius: 0 !important;
       box-shadow: none !important;
       z-index: 2;
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .tech-stack-section:hover .tech-track {
+      animation-play-state: paused;
     }
 
     .tech-track {
       display: flex;
       gap: 20px;
       width: max-content;
-      animation: techScroll 34s linear infinite;
+      animation: techScroll 32s linear infinite;
       align-items: center;
     }
 
@@ -1609,7 +1633,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 18px;
+      padding: 9px 20px;
       border-radius: var(--radius-full);
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1631,7 +1655,7 @@
       place-items: center;
       color: var(--violet-light);
       font-weight: 700;
-      font-size: 0.98rem;
+      font-size: 1.05rem;
       transition: transform 0.25s ease, color 0.25s ease;
     }
 
@@ -1639,29 +1663,26 @@
       color: #FFFFFF;
       background: rgba(167, 139, 250, 0.18);
       border-color: var(--line-violet);
-      box-shadow: 0 0 16px rgba(139, 92, 246, 0.28);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.35);
+      transform: translateY(-2px);
     }
 
     .tech-item:hover .tech-icon-box {
       color: #FFFFFF;
-      transform: scale(1.12);
+      transform: scale(1.15);
     }
 
     @keyframes techScroll {
-      to {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
         transform: translateX(-50%);
       }
     }
 
     /* ============================================================
-       03 — TRA DESIGN E CODICE (Full Width Light Canvas + White Card)
-       ============================================================ */
-    /* ============================================================
-       03 — TRA DESIGN E CODICE (EDITORIAL ACCORDION & VIOLET CANVAS)
-       ============================================================ */
-    /* ============================================================
-    /* ============================================================
-       03 — AREE DI COMPETENZA (LIGHT MODE / EDITORIAL SEZIONE 1 IMPACT)
+       03 — AREE DI COMPETENZA (PLINTH LARGE SERVICES + 04 HEADER STYLE)
        ============================================================ */
     .services-section {
       padding: clamp(90px, 12vw, 150px) 0 clamp(90px, 12vw, 150px);
@@ -1671,10 +1692,6 @@
       overflow: hidden;
       border-top: 1px solid rgba(14, 11, 31, 0.08);
       border-bottom: 1px solid rgba(14, 11, 31, 0.08);
-    }
-
-    .services-section::after {
-      display: none;
     }
 
     .services-header-wrap {
@@ -1702,15 +1719,25 @@
     }
 
     .services-lead-statement {
-      font-family: var(--font-display, 'Cabinet Grotesk', -apple-system, sans-serif);
-      font-size: clamp(36px, 4.2vw, 62px);
-      line-height: 1.25;
+      font-family: var(--font-display, 'Funnel Display', -apple-system, sans-serif);
+      font-size: 56pt;
+      line-height: 1.22;
       letter-spacing: -0.035em;
-      font-weight: 500;
+      font-weight: 400;
       color: #0E0B1F;
       margin: 0;
-      max-width: 1180px;
+      max-width: 1280px;
       text-wrap: pretty;
+    }
+
+    .services-lead-statement strong,
+    .services-lead-statement b {
+      font-weight: 600;
+    }
+
+    .services-lead-statement strong .scroll-word,
+    .services-lead-statement .scroll-word strong {
+      font-weight: 600 !important;
     }
 
     .services-lead-statement.scroll-ready {
@@ -1796,10 +1823,16 @@
       cursor: pointer;
       font-family: var(--font-display, var(--font-body));
       transition: color 0.25s ease, transform 0.25s ease;
+      outline: none;
     }
 
     .service summary::-webkit-details-marker {
       display: none;
+    }
+
+    .service summary::marker {
+      display: none;
+      content: "";
     }
 
     .service-sign {
@@ -1826,11 +1859,43 @@
 
     .service p {
       max-width: 58ch;
-      margin: 0 0 34px;
+      margin: 0 0 16px;
       font-size: clamp(15px, 1.1vw, 17px);
       line-height: 1.68;
       color: #4A4468;
       font-family: var(--font-body);
+    }
+
+    .service-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 8px;
+      margin: 14px 0 clamp(22px, 3vw, 32px);
+      max-width: 62ch;
+    }
+
+    .service-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3.5px 10px;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: clamp(11.5px, 0.78vw, 12.5px);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+      background: rgba(14, 11, 31, 0.035);
+      color: #55506E;
+      border: 1px solid rgba(14, 11, 31, 0.09);
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      user-select: none;
+    }
+
+    .service-pill:hover {
+      background: rgba(14, 11, 31, 0.06);
+      border-color: rgba(14, 11, 31, 0.16);
+      color: #120E24;
+      transform: none;
     }
 
     @media (max-width: 960px) {
@@ -1843,9 +1908,9 @@
         padding-top: 0;
       }
       .services-lead-statement {
-        font-size: clamp(24px, 5.8vw, 38px);
-        line-height: 1.32;
-        font-weight: 500;
+        font-size: clamp(26px, 5.2vw, 42pt);
+        line-height: 1.25;
+        font-weight: 400;
       }
       .services-body-grid {
         grid-template-columns: 1fr;
@@ -2542,16 +2607,28 @@
     }
 
     .process-lead-statement {
-      font-family: var(--font-display, 'Cabinet Grotesk', -apple-system, sans-serif);
-      font-size: clamp(36px, 4.2vw, 62px);
-      line-height: 1.25;
+      font-family: var(--font-display, 'Funnel Display', -apple-system, sans-serif);
+      font-size: 56pt;
+      line-height: 1.22;
       letter-spacing: -0.035em;
-      font-weight: 500;
+      font-weight: 400;
       color: #FFFFFF;
       margin: 0;
-      max-width: 1180px;
+      max-width: 1280px;
       text-wrap: pretty;
     }
+
+    .process-lead-statement strong,
+    .process-lead-statement b {
+      font-weight: 600;
+    }
+
+    .process-lead-statement strong .scroll-word,
+    .process-lead-statement .scroll-word strong {
+      font-weight: 600 !important;
+    }
+
+    
 
     .process-lead-statement.scroll-ready {
       color: rgba(255, 255, 255, 0.20);
@@ -2647,10 +2724,11 @@
         padding-top: 0;
       }
       .process-lead-statement {
-        font-size: clamp(24px, 5.8vw, 38px);
-        line-height: 1.32;
-        font-weight: 500;
+        font-size: clamp(26px, 5.2vw, 42pt);
+        line-height: 1.25;
+        font-weight: 400;
       }
+      .process-steps-row
       .process-steps-row {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px 24px;
@@ -2884,7 +2962,7 @@
       width: 100%;
       padding: 18px;
       border-radius: var(--radius-full);
-      background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
+      background: var(--violet-primary);
       color: var(--ink);
       font-weight: 800;
       font-size: 0.92rem;
@@ -3110,9 +3188,9 @@
       gap: 8px;
       padding: 12px 24px;
       border-radius: var(--radius-full);
-      background: rgba(37, 211, 102, 0.08);
-      color: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(37, 211, 102, 0.24);
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
       font-size: 0.92rem;
       font-weight: 500;
       text-decoration: none;
@@ -3120,9 +3198,9 @@
     }
 
     .plinth-whatsapp-link:hover {
-      background: rgba(37, 211, 102, 0.18);
-      border-color: rgba(37, 211, 102, 0.55);
-      color: #ffffff;
+      background: #FFFFFF;
+      border-color: #FFFFFF;
+      color: #07060C;
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(37, 211, 102, 0.2);
     }
@@ -3787,14 +3865,11 @@
         gap: 6px;
       }
 
-      .lang-pill {
-        padding: 2px 2px;
-        gap: 1px;
+      .lang-desktop-pill {
+        display: none !important;
       }
-
-      .lang-btn {
-        padding: 3px 7px;
-        font-size: 0.65rem;
+      .lang-dropdown-wrapper {
+        display: inline-block !important;
       }
 
       .nav-resume-btn {
@@ -3909,9 +3984,741 @@
       opacity: 0.85;
       transition: opacity 0.3s ease;
     }
+  
+
+    /* ============================================================
+       AGNTIX PORTFOLIO METRO — 105px MARGIN & FIXED NAVBAR VERTICAL ALIGNMENT
+       ============================================================ */
+    :root {
+      --pad: clamp(20px, 4vw, 48px);
+      --max-width: 1440px;
+    }
+
+    /* Fixed top navbar: spans full width, content aligned to .shell */
+    .nav-bar,
+    .nav-bar.nav-scrolled,
+    header.nav-bar {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      transform: none !important;
+      border-radius: 0 !important;
+      border-top: none !important;
+      border-left: none !important;
+      border-right: none !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: linear-gradient(180deg, rgba(18, 14, 32, 0.45) 0%, rgba(7, 6, 12, 0.28) 100%) !important;
+      backdrop-filter: blur(28px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(139, 92, 246, 0.15) !important;
+      padding-top: 18px !important;
+      padding-bottom: 18px !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      z-index: 9999 !important;
+      box-sizing: border-box !important;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .nav-bar .nav-inner {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+
+    .nav-bar.nav-scrolled {
+      padding-top: 13px !important;
+      padding-bottom: 13px !important;
+      background: linear-gradient(180deg, rgba(18, 14, 32, 0.72) 0%, rgba(7, 6, 12, 0.58) 100%) !important;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.35) !important;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(139, 92, 246, 0.25) !important;
+    }
+
+    .nav-left {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .brand,
+    .nav-bar .brand {
+      padding: 0 !important;
+      margin: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      transform: none !important;
+    }
+
+    .brand-logo-img,
+    .nav-bar .brand-logo-img {
+      height: 32px !important;
+      width: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+    }
+
+    .nav-right,
+    .nav-bar .nav-right {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      gap: 14px !important;
+    }
+
+    /* Harmonious Container Alignment with About Me & Vision (.shell) */
+    .shell,
+    .metro-container {
+      max-width: var(--max-width, 1440px) !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+      box-sizing: border-box !important;
+    }
+
+    .hero.hero-minimal {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-top: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    .hero-minimal .hero-inner {
+      max-width: var(--max-width, 1440px) !important;
+      margin: 0 auto !important;
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+      padding-top: clamp(96px, 12vh, 125px) !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+
+    .hero-minimal .hero-role-wrapper {
+      margin-left: 0 !important;
+    }
+
+    .hero-minimal .hero-title-wrap {
+      width: 100% !important;
+      justify-content: center !important;
+      margin-bottom: clamp(32px, 5vh, 60px) !important;
+      padding-bottom: clamp(20px, 3vh, 36px) !important;
+    }
+
+    .hero-minimal .hero-title {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .menu-overlay-header {
+      max-width: var(--max-width, 1440px) !important;
+      margin: 0 auto !important;
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+
+    .site-footer .shell {
+      max-width: var(--max-width, 1440px) !important;
+      margin: 0 auto !important;
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+      box-sizing: border-box !important;
+    }
+
+    .metro-portfolio-area {
+      position: relative;
+      background: radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 15% 65%, rgba(192, 139, 232, 0.05) 0%, transparent 60%),
+                  var(--ink);
+      padding: clamp(90px, 11vw, 170px) 0 clamp(100px, 12vw, 180px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow-x: clip;
+      overflow-y: visible;
+      z-index: 2;
+    }
+
+    .metro-container {
+      width: 100%;
+      margin: 0;
+      padding: 0 var(--pad);
+      overflow: visible;
+    }
+
+    /* Metro Header with Lateral Sliding Text */
+    .metro-header-wrap {
+      margin-bottom: clamp(60px, 8vw, 120px);
+      position: relative;
+      overflow: visible;
+      text-align: left;
+    }
+
+    .metro-shape-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--violet-light);
+      margin-bottom: 24px;
+    }
+
+    .metro-shape-badge svg {
+      color: var(--violet-light);
+      opacity: 0.8;
+      width: 80px;
+    }
+
+    .metro-header-row {
+      display: block;
+      overflow: visible;
+    }
+
+    .metro-section-title {
+      font-size: clamp(2.4rem, 4.2vw, 56pt);
+      line-height: 1.04;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      text-transform: uppercase;
+      margin: 0;
+      font-family: var(--font-display);
+      overflow: visible;
+      text-align: left;
+    }
+
+    @media (min-width: 992px) {
+      .metro-section-title {
+        font-size: 56pt;
+      }
+    }
+
+    /* Agntix Signature Lateral Text Scroll */
+    .tp-text-right-scroll {
+      display: inline-block;
+      will-change: transform;
+    }
+
+    .tp-text-left-scroll {
+      display: inline-block;
+      will-change: transform;
+    }
+
+    .metro-title-line {
+      display: block;
+      font-weight: 400;
+    }
+
+    .metro-title-line.highlight-accent {
+      font-family: 'Funnel Display', var(--font-display) !important;
+      font-weight: 600 !important;
+      background: linear-gradient(105deg, #FFFFFF 0%, #E9E4FC 28%, #BFA7FF 52%, #8B5CF6 74%, #F6BE65 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
+    }
+
+    .metro-header-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 8px;
+      text-align: left;
+    }
+
+    .metro-header-desc {
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--text-dim);
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .metro-quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .metro-pill-filter {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border: 1px solid var(--line-light);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+
+    .metro-pill-filter.active,
+    .metro-pill-filter:hover {
+      color: #FFFFFF;
+      background: rgba(139, 92, 246, 0.22);
+      border-color: var(--violet-light);
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+    }
+
+    /* Metro Project Items Container */
+    .metro-project-list {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(90px, 12vw, 160px);
+      overflow: visible;
+    }
+
+    .design-project-item {
+      position: relative;
+      overflow: visible;
+    }
+
+    /* UNIFIED 2-COLUMN GRID (Content Left, Thumb Right for all cards) */
+    .metro-item-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      align-items: center;
+      overflow: visible;
+    }
+
+    @media (min-width: 992px) {
+      .metro-item-grid {
+        grid-template-columns: 4.8fr 7.2fr;
+        gap: clamp(40px, 5.5vw, 90px);
+      }
+
+      /* Alternating: Card (thumb) on Left, Text (content) on Right */
+      .design-project-item.layout-thumb-left .metro-item-grid {
+        grid-template-columns: 7.2fr 4.8fr;
+      }
+
+      .design-project-item.layout-thumb-left .metro-thumb-col {
+        order: 1;
+      }
+
+      .design-project-item.layout-thumb-left .metro-content-col {
+        order: 2;
+        padding-left: clamp(10px, 1.8vw, 28px);
+        padding-right: 0;
+      }
+
+      /* Default: Text on Left, Card on Right */
+      .design-project-item.layout-content-left .metro-content-col {
+        order: 1;
+        padding-right: clamp(10px, 1.8vw, 28px);
+        padding-left: 0;
+      }
+
+      .design-project-item.layout-content-left .metro-thumb-col {
+        order: 2;
+      }
+    }
+
+    /* Lateral Slide Columns manipulated by GSAP */
+    .design-project-thumb {
+      width: 100%;
+      will-change: transform;
+      overflow: visible;
+    }
+
+    .design-project-content {
+      will-change: transform, opacity;
+      overflow: visible;
+      text-align: left;
+    }
+
+    /* Metro Content Column Styling */
+    .metro-item-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--violet-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .metro-index,
+    .metro-slash {
+      display: none !important;
+    }
+
+    .metro-project-list { counter-reset: project; }
+    .design-project-item { counter-increment: project; }
+    .metro-item-meta .metro-category::before {
+      content: counter(project, decimal-leading-zero) "  —  ";
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .metro-category {
+      color: #C084FC !important; /* VIOLA FORTE */
+      font-weight: 700 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      font-size: 0.92rem !important;
+      text-shadow: 0 0 16px rgba(192, 132, 252, 0.4);
+      display: inline-block;
+    }
+
+    .metro-project-title {
+      font-size: clamp(2rem, 3.2vw, 40pt);
+      line-height: 1.08;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      margin: 0 0 20px 0;
+      font-family: var(--font-display);
+      text-align: left;
+    }
+
+    @media (min-width: 992px) {
+      .metro-project-title {
+        font-size: 40pt;
+      }
+    }
+
+    .metro-project-title a {
+      font-weight: 400;
+      color: var(--text-main);
+      display: inline-block;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .metro-project-title a:hover {
+      color: var(--violet-bright);
+      transform: translateX(4px);
+    }
+
+    .metro-project-summary {
+      font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+      line-height: 1.65;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .metro-project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .metro-project-tags span {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+
+    .metro-project-tags span + span::before {
+      content: '/';
+      margin: 0 10px;
+      color: var(--violet-light);
+    }
+
+    /* Enlace de proyecto: texto con subrayado, sin caja ni degradado */
+    .tp-btn-metro {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      background: none;
+      border: none;
+      border-bottom: 1.5px solid var(--violet-light);
+      border-radius: 0;
+      transition: color 0.3s ease, border-color 0.3s ease, gap 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tp-btn-metro:hover {
+      color: var(--violet-bright);
+      border-color: var(--violet-bright);
+      gap: 16px;
+    }
+
+    .tp-btn-metro:hover .metro-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    /* Metro Thumbnail Frame */
+    .metro-thumb-link {
+      display: block;
+      position: relative;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .metro-thumb-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10.5;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #12101E;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      transform: translateZ(0);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+    }
+
+    .metro-thumb-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7, 6, 12, 0.4) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.6;
+      transition: opacity 0.4s ease;
+    }
+
+    .metro-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+      transform: scale(1);
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+
+    .metro-floating-cursor {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 76px;
+      height: 76px;
+      margin-left: -38px;
+      margin-top: -38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: #07060C;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      z-index: 3;
+      opacity: 0;
+      transform: scale(0.6);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hover States on Card */
+    .metro-thumb-link:hover .metro-thumb-frame {
+      border-color: rgba(192, 139, 232, 0.6);
+      box-shadow: 0 30px 80px rgba(139, 92, 246, 0.28), 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .metro-thumb-link:hover .metro-thumb-img {
+      transform: scale(1.055);
+    }
+
+    .metro-thumb-link:hover .metro-thumb-frame::after {
+      opacity: 0.2;
+    }
+
+    .metro-thumb-link:hover .metro-floating-cursor {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Metro Explore All Projects */
+    .metro-explore-wrap {
+      padding: clamp(60px, 8vw, 110px) 0 clamp(80px, 10vw, 140px) 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .metro-explore-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 32pt);
+      font-weight: 400;
+      color: #FFFFFF;
+      text-decoration: none;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    @media (min-width: 992px) {
+      .metro-explore-link {
+        font-size: 32pt;
+      }
+    }
+
+    .metro-explore-link span {
+      font-weight: 400;
+      color: #FFFFFF;
+      transition: color 0.3s ease;
+    }
+
+    .metro-explore-arrow {
+      color: #FFFFFF;
+      stroke: currentColor;
+      width: clamp(26px, 2.2vw, 34px);
+      height: clamp(26px, 2.2vw, 34px);
+      transition: color 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .metro-explore-link:hover .metro-explore-arrow {
+      color: #C084FC; /* freccia cambia colore al hover */
+      transform: translateX(8px);
+    }
+
+    /* Floating Version Switcher Pill */
+    .metro-version-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      background: rgba(14, 13, 24, 0.88);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(167, 139, 250, 0.35);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(139, 92, 246, 0.2);
+      border-radius: var(--radius-full);
+      padding: 8px 12px 8px 18px;
+      transition: all 0.3s ease;
+    }
+
+    .metro-pill-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .metro-pill-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 10px #10B981;
+      animation: metroPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes metroPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .metro-pill-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+
+    .metro-pill-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(167, 139, 250, 0.4);
+      color: var(--violet-bright);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      transition: all 0.25s ease;
+    }
+
+    .metro-pill-switch:hover {
+      background: var(--violet-primary);
+      color: #FFFFFF;
+      border-color: var(--violet-light);
+    }
+
+    /* ===== Revisión: legibilidad, accesibilidad y ajustes menores ===== */
+    .about-statement.scroll-ready,
+    .about-statement .scroll-word { color: rgba(14, 11, 31, 0.55); }
+    .process-lead-statement.scroll-ready,
+    .process-lead-statement .scroll-word { color: rgba(255, 255, 255, 0.38); }
+    .hero-location { font-size: 0.95rem; letter-spacing: 0.04em; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+    #portfolio,
+    #work {
+      scroll-margin-top: 80px;
+    }
+    .nav-contact-btn,
+    .nav-portfolio-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      background: var(--violet-primary);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .nav-contact-btn:hover,
+    .nav-portfolio-btn:hover { background: var(--violet-light); transform: translateY(-1px); }
+    .nav-contact-btn:focus-visible,
+    .nav-portfolio-btn:focus-visible { outline: 2px solid var(--violet-bright); outline-offset: 3px; }
+    @media (max-width: 560px) { 
+      .nav-contact-btn,
+      .nav-portfolio-btn { display: none; } 
+    }
   </style>
   <link rel="stylesheet" href="about-cards.css?v=2">
-  <link rel="stylesheet" href="hero-minimal.css?v=12">
+  <link rel="stylesheet" href="hero-minimal.css?v=15">
 </head>
 
 <body>
@@ -3930,18 +4737,45 @@
 
   <!-- ================= FLOATING GLASS NAVBAR ================= -->
   <nav class="nav-bar" aria-label="Navigazione principale">
-    <div class="nav-left">
+    <div class="nav-inner shell">
+      <div class="nav-left">
       <a class="brand" href="#top" aria-label="Bypatdesigner Home">
         <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
       </a>
     </div>
 
     <div class="nav-right">
+      <!-- Botón de portfolio en la barra superior -->
+      <a class="nav-portfolio-btn nav-contact-btn" href="projects.html" data-i18n="nav.projects">Portfolio</a>
       <!-- Language Selector (IT | ES | EN) on the right beside the hamburger -->
-      <div class="lang-pill" role="group" aria-label="Selettore Lingua / Language Selector">
+      <!-- Desktop Language Selector (IT | ES | EN) -->
+      <div class="lang-pill lang-desktop-pill" id="metroLangPill" role="group" aria-label="Selettore Lingua / Language Selector">
+        <span class="lang-indicator" aria-hidden="true"></span>
         <button class="lang-btn active" data-lang="it" type="button" aria-label="Italiano" title="Italiano">IT</button>
         <button class="lang-btn" data-lang="es" type="button" aria-label="Español" title="Español">ES</button>
         <button class="lang-btn" data-lang="en" type="button" aria-label="English" title="English">EN</button>
+      </div>
+
+      <!-- Mobile Language Dropdown ("Menu a Tendina") -->
+      <div class="lang-dropdown-wrapper" id="langDropdownWrapper">
+        <button class="lang-dropdown-trigger" id="langDropdownTrigger" type="button" aria-label="Seleziona lingua" aria-expanded="false">
+          <span class="lang-trigger-code" id="langTriggerCode">IT</span>
+          <i class="fa-solid fa-chevron-down lang-trigger-chevron"></i>
+        </button>
+        <div class="lang-dropdown-menu" id="langDropdownMenu" role="menu" aria-hidden="true">
+          <button class="lang-dropdown-item lang-btn active" data-lang="it" type="button" role="menuitem">
+            <span class="lang-opt-name">Italiano</span>
+            <span class="lang-opt-code">IT</span>
+          </button>
+          <button class="lang-dropdown-item lang-btn" data-lang="es" type="button" role="menuitem">
+            <span class="lang-opt-name">Español</span>
+            <span class="lang-opt-code">ES</span>
+          </button>
+          <button class="lang-dropdown-item lang-btn" data-lang="en" type="button" role="menuitem">
+            <span class="lang-opt-name">English</span>
+            <span class="lang-opt-code">EN</span>
+          </button>
+        </div>
       </div>
 
       <!-- Large Hamburger Button (Opens Fullscreen Black Menu) -->
@@ -3953,6 +4787,7 @@
         </span>
       </button>
     </div>
+    </div>
   </nav>
 
   <!-- ================= FULLSCREEN EDITORIAL BLACK MENU (PLINTH AESTHETIC) ================= -->
@@ -3960,8 +4795,8 @@
     <div class="menu-overlay-inner">
       <!-- Header row inside menu -->
       <div class="menu-overlay-header">
-        <a class="menu-brand-link" href="#top" id="menuBrandLink" aria-label="Vai a inizio pagina">
-          <span class="menu-brand-name">Pat</span>
+        <a class="menu-brand-link brand" href="#top" id="menuBrandLink" aria-label="Bypatdesigner Home">
+          <img class="brand-logo-img" src="./img/logo.png" alt="Bypatdesigner Logo" />
         </a>
         <button class="menu-close-btn" id="mobileNavCloseBtn" type="button" aria-label="Chiudi menu">
           <span class="menu-close-text" data-i18n="nav.close">Close</span>
@@ -3974,9 +4809,9 @@
         <!-- Left Side: Studio details & Socials & Email -->
         <div class="menu-col-left">
           <div class="menu-studio-block">
-            <span class="menu-studio-label" data-i18n="menu.studio_details">Studio details</span>
+            <span class="menu-studio-label" data-i18n="menu.studio_details">Contact</span>
             <ul class="menu-social-links" role="list">
-              <li><a href="https://linkedin.com/in/patricia-garcia-design" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
               <li><a href="https://behance.net/bypatdesigner" target="_blank" rel="noopener noreferrer">Behance</a></li>
               <li><a href="https://github.com/bypatdesigner" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               <li><a href="https://instagram.com/bypatdesigner" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -3999,7 +4834,7 @@
             <li class="editorial-nav-item">
               <a href="projects.html" class="editorial-nav-link mobile-nav-item">
                 <span class="editorial-nav-num">(02)</span>
-                <span class="editorial-nav-label" data-i18n="nav.projects">Progetti</span>
+                <span class="editorial-nav-label" data-i18n="nav.projects">Portfolio</span>
               </a>
             </li>
             <li class="editorial-nav-item">
@@ -4038,18 +4873,19 @@
 
   <!-- ================= HERO (PATRICIA GARCIA 3D SHOWCASE & STATEMENT) ================= -->
   <header class="hero hero-minimal" id="top" aria-labelledby="heroTitle">
+    <!-- Full-Width Native 3D Spline Canvas Backdrop -->
+    <canvas id="heroSplineCanvas" class="hero-spline-full-canvas"></canvas>
+
     <div class="hero-inner">
       <div class="hero-main-stage">
         <!-- Left Role Info -->
         <div class="hero-role-wrapper">
-          <h2 class="hero-role-primary" data-i18n="hero.role_primary">Graphic &amp; UI/UX Designer</h2>
+          <h2 class="hero-role-primary">
+            <span class="hero-role-line" data-i18n="hero.role_line1">UI/UX &amp; Web Designer</span>
+            <span class="hero-role-line" data-i18n="hero.role_line2">Web Development</span>
+          </h2>
           <p class="hero-role-secondary" data-i18n="hero.role_secondary">Bridging Design &amp; Code</p>
           <span class="hero-location" data-i18n="hero.loc">Bisceglie, Italia</span>
-        </div>
-
-        <!-- 3D Character Illustration (Center-Right) -->
-        <div class="hero-character-wrap" aria-hidden="true">
-          <img src="img/hero-patricia-3d.png" alt="Patricia Garcia 3D Avatar" class="hero-character-img" />
         </div>
       </div>
 
@@ -4103,7 +4939,9 @@
             <div class="about-action-wrap">
               <a href="cv.html" class="about-services-btn" data-i18n-html="about.btn_services">
                 <span>Resume CV</span>
-                <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>
+                <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -4111,122 +4949,244 @@
       </div>
     </section>
 
-    <!-- ================= 02 — WORK / STACK SECTION & CINEMATIC SCENES (HOME-PLINTH) ================= -->
-    <section class="stack-section" id="work" aria-label="Progetti selezionati">
-      <div class="stack-stage">
-        <div class="stack-type" aria-hidden="true">
-          <span data-i18n="stack.line1">Identità visive · Esperienze digitali ·</span>
-          <span data-i18n="stack.line2">Idee in movimento · Nuove prospettive ·</span>
-          <span data-i18n="stack.line3">Design, codice e curiosità ·</span>
+    
+    <!-- ================= 02 — AGNTIX METRO PORTFOLIO (105px MARGIN & LEFT ALIGNED) ================= -->
+    <section class="design-project-area metro-portfolio-area title-box" id="portfolio" aria-label="Progetti selezionati">
+      <span id="work" style="position: absolute; pointer-events: none; opacity: 0;" aria-hidden="true"></span>
+      <div class="metro-container">
+        
+        <!-- Metro Section Header: Left-Aligned at 105px -->
+        <div class="metro-header-wrap">
+          <div class="metro-shape-badge">
+            <span data-i18n="metro.badge">PORTFOLIO</span>
+          </div>
+          <div class="metro-header-row">
+            <div class="metro-header-title-box">
+              <h2 class="metro-section-title">
+                <span class="metro-title-line tp-text-right-scroll" data-i18n="metro.title_line1">Ultimi</span>
+                <span class="metro-title-line tp-text-left-scroll highlight-accent" data-i18n="metro.title_line2">progetti.</span>
+              </h2>
+            </div>
+          </div>
         </div>
-        <div class="stack-images">
-          <img class="stack-image stack-image-back" src="img/apulia/hero-manifesto.jpg" alt="Campagna visiva Apulia Promoting US" width="600" height="900">
-          <img class="stack-image stack-image-front" src="img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli: logo e identità visiva" width="600" height="900">
+
+        <!-- Metro Project Items List: ALL ALIGNED TO LEFT COLUMN AT 105px -->
+        <div class="metro-project-list">
+          
+          <!-- Item 01: Teatro Petruzzelli (Card Testo) -->
+          <article class="design-project-item layout-thumb-left">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category" data-i18n="metro.cat_brand">Brand Identity</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="petruzzelli-logo.html">Teatro Petruzzelli</a>
+                </h3>
+                <p class="metro-project-summary" data-i18n="metro.p1_desc">
+                  Una proposta individuale di logo design nata dall’osservazione dell’architettura del Teatro Petruzzelli e dalla ricerca di un simbolo essenziale, riconoscibile e versatile.
+                </p>
+                <div class="metro-project-tags" data-i18n-html="metro.p1_tags">
+                  <span>Logo Design</span>
+                  <span>Brand Design</span>
+                  <span>Visual Identity</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="petruzzelli-logo.html">
+                    <span data-i18n="metro.btn_view">Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="petruzzelli-logo.html" aria-label="Apri Teatro Petruzzelli">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli: logo e identità visiva" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 02: Eureka Platform (Testo Card) -->
+          <article class="design-project-item layout-content-left">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category" data-i18n="metro.cat_brand">Brand Identity</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="eureka.html">Eureka Platform</a>
+                </h3>
+                <p class="metro-project-summary" data-i18n="metro.p2_desc">
+                  Un’identità visiva per una piattaforma professionale pensata per connettere persone, talento e nuove opportunità.
+                </p>
+                <div class="metro-project-tags" data-i18n-html="metro.p2_tags">
+                  <span>Logo Design</span>
+                  <span>Visual Identity</span>
+                  <span>Brand Guidelines</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="eureka.html">
+                    <span data-i18n="metro.btn_view">Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="eureka.html" aria-label="Apri Eureka">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="img/eureka/hero.png" alt="Eureka: sistema di identità visiva e web" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 03: Apulia Promoting US (Card Testo) -->
+          <article class="design-project-item layout-thumb-left">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category" data-i18n="metro.cat_brand">Brand Identity</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="apulia.html">Apulia Promoting US</a>
+                </h3>
+                <p class="metro-project-summary" data-i18n="metro.p3_desc">
+                  Identità visiva e comunicazione per valorizzare l’oasi di Boccadoro-Ariscianne e invitare le persone a riscoprirne il patrimonio naturale e culturale.
+                </p>
+                <div class="metro-project-tags" data-i18n-html="metro.p3_tags">
+                  <span>Logo Design</span>
+                  <span>Advertising</span>
+                  <span>Editorial</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="apulia.html">
+                    <span data-i18n="metro.btn_view">Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="apulia.html" aria-label="Apri Apulia Promoting US">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US: manifesto della campagna" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 04: Miami Mango (Testo Card) -->
+          <article class="design-project-item layout-content-left">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category" data-i18n="metro.cat_brand">Brand Identity</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="miami-mango.html">Miami Mango</a>
+                </h3>
+                <p class="metro-project-summary" data-i18n="metro.p4_desc">
+                  Il cuore del progetto è la costruzione del simbolo: le iniziali M + M vengono organizzate fino a suggerire la silhouette di una tavola da surf.
+                </p>
+                <div class="metro-project-tags" data-i18n-html="metro.p4_tags">
+                  <span>Logo Design</span>
+                  <span>Color Palette</span>
+                  <span>Packaging</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="miami-mango.html">
+                    <span data-i18n="metro.btn_view">Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="miami-mango.html" aria-label="Apri Miami Mango">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="img/miami-mango/card-home.jpg" alt="Miami Mango: identità per tavole da surf" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 05: Cinepass App (Card Testo) -->
+          <article class="design-project-item layout-thumb-left">
+            <div class="metro-item-grid">
+              <div class="design-project-content metro-content-col">
+                <div class="metro-item-meta">
+                  <span class="metro-category" data-i18n="metro.cat_uiux">UI/UX Design</span>
+                </div>
+                <h3 class="metro-project-title">
+                  <a href="cinepass-project.html">Cinepass App</a>
+                </h3>
+                <p class="metro-project-summary" data-i18n="metro.p5_desc">
+                  Un’esperienza mobile per scoprire film e prenotare il proprio posto al cinema.
+                </p>
+                <div class="metro-project-tags" data-i18n-html="metro.p5_tags">
+                  <span>UX Research</span>
+                  <span>UI Design</span>
+                  <span>Prototyping</span>
+                </div>
+                <div class="metro-action-wrap">
+                  <a class="tp-btn-metro" href="cinepass-project.html">
+                    <span data-i18n="metro.btn_view">Scopri il progetto</span>
+                    <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 12L12 4M12 4H6M12 4V10"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="design-project-thumb item-1 metro-thumb-col">
+                <a class="metro-thumb-link" href="cinepass-project.html" aria-label="Apri Cinepass App">
+                  <div class="metro-thumb-frame">
+                    <img class="metro-thumb-img" src="img/cinepass/Cover.jpg" alt="Cinepass Mobile App" loading="lazy">
+                    <div class="metro-floating-cursor"><span>View</span></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
-        <a class="stack-project-link" href="petruzzelli-logo.html">
-          <strong>Teatro Petruzzelli</strong>
-          <span class="stack-project-pill">
-            <span data-i18n="project.view_text">Scopri il progetto</span>
-            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
-              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
+
+        <!-- Metro Explore All Projects Link -->
+        <div class="metro-explore-wrap">
+          <a class="metro-explore-link" href="projects.html">
+            <span data-i18n="metro.explore_all">Esplora tutti i progetti</span>
+            <svg class="metro-explore-arrow" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-          </span>
-        </a>
-        <div class="stack-caption">
-          <p data-i18n="stack.caption_title">Una selezione di progetti</p>
-          <a href="#eureka"><span data-i18n="stack.caption_link">Esplora il lavoro</span> <span aria-hidden="true">↓</span></a>
+          </a>
         </div>
+
       </div>
     </section>
 
-    <!-- Project 01: Eureka -->
-    <section class="project-scene" id="eureka" aria-labelledby="eureka-title">
-      <div class="scene-pin">
-        <img class="scene-background" src="img/eureka/hero.png" alt="" loading="lazy">
-        <div class="scene-top">
-          <span data-i18n="project.eureka.tag">Brand identity / Progetto accademico</span>
-          <span>2021</span>
-        </div>
-        <div class="scene-marquee" aria-hidden="true"><span>Eureka · Eureka · Eureka · Eureka · </span></div>
-        <a class="scene-card" href="eureka.html">
-          <img src="img/eureka/hero.png" alt="Eureka: sistema di identità visiva" width="1400" height="900" loading="lazy">
-          <h2 id="eureka-title">Eureka</h2>
-          <span class="project-view">
-            <span data-i18n="project.view_text">Scopri il progetto</span>
-            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
-              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
-            </svg>
-          </span>
-        </a>
-      </div>
-    </section>
 
-    <!-- Project 02: Apulia Promoting US -->
-    <section class="project-scene" id="apulia" aria-labelledby="apulia-title">
-      <div class="scene-pin">
-        <img class="scene-background" src="img/apulia/hero-manifesto.jpg" alt="" loading="lazy">
-        <div class="scene-top">
-          <span data-i18n="project.apulia.tag">Brand identity / Campagna</span>
-          <span>2021</span>
-        </div>
-        <div class="scene-marquee" aria-hidden="true"><span>Apulia · Apulia · Apulia · Apulia · </span></div>
-        <a class="scene-card" href="apulia.html">
-          <img src="img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US: manifesto della campagna" width="1400" height="900" loading="lazy">
-          <h2 id="apulia-title">Apulia Promoting US</h2>
-          <span class="project-view">
-            <span data-i18n="project.view_text">Scopri il progetto</span>
-            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
-              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
-            </svg>
-          </span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Project 03: Miami Mango -->
-    <section class="project-scene" id="miami" aria-labelledby="miami-title">
-      <div class="scene-pin">
-        <img class="scene-background" src="img/miami-mango/card-home.jpg" alt="" loading="lazy">
-        <div class="scene-top">
-          <span data-i18n="project.miami.tag">Brand identity / Tavole da surf</span>
-          <span>2022</span>
-        </div>
-        <div class="scene-marquee" aria-hidden="true"><span>Miami Mango · Miami Mango · Miami Mango · </span></div>
-        <a class="scene-card" href="miami-mango.html">
-          <img src="img/miami-mango/card-home.jpg" alt="Miami Mango: identità per tavole da surf" width="1400" height="900" loading="lazy">
-          <h2 id="miami-title">Miami Mango</h2>
-          <span class="project-view">
-            <span data-i18n="project.view_text">Scopri il progetto</span>
-            <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
-              <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
-            </svg>
-          </span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Archive Link Bar -->
-    <a class="archive-bar" href="projects.html">
-      <span data-i18n="archive_bar.text">Altre idee. Altri progetti.</span>
-      <span class="archive-bar-cta">
-        <span data-i18n="archive_bar.link">Esplora il portfolio</span>
-        <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line>
-          <polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline>
-        </svg>
-      </span>
-    </a>
 
     <!-- ================= 03 — AREE DI COMPETENZA (PLINTH LARGE SERVICES + 04 HEADER STYLE) ================= -->
     <section class="services-section section-pad" id="services">
       <div class="shell">
         <!-- 03 Header: Label + Lead Statement at 40pt -->
         <div class="services-header-wrap reveal">
-          <div class="section-label services-label" data-i18n="services.section_label">Aree di competenza</div>
+          <div class="section-label services-label" data-i18n="services.section_label">Servizi</div>
           <h2 class="services-lead-statement" data-i18n="services.intro_desc">
             Dal design visivo allo sviluppo web, esploro ogni progetto con curiosità, attenzione ai dettagli e voglia di trovare soluzioni concrete.
           </h2>
@@ -4247,8 +5207,17 @@
                 <span class="service-sign" aria-hidden="true">+</span>
               </summary>
               <p data-i18n="services.card1_desc">
-                Ricerca, architettura dell’informazione, wireframe e prototipi. Parto dalle persone per progettare interfacce comprensibili e piacevoli da usare.
+                Faccio ricerca, organizzo e testo prima di progettare. Definisco flussi, architettura dell'informazione e wireframe, arrivando a prototipi e interfacce chiare, pensate per chi le userà.
               </p>
+              <div class="service-pills" data-i18n-html="services.card1_pills">
+                <span class="service-pill">Ricerca</span>
+                <span class="service-pill">User flows</span>
+                <span class="service-pill">Wireframe</span>
+                <span class="service-pill">Prototipazione</span>
+                <span class="service-pill">Figma</span>
+                <span class="service-pill">Architettura dell'informazione</span>
+                <span class="service-pill">Design Systems</span>
+              </div>
             </details>
 
             <details class="service reveal" data-preview="img/apulia/hero-manifesto.jpg">
@@ -4257,28 +5226,64 @@
                 <span class="service-sign" aria-hidden="true">+</span>
               </summary>
               <p data-i18n="services.card2_desc">
-                Identità visive e siti web con una direzione precisa. Tipografia, colore e composizione lavorano insieme per raccontare il tuo progetto.
+                Mi occupo di come appare e cosa trasmette un prodotto: tipografia, composizione, colore e sistemi visivi coerenti che funzionano sia su una landing che all'interno di un'applicazione.
               </p>
+              <div class="service-pills" data-i18n-html="services.card2_pills">
+                <span class="service-pill">Tipografia</span>
+                <span class="service-pill">Composizione</span>
+                <span class="service-pill">Sistemi visivi</span>
+                <span class="service-pill">Responsive</span>
+                <span class="service-pill">Adobe Creative Suite</span>
+                <span class="service-pill">Design Editoriale &amp; Layout</span>
+                <span class="service-pill">Canva</span>
+                <span class="service-pill">Motion &amp; Video</span>
+              </div>
             </details>
 
             <details class="service reveal" data-preview="img/miami-mango/card-home.jpg">
               <summary>
-                <span data-i18n="services.card3_title">Front-end Development</span>
+                <span data-i18n="services.card3_title">Sviluppo Web</span>
                 <span class="service-sign" aria-hidden="true">+</span>
               </summary>
               <p data-i18n="services.card3_desc">
-                Dal prototipo al browser: interfacce responsive, accessibili e curate anche nelle interazioni, con HTML, CSS e JavaScript.
+                Porto i design nel browser e approfondisco ciò che c'è dietro. Ho sviluppato progetti personali e accademici tra front-end, back-end e database, imparando qualcosa di nuovo in ognuno. Attualmente sono in una fase junior, con tanta voglia di continuare a crescere.
               </p>
+              <div class="service-pills" data-i18n-html="services.card3_pills">
+                <span class="service-pill">HTML</span>
+                <span class="service-pill">CSS</span>
+                <span class="service-pill">JavaScript</span>
+                <span class="service-pill">Angular</span>
+                <span class="service-pill">Laravel</span>
+                <span class="service-pill">Java</span>
+                <span class="service-pill">Spring Boot</span>
+                <span class="service-pill">Hibernate</span>
+                <span class="service-pill">Express</span>
+                <span class="service-pill">MySQL</span>
+                <span class="service-pill">MongoDB</span>
+                <span class="service-pill">Bootstrap</span>
+                <span class="service-pill">Tailwind</span>
+                <span class="service-pill">WordPress</span>
+              </div>
             </details>
 
             <details class="service reveal" data-preview="img/robot-character/final-hero.png">
               <summary>
-                <span data-i18n="services.card4_title">3D &amp; AI Exploration</span>
+                <span data-i18n="services.card4_title">Esplorazione 3D &amp; AI</span>
                 <span class="service-sign" aria-hidden="true">+</span>
               </summary>
               <p data-i18n="services.card4_desc">
-                Modellazione, materiali ed esplorazioni con nuovi strumenti. Un laboratorio per trovare prospettive e linguaggi visivi diversi.
+                Sperimento con l'intelligenza artificiale per fare ricerca, ideare e prototipare più velocemente. Strumenti che aprono nuove strade, ma le decisioni di design e sviluppo le prendo sempre io.
               </p>
+              <div class="service-pills" data-i18n-html="services.card4_pills">
+                <span class="service-pill">Blender</span>
+                <span class="service-pill">Antigravity</span>
+                <span class="service-pill">Codex</span>
+                <span class="service-pill">Claude Code</span>
+                <span class="service-pill">Intelligenza Artificiale</span>
+                <span class="service-pill">Generazione di Immagini</span>
+                <span class="service-pill">Figma Make</span>
+                <span class="service-pill">Modellazione 3D</span>
+              </div>
             </details>
           </div>
         </div>
@@ -4425,8 +5430,8 @@
           <!-- Center Column (Scrivimi / Email / CV / WhatsApp) -->
           <div class="plinth-col plinth-col-center">
             <span class="plinth-talk-label" data-i18n="footer.talk_label">Scrivimi</span>
-            <a href="mailto:hello@bypatdesigner.com" class="plinth-email-link" id="copyEmailBtn" data-email="hello@bypatdesigner.com" title="Clicca per scrivere o copiare">
-              hello@bypatdesigner.com
+            <a href="mailto:bypatdesigner@gmail.com" class="plinth-email-link" id="copyEmailBtn" data-email="bypatdesigner@gmail.com" title="Clicca per scrivere o copiare">
+              bypatdesigner@gmail.com
             </a>
 
             <div class="plinth-action-row">
@@ -4455,8 +5460,9 @@
           <div class="plinth-col plinth-col-right">
             <div class="plinth-social-stack">
               <a href="https://www.linkedin.com/in/bypatdesigner/" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="LinkedIn">LinkedIn</a>
-              <a href="https://www.behance.net/byPatdesigner" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="Behance">Behance</a>
+              <a href="https://www.behance.net/bypatdesigner" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="Behance">Behance</a>
               <a href="https://github.com/bypatdesigner" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="GitHub">GitHub</a>
+              <a href="https://instagram.com/bypatdesigner" target="_blank" rel="noopener noreferrer" class="plinth-social-item" aria-label="Instagram">Instagram</a>
             </div>
           </div>
         </div>
@@ -4481,7 +5487,7 @@
 
         <!-- Copyright Subline -->
         <div class="plinth-footer-subline">
-          <span class="plinth-copyright-text" data-i18n="footer.copyright">© 2026 Patricia García — Designed & built with intention.</span>
+          <span class="plinth-copyright-text" data-i18n="footer.copyright">© 2026 Patricia Garcia — Designed & built with intention.</span>
         </div>
       </footer>
 
@@ -4514,8 +5520,7 @@
       </div>
 
       <div class="drawer-body" id="drawerBody">
-        Riprogettazione completa dell'esperienza d'acquisto con doppio flusso: navigazione intuitiva per il consumatore
-        finale e catalogo rapido con prezzi dinamici a volume per le aziende agricole.
+        Eureka nasce come piattaforma professionale dedicata all’incontro tra persone in cerca di opportunità e realtà interessate a nuovi talenti. Il simbolo unisce quattro figure disposte intorno a uno spazio centrale.
       </div>
 
       <div class="drawer-actions-row">
@@ -4547,18 +5552,21 @@
       it: {
         "nav.about": "Chi sono",
         "nav.services": "Servizi",
-        "nav.projects": "Progetti",
+        "nav.projects": "Portfolio",
         "nav.contact": "Contatti",
+        "nav.portfolio": "Portfolio",
         "nav.resume": "Resume CV",
         "nav.close": "Chiudi",
-        "menu.studio_details": "Studio details",
+        "menu.studio_details": "Contact",
         "nav.menu_title": "Menu di navigazione",
         "nav.resume_desc": "Esplora il percorso completo, l'esperienza, la formazione accademica e le certificazioni.",
         "nav.resume_cta": "Visualizza CV / Resume",
         "nav.select_lang": "Lingua:",
         "hero.loc": "Bisceglie, Italia",
-        "hero.role_primary": "Graphic & UI/UX Designer",
-        "hero.role_secondary": "bridging Design & Code",
+        "hero.role_line1": "UI/UX & Web Designer",
+        "hero.role_line2": "Web Development",
+        "hero.role_primary": "UI/UX & Web Designer",
+        "hero.role_secondary": "Bridging Design & Code",
         "hero.statement": '<span class="hero-highlight">Design, codice</span> e qualche altra <strong>ossessione creativa</strong>.<br><span class="hero-highlight">Trasformo idee in</span> <strong>identità, interfacce ed esperienze digitali</strong>.',
         "hero.eyebrow": "Bisceglie, Italia  · Remoto / Ibrido / On-site",
         "hero.title": 'Patricia Garcia',
@@ -4569,19 +5577,23 @@
         "about.statement": "<p>Ciao, sono Paty, una graphic designer che si muove tra design e codice.</p><p>Nel mio lavoro quotidiano mi occupo di UI/UX e web design, progettando esperienze digitali chiare, intuitive e funzionali, con un approccio centrato sulle persone e attenzione ai loro bisogni.</p><p>Parallelamente porto avanti <strong>Bypatdesigner</strong>, il mio progetto freelance, dove seguo i progetti dall'identità visiva alla realizzazione di siti e interfacce, unendo design e codice.</p><p>Amo studiare, sperimentare e imparare attraverso tentativi ed errori. Per questo continuo a formarmi nello sviluppo software, dal front-end al back-end, con l'obiettivo di costruire un <strong>profilo ibrido tra UX design e sviluppo</strong>.</p>",
         "about.headline": "Ciao, sono Paty, una graphic designer che si muove tra design e codice.",
         "about.desc": "Ciao, sono Paty, una graphic designer che si muove tra design e codice.",
-        "about.btn_services": '<span>Resume CV</span> <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>',
+        "about.btn_services": '<span>Resume CV</span> <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>',
         "tech.label": "✦ Linguaggi, Framework & Programmi ✦",
-        "services.section_label": "Aree di competenza",
+        "services.section_label": "Servizi",
         "services.intro_title": 'Non solo come appare.<br><span class="grad-text">Anche come funziona.</span>',
         "services.intro_desc": "Dal design visivo allo sviluppo web, esploro ogni progetto con curiosità, attenzione ai dettagli e voglia di trovare soluzioni concrete.",
         "services.card1_title": "UI/UX Design",
-        "services.card1_desc": "Ricerca, architettura dell’informazione, wireframe e prototipi. Parto dalle persone per progettare interfacce comprensibili e piacevoli da usare.",
+        "services.card1_desc": "Faccio ricerca, organizzo e testo prima di progettare. Definisco flussi, architettura dell'informazione e wireframe, arrivando a prototipi e interfacce chiare, pensate per chi le userà.",
+        "services.card1_pills": '<span class="service-pill">Ricerca</span><span class="service-pill">User flows</span><span class="service-pill">Wireframe</span><span class="service-pill">Prototipazione</span><span class="service-pill">Figma</span><span class="service-pill">Architettura dell\'informazione</span><span class="service-pill">Design Systems</span>',
         "services.card2_title": "Visual & Web Design",
-        "services.card2_desc": "Identità visive e siti web con una direzione precisa. Tipografia, colore e composizione lavorano insieme per raccontare il tuo progetto.",
-        "services.card3_title": "Front-end Development",
-        "services.card3_desc": "Dal prototipo al browser: interfacce responsive, accessibili e curate anche nelle interazioni, con HTML, CSS e JavaScript.",
-        "services.card4_title": "3D & AI Exploration",
-        "services.card4_desc": "Modellazione, materiali ed esplorazioni con nuovi strumenti. Un laboratorio per trovare prospettive e linguaggi visivi diversi.",
+        "services.card2_desc": "Mi occupo di come appare e cosa trasmette un prodotto: tipografia, composizione, colore e sistemi visivi coerenti che funzionano sia su una landing che all'interno di un'applicazione.",
+        "services.card2_pills": '<span class="service-pill">Tipografia</span><span class="service-pill">Composizione</span><span class="service-pill">Sistemi visivi</span><span class="service-pill">Responsive</span><span class="service-pill">Adobe Creative Suite</span><span class="service-pill">Design Editoriale &amp; Layout</span><span class="service-pill">Canva</span><span class="service-pill">Motion &amp; Video</span>',
+        "services.card3_title": "Sviluppo Web",
+        "services.card3_desc": "Porto i design nel browser e approfondisco ciò che c'è dietro. Ho sviluppato progetti personali e accademici tra front-end, back-end e database, imparando qualcosa di nuovo in ognuno. Attualmente sono in una fase junior, con tanta voglia di continuare a crescere.",
+        "services.card3_pills": '<span class="service-pill">HTML</span><span class="service-pill">CSS</span><span class="service-pill">JavaScript</span><span class="service-pill">Angular</span><span class="service-pill">Laravel</span><span class="service-pill">Java</span><span class="service-pill">Spring Boot</span><span class="service-pill">Hibernate</span><span class="service-pill">Express</span><span class="service-pill">MySQL</span><span class="service-pill">MongoDB</span><span class="service-pill">Bootstrap</span><span class="service-pill">Tailwind</span><span class="service-pill">WordPress</span>',
+        "services.card4_title": "Esplorazione 3D & AI",
+        "services.card4_desc": "Sperimento con l'intelligenza artificiale per fare ricerca, ideare e prototipare più velocemente. Strumenti che aprono nuove strade, ma le decisioni di design e sviluppo le prendo sempre io.",
+        "services.card4_pills": '<span class="service-pill">Blender</span><span class="service-pill">Antigravity</span><span class="service-pill">Codex</span><span class="service-pill">Claude Code</span><span class="service-pill">Intelligenza Artificiale</span><span class="service-pill">Generazione di Immagini</span><span class="service-pill">Figma Make</span><span class="service-pill">Modellazione 3D</span>',
         "work.section_label": "Progetti in Evidenza",
         "work.headline": '<span class="grad-text">Una selezione</span> <span class="muted-text">di progetti e case study.</span>',
         "work.intro": "UI/UX, web e identità visiva: progetti diversi raccontati attraverso processo, decisioni e risultato.",
@@ -4649,30 +5661,55 @@
         "footer.credits": "HANDCRAFTED BY PATRICIA GARCIA",
         "footer.tagline": "DESIGN, CODE & A LITTLE CURIOSITY.",
         "footer.back_to_top_cta": "TORNA SU",
-        "footer.copyright": "© 2026 Patricia García — Progettato e realizzato con cura.",
+        "footer.copyright": "© 2026 Patricia Garcia — Progettato e realizzato con cura.",
         "footer.resume": "Digital Resume ↗",
         "footer.back_to_top": "Torna all'inizio",
         "drawer.preview_label": "Anteprima Interfaccia",
         "drawer.specs_role_label": "Anno & Ruolo",
         "drawer.specs_stack_label": "Stack & Metodo",
         "drawer.btn_project": "Amplia Progetto",
-        "drawer.btn_contact": "Progetto Accademico"
+        "drawer.btn_contact": "Progetto Accademico",
+        "metro.badge": "PORTFOLIO",
+        "metro.title_line1": "Ultimi",
+        "metro.title_line2": "progetti.",
+        "metro.filter_all": "Tutti (5)",
+        "metro.filter_brand": "Brand Identity",
+        "metro.filter_uiux": "UI/UX Design",
+        "metro.filter_frontend": "Front-End",
+        "metro.cat_brand": "Brand Identity",
+        "metro.cat_uiux": "UI/UX Design",
+        "metro.case_study": "Case Study",
+        "metro.p1_desc": "Una proposta individuale di logo design nata dall’osservazione dell’architettura del Teatro Petruzzelli e dalla ricerca di un simbolo essenziale, riconoscibile e versatile.",
+        "metro.p1_tags": "<span>Logo Design</span><span>Brand Design</span><span>Visual Identity</span>",
+        "metro.p2_desc": "Un’identità visiva per una piattaforma professionale pensata per connettere persone, talento e nuove opportunità.",
+        "metro.p2_tags": "<span>Logo Design</span><span>Visual Identity</span><span>Brand Guidelines</span>",
+        "metro.p3_desc": "Identità visiva e comunicazione per valorizzare l’oasi di Boccadoro-Ariscianne e invitare le persone a riscoprirne il patrimonio naturale e culturale.",
+        "metro.p3_tags": "<span>Logo Design</span><span>Advertising</span><span>Editorial</span>",
+        "metro.p4_desc": "Il cuore del progetto è la costruzione del simbolo: le iniziali M + M vengono organizzate fino a suggerire la silhouette di una tavola da surf.",
+        "metro.p4_tags": "<span>Logo Design</span><span>Color Palette</span><span>Packaging</span>",
+        "metro.p5_desc": "Un’esperienza mobile per scoprire film e prenotare il proprio posto al cinema.",
+        "metro.p5_tags": "<span>UX Research</span><span>UI Design</span><span>Prototyping</span>",
+        "metro.btn_view": "Scopri il progetto",
+        "metro.explore_all": "Esplora tutti i progetti"
       },
       es: {
         "nav.about": "Sobre mí",
         "nav.services": "Servicios",
-        "nav.projects": "Proyectos",
+        "nav.projects": "Portfolio",
         "nav.contact": "Contacto",
+        "nav.portfolio": "Portfolio",
         "nav.resume": "Resume CV",
         "nav.close": "Cerrar",
-        "menu.studio_details": "Studio details",
+        "menu.studio_details": "Contact",
         "nav.menu_title": "Menú de navegación",
         "nav.resume_desc": "Explora mi trayectoria completa, experiencia laboral, formación académica y certificaciones.",
         "nav.resume_cta": "Ver CV / Resume",
         "nav.select_lang": "Idioma:",
         "hero.loc": "Bisceglie, Italia",
-        "hero.role_primary": "Graphic & UI/UX Designer",
-        "hero.role_secondary": "bridging Design & Code",
+        "hero.role_line1": "UI/UX & Web Designer",
+        "hero.role_line2": "Web Development",
+        "hero.role_primary": "UI/UX & Web Designer",
+        "hero.role_secondary": "Bridging Design & Code",
         "hero.statement": '<span class="hero-highlight">Diseño, código</span> y alguna que otra <strong>obsesión creativa</strong>.<br><span class="hero-highlight">Transformo ideas en</span> <strong>identidades, interfaces y experiencias digitales</strong>.',
         "hero.eyebrow": "Bisceglie, Italia · Remoto / Híbrido / Presencial",
         "hero.title": 'Patricia Garcia',
@@ -4683,19 +5720,23 @@
         "about.statement": "<p>Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.</p><p>En mi trabajo diario me dedico a UI/UX y diseño web, creando experiencias digitales claras, intuitivas y funcionales, con un enfoque centrado en las personas y atención a sus necesidades.</p><p>En paralelo desarrollo <strong>Bypatdesigner</strong>, mi proyecto freelance, donde gestiono proyectos desde la identidad visual hasta la creación de sitios e interfaces, combinando sensibilidad visual y competencias técnicas.</p><p>Me apasiona estudiar, experimentar y aprender cosas nuevas, por eso continúo formándome en desarrollo de software, de front-end a back-end, con el objetivo de construir un <strong>perfil híbrido que combine lo mejor de ambos mundos</strong>.</p>",
         "about.headline": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.",
         "about.desc": "Hola, soy Paty, una diseñadora gráfica que se mueve entre diseño y código.",
-        "about.btn_services": '<span>Resume CV</span> <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>',
+        "about.btn_services": '<span>Resume CV</span> <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>',
         "tech.label": "✦ Lenguajes, Frameworks & Herramientas ✦",
-        "services.section_label": "Áreas de competencia",
+        "services.section_label": "Servicios",
         "services.intro_title": 'No solo cómo se ve.<br><span class="grad-text">También cómo funciona.</span>',
         "services.intro_desc": "Del diseño visual al desarrollo web, exploro cada proyecto con curiosidad, atención al detalle y ganas de encontrar soluciones concretas.",
-        "services.card1_title": "UI/UX Design",
-        "services.card1_desc": "Investigación, arquitectura de la información, wireframes y prototipos. Parto de las personas para diseñar interfaces comprensibles y agradables de usar.",
-        "services.card2_title": "Visual & Web Design",
-        "services.card2_desc": "Identidades visuales y sitios web con dirección precisa. Tipografía, color y composición trabajando juntos para contar tu proyecto.",
-        "services.card3_title": "Front-end Development",
-        "services.card3_desc": "Del prototipo al navegador: interfaces responsive, accesibles y cuidadas al detalle con HTML, CSS y JavaScript.",
-        "services.card4_title": "3D & AI Exploration",
-        "services.card4_desc": "Modelado, materiales y exploración con nuevas herramientas para descubrir perspectivas y lenguajes visuales frescos.",
+        "services.card1_title": "Diseño UI/UX",
+        "services.card1_desc": "Investigo, ordeno y pruebo antes de diseñar. Defino flujos, arquitectura de la información y wireframes, y llego a prototipos e interfaces claras, pensadas para quien las va a usar.",
+        "services.card1_pills": '<span class="service-pill">Investigación</span><span class="service-pill">User flows</span><span class="service-pill">Wireframes</span><span class="service-pill">Prototipado</span><span class="service-pill">Figma</span><span class="service-pill">Arquitectura de información</span><span class="service-pill">Design Systems</span>',
+        "services.card2_title": "Diseño Visual & Web",
+        "services.card2_desc": "Me ocupo de cómo se ve y cómo se siente un producto: tipografía, composición, color y sistemas visuales coherentes que funcionen tanto en una landing como en una aplicación.",
+        "services.card2_pills": '<span class="service-pill">Tipografía</span><span class="service-pill">Composición</span><span class="service-pill">Sistemas visuales</span><span class="service-pill">Responsive</span><span class="service-pill">Adobe Creative Suite</span><span class="service-pill">Diseño Editorial &amp; Layout</span><span class="service-pill">Canva</span><span class="service-pill">Motion &amp; Video</span>',
+        "services.card3_title": "Desarrollo Web",
+        "services.card3_desc": "Llevo los diseños al navegador y también me meto en lo que hay detrás. He construido proyectos personales y academicos con front, back y bases de datos, y en cada uno aprendo algo nuevo. Ahora mismo estoy en una etapa junior, con ganas de seguir creciendo.",
+        "services.card3_pills": '<span class="service-pill">HTML</span><span class="service-pill">CSS</span><span class="service-pill">JavaScript</span><span class="service-pill">Angular</span><span class="service-pill">Laravel</span><span class="service-pill">Java</span><span class="service-pill">Spring Boot</span><span class="service-pill">Hibernate</span><span class="service-pill">Express</span><span class="service-pill">MySQL</span><span class="service-pill">MongoDB</span><span class="service-pill">Bootstrap</span><span class="service-pill">Tailwind</span><span class="service-pill">WordPress</span>',
+        "services.card4_title": "Exploración 3D & IA",
+        "services.card4_desc": "Experimento con la inteligencia artificial para investigar, idear y prototipar más rápido. Son herramientas que me abren caminos nuevos, pero las decisiones de diseño/desarrollo las tomo yo.",
+        "services.card4_pills": '<span class="service-pill">Blender</span><span class="service-pill">Antigravity</span><span class="service-pill">Codex</span><span class="service-pill">Claude Code</span><span class="service-pill">Inteligencia Artificial</span><span class="service-pill">Generación de Imágenes</span><span class="service-pill">Figma Make</span><span class="service-pill">Modelado 3D</span>',
         "work.section_label": "Proyectos destacados",
         "work.headline": '<span class="grad-text">Una selección</span> <span class="muted-text">de proyectos y case studies.</span>',
         "work.intro": "UI/UX, web e identidad visual: diferentes proyectos explicados a través de su proceso, decisiones y resultados.",
@@ -4763,30 +5804,55 @@
         "footer.credits": "DISEÑADO & DESARROLLADO POR PATRICIA GARCIA",
         "footer.tagline": "DESIGN, CODE & A LITTLE CURIOSITY.",
         "footer.back_to_top_cta": "VOLVER ARRIBA",
-        "footer.copyright": "© 2026 Patricia García — Diseñado y construido con intención.",
+        "footer.copyright": "© 2026 Patricia Garcia — Diseñado y construido con intención.",
         "footer.resume": "CV Digital ↗",
         "footer.back_to_top": "Volver al inicio",
         "drawer.preview_label": "Vista Previa de Interfaz",
         "drawer.specs_role_label": "Año & Rol",
         "drawer.specs_stack_label": "Stack & Método",
         "drawer.btn_project": "Ampliar Proyecto",
-        "drawer.btn_contact": "Proyecto Académico"
+        "drawer.btn_contact": "Proyecto Académico",
+        "metro.badge": "PORTFOLIO",
+        "metro.title_line1": "Últimos",
+        "metro.title_line2": "proyectos.",
+        "metro.filter_all": "Todos (5)",
+        "metro.filter_brand": "Brand Identity",
+        "metro.filter_uiux": "UI/UX Design",
+        "metro.filter_frontend": "Front-End",
+        "metro.cat_brand": "Brand Identity",
+        "metro.cat_uiux": "UI/UX Design",
+        "metro.case_study": "Case Study",
+        "metro.p1_desc": "Una propuesta individual de diseño de logo nacida de la observación de la arquitectura del Teatro Petruzzelli y de la búsqueda de un símbolo esencial, reconocible y versátil.",
+        "metro.p1_tags": "<span>Diseño de logo</span><span>Brand Design</span><span>Identidad visual</span>",
+        "metro.p2_desc": "Una identidad visual para una plataforma profesional pensada para conectar personas, talento y nuevas oportunidades.",
+        "metro.p2_tags": "<span>Diseño de logo</span><span>Identidad visual</span><span>Brand Guidelines</span>",
+        "metro.p3_desc": "Identidad visual y comunicación para poner en valor el oasis de Boccadoro-Ariscianne e invitar a las personas a redescubrir su patrimonio natural y cultural.",
+        "metro.p3_tags": "<span>Diseño de logo</span><span>Publicidad</span><span>Editorial</span>",
+        "metro.p4_desc": "El núcleo del proyecto es la construcción del símbolo: las iniciales M + M se organizan hasta sugerir la silueta de una tabla de surf.",
+        "metro.p4_tags": "<span>Diseño de logo</span><span>Paleta cromática</span><span>Packaging</span>",
+        "metro.p5_desc": "Una experiencia móvil para descubrir películas y reservar el asiento en el cine.",
+        "metro.p5_tags": "<span>UX Research</span><span>UI Design</span><span>Prototipado</span>",
+        "metro.btn_view": "Ver proyecto",
+        "metro.explore_all": "Explora todos los proyectos"
       },
       en: {
         "nav.about": "About",
         "nav.services": "Services",
-        "nav.projects": "Projects",
+        "nav.projects": "Portfolio",
         "nav.contact": "Contact",
+        "nav.portfolio": "Portfolio",
         "nav.resume": "Resume CV",
         "nav.close": "Close",
-        "menu.studio_details": "Studio details",
+        "menu.studio_details": "Contact",
         "nav.menu_title": "Navigation Menu",
         "nav.resume_desc": "Explore full career trajectory, work experience, academic background, and certifications.",
         "nav.resume_cta": "View CV / Resume",
         "nav.select_lang": "Language:",
         "hero.loc": "Bisceglie, Italy",
-        "hero.role_primary": "Graphic & UI/UX Designer",
-        "hero.role_secondary": "bridging Design & Code",
+        "hero.role_line1": "UI/UX & Web Designer",
+        "hero.role_line2": "Web Development",
+        "hero.role_primary": "UI/UX & Web Designer",
+        "hero.role_secondary": "Bridging Design & Code",
         "hero.statement": '<span class="hero-highlight">Design, code</span> and other <strong>creative obsessions</strong>.<br><span class="hero-highlight">I turn ideas into</span> <strong>identities, interfaces, and digital experiences</strong>.',
         "hero.eyebrow": "<i></i> Bisceglie, Italy · Remote / Hybrid / On-site",
         "hero.title": 'Patricia Garcia',
@@ -4797,19 +5863,23 @@
         "about.statement": "<p>Hi, I'm Paty, a graphic designer moving between design and code.</p><p>In my day-to-day work, I focus on UI/UX and web design, crafting clear, intuitive, and functional digital experiences with a human-centered approach and attention to people's needs.</p><p>Alongside this, I run <strong>Bypatdesigner</strong>, my freelance venture, where I take projects from brand identity to the creation of websites and interfaces, uniting design and code.</p><p>I love studying, experimenting, and learning through trial and error. That's why I continue training in software development, from front-end to back-end, aiming to build a <strong>hybrid profile bridging UX design and engineering</strong>.</p>",
         "about.headline": "Hi, I'm Paty, a graphic designer moving between design and code.",
         "about.desc": "Hi, I'm Paty, a graphic designer moving between design and code.",
-        "about.btn_services": '<span>Resume CV</span> <svg class="icon-arrow-diagonal" viewBox="0 0 16 16" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4.5" y1="11.5" x2="11.5" y2="4.5"></line><polyline points="5.5 4.5 11.5 4.5 11.5 10.5"></polyline></svg>',
+        "about.btn_services": '<span>Resume CV</span> <svg class="metro-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>',
         "tech.label": "✦ Languages, Frameworks & Tools ✦",
-        "services.section_label": "Areas of Expertise",
+        "services.section_label": "Services",
         "services.intro_title": 'Not just how it looks.<br><span class="grad-text">Also how it works.</span>',
         "services.intro_desc": "From visual design to web development, I explore every project with curiosity, attention to detail, and a drive to craft tangible solutions.",
         "services.card1_title": "UI/UX Design",
-        "services.card1_desc": "Research, information architecture, wireframes, and prototypes. Starting from people to design clear and engaging interfaces.",
+        "services.card1_desc": "I research, organize, and test before designing. I define user flows, information architecture, and wireframes, arriving at clear prototypes and interfaces built for the people using them.",
+        "services.card1_pills": '<span class="service-pill">User Research</span><span class="service-pill">User flows</span><span class="service-pill">Wireframes</span><span class="service-pill">Prototyping</span><span class="service-pill">Figma</span><span class="service-pill">Information Architecture</span><span class="service-pill">Design Systems</span>',
         "services.card2_title": "Visual & Web Design",
-        "services.card2_desc": "Visual identities and websites with clear direction. Typography, color, and composition working together to tell your story.",
-        "services.card3_title": "Front-end Development",
-        "services.card3_desc": "From prototype to browser: responsive, accessible, and finely tuned interactive interfaces with HTML, CSS, and JavaScript.",
+        "services.card2_desc": "I focus on how a product looks and feels: typography, composition, color, and coherent visual systems that perform seamlessly across landings and full applications.",
+        "services.card2_pills": '<span class="service-pill">Typography</span><span class="service-pill">Composition</span><span class="service-pill">Visual Systems</span><span class="service-pill">Responsive</span><span class="service-pill">Adobe Creative Suite</span><span class="service-pill">Editorial &amp; Layout</span><span class="service-pill">Canva</span><span class="service-pill">Motion &amp; Video</span>',
+        "services.card3_title": "Web Development",
+        "services.card3_desc": "I bring designs to life in the browser and dive into what lies behind. I\'ve built personal and academic projects with front-end, back-end, and databases, learning with every build. I am currently junior, eager to keep growing.",
+        "services.card3_pills": '<span class="service-pill">HTML</span><span class="service-pill">CSS</span><span class="service-pill">JavaScript</span><span class="service-pill">Angular</span><span class="service-pill">Laravel</span><span class="service-pill">Java</span><span class="service-pill">Spring Boot</span><span class="service-pill">Hibernate</span><span class="service-pill">Express</span><span class="service-pill">MySQL</span><span class="service-pill">MongoDB</span><span class="service-pill">Bootstrap</span><span class="service-pill">Tailwind</span><span class="service-pill">WordPress</span>',
         "services.card4_title": "3D & AI Exploration",
-        "services.card4_desc": "3D modeling, textures, and creative exploration with modern AI tools to discover fresh perspectives and visual languages.",
+        "services.card4_desc": "I experiment with artificial intelligence to research, ideate, and prototype faster. These tools open new possibilities, but the design and development decisions remain strictly mine.",
+        "services.card4_pills": '<span class="service-pill">Blender</span><span class="service-pill">Antigravity</span><span class="service-pill">Codex</span><span class="service-pill">Claude Code</span><span class="service-pill">Artificial Intelligence</span><span class="service-pill">Image Generation</span><span class="service-pill">Figma Make</span><span class="service-pill">3D Modeling</span>',
         "work.section_label": "Featured Projects",
         "work.headline": '<span class="grad-text">A selection</span> <span class="muted-text">of projects and case studies.</span>',
         "work.intro": "UI/UX, web, and visual identity: diverse projects told through process, design decisions, and outcomes.",
@@ -4879,14 +5949,36 @@
         "footer.credits": "HANDCRAFTED BY PATRICIA GARCIA",
         "footer.tagline": "DESIGN, CODE & A LITTLE CURIOSITY.",
         "footer.back_to_top_cta": "BACK TO TOP",
-        "footer.copyright": "© 2026 Patricia García — Designed & built with intention.",
+        "footer.copyright": "© 2026 Patricia Garcia — Designed & built with intention.",
         "footer.resume": "Digital Resume ↗",
         "footer.back_to_top": "Back to top",
         "drawer.preview_label": "Interface Preview",
         "drawer.specs_role_label": "Year & Role",
         "drawer.specs_stack_label": "Stack & Method",
         "drawer.btn_project": "Explore Project",
-        "drawer.btn_contact": "Academic Project"
+        "drawer.btn_contact": "Academic Project",
+        "metro.badge": "PORTFOLIO",
+        "metro.title_line1": "Latest",
+        "metro.title_line2": "projects.",
+        "metro.filter_all": "All (5)",
+        "metro.filter_brand": "Brand Identity",
+        "metro.filter_uiux": "UI/UX Design",
+        "metro.filter_frontend": "Front-End",
+        "metro.cat_brand": "Brand Identity",
+        "metro.cat_uiux": "UI/UX Design",
+        "metro.case_study": "Case Study",
+        "metro.p1_desc": "An individual logo design proposal born from observing Teatro Petruzzelli’s architecture and searching for an essential, recognizable and versatile symbol.",
+        "metro.p1_tags": "<span>Logo Design</span><span>Brand Design</span><span>Visual Identity</span>",
+        "metro.p2_desc": "A visual identity for a professional platform designed to connect people, talent, and new opportunities.",
+        "metro.p2_tags": "<span>Logo Design</span><span>Visual Identity</span><span>Brand Guidelines</span>",
+        "metro.p3_desc": "Visual identity and communication to highlight the Boccadoro-Ariscianne oasis and invite people to reconnect with its natural and cultural heritage.",
+        "metro.p3_tags": "<span>Logo Design</span><span>Advertising</span><span>Editorial</span>",
+        "metro.p4_desc": "The core of the project is the symbol’s construction: the initials M + M are organized until they suggest the silhouette of a surfboard.",
+        "metro.p4_tags": "<span>Logo Design</span><span>Color Palette</span><span>Packaging</span>",
+        "metro.p5_desc": "A mobile experience for discovering movies and booking seats at the cinema.",
+        "metro.p5_tags": "<span>UX Research</span><span>UI Design</span><span>Prototyping</span>",
+        "metro.btn_view": "View project",
+        "metro.explore_all": "Explore all projects"
       }
     };
 
@@ -5145,9 +6237,24 @@
 
     let currentLang = 'it';
 
+    
+    function updateDesktopLangIndicator(lang) {
+      const desktopPill = document.querySelector('.lang-desktop-pill');
+      if (!desktopPill) return;
+      const indicator = desktopPill.querySelector('.lang-indicator');
+      const activeBtn = desktopPill.querySelector(`.lang-btn[data-lang="${lang}"]`) || desktopPill.querySelector('.lang-btn.active');
+      if (!indicator || !activeBtn) return;
+      const pillRect = desktopPill.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      if (btnRect.width === 0) return;
+      indicator.style.transform = `translateX(${btnRect.left - pillRect.left}px)`;
+      indicator.style.width = `${btnRect.width}px`;
+    }
     function setLanguage(lang) {
       if (!I18N[lang]) return;
       currentLang = lang;
+
+      updateDesktopLangIndicator(lang);
 
       // Update HTML lang attribute
       document.documentElement.lang = lang;
@@ -5392,7 +6499,8 @@
     const navLinks = document.querySelectorAll('.nav-bar .menu a');
     const sectionsToTrack = [
       { id: 'about', el: document.getElementById('about') },
-      { id: 'work', el: document.getElementById('work') },
+      { id: 'portfolio', el: document.getElementById('portfolio') || document.getElementById('work') },
+      { id: 'work', el: document.getElementById('work') || document.getElementById('portfolio') },
       { id: 'services', el: document.getElementById('services') },
       { id: 'process', el: document.getElementById('process') },
       { id: 'contact', el: document.getElementById('contact') }
@@ -5442,6 +6550,7 @@
       });
     }
 
+    window.addEventListener('resize', () => updateDesktopLangIndicator(currentLang));
     window.addEventListener('scroll', handleScrollInteractions, { passive: true });
     handleScrollInteractions();
 
@@ -5619,7 +6728,7 @@
 
       setTimeout(() => {
         submitBtn.innerHTML = "<span>Messaggio Inviato! ✓</span>";
-        submitBtn.style.background = "linear-gradient(135deg, #10B981, #34D399)";
+        submitBtn.style.background = "#10B981";
         showToast(`Grazie ${name}! Il tuo messaggio è stato inviato con successo.`);
         const formEl = document.getElementById('contactForm');
         if (formEl) formEl.reset();
@@ -6185,6 +7294,197 @@
     }
   </script>
   <script src="js/hero-cards.js?v=4" defer></script>
+<script>
+
+    /* ============================================================
+       AGNTIX PORTFOLIO METRO LIGHT — UNIFIED LEFT-ALIGNED GSAP ENGINE
+       ============================================================ */
+    function initMetroPortfolio() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP or ScrollTrigger not loaded yet');
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 991px)", () => {
+        // 1. Text scrub: "recent" moves right, "work." moves left
+        document.querySelectorAll(".title-box").forEach(box => {
+          let textRight = box.querySelectorAll(".tp-text-right-scroll");
+          let textLeft = box.querySelectorAll(".tp-text-left-scroll");
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: box,
+              start: "top 100%",
+              end: "bottom top",
+              scrub: 1
+            }
+          });
+          if (textRight.length) {
+            tl.fromTo(textRight, { x: -60 }, { x: 180, ease: "power1.out" }, 0);
+          }
+          if (textLeft.length) {
+            tl.fromTo(textLeft, { x: 60 }, { x: -180, ease: "power1.out" }, 0);
+          }
+        });
+
+        // 2. Set initial positions and ScrollTrigger scrub based on layout direction (alternating)
+        document.querySelectorAll(".design-project-item").forEach(item => {
+          let isThumbLeft = item.classList.contains("layout-thumb-left");
+          let thumb = item.querySelector(".design-project-thumb");
+          let content = item.querySelector(".design-project-content");
+
+          if (isThumbLeft) {
+            // Card on Left: glides in from left with -8deg rotation
+            if (thumb) gsap.set(thumb, { x: -360, rotate: -8, transformOrigin: "center center" });
+            if (content) gsap.set(content, { x: 100, opacity: 0.2 });
+          } else {
+            // Card on Right: glides in from right with +8deg rotation
+            if (thumb) gsap.set(thumb, { x: 360, rotate: 8, transformOrigin: "center center" });
+            if (content) gsap.set(content, { x: -100, opacity: 0.2 });
+          }
+
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: item,
+              start: "top 95%",
+              end: "center 55%",
+              scrub: 1.2
+            }
+          });
+
+          if (thumb) {
+            tl.to(thumb, { x: 0, rotate: 0, ease: "power1.out" }, 0);
+          }
+          if (content) {
+            tl.to(content, { x: 0, opacity: 1, ease: "power1.out" }, 0);
+          }
+        });
+      });
+
+      mm.add("(max-width: 990px)", () => {
+        gsap.set(".design-project-thumb", { x: 0, rotate: 0 });
+        document.querySelectorAll(".design-project-item").forEach(item => {
+          gsap.fromTo(item,
+            { y: 60, opacity: 0.3 },
+            {
+              y: 0,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 90%",
+                end: "center 70%",
+                scrub: 1
+              }
+            }
+          );
+        });
+      });
+
+      // 4. Mouse 3D tilt and floating cursor on thumbnails
+      const frames = document.querySelectorAll('.metro-thumb-frame');
+      frames.forEach(frame => {
+        const cursor = frame.querySelector('.metro-floating-cursor');
+
+        frame.addEventListener('mousemove', (e) => {
+          const rect = frame.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          if (cursor) {
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+          }
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -3;
+          const rotateY = ((x - centerX) / centerX) * 3;
+
+          frame.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg)';
+        });
+
+        frame.addEventListener('mouseleave', () => {
+          frame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+      });
+
+      // Refresh ScrollTrigger to ensure correct offsets
+      ScrollTrigger.refresh();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMetroPortfolio);
+    } else {
+      initMetroPortfolio();
+    }
+    window.addEventListener('load', () => {
+      ScrollTrigger.refresh();
+    });
+
+    /* ============================================================
+       SPLINE 3D FULL-WIDTH HERO BACKDROP
+       ============================================================ */
+    (async function initHeroSpline() {
+      const canvas = document.getElementById('heroSplineCanvas');
+      if (!canvas) return;
+
+      // Allow 3D rotation with mouse drag, but PREVENT zoom trapping so mouse wheel scrolls the webpage down naturally
+      canvas.addEventListener('wheel', (e) => {
+        e.stopImmediatePropagation();
+      }, { capture: true, passive: true });
+
+      window.addEventListener('wheel', (e) => {
+        if (e.target === canvas || canvas.contains(e.target)) {
+          e.stopImmediatePropagation();
+        }
+      }, { capture: true, passive: true });
+
+      const SPLINE_URL = 'https://prod.spline.design/lV7OeUcYwXxmUFgd/scene.splinecode';
+      const LOCAL_FALLBACK = './img/INFORMACION/scene-y2k.splinecode';
+
+      function applyTransparentTheme(app) {
+        if (!app) return;
+        if (app._scene) {
+          app._scene.traverse(child => {
+            if (child.name === 'Background') child.visible = false;
+          });
+          app._scene.background = null;
+        }
+        if (app._renderer) {
+          app._renderer.setClearColor(0x000000, 0);
+          app._renderer.setClearAlpha(0);
+          app._renderer.setClearColor = () => {};
+          app._renderer.setClearAlpha = () => {};
+        }
+        document.querySelectorAll('a[href*="spline.design"], #spline-watermark').forEach(el => el.remove());
+      }
+
+      new MutationObserver(() => {
+        document.querySelectorAll('a[href*="spline.design"], #spline-watermark').forEach(el => el.remove());
+      }).observe(document.body, { childList: true, subtree: true });
+
+      try {
+        const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.9.72/build/runtime.js');
+        const app = new Application(canvas);
+        await app.load(SPLINE_URL);
+        applyTransparentTheme(app);
+      } catch (err) {
+        console.warn('Online Spline load failed, trying local fallback...', err);
+        try {
+          const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.9.72/build/runtime.js');
+          const app = new Application(canvas);
+          await app.load(LOCAL_FALLBACK);
+          applyTransparentTheme(app);
+        } catch (err2) {
+          console.error('Failed to load local Spline scene:', err2);
+        }
+      }
+    })();
+
+</script>
 </body>
 
 </html>

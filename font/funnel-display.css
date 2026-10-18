@@ -1,0 +1,169 @@
+/**
+ * Funnel Display - Local & Web Font Definitions
+ * Primary display typeface for Bypatdesigner
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap');
+
+/* --- Primary Family: 'Funnel Display' --- */
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('../img/INFORMACION/static/FunnelDisplay-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Funnel Display';
+  src: url('../img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* --- Aliases for specific weight names --- */
+@font-face {
+  font-family: 'FunnelDisplay-Regular';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FunnelDisplay-Medium';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FunnelDisplay-Bold';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FunnelDisplay-Extrabold';
+  src: url('../img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FunnelDisplay-ExtraBold';
+  src: url('../img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* --- Compatibility Aliases for Cabinet Grotesk (ensures zero broken styles) --- */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('../img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk-Regular';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk-Medium';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk-Bold';
+  src: url('../img/INFORMACION/static/FunnelDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk-Extrabold';
+  src: url('../img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CabinetGrotesk-Black';
+  src: url('../img/INFORMACION/static/FunnelDisplay-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}

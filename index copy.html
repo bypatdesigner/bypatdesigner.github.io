@@ -11,9 +11,13 @@
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
-  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
-  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+  <!-- Local Web Fonts: Funnel Display & Satoshi -->
+    <!-- Funnel Display Web & Local Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./font/funnel-display.css" />
+<link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
 
   <!-- Google Fonts: Raleway (Headlines) & Space Grotesk (Body, Pills & Tech) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,43 +28,15 @@
 
   <style>
     /* ============================================================
-       CABINET GROTESK & SATOSHI FONT MAPPINGS
+       FUNNEL DISPLAY & SATOSHI FONT MAPPINGS
        ============================================================ */
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
-      font-weight: 800;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
-      font-weight: 700;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
-      font-weight: 500;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
-        url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
-      font-weight: 400;
-      font-display: swap;
-      font-style: normal;
-    }
+    
 
     @font-face {
       font-family: 'Satoshi';
@@ -126,7 +102,7 @@
       --radius-xl: 32px;
       --radius-full: 9999px;
 
-      --font-display: "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+      --font-display: "Funnel Display", system-ui, -apple-system, sans-serif;
       --font-body: "Satoshi", system-ui, -apple-system, sans-serif;
       --font-mono: "Satoshi", monospace;
 
@@ -285,7 +261,7 @@
     }
 
     .grad-text {
-      font-family: 'CabinetGrotesk-Extrabold', 'Cabinet Grotesk', var(--font-display) !important;
+      font-family: 'Funnel Display', var(--font-display) !important; font-weight: 800;
       font-weight: 800 !important;
       background: linear-gradient(105deg, #FFFFFF 0%, #E9E4FC 28%, #BFA7FF 52%, #8B5CF6 74%, #F6BE65 100%);
       -webkit-background-clip: text;
@@ -296,7 +272,7 @@
     }
 
     .muted-text {
-      font-family: 'CabinetGrotesk-Medium', 'Cabinet Grotesk', var(--font-display) !important;
+      font-family: 'Funnel Display', var(--font-display) !important; font-weight: 500;
       color: var(--text-muted);
       font-weight: 500 !important;
     }
@@ -1019,7 +995,7 @@
     }
 
     .hero-title {
-      font-family: 'CabinetGrotesk-Extrabold', 'CabinetGrotesk-Black', 'CabinetGrotesk-Bold', sans-serif !important;
+      font-family: 'Funnel Display', sans-serif !important; font-weight: 800;
       font-size: clamp(2.8rem, 5.8vw, 7.5rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
@@ -1111,7 +1087,7 @@
 
     .hero-copy .btn,
     .hero .actions .btn {
-      font-family: 'CabinetGrotesk-Bold', 'CabinetGrotesk-Extrabold', 'CabinetGrotesk-Medium', sans-serif !important;
+      font-family: 'Funnel Display', sans-serif !important; font-weight: 700;
       font-weight: 700;
     }
 

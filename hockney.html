@@ -9,46 +9,22 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-  <!-- Local Web Fonts: Cabinet Grotesk & Satoshi -->
-  <link rel="stylesheet" href="./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/css/cabinet-grotesk.css" />
-  <link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
+  <!-- Local Web Fonts: Funnel Display & Satoshi -->
+    <!-- Funnel Display Web & Local Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./font/funnel-display.css" />
+<link rel="stylesheet" href="./font/Fonts/WEB/Satoshi_Complete/Fonts/WEB/css/satoshi.css" />
 
   <style>
     /* ============================================================
-       LOCAL WEBFONTS — CABINET GROTESK & SATOSHI
+       LOCAL WEBFONTS — FUNNEL DISPLAY & SATOSHI
        ============================================================ */
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Extrabold.woff') format('woff');
-      font-weight: 800;
-      font-display: swap;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.woff') format('woff');
-      font-weight: 700;
-      font-display: swap;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.woff') format('woff');
-      font-weight: 500;
-      font-display: swap;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff2') format('woff2'),
-           url('./font/Fonts/WEB/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Regular.woff') format('woff');
-      font-weight: 400;
-      font-display: swap;
-      font-style: normal;
-    }
+    
+    
+    
+    
 
     @font-face {
       font-family: 'Satoshi';
@@ -135,7 +111,7 @@
       --radius-xl: 32px;
       --radius-full: 9999px;
       
-      --font-display: "Cabinet Grotesk", "CabinetGrotesk-Extrabold", "CabinetGrotesk-Bold", system-ui, -apple-system, sans-serif;
+      --font-display: "Funnel Display", system-ui, -apple-system, sans-serif;
       --font-body: "Satoshi", "Satoshi-Regular", "Satoshi-Medium", system-ui, -apple-system, sans-serif;
       --font-mono: "Satoshi", "Satoshi-Medium", monospace;
       
@@ -262,13 +238,25 @@
       color: var(--blue-primary);
     }
 
-    /* ================= TOP NAVIGATION ================= */
+    /* ================= TOP NAVIGATION (FLOATING GLASS NAVBAR) ================= */
     .top-nav {
-      height: 90px;
+      position: sticky;
+      top: 16px;
+      z-index: 1000;
+      height: 64px;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      border-bottom: 1px solid var(--line);
+      padding: 0 clamp(12px, 2vw, 24px);
+      background: var(--surface-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 30px rgba(10, 17, 40, 0.06);
+      margin-top: 14px;
+      margin-bottom: 24px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .top-nav > :first-child {
@@ -283,7 +271,7 @@
     }
 
     .nav-logo {
-      height: 32px;
+      height: 30px;
       width: auto;
       transition: transform 0.25s ease;
       filter: brightness(0);
@@ -300,21 +288,39 @@
       align-items: center;
     }
 
-    /* Glassmorphism Language Selector */
+    /* Dynamic Glassmorphism Language Selector with Sliding Capsule */
     .lang-pill {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      background: var(--surface-glass);
+      background: rgba(15, 23, 42, 0.05);
       border: 1px solid var(--line-light);
       border-radius: var(--radius-full);
-      padding: 3px 4px;
+      padding: 3px;
       gap: 2px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+      isolation: isolate;
+    }
+
+    .lang-indicator {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 0;
+      width: 32px;
+      background: var(--blue-primary);
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.35);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .lang-btn {
+      position: relative;
+      z-index: 2;
       font-family: var(--font-mono);
       font-size: 0.75rem;
       font-weight: 700;
@@ -325,18 +331,18 @@
       border: none;
       background: transparent;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      line-height: 1;
     }
 
     .lang-btn:hover {
-      color: var(--blue-primary);
-      background: var(--blue-tint);
+      color: var(--text-main);
     }
 
     .lang-btn.active {
-      background: var(--blue-primary);
       color: #FFFFFF;
-      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.35);
+      background: transparent;
+      box-shadow: none;
     }
 
     .pill-link {
@@ -1211,12 +1217,13 @@
     <!-- ================= FLOATING GLASS NAVBAR ================= -->
     <nav class="top-nav" aria-label="Navigazione case study">
       <a class="pill-link" href="projects.html" id="navBackProjects">← Tutti i progetti</a>
-      <a href="index.html" aria-label="Home Bypatdesigner">
+      <a class="nav-logo-link" href="index.html" aria-label="Home Bypatdesigner">
         <img class="nav-logo" src="./img/logo.png" alt="Bypatdesigner" />
       </a>
       <div class="nav-actions">
-        <div class="lang-pill" role="group" aria-label="Selettore lingua">
-          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <div class="lang-pill" id="langPill" role="group" aria-label="Selettore lingua">
+          <span class="lang-indicator" aria-hidden="true"></span>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
           <button class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
           <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
         </div>
@@ -1262,19 +1269,19 @@
           <!-- Left Specs Table -->
           <aside class="meta-table" aria-label="Informazioni progetto">
             <div class="meta-row">
-              <div class="meta-label">Year</div>
+              <div class="meta-label" id="labelYear">Year</div>
               <div class="meta-value" id="specYear">2020</div>
             </div>
             <div class="meta-row">
-              <div class="meta-label">Project</div>
+              <div class="meta-label" id="labelProject">Project</div>
               <div class="meta-value" id="specIndustry">Exhibition Campaign &amp; Posters</div>
             </div>
             <div class="meta-row">
-              <div class="meta-label">Context</div>
+              <div class="meta-label" id="labelContext">Context</div>
               <div class="meta-value" id="specTimeline">Musée d'Orsay · Academic Project</div>
             </div>
             <div class="meta-row">
-              <div class="meta-label">Scope</div>
+              <div class="meta-label" id="labelScope">Scope</div>
               <div class="meta-value tags" id="specScope">
                 <span>Visual Identity</span>
                 <span>Poster Design</span>
@@ -1282,7 +1289,7 @@
               </div>
             </div>
             <div class="meta-row">
-              <div class="meta-label">Tools</div>
+              <div class="meta-label" id="labelTools">Tools</div>
               <div class="meta-value tags" id="specTech">
                 <span>Illustrator</span>
                 <span>InDesign</span>
@@ -1481,6 +1488,11 @@
       nextDesc: "Mobile App UI/UX Case Study — From movie discovery to cinema seat booking in one seamless flow.",
       
       navBack: "← All projects",
+      labelYear: "Year",
+      labelProject: "Project",
+      labelContext: "Context",
+      labelScope: "Scope",
+      labelTools: "Tools",
       footerBackTop: "Back to top",
       footerHome: "Home",
       footerProjects: "Projects",
@@ -1528,6 +1540,11 @@
       nextDesc: "Caso de estudio UI/UX Mobile App — Del descubrimiento de la película a la selección de butaca en un solo flujo.",
       
       navBack: "← Todos los proyectos",
+      labelYear: "Año",
+      labelProject: "Proyecto",
+      labelContext: "Contexto",
+      labelScope: "Alcance",
+      labelTools: "Herramientas",
       footerBackTop: "Volver al inicio",
       footerHome: "Inicio",
       footerProjects: "Proyectos",
@@ -1575,6 +1592,11 @@
       nextDesc: "Mobile App UI/UX Case Study — Dalla scoperta del film alla selezione del posto al cinema in un unico flusso.",
       
       navBack: "← Tutti i progetti",
+      labelYear: "Anno",
+      labelProject: "Progetto",
+      labelContext: "Contesto",
+      labelScope: "Ambito",
+      labelTools: "Strumenti",
       footerBackTop: "Torna all'inizio",
       footerHome: "Home",
       footerProjects: "Progetti",
@@ -1582,10 +1604,23 @@
     }
   };
 
-  let currentLang = 'en';
+  let currentLang = 'it';
+
+  function updateLangIndicator(lang) {
+    const pill = document.getElementById('langPill');
+    if (!pill) return;
+    const indicator = pill.querySelector('.lang-indicator');
+    const targetBtn = pill.querySelector(`.lang-btn[data-lang="${lang}"]`) || pill.querySelector('.lang-btn.active');
+    if (!indicator || !targetBtn) return;
+    const pillRect = pill.getBoundingClientRect();
+    const btnRect = targetBtn.getBoundingClientRect();
+    const left = btnRect.left - pillRect.left;
+    indicator.style.transform = `translateX(${left}px)`;
+    indicator.style.width = `${btnRect.width}px`;
+  }
 
   function setLanguage(lang) {
-    if (!HOCKNEY_I18N[lang]) lang = 'en';
+    if (!HOCKNEY_I18N[lang]) lang = 'it';
     currentLang = lang;
     document.documentElement.lang = lang;
 
@@ -1595,6 +1630,8 @@
       btn.classList.toggle('active', isActive);
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
+
+    updateLangIndicator(lang);
 
     const d = HOCKNEY_I18N[lang];
 
@@ -1621,7 +1658,17 @@
     const introEl = document.getElementById('heroIntro');
     if (introEl) introEl.textContent = d.heroIntro;
 
-
+    // Chapter 01 Specs Labels
+    const lYear = document.getElementById('labelYear');
+    if (lYear && d.labelYear) lYear.textContent = d.labelYear;
+    const lProj = document.getElementById('labelProject');
+    if (lProj && d.labelProject) lProj.textContent = d.labelProject;
+    const lCont = document.getElementById('labelContext');
+    if (lCont && d.labelContext) lCont.textContent = d.labelContext;
+    const lScope = document.getElementById('labelScope');
+    if (lScope && d.labelScope) lScope.textContent = d.labelScope;
+    const lTools = document.getElementById('labelTools');
+    if (lTools && d.labelTools) lTools.textContent = d.labelTools;
 
     // Chapter 01
     const c1No = document.getElementById('chap1No');
@@ -1702,10 +1749,11 @@
       fCv.href = lang === 'es' ? 'cv-es.html' : (lang === 'it' ? 'cv.html' : 'cv-en.html');
     }
 
-    // Save language
+    // Save language to localStorage across the site
     try {
       localStorage.setItem('bypat_hockney_lang', lang);
       localStorage.setItem('bypat_lang', lang);
+      localStorage.setItem('portfolio_language', lang);
     } catch (e) {}
   }
 
@@ -1720,18 +1768,23 @@
     });
   });
 
-  // Default to English as explicitly requested, or respect user explicit selection
+  window.addEventListener('resize', () => {
+    updateLangIndicator(currentLang);
+  });
+
+  // Initialize Language (respects global portfolio_language / bypat_lang, defaults to 'it')
   document.addEventListener('DOMContentLoaded', () => {
     try {
-      const saved = localStorage.getItem('bypat_hockney_lang');
+      const saved = localStorage.getItem('bypat_hockney_lang') || localStorage.getItem('bypat_lang') || localStorage.getItem('portfolio_language');
       if (saved && ['en', 'es', 'it'].includes(saved)) {
         setLanguage(saved);
       } else {
-        setLanguage('en');
+        setLanguage('it');
       }
     } catch (e) {
-      setLanguage('en');
+      setLanguage('it');
     }
+    setTimeout(() => updateLangIndicator(currentLang), 50);
   });
 </script>
 </body>
