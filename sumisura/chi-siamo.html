@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SuMisura — Chi siamo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1d1d1f;
+    --ink-soft: #5f5f64;
+    --line: #dcdad5;
+    --paper: #ffffff;
+    --stone: #f4f2ee;
+    --dark: #2b2b2b;
+    --dark-2: #222;
+    --max: 1280px;
+    --gutter: clamp(20px, 4vw, 48px);
+    --edge: clamp(10px, 1.2vw, 16px); /* bordo laterale foto wide */
+    --bar-h: 64px;
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--ink); background: var(--paper);
+    font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* Placeholder foto: sostituire con <img src="..."> */
+  .ph {
+    position: relative; overflow: hidden;
+    background-image:
+      radial-gradient(120% 90% at 20% 10%, rgba(255,255,255,.22), transparent 60%),
+      linear-gradient(135deg, var(--a, #7d786f), var(--b, #3d3a36));
+  }
+  .ph::after {
+    content: attr(data-label);
+    position: absolute; left: 18px; top: 16px;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+  }
+  .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  /* Tipografia */
+  .eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .h1 { font-weight: 300; font-size: clamp(40px, 6vw, 84px); line-height: 1.02; letter-spacing: -.02em; }
+  .h2 { font-weight: 300; font-size: clamp(30px, 3.6vw, 50px); line-height: 1.08; letter-spacing: -.01em; text-transform: uppercase; }
+  .h3 { font-weight: 400; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.2; text-transform: uppercase; letter-spacing: .01em; }
+  .lead { font-size: clamp(20px, 2vw, 26px); font-weight: 300; line-height: 1.45; }
+  .muted { color: var(--ink-soft); }
+
+  /* Pulsanti: bordo nero, sfondo bianco */
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 14px 26px; border: 1px solid var(--ink); border-radius: 999px;
+    background: #fff; color: var(--ink);
+    font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
+    transition: background .3s, color .3s;
+  }
+  .btn:hover { background: var(--ink); color: #fff; }
+  .btn svg { transition: transform .4s var(--ease); }
+  .btn:hover svg { transform: translateX(4px); }
+
+  /* ===== HEADER UNICO GLASS ===== */
+  header.site { position: fixed; inset: 0 0 auto 0; z-index: 60; }
+  .bar {
+    position: relative; z-index: 2;
+    height: var(--bar-h);
+    display: flex; align-items: center; gap: 40px;
+    padding: 0 var(--gutter);
+    background: rgba(255,255,255,.72);
+    backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .logo { display: flex; align-items: center; gap: 10px; color: var(--ink); flex-shrink: 0; }
+  .logo i { width: 5px; height: 30px; background: currentColor; }
+  .logo b { display: block; font-size: 26px; font-weight: 600; letter-spacing: .03em; line-height: 1; }
+  .logo small { display: block; font-size: 8px; letter-spacing: .32em; font-weight: 400; opacity: .65; margin-top: 4px; }
+  nav.main { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: clamp(18px, 2.4vw, 34px); font-size: 13px; }
+  nav.main a { color: var(--ink); opacity: .78; padding: 8px 0; transition: opacity .2s; }
+  nav.main a:hover, nav.main a.on, nav.main a.open { opacity: 1; }
+  nav.main .sep { width: 1px; height: 16px; background: var(--line); }
+  .menu-btn { display: none; margin-left: auto; background: none; border: 0; width: 28px; height: 28px; position: relative; cursor: pointer; }
+  .menu-btn span { position: absolute; left: 4px; right: 4px; height: 1.5px; background: var(--ink); transition: transform .35s var(--ease); }
+  .menu-btn span:first-child { top: 10px; } .menu-btn span:last-child { top: 17px; }
+  body.nav-open .menu-btn span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  body.nav-open .menu-btn span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+
+  /* Mega menu */
+  .mega {
+    position: absolute; left: 0; right: 0; top: var(--bar-h); z-index: 1;
+    background: rgba(255,255,255,.86);
+    backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .3s var(--ease), transform .4s var(--ease), visibility .3s;
+  }
+  .mega.open { opacity: 1; visibility: visible; transform: none; }
+  .mega .wrap { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: 40px; padding-top: 36px; padding-bottom: 44px; }
+  .mega h5 { font-size: 12px; font-weight: 400; color: var(--ink-soft); margin-bottom: 14px; }
+  .mega .big a { display: block; font-size: 22px; font-weight: 500; letter-spacing: -.01em; line-height: 1.6; }
+  .mega .small a { display: block; font-size: 13px; line-height: 2.1; color: var(--ink); opacity: .85; }
+  .mega a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+  .mega .card { border-radius: 12px; aspect-ratio: 16/10; }
+  .scrim { position: fixed; inset: 0; z-index: 55; background: rgba(0,0,0,.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+  body.mega-on .scrim { opacity: 1; visibility: visible; }
+
+  /* ===== HERO ===== */
+  .hero { position: relative; height: 78svh; min-height: 560px; margin: calc(var(--bar-h) + var(--edge)) var(--edge) 0; border-radius: 16px; overflow: hidden; color: #fff; }
+  .hero .ph { position: absolute; inset: 0; --a:#6b665d; --b:#24221f; }
+  .hero .ph::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55)); z-index: 1; }
+  .hero-inner { position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(36px, 7vh, 72px); }
+  .hero-inner .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; }
+  .hero .eyebrow { color: rgba(255,255,255,.8); margin-bottom: 16px; }
+  .hero p { max-width: 400px; color: rgba(255,255,255,.88); font-weight: 300; }
+
+  section { scroll-margin-top: calc(var(--bar-h) + 16px); }
+  .pad { padding: clamp(80px, 11vw, 150px) 0; }
+
+  /* ===== PROCESSO (in rilievo) ===== */
+  .process { padding: clamp(72px, 9vw, 120px) 0; }
+  .process .head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: clamp(56px, 7vw, 88px); }
+  .process .head .h2 { margin-top: 16px; }
+  .track { list-style: none; position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+  .track::before, .track .fill { content: ""; position: absolute; top: 7px; left: 0; height: 1px; }
+  .track::before { right: 0; background: var(--line); }
+  .track .fill { width: 0; background: var(--ink); transition: width 2.2s var(--ease); }
+  .track.in .fill { width: 100%; }
+  .st { position: relative; padding-top: 44px; }
+  .st::before { content: ""; position: absolute; top: 0; left: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--paper); border: 1px solid var(--ink); transition: background .4s; transition-delay: var(--d, 0s); }
+  .track.in .st::before { background: var(--ink); }
+  .st:last-child::before { background: var(--paper) !important; }
+  .st .n { font-size: 44px; font-weight: 200; letter-spacing: -.03em; line-height: 1; margin-bottom: 18px; }
+  .st h3 { font-size: 14px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+  .st p { font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
+  .process .cta { margin-top: 56px; }
+
+  /* ===== MANIFESTO + NUMERI ===== */
+  .about { background: var(--stone); }
+  .about .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+  .about .lead + .lead { margin-top: 1em; }
+  .about .lead strong { font-weight: 400; }
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
+  .nums div { padding: 36px 24px 0 0; }
+  .nums div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+  .nums .big { font-size: clamp(40px, 4.6vw, 64px); font-weight: 200; letter-spacing: -.03em; line-height: 1; margin-bottom: 12px; }
+  .nums p { font-size: 15px; color: var(--ink-soft); }
+
+  /* ===== FUNZIONI AZIENDALI ===== */
+  .funcs-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 56px; }
+  .funcs-head p { max-width: 420px; }
+  .func + .func { margin-top: clamp(64px, 8vw, 112px); }
+  .func .wide { margin: 0 var(--edge); border-radius: 16px; aspect-ratio: 21/9; }
+  .func .wide .ph { position: absolute; inset: 0; transform: scale(1.06); transition: transform 1.6s var(--ease); }
+  .func.in .wide .ph { transform: scale(1); }
+  .func .row { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: start; padding-top: 28px; }
+  .func .row .eyebrow { margin-bottom: 10px; }
+  .func .row p { max-width: 560px; }
+
+  /* ===== CHIUSURA ===== */
+  .closing { text-align: center; }
+  .closing .h2 { max-width: 820px; margin: 18px auto 36px; }
+  .closing .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== FOOTER ===== */
+  footer { background: var(--dark-2); color: rgba(255,255,255,.8); padding: 72px 0 40px; font-size: 14px; }
+  footer .logo { color: #fff; margin-bottom: 16px; }
+  footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+  footer h4 { color: #fff; font-size: 13px; font-weight: 500; margin-bottom: 12px; }
+  footer li { line-height: 2; }
+  footer .legal { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12); font-size: 12px; color: rgba(255,255,255,.5); }
+
+  /* Freccia torna su */
+  .to-top {
+    position: fixed; right: 20px; bottom: 20px; z-index: 50;
+    width: 48px; height: 48px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: rgba(255,255,255,.8); border: 1px solid var(--ink); color: var(--ink);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    opacity: 0; visibility: hidden; transform: translateY(10px);
+    transition: opacity .3s, transform .3s var(--ease), visibility .3s, background .3s, color .3s;
+    cursor: pointer;
+  }
+  .to-top.show { opacity: 1; visibility: visible; transform: none; }
+  .to-top:hover { background: var(--ink); color: #fff; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .func .wide .ph, .track .fill { transition: none !important; transform: none !important; opacity: 1 !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px) {
+    .menu-btn { display: block; }
+    nav.main {
+      position: fixed; top: var(--bar-h); left: 0; right: 0; bottom: 0;
+      flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
+      padding: 16px var(--gutter);
+      background: rgba(255,255,255,.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      font-size: 26px; font-weight: 500;
+      opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s;
+    }
+    body.nav-open nav.main { opacity: 1; visibility: visible; }
+    nav.main a { padding: 12px 0; opacity: 1; border-bottom: 1px solid var(--line); }
+    nav.main .sep { display: none; }
+    .mega, .scrim { display: none; }
+    .hero-inner .wrap, .process .head, .about .grid, .func .row { grid-template-columns: 1fr; gap: 20px; }
+    .track { grid-template-columns: 1fr; gap: 0; padding-left: 36px; }
+    .track::before, .track .fill { top: 0; left: 7px; width: 1px; height: auto; bottom: 0; }
+    .track .fill { height: 0; bottom: auto; transition: height 2.2s var(--ease); }
+    .track.in .fill { width: 1px; height: 100%; }
+    .st { padding: 0 0 36px; }
+    .st::before { left: -36px; top: 4px; }
+    .st .n { font-size: 32px; margin-bottom: 8px; }
+    .nums { grid-template-columns: 1fr 1fr; }
+    .nums div { padding: 28px 16px 28px 0 !important; border-left: 0 !important; border-bottom: 1px solid var(--line); }
+    .nums div:nth-child(even) { padding-left: 16px !important; border-left: 1px solid var(--line) !important; }
+    .funcs-head { flex-direction: column; align-items: start; }
+    .func .wide { aspect-ratio: 4/5; }
+    .func .row { padding-left: var(--gutter); padding-right: var(--gutter); }
+    footer .grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="bar">
+    <a href="#" class="logo" aria-label="SuMisura home"><i></i><span><b>SUMISURA</b><small>PORTE D'ARCHITETTURA</small></span></a>
+    <nav class="main" aria-label="Principale">
+      <a href="#" data-menu="m-chi" class="on">Chi siamo</a>
+      <a href="#" data-menu="m-prod">Prodotti</a>
+      <a href="#" data-menu="m-show">Showroom</a>
+      <a href="#">Contatti</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="#">Duplicato chiave</a>
+      <a href="#">Area riservata</a>
+    </nav>
+    <button class="menu-btn" aria-label="Apri menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+
+  <!-- Mega menu -->
+  <div class="mega" id="m-chi">
+    <div class="wrap">
+      <div><h5>Chi siamo</h5><ul class="big"><li><a href="#azienda">L'azienda</a></li><li><a href="#processo">Il processo</a></li><li><a href="#funzioni">Le persone e i reparti</a></li></ul></div>
+      <div><h5>Scopri di più</h5><ul class="small"><li><a href="#">Certificazioni</a></li><li><a href="#">Architetti e progettisti</a></li><li><a href="#">Lavora con noi</a></li></ul></div>
+      <div><h5>Contatti</h5><ul class="small"><li><a href="#">Richiedi una consulenza</a></li><li><a href="#">Dove siamo</a></li></ul></div>
+      <div class="ph card" data-label="Foto: uffici progettazione" style="--a:#8a857c;--b:#3a3733"></div>
+    </div>
+  </div>
+  <div class="mega" id="m-prod">
+    <div class="wrap">
+      <div><h5>Ingressi</h5><ul class="big"><li><a href="#">Porte blindate</a></li><li><a href="#">Rivestimenti</a></li><li><a href="#">Persiane</a></li></ul></div>
+      <div><h5>Sicurezza</h5><ul class="small"><li><a href="#">Cilindri EVVA</a></li><li><a href="#">Serrature</a></li><li><a href="#">Prestazioni e certificazioni</a></li></ul></div>
+      <div><h5>Risorse</h5><ul class="small"><li><a href="#">Cataloghi</a></li><li><a href="#">Schede tecniche</a></li><li><a href="#">Duplicato chiave</a></li></ul></div>
+      <div class="ph card" data-label="Foto: ingresso in ambiente" style="--a:#6f7369;--b:#272a25"></div>
+    </div>
+  </div>
+  <div class="mega" id="m-show">
+    <div class="wrap">
+      <div><h5>Showroom</h5><ul class="big"><li><a href="#">Visita lo showroom</a></li><li><a href="#">Prenota un appuntamento</a></li></ul></div>
+      <div><h5>Informazioni</h5><ul class="small"><li><a href="#">Orari</a></li><li><a href="#">Come raggiungerci</a></li></ul></div>
+      <div></div>
+      <div class="ph card" data-label="Foto: showroom" style="--a:#9a8170;--b:#3b2e26"></div>
+    </div>
+  </div>
+</header>
+<div class="scrim"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ph" data-label="Foto / video: ingresso in ambiente"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Chi siamo</div>
+        <h1 class="h1">Progettiamo ingressi,<br>su misura.</h1>
+      </div>
+      <p>Dal 2005 accompagniamo clienti e architetti dall'idea all'ingresso finito, con un unico interlocutore.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO: in rilievo in alto -->
+<section id="processo" class="process">
+  <div class="wrap">
+    <div class="head">
+      <div class="reveal">
+        <div class="eyebrow">Il processo</div>
+        <h2 class="h2">Dalla progettazione<br>al post vendita.</h2>
+      </div>
+      <p class="lead muted reveal">Una consulenza completa, seguita in ogni fase dalle nostre persone.</p>
+    </div>
+
+    <ol class="track reveal" id="track">
+      <span class="fill" aria-hidden="true"></span>
+      <li class="st" style="--d:.1s"><div class="n">01</div><h3>Consulenza</h3><p>Ascoltiamo te o il tuo architetto per capire spazi, esigenze e stile.</p></li>
+      <li class="st" style="--d:.45s"><div class="n">02</div><h3>Rilievo</h3><p>Misuriamo l'ingresso in cantiere, al millimetro.</p></li>
+      <li class="st" style="--d:.8s"><div class="n">03</div><h3>Progettazione</h3><p>Il nostro ufficio tecnico sviluppa disegni e soluzioni.</p></li>
+      <li class="st" style="--d:1.15s"><div class="n">04</div><h3>Produzione</h3><p>Carpenteria e falegnameria realizzano ogni ingresso.</p></li>
+      <li class="st" style="--d:1.5s"><div class="n">05</div><h3>Posa</h3><p>I nostri tecnici installano e collaudano.</p></li>
+      <li class="st" style="--d:1.85s"><div class="n">06</div><h3>Post vendita</h3><p>Assistenza e manutenzione, anche negli anni.</p></li>
+    </ol>
+
+    <div class="cta reveal"><a href="#" class="btn">Richiedi una consulenza
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.3"/></svg></a></div>
+  </div>
+</section>
+
+<!-- L'AZIENDA -->
+<section id="azienda" class="about pad">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal"><div class="eyebrow">L'azienda</div></div>
+      <div>
+        <p class="lead reveal">Nati a Bari nel 2005 con un'idea semplice: <strong>un ingresso non deve scegliere tra sicurezza e bellezza.</strong></p>
+        <p class="lead muted reveal">Ogni ingresso nasce da un progetto e da uno spazio preciso. Per questo non ne esistono due uguali.</p>
+      </div>
+    </div>
+    <div class="nums">
+      <div class="reveal"><div class="big">2005</div><p>Fondazione, a Bari.</p></div>
+      <div class="reveal"><div class="big">20+</div><p>Anni di esperienza.</p></div>
+      <div class="reveal"><div class="big">3–4</div><p>Classi antieffrazione.</p></div>
+      <div class="reveal"><div class="big">100%</div><p>Progettati su misura.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNZIONI AZIENDALI -->
+<section id="funzioni" class="pad">
+  <div class="wrap funcs-head">
+    <div class="reveal">
+      <div class="eyebrow">Le persone e i reparti</div>
+      <h2 class="h2" style="margin-top:16px">Ogni reparto,<br>una funzione.</h2>
+    </div>
+    <p class="muted reveal">Dagli uffici allo showroom: le persone che ogni giorno danno forma ai nostri ingressi.</p>
+  </div>
+
+  <article class="func">
+    <div class="wide ph-wrap" style="position:relative;overflow:hidden"><div class="ph" data-label="Foto: uffici" style="--a:#8a857c;--b:#3a3733"></div></div>
+    <div class="wrap row">
+      <div><div class="eyebrow">01 — Uffici</div><h3 class="h3">Progettazione</h3></div>
+      <p class="muted">Qui ogni idea diventa progetto. Il nostro ufficio tecnico sviluppa disegni, verifica le soluzioni e coordina ogni fase fino alla consegna.</p>
+    </div>
+  </article>
+
+  <article class="func">
+    <div class="wide" style="position:relative;overflow:hidden"><div class="ph" data-label="Foto: area commerciale / consulenza" style="--a:#6f7369;--b:#272a25"></div></div>
+    <div class="wrap row">
+      <div><div class="eyebrow">02 — Ufficio commerciale</div><h3 class="h3">Consulenza</h3></div>
+      <p class="muted">Il primo punto di contatto per clienti, architetti e rivenditori: ascolta le esigenze e propone la soluzione più adatta.</p>
+    </div>
+  </article>
+
+  <article class="func">
+    <div class="wide" style="position:relative;overflow:hidden"><div class="ph" data-label="Foto: produzione / carpenteria" style="--a:#5f6670;--b:#1f2328"></div></div>
+    <div class="wrap row">
+      <div><div class="eyebrow">03 — Produzione</div><h3 class="h3">Carpenteria</h3></div>
+      <p class="muted">La struttura in acciaio, il cuore della sicurezza: taglio, piega e saldatura di ogni anta e telaio.</p>
+    </div>
+  </article>
+
+  <article class="func">
+    <div class="wide" style="position:relative;overflow:hidden"><div class="ph" data-label="Foto: falegnameria" style="--a:#9a8170;--b:#3b2e26"></div></div>
+    <div class="wrap row">
+      <div><div class="eyebrow">04 — Falegnameria</div><h3 class="h3">Rivestimenti</h3></div>
+      <p class="muted">Essenze, laccati e superfici materiche lavorati a mano per integrare l'ingresso nell'architettura.</p>
+    </div>
+  </article>
+
+  <article class="func">
+    <div class="wide" style="position:relative;overflow:hidden"><div class="ph" data-label="Foto: showroom" style="--a:#7d7a72;--b:#2a2926"></div></div>
+    <div class="wrap row">
+      <div><div class="eyebrow">05 — Showroom</div><h3 class="h3">Scelta e materiali</h3></div>
+      <p class="muted">Lo spazio dove vedere e toccare finiture, sistemi di sicurezza e soluzioni già realizzate.</p>
+    </div>
+  </article>
+
+  <article class="func">
+    <div class="wide" style="position:relative;overflow:hidden"><div class="ph" data-label="Foto: squadra posa" style="--a:#7a746a;--b:#2e2b27"></div></div>
+    <div class="wrap row">
+      <div><div class="eyebrow">06 — Posa e assistenza</div><h3 class="h3">Post vendita</h3></div>
+      <p class="muted">I nostri tecnici installano ogni ingresso e restano un riferimento anche dopo la consegna.</p>
+    </div>
+  </article>
+</section>
+
+<!-- CHIUSURA -->
+<section class="closing pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow reveal">Showroom</div>
+    <h2 class="h2 reveal">Vieni a scoprire i nostri ingressi dal vivo.</h2>
+    <div class="btns reveal">
+      <a href="#" class="btn">Prenota una visita</a>
+      <a href="#" class="btn">Scopri i prodotti</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="logo"><i></i><span><b>SUMISURA</b><small>PORTE D'ARCHITETTURA</small></span></div>
+        <p style="max-width:260px">Ingressi su misura per sicurezza, design e innovazione.</p>
+      </div>
+      <div><h4>Sitemap</h4><ul><li>Home</li><li>Chi siamo</li><li>Prodotti</li><li>Showroom</li><li>Lavora con noi</li></ul></div>
+      <div><h4>Indirizzo</h4><ul><li>Viale dei Sarti, 2/4</li><li>Zona ASI 70123</li><li>Bari (BA)</li></ul></div>
+      <div><h4>Contatti</h4><ul><li>+39 377 349 3026</li><li>info@blindatisumisura.it</li></ul></div>
+    </div>
+    <div class="legal">© SuMisura · Privacy Policy · Cookie Policy</div>
+  </div>
+</footer>
+
+<button class="to-top" aria-label="Torna su">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 15V2M3 7l5-5 5 5" stroke="currentColor" stroke-width="1.3"/></svg>
+</button>
+
+<script>
+  // Mega menu
+  const header = document.querySelector('header.site');
+  const triggers = [...document.querySelectorAll('[data-menu]')];
+  const panels = [...document.querySelectorAll('.mega')];
+  let closeT;
+  const openMega = id => {
+    clearTimeout(closeT);
+    panels.forEach(p => p.classList.toggle('open', p.id === id));
+    triggers.forEach(t => t.classList.toggle('open', t.dataset.menu === id));
+    document.body.classList.toggle('mega-on', !!id);
+  };
+  triggers.forEach(t => {
+    t.addEventListener('mouseenter', () => openMega(t.dataset.menu));
+    t.addEventListener('focus', () => openMega(t.dataset.menu));
+  });
+  document.querySelectorAll('nav.main a:not([data-menu])').forEach(a => a.addEventListener('mouseenter', () => openMega(null)));
+  header.addEventListener('mouseleave', () => { closeT = setTimeout(() => openMega(null), 120); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') openMega(null); });
+  panels.forEach(p => p.addEventListener('click', e => { if (e.target.closest('a')) openMega(null); }));
+
+  // Menu mobile
+  const mb = document.querySelector('.menu-btn');
+  mb.addEventListener('click', () => {
+    const on = document.body.classList.toggle('nav-open');
+    mb.setAttribute('aria-expanded', on);
+  });
+
+  // Reveal
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), { threshold: .2 });
+  document.querySelectorAll('.reveal, .func').forEach(el => ro.observe(el));
+
+  // Freccia torna su
+  const toTop = document.querySelector('.to-top');
+  addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > innerHeight * .8), { passive: true });
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>

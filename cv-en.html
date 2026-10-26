@@ -892,6 +892,38 @@
 
     @media (max-width: 640px) {
 
+      .profile-sidebar {
+        padding: 20px 18px;
+        border-radius: var(--radius-lg);
+      }
+
+      .profile-photo-container {
+        max-height: 320px;
+        min-height: 220px;
+      }
+
+      .profile-name-title {
+        font-size: clamp(2rem, 8.5vw, 2.5rem);
+      }
+
+      .profile-actions-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .btn-profile-cta,
+      .btn-profile-download {
+        width: 100%;
+        padding: 12px 18px;
+      }
+
+      .resume-top-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 30px;
+        padding-bottom: 14px;
+      }
+
       .simple-section-head,
       .simple-entry {
         grid-template-columns: 1fr;
@@ -899,7 +931,14 @@
       }
 
       .simple-entry {
-        padding: 22px 0;
+        padding: 18px 0;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .simple-entry:hover {
+        background: transparent;
+        box-shadow: none;
       }
 
       .entry-thumb-link {
@@ -910,24 +949,27 @@
       .simple-skills-grid,
       .simple-language-list {
         grid-template-columns: 1fr;
+        gap: 14px;
       }
 
       .simple-section-head {
         gap: 8px;
       }
 
-      .resume-top-nav {
-        margin-bottom: 34px;
-      }
-
       .simple-cv-intro {
-        margin-bottom: 52px;
+        margin-bottom: 44px;
       }
 
-      .simple-entry {
-        padding: 20px 10px;
-        margin-left: -10px;
-        margin-right: -10px;
+      .simple-cv-intro h1 {
+        font-size: clamp(2.1rem, 8vw, 3rem);
+      }
+
+      .simple-cv-footer {
+        padding-bottom: 74px;
+      }
+
+      .simple-cv-footer a {
+        display: none;
       }
     }
 

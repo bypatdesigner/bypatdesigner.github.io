@@ -381,11 +381,14 @@
       border-color: transparent;
     }
 
-    @media (hover: none) {
+    @media (max-width: 960px), (hover: none), (pointer: coarse) {
 
       .cursor-dot,
       .cursor-ring {
         display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
       }
     }
 
@@ -1484,6 +1487,27 @@
       align-items: start;
       position: relative;
       z-index: 1;
+    }
+
+    @media (max-width: 960px) {
+      .about-header-wrap {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      #about .section-label,
+      .about-label {
+        padding-top: 0 !important;
+      }
+      .about-right-col {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .about-statement {
+        font-size: clamp(20px, 4.8vw, 30px) !important;
+        margin-bottom: 28px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
     }
 
     #about .section-label,
@@ -4718,7 +4742,7 @@
     }
   </style>
   <link rel="stylesheet" href="about-cards.css?v=2">
-  <link rel="stylesheet" href="hero-minimal.css?v=15">
+  <link rel="stylesheet" href="hero-minimal.css?v=17">
 </head>
 
 <body>
@@ -5003,7 +5027,7 @@
               <div class="design-project-thumb item-1 metro-thumb-col">
                 <a class="metro-thumb-link" href="petruzzelli-logo.html" aria-label="Apri Teatro Petruzzelli">
                   <div class="metro-thumb-frame">
-                    <img class="metro-thumb-img" src="img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli: logo e identità visiva" loading="lazy">
+                    <img class="metro-thumb-img" src="./img/petruzzelli-logo/hero-poster.webp" alt="Teatro Petruzzelli: logo e identità visiva" loading="lazy">
                     <div class="metro-floating-cursor"><span>View</span></div>
                   </div>
                 </a>
@@ -5041,7 +5065,7 @@
               <div class="design-project-thumb item-1 metro-thumb-col">
                 <a class="metro-thumb-link" href="eureka.html" aria-label="Apri Eureka">
                   <div class="metro-thumb-frame">
-                    <img class="metro-thumb-img" src="img/eureka/hero.png" alt="Eureka: sistema di identità visiva e web" loading="lazy">
+                    <img class="metro-thumb-img" src="./img/eureka/hero.png" alt="Eureka: sistema di identità visiva e web" loading="lazy">
                     <div class="metro-floating-cursor"><span>View</span></div>
                   </div>
                 </a>
@@ -5079,7 +5103,7 @@
               <div class="design-project-thumb item-1 metro-thumb-col">
                 <a class="metro-thumb-link" href="apulia.html" aria-label="Apri Apulia Promoting US">
                   <div class="metro-thumb-frame">
-                    <img class="metro-thumb-img" src="img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US: manifesto della campagna" loading="lazy">
+                    <img class="metro-thumb-img" src="./img/apulia/hero-manifesto.jpg" alt="Apulia Promoting US: manifesto della campagna" loading="lazy">
                     <div class="metro-floating-cursor"><span>View</span></div>
                   </div>
                 </a>
@@ -5117,7 +5141,7 @@
               <div class="design-project-thumb item-1 metro-thumb-col">
                 <a class="metro-thumb-link" href="miami-mango.html" aria-label="Apri Miami Mango">
                   <div class="metro-thumb-frame">
-                    <img class="metro-thumb-img" src="img/miami-mango/card-home.jpg" alt="Miami Mango: identità per tavole da surf" loading="lazy">
+                    <img class="metro-thumb-img" src="./img/miami-mango/card-home.jpg" onerror="if(!this.dataset.fallback){this.dataset.fallback=1;this.src='./img/miami-mango/cover-card.jpg';}" alt="Miami Mango: identità per tavole da surf" loading="lazy">
                     <div class="metro-floating-cursor"><span>View</span></div>
                   </div>
                 </a>
@@ -5155,7 +5179,7 @@
               <div class="design-project-thumb item-1 metro-thumb-col">
                 <a class="metro-thumb-link" href="cinepass-project.html" aria-label="Apri Cinepass App">
                   <div class="metro-thumb-frame">
-                    <img class="metro-thumb-img" src="img/cinepass/Cover.jpg" alt="Cinepass Mobile App" loading="lazy">
+                    <img class="metro-thumb-img" src="./img/cinepass/Cover.jpg" alt="Cinepass Mobile App" loading="lazy">
                     <div class="metro-floating-cursor"><span>View</span></div>
                   </div>
                 </a>

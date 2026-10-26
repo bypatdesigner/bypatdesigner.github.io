@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SuMisura — Chi siamo (v1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1d1d1f;
+    --ink-soft: #55555a;
+    --line: #d9d7d2;
+    --paper: #ffffff;
+    --stone: #f3f1ed;
+    --dark: #2b2b2b;
+    --dark-2: #222;
+    --accent: #a8745a; /* rame del banner showroom */
+    --max: 1240px;
+    --gutter: clamp(20px, 4vw, 48px);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* Placeholder foto: sostituire con <img src="..."> */
+  .ph {
+    position: relative; overflow: hidden; background: #8d8a84;
+    background-image:
+      radial-gradient(120% 90% at 20% 10%, rgba(255,255,255,.22), transparent 60%),
+      linear-gradient(135deg, var(--a, #7d786f), var(--b, #3d3a36));
+  }
+  .ph::after {
+    content: attr(data-label);
+    position: absolute; left: 16px; bottom: 14px;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.75);
+  }
+
+  /* Tipografia */
+  .eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+  .h1 { font-weight: 300; font-size: clamp(40px, 6.4vw, 88px); line-height: 1.02; letter-spacing: -.02em; }
+  .h2 { font-weight: 300; font-size: clamp(30px, 3.8vw, 52px); line-height: 1.08; letter-spacing: -.01em; text-transform: uppercase; }
+  .h3 { font-weight: 400; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.25; text-transform: uppercase; letter-spacing: .02em; }
+  .lead { font-size: clamp(20px, 2.1vw, 28px); font-weight: 300; line-height: 1.45; letter-spacing: -.005em; }
+  .muted { color: var(--ink-soft); }
+  .link-arrow { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; }
+  .link-arrow svg { transition: transform .4s var(--ease); }
+  .link-arrow:hover svg { transform: translateX(6px); }
+
+  /* Header */
+  header.site {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px var(--gutter); color: #fff;
+    transition: background .4s var(--ease), backdrop-filter .4s;
+  }
+  header.site.scrolled { background: rgba(30,30,30,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .logo { font-weight: 600; letter-spacing: .04em; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+  .logo i { width: 4px; height: 20px; background: #fff; display: inline-block; }
+  .logo small { display: block; font-size: 7px; letter-spacing: .3em; font-weight: 400; opacity: .7; margin-top: -3px; }
+  nav.main { display: flex; gap: 28px; font-size: 13px; }
+  nav.main a { opacity: .85; } nav.main a:hover, nav.main a.on { opacity: 1; }
+  .head-cta { display: flex; gap: 10px; font-size: 12px; }
+  .head-cta a { padding: 8px 16px; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; }
+  .menu-btn { display: none; background: none; border: 0; color: #fff; font-size: 13px; letter-spacing: .14em; }
+
+  /* Hero */
+  .hero { position: relative; height: 100svh; min-height: 620px; color: #fff; }
+  .hero .ph { position: absolute; inset: 0; --a:#6b665d; --b:#24221f; }
+  .hero .ph::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,0) 30%, rgba(0,0,0,.55)); z-index: 1; }
+  .hero .ph::after { z-index: 2; top: 90px; bottom: auto; left: var(--gutter); }
+  .hero-inner { position: absolute; z-index: 3; left: 0; right: 0; bottom: clamp(48px, 9vh, 96px); }
+  .hero-inner .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: end; }
+  .hero .eyebrow { color: rgba(255,255,255,.75); margin-bottom: 18px; }
+  .hero p { font-size: 17px; max-width: 420px; color: rgba(255,255,255,.85); font-weight: 300; }
+
+  /* Sub-nav ancore */
+  .subnav { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .subnav .wrap { display: flex; gap: 36px; overflow-x: auto; scrollbar-width: none; }
+  .subnav a { padding: 18px 0; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; border-bottom: 1px solid transparent; margin-bottom: -1px; transition: color .3s, border-color .3s; }
+  .subnav a.on { color: var(--ink); border-color: var(--ink); }
+  body.past-hero header.site { transform: translateY(-100%); }
+  header.site { transition: transform .4s var(--ease), background .4s; }
+
+  section { scroll-margin-top: 56px; }
+  .pad { padding: clamp(80px, 12vw, 160px) 0; }
+
+  /* Manifesto */
+  .manifesto .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+  .manifesto .lead + .lead { margin-top: 1.1em; }
+  .manifesto .lead strong { font-weight: 400; }
+
+  /* Il nome */
+  .name { background: var(--stone); }
+  .name .grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .name .ph { aspect-ratio: 4/5; --a:#a39c90; --b:#5e584f; }
+  .wordmark { font-size: clamp(56px, 9vw, 132px); font-weight: 300; letter-spacing: -.035em; line-height: .95; margin: 22px 0 32px; }
+  .wordmark b { font-weight: 600; }
+  .name p { max-width: 460px; }
+  .name p + p { margin-top: 1em; }
+
+  /* Processo — sticky */
+  .process { background: var(--dark); color: #fff; }
+  .process .intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: clamp(56px, 8vw, 104px); }
+  .process .eyebrow, .process .muted { color: rgba(255,255,255,.6); }
+  .process-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 6vw, 96px); }
+  .stage { position: sticky; top: 90px; height: calc(100vh - 140px); max-height: 760px; border-radius: 14px; overflow: hidden; }
+  .stage .ph { position: absolute; inset: 0; opacity: 0; transform: scale(1.06); transition: opacity .9s var(--ease), transform 1.4s var(--ease); }
+  .stage .ph.on { opacity: 1; transform: scale(1); }
+  .stage .counter { position: absolute; z-index: 2; top: 20px; right: 22px; font-size: 13px; letter-spacing: .14em; color: rgba(255,255,255,.85); }
+  .stage .bar { position: absolute; z-index: 2; left: 0; bottom: 0; height: 2px; background: #fff; width: 0; transition: width .8s var(--ease); }
+  .steps { list-style: none; }
+  .step { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid rgba(255,255,255,.14); opacity: .28; transition: opacity .6s var(--ease); }
+  .step:last-child { min-height: 60vh; }
+  .step.on { opacity: 1; }
+  .step .num { font-size: clamp(64px, 8vw, 120px); font-weight: 200; line-height: 1; letter-spacing: -.04em; margin-bottom: 20px; }
+  .step .h3 { margin-bottom: 14px; }
+  .step p { max-width: 420px; color: rgba(255,255,255,.75); font-weight: 300; font-size: 18px; }
+  .step .ph { display: none; }
+
+  /* Produzione */
+  .prod-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 56px; }
+  .prod-head p { max-width: 440px; }
+  .prod { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .prod figure .ph { aspect-ratio: 3/4; border-radius: 12px; }
+  .prod figure .ph { transition: transform 1.2s var(--ease); }
+  .prod figure:hover .ph { transform: scale(.985); }
+  .prod figcaption { padding-top: 20px; }
+  .prod figcaption .h3 { margin-bottom: 6px; }
+
+  /* Numeri */
+  .numbers { border-top: 1px solid var(--line); }
+  .numbers .grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .numbers .n { padding: 48px 24px 48px 0; border-right: 1px solid var(--line); }
+  .numbers .n + .n { padding-left: 24px; }
+  .numbers .n:last-child { border-right: 0; }
+  .numbers .big { font-size: clamp(44px, 5vw, 72px); font-weight: 200; letter-spacing: -.03em; line-height: 1; margin-bottom: 14px; }
+  .numbers .big sup { font-size: .4em; vertical-align: top; position: relative; top: .35em; margin-left: 2px; }
+
+  /* Chiusura */
+  .closing { position: relative; color: #fff; min-height: 80vh; display: flex; align-items: center; }
+  .closing .ph { position: absolute; inset: 0; --a:#5a554d; --b:#1c1b19; }
+  .closing .ph::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.35); }
+  .closing .wrap { position: relative; z-index: 2; text-align: center; }
+  .closing .h2 { max-width: 820px; margin: 0 auto 36px; }
+  .btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; border-radius: 999px; background: #fff; color: var(--ink); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; transition: transform .4s var(--ease); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.6); }
+  .closing .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* Footer */
+  footer { background: var(--dark-2); color: rgba(255,255,255,.8); padding: 72px 0 40px; font-size: 14px; }
+  footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+  footer h4 { color: #fff; font-size: 13px; font-weight: 500; margin-bottom: 12px; }
+  footer li { list-style: none; line-height: 2; }
+  footer .legal { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12); font-size: 12px; color: rgba(255,255,255,.5); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .stage .ph { transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    nav.main, .head-cta { display: none; }
+    .menu-btn { display: block; }
+    .hero-inner .wrap, .manifesto .grid, .name .grid, .process .intro { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .stage { display: none; }
+    .step { min-height: 0; opacity: 1; padding: 40px 0; }
+    .step .ph { display: block; aspect-ratio: 4/3; border-radius: 12px; margin-bottom: 28px; }
+    .step .num { font-size: 56px; }
+    .prod-head { flex-direction: column; align-items: start; }
+    .prod { grid-template-columns: 1fr; gap: 40px; }
+    .numbers .grid { grid-template-columns: 1fr 1fr; }
+    .numbers .n { padding: 32px 16px 32px 0 !important; border-right: 0; border-bottom: 1px solid var(--line); }
+    .numbers .n:nth-child(even) { padding-left: 16px !important; border-left: 1px solid var(--line); }
+    footer .grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="top-header">
+  <a href="#" class="logo"><i></i><span>SUMISURA<small>PORTE D'ARCHITETTURA</small></span></a>
+  <nav class="main">
+    <a href="#" class="on">Chi siamo</a><a href="#">Prodotti</a><a href="#">Show-room</a><a href="#">Contattaci</a>
+  </nav>
+  <div class="head-cta"><a href="#">Duplicato chiave</a><a href="#">Area riservata</a></div>
+  <button class="menu-btn" aria-label="Apri menu">MENU</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ph" data-label="Foto: porta in ambiente o mani al lavoro"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Chi siamo</div>
+        <h1 class="h1">Su misura,<br>da sempre.</h1>
+      </div>
+      <p>Dal 2005 progettiamo e realizziamo porte blindate che uniscono sicurezza, design e cura del dettaglio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUB-NAV -->
+<div class="subnav">
+  <div class="wrap">
+    <a href="#azienda">L'azienda</a>
+    <a href="#nome">Il nome</a>
+    <a href="#processo">Il processo</a>
+    <a href="#produzione">Produzione</a>
+    <a href="#numeri">Dal 2005</a>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section id="azienda" class="manifesto pad">
+  <div class="wrap grid">
+    <div class="reveal"><div class="eyebrow">L'azienda</div></div>
+    <div>
+      <p class="lead reveal">Siamo nati a Bari nel 2005 con un'idea semplice: <strong>una porta blindata non deve scegliere tra sicurezza e bellezza.</strong></p>
+      <p class="lead reveal muted">Ogni porta che realizziamo nasce da un progetto, da un ascolto, da uno spazio preciso. Per questo non esistono due porte SuMisura uguali.</p>
+      <p class="lead reveal muted">Lavoriamo fianco a fianco con clienti, architetti e progettisti, unendo la cura artigianale alla precisione della tecnologia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IL NOME -->
+<section id="nome" class="name pad">
+  <div class="wrap grid">
+    <div class="ph reveal" data-label="Foto: dettaglio materiale / misurazione"></div>
+    <div class="reveal">
+      <div class="eyebrow">Il nostro nome</div>
+      <div class="wordmark">su<b>Misura</b></div>
+      <p class="lead">Non è solo un nome. È il modo in cui lavoriamo.</p>
+      <p class="muted">Ogni ingresso ha misure, proporzioni e materiali propri. Partiamo sempre dallo spazio reale, non da un catalogo: rileviamo, progettiamo e realizziamo ogni porta perché si integri perfettamente con l'architettura che la accoglie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo" class="process pad">
+  <div class="wrap">
+    <div class="intro">
+      <div class="reveal">
+        <div class="eyebrow">Il processo</div>
+        <h2 class="h2" style="margin-top:18px">Dall'idea<br>all'ingresso.</h2>
+      </div>
+      <p class="muted reveal">Sei passaggi, un unico interlocutore. Seguiamo ogni progetto dal primo incontro fino all'assistenza dopo la posa.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="stage" aria-hidden="true">
+        <div class="ph on" data-label="Foto 01: incontro con cliente / architetto" style="--a:#7a746a;--b:#2e2b27"></div>
+        <div class="ph" data-label="Foto 02: rilievo in cantiere" style="--a:#6f7369;--b:#272a25"></div>
+        <div class="ph" data-label="Foto 03: disegno tecnico" style="--a:#8a857c;--b:#3a3733"></div>
+        <div class="ph" data-label="Foto 04: campioni materiali" style="--a:#9a8170;--b:#3b2e26"></div>
+        <div class="ph" data-label="Foto 05: laboratorio / officina" style="--a:#5f6670;--b:#1f2328"></div>
+        <div class="ph" data-label="Foto 06: posa in opera" style="--a:#7d7a72;--b:#2a2926"></div>
+        <div class="counter"><span id="cur">01</span> / 06</div>
+        <div class="bar" id="bar"></div>
+      </div>
+
+      <ol class="steps">
+        <li class="step on">
+          <div class="ph" data-label="Foto 01" style="--a:#7a746a;--b:#2e2b27"></div>
+          <div class="num">01</div>
+          <h3 class="h3">Ascolto</h3>
+          <p>Partiamo dal tuo progetto: incontriamo te o il tuo architetto per capire spazi, esigenze e stile.</p>
+        </li>
+        <li class="step">
+          <div class="ph" data-label="Foto 02" style="--a:#6f7369;--b:#272a25"></div>
+          <div class="num">02</div>
+          <h3 class="h3">Sopralluogo e rilievo</h3>
+          <p>Misuriamo ogni dettaglio in cantiere, perché una porta su misura nasce dalle misure reali.</p>
+        </li>
+        <li class="step">
+          <div class="ph" data-label="Foto 03" style="--a:#8a857c;--b:#3a3733"></div>
+          <div class="num">03</div>
+          <h3 class="h3">Progetto</h3>
+          <p>Il nostro ufficio tecnico sviluppa disegni e soluzioni, dalla struttura alle finiture.</p>
+        </li>
+        <li class="step">
+          <div class="ph" data-label="Foto 04" style="--a:#9a8170;--b:#3b2e26"></div>
+          <div class="num">04</div>
+          <h3 class="h3">Materiali e finiture</h3>
+          <p>Scegli tra essenze, laccati, pietre e superfici materiche, anche direttamente nel nostro showroom.</p>
+        </li>
+        <li class="step">
+          <div class="ph" data-label="Foto 05" style="--a:#5f6670;--b:#1f2328"></div>
+          <div class="num">05</div>
+          <h3 class="h3">Produzione</h3>
+          <p>Ogni porta viene realizzata nel nostro laboratorio, unendo lavorazione artigianale e tecnologia.</p>
+        </li>
+        <li class="step">
+          <div class="ph" data-label="Foto 06" style="--a:#7d7a72;--b:#2a2926"></div>
+          <div class="num">06</div>
+          <h3 class="h3">Posa e assistenza</h3>
+          <p>I nostri tecnici installano la porta e restano al tuo fianco anche dopo la consegna.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUZIONE -->
+<section id="produzione" class="pad">
+  <div class="wrap">
+    <div class="prod-head">
+      <div class="reveal">
+        <div class="eyebrow">Produzione</div>
+        <h2 class="h2" style="margin-top:18px">Fatto a mano,<br>misurato al millimetro.</h2>
+      </div>
+      <p class="muted reveal">Dalla struttura in acciaio alla finitura del pannello, ogni fase è seguita dalle nostre persone, con la stessa attenzione dal primo all'ultimo pezzo.</p>
+    </div>
+    <div class="prod">
+      <figure class="reveal">
+        <div class="ph" data-label="Foto: carpenteria metallica" style="--a:#5f6670;--b:#1f2328"></div>
+        <figcaption><h3 class="h3">Carpenteria</h3><p class="muted">La struttura in acciaio, il cuore della sicurezza.</p></figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph" data-label="Foto: lavorazione pannelli" style="--a:#9a8170;--b:#3b2e26"></div>
+        <figcaption><h3 class="h3">Rivestimenti</h3><p class="muted">Essenze e superfici lavorate per ogni progetto.</p></figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="ph" data-label="Foto: assemblaggio e controllo" style="--a:#7d7a72;--b:#2a2926"></div>
+        <figcaption><h3 class="h3">Assemblaggio</h3><p class="muted">Pezzo dopo pezzo, ogni porta prende la sua identità.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- NUMERI -->
+<section id="numeri" class="numbers">
+  <div class="wrap grid">
+    <div class="n reveal"><div class="big">2005</div><p class="muted">Anno di fondazione, a Bari.</p></div>
+    <div class="n reveal"><div class="big">20<sup>+</sup></div><p class="muted">Anni di esperienza nelle porte blindate.</p></div>
+    <div class="n reveal"><div class="big">3–4</div><p class="muted">Classi antieffrazione certificate.</p></div>
+    <div class="n reveal"><div class="big">100<sup>%</sup></div><p class="muted">Progettate e realizzate su misura.</p></div>
+  </div>
+</section>
+
+<!-- CHIUSURA -->
+<section class="closing">
+  <div class="ph" data-label="Foto: showroom"></div>
+  <div class="wrap">
+    <div class="eyebrow reveal" style="color:rgba(255,255,255,.75);margin-bottom:20px">Showroom</div>
+    <h2 class="h2 reveal">Vieni a toccare con mano materiali, finiture e sistemi di sicurezza.</h2>
+    <div class="btns reveal">
+      <a href="#" class="btn">Prenota una visita</a>
+      <a href="#" class="btn ghost">Scopri i prodotti</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:16px"><i></i><span>SUMISURA<small>PORTE D'ARCHITETTURA</small></span></div>
+        <p style="max-width:260px">Soluzioni su misura per sicurezza, design e innovazione.</p>
+      </div>
+      <div><h4>Sitemap</h4><ul><li>Home</li><li>Chi siamo</li><li>Prodotti</li><li>Show-room</li><li>Area riservata</li></ul></div>
+      <div><h4>Indirizzo</h4><ul><li>Viale dei Sarti, 2/4</li><li>Zona ASI 70123</li><li>Bari (BA)</li></ul></div>
+      <div><h4>Contatti</h4><ul><li>+39 377 349 3026</li><li>info@blindatisumisura.it</li></ul></div>
+    </div>
+    <div class="legal">© SuMisura · Privacy Policy · Cookie Policy</div>
+  </div>
+</footer>
+
+<script>
+  // Header: sfondo allo scroll, si nasconde quando compare la sub-nav
+  const header = document.getElementById('top-header');
+  const hero = document.querySelector('.hero');
+  addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', scrollY > 40);
+    document.body.classList.toggle('past-hero', scrollY > hero.offsetHeight - 60);
+  }, { passive: true });
+
+  // Reveal
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // Processo: step attivo -> immagine sticky
+  const steps = [...document.querySelectorAll('.step')];
+  const frames = [...document.querySelectorAll('.stage .ph')];
+  const cur = document.getElementById('cur'), bar = document.getElementById('bar');
+  const setStep = i => {
+    steps.forEach((s, k) => s.classList.toggle('on', k === i));
+    frames.forEach((f, k) => f.classList.toggle('on', k === i));
+    cur.textContent = String(i + 1).padStart(2, '0');
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+  };
+  const so = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) setStep(steps.indexOf(e.target));
+  }), { rootMargin: '-45% 0px -45% 0px' });
+  steps.forEach(s => so.observe(s));
+  setStep(0);
+
+  // Sub-nav: sezione corrente
+  const links = [...document.querySelectorAll('.subnav a')];
+  const no = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-40% 0px -55% 0px' });
+  links.forEach(l => no.observe(document.querySelector(l.getAttribute('href'))));
+</script>
+</body>
+</html>
