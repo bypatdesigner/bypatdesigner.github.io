@@ -1,0 +1,152 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "sumisura/home.html"
+        ],
+        "createdAt": "2026-11-02T22:46:43.605Z",
+        "reason": "Claude: hero text sits on a photo with a dark gradient overlay (checked in browser); scanner measures against #d7d7d7 fallback, not the overlay"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "sumisura/home.html"
+        ],
+        "createdAt": "2026-11-02T22:47:15.463Z",
+        "reason": "Claude: mega-menu preview images crossfade (opacity 0 until hovered), intentional"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "sumisura/home.html"
+        ],
+        "createdAt": "2026-11-02T22:47:15.745Z",
+        "reason": "Claude: eyebrow 'Porte blindate e rivestimenti' comes from the client's approved Figma Home"
+      },
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          "sumisura/home.html"
+        ],
+        "createdAt": "2026-11-02T22:47:16.014Z",
+        "reason": "Claude: 8px tagline is part of the SUMISURA logo lockup, same as megamenu-v2.html"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "sumisura/home-v2.html"
+        ],
+        "createdAt": "2026-11-09T12:02:41.002Z",
+        "reason": "Claude: same intentional cases as home.html (hero text on darkened photo, menu crossfade, Figma eyebrow, logo tagline)"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "sumisura/home-v2.html"
+        ],
+        "createdAt": "2026-11-09T12:02:41.380Z",
+        "reason": "Claude: same intentional cases as home.html (hero text on darkened photo, menu crossfade, Figma eyebrow, logo tagline)"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "sumisura/home-v2.html"
+        ],
+        "createdAt": "2026-11-09T12:02:41.757Z",
+        "reason": "Claude: same intentional cases as home.html (hero text on darkened photo, menu crossfade, Figma eyebrow, logo tagline)"
+      },
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          "sumisura/home-v2.html"
+        ],
+        "createdAt": "2026-11-09T12:02:42.130Z",
+        "reason": "Claude: same intentional cases as home.html (hero text on darkened photo, menu crossfade, Figma eyebrow, logo tagline)"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "sumisura/home-v3.html"
+        ],
+        "createdAt": "2026-11-09T12:06:16.156Z",
+        "reason": "Claude: same intentional cases as home.html and home-v2.html"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "sumisura/home-v3.html"
+        ],
+        "createdAt": "2026-11-09T12:06:16.487Z",
+        "reason": "Claude: same intentional cases as home.html and home-v2.html"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "sumisura/home-v3.html"
+        ],
+        "createdAt": "2026-11-09T12:06:16.812Z",
+        "reason": "Claude: same intentional cases as home.html and home-v2.html"
+      },
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          "sumisura/home-v3.html"
+        ],
+        "createdAt": "2026-11-09T12:06:17.157Z",
+        "reason": "Claude: same intentional cases as home.html and home-v2.html"
+      },
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "sumisura/home-v4.html"
+        ],
+        "createdAt": "2026-11-09T13:11:22.162Z",
+        "reason": "Claude: same intentional cases as home.html–home-v3.html"
+      },
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "sumisura/home-v4.html"
+        ],
+        "createdAt": "2026-11-09T13:11:22.515Z",
+        "reason": "Claude: same intentional cases as home.html–home-v3.html"
+      },
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "sumisura/home-v4.html"
+        ],
+        "createdAt": "2026-11-09T13:11:22.883Z",
+        "reason": "Claude: same intentional cases as home.html–home-v3.html"
+      },
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          "sumisura/home-v4.html"
+        ],
+        "createdAt": "2026-11-09T13:11:23.259Z",
+        "reason": "Claude: same intentional cases as home.html–home-v3.html"
+      }
+    ]
+  }
+}

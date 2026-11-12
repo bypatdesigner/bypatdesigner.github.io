@@ -2596,7 +2596,7 @@
     <!-- ================= PROJECT LIST (HOME STRUCTURE) ================= -->
 <div class="metro-project-list" id="projectRows">
           <!-- 01: Cinepass App -->
-          <article class="design-project-item layout-thumb-left" data-cat="all uiux development">
+          <article class="design-project-item layout-content-left" data-cat="all uiux development">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2634,7 +2634,7 @@
           </article>
 
           <!-- 02: Apulia Promoting US -->
-          <article class="design-project-item layout-content-left" data-cat="all graphic uiux">
+          <article class="design-project-item layout-thumb-left" data-cat="all graphic uiux">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2672,7 +2672,7 @@
           </article>
 
           <!-- 03: Miami Mango -->
-          <article class="design-project-item layout-thumb-left" data-cat="all graphic uiux">
+          <article class="design-project-item layout-content-left" data-cat="all graphic uiux">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2710,7 +2710,7 @@
           </article>
 
           <!-- 04: Eureka Platform -->
-          <article class="design-project-item layout-content-left" data-cat="all graphic">
+          <article class="design-project-item layout-thumb-left" data-cat="all graphic">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2748,7 +2748,7 @@
           </article>
 
           <!-- 05: Teatro Petruzzelli -->
-          <article class="design-project-item layout-thumb-left" data-cat="all graphic uiux">
+          <article class="design-project-item layout-content-left" data-cat="all graphic uiux">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2786,7 +2786,7 @@
           </article>
 
           <!-- 06: Robot Character -->
-          <article class="design-project-item layout-content-left" data-cat="all 3d">
+          <article class="design-project-item layout-thumb-left" data-cat="all 3d">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2824,7 +2824,7 @@
           </article>
 
           <!-- 07: AgriBox Platform -->
-          <article class="design-project-item layout-thumb-left" data-cat="all development uiux">
+          <article class="design-project-item layout-content-left" data-cat="all development uiux">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2862,7 +2862,7 @@
           </article>
 
           <!-- 08: Cozy Living Room -->
-          <article class="design-project-item layout-content-left" data-cat="all 3d">
+          <article class="design-project-item layout-thumb-left" data-cat="all 3d">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2900,7 +2900,7 @@
           </article>
 
           <!-- 09: Honey + Coconut -->
-          <article class="design-project-item layout-thumb-left" data-cat="all 3d">
+          <article class="design-project-item layout-content-left" data-cat="all 3d">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2938,7 +2938,7 @@
           </article>
 
           <!-- 10: Robot 3D -->
-          <article class="design-project-item layout-content-left" data-cat="all 3d">
+          <article class="design-project-item layout-thumb-left" data-cat="all 3d">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -2976,7 +2976,7 @@
           </article>
 
           <!-- 11: David Hockney -->
-          <article class="design-project-item layout-thumb-left" data-cat="all graphic">
+          <article class="design-project-item layout-content-left" data-cat="all graphic">
             <div class="metro-item-grid">
               <div class="design-project-content metro-content-col">
                 <div class="metro-item-meta">
@@ -3868,6 +3868,14 @@
         const itemCats = (card.getAttribute('data-cat') || '').split(/\s+/);
         if (cat === 'all' || itemCats.includes(cat)) {
           card.style.display = '';
+          // Alternanza dinamica: apertura sempre testo-immagine (pari), poi immagine-testo (dispari)
+          if (visibleCards % 2 === 0) {
+            card.classList.remove('layout-thumb-left');
+            card.classList.add('layout-content-left');
+          } else {
+            card.classList.remove('layout-content-left');
+            card.classList.add('layout-thumb-left');
+          }
           visibleCards++;
         } else {
           card.style.display = 'none';
